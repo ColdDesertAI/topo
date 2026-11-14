@@ -15,6 +15,8 @@ Formaat:
 2026-11-14 11:30 | claude/opus | model-routing | — | — | laag | Subagents builder (Sonnet), scout (Haiku), codex-worker (Codex); hoofdsessie orkestreert op Opus; TOPO_MAIN_MODEL-override
 2026-11-14 16:30 | claude/fable+sonnet | taak | BL-005 | PASS* | mid | Integratieplan + proefintegratie (DRY df72c39, lint/test/build 0); run 1 FAIL op C11 (sync -X theirs overschrijft art), run 2 PASS; *uitsluitingen breken ±240 doc-links, door hoofdsessie in rapport gezet, niet herevalueerd; schijf vol → nulmeting sparse
 2026-11-14 17:00 | claude/fable | domein | BL-009 | — | laag | ninotopo.nl gekocht door Dennis; BL-009 gedeblokkeerd, wacht op DNS-gegevens
+2026-11-14 17:06 | claude/sonnet | taak | BL-002 | review | laag | Docs-inventaris op DRY df72c39: 70 bestanden (47 actueel, 21 archief, 2 vervangen), 23 git mv voorgesteld, 338 links gescand, 281 gebroken (a 256, c 25), advies v3-reis niet mee; niets verplaatst
+2026-11-14 17:27 | claude/sonnet | taak | BL-003 | review | laag | STATE herleidbaar (60 regels, elke bewering met pin of bestand) plus V3.0-blok uit SPEC/OVERDRACHT op 55b4d86; gerebaset op main 95d161a, bevat de BL-002-commits van #93
 2026-11-14 17:40 | claude/fable | besluit | BL-012 | — | laag | Favicon R3 (Vespa zijaanzicht) vastgelegd in DECISIONS; assets nog niet in repo
 2026-11-14 17:50 | claude/fable | art | BL-012 | — | laag | R3-merkassets (favicon, Nino Welcome, Logo R3.1) op art/master b9e4a38; logo-SVG's bevatten ingebedde rasterafbeelding (525 KB)
 2026-11-14 18:10 | claude/fable | taak | BL-013 | review | mid | Portal R3 gebouwd als site-root, Italië op /italie/; browsercheck 4 formaten zonder fouten; wacht op evaluator en G1
