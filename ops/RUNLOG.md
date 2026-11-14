@@ -23,3 +23,4 @@ Formaat:
 2026-11-14 19:20 | claude/fable | taak | BL-013 | feedback Dennis | laag | Nino Welcome lager, vlaggen als pill; 7 formaten opnieuw gemeten (0 afgesneden, 0 overlap). Wijziging na evaluator-PASS, niet opnieuw geëvalueerd
 2026-11-14 20:40 | claude/opus | taak | BL-005 | review | mid | codex/topo-v3 in main gemerged (3 conflicten opgelost); lint+test groen (volledige historie), site-build OK, /italie/ toont V2.0.2; wacht op push (sessie zonder schrijfrecht) en G4
 2026-11-14 20:40 | claude/opus | live | BL-009/013 | klaar | laag | www.ninotopo.nl live; repo naar ColdDesertAI/topo; Vercel gekoppeld
+2026-11-15 00:40 | claude/opus | taak | BL-015 | review | mid | V3-release-build zonder demo-shim: opslag werkt (profiel/voortgang na herladen), charset na <meta> ingevoegd; site-schakelaar SITE_ITALIE

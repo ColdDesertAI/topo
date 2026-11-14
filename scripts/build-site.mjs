@@ -20,6 +20,22 @@ for (const name of readdirSync(dist)) {
   renameSync(join(dist, name), join(italie, name));
 }
 
+// 1b. Welke Italië-versie live staat: SITE_ITALIE=v3 (Vercel-omgevingsvariabele) zet de V3-release op /italie/
+//     en houdt V2.0.2 bereikbaar op /italie/v2/. Standaard (leeg of 'v2'): V2.0.2 op /italie/, geen V3.
+//     Live zetten of terugdraaien = alleen deze variabele wijzigen en opnieuw deployen.
+const which = (process.env.SITE_ITALIE || 'v2').toLowerCase();
+if (!['v2', 'v3'].includes(which)) throw new Error('SITE_ITALIE moet v2 of v3 zijn, niet: ' + which);
+if (which === 'v3') {
+  const v3 = join(root, 'output/html/TOPO-V3-Italie.html');
+  if (!existsSync(v3)) throw new Error('SITE_ITALIE=v3 maar de V3-release ontbreekt: draai TOPO_V3_RELEASE=1 node scripts/build-v3-preview.mjs');
+  const v3html = readFileSync(v3, 'utf8');
+  if (v3html.includes('TOPO_V3_PREVIEW') || v3html.includes('niets wordt bewaard')) throw new Error('V3-bestand is de demo, niet de release');
+  mkdirSync(join(italie, 'v2'), { recursive: true });
+  renameSync(join(italie, 'index.html'), join(italie, 'v2', 'index.html'));
+  writeFileSync(join(italie, 'index.html'), v3html);
+}
+console.log('Italië op /italie/: ' + which.toUpperCase());
+
 // 2. Portal naar de root, met paden voor de site-indeling
 let html = readFileSync(join(root, 'portal/index.html'), 'utf8');
 const before = html;
