@@ -1,0 +1,673 @@
+{
+ "html": "/Users/dennisariens/projects/topo-v3/output/html/TOPO-V3-Reis-Preview.html",
+ "sha256": "0c9a576648896d56a2b7f8f2dad1bd62b595b058cb8122e1318e2efdadbbf329",
+ "indexSha256": "3aced3c31259011b0af2947c78f71965cb4beb2e88c69d1663e61792b0304f5a",
+ "label": "na",
+ "runs": {
+  "reis-desktop": {
+   "frame": [
+    28,
+    28,
+    1384,
+    844,
+    "28px"
+   ],
+   "free": 0.627,
+   "wide": [],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": false,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     300,
+     187,
+     620,
+     653
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 62.7,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "reis-desktop-verminderd": {
+   "frame": [
+    28,
+    28,
+    1384,
+    844,
+    "28px"
+   ],
+   "free": 0.28,
+   "wide": [],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": false,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     300,
+     187,
+     620,
+     653
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 28.0,
+   "lowContrast": [],
+   "backdropFilters": [
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "reis-schoolkaart-desktop": {
+   "frame": [
+    28,
+    28,
+    1384,
+    844,
+    "28px"
+   ],
+   "free": 0.626,
+   "wide": [],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": true,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     300,
+     187,
+     620,
+     653
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 62.6,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "les-desktop": {
+   "frame": [
+    28,
+    28,
+    1384,
+    844,
+    "28px"
+   ],
+   "free": 0.522,
+   "wide": [],
+   "edge": {
+    "selector": "#map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": true,
+    "island": false,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     300,
+     112,
+     525,
+     728
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": true,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 52.2,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(1.4)",
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "les-desktop-verminderd": {
+   "frame": [
+    28,
+    28,
+    1384,
+    844,
+    "28px"
+   ],
+   "free": 0.292,
+   "wide": [],
+   "edge": {
+    "selector": "#map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": true,
+    "island": false,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     300,
+     112,
+     525,
+     728
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": true,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 29.2,
+   "lowContrast": [],
+   "backdropFilters": [
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "oefenen-desktop": {
+   "frame": [
+    28,
+    28,
+    1384,
+    844,
+    "28px"
+   ],
+   "free": 0.465,
+   "wide": [],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": false,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     300,
+     112,
+     620,
+     728
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "oefenen",
+   "hOverflow": false,
+   "freePct": 46.5,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)",
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "toets-desktop": {
+   "frame": [
+    28,
+    28,
+    1384,
+    844,
+    "28px"
+   ],
+   "free": 0.242,
+   "wide": [
+    "section.v3View.v3View-toets 1144"
+   ],
+   "edge": null,
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "toets",
+   "hOverflow": false,
+   "freePct": 24.2,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)",
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "werkblad"
+  },
+  "voortgang-desktop": {
+   "frame": [
+    28,
+    28,
+    1384,
+    844,
+    "28px"
+   ],
+   "free": 0.242,
+   "wide": [
+    "section.v3View.v3View-voortgang 1144"
+   ],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": true,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     320,
+     199,
+     583,
+     501
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "voortgang",
+   "hOverflow": false,
+   "freePct": 24.2,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)",
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "werkblad"
+  },
+  "reis-ipad-liggend": {
+   "frame": [
+    20,
+    20,
+    1140,
+    780,
+    "28px"
+   ],
+   "free": 0.604,
+   "wide": [],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": false,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     244,
+     158,
+     514,
+     618
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 60.4,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "reis-ipad-liggend-verminderd": {
+   "frame": [
+    20,
+    20,
+    1140,
+    780,
+    "28px"
+   ],
+   "free": 0.192,
+   "wide": [],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": false,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     244,
+     158,
+     514,
+     618
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 19.2,
+   "lowContrast": [],
+   "backdropFilters": [
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "reis-schoolkaart-ipad-liggend": {
+   "frame": [
+    20,
+    20,
+    1140,
+    780,
+    "28px"
+   ],
+   "free": 0.602,
+   "wide": [],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": true,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     244,
+     158,
+     514,
+     618
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 60.2,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "les-ipad-liggend": {
+   "frame": [
+    20,
+    20,
+    1140,
+    780,
+    "28px"
+   ],
+   "free": 0.731,
+   "wide": [],
+   "edge": {
+    "selector": "#map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": true,
+    "island": false,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     411,
+     174,
+     434,
+     602
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": true,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 73.1,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(1.4)",
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "les-ipad-liggend-verminderd": {
+   "frame": [
+    20,
+    20,
+    1140,
+    780,
+    "28px"
+   ],
+   "free": 0.562,
+   "wide": [
+    "nav.v3.v3LesBar 1016"
+   ],
+   "edge": {
+    "selector": "#map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": true,
+    "island": false,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     411,
+     174,
+     434,
+     602
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": true,
+   "view": "reis",
+   "hOverflow": false,
+   "freePct": 56.2,
+   "lowContrast": [],
+   "backdropFilters": [
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "oefenen-ipad-liggend": {
+   "frame": [
+    20,
+    20,
+    1140,
+    780,
+    "28px"
+   ],
+   "free": 0.412,
+   "wide": [],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": false,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     244,
+     96,
+     438,
+     680
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "oefenen",
+   "hOverflow": false,
+   "freePct": 41.2,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)",
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "landschap"
+  },
+  "toets-ipad-liggend": {
+   "frame": [
+    20,
+    20,
+    1140,
+    780,
+    "28px"
+   ],
+   "free": 0.201,
+   "wide": [
+    "section.v3View.v3View-toets 940"
+   ],
+   "edge": null,
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "toets",
+   "hOverflow": false,
+   "freePct": 20.1,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)",
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "werkblad"
+  },
+  "voortgang-ipad-liggend": {
+   "frame": [
+    20,
+    20,
+    1140,
+    780,
+    "28px"
+   ],
+   "free": 0.194,
+   "wide": [
+    "section.v3View.v3View-voortgang 940"
+   ],
+   "edge": {
+    "selector": ".v3Map",
+    "masks": [],
+    "opacity": 1,
+    "overlays": [],
+    "school": true,
+    "island": true,
+    "seaShown": false,
+    "islandFaint": [],
+    "letterbox": false,
+    "seeThrough": [],
+    "box": [
+     264,
+     168,
+     478,
+     596
+    ]
+   },
+   "theme": "#5b45e0",
+   "les": false,
+   "view": "voortgang",
+   "hOverflow": false,
+   "freePct": 19.4,
+   "lowContrast": [],
+   "backdropFilters": [
+    "blur(28px) saturate(0.6)",
+    "none"
+   ],
+   "pageErrors": [],
+   "surface": "werkblad"
+  }
+ },
+ "errors": [],
+ "summary": {
+  "label": "na",
+  "free": {
+   "reis-desktop": 62.7,
+   "reis-desktop-verminderd": 28.0,
+   "reis-schoolkaart-desktop": 62.6,
+   "les-desktop": 52.2,
+   "les-desktop-verminderd": 29.2,
+   "oefenen-desktop": 46.5,
+   "toets-desktop": 24.2,
+   "voortgang-desktop": 24.2,
+   "reis-ipad-liggend": 60.4,
+   "reis-ipad-liggend-verminderd": 19.2,
+   "reis-schoolkaart-ipad-liggend": 60.2,
+   "les-ipad-liggend": 73.1,
+   "les-ipad-liggend-verminderd": 56.2,
+   "oefenen-ipad-liggend": 41.2,
+   "toets-ipad-liggend": 20.1,
+   "voortgang-ipad-liggend": 19.4
+  },
+  "wide": {
+   "toets-desktop": [
+    "section.v3View.v3View-toets 1144"
+   ],
+   "voortgang-desktop": [
+    "section.v3View.v3View-voortgang 1144"
+   ],
+   "les-ipad-liggend-verminderd": [
+    "nav.v3.v3LesBar 1016"
+   ],
+   "toets-ipad-liggend": [
+    "section.v3View.v3View-toets 940"
+   ],
+   "voortgang-ipad-liggend": [
+    "section.v3View.v3View-voortgang 940"
+   ]
+  },
+  "lowContrast": {},
+  "pass": true
+ }
+}

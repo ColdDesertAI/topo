@@ -16,7 +16,7 @@ for (const c of ['italy', 'france', 'spain', 'germany', 'netherlands']) for (con
 for (const f of ['it', 'fr', 'es', 'de', 'nl']) must(`assets/flags/${f}.svg`);
 for (const i of JSON.parse(readFileSync(join(dist, 'site.webmanifest'), 'utf8')).icons) must(i.src.slice(2));
 must('favicon.ico'); must('italie/index.html'); must('italie/print.html'); must('italie/printboek.pdf');
-assert(readFileSync(join(dist, 'italie/index.html'), 'utf8').includes('Topo Italië'), 'dist/italie/index.html is niet de Italië-app');
+assert(/<title>[^<]*Italië/.test(readFileSync(join(dist, 'italie/index.html'), 'utf8')), 'dist/italie/index.html is niet de Italië-app');
 assert(html.includes('favicon-32.png') && html.includes('nino-welcome-r3.webp') && html.includes('logo-01-primary-r3-1.svg'), 'R3-merkassets niet aangesloten');
 assert(html.includes('prefers-reduced-motion'), 'Reduced-motion ontbreekt');
 const contrast = (a, b) => { const L = x => [1, 3, 5].map(i => parseInt(x.slice(i, i + 2), 16) / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4).reduce((s, v, i) => s + v * [.2126, .7152, .0722][i], 0); const [x, y] = [L(a), L(b)]; return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };

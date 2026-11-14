@@ -1,0 +1,246 @@
+{
+  "1": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "reis",
+          "toetsResult"
+        ],
+        "detail": {
+          "reis": {
+            "count": 3,
+            "anchored": true,
+            "overlaps": [],
+            "median": 39.1,
+            "obstacles": 6,
+            "pinAbove": true
+          },
+          "toetsResult": {
+            "count": 10,
+            "anchored": true,
+            "overlaps": [],
+            "median": 40,
+            "obstacles": 13,
+            "pinAbove": true
+          }
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "reis",
+          "toetsResult"
+        ],
+        "detail": {
+          "reis": {
+            "count": 3,
+            "anchored": true,
+            "overlaps": [],
+            "median": 33.2,
+            "obstacles": 6,
+            "pinAbove": true
+          },
+          "toetsResult": {
+            "count": 10,
+            "anchored": true,
+            "overlaps": [],
+            "median": 34,
+            "obstacles": 13,
+            "pinAbove": true
+          }
+        }
+      }
+    },
+    "pass": true
+  },
+  "2": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "kennismaking"
+        ],
+        "detail": {
+          "glass": true,
+          "plates": [],
+          "focus": "rgb(91, 69, 224)",
+          "nino": 211,
+          "fits": true,
+          "dialog": [
+            620,
+            559
+          ]
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "kennismaking"
+        ],
+        "detail": {
+          "glass": true,
+          "plates": [],
+          "focus": "rgb(91, 69, 224)",
+          "nino": 211,
+          "fits": true,
+          "dialog": [
+            620,
+            559
+          ]
+        }
+      }
+    },
+    "pass": true
+  },
+  "3": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "keuzevenster"
+        ],
+        "detail": {
+          "rome": {
+            "glass": true,
+            "title": [
+              "28px",
+              "700",
+              "rgb(42, 36, 64)"
+            ],
+            "help": false,
+            "note": "\u25cb stad \u00b7 \u25b2 vulkaan \u00b7 \u25c6 kleine staat",
+            "badges": [
+              "rgb(91, 69, 224)",
+              "rgb(91, 69, 224)"
+            ],
+            "leaders": [
+              "rgb(91, 69, 224)",
+              "rgb(91, 69, 224)"
+            ],
+            "chips": 48,
+            "cancel": [
+              48,
+              207.328125
+            ],
+            "width": 620,
+            "inside": true,
+            "fits": true,
+            "focus": "pickerCancel"
+          },
+          "napels": {
+            "glass": true,
+            "title": [
+              "28px",
+              "700",
+              "rgb(42, 36, 64)"
+            ],
+            "help": false,
+            "note": "\u25cb stad \u00b7 \u25b2 vulkaan \u00b7 \u25c6 kleine staat",
+            "badges": [
+              "rgb(91, 69, 224)",
+              "rgb(91, 69, 224)"
+            ],
+            "leaders": [
+              "rgb(91, 69, 224)",
+              "rgb(91, 69, 224)"
+            ],
+            "chips": 48,
+            "cancel": [
+              48,
+              207.328125
+            ],
+            "width": 620,
+            "inside": true,
+            "fits": true,
+            "focus": "pickerCancel"
+          }
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "keuzevenster"
+        ],
+        "detail": {
+          "rome": {
+            "glass": true,
+            "title": [
+              "28px",
+              "700",
+              "rgb(42, 36, 64)"
+            ],
+            "help": false,
+            "note": "\u25cb stad \u00b7 \u25b2 vulkaan \u00b7 \u25c6 kleine staat",
+            "badges": [
+              "rgb(91, 69, 224)",
+              "rgb(91, 69, 224)"
+            ],
+            "leaders": [
+              "rgb(91, 69, 224)",
+              "rgb(91, 69, 224)"
+            ],
+            "chips": 48,
+            "cancel": [
+              48,
+              207.328125
+            ],
+            "width": 620,
+            "inside": true,
+            "fits": true,
+            "focus": "pickerCancel"
+          },
+          "napels": {
+            "glass": true,
+            "title": [
+              "28px",
+              "700",
+              "rgb(42, 36, 64)"
+            ],
+            "help": false,
+            "note": "\u25cb stad \u00b7 \u25b2 vulkaan \u00b7 \u25c6 kleine staat",
+            "badges": [
+              "rgb(91, 69, 224)",
+              "rgb(91, 69, 224)"
+            ],
+            "leaders": [
+              "rgb(91, 69, 224)",
+              "rgb(91, 69, 224)"
+            ],
+            "chips": 48,
+            "cancel": [
+              48,
+              207.328125
+            ],
+            "width": 620,
+            "inside": true,
+            "fits": true,
+            "focus": "pickerCancel"
+          }
+        }
+      }
+    },
+    "pass": true
+  }
+}

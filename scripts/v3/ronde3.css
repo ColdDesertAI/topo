@@ -1,0 +1,103 @@
+/* Ronde 3: targeted presentation repairs over the unchanged V2 engine. */
+.v3Reis .v3MapTools{position:relative;inset:auto;z-index:3;pointer-events:auto}
+.v3Reis .v3Switch .v3Btn{min-height:44px;min-width:44px;touch-action:manipulation;pointer-events:auto}
+.v3Map[data-relief=off] :is(.atlasTerrain,.v3RCoast,.v3RSea,.v3RShadow){display:none!important}
+@media (min-width:768px){
+ .v3Reis .v3MapTools .v3SchoolBtn{width:auto;min-height:44px;padding:0 12px;flex-shrink:0;touch-action:manipulation}
+ .v3Reis .v3MapTools .v3SchoolBtn span{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+}
+.v3 .v3ToetsSetup :is(.v3Chip,.v3FormBtn){min-width:44px;min-height:44px;height:auto;white-space:normal;line-height:1.3;padding:8px 10px;touch-action:manipulation;pointer-events:auto}
+.v3ToetsSetup :is(.v3Icon,.v3FormIcons){pointer-events:none;flex-shrink:0}
+.v3ToetsSetupNino{pointer-events:none}
+
+/* Dedicated 1080 × 810 landscape scale: retain readable type, spend less space on gaps. */
+@media (min-width:1024px) and (max-width:1119px){
+ .v3,body.v3Les{--v3-inner:16px;--v3-gut:12px;--v3-display:700 36px/1.15 var(--v3-font);--v3-card-title:700 28px/1.2 var(--v3-font);--v3-row:600 16px/22px var(--v3-font);--v3-second:500 13px/18px var(--v3-font)}
+ .v3Reis[data-view=reis] .v3Main>.v3Top{flex-wrap:wrap;gap:8px;padding:0}
+ .v3Reis .v3MapTools{gap:6px;max-width:100%}
+ .v3ToetsSetup{gap:12px}
+ .v3ToetsSetup .v3Field{gap:8px}
+ .v3ToetsSetup .v3Field+.v3Field{padding-top:12px}
+ .v3ToetsSetup .v3ToetsForms{gap:6px}
+ .v3ToetsSetup .v3FormBtn{padding:8px 6px}
+ .v3 :is(.v3Btn,.v3Chip,.v3FormBtn){max-width:100%;overflow-wrap:break-word}
+}
+
+@media(min-width:1024px) and (max-width:1119px){
+ .v3OefPanel{gap:8px;padding:16px;overflow:visible}
+ .v3OefPanel .v3OefGroep{padding-top:8px}
+ .v3OefPanel .v3Chips{gap:6px}
+ .v3OefPanel .v3FormBtn{min-height:48px;padding:6px 8px}
+ .v3OefPanel .v3Chip{min-height:44px}
+ .v3OefPanel .v3Start{margin-top:0}
+}
+
+/* Settings uses the same worksheet and violet controls as the application. */
+dialog.ninoSettings.v3SettingsSheet{width:min(640px,calc(100vw - 40px));padding:24px;border:1px solid #ffffffb3;border-radius:28px;background:var(--v3-plate);color:var(--v3-ink);font:var(--v3-row);box-shadow:var(--v3-glass-shadow);backdrop-filter:var(--v3-glass-filter)}
+.v3SettingsSheet::backdrop{background:rgba(42,36,64,.35);backdrop-filter:blur(8px)}
+.v3SettingsSheet .ninoSettingsGroup{margin:16px 0;padding:12px 16px;gap:0;border-radius:18px;background:rgba(255,255,255,.72)}
+.v3SettingsSheet .ninoSettingsGroup h3{font-size:16px;padding:4px 0 8px}
+.v3SettingsSheet .ninoSettingsGroup p{font:var(--v3-second);padding:8px 0;color:var(--v3-ink2)}
+.v3SettingsSheet :is(button,summary){min-height:44px;touch-action:manipulation}
+.v3SettingsSheet button{border:0;border-radius:12px;background:var(--v3-accent-soft);color:var(--v3-accent);font:var(--v3-row);padding:10px 14px;text-align:left}
+.v3SettingsSheet .ninoSettingsGroup>button{width:100%;border-top:1px solid var(--v3-line);border-radius:0;background:transparent}
+.v3SettingsSheet .ninoResetDanger{color:#9b233d}
+
+/* One welcome character, on a glass card over the existing canvas artwork. */
+dialog.ninoProfile.v3Welkom{background:rgba(255,255,255,.72);backdrop-filter:blur(28px) saturate(1.4);border:1px solid #ffffffb3;color:var(--v3-ink)}
+.v3Welkom.ninoFirstRun .profileScene{background:transparent;min-height:190px;align-items:center;padding-top:12px}
+.v3Welkom .profileWelcome{width:170px;height:190px;object-fit:contain;flex:none}
+.v3Welkom .profileBubble{background:rgba(255,255,255,.72);padding:14px;box-shadow:var(--v3-glass-shadow)}
+.v3Welkom .profileBubble h2,.v3Welkom .profileBubble p{font:600 17px/24px var(--v3-font)}
+
+body.v3Les{--focus:#7655eb;--accent:#6548d9;--good:#5a40c2;--bad:#9b234b}
+body.v3Les #map .activeTarget{filter:drop-shadow(0 0 8px #7655eb80)}
+body.v3Les #map .activeTarget:is(.country,.zone,.water,.city,.feature){fill:#9b83f5!important;stroke:#6548d9!important}
+body.v3Les #map .activeTarget.lineTarget{stroke:#7655eb!important}
+body.v3Les :is(#quiz,#focusAnswerSheet) #message.good{background:#eee8ff;color:#4d32a5}
+body.v3Les :is(#quiz,#focusAnswerSheet) #message.bad{background:#fae8f1;color:#902345}
+body.v3Les #answer{border-color:#c7b6ee;color:var(--v3-ink);background:#ffffffd9}
+body.v3Les #answer:focus-visible{outline:3px solid #9675f5;outline-offset:2px}
+
+.v3Counts .v3CountArt{width:40px;height:40px;object-fit:contain;flex:none}
+
+.v3End .v3StatusArt{width:32px;height:32px;object-fit:contain;flex:none}
+
+body.v3Les .v3LesBar .v3LesBack{display:flex!important;min-width:44px;min-height:44px;flex:none;padding:0 10px;touch-action:manipulation}
+body.v3Les .v3LesBack .v3LesBackText{display:none}
+body.v3Les .v3LesGroup{min-width:0}
+
+.v3Tiles button.v3Tile{color:var(--v3-ink);font:inherit;text-align:center;border:0;cursor:pointer;min-height:44px;touch-action:manipulation}
+.v3Tiles button.v3Tile:focus-visible{outline:3px solid var(--v3-accent);outline-offset:3px}
+
+/* Paper world: one serif for headings, one reading face, generous live paper margins. */
+.travelBook .folioWriting{font-family:"Topo Rounded",system-ui,sans-serif;color:#443326}
+.travelBook .folioWriting .bookScript{font-family:Georgia,serif!important;font-weight:400;line-height:1.16;letter-spacing:-.02em}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)){inset:13% 14% 12% 16%;display:flex;flex-direction:column;gap:12px}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact))>h3{margin:0 0 8px}
+.travelBook .coverFolio .bookPortrait{width:100%;height:38%;margin:0;display:flex;align-items:center;justify-content:center}
+.travelBook .coverFolio .bookCover{display:none}
+.travelBook .coverFolio .bookNino{position:static;width:auto;height:100%;max-width:100%;object-fit:contain}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)) p{font-size:15px;line-height:1.45;margin:0}
+.travelBook .folioWriting .bookFact{padding:10px 0;border-bottom:1px solid #8b6f4740}
+.travelBook .folioWriting .bookFact p{display:flex;flex-direction:column;gap:2px}
+.travelBook .folioWriting .bookFact strong{font-size:28px;font-weight:600}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)) .bookLink{align-self:flex-start;margin-top:auto}
+
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)){background:rgba(255,248,227,.88);border-radius:8px;padding:16px;gap:8px}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)) :is(.bookNote,.bookNote span){white-space:normal;font-size:13px;overflow-wrap:anywhere}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)) .bookScript{font-size:clamp(24px,6cqw,32px)!important}
+
+body.v3On .vespaRide .rideRoad{display:none}
+body.v3On .vespaRide .rideNino{left:5%;width:38%;bottom:4%;transition:none}
+body.v3On .vespaRide[data-phase=depart] .rideNino{animation:v3Engine .12s ease-in-out infinite alternate}
+body.v3On .vespaRide[data-phase=ride] .rideNino{left:5%;animation:v3RideOut 1.5s cubic-bezier(.45,0,.8,.4) forwards}
+@keyframes v3Engine{from{transform:translateY(0) rotate(-.5deg)}to{transform:translateY(-2px) rotate(.5deg)}}
+@keyframes v3RideOut{from{transform:translateX(0)}to{transform:translateX(300%)}}
+@media(prefers-reduced-motion:reduce){body.v3On .vespaRide .rideNino{animation:none!important;transition:none!important}body.v3On .vespaRide .rideArrival{animation:v3Ready .16s ease-out!important}}
+
+.v3SettingsSheet .v3BackgroundChoices{grid-template-columns:1fr 1fr;gap:4px 12px}.v3BackgroundChoices h3{grid-column:1/-1}.v3SettingsSheet [data-background][aria-pressed=true]{background:var(--v3-accent-soft);box-shadow:inset 0 0 0 1.5px var(--v3-accent);border-radius:12px}
+
+.v3Map[data-relief=off] .v3Landmarks{display:none}.v3Landmarks{pointer-events:none}.v3Landmarks image{pointer-events:none}
+
+@media(min-width:768px) and (max-width:1023px){body.v3Les[data-focus-shell=true] .v3LesBar{gap:8px}}

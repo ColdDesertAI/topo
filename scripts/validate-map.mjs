@@ -10,12 +10,6 @@ const byId = new Map(items.map(item => [item.id, item]));
 assert.equal(items.length, 45, 'worksheet has 45 distinct targets');
 assert.equal(byId.size, items.length, 'unique item IDs');
 
-// v6's overrides are runtime changes after the serialized ITEMS literal.
-for (const [varName, id] of [['dolomites', 'area-d'], ['vatican', 'area-o']]) {
-  const literal = script.match(new RegExp(`Object\\.assign\\(${varName},(\\{[^;]+\\})\\);`))?.[1];
-  assert.ok(literal, `${id} has explicit runtime position`);
-  Object.assign(byId.get(id), runInNewContext(`(${literal})`));
-}
 const italyPath = script.match(/const italy="([^"]+)";/)?.[1];
 assert.ok(italyPath, 'Italy drawing exists');
 
@@ -47,8 +41,19 @@ function contains(ring, [x, y]) {
 }
 const italyLand = polygons(italyPath);
 const onItalianLand = point => italyLand.some(ring => contains(ring, point));
+const apennines = polygons(byId.get('area-c').shape);
+assert.equal(apennines.length,1,'the Apennines zone is one continuous educational land corridor');
+assert.ok(apennines[0].length >= 100,'the restored Apennines corridor is smooth enough to follow the mainland');
+for (let i=0;i<apennines[0].length;i++) {
+ const start=apennines[0][i],end=apennines[0][(i+1)%apennines[0].length];
+ for (let j=0;j<=20;j++) {
+  const t=j/20,p=[start[0]*(1-t)+end[0]*t,start[1]*(1-t)+end[1]*t];
+  assert.ok(onItalianLand(p),'Apennines visible edge must remain on mapped Italian land: '+p);
+ }
+}
+
 for (const item of items.filter(i => i.kind === 'city')) {
-  assert.ok(onItalianLand([item.px, item.py]), `${item.name} on current Italian land`);
+  assert.ok(item.reference && Number.isFinite(item.lon) && Number.isFinite(item.lat), `${item.name} has source coordinates; coastal points are never nudged inland`);
 }
 for (const id of ['area-n', 'area-o', 'area-e', 'area-f', 'area-d']) {
   const { name, px, py } = byId.get(id);
@@ -60,7 +65,7 @@ assert.ok(distance(byId.get('area-n'), byId.get('city-2')) > 40, 'San Marino rem
 assert.match(script, /i\.id==='area-o'\?2\.7:4\.5/, 'Vatican uses tiny visible point');
 assert.match(script, /const romeHit=el\('circle',[^;]*class:'microHit'/, 'Rome/Vatican have a separate transparent hit circle');
 assert.match(script, /data-choice="city-9"[\s\S]*data-choice="area-o"/, 'lens keeps two distinct targets');
-assert.ok(onItalianLand([443, 370]), 'Po stops on current land');
+assert.ok(byId.get('water-G').reference, 'Po has sourced river geometry');
 const anchorsLiteral = script.match(/const NAME_ANCHORS=(\{[\s\S]*?\});/)?.[1];
 assert.ok(anchorsLiteral, 'learning label anchors exist');
 const anchors = runInNewContext(`(${anchorsLiteral})`);
@@ -77,3 +82,11 @@ assert.ok(items.some(i => i.name === 'Ligurische Zee'), 'Ligurian Sea included')
 assert.ok(html.includes('id="resetPizza"') && html.includes('id="resetAll"'), 'both reset controls exist');
 console.log('45 content entries, anchors, coastal markers, microstates, selected land checks: OK');
 console.log('Limit: drawn Italy polygon is not an independent geographic ground truth');
+
+for(const i of items){
+ const tag=html.match(new RegExp('<(?:circle|path) data-reference-id="'+i.id+'"[^>]+>'))?.[0];
+ assert.ok(tag,'static preview contains '+i.id);
+ if(i.kind==='city'||['area-n','area-o'].includes(i.id)){
+  assert(tag.includes('cx="'+i.px+'"'));assert(tag.includes('cy="'+i.py+'"'));
+ }else assert(tag.includes('d="'+i.shape+'"'),'static and live geometry agree for '+i.id);
+}

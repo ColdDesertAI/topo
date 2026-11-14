@@ -1,0 +1,159 @@
+{
+ "runs": {
+  "bezig/desktop": {
+   "big": [
+    "Beloningen",
+    "0",
+    "6 / 8",
+    "1 / 11",
+    "0 / 11",
+    "0 / 4"
+   ],
+   "state": {
+    "slices": 6,
+    "pizzas": 1,
+    "trips": 0
+   },
+   "pizzas": [
+    8,
+    6,
+    0
+   ],
+   "meter": [
+    true,
+    false,
+    false
+   ],
+   "tiles": [
+    "Pizza",
+    "Stempels",
+    "Goud",
+    "Postkaarten"
+   ]
+  },
+  "bezig/ipad-liggend": {
+   "big": [
+    "Beloningen",
+    "0",
+    "6 / 8",
+    "1 / 11",
+    "0 / 11",
+    "0 / 4"
+   ],
+   "state": {
+    "slices": 6,
+    "pizzas": 1,
+    "trips": 0
+   },
+   "pizzas": [
+    8,
+    6,
+    0
+   ],
+   "meter": [
+    true,
+    false,
+    false
+   ],
+   "tiles": [
+    "Pizza",
+    "Stempels",
+    "Goud",
+    "Postkaarten"
+   ]
+  },
+  "bezig/ipad-staand": {
+   "big": [
+    "Beloningen",
+    "0",
+    "6 / 8",
+    "1 / 11",
+    "0 / 11",
+    "0 / 4"
+   ],
+   "state": {
+    "slices": 6,
+    "pizzas": 1,
+    "trips": 0
+   },
+   "pizzas": [
+    8,
+    6,
+    0
+   ],
+   "meter": [
+    true,
+    false,
+    false
+   ],
+   "tiles": [
+    "Pizza",
+    "Stempels",
+    "Goud",
+    "Postkaarten"
+   ]
+  },
+  "bezig/telefoon": {
+   "big": [
+    "Beloningen"
+   ],
+   "state": {
+    "slices": 6,
+    "pizzas": 1,
+    "trips": 0
+   },
+   "pizzas": [
+    8,
+    6,
+    0
+   ],
+   "meter": [
+    true,
+    false,
+    false
+   ],
+   "tiles": [
+    "Pizza",
+    "Stempels",
+    "Goud",
+    "Postkaarten"
+   ]
+  },
+  "alles/desktop": {
+   "big": [
+    "Beloningen",
+    "7",
+    "0 / 8",
+    "11 / 11",
+    "11 / 11",
+    "4 / 4"
+   ],
+   "state": {
+    "slices": 0,
+    "pizzas": 21,
+    "trips": 7
+   },
+   "pizzas": [
+    0,
+    0,
+    0
+   ],
+   "meter": [
+    false,
+    false,
+    false
+   ],
+   "tiles": [
+    "Pizza",
+    "Stempels",
+    "Goud",
+    "Postkaarten"
+   ]
+  }
+ },
+ "errors": [],
+ "summary": {
+  "runs": 5,
+  "pass": true
+ }
+}

@@ -1,0 +1,407 @@
+# Artworkinventaris — Ronde 3, punt 19
+
+Peildatum: 2026-11-11. Alle lokaal aanwezige raster-, SVG- en fontassets onder `assets/` staan hieronder (V2 en V3, inclusief bron- en exportvarianten). Dit is een statische bindingsinventaris: “zichtbaar” betekent dat de genoemde runtime/verdienvoorwaarde het asset kan tonen; geen claim dat alle assets tegelijk in één screenshot staan. Niet-verdiende inhoud blijft vergrendeld.
+
+## Beslissingen en voorstel van de lead designer
+
+- Roma, Venezia en Napoli zijn al gekoppeld aan stads-hoofdstukminiaturen via `build-v3-preview.mjs`; hun grotere kopversies zijn nog ongebruikt. Voorstel: grotere scènes uitsluitend bij hoofdstukintro/resultaat, één Nino per compositie, na eigenaarreview; nooit achter de leerkaart.
+- Postkaarten blijven verdiende souvenirs in het boek, bereikbaar via de tegel. Voorstel: kleine voorvertoning van de laatst verdiende kaart bij Beloningen, zonder onterecht kaarten te ontgrendelen.
+- VE-01 en IC-vespa zijn vervangen volgens de nieuwe eigenaarinstructie. Geen nieuwe plek voorstellen: VESPA-ZIJ bij Beloningen/rit, VESPA-ICOON bij tellers/Voortgang, VESPA-RIJDEND/BAGAGE bij Nino-momenten.
+- NINO-DENKT en NINO-WIJST-RECHTS blijven reserve. Eerst een aantoonbare toestand en rustige compositie aanwijzen, geen decoratie toevoegen om een asset te gebruiken.
+- De ±10 nieuwe geografische landmarkillustraties horen bij punt 20 en krijgen eigen herkomst/plaatsing; ze maken nog geen deel uit van deze peildatuminventaris.
+
+## Controleerbare bindingsbronnen
+
+`scripts/build-v3-preview.mjs`, `scripts/v3/reis.js`, `master-assets.js`, `kennismaking.js`, `toets.js`, `voortgang.js`, `boek.js`; V2 engines en manifests onder `assets/nino/`. De V2 index is niet gewijzigd. Een bron/master zonder lokaal bestand is geen ontbrekend runtime-export: de master kan alleen in de gepinde Git-artbranch staan.
+
+## Aanwezige bestanden
+
+209 bestanden. SHA-256 is de eerste 12 tekens; grootte in KiB.
+
+| Bestand | KiB | SHA-256 | Plek / voorwaarde / niet zichtbaar |
+| --- | ---: | --- | --- |
+| `assets/discovery/terrain-z8-render-coast.webp` | 49.5 | `e685ba188bbe` | Z8-zee/kust/schaduw/terrain als V3 kaartlagen; oudere terrain.webp is V2 reserve. |
+| `assets/discovery/terrain-z8-render-sea.webp` | 239.9 | `daded673fe77` | Z8-zee/kust/schaduw/terrain als V3 kaartlagen; oudere terrain.webp is V2 reserve. |
+| `assets/discovery/terrain-z8-render-shadow.webp` | 116.8 | `e2fe511cc8c7` | Z8-zee/kust/schaduw/terrain als V3 kaartlagen; oudere terrain.webp is V2 reserve. |
+| `assets/discovery/terrain-z8-render.webp` | 301.0 | `440d631c8ff5` | Z8-zee/kust/schaduw/terrain als V3 kaartlagen; oudere terrain.webp is V2 reserve. |
+| `assets/discovery/terrain.webp` | 57.8 | `c9130b73fe1e` | Z8-zee/kust/schaduw/terrain als V3 kaartlagen; oudere terrain.webp is V2 reserve. |
+| `assets/map-selection/TOPO-Rome-Vaticaanstad-approved-refined.svg` | 1.4 | `c2d66a994879` | Kaartreferentie/bibliotheekasset; niet als nieuwe V3 schermdecoratie ingebed. |
+| `assets/nino/app-icon/favicon-n/NINO-favicon-16.png` | 0.1 | `3a3e320851db` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/app-icon/favicon-n/NINO-favicon-32.png` | 0.2 | `3f737bc4f491` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/app-icon/micro-v2/topo-nino-italy-only-16.png` | 0.5 | `ca4d68e3f5c6` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/app-icon/micro-v2/topo-nino-italy-only-master.svg` | 1.0 | `aea401a22730` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/app-icon/micro-v2/topo-nino-scooter-italy-24.png` | 0.7 | `17383c4b0af7` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/app-icon/micro-v2/topo-nino-scooter-italy-32.png` | 0.9 | `37c261684da5` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/app-icon/micro-v2/topo-nino-scooter-italy-48.png` | 1.3 | `16ecffe9ed11` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/app-icon/micro-v2/topo-nino-scooter-italy-64.png` | 1.6 | `41ffaa25b595` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/app-icon/micro-v2/topo-nino-scooter-italy-master.svg` | 2.0 | `c2d75590987d` | App-/faviconvarianten; niet in scherminhoud. Selectie buiten deze ronde. |
+| `assets/nino/chapter-icons/exports/chapter-01-steden-1-6.webp` | 106.1 | `337e02ba2c1e` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-02-steden-7-12.webp` | 102.2 | `f9c76c2c0926` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-03-extra-steden-13-18.webp` | 107.4 | `1801146a77b1` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-04-extra-steden-19-23.webp` | 121.1 | `125a496d4c65` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-05-eilanden.webp` | 124.3 | `f1ca42b2a08c` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-06-bergen.webp` | 118.8 | `a6b8def0c138` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-07-vulkanen.webp` | 117.2 | `52efca255b21` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-08-streken.webp` | 124.7 | `2885eeb2d2b4` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-09-landen.webp` | 99.0 | `c616f7524a54` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-10-zeeen.webp` | 115.2 | `66139c111992` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/chapter-icons/exports/chapter-11-rivieren.webp` | 133.3 | `c08a48c15a9e` | V2 hoofdstukillustratie; V3 alleen fallback als scène ontbreekt (alle elf hebben nu een miniatuur). |
+| `assets/nino/exports/nino-arrival.webp` | 290.4 | `ff1b6908fcbc` | V2 karakter/scène. V3 semantische poses vervangen waar masteradapter actief is; oude bron blijft voor V2 index.html. |
+| `assets/nino/exports/nino-encourage.webp` | 249.4 | `4ab8b1af4289` | V2 karakter/scène. V3 semantische poses vervangen waar masteradapter actief is; oude bron blijft voor V2 index.html. |
+| `assets/nino/exports/nino-gold.webp` | 224.0 | `b735c2dd4400` | V2 karakter/scène. V3 semantische poses vervangen waar masteradapter actief is; oude bron blijft voor V2 index.html. |
+| `assets/nino/exports/nino-guide.webp` | 218.7 | `13cb4bc888d6` | V2 karakter/scène. V3 semantische poses vervangen waar masteradapter actief is; oude bron blijft voor V2 index.html. |
+| `assets/nino/exports/nino-success.webp` | 249.0 | `e43124089abf` | V2 karakter/scène. V3 semantische poses vervangen waar masteradapter actief is; oude bron blijft voor V2 index.html. |
+| `assets/nino/exports/nino-travel.webp` | 231.3 | `d12e2738fbbb` | V2 karakter/scène. V3 semantische poses vervangen waar masteradapter actief is; oude bron blijft voor V2 index.html. |
+| `assets/nino/exports/nino-welcome.webp` | 242.1 | `89966925cb2f` | V2 karakter/scène. V3 semantische poses vervangen waar masteradapter actief is; oude bron blijft voor V2 index.html. |
+| `assets/nino/rewards/pizza/board/pizza-board-wood.png` | 2458.2 | `46d708d6c234` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/boxes/pizza-box-closed-pisa.png` | 2075.0 | `10b350cfb7bc` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/boxes/pizza-box-open-pisa-margherita.png` | 2330.7 | `3388dd420fc0` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/boxes/pizza-box-open-pisa-quattro-formaggi.png` | 2243.2 | `cd71384bb6e0` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/boxes/pizza-box-open-pisa-salami.png` | 2506.8 | `2883be9f2faf` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-board-wood.webp` | 93.9 | `e241b9408c86` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-box-closed-pisa.webp` | 198.3 | `6e47559c8eea` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-box-open-pisa-margherita.webp` | 218.5 | `742a5d39843d` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-box-open-pisa-quattro-formaggi.webp` | 204.7 | `1b317d389808` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-box-open-pisa-salami.webp` | 278.5 | `9f3795b47f6b` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-margherita-slice-icon.webp` | 12.9 | `fbf44e922cdc` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-margherita.webp` | 162.5 | `75b08c68393c` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-quattro-formaggi-slice-icon.webp` | 11.5 | `c39352dcaa47` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-quattro-formaggi.webp` | 148.5 | `cd5e75889d7c` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-salami-slice-icon.webp` | 14.9 | `aaebc1a77b43` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/exports/pizza-salami.webp` | 187.8 | `61e86fd6f033` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/masters/pizza-margherita.png` | 2639.1 | `e1bb7e1841b2` | Bron/master; niet rechtstreeks zichtbaar. Runtime gebruikt gecontroleerde exports. |
+| `assets/nino/rewards/pizza/masters/pizza-quattro-formaggi.png` | 2617.8 | `b1a00ab13604` | Bron/master; niet rechtstreeks zichtbaar. Runtime gebruikt gecontroleerde exports. |
+| `assets/nino/rewards/pizza/masters/pizza-salami.png` | 3197.2 | `309ac90d1eab` | Bron/master; niet rechtstreeks zichtbaar. Runtime gebruikt gecontroleerde exports. |
+| `assets/nino/rewards/pizza/runtime/pizza-margherita-states.webp` | 244.3 | `b3fa5fbdd2ee` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/runtime/pizza-quattro-formaggi-states.webp` | 229.1 | `e99a7e0d6ed2` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/runtime/pizza-salami-states.webp` | 268.6 | `ff782e287391` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/aligned_full_canvas/pizza-margherita-slice-01-aligned.png` | 305.2 | `c80820fa85ad` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/aligned_full_canvas/pizza-margherita-slice-02-aligned.png` | 338.6 | `697a97ecf374` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/aligned_full_canvas/pizza-margherita-slice-03-aligned.png` | 361.7 | `68bffee7decb` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/aligned_full_canvas/pizza-margherita-slice-04-aligned.png` | 346.9 | `545b86d741d1` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/aligned_full_canvas/pizza-margherita-slice-05-aligned.png` | 341.9 | `95ff921d9900` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/aligned_full_canvas/pizza-margherita-slice-06-aligned.png` | 344.1 | `8cd23cbfc412` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/aligned_full_canvas/pizza-margherita-slice-07-aligned.png` | 329.7 | `f2bb6c8832ca` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/aligned_full_canvas/pizza-margherita-slice-08-aligned.png` | 310.1 | `460c0d6d24d7` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/individual_slices/pizza-margherita-slice-01.png` | 293.7 | `3bab21c8977a` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/individual_slices/pizza-margherita-slice-02.png` | 329.6 | `f2b29113814b` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/individual_slices/pizza-margherita-slice-03.png` | 351.2 | `ae2c169ce13f` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/individual_slices/pizza-margherita-slice-04.png` | 336.4 | `1fd4da03879f` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/individual_slices/pizza-margherita-slice-05.png` | 331.4 | `7c2234e9c51f` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/individual_slices/pizza-margherita-slice-06.png` | 332.9 | `b82ed0d7a5ea` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/individual_slices/pizza-margherita-slice-07.png` | 318.9 | `bad8862146da` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/individual_slices/pizza-margherita-slice-08.png` | 300.8 | `3ea4908f7e5d` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/pizza-margherita-slice-icon.png` | 181.4 | `1c2e3c940388` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/qa/MARGHERITA_0-8_QUALITY_PREVIEW.jpg` | 306.2 | `a19aa78eaa7c` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/qa/pizza-margherita-icon-120px.png` | 12.7 | `47a84a0723fc` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/qa/pizza-margherita-icon-48px.png` | 2.9 | `ee0a9d727776` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/margherita/qa/pizza-margherita-icon-64px.png` | 4.4 | `dcddc7c17a49` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/aligned_full_canvas/pizza-quattro-formaggi-slice-01-aligned.png` | 302.3 | `7f759f7071e9` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/aligned_full_canvas/pizza-quattro-formaggi-slice-02-aligned.png` | 337.5 | `2ff026570991` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/aligned_full_canvas/pizza-quattro-formaggi-slice-03-aligned.png` | 354.3 | `b83de4a5cf90` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/aligned_full_canvas/pizza-quattro-formaggi-slice-04-aligned.png` | 344.2 | `e906eb7b671b` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/aligned_full_canvas/pizza-quattro-formaggi-slice-05-aligned.png` | 343.1 | `c2505f015613` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/aligned_full_canvas/pizza-quattro-formaggi-slice-06-aligned.png` | 347.8 | `e02c07d0ebd6` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/aligned_full_canvas/pizza-quattro-formaggi-slice-07-aligned.png` | 335.6 | `937e53c6d8ca` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/aligned_full_canvas/pizza-quattro-formaggi-slice-08-aligned.png` | 312.1 | `1f89100494bb` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/individual_slices/pizza-quattro-formaggi-slice-01.png` | 293.2 | `b3e5450e071c` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/individual_slices/pizza-quattro-formaggi-slice-02.png` | 327.5 | `f5ebf6edd6df` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/individual_slices/pizza-quattro-formaggi-slice-03.png` | 343.6 | `c1ac2c60523f` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/individual_slices/pizza-quattro-formaggi-slice-04.png` | 333.8 | `8e86e3324afc` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/individual_slices/pizza-quattro-formaggi-slice-05.png` | 331.2 | `f47aa0cf22d3` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/individual_slices/pizza-quattro-formaggi-slice-06.png` | 337.6 | `9e6a0e76fad8` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/individual_slices/pizza-quattro-formaggi-slice-07.png` | 326.2 | `6903bb04a73f` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/individual_slices/pizza-quattro-formaggi-slice-08.png` | 300.3 | `c681682d93e6` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/pizza-quattro-formaggi-slice-icon.png` | 177.8 | `e7d93c9aa539` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/qa/QUATTRO_FORMAGGI_0-8_QUALITY_PREVIEW.jpg` | 302.8 | `6291b669d58c` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/qa/pizza-quattro-formaggi-icon-120px.png` | 12.5 | `030bd0b4c95d` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/qa/pizza-quattro-formaggi-icon-48px.png` | 2.8 | `05c9c79230a7` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/quattro-formaggi/qa/pizza-quattro-formaggi-icon-64px.png` | 4.4 | `7505feea7a62` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/aligned_full_canvas/pizza-salami-slice-01-aligned.png` | 360.3 | `13e9f0d08043` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/aligned_full_canvas/pizza-salami-slice-02-aligned.png` | 391.0 | `868a9a832437` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/aligned_full_canvas/pizza-salami-slice-03-aligned.png` | 419.4 | `5197e65cd1af` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/aligned_full_canvas/pizza-salami-slice-04-aligned.png` | 407.8 | `90d15ad0bb27` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/aligned_full_canvas/pizza-salami-slice-05-aligned.png` | 410.8 | `16f602862790` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/aligned_full_canvas/pizza-salami-slice-06-aligned.png` | 428.3 | `7409b007413e` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/aligned_full_canvas/pizza-salami-slice-07-aligned.png` | 401.1 | `bcf464966942` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/aligned_full_canvas/pizza-salami-slice-08-aligned.png` | 368.9 | `99cfc0206e53` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/individual_slices/pizza-salami-slice-01.png` | 350.5 | `bf317ab48477` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/individual_slices/pizza-salami-slice-02.png` | 381.5 | `7daabde8b2aa` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/individual_slices/pizza-salami-slice-03.png` | 408.0 | `7b9ea474f2c4` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/individual_slices/pizza-salami-slice-04.png` | 396.8 | `0c4f976883d3` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/individual_slices/pizza-salami-slice-05.png` | 400.1 | `6fe0e909b7e0` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/individual_slices/pizza-salami-slice-06.png` | 418.2 | `32f0723fd648` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/individual_slices/pizza-salami-slice-07.png` | 390.2 | `d85070ff2df6` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/individual_slices/pizza-salami-slice-08.png` | 357.7 | `96f9e3a2e2a8` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/pizza-salami-slice-icon.png` | 223.4 | `9019759e3b8a` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/qa/SALAMI_0-8_QUALITY_PREVIEW.jpg` | 306.5 | `828dcdbbd3d0` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/qa/pizza-salami-icon-120px.png` | 14.7 | `69cea4af4c21` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/qa/pizza-salami-icon-48px.png` | 3.3 | `aafb9e0797ae` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/rewards/pizza/slices/salami/qa/pizza-salami-icon-64px.png` | 5.1 | `884aa3cce12c` | V2 beloningsmotor: favoriet, pizzaschijf, opgeslagen pizza of sprite 0–8; bronframes/sprites en exports zijn varianten, niet elk afzonderlijk zichtbaar. |
+| `assets/nino/travel-passport/arrivo/exports/arrivo-travel.webp` | 1562.0 | `cc3cd8efb207` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/book/exports/passport-blank-folio-left-alpha-normalized.webp` | 1864.3 | `d4862f0f5e34` | Papierwereld Reisboekje; bladachtergrond, ook pagina 1–2. |
+| `assets/nino/travel-passport/book/exports/passport-blank-folio-right-alpha-normalized.webp` | 2050.6 | `3ce3133d483b` | Papierwereld Reisboekje; bladachtergrond, ook pagina 1–2. |
+| `assets/nino/travel-passport/book/exports/passport-closed-cover.webp` | 1492.9 | `8901f57c74fe` | Gesloten boek bij Beloningen; coverB rood leer/kompas blijft uitgangspunt. Historische varianten reserve. |
+| `assets/nino/travel-passport/gold/exports/gold-chapter-seal-v2-128.png` | 30.7 | `cc11f2b5c40c` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-chapter-seal-v2-128.webp` | 25.9 | `9c3f652075d0` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-chapter-seal-v2-64.png` | 8.6 | `bac0d3e178ab` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-chapter-seal-v2-64.webp` | 6.9 | `54224a2edf4e` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-chapter-seal-v2-native.png` | 2365.7 | `60c54e6efbb8` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-chapter-seal-v2-native.webp` | 1570.9 | `b22cdc3ad0c0` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-esploratore-doro-240.png` | 130.9 | `1bb700dd84eb` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-esploratore-doro-240.webp` | 92.1 | `3e8085027c31` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-esploratore-doro-480.png` | 493.4 | `3749e461ba87` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-esploratore-doro-480.webp` | 356.2 | `63b8e838caff` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-esploratore-doro-native.png` | 3392.2 | `e94a76ab4c02` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/gold/exports/gold-esploratore-doro-native.webp` | 2251.7 | `537091369901` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/postcards/exports/postcard-01-sicilia-front.webp` | 2456.5 | `8c7e1ef3cd72` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/exports/postcard-02-sardegna-front.webp` | 2620.4 | `9e350e91c1a2` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/exports/postcard-03-napoli-vesuvio-front.webp` | 2392.3 | `819a3d3d1de5` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/exports/postcard-04-venezia-approved-contour.svg` | 4.7 | `b8bd1343175d` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/exports/postcard-04-venezia-scalloped-full.png` | 3278.7 | `e1dfd387744a` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/exports/postcard-04-venezia-scalloped-full.webp` | 2283.1 | `78e4b4c2bae9` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/exports/postcard-04-venezia-scalloped-tight.png` | 3188.8 | `2a221a6b32bf` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/exports/postcard-04-venezia-scalloped-tight.webp` | 2287.1 | `45902f75dcb6` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/exports/postcard-05-universal-reverse.webp` | 2129.0 | `a6c9fbb31f92` | Reisboekje: Sicilia/Sardegna na eilandenles; Venezia na rit 3, Napoli na rit 6; achterkant op kaartknop. Bron/afgeleide varianten niet allemaal ingebed. |
+| `assets/nino/travel-passport/postcards/masters/postcard-04-venezia-front.png` | 3117.3 | `3228aeb85ca5` | Bron/master; niet rechtstreeks zichtbaar. Runtime gebruikt gecontroleerde exports. |
+| `assets/nino/travel-passport/stamps/exports/stamp-01-firenze.webp` | 350.0 | `de4d32cf277a` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-02-roma.webp` | 236.7 | `b34ff0780ebd` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-03-borghi.webp` | 383.2 | `b00fb30fc5eb` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-04-liguria.webp` | 331.0 | `b7cf9eeb47dd` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-05-isole.webp` | 832.5 | `b9dbc0d44b4a` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-06-dolomiti.webp` | 354.9 | `4d989d4b6147` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-07-etna.webp` | 307.1 | `1794a3ee5742` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-08-toscana.webp` | 251.5 | `042bd1d30100` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-09-confine-italia.webp` | 227.8 | `9032c4ff1ec9` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-10-mari.webp` | 240.7 | `686b3f091f93` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/nino/travel-passport/stamps/exports/stamp-11-fiumi.webp` | 366.8 | `063a643d0d16` | V2 Reisboekje-bibliotheek; afhankelijk van blad/verdienstatus, geen nieuwe automatische plaatsing. |
+| `assets/v3/font/nunito-latin.woff2` | 32.4 | `7050925e3183` | Ingebedde Topo Rounded fallback voor V3 UI. |
+| `assets/v3/relief-r2.webp` | 293.4 | `596e2f1e19d9` | Reis/Oefenen/toetsresultaat reliëfraster; verborgen bij Schoolkaart en in lessen. |
+| `assets/v3/render/exports/BG-01-toscane-2880.webp` | 423.0 | `c07c938d9902` | Canvas; Kust/Toscane/Meer via Instellingen of Wisselen. |
+| `assets/v3/render/exports/BG-02-meer-2880.webp` | 313.8 | `939934b56be3` | Canvas; Kust/Toscane/Meer via Instellingen of Wisselen. |
+| `assets/v3/render/exports/BG-03-kust-2880.webp` | 442.1 | `b4a423ef64fd` | Canvas; Kust/Toscane/Meer via Instellingen of Wisselen. |
+| `assets/v3/render/exports/NINO-PORTRET-512.webp` | 51.8 | `97fe052f40fe` | Vaste zijbalkportret. |
+| `assets/v3/render/exports/SCENE-NAPOLI-kop-1672.webp` | 269.1 | `d9662509ce53` | Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `assets/v3/render/exports/SCENE-NAPOLI-mini-480.webp` | 27.3 | `f62e812526d4` | Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `assets/v3/render/exports/SCENE-ROMA-kop-1672.webp` | 328.5 | `5a01badbf0f2` | Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `assets/v3/render/exports/SCENE-ROMA-mini-480.webp` | 33.8 | `518ab33ebc0b` | Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `assets/v3/render/exports/SCENE-VENEZIA-kop-1672.webp` | 304.6 | `719344db49bf` | Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `assets/v3/render/exports/SCENE-VENEZIA-mini-480.webp` | 28.1 | `927c80380ed1` | Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `assets/v3/render/exports/VE-01-vespa-1200.webp` | 86.6 | `41b49a4f6916` | Vervangen in V3 door VESPA-ICOON / VESPA-ZIJ; bewaren als historische bron. |
+| `assets/v3/render/exports/icons/IC-gold-48.webp` | 2.2 | `9bc731086dd8` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-gold-96.webp` | 5.2 | `ee806f0938ef` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-pizza-48.webp` | 2.2 | `95638a96a526` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-pizza-96.webp` | 5.6 | `5d3dbef4e73e` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-postcard-48.webp` | 2.5 | `0d3975e248c3` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-postcard-96.webp` | 6.5 | `b4abe1371d84` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-slice-48.webp` | 2.0 | `cec6dd44ada6` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-slice-96.webp` | 4.5 | `1b1fa303abc5` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-stamp-48.webp` | 2.4 | `50907c9f470d` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-stamp-96.webp` | 6.9 | `a578ddedb395` | 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `assets/v3/render/exports/icons/IC-vespa-48.webp` | 2.3 | `84fc217ccb57` | Vervangen in V3 door VESPA-ICOON / VESPA-ZIJ; bewaren als historische bron. |
+| `assets/v3/render/exports/icons/IC-vespa-96.webp` | 5.9 | `0a060a0cc77a` | Vervangen in V3 door VESPA-ICOON / VESPA-ZIJ; bewaren als historische bron. |
+| `assets/v3/render/exports/nino-aanmoediging-v3.webp` | 285.2 | `327f0f173f77` | Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `assets/v3/render/exports/nino-denkt-v3.webp` | 201.7 | `9304ca962788` | Reservepose; niet ingebed in huidige V3-preview. |
+| `assets/v3/render/exports/nino-gold-v3.webp` | 192.4 | `7f40ee47da77` | Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `assets/v3/render/exports/nino-juicht-v3.webp` | 263.1 | `e270e3406986` | Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `assets/v3/render/exports/nino-paspoort-v3.webp` | 276.7 | `9fb4e8e43da0` | Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `assets/v3/render/exports/nino-schrijft-v3.webp` | 276.6 | `78e77822d041` | Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `assets/v3/render/exports/nino-welkom-v3.webp` | 206.9 | `bd25cc6689f8` | Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `assets/v3/render/exports/nino-wijst-rechts-v3.webp` | 221.4 | `5289080556c2` | Reservepose; niet ingebed in huidige V3-preview. |
+| `assets/v3/render/exports/nino-wijst-v3.webp` | 211.5 | `427ec65cde84` | Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `assets/v3/render/exports/vespa-bagage-v3.webp` | 260.1 | `4827324478e2` | Aankomstpose; alleen bij bijbehorend feedbackmoment. |
+| `assets/v3/render/exports/vespa-icoon-v3.webp` | 128.4 | `07af5136d5d5` | Reis-teller en Voortgang-tegel (master-Vespa). |
+| `assets/v3/render/exports/vespa-rijdend-v3.webp` | 218.1 | `86f084c1599a` | Toetsresultaat, Nino op Vespa. |
+| `assets/v3/render/exports/vespa-zij-v3.webp` | 219.2 | `9ebfeeb30285` | Beloningen en Vespa-rit (master-Vespa). |
+| `assets/v3/scenes/topo-bergen-dolomieten-mini.webp` | 25.9 | `88d66acc2646` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-bergen-dolomieten.webp` | 413.5 | `ea8841762b49` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-eilanden-v2-mini.webp` | 24.1 | `2b027de93af0` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-eilanden-v2.webp` | 340.2 | `8b2d530acee7` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-landen-italie-slovenie-mini.webp` | 27.6 | `3f4ce7e6caa6` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-landen-italie-slovenie.webp` | 393.7 | `10c798c0e9d6` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-rivieren-po-mini.webp` | 31.7 | `8f1517c7d5a8` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-rivieren-po.webp` | 375.0 | `a69ae30fda12` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-steden-firenze-mini.webp` | 32.6 | `268658762900` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-steden-firenze.webp` | 393.3 | `fc30759340d0` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-streken-toscana-mini.webp` | 35.9 | `482349912963` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-streken-toscana.webp` | 430.9 | `6bd74e9cdc13` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-vulkanen-etna-mini.webp` | 19.4 | `21f4566b9d32` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-vulkanen-etna.webp` | 346.2 | `80623ad790d3` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-zeeen-amalfi-mini.webp` | 29.0 | `c0147c714afc` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+| `assets/v3/scenes/topo-zeeen-amalfi.webp` | 388.0 | `fb3a1c781a09` | Mini: Reis-hoofdstuklijst; scene/kop als bibliotheekbron. Volledige scènes nu niet in les getoond. |
+
+## V3 logische assets uit het render-manifest
+
+| ID | Status | Runtime / bron |
+| --- | --- | --- |
+| `BG-01` | eigenaar akkoord; uitzondering bronresolutie vastgelegd (DECISIONS 9-11) | `assets/v3/render/exports/BG-01-toscane-2880.webp` — Canvas; Kust/Toscane/Meer via Instellingen of Wisselen. |
+| `NINO-PORTRET` | eigenaar akkoord op correctie (gesloten werkshirt, 2026-11-09); Hermes PASS (05ab1d0, bewijs qa/v3-art-05ab1d0 @ 6fb8831) | `assets/v3/render/exports/NINO-PORTRET-512.webp` — Vaste zijbalkportret. |
+| `SCENE-ROMA` | eigenaar akkoord op correctie (gesloten werkshirt, 2026-11-09); Hermes PASS (05ab1d0, bewijs qa/v3-art-05ab1d0 @ 6fb8831) | `assets/v3/render/exports/SCENE-ROMA-mini-480.webp` — Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `SCENE-VENEZIA` | eigenaar akkoord (2026-11-09); Hermes PASS (908b4a4) | `assets/v3/render/exports/SCENE-VENEZIA-mini-480.webp` — Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `SCENE-NAPOLI` | eigenaar akkoord op correctie (gesloten werkshirt, 2026-11-09); Hermes PASS (05ab1d0, bewijs qa/v3-art-05ab1d0 @ 6fb8831) | `assets/v3/render/exports/SCENE-NAPOLI-mini-480.webp` — Reis-hoofdstukminiatuur; kop-export beschikbaar maar in huidige UI niet getoond. |
+| `BG-02` | eigenaar akkoord; uitzondering bronresolutie vastgelegd (DECISIONS 9-11) | `assets/v3/render/exports/BG-02-meer-2880.webp` — Canvas; Kust/Toscane/Meer via Instellingen of Wisselen. |
+| `BG-03` | eigenaar akkoord; uitzondering bronresolutie vastgelegd (DECISIONS 9-11) | `assets/v3/render/exports/BG-03-kust-2880.webp` — Canvas; Kust/Toscane/Meer via Instellingen of Wisselen. |
+| `IC-pizza` | eigenaar akkoord (2026-11-09); Hermes PASS (908b4a4) | `assets/v3/render/exports/icons/IC-pizza-96.webp` — 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `IC-vespa` | vervangen | `assets/v3/render/exports/icons/IC-vespa-96.webp` — Vervangen in V3 door VESPA-ICOON / VESPA-ZIJ; bewaren als historische bron. |
+| `IC-gold` | eigenaar akkoord (2026-11-09); Hermes PASS (908b4a4) | `assets/v3/render/exports/icons/IC-gold-96.webp` — 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `VE-01` | eigenaar akkoord (2026-11-09); Hermes PASS (908b4a4) | `assets/v3/render/exports/VE-01-vespa-1200.webp` — Vervangen in V3 door VESPA-ICOON / VESPA-ZIJ; bewaren als historische bron. |
+| `IC-slice` | eigenaar akkoord (2026-11-09); Hermes PASS (908b4a4) | `assets/v3/render/exports/icons/IC-slice-96.webp` — 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `IC-postcard` | eigenaar akkoord (2026-11-09); Hermes PASS (908b4a4) | `assets/v3/render/exports/icons/IC-postcard-96.webp` — 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `IC-stamp` | eigenaar akkoord (2026-11-09); Hermes PASS (908b4a4) | `assets/v3/render/exports/icons/IC-stamp-96.webp` — 96px-export: beloningstegels, tellers of hoofdstukstatus; 48px-export reserve (niet ingebed). |
+| `IC-stamp-tool` | bewaard, niet als icoon | `bronvariant` — Bron/master; niet rechtstreeks zichtbaar. Runtime gebruikt gecontroleerde exports. |
+| `NINO-WELKOM` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-welkom-v3.webp` — Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `NINO-SCHRIJFT` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-schrijft-v3.webp` — Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `NINO-AANMOEDIGING` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-aanmoediging-v3.webp` — Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `NINO-JUICHT` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-juicht-v3.webp` — Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `NINO-GOLD` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-gold-v3.webp` — Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `NINO-DENKT` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-denkt-v3.webp` — Reservepose; niet ingebed in huidige V3-preview. |
+| `NINO-WIJST` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-wijst-v3.webp` — Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `NINO-WIJST-RECHTS` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-wijst-rechts-v3.webp` — Reservepose; niet ingebed in huidige V3-preview. |
+| `NINO-PASPOORT` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/nino-paspoort-v3.webp` — Master-poseadapter: welkom, wijzen, schrijven, aanmoedigen, juichen of goud; toestandafhankelijk. |
+| `VESPA-RIJDEND` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/vespa-rijdend-v3.webp` — Toetsresultaat, Nino op Vespa. |
+| `VESPA-BAGAGE` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/vespa-bagage-v3.webp` — Aankomstpose; alleen bij bijbehorend feedbackmoment. |
+| `VESPA-ZIJ` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/vespa-zij-v3.webp` — Beloningen en Vespa-rit (master-Vespa). |
+| `VESPA-ICOON` | eigenaar akkoord, Hermes open | `assets/v3/render/exports/vespa-icoon-v3.webp` — Reis-teller en Voortgang-tegel (master-Vespa). |
+
+## Aanvulling na punt 20
+
+De inventaris omvat nu 210 aanwezige beeld-/fontbestanden. Nieuw: `assets/v3/landmarks/italia-landmarks-atlas.png` (SHA-256 `17331192b1946e499aafc5608e203bdd239b0c25101d6c78006890824f80c39e`), één transparante atlas met tien illustraties: Colosseum bij Rome, Toren van Pisa, Vesuvius, Etna, Gondel bij Venetië, Duomo bij Florence, Duomo bij Milaan, Mole Antonelliana bij Turijn, Lanterna bij Genua, Twee torens bij Bologna. Alleen zichtbaar op Reis en het toetsresultaat wanneer Reliëf actief is; nooit op de leerkaart of Oefenen. Plaatsing gebruikt de bestaande ITEMS-stads-/vulkaanankers; geen gebouwspecifieke landmeetkundige precisie geclaimd. Visuele eigenaar- en fysieke iPad/Safari-review blijven open.
+
+## Master-landmarks 12-11 — vervangt de gegenereerde atlas
+
+Actueel: 229 lokale beeld-/fontbestanden. De vorige atlas is vervangen door TOPO_01–10 uit `art/master` op `69c945c16a8bd34c8e45cffa96c12442c2672cb1`, met twintig WebP-exports (128 en 256 px). De PNG-masters blijven op de art-branch. Ronde 5 punt 7: pin `daa188f`; TOPO_11–16 (lifestyle, Ferrari erbij) met status `in gebruik V3.0` en twaalf extra WebP-exports. TOPO_12: rood-zwarte tribunes, in gebruik op besluit van de eigenaar.
+
+| Bestand | KiB | SHA-256 | Plek |
+| --- | ---: | --- | --- |
+| `assets/v3/landmarks/exports/TOPO_01-128.webp` | 6.3 | `dfd0204c17d5` | TOPO_01: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_01-256.webp` | 17.6 | `bc5daf04d039` | TOPO_01: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_02-128.webp` | 4.6 | `2f571f751dc9` | TOPO_02: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_02-256.webp` | 12.0 | `5dd2697ad269` | TOPO_02: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_03-128.webp` | 4.3 | `97162495ab61` | TOPO_03: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_03-256.webp` | 12.6 | `444587077247` | TOPO_03: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_04-128.webp` | 4.4 | `6c81d6ea3f45` | TOPO_04: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_04-256.webp` | 12.2 | `3547a18bcd1e` | TOPO_04: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_05-128.webp` | 5.5 | `e0532d88c31a` | TOPO_05: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_05-256.webp` | 14.1 | `2c6bce94704d` | TOPO_05: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_06-128.webp` | 8.5 | `cb3eac551b43` | TOPO_06: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_06-256.webp` | 25.4 | `a7f866b0e6d7` | TOPO_06: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_07-128.webp` | 6.6 | `029ac9cec62b` | TOPO_07: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_07-256.webp` | 19.4 | `dfdc070e24eb` | TOPO_07: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_08-128.webp` | 7.1 | `b8f3691317bc` | TOPO_08: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_08-256.webp` | 20.9 | `78b174193f96` | TOPO_08: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_09-128.webp` | 6.7 | `76e5139c40e4` | TOPO_09: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_09-256.webp` | 19.4 | `6e7ef73b198d` | TOPO_09: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_10-128.webp` | 7.4 | `6fdc1c1cdcdd` | TOPO_10: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_10-256.webp` | 20.8 | `5973c72a994c` | TOPO_10: Reis / toetsresultaat, alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_11-128.webp` | 4.5 | `55906e39bd81` | TOPO_11: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_11-256.webp` | 12.0 | `f1a5af9ebd9e` | TOPO_11: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_12-128.webp` | 7.0 | `0ff4221e2a59` | TOPO_12: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_12-256.webp` | 20.3 | `48fdf0aa5d47` | TOPO_12: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_13-128.webp` | 5.1 | `a41cfca6ba8e` | TOPO_13: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_13-256.webp` | 13.0 | `9be7e79d6231` | TOPO_13: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_14-128.webp` | 8.3 | `71957e5dc9fc` | TOPO_14: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_14-256.webp` | 21.0 | `18d4e0e7c344` | TOPO_14: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_15-128.webp` | 7.4 | `0560bbd65b73` | TOPO_15: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_15-256.webp` | 20.4 | `b928acc36ec1` | TOPO_15: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_16-128.webp` | 5.9 | `c492bc92d93e` | TOPO_16: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+| `assets/v3/landmarks/exports/TOPO_16-256.webp` | 15.6 | `fb02fbf294ea` | TOPO_16: lifestyle, Reis per hoofdstuk (+ één vaste plek), alleen Reliëf |
+
+## V2-bron na stap 0 (12-11) — gedecodeerde data-URI’s
+
+Deze bestanden zijn geen nieuwe artwork: het zijn de beelden die al in `index.html` (V2.0.2) stonden, door stap 0 (`docs/v3/STAP0_BRON.md`) uit de data-URI’s gehaald. `scripts/assemble-index.mjs` zet ze byte-gelijk terug. Bron van waarheid voor gebruik en sha256: `assets/v2/assets.json`.
+
+| Bestand | KB | sha256 (12) | Gebruikt in |
+|---|---:|---|---|
+| `assets/v2/nino-art-css.webp` | 66.1 | `0b83332392b9` | `src/v2/styles/02-stabilisatie.css` |
+| `assets/v2/pizza-board-css.webp` | 93.9 | `e241b9408c86` | `src/v2/styles/04-release-1-1-focus.css`, `src/v2/scripts/03-pizza-reward.js` |
+| `assets/v2/favicon-16.png` | 0.1 | `3a3e320851db` | `src/v2/index.template.html` |
+| `assets/v2/favicon-32.png` | 0.2 | `3f737bc4f491` | `src/v2/index.template.html` |
+| `assets/v2/route-panorama.webp` | 169.6 | `18befedac70a` | `src/v2/markup/01-body-voor-kaart.html` |
+| `assets/v2/schoolblad-foto.jpg` | 194.2 | `90c18b197234` | `src/v2/markup/01-body-voor-kaart.html` |
+| `assets/v2/nino-art-guide.webp` | 218.7 | `13cb4bc888d6` | `src/v2/scripts/02-nino-art.js` |
+| `assets/v2/nino-art-encourage.webp` | 249.4 | `4ab8b1af4289` | `src/v2/scripts/02-nino-art.js` |
+| `assets/v2/nino-art-success.webp` | 249.0 | `e43124089abf` | `src/v2/scripts/02-nino-art.js` |
+| `assets/v2/nino-art-gold.webp` | 224.0 | `b735c2dd4400` | `src/v2/scripts/02-nino-art.js` |
+| `assets/v2/nino-art-welcome.webp` | 242.1 | `89966925cb2f` | `src/v2/scripts/02-nino-art.js`, `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-art-arrival.webp` | 290.4 | `ff1b6908fcbc` | `src/v2/scripts/02-nino-art.js`, `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/pizza-reward-margherita.webp` | 244.3 | `b3fa5fbdd2ee` | `src/v2/scripts/03-pizza-reward.js` |
+| `assets/v2/pizza-reward-salami.webp` | 268.6 | `ff782e287391` | `src/v2/scripts/03-pizza-reward.js` |
+| `assets/v2/pizza-reward-quattro-formaggi.webp` | 229.1 | `e99a7e0d6ed2` | `src/v2/scripts/03-pizza-reward.js` |
+| `assets/v2/pizza-reward-box-margherita.webp` | 218.5 | `742a5d39843d` | `src/v2/scripts/03-pizza-reward.js`, `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/pizza-reward-box-salami.webp` | 278.5 | `9f3795b47f6b` | `src/v2/scripts/03-pizza-reward.js`, `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/pizza-reward-box-quattro-formaggi.webp` | 204.7 | `1b317d389808` | `src/v2/scripts/03-pizza-reward.js`, `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/discovery-map-terrain.webp` | 57.8 | `c9130b73fe1e` | `src/v2/index.template.html` |
+| `assets/v2/nino-v2-cover.webp` | 1492.9 | `8901f57c74fe` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-travel.webp` | 231.3 | `d12e2738fbbb` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter0.webp` | 106.1 | `337e02ba2c1e` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter1.webp` | 102.2 | `f9c76c2c0926` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter2.webp` | 107.4 | `1801146a77b1` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter3.webp` | 121.1 | `125a496d4c65` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter4.webp` | 124.3 | `f1ca42b2a08c` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter5.webp` | 118.8 | `a6b8def0c138` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter6.webp` | 117.2 | `52efca255b21` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter7.webp` | 124.7 | `2885eeb2d2b4` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter8.webp` | 99.0 | `c616f7524a54` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter9.webp` | 115.2 | `66139c111992` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chapter10.webp` | 133.3 | `c08a48c15a9e` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp0.webp` | 350.0 | `de4d32cf277a` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp1.webp` | 236.7 | `b34ff0780ebd` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp2.webp` | 383.2 | `b00fb30fc5eb` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp3.webp` | 331.0 | `b7cf9eeb47dd` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp4.webp` | 832.5 | `b9dbc0d44b4a` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp5.webp` | 354.9 | `4d989d4b6147` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp6.webp` | 307.1 | `1794a3ee5742` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp7.webp` | 251.5 | `042bd1d30100` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp8.webp` | 227.8 | `9032c4ff1ec9` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp9.webp` | 240.7 | `686b3f091f93` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-stamp10.webp` | 366.8 | `063a643d0d16` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-chaptergold.webp` | 6.9 | `54224a2edf4e` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-finalgold.webp` | 356.2 | `63b8e838caff` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-arrival.webp` | 1562.0 | `cc3cd8efb207` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-favorite0.webp` | 162.5 | `75b08c68393c` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-favorite1.webp` | 187.8 | `61e86fd6f033` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-favorite2.webp` | 148.5 | `cd5e75889d7c` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-sicilia.webp` | 2456.5 | `8c7e1ef3cd72` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-sardegna.webp` | 2620.4 | `9e350e91c1a2` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-napoli.webp` | 2392.3 | `819a3d3d1de5` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-reverse.webp` | 2129.0 | `a6c9fbb31f92` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-venezia.webp` | 2287.1 | `45902f75dcb6` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-folioleft.webp` | 1864.3 | `d4862f0f5e34` | `src/v2/scripts/13-nino-v2.js` |
+| `assets/v2/nino-v2-folioright.webp` | 2050.6 | `3ce3133d483b` | `src/v2/scripts/13-nino-v2.js` |
+
+## Assetdieet stap 3: afgeleide exports (`assets/v3/dieet/`)
+
+Geschaalde WebP-kopieën die alleen de V3-preview gebruikt (`scripts/v3-assets-export.py --stap 3`, manifest `assets/v3/dieet/manifest.json`). Geen nieuwe artwork: elke rij is een verkleining van de genoemde bron; de bron blijft ongewijzigd.
+
+| Export | Bron | Maat | Bytes | SSIM |
+|---|---|---|---|---|
+| assets/v3/dieet/042bd1d30100-276x184.webp | assets/v2/nino-v2-stamp7.webp | 276×184 | 35326 | 0.9978 |
+| assets/v3/dieet/063a643d0d16-268x268.webp | assets/v2/nino-v2-stamp10.webp | 268×268 | 50738 | 0.9924 |
+| assets/v3/dieet/07af5136d5d5-88x88.webp | assets/v3/render/exports/vespa-icoon-v3.webp | 88×88 | 9544 | 1.0 |
+| assets/v3/dieet/1794a3ee5742-266x266.webp | assets/v2/nino-v2-stamp6.webp | 266×266 | 42998 | 0.9939 |
+| assets/v3/dieet/45902f75dcb6-754x490.webp | assets/v2/nino-v2-venezia.webp | 754×490 | 676412 | 1.0 |
+| assets/v3/dieet/4d989d4b6147-262x262.webp | assets/v2/nino-v2-stamp5.webp | 262×262 | 44920 | 0.9937 |
+| assets/v3/dieet/61e86fd6f033-184x181.webp | assets/v2/nino-v2-favorite1.webp | 184×181 | 63674 | 1.0 |
+| assets/v3/dieet/686b3f091f93-265x242.webp | assets/v2/nino-v2-stamp9.webp | 265×242 | 37006 | 0.9942 |
+| assets/v3/dieet/75b08c68393c-184x184.webp | assets/v2/nino-v2-favorite0.webp | 184×184 | 58398 | 1.0 |
+| assets/v3/dieet/819a3d3d1de5-753x502.webp | assets/v2/nino-v2-napoli.webp | 753×502 | 648596 | 1.0 |
+| assets/v3/dieet/86f084c1599a-873x582.webp | assets/v3/render/exports/vespa-rijdend-v3.webp | 873×582 | 142594 | 0.9928 |
+| assets/v3/dieet/8901f57c74fe-834x834.webp | assets/v2/nino-v2-cover.webp | 834×834 | 720120 | 1.0 |
+| assets/v3/dieet/89966925cb2f-388x388.webp | assets/v2/nino-art-welcome.webp | 388×388 | 133478 | 1.0 |
+| assets/v3/dieet/8c7e1ef3cd72-753x502.webp | assets/v2/nino-v2-sicilia.webp | 753×502 | 634674 | 1.0 |
+| assets/v3/dieet/9032c4ff1ec9-261x174.webp | assets/v2/nino-v2-stamp8.webp | 261×174 | 29528 | 0.9943 |
+| assets/v3/dieet/9e350e91c1a2-753x502.webp | assets/v2/nino-v2-sardegna.webp | 753×502 | 663880 | 1.0 |
+| assets/v3/dieet/9ebfeeb30285-660x440.webp | assets/v3/render/exports/vespa-zij-v3.webp | 660×440 | 101648 | 0.9902 |
+| assets/v3/dieet/b00fb30fc5eb-262x262.webp | assets/v2/nino-v2-stamp2.webp | 262×262 | 50684 | 0.9904 |
+| assets/v3/dieet/b34ff0780ebd-270x180.webp | assets/v2/nino-v2-stamp1.webp | 270×180 | 33184 | 0.993 |
+| assets/v3/dieet/b3fa5fbdd2ee-840x840.webp | assets/v2/pizza-reward-margherita.webp | 840×840 | 161698 | 0.9912 |
+| assets/v3/dieet/b7cf9eeb47dd-266x266.webp | assets/v2/nino-v2-stamp3.webp | 266×266 | 49276 | 0.9906 |
+| assets/v3/dieet/b9dbc0d44b4a-264x264.webp | assets/v2/nino-v2-stamp4.webp | 264×264 | 27408 | 0.9935 |
+| assets/v3/dieet/bd25cc6689f8-291x436.webp | assets/v3/render/exports/nino-welkom-v3.webp | 291×436 | 43536 | 0.9915 |
+| assets/v3/dieet/cc3cd8efb207-396x396.webp | assets/v2/nino-v2-arrival.webp | 396×396 | 85348 | 0.9915 |
+| assets/v3/dieet/cd5e75889d7c-184x184.webp | assets/v2/nino-v2-favorite2.webp | 184×184 | 57484 | 1.0 |
+| assets/v3/dieet/de4d32cf277a-268x268.webp | assets/v2/nino-v2-stamp0.webp | 268×268 | 48708 | 0.9924 |
+| assets/v3/dieet/e241b9408c86-208x208.webp | assets/v2/pizza-board-css.webp | 208×208 | 48052 | 1.0 |
+| assets/v3/dieet/e270e3406986-480x720.webp | assets/v3/render/exports/nino-juicht-v3.webp | 480×720 | 120168 | 0.9918 |
+| assets/v3/dieet/e99a7e0d6ed2-840x840.webp | assets/v2/pizza-reward-quattro-formaggi.webp | 840×840 | 157940 | 0.9913 |
+| assets/v3/dieet/ff782e287391-840x840.webp | assets/v2/pizza-reward-salami.webp | 840×840 | 178936 | 0.9928 |

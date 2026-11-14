@@ -1,0 +1,1324 @@
+{
+  "1": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "reis",
+          "reis-omgeving"
+        ],
+        "detail": {
+          "bezig": {
+            "italy": {
+              "id": "city1",
+              "frame": "italy",
+              "viewBox": "-88.5 173.4 1107.3 1157.3",
+              "italyH": 448,
+              "italyW": 365,
+              "clearOfCard": true,
+              "inStage": true,
+              "stageH": 648,
+              "stageW": 620,
+              "freeH": 484
+            },
+            "omgeving": {
+              "id": "countries",
+              "frame": "omgeving",
+              "viewBox": "-654.6 -158.3 1699.8 1776.6",
+              "italyH": 292,
+              "italyW": 238,
+              "clearOfCard": true,
+              "inStage": true,
+              "stageH": 648,
+              "stageW": 620,
+              "freeH": 484
+            }
+          },
+          "alles": {
+            "italy": {
+              "id": "city1",
+              "frame": "italy",
+              "viewBox": "-127.7 173.4 1185.7 1239.2",
+              "italyH": 419,
+              "italyW": 341,
+              "clearOfCard": true,
+              "inStage": true,
+              "stageH": 648,
+              "stageW": 620,
+              "freeH": 452
+            },
+            "omgeving": {
+              "id": "countries",
+              "frame": "omgeving",
+              "viewBox": "-714.8 -158.3 1820.2 1902.4",
+              "italyH": 273,
+              "italyW": 222,
+              "clearOfCard": true,
+              "inStage": true,
+              "stageH": 648,
+              "stageW": 620,
+              "freeH": 452
+            }
+          }
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "reis",
+          "reis-omgeving"
+        ],
+        "detail": {
+          "bezig": {
+            "italy": {
+              "id": "city1",
+              "frame": "italy",
+              "viewBox": "-151.6 173.4 1233.5 1494",
+              "italyH": 300,
+              "italyW": 244,
+              "clearOfCard": true,
+              "inStage": true,
+              "stageH": 560,
+              "stageW": 462,
+              "freeH": 324
+            },
+            "omgeving": {
+              "id": "countries",
+              "frame": "omgeving",
+              "viewBox": "-751.5 -158.3 1893.6 2293.5",
+              "italyH": 195,
+              "italyW": 159,
+              "clearOfCard": true,
+              "inStage": true,
+              "stageH": 560,
+              "stageW": 462,
+              "freeH": 324
+            }
+          },
+          "alles": {
+            "italy": {
+              "id": "city1",
+              "frame": "italy",
+              "viewBox": "-221.5 173.4 1373.3 1663.4",
+              "italyH": 269,
+              "italyW": 220,
+              "clearOfCard": true,
+              "inStage": true,
+              "stageH": 560,
+              "stageW": 462,
+              "freeH": 291
+            },
+            "omgeving": {
+              "id": "countries",
+              "frame": "omgeving",
+              "viewBox": "-858.9 -158.3 2108.3 2553.6",
+              "italyH": 176,
+              "italyW": 143,
+              "clearOfCard": true,
+              "inStage": true,
+              "stageH": 560,
+              "stageW": 462,
+              "freeH": 291
+            }
+          }
+        }
+      }
+    },
+    "pass": true
+  },
+  "2": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "reis"
+        ],
+        "detail": {
+          "city1": {
+            "landmarks": [
+              "TOPO_03",
+              "TOPO_06",
+              "TOPO_07",
+              "TOPO_10"
+            ],
+            "set": "chapter"
+          },
+          "city2": {
+            "landmarks": [
+              "TOPO_01",
+              "TOPO_02",
+              "TOPO_05"
+            ],
+            "set": "chapter"
+          },
+          "city3": {
+            "landmarks": [
+              "TOPO_04",
+              "TOPO_08"
+            ],
+            "set": "chapter"
+          },
+          "city4": {
+            "landmarks": [
+              "TOPO_09"
+            ],
+            "set": "chapter"
+          },
+          "islands": {
+            "landmarks": [
+              "TOPO_04",
+              "TOPO_08"
+            ],
+            "set": "chapter"
+          },
+          "mountains": {
+            "landmarks": [
+              "TOPO_09"
+            ],
+            "set": "chapter"
+          },
+          "volcanoes": {
+            "landmarks": [
+              "TOPO_03",
+              "TOPO_04"
+            ],
+            "set": "chapter"
+          },
+          "regions": {
+            "landmarks": [
+              "TOPO_02",
+              "TOPO_06",
+              "TOPO_07"
+            ],
+            "set": "chapter"
+          },
+          "countries": {
+            "landmarks": [
+              "TOPO_01",
+              "TOPO_03",
+              "TOPO_04",
+              "TOPO_06"
+            ],
+            "set": "basis"
+          },
+          "seas": {
+            "landmarks": [
+              "TOPO_05"
+            ],
+            "set": "chapter"
+          },
+          "rivers": {
+            "landmarks": [
+              "TOPO_01"
+            ],
+            "set": "chapter"
+          }
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "reis"
+        ],
+        "detail": {
+          "city1": {
+            "landmarks": [
+              "TOPO_03",
+              "TOPO_06",
+              "TOPO_07",
+              "TOPO_10"
+            ],
+            "set": "chapter"
+          },
+          "city2": {
+            "landmarks": [
+              "TOPO_01",
+              "TOPO_02",
+              "TOPO_05"
+            ],
+            "set": "chapter"
+          },
+          "city3": {
+            "landmarks": [
+              "TOPO_04",
+              "TOPO_08"
+            ],
+            "set": "chapter"
+          },
+          "city4": {
+            "landmarks": [
+              "TOPO_09"
+            ],
+            "set": "chapter"
+          },
+          "islands": {
+            "landmarks": [
+              "TOPO_04",
+              "TOPO_08"
+            ],
+            "set": "chapter"
+          },
+          "mountains": {
+            "landmarks": [
+              "TOPO_09"
+            ],
+            "set": "chapter"
+          },
+          "volcanoes": {
+            "landmarks": [
+              "TOPO_03",
+              "TOPO_04"
+            ],
+            "set": "chapter"
+          },
+          "regions": {
+            "landmarks": [
+              "TOPO_02",
+              "TOPO_06",
+              "TOPO_07"
+            ],
+            "set": "chapter"
+          },
+          "countries": {
+            "landmarks": [
+              "TOPO_01",
+              "TOPO_03",
+              "TOPO_04",
+              "TOPO_06"
+            ],
+            "set": "basis"
+          },
+          "seas": {
+            "landmarks": [
+              "TOPO_05"
+            ],
+            "set": "chapter"
+          },
+          "rivers": {
+            "landmarks": [
+              "TOPO_01"
+            ],
+            "set": "chapter"
+          }
+        }
+      }
+    },
+    "pass": true
+  },
+  "3": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "boek-p1-2"
+        ],
+        "detail": {
+          "texts": 13,
+          "lowestContrast": 6.01
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "boek-p1-2"
+        ],
+        "detail": {
+          "texts": 14,
+          "lowestContrast": 5.84
+        }
+      }
+    },
+    "pass": true
+  },
+  "4": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "voortgang-alles"
+        ],
+        "detail": {
+          "alles": {
+            "count": "45 / 45",
+            "flat": [],
+            "outlined": 20,
+            "relief": true,
+            "gold": true,
+            "cheer": "NINO-JUICHT",
+            "caption": "45 / 45 beheerst"
+          },
+          "bezig": {
+            "count": "6 / 45",
+            "flat": [],
+            "outlined": 0,
+            "relief": true,
+            "gold": false,
+            "cheer": "",
+            "caption": "45 plekken"
+          }
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "voortgang-alles"
+        ],
+        "detail": {
+          "alles": {
+            "count": "45 / 45",
+            "flat": [],
+            "outlined": 20,
+            "relief": true,
+            "gold": true,
+            "cheer": "NINO-JUICHT",
+            "caption": "45 / 45 beheerst"
+          },
+          "bezig": {
+            "count": "6 / 45",
+            "flat": [],
+            "outlined": 0,
+            "relief": true,
+            "gold": false,
+            "cheer": "",
+            "caption": "45 plekken"
+          }
+        }
+      }
+    },
+    "pass": true
+  },
+  "5": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "schoolblad",
+          "instellingen"
+        ],
+        "detail": {
+          "screens": [
+            "beloningen",
+            "boek",
+            "instellingen",
+            "instellingen-focus",
+            "kennismaking",
+            "keuzevenster",
+            "keuzevenster-focus",
+            "les",
+            "les-focus",
+            "les-fout",
+            "les-goed",
+            "les-schrijf",
+            "oefenen",
+            "reis",
+            "schoolblad",
+            "schoolblad-focus",
+            "toets",
+            "toetsResult",
+            "voortgang"
+          ],
+          "v2Greens": [
+            "#003c3a",
+            "#007c72",
+            "#067b8b",
+            "#073f3b",
+            "#074d47",
+            "#087887",
+            "#0c4938",
+            "#104a3f",
+            "#115539",
+            "#123c3f",
+            "#134840",
+            "#136547",
+            "#14553c",
+            "#146552",
+            "#147486",
+            "#153d34",
+            "#15523d",
+            "#155c50",
+            "#155e4a",
+            "#165a35",
+            "#167b59",
+            "#173c34",
+            "#174e3e",
+            "#176843",
+            "#18352f",
+            "#183b3a",
+            "#183e35",
+            "#184d52",
+            "#184e49",
+            "#185b49",
+            "#193d35",
+            "#193f36",
+            "#1a5b55",
+            "#1b694c",
+            "#1c3530",
+            "#1c7051",
+            "#1c7452",
+            "#1d2b2b",
+            "#1d3634",
+            "#214a48",
+            "#214c4b",
+            "#216f51",
+            "#22533f",
+            "#22654f",
+            "#22845c",
+            "#23494d",
+            "#237e5d",
+            "#23865c",
+            "#243f3a",
+            "#244331",
+            "#244838",
+            "#246a47",
+            "#254c46",
+            "#263c32",
+            "#263d39",
+            "#264e48",
+            "#26885f",
+            "#278966",
+            "#283b39",
+            "#285e4c",
+            "#286951",
+            "#29453b",
+            "#294943",
+            "#294b41",
+            "#2f5144",
+            "#305d48",
+            "#315a44",
+            "#326052",
+            "#365b52",
+            "#368963",
+            "#37614c",
+            "#395b59",
+            "#3c5747",
+            "#3f524b",
+            "#415958",
+            "#426a66",
+            "#435c4c",
+            "#435d53",
+            "#446160",
+            "#478079",
+            "#496358",
+            "#496b56",
+            "#4c6257",
+            "#526c62",
+            "#526d6c",
+            "#526f69",
+            "#53654c",
+            "#55ad77",
+            "#56bcb1",
+            "#5a7475",
+            "#5b7575",
+            "#6e9684",
+            "#79af94",
+            "#7fa99a",
+            "#95c5c7",
+            "#a2cbb0",
+            "#a6d0ab",
+            "#a8c8a9",
+            "#a8d5b6",
+            "#a9c3be",
+            "#acd5cb",
+            "#aec6b7",
+            "#b4cbbc",
+            "#b4cdbd",
+            "#b8c9c4",
+            "#b8c9c8",
+            "#bacbb7",
+            "#bdd8c3",
+            "#bddbd3",
+            "#c6ded1",
+            "#c7d4cf",
+            "#c7dfd0",
+            "#c9ddce",
+            "#caebdd",
+            "#cdd9d5",
+            "#cde8de",
+            "#d0e3d5",
+            "#d1dfcf",
+            "#d2ebd5",
+            "#d4e2d0",
+            "#d6e0d6",
+            "#d6e4df",
+            "#d8dfd4",
+            "#d8e3d9",
+            "#d8e8df",
+            "#d9eee3",
+            "#dce9d8",
+            "#dde7e0",
+            "#e0eee7",
+            "#e0f2e6",
+            "#e0f6e7",
+            "#e1f3eb",
+            "#e2e7df",
+            "#e2eae4",
+            "#e2f4e9",
+            "#e2f8f3",
+            "#e4eadc",
+            "#e4eae2",
+            "#e4ebe7",
+            "#e4f0e8",
+            "#e6f3e9",
+            "#e7ede8",
+            "#eaf1e6"
+          ],
+          "v2GreenCount": 143,
+          "hits": 0
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "schoolblad",
+          "instellingen"
+        ],
+        "detail": {
+          "screens": [
+            "beloningen",
+            "boek",
+            "instellingen",
+            "instellingen-focus",
+            "kennismaking",
+            "keuzevenster",
+            "keuzevenster-focus",
+            "les",
+            "les-focus",
+            "les-fout",
+            "les-goed",
+            "les-schrijf",
+            "oefenen",
+            "reis",
+            "schoolblad",
+            "schoolblad-focus",
+            "toets",
+            "toetsResult",
+            "voortgang"
+          ],
+          "v2Greens": [
+            "#003c3a",
+            "#007c72",
+            "#067b8b",
+            "#073f3b",
+            "#074d47",
+            "#087887",
+            "#0c4938",
+            "#104a3f",
+            "#115539",
+            "#123c3f",
+            "#134840",
+            "#136547",
+            "#14553c",
+            "#146552",
+            "#147486",
+            "#153d34",
+            "#15523d",
+            "#155c50",
+            "#155e4a",
+            "#165a35",
+            "#167b59",
+            "#173c34",
+            "#174e3e",
+            "#176843",
+            "#18352f",
+            "#183b3a",
+            "#183e35",
+            "#184d52",
+            "#184e49",
+            "#185b49",
+            "#193d35",
+            "#193f36",
+            "#1a5b55",
+            "#1b694c",
+            "#1c3530",
+            "#1c7051",
+            "#1c7452",
+            "#1d2b2b",
+            "#1d3634",
+            "#214a48",
+            "#214c4b",
+            "#216f51",
+            "#22533f",
+            "#22654f",
+            "#22845c",
+            "#23494d",
+            "#237e5d",
+            "#23865c",
+            "#243f3a",
+            "#244331",
+            "#244838",
+            "#246a47",
+            "#254c46",
+            "#263c32",
+            "#263d39",
+            "#264e48",
+            "#26885f",
+            "#278966",
+            "#283b39",
+            "#285e4c",
+            "#286951",
+            "#29453b",
+            "#294943",
+            "#294b41",
+            "#2f5144",
+            "#305d48",
+            "#315a44",
+            "#326052",
+            "#365b52",
+            "#368963",
+            "#37614c",
+            "#395b59",
+            "#3c5747",
+            "#3f524b",
+            "#415958",
+            "#426a66",
+            "#435c4c",
+            "#435d53",
+            "#446160",
+            "#478079",
+            "#496358",
+            "#496b56",
+            "#4c6257",
+            "#526c62",
+            "#526d6c",
+            "#526f69",
+            "#53654c",
+            "#55ad77",
+            "#56bcb1",
+            "#5a7475",
+            "#5b7575",
+            "#6e9684",
+            "#79af94",
+            "#7fa99a",
+            "#95c5c7",
+            "#a2cbb0",
+            "#a6d0ab",
+            "#a8c8a9",
+            "#a8d5b6",
+            "#a9c3be",
+            "#acd5cb",
+            "#aec6b7",
+            "#b4cbbc",
+            "#b4cdbd",
+            "#b8c9c4",
+            "#b8c9c8",
+            "#bacbb7",
+            "#bdd8c3",
+            "#bddbd3",
+            "#c6ded1",
+            "#c7d4cf",
+            "#c7dfd0",
+            "#c9ddce",
+            "#caebdd",
+            "#cdd9d5",
+            "#cde8de",
+            "#d0e3d5",
+            "#d1dfcf",
+            "#d2ebd5",
+            "#d4e2d0",
+            "#d6e0d6",
+            "#d6e4df",
+            "#d8dfd4",
+            "#d8e3d9",
+            "#d8e8df",
+            "#d9eee3",
+            "#dce9d8",
+            "#dde7e0",
+            "#e0eee7",
+            "#e0f2e6",
+            "#e0f6e7",
+            "#e1f3eb",
+            "#e2e7df",
+            "#e2eae4",
+            "#e2f4e9",
+            "#e2f8f3",
+            "#e4eadc",
+            "#e4eae2",
+            "#e4ebe7",
+            "#e4f0e8",
+            "#e6f3e9",
+            "#e7ede8",
+            "#eaf1e6"
+          ],
+          "v2GreenCount": 143,
+          "hits": 0
+        }
+      }
+    },
+    "pass": true
+  },
+  "6": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "vespa-rit"
+        ],
+        "detail": {
+          "depart": {
+            "open": true,
+            "phase": "depart",
+            "master": "VESPA-RIJDEND",
+            "rijdend": true,
+            "anim": "v3Engine",
+            "visible": true
+          },
+          "ride": {
+            "open": true,
+            "phase": "ride",
+            "master": "VESPA-RIJDEND",
+            "rijdend": true,
+            "anim": "v3RideOut",
+            "visible": true
+          },
+          "arrived": {
+            "open": true,
+            "phase": "arrived",
+            "master": "VESPA-RIJDEND",
+            "rijdend": true,
+            "anim": "none",
+            "visible": false
+          },
+          "reducedMotion": {
+            "open": true,
+            "phase": "arrived",
+            "master": "VESPA-RIJDEND",
+            "rijdend": true,
+            "anim": "none",
+            "visible": false
+          }
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "vespa-rit"
+        ],
+        "detail": {
+          "depart": {
+            "open": true,
+            "phase": "depart",
+            "master": "VESPA-RIJDEND",
+            "rijdend": true,
+            "anim": "v3Engine",
+            "visible": true
+          },
+          "ride": {
+            "open": true,
+            "phase": "ride",
+            "master": "VESPA-RIJDEND",
+            "rijdend": true,
+            "anim": "v3RideOut",
+            "visible": true
+          },
+          "arrived": {
+            "open": true,
+            "phase": "arrived",
+            "master": "VESPA-RIJDEND",
+            "rijdend": true,
+            "anim": "none",
+            "visible": false
+          },
+          "reducedMotion": {
+            "open": true,
+            "phase": "arrived",
+            "master": "VESPA-RIJDEND",
+            "rijdend": true,
+            "anim": "none",
+            "visible": false
+          }
+        }
+      }
+    },
+    "pass": true
+  },
+  "7": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "reis-lifestyle",
+          "toetsResult-goed",
+          "voortgang-alles",
+          "vespa-rit"
+        ],
+        "detail": {
+          "city1": {
+            "items": [
+              [
+                "TOPO_15",
+                "bologna"
+              ],
+              [
+                "TOPO_12",
+                "milaan"
+              ]
+            ],
+            "sizes": [
+              32,
+              32
+            ]
+          },
+          "city2": {
+            "items": [
+              [
+                "TOPO_16",
+                "turijn"
+              ],
+              [
+                "TOPO_13",
+                "rome"
+              ]
+            ],
+            "sizes": [
+              32,
+              32
+            ]
+          },
+          "city3": {
+            "items": [
+              [
+                "TOPO_13",
+                "catania"
+              ]
+            ],
+            "sizes": [
+              32
+            ]
+          },
+          "city4": {
+            "items": [
+              [
+                "TOPO_11",
+                "modena"
+              ],
+              [
+                "TOPO_14",
+                "rimini"
+              ]
+            ],
+            "sizes": [
+              32,
+              32
+            ]
+          },
+          "islands": {
+            "items": [
+              [
+                "TOPO_13",
+                "palermo"
+              ]
+            ],
+            "sizes": [
+              32
+            ]
+          },
+          "mountains": {
+            "items": [
+              [
+                "TOPO_16",
+                "toscane"
+              ]
+            ],
+            "sizes": [
+              32
+            ]
+          },
+          "volcanoes": {
+            "items": [
+              [
+                "TOPO_16",
+                "kust-napels"
+              ]
+            ],
+            "sizes": [
+              32
+            ]
+          },
+          "regions": {
+            "items": [
+              [
+                "TOPO_15",
+                "bologna"
+              ],
+              [
+                "TOPO_11",
+                "modena"
+              ]
+            ],
+            "sizes": [
+              32,
+              32
+            ]
+          },
+          "countries": {
+            "items": [
+              [
+                "TOPO_16",
+                "turijn"
+              ]
+            ],
+            "sizes": [
+              32
+            ]
+          },
+          "seas": {
+            "items": [
+              [
+                "TOPO_14",
+                "rimini"
+              ],
+              [
+                "TOPO_13",
+                "genua"
+              ]
+            ],
+            "sizes": [
+              32,
+              32
+            ]
+          },
+          "rivers": {
+            "items": [
+              [
+                "TOPO_16",
+                "rome"
+              ],
+              [
+                "TOPO_11",
+                "modena"
+              ]
+            ],
+            "sizes": [
+              32,
+              32
+            ]
+          },
+          "goldChecked": true
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "reis-lifestyle",
+          "toetsResult-goed",
+          "voortgang-alles",
+          "vespa-rit"
+        ],
+        "detail": {
+          "city1": {
+            "items": [
+              [
+                "TOPO_15",
+                "bologna"
+              ],
+              [
+                "TOPO_12",
+                "milaan"
+              ]
+            ],
+            "sizes": [
+              28,
+              28
+            ]
+          },
+          "city2": {
+            "items": [
+              [
+                "TOPO_16",
+                "turijn"
+              ],
+              [
+                "TOPO_13",
+                "rome"
+              ]
+            ],
+            "sizes": [
+              28,
+              28
+            ]
+          },
+          "city3": {
+            "items": [
+              [
+                "TOPO_13",
+                "catania"
+              ]
+            ],
+            "sizes": [
+              28
+            ]
+          },
+          "city4": {
+            "items": [
+              [
+                "TOPO_11",
+                "modena"
+              ],
+              [
+                "TOPO_14",
+                "rimini"
+              ]
+            ],
+            "sizes": [
+              28,
+              28
+            ]
+          },
+          "islands": {
+            "items": [
+              [
+                "TOPO_13",
+                "palermo"
+              ]
+            ],
+            "sizes": [
+              28
+            ]
+          },
+          "mountains": {
+            "items": [
+              [
+                "TOPO_16",
+                "toscane"
+              ]
+            ],
+            "sizes": [
+              28
+            ]
+          },
+          "volcanoes": {
+            "items": [
+              [
+                "TOPO_16",
+                "kust-napels"
+              ]
+            ],
+            "sizes": [
+              28
+            ]
+          },
+          "regions": {
+            "items": [
+              [
+                "TOPO_15",
+                "bologna"
+              ],
+              [
+                "TOPO_11",
+                "modena"
+              ]
+            ],
+            "sizes": [
+              28,
+              28
+            ]
+          },
+          "countries": {
+            "items": [
+              [
+                "TOPO_16",
+                "turijn"
+              ]
+            ],
+            "sizes": [
+              28
+            ]
+          },
+          "seas": {
+            "items": [
+              [
+                "TOPO_14",
+                "rimini"
+              ],
+              [
+                "TOPO_13",
+                "genua"
+              ]
+            ],
+            "sizes": [
+              28,
+              28
+            ]
+          },
+          "rivers": {
+            "items": [
+              [
+                "TOPO_16",
+                "rome"
+              ],
+              [
+                "TOPO_11",
+                "modena"
+              ]
+            ],
+            "sizes": [
+              28,
+              28
+            ]
+          },
+          "goldChecked": true
+        }
+      }
+    },
+    "pass": true
+  },
+  "8": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "relief-vergelijking (voor | na | R-reis-ijk)",
+          "reis"
+        ],
+        "detail": {
+          "before": {
+            "satMean": 0.419,
+            "satP99": 0.498,
+            "valP99": 0.824,
+            "localContrast": 18.54
+          },
+          "after": {
+            "satMean": 0.558,
+            "satP99": 0.647,
+            "valP99": 0.969,
+            "localContrast": 24.28
+          }
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "relief-vergelijking (voor | na | R-reis-ijk)",
+          "reis"
+        ],
+        "detail": {
+          "before": {
+            "satMean": 0.417,
+            "satP99": 0.49,
+            "valP99": 0.827,
+            "localContrast": 21.43
+          },
+          "after": {
+            "satMean": 0.555,
+            "satP99": 0.631,
+            "valP99": 0.965,
+            "localContrast": 27.9
+          }
+        }
+      }
+    },
+    "pass": true
+  },
+  "9": {
+    "previewSha256": "aef16dd04014dee291d75cd98959494cbfbc95533dfa928b34aa9ef4357f37db",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screens": [
+          "post (kaart + stip)",
+          "post-boek (postkaartpagina)"
+        ],
+        "detail": {
+          "start": {
+            "earned": [],
+            "seen": []
+          },
+          "card": {
+            "text": "Post voor jou!\nEen nieuwe postkaart in je Reisboekje.",
+            "live": "polite",
+            "src": true,
+            "post": "venezia",
+            "bg": "blur(28px) saturate(1.4)",
+            "anim": 1
+          },
+          "goldChecked": true
+        }
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screens": [
+          "post (kaart + stip)",
+          "post-boek (postkaartpagina)"
+        ],
+        "detail": {
+          "start": {
+            "earned": [],
+            "seen": []
+          },
+          "card": {
+            "text": "Post voor jou!\nEen nieuwe postkaart in je Reisboekje.",
+            "live": "polite",
+            "src": true,
+            "post": "venezia",
+            "bg": "blur(28px) saturate(1.4)",
+            "anim": 1
+          },
+          "goldChecked": true
+        }
+      }
+    },
+    "pass": true
+  }
+}

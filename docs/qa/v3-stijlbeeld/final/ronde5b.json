@@ -1,0 +1,277 @@
+{
+  "10": {
+    "pass": true,
+    "previewSha256": "1d79db722dbc5eae4e51725f2156102de535eaeca2bf1520b138b6322f24a685",
+    "indexSha256": "3aced3c31259011b0af2947c78f71965cb4beb2e88c69d1663e61792b0304f5a",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screen": "reis",
+        "checks": {
+          "cases": 33,
+          "states": [
+            "alles",
+            "bezig",
+            "nieuw"
+          ],
+          "chapters": 11,
+          "minExposedMapShare": 0.5143,
+          "maxCardShare": 0.4,
+          "maxTitleLines": 1,
+          "fonts": [
+            28
+          ],
+          "longTitleCases": [
+            {
+              "state": "nieuw",
+              "title": "Hoofdstuk 4: Extra steden 19–23",
+              "lines": 1,
+              "font": 28
+            },
+            {
+              "state": "bezig",
+              "title": "Hoofdstuk 4: Extra steden 19–23",
+              "lines": 1,
+              "font": 28
+            },
+            {
+              "state": "alles",
+              "title": "Hoofdstuk 4: Extra steden 19–23",
+              "lines": 1,
+              "font": 28
+            }
+          ],
+          "framesStable": true
+        },
+        "errors": []
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screen": "reis",
+        "checks": {
+          "cases": 33,
+          "states": [
+            "alles",
+            "bezig",
+            "nieuw"
+          ],
+          "chapters": 11,
+          "minExposedMapShare": 0.4736,
+          "maxCardShare": 0.4,
+          "maxTitleLines": 1,
+          "fonts": [
+            24
+          ],
+          "longTitleCases": [
+            {
+              "state": "nieuw",
+              "title": "Hoofdstuk 4: Extra steden 19–23",
+              "lines": 1,
+              "font": 24
+            },
+            {
+              "state": "bezig",
+              "title": "Hoofdstuk 4: Extra steden 19–23",
+              "lines": 1,
+              "font": 24
+            },
+            {
+              "state": "alles",
+              "title": "Hoofdstuk 4: Extra steden 19–23",
+              "lines": 1,
+              "font": 24
+            }
+          ],
+          "framesStable": true
+        },
+        "errors": []
+      }
+    }
+  },
+  "11": {
+    "pass": true,
+    "previewSha256": "5860822d040711ed159f04034e6e2b6288dc22ab8a4665f51702078c11f08466",
+    "indexSha256": "3aced3c31259011b0af2947c78f71965cb4beb2e88c69d1663e61792b0304f5a",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screen": "reis-omgeving",
+        "checks": {
+          "frame": "omgeving",
+          "relief": "block",
+          "countries": [
+            {
+              "id": "area-i",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            },
+            {
+              "id": "area-j",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            },
+            {
+              "id": "area-k",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            },
+            {
+              "id": "area-l",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            },
+            {
+              "id": "area-m",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            }
+          ],
+          "geometrySha256": "200b18a8aa3618ab0da85e2e0a7a48fd547172461802c6c64f4efe4dcce0762e"
+        },
+        "errors": []
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screen": "reis-omgeving",
+        "checks": {
+          "frame": "omgeving",
+          "relief": "block",
+          "countries": [
+            {
+              "id": "area-i",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            },
+            {
+              "id": "area-j",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            },
+            {
+              "id": "area-k",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            },
+            {
+              "id": "area-l",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            },
+            {
+              "id": "area-m",
+              "fill": "rgb(91, 69, 224)",
+              "alpha": 0.12,
+              "stroke": "rgb(91, 69, 224)",
+              "strokeAlpha": 0.9,
+              "width": 2
+            }
+          ],
+          "geometrySha256": "200b18a8aa3618ab0da85e2e0a7a48fd547172461802c6c64f4efe4dcce0762e"
+        },
+        "errors": []
+      }
+    }
+  },
+  "12": {
+    "pass": true,
+    "previewSha256": "ffe4e1f165eb58af89b0de9bae42f0ce02942be48aecd02b0d308f0075d9e677",
+    "indexSha256": "3aced3c31259011b0af2947c78f71965cb4beb2e88c69d1663e61792b0304f5a",
+    "runs": {
+      "desktop": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "screen": "vespa-rit",
+        "checks": {
+          "text": "Overslaan",
+          "focus": true,
+          "visible": true,
+          "outline": "rgb(91, 69, 224)",
+          "outlineWidth": 3,
+          "outlineStyle": "solid",
+          "offset": 3,
+          "shadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(42, 36, 64, 0.1) 0px 4px 12px 0px",
+          "background": "rgba(255, 255, 255, 0.72)",
+          "radius": 999,
+          "height": 48,
+          "width": 119.859375,
+          "rewardCountersBefore": [
+            168,
+            21,
+            7
+          ],
+          "skipReachesArrivalWithoutRewardChanges": true
+        },
+        "errors": []
+      },
+      "ipad-liggend": {
+        "viewport": [
+          1080,
+          810
+        ],
+        "screen": "vespa-rit",
+        "checks": {
+          "text": "Overslaan",
+          "focus": true,
+          "visible": true,
+          "outline": "rgb(91, 69, 224)",
+          "outlineWidth": 3,
+          "outlineStyle": "solid",
+          "offset": 3,
+          "shadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(42, 36, 64, 0.1) 0px 4px 12px 0px",
+          "background": "rgba(255, 255, 255, 0.72)",
+          "radius": 999,
+          "height": 48,
+          "width": 119.859375,
+          "rewardCountersBefore": [
+            168,
+            21,
+            7
+          ],
+          "skipReachesArrivalWithoutRewardChanges": true
+        },
+        "errors": []
+      }
+    }
+  }
+}
