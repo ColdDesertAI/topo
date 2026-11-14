@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-14 · door: Claude (afsluiting BL-003, rebase op `95d161a`)
+> Bijgewerkt: 2026-11-15 · door: Claude (afsluiting BL-003, herstel na evaluator)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11** (`ops/ROADMAP.md` r. 3, 6). Exitcriteria (`ops/ROADMAP.md` r. 12):
@@ -17,14 +17,14 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11** (`ops/ROADMAP.md` r. 3, 6). 
 - Wat het is: presentatielaag in `scripts/v3/`, alleen in de preview geïnjecteerd; wijzig `src/v2/`, nooit `index.html`. Ondergrens iPad 9 (3 GB RAM, Safari); preview 50 MB niet committen: `docs/v3/SPEC.md@55b4d86` r. 6–8, 35, 38–39
 - Af volgens de overdracht: ronde 3 punt 1–20 (`70cdb34`), ronde 5 punt 1–9 (`6809458`), ronde 5B punt 10–12 (`fec8891`, `e856080`, `f55f247`), alleen schermgerichte QA, geen volledige suite: `docs/v3/OVERDRACHT.md@55b4d86` r. 136, 250–252, 313–317
 - Open: fysieke iPad/Safari-test door de eigenaar en Hermes-hertest, volgorde reliëf-render, release-build, hertest, akkoord eigenaar: `docs/v3/OVERDRACHT.md@55b4d86` r. 305–310, 317
-- Open: reliëf (punt 8) alleen voorlopig akkoord, eigen pakket `docs/v3/RELIEF_RENDER.md@55b4d86` (r. 289–291, 304); ontbrekende landmarks (eigenaar), TOPO_12-kleurnotitie, coördinaten Rimini en Sorrento niet geverifieerd, assetdieet stap 4–7 geparkeerd (r. 296–300). Bekend gebrek: `qa-v3-faseb.py` veronderstelt de oude kaartuitlijning, assertions achterhaald door punt 10 (r. 317): `docs/v3/OVERDRACHT.md@55b4d86`
+- Open: reliëf (punt 8) voorlopig akkoord, eigen pakket `docs/v3/RELIEF_RENDER.md@55b4d86`; landmarks (eigenaar), TOPO_12-kleur, coördinaten Rimini/Sorrento ongeverifieerd, assetdieet stap 4–7 geparkeerd. Gebrek: `qa-v3-faseb.py` oude kaartuitlijning: `docs/v3/OVERDRACHT.md@55b4d86` r. 289–291, 296–300, 304, 317
 - Na V3.0: runtime-migratie (`arch/v3-runtime`, met landpakket Frankrijk) en uitstapjes (V3.1): `docs/v3/SPEC.md@55b4d86` r. 45–47
 
 ## Actieve werkstromen (moeten samenkomen)
 | Branch (tip `origin/…`, lokale ref) | Wat | Sha · datum |
 |---|---|---|
 | `codex/topo-v3` | V3.0 app plus landmarks | `55b4d86` · 2026-11-13 |
-| `art/master` | Artwork Italië | `7714e22` · 2026-11-13 |
+| `art/master` | Artwork Italië (lokale ref; remote volgens `ops/RUNLOG.md` r. 21 `b9e4a38`, niet gefetcht) | `7714e22` · 2026-11-13 |
 | `t/BL-005-integratie` | Merge van `codex/topo-v3` in `main` (BL-005, gepusht 14-11) | `e09d33e` · 2026-11-14 |
 | `feat/nino-topo-portal-r2` | Portal | `f0b7e66` · 2026-11-13 |
 | `art/nino-topo-website-v1` | Website | `b05a9d5` · 2026-11-13 |
@@ -33,7 +33,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11** (`ops/ROADMAP.md` r. 3, 6). 
 | `arch/v3-runtime` | Migratievoorstel en landpakket | `75263a7` · 2026-11-10 |
 
 ## Volgende taak
-- In `review`: BL-001 (PASS met voorbehoud C4, cherry niet gedraaid: `ops/RUNLOG.md` r. 13), BL-002 (PASS met voorbehoud, run 2: `ops/reports/eval-BL-002.md` r. 6; voorbehoud = beslissing 5), BL-003 (`ops/contracts/BL-003.md`), BL-013 (portal, `ops/contracts/BL-013.md`, wacht op G1). Afgerond: BL-005 `klaar` (#91; plan `ops/reports/integratie.md`, evaluatie `ops/reports/eval-BL-005.md` r. 6)
+- `review`: BL-001 (PASS met voorbehoud C4, `ops/RUNLOG.md` r. 13), BL-002 (PASS met voorbehoud = beslissing 5, `ops/reports/eval-BL-002.md` r. 6), BL-003 (`ops/contracts/BL-003.md`), BL-013 (wacht op G1, `ops/contracts/BL-013.md`). `klaar`: BL-005 (#91, `ops/reports/eval-BL-005.md` r. 6)
 - Volgende: BL-001b `ready` (`git cherry` tegen `origin/main`, `ops/BACKLOG.md` r. 13), daarna BL-005c `idee` (archieftags, r. 18). BL-002b (uitvoeren op `main`) is nog geen item in `ops/BACKLOG.md`
 - Wacht (`ops/BACKLOG.md`): BL-005b `geblokkeerd: G3 (BL-004)` (r. 19, beslissing 3a), BL-004 `idee` (r. 16), BL-006 `idee` (r. 22)
 
@@ -43,7 +43,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11** (`ops/ROADMAP.md` r. 3, 6). 
 - FR-code gepauzeerd tot M1. FR-data, research en art mogen parallel op Codex (OPERATING_MODEL §5, 🟡) · `ops/RUNLOG.md` r. 10, `ops/OPERATING_MODEL.md` r. 48
 
 ## Portal (besluit 14-11: optie A)
-- BL-013 in review: portal op `/`, Italië op `/italie/`. Daarna G1 (visuele GO op de preview) en G4 (live + DNS bij Namecheap, BL-009). · `ops/contracts/BL-013.md` r. 3–4, `ops/BACKLOG.md` r. 32
+- BL-013 in review: portal op `/`, Italië op `/italie/`. Daarna G1 (visuele GO op de preview) en G4 (live + DNS bij Namecheap, BL-009). · `ops/contracts/BL-013.md` r. 3–4, `ops/BACKLOG.md` r. 32, `ops/contracts/BL-013.md` r. 9, 25, `ops/RUNLOG.md` r. 24
 - ROADMAP M0 zei "portal naar één preview-URL"; dat wordt nu: portal live met de huidige Italië-versie, V3 volgt via BL-005. · `ops/ROADMAP.md` r. 10, `ops/contracts/BL-013.md` r. 4
 
 ## Open beslissingen voor Dennis
@@ -54,7 +54,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11** (`ops/ROADMAP.md` r. 3, 6). 
 5. `docs/v4/FRANKRIJK_HANDOFF.md` staat in het verplaatsplan van BL-002 op `archief` (contractregel: HANDOFF in de naam, geen lezer), maar is de opdracht voor de actieve branches `land/fr-geo` / `land/fr-inhoud`. Kies archiveren of actueel houden. Aanbeveling van de hoofdsessie (geen besluit van Dennis): actueel houden tot M2 · `ops/reports/docs-inventaris.md` r. 110
 
 ## Bekende risico's
-- Artwork-goedkeuring is de bottleneck voor elk land (`ops/playbooks/NIEUW_LAND.md` r. 31, 37); voor Italië hangt artwork aan akkoord en aanlevering van de eigenaar (master-assets, ontbrekende landmarks): `docs/v3/OVERDRACHT.md@55b4d86` r. 37, 296
+- Artwork-goedkeuring is de bottleneck voor elk land (`ops/playbooks/NIEUW_LAND.md` r. 31, 37, 40); voor Italië hangt artwork aan akkoord en aanlevering van de eigenaar (master-assets, ontbrekende landmarks): `docs/v3/OVERDRACHT.md@55b4d86` r. 37, 296
 - M0-deadline dreigt te schuiven: BL-004, BL-005b, BL-006 staan niet op `ready`/`klaar` (`ops/BACKLOG.md` r. 16, 19, 22) plus de iPad-test van Dennis (`docs/v3/OVERDRACHT.md@55b4d86` r. 317), in 6 dagen tot vr 20 nov (`ops/ROADMAP.md` r. 6). Niets geschoven (beslissing 4)
 - `index.html` van 41 MB en een preview van 50 MB op een iPad 9 met 3 GB RAM: `docs/v3/SPEC.md@55b4d86` r. 6, 35, 39
-- Schijf Mac mini: Dennis heeft 14-11 ruimte gemaakt (ongeveer 12 GB vrij). BL-005b/e hebben ≥ 3 GB nodig (`ops/reports/integratie.md` r. 160); check `df` vóór de start, de schijf liep tijdens BL-005 vol (`ops/LEARNINGS.md` r. 26)
+- Schijf Mac mini: Dennis heeft 14-11 ruimte gemaakt (ongeveer 12 GB vrij; melding vastgelegd in `b835a59`). BL-005b/e hebben ≥ 3 GB nodig (`ops/reports/integratie.md` r. 160); check `df` vóór de start, de schijf liep tijdens BL-005 vol (`ops/LEARNINGS.md` r. 26)
