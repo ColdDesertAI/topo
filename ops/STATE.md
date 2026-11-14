@@ -24,7 +24,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11** (`ops/ROADMAP.md` r. 3, 6). 
 | Branch (tip `origin/…`, lokale ref) | Wat | Sha · datum |
 |---|---|---|
 | `codex/topo-v3` | V3.0 app plus landmarks | `55b4d86` · 2026-11-13 |
-| `art/master` | Artwork Italië (lokale ref; remote volgens `ops/RUNLOG.md` r. 21 `b9e4a38`, niet gefetcht) | `7714e22` · 2026-11-13 |
+| `art/master` | Artwork Italië (lokale ref; remote staat verder volgens `ops/RUNLOG.md` r. 21, niet gefetcht) | `7714e22` · 2026-11-13 |
 | `t/BL-005-integratie` | Merge van `codex/topo-v3` in `main` (BL-005, gepusht 14-11) | `e09d33e` · 2026-11-14 |
 | `feat/nino-topo-portal-r2` | Portal | `f0b7e66` · 2026-11-13 |
 | `art/nino-topo-website-v1` | Website | `b05a9d5` · 2026-11-13 |
