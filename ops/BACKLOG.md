@@ -22,11 +22,11 @@ Regels:
 | BL-006 | Vercel: productie = `main`, preview per PR, portal op een eigen pad | M0 | P1 | S | idee | Claude | — |
 | BL-007 | Runtime-migratie stap 1: karakterisering op de V3.0-pin | M1 | P1 | M | idee | Claude | — |
 | BL-008 | Speeltest-protocol met 2–3 kinderen (taken, observatie, vragen) | M0 | P1 | S | idee | Claude | — |
-| BL-009 | Domein koppelen aan Vercel (na aankoop door Dennis), productie-URL vastleggen | M0 | P1 | S | idee (ninotopo.nl gekocht 14-11; wacht op DNS-toegang van Dennis) | Claude | — |
+| BL-009 | Domein koppelen aan Vercel (na aankoop door Dennis), productie-URL vastleggen | M0 | P1 | S | klaar (14-11: Vercel ← ColdDesertAI/topo, DNS bij Namecheap, www.ninotopo.nl live) | Claude | — |
 | BL-010 | Speeltest-ronde 1 met groep 7 op V3.0 (na BL-004) | M0 | P1 | S | idee | Dennis + Claude | — |
 | FR-01 | FR-curriculum: itemlijst groep 7 (toetsstof, schoolatlas), met bron per item → `src/lands/fr/items.draft.json` (pure data) | M2 · parallel | P2 | S | idee | **Codex** | — |
 | FR-02 | FR-geometrie: bron met licentie (Natural Earth/OSM), projectie, hashes, validatierapport, overnemen uit `land/fr-geo` waar het klopt | M2 · parallel | P2 | M | idee | **Codex** | — |
 | FR-03 | FR-artwork-brief: Nino in Frankrijk (thema-object, scènes, landmarks), voortbouwend op de goedgekeurde gebakjes uit `art/master` | M2 · parallel | P2 | S | idee | **Codex** | — |
 | BL-011 | Domein- en merkstrategie internationaal: `ninotopo.com` als hub met taalpaden (`/en`, `/de`), betekenis van "topo" per taal checken (IT = muis, ES = mol, FR = praatje, EN = topokaart), alleen ccTLD's kopen voor markten waar we live gaan | M3 | P2 | S | idee | Claude | — |
 | BL-012 | Favicon R3 (besluit 14-11) in de repo: assetset via `art/master` naar `assets/nino-topo/v3-r3/brand/icons/`, daarna in portal/website en app gebruiken | M0 | P1 | S | idee (assets staan op `art/master` @ `b9e4a38` met SHA256SUMS; rest: gebruiken in portal/website en app, hoort bij BL-005) | Claude | Criteria: alle 7 bestanden aanwezig met juiste afmetingen, SHA256 in manifest, favicon zichtbaar op de preview-URL |
-| BL-013 | Portal R3 als site-root: portal op `/`, Italië-app op `/italie/`, R3-merkassets aangesloten | M0 | P0 | M | review | hoofdsessie (Fable) | `ops/contracts/BL-013.md` |
+| BL-013 | Portal R3 als site-root: portal op `/`, Italië-app op `/italie/`, R3-merkassets aangesloten | M0 | P0 | M | klaar (live 14-11, www.ninotopo.nl) | hoofdsessie (Fable) | `ops/contracts/BL-013.md` |

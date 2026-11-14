@@ -1,0 +1,102 @@
+/* Ronde 5 (docs/v3/OVERDRACHT.md › Ronde 5). Presentation only; V2 behaviour, keyboard and focus order are unchanged. */
+
+/* 3. Boek, pagina 1 en 2: no cream text plate; the text stands on the parchment itself in a deep sepia ink (AA, measured
+   against the bare parchment by scripts/qa-v3-ronde5.py --point 3). */
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)){background:none;border-radius:0;color:#2b1d11}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)) :is(h3,p,span,strong,small,.bookNote){color:inherit}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)) .bookFact{border-bottom-color:#5a412a59}
+.travelBook .folioWriting:is(.coverFolio,:has(.bookFact)) .bookLink{color:#6e1414}
+/* The text stays on the calm parchment: above the painted coast (right page, from ±62 % down) and the balustrade
+   (left page, from ±72 % down). The facts read as one line each, so everything fits above the painting. */
+.travelBook .folioWriting.coverFolio{inset:13% 14% 28% 16%}
+.travelBook .folioWriting:has(.bookFact){inset:12% 13% 38% 15%;gap:6px}
+.travelBook .folioWriting:has(.bookFact)>h3{margin:0 0 2px}
+.travelBook .folioWriting .bookFact{display:flex;align-items:center;gap:10px;padding:5px 0}
+.travelBook .folioWriting .bookFact .factIcon{width:32px;height:32px;flex:none}
+.travelBook .folioWriting .bookFact p{flex-direction:row!important;align-items:baseline;gap:8px!important}
+.travelBook .folioWriting .bookFact strong{font-size:24px!important;line-height:1.1}
+.travelBook .folioWriting:has(.bookFact) .pizzaSaved{margin:4px 0 0;gap:8px}
+.travelBook .folioWriting:has(.bookFact) .pizzaSlot{width:36px;height:36px}
+.travelBook .folioWriting:has(.bookFact) .bookLink{margin-top:2px}
+
+/* 4. Voortgang: the mastery colour as a tint over the relief map (relief and outlines stay visible); saturated violet
+   only as an edge or accent (pins, rivers, outlines). At 45 / 45 a gold edge round the map and a small cheering Nino. */
+.v3VgMap :is(path,polygon).v3St-beheerst:not(.v3StLine):not(.country,.water),.v3VgMap .v3St-beheerst :is(path,polygon){fill:var(--v3-vg-hi);fill-opacity:.2;stroke:var(--v3-vg-hi);stroke-width:2;stroke-opacity:.9;vector-effect:non-scaling-stroke}
+.v3VgMap :is(path,polygon).v3St-bezig:not(.v3StLine):not(.country,.water),.v3VgMap .v3St-bezig :is(path,polygon){fill:var(--v3-vg-hi);fill-opacity:.1;stroke:var(--v3-vg-hi);stroke-width:1.5;stroke-opacity:.55;stroke-dasharray:6 4;vector-effect:non-scaling-stroke}
+.v3VgMap :is(path,polygon).v3St-nog:not(.v3StLine):not(.country,.water),.v3VgMap .v3St-nog :is(path,polygon){fill:#fff;fill-opacity:.18;stroke:var(--v3-ink);stroke-opacity:.25;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.v3VgMap path:is(.country,.water).v3St-beheerst{fill:var(--v3-vg-hi);fill-opacity:.12}
+.v3VgMap path:is(.country,.water).v3St-bezig{fill:var(--v3-vg-hi);fill-opacity:.06}
+.v3View-voortgang .v3VgKaart.v3VgAllDone{border-radius:var(--v3-radius-glass,28px)!important;box-shadow:inset 0 0 0 3px #d2a53c,0 0 0 4px rgba(210,165,60,.2)!important}
+.v3View-voortgang .v3VgCheer{position:absolute;right:20px;bottom:16px;width:96px;height:118px;pointer-events:none;z-index:1}
+.v3View-voortgang .v3VgCheer .ninoArtSlot,.v3View-voortgang .v3VgCheer img{width:100%;height:100%;object-fit:contain;object-position:bottom}
+@media (max-width:1279px){.v3View-voortgang .v3VgCheer{width:80px;height:98px;right:14px;bottom:12px}}
+
+/* 5. No V2 green under V3 (owner 12-11): V2's green theme variables point to the V3 tokens (Viola), the variables V2
+   resolved at :root are set again here, and every focus ring outside the V3 root is violet. Checked by
+   scripts/qa-v3-ronde5.py --point 5 against every green/teal value in index.html. */
+body.v3On{--nino-forest:#2a2440;--nino-teal:#5b45e0;--nino-ink:#2a2440;--nino-line:rgba(42,36,64,.12);--ctl-forest:#2a2440;--ctl-line:rgba(42,36,64,.16);--ctl-tint:#ebe7fd;
+ --ink:#2a2440;--muted:#5e5872;--accent:#5b45e0;--good:#1f7a46}
+body.v3On :not(.v3 *):focus-visible{outline-color:#5b45e0!important}
+body.v3On .microHit:focus-visible{stroke:#5b45e0}
+/* Schoolblad: "Terug naar mijn kaart" as the V3 secondary glass pill; zoom buttons and texts in V3 ink. */
+body.v3On .schoolbladDialog{color:#2a2440}
+body.v3On .schoolbladClose{min-height:44px;padding:0 20px;border:0;border-radius:999px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(42,36,64,.14);color:#5b45e0;font-weight:600}
+body.v3On .schoolbladDialog :is(h2,h3,strong){color:#2a2440}
+body.v3On .schoolbladDialog p{color:#5e5872}
+body.v3On .schoolbladToolbar button{border-color:rgba(42,36,64,.16);color:#2a2440}
+/* V2 dialogs and panels that set the green ink directly (not via the variables). */
+body.v3On .ninoIntroOffer,body.v3On .ninoProfile,body.v3On .pizzaCelebration,body.v3On .vespaRide,body.v3On .rideSign{color:#2a2440}
+body.v3On .profileActions [data-profile-cancel],body.v3On #ninoMeter,body.v3On .ninoMeterPoints strong{color:#2a2440}
+/* Keuzevenster: V2 draws the close-up's ink as SVG attributes; :where keeps the violet badges and leaders of ronde 4 on top. */
+dialog.mapPicker.v3Keuze :where([fill="#254c46"]){fill:#2a2440}
+dialog.mapPicker.v3Keuze :where([stroke="#254c46"]){stroke:#2a2440}
+/* Les in focus mode (iPad): the camera tools and the status line. */
+body.v3On[data-focus-mode="true"] #focusLessonStatus{color:#5e5872}
+body.v3On[data-focus-mode="true"] .focusCameraTools button{border-color:rgba(42,36,64,.16)}
+body.v3On[data-focus-mode="true"] .focusCameraTools button[aria-pressed="true"]:not(:disabled){background:#ebe7fd;border-color:#5b45e0}
+body.v3On .atlasOptions summary,body.v3On .atlasZoom button,body.v3On .schoolbladButton{border-color:rgba(42,36,64,.16)}
+body.v3On #focusAnswerSheet #answer{border-color:rgba(42,36,64,.22)}
+body.v3On .ninoMeterPoints{color:#5e5872}
+/* V2's dialog backdrops are a dark green-teal: V3 ink instead (the book keeps a deeper backdrop for its paper world). */
+body.v3On :is(.schoolbladDialog,.mapPicker,.ninoIntroOffer,.ninoSettings,.ninoProfile,.pizzaCelebration,.vespaRide,.ninoExamResult)::backdrop{background:rgba(42,36,64,.4)}
+body.v3On :is(.travelBook,.stampZoom)::backdrop{background:rgba(29,24,44,.82)}
+body.v3On .button{border-color:rgba(42,36,64,.16)}
+
+/* 7. Lifestyle icons: on the Reis map only with relief (like the landmarks); once on Toets resultaat (≥ 8/10),
+   Voortgang (45 / 45) and the Vespa ride. */
+.v3Map[data-relief=off] .v3Lifestyle{display:none}
+.v3ToetsScoreCard{position:relative}
+.v3ToetsScoreCard .v3ToetsTreat{position:absolute;right:-18px;top:-22px;width:64px;height:64px;object-fit:contain;transform:rotate(8deg);pointer-events:none;filter:drop-shadow(0 6px 8px rgba(42,36,64,.18))}
+@media (max-width:1279px){.v3ToetsScoreCard .v3ToetsTreat{width:52px;height:52px;right:-14px;top:-18px}}
+.v3View-voortgang .v3VgCheer .v3VgTreat{position:absolute;right:88%;bottom:0;width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(42,36,64,.18))}
+@media (max-width:1279px){.v3View-voortgang .v3VgCheer .v3VgTreat{width:60px;height:60px}}
+body.v3On .vespaRide .v3RideFiat{position:absolute;bottom:22%;right:-20%;width:16%;height:auto;opacity:.92;filter:drop-shadow(0 4px 4px rgba(42,36,64,.25));transform:scaleX(-1)}
+body.v3On .vespaRide[data-phase=ride] .v3RideFiat{animation:v3FiatPast 4.2s linear forwards}
+@keyframes v3FiatPast{from{right:-20%}to{right:110%}}
+@media (prefers-reduced-motion:reduce){body.v3On .vespaRide .v3RideFiat{animation:none!important;right:8%}}
+body.v3On .vespaRide[data-phase=arrived] .v3RideFiat{display:none}
+
+/* 8. Reliëf sprankelender: the warm northwest light blends softly; a gentle gloss on the coast rim. Only with relief on. */
+.v3Map .v3Sun{display:none;mix-blend-mode:soft-light}
+.v3Map[data-relief=on] .v3Sun{display:block}
+.v3Map[data-relief=on] .v3RCoast{filter:drop-shadow(0 0 1px rgba(255,255,255,.8))}
+
+/* 9. Post voor jou! A glass card near the bottom right, above the tab bar on phones; the dot on Beloningen. */
+.v3Post{position:fixed;right:24px;bottom:24px;z-index:60;pointer-events:none;--v3-glass-strong:rgba(255,255,255,.8);--v3-glass-filter:blur(28px) saturate(1.4);
+ --v3-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.v3Post:empty{display:none}
+body.v3On .v3Post .v3PostCard{pointer-events:auto;display:flex;align-items:center;gap:14px;width:min(340px,calc(100vw - 32px));min-height:0;padding:12px 18px 12px 12px;
+ border:1px solid rgba(255,255,255,.7);border-radius:20px;background:var(--v3-glass-strong,rgba(255,255,255,.86));
+ -webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:0 12px 34px rgba(42,36,64,.18);
+ color:#2a2440;text-align:left;font:400 15px/1.35 var(--v3-font);cursor:pointer;transform-origin:center}
+body.v3On .v3Post .v3PostCard:focus-visible{outline:3px solid #5b45e0;outline-offset:3px}
+.v3PostArt{flex:none;width:108px;height:72px;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(42,36,64,.22);transform:rotate(-3deg);background:#fff}
+.v3PostArt.v3PostScallop{object-fit:contain;background:none;box-shadow:none}
+.v3PostCopy{display:grid;gap:2px}
+.v3PostCopy strong{font:700 19px/1.2 var(--v3-font);color:#2a2440}
+.v3PostCopy span{color:#5e5872}
+@media (max-width:767px){.v3Post{right:16px;left:16px;bottom:calc(var(--v3-tabbar,72px) + 12px)}body.v3On .v3Post .v3PostCard{width:100%}}
+@media (prefers-reduced-transparency:reduce),(prefers-contrast:more){body.v3On .v3Post .v3PostCard{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
+body.v3On [data-nav=rewards]{position:relative}
+body.v3On [data-nav=rewards] .v3PostDot{position:absolute;top:6px;left:28px;width:10px;height:10px;border-radius:50%;background:#7c5cff;box-shadow:0 0 0 2px #fff;pointer-events:none}
+body.v3On [data-nav=rewards] .v3PostDot em{font-style:normal}

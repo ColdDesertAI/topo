@@ -1,0 +1,317 @@
+# Overdracht V3.0 — bouw naar Codex (10-11)
+
+Claude Code heeft tot donderdag geen ruimte meer. Codex neemt de bouw op `codex/topo-v3` over, vanaf `0dc0193` ("afwerking stap 1: wash, glas en typeschaal").
+
+**Eén eigenaar per pakket:** Codex bouwt; Claude Code doet tot donderdag niets op deze branch. Lead design en review blijven in de chat, Hermes doet de QA.
+
+## Al gedaan
+
+- V3.0 functioneel: navigatie, Toets, Voortgang, kennismaking en schoolblad, plus de review-fixes.
+- Fase A: frame, glas, viola, kaart zonder waas.
+- Fase B: alle schermen volgens de doelbeelden.
+- Importfix en resetbeleid (`636ba53`).
+- Afwerking stap 1 (`0dc0193`): wash, glas en typeschaal, plus de check tekst ≥ 13 px.
+
+**Stand 10-11, 20:30:** Claude Code pushte vóór de limiet nog `5d73aac`: kaart links, reliëf, Eiland, Toets, Beloningen en Voortgang. Daarmee zijn de stappen 1–3 hieronder grotendeels gedaan. Codex begint bij **stap 3b**.
+
+## Nog te doen, in deze volgorde
+
+1. **Afwerking stap 2, kaart:**
+   - variant (a) Eiland is gekozen; verwijder variant (b);
+   - de kaart vult haar rastervlak;
+   - het reliëf krijgt diepte (hillshade, verzadiging ±1,15, slagschaduw);
+   - check kaart ≥ 45% van het inhoudsvlak (Landschap).
+2. **Afwerking stap 3, opbouw:** **kaart links, bediening rechts** op Reis, Oefenen, Les, Toets resultaat en Voortgang. Op Reis staat de hoofdstukkaart onderaan op het kaartvlak en de lijst rechts.
+3. **Afwerking stap 4, per scherm:**
+   - **Toets:** de score violet, gewicht 600, zonder kader en zonder zichtbare focusring; Nino vrij in een eigen rastervlak, met een overlap-check;
+   - **Beloningen:** het boek is de knop (geen cirkel, geen "Open Reisboekje"); "Pizza 2" wordt "Pizza";
+   - **Voortgang:** een grote kaart links; rijen op slot zonder balk; Toetsen binnen het frame;
+   - **Les:** de kaart groter.
+3b. **Kalibratie** (`renders/README.md` › "Kalibratie typografie en beeld"):
+   - de gemeten typeschaal;
+   - geen wash over het inhoudsvlak;
+   - een warmer en dieper reliëf;
+   - Voortgang met Eiland en alle 11 rijen;
+   - het label "Toets" vrij, en de score in een glaskaart;
+   - de checks op minimumgroottes.
+4. **Master-assets:** `origin/art/master` `339c420` → de pijplijn `art/v3-render-assets` (manifest met SHA256, bron en status "eigenaar akkoord, Hermes open"; WebP op de maat van het gebruik). Daarna integreren volgens DECISIONS 2026-11-10 ("Master-assets"). **`art/master` niet mergen.** NINO-ONDERWEG is `vespa-rijdend` of `vespa-bagage`. De paspoortbeelden niet gebruiken.
+5. **Bewijs:**
+   - vergelijkingen in `docs/qa/v3-stijlbeeld/` (desktop 1440×900, iPad liggend, telefoon);
+   - alle QA-scripts groen;
+   - werk `docs/PROJECT_STATE.md` bij;
+   - tot slot een hertestverzoek voor Hermes op de eindpin.
+
+## Bronnen (in deze volgorde)
+
+1. `docs/v3/renders/README.md`. Bij een conflict wint de **laatste** sectie: "Afwerking na fase B" en "Bijstelling eigenaar (10-11, middag)", met glas 72% plus vibrancy.
+2. Daarna `docs/DECISIONS.md` (10-11), `docs/v3/DESIGN_AUDIT_V3_0.md` en `docs/v3/DESIGN_FEEDBACK.md`.
+3. De doelbeelden: `docs/v3/renders/R-*.webp`.
+
+## Harde regels
+
+- `index.html` blijft byte-gelijk (SHA256 `3aced3c3…`).
+- Gedrag en logica blijven ongewijzigd: acties lopen via de bestaande V2-knoppen en -functies.
+- Echte geometrie; de geometriecheck blijft 46/46.
+- Offline, toetsenbord, focus, verminderde beweging en contrast AA.
+- Lint, test, build en alle QA-scripts groen.
+- Eén commit per stap, push na elke stap; de preview niet committen.
+
+## Ronde 2 (lead designer, 10-11, 22:15, na `bc05cc6`)
+
+Stap 3b–5 zijn akkoord: de typeschaal is gemeten en doorgevoerd, de master-assets zitten in de pijplijn, Nino op de Vespa staat bij het toetsresultaat, en de QA is groen. Op ware grootte (1440×900, BG-03) komt het dicht bij de doelbeelden. Nog te doen, met één commit per punt:
+
+1. **Standaardachtergrond BG-03 Kust** in plaats van BG-01. Kust ligt het dichtst bij de doelbeelden: de zee draagt de zwevende kaart. BG-01 en BG-02 blijven kiesbaar.
+2. **Zijbalk:**
+   - wit 70% met `saturate(.6)` achter de zijbalk, zodat het artwork daar geen kleurvlek (roze bloemen) meer geeft;
+   - check: de tint van de zijbalk wijkt op alle drie de achtergronden maximaal ΔE 8 af van neutraal wit.
+3. **Voortgang past in 1440×900:**
+   - de kaart, de lijst (11 rijen) en de drie tegels Dagdoel · Pizza's · Vespa-ritten staan **volledig** in beeld zonder te scrollen;
+   - Toetsen en het kennis-paspoort volgen onder de vouw, met een duidelijke rand, en nooit half afgesneden in de eerste weergave;
+   - check: geen element van de eerste rij snijdt de onderrand van het frame.
+4. **Reliëfkleur** zoals in de doelbeelden:
+   - laagland warm geelgroen (richtwaarde `#A8C25A`), heuvels olijf, bergen bruin (`#8A5A3A`), sneeuw wit;
+   - contrast 1,3; niet khaki, niet neon.
+5. **Beloningen:** de iconen in de tegels 72 px en de cijfers 40/700; nu ogen ze nog klein.
+6. Daarna: de vergelijkingen opnieuw, en de vergelijking van BG-03 erbij voor alle schermen. Push, en vraag in het afsluitende bericht een hertest door Hermes aan op de eindpin.
+
+## Ronde 3: iPad-test van de eigenaar (11-11)
+
+**Apparaat (de ondergrens):** iPad 9e generatie (3 GB RAM, 1080×810 pt), iPadOS 26.7.2, Safari.
+
+Werk in deze volgorde, één punt per commit:
+- alleen de QA van het gewijzigde scherm;
+- één desktop-screenshot en één screenshot op iPad 1080×810 in `docs/qa/v3-stijlbeeld/final/`.
+
+### P1: fouten
+1. **Reis:** de schakelaar Schoolkaart/Reliëf werkt niet.
+2. **Reis:** de knop Schoolblad reageert niet. Geef hem op iPad ook zijn label "Schoolblad"; alleen het icoon is onduidelijk.
+3. **Toets:** sommige knoppen reageren slecht op aanraking, en tekst is groter dan de knop. Controleer de tik-doelen (≥ 44 pt), `pointer-events` en overlappende lagen.
+4. **iPad 1080×810:** een eigen breakpoint, zodat geen tekst buiten knoppen of panelen valt. Volg de iPad-kolom van de typeschaal, en verklein bij krapte de ruimte, niet de leesbaarheid.
+5. **V2 flitst bij het laden:** verberg de app tot de V3-laag klaar is, met een korte fade vanaf de achtergrond. Na de runtime-migratie verdwijnt V2 helemaal.
+6. **Oefenen:** het rechterpaneel scrolt op iPad. Het moet zonder scroll passen.
+
+### P2: ontwerp
+7. **Instellingen:** zet het V2-dialoogvenster om naar V3: violet glas (Werkblad) en een lijst zoals de Instellingen van iOS. Geen terracotta.
+8. **Kennismaking:**
+   - één Nino: de kopscène met de Vespa óf `nino-welkom`, niet allebei;
+   - de tekstballon kleiner (17/600);
+   - een glaskaart over het artwork in plaats van veel wit.
+9. **Aanwijs- en feedbackstijl in de les** (de markering van het goede antwoord en de verduidelijking): in de V3-stijl, violet, zonder V2-terracotta.
+10. **Tellers (pizza, Vespa):** de geïllustreerde iconen (IC-slice, IC-vespa) in plaats van lijniconen.
+11. **Afgerond hoofdstuk in de lijst:** het verdiende stempel (IC-stamp, klein) in plaats van een kaal vinkje. Goud krijgt de lauwerkrans.
+12. **Terug:** in de les en de toets een terugknop (chevron) in de kop, naar het scherm waar je vandaan kwam. Elders volstaan de tabs.
+13. **Beloningen:**
+    - de tegels Stempels, Goud en Postkaarten openen het boek op de bijbehorende pagina;
+    - de instellingenknop ín het boek vervalt;
+    - in het boek kun je **vegen** naar links en rechts (en de pijltjestoetsen gebruiken), naast Vorige, Volgende en Sluit.
+14. **Boek, pagina 1 en 2:** een nieuwe indeling als papierwereld. Eén schreeftype voor de titels plus één leesletter; geen mengelmoes. Rustige marges.
+15. **Glas rechts:** 68% als AA tegen het artwork overal haalbaar is (meten); anders 72% laten staan.
+
+### P3: akkoord van de eigenaar (11-11)
+16. **Toets:** een chip **Willekeurig**: 10 vragen uit de ontgrendelde hoofdstukken.
+17. **Vespa-rit:** de Vespa schudt even (de motor start) en rijdt dan het beeld uit, in plaats van over het lijntje te rijden. Bij verminderde beweging een korte fade.
+18. **Achtergrond kiesbaar** in Instellingen: Kust, Toscane, Meer, of **Wisselen** (per hoofdstuk een passende achtergrond).
+19. **Inventaris van het artwork:** een lijst van alle aanwezige assets (V2 en V3) en waar ze wel of niet zichtbaar zijn. Daarna stelt de lead designer voor waar ongebruikte assets een plek krijgen (scènes Roma, Venezia en Napoli, postkaarten, VE-01).
+20. **Reliëfkaart in de stijl van de render** (advies van de lead designer):
+    - het reliëf warmer en minder groen;
+    - met **geïllustreerde bezienswaardigheden** op de juiste plek: Colosseum bij Rome, de toren van Pisa, Vesuvius en Etna, een gondel bij Venetië, enzovoort;
+    - alleen op Reis en het toetsresultaat;
+    - **leren blijft op de schoolkaart.**
+    Hiervoor is nieuw artwork nodig (±10 iconen).
+
+### Aanvulling ronde 3: Vespa (eigenaar, 11-11)
+
+De Vespa uit de master-set vervangt **IC-vespa** overal. Reden: dezelfde scooter waarop Nino rijdt (`vespa-rijdend`, `vespa-bagage`), met hetzelfde versleten rood en chroom; IC-vespa was glanzender, oranjer en had spiegels. Daarmee is er één Vespa in de hele app.
+
+| Plek | Asset (master `art/master` `339c420`) |
+| --- | --- |
+| Tellers (Reis, Voortgang) en kleine iconen | `vespa-icoon` (driekwart vooraanzicht; leest goed op 24–48 px) |
+| Beloningen (Vespa-ritten) en de animatie van de Vespa-rit (P3, punt 17) | `vespa-zij` (zijaanzicht naar rechts: de motor start, de Vespa schudt even en rijdt naar rechts het beeld uit) |
+| Toets resultaat, kennismaking, uitstapjes | `vespa-rijdend` / `vespa-bagage` (met Nino) |
+
+IC-vespa gaat in het manifest naar de status "vervangen", met de verwijzing. Dit hoort bij punt 10 (tellers met illustraties) en punt 13 (Beloningen).
+
+## Ronde 3 — korte eindoverdracht (12-11)
+
+Eindpin (geteste code): `70cdb342b47898d98225d889fb7d5b49270b3616` op `codex/topo-v3`. Punten 1–20 zijn uitgevoerd, met één oorspronkelijke commit per punt; de eindverificatie bevat de gerichte kopruimte- en laadcorrecties. Glas blijft 72%; de master-Vespa is verwerkt en de artworkinventaris bevat ook de tien nieuwe landmarkillustraties.
+
+Controle: `npm run lint`, `npm test`, `npm run build` en `python3 scripts/qa-v3-all.py` PASS (20/20 scripts; Ronde 3: 20/20 punten). `index.html` is byte-gelijk; leerengine en echte geometrie zijn behouden. Compact bewijs: `docs/qa/v3-stijlbeeld/final/verification-ronde3.json`; screenshots desktop 1440×900 en iPad 1080×810 staan in dezelfde map. Preview en lange logs zijn niet gecommit. Geen merge, deploy of publicatie.
+
+Open: fysieke iPad/Safari-hertest en visuele eigenaar/Hermes-review van het nieuwe landmarkartwork. **Hermes: hertest deze eindpin**, vooral kaartschakelaar/Schoolblad, toetsaanraakvlakken, Oefenen zonder scroll, terugnavigatie, boekvegen, willekeurige toets, Vespa met verminderde beweging en achtergrondwisseling. Controleer dat de landmarks alleen op Reis/toetsresultaat verschijnen en leren op de schoolkaart blijft.
+
+## Master-landmarks — 12-11
+
+De bestaande masters op `art/master` zijn gepind op `69c945c16a8bd34c8e45cffa96c12442c2672cb1`. TOPO_11 is daar geschrapt. TOPO_01–10 vervangen de Ronde 3-atlas, met gecontroleerde WebP 128/256 en broncoördinaten (Wikidata/UNESCO; vulkanen uit canonieke ITEMS). Alleen Reis en toetsresultaat bij Reliëf; geen decoratie op de leerkaart. Pisa/Florence zijn kleiner gemaakt tegen overlap, zonder hun ankers te verplaatsen. TOPO_12–16 staan uitsluitend in het manifest als `V3.1 uitstapjes`.
+
+Gerichte QA: Reis en toetsresultaat PASS, desktop 1440×900 en iPad 1080×810, inclusief offline laden, exacte projectie, bron-/exporthashes, alpha, 128/256-selectie, kaartschakelaar, onveranderde leergeometrie en overlapcontrole. Bewijs: `docs/qa/v3-stijlbeeld/final/landmarks.json` en de vier overschreven screenshots. `index.html` blijft byte-gelijk. Open: fysieke iPad/Safari; TOPO_12 toont geen zichtbare logo’s maar wel rood-zwarte tribunes, dus kleurreview blijft open en de master is niet als clubneutraal goedgekeurd. Geen merge of deploy.
+
+## Ronde 4: klein (lead designer, 12-11, review van `5d1ae77`)
+
+Ronde 3 en de landmarks zijn akkoord. Reis, Toets resultaat, Oefenen, Beloningen, het boek en Instellingen staan op het beoogde niveau. Bundel deze punten met de bevindingen van de iPad-test en Hermes; geen aparte ronde.
+
+1. **Landmarks:**
+   - ±40 px op desktop en ±34 px op iPad (nu ±24 px, te klein om te herkennen);
+   - nooit onder of over een pin of foutlabel: verschuif ze naar de rand van de plek, met een botsingscheck;
+   - de pin blijft altijd boven.
+2. **Kennismaking:**
+   - de focusring van het naamveld in violet, niet het V2-groen;
+   - het venster als glaspaneel in plaats van een witte plaat;
+   - Nino groter (±160 px hoog).
+3. **Keuzevenster "Welke plek bedoel je?"** (twee plekken dicht bij elkaar, zoals een stad bij een vulkaan of een kleine staat). Nu nog in de V2-stijl: beige, groene nummers, een witte plaat. Gedrag en logica blijven gelijk; alleen de vormgeving in V3:
+   - een glaspaneel, en de titel "Welke plek bedoel je?" op 28/700 in inkt;
+   - de uitvergroting op de V3-schoolkaart (zoals in de les), met een zachte rand in plaats van een bruine cirkel;
+   - de nummers als violette badges met witte cijfers, en de verbindingslijnen in violet;
+   - de keuzeknoppen als V3-chips ("Stip 1", "Stip 2"), op ≥ 44 pt hoog;
+   - "Terug naar de kaart" als secundaire glaspil;
+   - de hulpzin "Volg de lijn…" vervalt (de lijnen spreken voor zich);
+   - de legenda compact (symbolen en de woorden stad, vulkaan, kleine staat) zonder de zin "Symbolen, geen grenzen…";
+   - toetsenbord en focus ongewijzigd; Escape gaat terug naar de kaart.
+
+### Overdracht ronde 4 (Claude Code, 12-11)
+
+**Pin:** `bde7729` (laatste codewijziging; de commit hierna voegt alleen deze overdracht, de artworkinventaris en QA-bewijs toe). `index.html` byte-gelijk (`3aced3c3…`); V2 en `src/v2/` niet gewijzigd.
+
+- **Punt 1, landmarks** (`2b788dd`): mediane zichtbare hoogte 40 px op desktop en 34 px op iPad (≤ 1279 px), met de onderlinge verhoudingen behouden. Een botsingscheck verschuift een landmark die een pin, ✓/×-teken of foutlabel (of een andere landmark) raakt naar de dichtstbijzijnde vrije plek aan de rand. Het anker blijft op het echte punt en de laag ligt onder de pins en tekens (eerder lag die op Reis erboven).
+- **Punt 2, kennismaking** (`1242046`): één glaspaneel zonder crèmekleurige platen, een violette focusring en Nino ~210 px zichtbaar. *Afwijking:* de opdracht noemde ±160 px, maar Nino was al ~183 px; de eigenaar koos "groter". De lead designer kan dit bij de iPad-test corrigeren.
+- **Punt 3, keuzevenster** (`bde7729`): `scripts/v3/keuze.js` + `ronde4.css`. Glas, titel 28/700, de uitvergroting met een zachte rand, violette badges en lijnen, chips van 48 px, "Terug naar de kaart" als glaspil, geen hulpzin en een legenda met alleen symbolen. Kandidaten, aria-labels, toetsenbord en Escape komen ongewijzigd uit V2 (`scripts/map-hit.js`). De zijmarge blijft 12 px, omdat V2 de uitvergroting op breedte − 24 berekent.
+- **QA:** `scripts/qa-v3-ronde4.py` (punten 1–3, desktop 1440×900 en iPad 1080×810). Eindcontrole: `npm run lint`, `npm test` en `npm run build` groen; `qa-v3-all.py` 21/21. Ronde 3 punt 19 faalde eerst, omdat `assets/v2/` (stap 0) ontbrak in `ARTWORK-INVENTARIS-RONDE3.md`; die bestanden staan er nu in een eigen sectie. De QA draait met Python + Playwright uit `/private/tmp/topo-v3-ronde2-qa`; de systeem-`python3` heeft geen Playwright.
+
+**Open**
+- De iPad-test door de eigenaar en de hertest door Hermes (met de Nino-maat uit punt 2).
+- De locatorcirkel en het insetkader in de Rome/Vaticaan-uitvergroting volgen deels nog de V2-kleuren (kader neutraal gemaakt, stippelcirkel ongewijzigd).
+- De vlakkenkiezer ("Welk gebied bedoel je?") krijgt dezelfde stijl, maar alleen de stippenkiezer is in de QA met screenshots gecontroleerd.
+
+## Ronde 5: iPad-test van de eigenaar op `95d5199` (12-11, avond)
+
+Algemeen oordeel van de eigenaar: "ziet er zeer goed uit". De bevindingen van Hermes (`qa/v3-95d5199`) komen hieronder als 5B.
+
+**Doel en stopcriterium:** elk punt hieronder is in de screenshots van desktop en iPad 1080×810 aantoonbaar opgelost, en de QA van het gewijzigde scherm is groen.
+
+1. **Reis: kaart even groot per hoofdstuk.**
+   - Italië staat bij elk hoofdstuk zo groot mogelijk in het kaartvlak, op **dezelfde schaal**.
+   - Alleen hoofdstukken die meer context nodig hebben, zoomen uit tot een tweede vaste uitsnede **Italië en omgeving** (buurlanden en zeeën): Landen en Zeeën. Eilanden alleen als Corsica of Malta erbij horen.
+   - Dus twee vaste uitsneden, geen schaal per hoofdstuk. De overgang tussen de twee is zacht (bij verminderde beweging direct).
+2. **Reis: relevante landmarks per hoofdstuk.**
+   - Elke landmark wordt gekoppeld aan items of een regio (`assets/v3/landmarks/locations.json`).
+   - Op Reis staan de landmarks van het **actieve hoofdstuk** vol in beeld (bijv. Vulkanen: Vesuvius en Etna; Bergen: Dolomieten; Steden: de landmarks van die steden). Andere landmarks verdwijnen of staan gedimd op 40%.
+   - Een hoofdstuk zonder relevante landmark toont een rustige basisset van maximaal 4.
+   - Ontbreekt er voor een hoofdstuk een passende landmark, noteer dat dan in een lijst (de eigenaar maakt die in ChatGPT); niet zelf genereren.
+3. **Boek, pagina 1 en 2:** geen witte tekstvakken; de tekst staat direct op het perkament, met contrast AA.
+4. **Voortgang bij alles af:** geen groot effen paars vlak.
+   - De beheersingskleur ligt als **tint over de kaart**, zodat reliëf en contouren zichtbaar blijven, met verzadigd violet alleen als rand of accent.
+   - Bij 45/45 een rustige felicitatie: een gouden rand om de kaart, `nino-juicht` klein in de kaartkaart en de tekst 45 / 45. Geen confetti.
+5. **Overal groene randen weg:** de knop "Terug naar mijn kaart" in Schoolblad en de knop Sluiten in Instellingen hebben nog V2-groen. Zoek alle resten van V2-groen in V3 (randen, focus, tekst) en vervang ze door de V3-tokens. **Check:** geen zichtbaar element in V3 heeft nog de V2-groene kleurwaarden (lijst die waarden in de check).
+6. **Vespa-rit met Nino:** de animatie gebruikt `vespa-rijdend` (Nino op de Vespa) in plaats van de lege `vespa-zij`. Schudden, starten en wegrijden blijven gelijk, en verminderde beweging wordt nog steeds gerespecteerd.
+7. **Lifestyle-iconen nu al gebruiken** (eigenaar, 12/13-11; vervangt "TOPO_12–16 pas in V3.1"): **Ferrari (Modena/Maranello)**, stadion Milaan, gelato, strand Rimini, pasta Bologna en Fiat 500 (masters `art/master` `daa188f`, bestanden TOPO_11–16). De Ferrari staat bij Modena, en net als de Fiat mag hij in meerdere hoofdstukken voorkomen.
+   - **Reis-kaart, per hoofdstuk 1–2 lifestyle-iconen naast de landmarks van het hoofdstuk:**
+     - op een plek waar ze geloofwaardig zijn: stadion bij Milaan, pasta bij Bologna, strand op de Adriatische kust bij Rimini, gelato in een stad of aan zee;
+     - de **Fiat 500** "rijdt" in minstens 4 hoofdstukken op een andere plek (Turijn, Rome, de kust bij Napels, Toscane);
+     - **stabiel per hoofdstuk**: dezelfde indeling bij elk bezoek, maar wel gevarieerd tussen de hoofdstukken (een vaste lijst per hoofdstuk, geen echte willekeur);
+     - nooit op of over een pin, label of leerplek (de botsingscheck van ronde 4); kleiner dan de landmarks (±32/28 px).
+   - **Ook toegestaan, maximaal één per scherm:**
+     - bij het toetsresultaat: gelato bij ≥ 8/10;
+     - bij Voortgang 45/45: gelato of de Fiat 500 bij Nino;
+     - bij de Vespa-rit: de Fiat 500 die op de achtergrond voorbijrijdt (verminderde beweging: stilstaand).
+   - **Nooit:** in de les, in Toets tijdens de vragen, in de Gouden proef of in het keuzevenster. Het zijn geen leerplekken.
+   - Ze komen in het manifest (status "in gebruik V3.0") en in `locations.json` met de vlag `lifestyle:true`.
+8. **Reliëf sprankelender** (eigenaar, 13-11):
+   - meer licht en leven: een warm zonlicht uit het noordwesten met een iets hoger lokaal contrast in de hillshade;
+   - toppen en sneeuw lichten op;
+   - groen en geel iets verzadigder, maar nooit neon (richting: de doelbeelden `R-reis-ijk` en `R-oefenen-ijk`);
+   - een zachte glans op de kustlijn.
+   Geometrie en sneeuwlaag blijven gelijk. **Stopcriterium:** de vergelijking naast `R-reis-ijk` op desktop en iPad, en akkoord van de lead designer.
+9. **Melding bij nieuwe post** (eigenaar, 13-11): krijgt een kind een postkaart (of een stempel of goud), dan volgt een melding.
+   - **Eerst uitzoeken:** heeft V2 al een moment voor een nieuwe postkaart? Zo ja, zet het om naar V3; zo nee, voeg het toe. Geen nieuwe beloningsregel: alleen tonen wat V2 al toekent.
+   - **Vorm:**
+     - een kort glaskaartje "Post voor jou!" met de postkaart als illustratie;
+     - het kaartje schuift het Reisboekje in;
+     - een tik opent het boek op de postkaartpagina;
+     - na 4 s verdwijnt het vanzelf;
+     - bij verminderde beweging zonder animatie;
+     - aangekondigd voor VoiceOver (`aria-live="polite"`).
+   - **Op de tab Beloningen** een kleine violette stip tot de nieuwe postkaart bekeken is.
+   - **Nooit tijdens** een vraag, de toets of de Gouden proef: de melding wacht tot het moment voorbij is.
+
+### Ronde 5B: review lead designer (13-11, op `f736073`)
+
+Punt 1–7 zijn akkoord. Sterk: Voortgang bij 45/45 (tint, gouden rand, Nino met de Fiat), de Vespa-rit met Nino, het boek, de lifestyle-iconen. Na punt 8–9 nog:
+
+10. **Reis op iPad:**
+    - de kaart is te klein geworden, en de hoofdstukkaart te groot (de titel "Extra steden 19–23" breekt over 3 regels);
+    - de kaart blijft ≥ 45% van het inhoudsvlak, ook op iPad 1080×810;
+    - de hoofdstukkaart is maximaal ±40% breed, met de titel op maximaal 2 regels (verklein de titel daar naar 28/24, niet de kaart).
+11. **Landen (Italië en omgeving):** de buurlanden staan als een vol paars vlak. Gebruik dezelfde regel als Voortgang: een tint over de kaart en violet alleen als rand, zodat het reliëf en de grenzen zichtbaar blijven.
+12. **Vespa-rit, knop Overslaan:** de focusring is donker en moet in V3-violet; de knop wordt een secundaire glaspil.
+
+**Stopcriterium:** screenshots van Reis (Steden en Landen) en de Vespa-rit op desktop en iPad, met de checks kaart ≥ 45% en titel ≤ 2 regels groen.
+
+### Overdracht ronde 5 (Claude Code, 13-11)
+
+**Pin:** `6809458` (laatste codewijziging). De commit hierna voegt alleen deze overdracht toe, plus de dieet-exports in `ARTWORK-INVENTARIS-RONDE3.md` (ronde 3 punt 19 faalde sinds assetdieet stap 3), een QA-runner zonder `--point` en het QA-bewijs. `index.html` is byte-gelijk (`3aced3c3…`, gelijk aan de pin in `src/v2/index.sha256`); V2 en `src/v2/` zijn niet gewijzigd.
+
+**Klaar:** punt 1–9, één commit per punt. QA: `scripts/qa-v3-ronde5.py --point N`, op desktop 1440×900 en iPad 1080×810; de screenshots staan in `docs/qa/v3-stijlbeeld/final/`.
+
+| Punt | Commit | Wat |
+|---|---|---|
+| 1 | `423e6ce` | Reis op één schaal, met twee vaste uitsneden: Italië, en Italië met omgeving (Landen, Zeeën). Glijdt in 450 ms; zonder animatie bij reduced motion. De hoogte van de hoofdstukkaart wordt gereserveerd. |
+| 2 | `c3247f8` | Alleen de landmarks van het actieve hoofdstuk (`relevantItems`); anders de basisset. De ontbrekende staan in `docs/v3/LANDMARKS-ONTBREKEND.md`. |
+| 3 | `1efe8ea` | Boek, pagina 1 en 2: geen witte tekstvakken, contrast AA. |
+| 4 | `81df178` | Voortgang: de beheersing als tint. Bij 45/45 komen er een gouden rand, een kleine nino-juicht en "45 / 45 beheerst" bij. |
+| 5 | `32dc52a` | Geen V2-groen meer onder V3. De check leest de groenwaarden uit V2 af en scant schermen, focus en backdrops. |
+| 6 | `7769c51` | De Vespa-rit gebruikt VESPA-RIJDEND (Nino rijdt mee). |
+| 7 | `f736073` | Lifestyle-iconen TOPO_11–16 (met de Ferrari) uit `daa188f`, via de manifestpijplijn, verschillend per hoofdstuk. De Fiat rijdt mee in de rit, de gelato komt bij een toets ≥ 80 %, en de Fiat staat op Voortgang. |
+| 8 | `40f9e9d` | Het reliëf sprankelt meer. Zie de toelichting hieronder. |
+| 9 | `6809458` | Melding bij nieuwe post. Zie de toelichting hieronder. |
+
+Toelichting bij punt 8 (reliëf):
+- Warm noordwestlicht, meer lokaal contrast, lichtere toppen en sneeuw, en een zachte kustglans.
+- Raster, geometrie en sneeuwlaag zijn ongewijzigd.
+- Desktop: satMean .42 → .56, satP99 .65 (≤ .75, geen neon), lokaal contrast 18,5 → 24,3.
+- De vergelijking staat in `relief-vergelijking-{desktop,ipad-liggend}.png` (voor | na | R-reis-ijk).
+
+Toelichting bij punt 9 (melding bij nieuwe post):
+- V2 had zo'n moment alleen voor stempels en goud, dus het is in V3 toegevoegd. De regel komt van V2 (eilandenles; 3e en 6e rit).
+- Een glaskaart "Post voor jou!" verschijnt; na 4 s schuift ze naar Beloningen. Een tik opent het boek op de postkaart.
+- `aria-live="polite"`; zonder animatie bij reduced motion.
+- Een violette stip op Beloningen blijft staan tot de kaart gezien is.
+- De melding wacht tijdens een vraag, de toets, de Gouden proef, de rit en het boek.
+- "Gezien" bewaart het apparaat in `localStorage` (`topoV3PostSeen`).
+
+**Eindcontrole:**
+- `npm run lint` is groen.
+- `npm test` is groen: 33/33.
+- `npm run build` is groen.
+- `qa-v3-all.py`: 23/23 groen. Daarvoor faalden twee checks, en die zijn nu bijgewerkt:
+  - ronde 3 punt 19: de dieet-exports ontbraken in de inventaris;
+  - ronde 3 punt 20: de check verwachtte 10 landmarks op Reis, wat sinds punt 2 per hoofdstuk verschilt.
+
+**Open**
+- Punt 8 wacht op het akkoord van de hoofdontwerper.
+  - De dramatiek van R-reis-ijk (oranje bergen, sterke hillshade) haal je niet met een filter over dit raster.
+  - Daarvoor is een nieuwe hillshade-render uit de DEM nodig: een eigen pakket, met een eigen doel en stopcriterium.
+- Ronde 5B punt 10–12 van de review zijn niet in deze opdracht gedaan (die liep tot punt 9):
+  - 10: iPad-kaart ≥ 45 %, hoofdstuktitel op ≤ 2 regels;
+  - 11: Landen als tint;
+  - 12: focus van Overslaan.
+- Landmarks die ontbreken: de eigenaar maakt ze aan (`LANDMARKS-ONTBREKEND.md`).
+- TOPO_12: de kleurnotitie staat nog open; voor UI-gebruik is het vrijgegeven door de eigenaar.
+- De coördinaten van de lifestyle-plekken Rimini en de kust bij Napels (Sorrento) zijn niet geverifieerd.
+- De test op een fysieke iPad 9.
+- Assetdieet stap 4–7 blijft geparkeerd (`95d5199`).
+
+### Review ronde 5, punt 8–9 (lead designer, 13-11)
+- **Punt 9, melding bij nieuwe post:** akkoord (glaskaartje, stip op Beloningen, opent het boek bij de postkaart).
+- **Punt 8, reliëf:** voorlopig akkoord. Het is een verbetering, maar haalt het doelbeeld niet. Volgt in een eigen pakket: `docs/v3/RELIEF_RENDER.md`.
+- **Volgorde vanaf nu, één agent tegelijk:**
+  1. 5B punt 10–12 (Claude Code);
+  2. de reliëf-render (`RELIEF_RENDER.md`);
+  3. de release-build (`v3/release-build`, de opdracht staat in de chat);
+  4. de eindtest door Hermes en de iPad-test op de release-build;
+  5. het akkoord van de eigenaar.
+
+### Overdracht Ronde 5B punt 10–12 (13-11)
+- Klaar en afzonderlijk gepusht: **10 `fec8891`**, **11 `e856080`**, **12 `f55f247`** (eindpin implementatie).
+- Reis: hoofdstukkaart rechts onder de lijst, maximaal 40% breed; zichtbare kaart minimaal **51,43% desktop / 47,36% iPad**, titel maximaal één regel bij 28/24 px. Alle 11 hoofdstukken in drie profielstaten gecontroleerd (66 gevallen).
+- Landen: 12% tint met violette randen; reliëf en echte geometrie behouden. Overslaan: secundaire glaspil met violette focusring; overslaan bereikt aankomst zonder beloningswijziging.
+- Alleen schermgerichte QA: `scripts/qa-v3-ronde5b.py --point 10`, `--point 11`, `--point 12` groen; screenshots van Reis/Steden, Landen en Vespa overschreven in `docs/qa/v3-stijlbeeld/final/` op **1440×900 en 1080×810**. Bewijs: `ronde5b.json`. Eindreview akkoord; `index.html` byte-gelijk, preview niet gecommit.
+- Open: fysieke iPad/Safari-test en Hermes-hertest op de latere release-build, volgens bovenstaande volgorde. Historisch `qa-v3-faseb.py` veronderstelt nog de oude kaartonderkant/hoofdstukkaart-uitlijning; die assertions zijn achterhaald door punt 10 en niet gebruikt voor deze acceptatie. Geen volledige suite, merge of deploy uitgevoerd.

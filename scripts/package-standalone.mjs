@@ -9,3 +9,7 @@ mkdirSync(new URL('output/html/', root), { recursive: true });
 writeFileSync(file, html);
 writeFileSync(new URL('output/html/topo-italie-duolingo.html', root), html);
 console.log('Standalone interactive HTML: output/html/topo-italie-interactief.html');
+
+writeFileSync(new URL('output/html/TOPO-Italie-Computer.html', root), html);
+writeFileSync(new URL('output/html/TOPO-NINO-Computer-Release.html', root), html);
+writeFileSync(new URL('output/html/NINO-2-Proefversie-2026-11-07-r2.html', root), html);

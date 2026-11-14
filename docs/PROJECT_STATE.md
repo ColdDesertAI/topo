@@ -1,25 +1,314 @@
+# TOPO V3 — Ronde 2 voltooid voor Hermes-hertest (11 november 2026)
+
+Branch `codex/topo-v3`. Eén commit per punt: **1** `eb4fd31` BG-03 Kust standaard, **2** `58f4d4f` neutrale zijbalk, **3** `0aa4730` Voortgang in het eerste 1440×900-frame, **4** `441ac63` reliëfpalet uit hetzelfde DEM, **5** `64250c9` zichtbare 72px-iconen en 40/700-cijfers op desktop/iPad. **Punt 6** is de afzonderlijke bewijscommit met vernieuwde vergelijkingen, metingen en deze status. De volledige eindpin volgt in het afsluitende overdrachtsbericht.
+
+**Bewijs:** 19/19 V3-QA-scripts (alle vijf Ronde-2-checks), 41/41 contrast-/typografieruns, geometrie 46/46, QA-runnerregressie en lint/test/build groen. [21 BG-03-doelbeeldvergelijkingen plus zeven achtergrondstroken](qa/v3-stijlbeeld/final/README.md); [hashregister](qa/v3-stijlbeeld/final/verification.json). Preview `0c9a576648896d56a2b7f8f2dad1bd62b595b058cb8122e1318e2efdadbbf329`; `index.html` blijft `3aced3c31259011b0af2947c78f71965cb4beb2e88c69d1663e61792b0304f5a`. Preview-HTML blijft buiten Git.
+
+**Hermes:** [gericht hertestverzoek](qa/v3-stijlbeeld/ronde2/HERMES-HERTEST.md) op de gepushte eindpin, inclusief alle zes punten. Interne read-only review: geen Critical/Important/Minor-bevindingen. Onafhankelijke Hermes-/asset-/modelcheck, fysiek Safari/iPad/VoiceOver en visueel designerakkoord blijven open. Bestaande compacte telefoonweergave en iPad-les Focus Mode blijven behouden. Geen merge, deploy, publicatie of downloadvervanging.
+
+---
+
+## Historische overdracht en voortgang
+
+# V3.0 — overdracht 3b–5 (10 november 2026)
+
+Branch `codex/topo-v3`. **Kalibratie** `9dcdfd3`: de gemeten typeschaal, helder artwork zonder wash over het inhoudsvlak, warmer reliëf, Voortgang als Eiland met elf volledige rijen en de toetsscore terug op glas. **Master-assets** `15b1619`, uit de pijplijn `art/v3-render-assets` @ `b70e1ac`, bron `339c420`: technische WebP-exports met SHA256, bron en status eigenaar akkoord / Hermes open. NINO-ONDERWEG is de rijdende rode Vespa; de paspoortomslag en het paspoortbinnenwerk zijn niet overgenomen.
+
+Het [reviewpakket met 21 vergelijkingen](qa/v3-stijlbeeld/final/README.md) bevat desktop 1440×900, iPad liggend 1180×820 en telefoon 390×844. Preview-SHA256 `4ac7b42cc9251beb1a922f7f4a3bd8f20493870a0476aa9505f1cefb862d06d1`; `index.html` blijft `3aced3c31259011b0af2947c78f71965cb4beb2e88c69d1663e61792b0304f5a`. De preview-HTML wordt niet gecommit. Het actuele [QA-register](qa/v3-stijlbeeld/final/results-all.json) koppelt elk resultaat aan preview-, index- en testhash en verwerpt wijzigingen tijdens de run.
+
+**Verificatie eindbuild:** 18/18 V3-QA-scripts groen, 41/41 contrast- en typografieruns groen, geometrie 46/46 en lint/test/build groen. [Vastgelegde controle](qa/v3-stijlbeeld/final/verification.json). De QA-runnerregressie controleert ook geïmporteerde helpers.
+
+**Open voor review:** de gedocumenteerde iPad Focus Mode-uitzondering (leskaart en antwoordblad behouden hun V2-indeling), twee chipkolommen op desktop Oefenen, fysiek iPad/Safari/VoiceOver, designerakkoord en de onafhankelijke Hermes-modelcheck/hertest. Dit is bouwbewijs, geen zelfstandig releaseakkoord. Na stap 5 stopt de bouw: de lead designer reviewt en vraagt daarna Hermes aan. Geen merge, deploy, publicatie of downloadvervanging.
+
+---
+
+# TOPO V3 — golden screen 1: Reis (9 november 2026)
+
+Branch `codex/topo-v3` vanaf de V2-afsluiting `f53dc0b` (voorouder `v2.0.2` = `83ec1ce` gecontroleerd). Reis v3b volgt de conceptrichting van de eigenaar: zijbalk · hoofdstukken · echte kaart · één actie, met Schoolkaart/Reliëf en landthema's (Italia, Viola). Presentatielaag `scripts/v3/` over de ongewijzigde V2.0.2-app; acties drukken de bestaande V2-knoppen. Preview: `node scripts/build-v3-preview.mjs` (niet meer in Git). [Audit](v3/AUDIT.md) · [ontwerpsysteem V3](DESIGN_SYSTEM.md) · [feedbacklog](v3/DESIGN_FEEDBACK.md) · [bewijs en open punten](qa/v3-reis/README.md). Eigenaar: v3b akkoord, Italia standaard. **Kaartkader verwerkt** (9 november): ruimer kader, echte zee, smalle randfade; buurlanden, zeeën en eilanden blijven zichtbaar (gemeten, zie bewijs). **Golden Experience 01, beat 3–7** (9 november): de les in V3 — lesstappen boven de kaart, taakpaneel, V2-feedback, verdiende pizza/Vespa/stempel en Reisboekje — gespeeld met echte tikken op vijf formaten ([spec](v3/GE01.md) · [bewijs](qa/v3-les/README.md)). Preview SHA256 `873f91f2…49ed`. Eigenaar 9-11: akkoord met de adviezen (sheet opent na antwoord, teller telt herhalingen, hulpregels/oefenmodi uit de les). Open: visueel oordeel eigenaar; daarna Reisboekje/Vespa-rit V3 of Oefenen. Geen merge, deployment of downloadvervanging.
+
+**V3.0 deel 5 — Kennismaking** (9 november): de V2-eerste-keerdialoog is één V3-scène met welkomstpose, naam, favoriete pizza, Andiamo! en Start meteen; de hulpteksten zijn weg. Daarna opent Reis met hoofdstuk 1. Profielschema 1 en de V2-regel voor het eenmalig opnieuw aanbieden blijven gelijk. Preview-demo `#welkom`. [Bewijs](qa/v3-kennismaking/README.md).
+
+**V3.0 afwerking na fase B — stap 2, kaart links en per scherm** (10 november):
+- de kaart staat links en de bediening rechts op Reis, Oefenen, Les, Toets resultaat en Voortgang; de kaart beslaat ≥ 45% van het inhoudsvlak;
+- het reliëf heeft diepte (verzadiging, hillshade, slagschaduw); variant (a) Eiland is gekozen en (b) is weg;
+- de toetsscore is violet 600 zonder kader, en Nino staat vrij in een eigen vlak;
+- het boek is de knop; Voortgang heeft een grote kaart links, en slotrijen hebben geen balk.
+
+Open: de Les in Focus Mode (iPad) en NINO-ONDERWEG. [Bewijs](qa/v3-afwerking/README.md).
+
+**V3.0 afwerking na fase B — stap 1, wash, glas en typeschaal** (10 november): de wash krijgt verzadiging .95, met de gradiënt alleen achter de zijbalk. Het glas is wit 72% met binnenrand en schaduw. De typeschaal: nav 16, rijen 15/600 in inkt, titels 34/700, kerncijfers 32–44/700, niets onder 13 px. [Bewijs](qa/v3-afwerking/README.md).
+
+**V3.0 fase B — stap 7, Voortgang** (10 november):
+- de titelbalk met n / 45 en een brede balk;
+- de kaartkaart met de 45 plekken in violet, lavendel en crème;
+- hoofdstukrijen met foto, dikke balk en status-illustratie;
+- Dagdoel met stippen, Pizza's en Vespa-ritten.
+
+[Bewijs](qa/v3-faseb/README.md). Daarmee zijn alle schermen van fase B gebouwd.
+
+**V3.0 fase B — stap 6, Beloningen** (10 november): het Reisboekje vrij op het landschap, één glaspaneel met de pizza's van de rit (volgens de data), de Vespa en de meter, en vier glastegels, op 12 kolommen. [Bewijs](qa/v3-faseb/README.md).
+
+**V3.0 fase B — stap 5, Toets instellen en resultaat** (10 november):
+- instellen: chips in drie kolommen met een vinkje, vormtegels met lijniconen, lengte zonder radio, en Nino rechts (tijdelijk de V2-pose);
+- resultaat: een scorekaart, de kaart in de Reis-variant met ✓/×, één glaspaneel met de fouten en de actietegels.
+
+Variant (a) heeft nu de buurlanden als één vervagend silhouet, zonder naden of rechte snede. [Bewijs](qa/v3-faseb/README.md).
+
+**Fix (10 november):** Toets instellen toont de hoofdstukkeuze meteen; eerder pas na een volgende tik (DECISIONS 10-11).
+
+**V3.0 fase B — stap 4, Les volgens `R-les`** (10 november):
+- de stappenbalk als twee glaspillen, met lijniconen in de stappen;
+- de vraag als het enige display-element, de antwoordknoppen als pillen met icoon, een compacte pizzameter;
+- de zoomgroep in de kaarthoek; Focus Mode ongewijzigd op de iconen na.
+
+[Bewijs](qa/v3-faseb/README.md).
+
+**V3.0 fase B — stap 3, Oefenen volgens `R-oefenen-ijk`** (10 november):
+- één glaspaneel met de titel, vier vormtegels, een dunne lijn, de groepen in drie kolommen (voluit op één regel) en de pil Start;
+- het paneel staat op kolomlijnen (desktop 6, iPad liggend 8 van de 12 kolommen);
+- de kaart in dezelfde variant als Reis, met alleen de gekozen groep als pins.
+
+[Bewijs](qa/v3-faseb/README.md).
+
+**V3.0 fase B — stap 2, Reis volgens `R-reis-ijk`** (10 november):
+- 12-koloms raster: titel en lijst op 5 kolommen, kaart op 7, met gedeelde lijnen boven en onder;
+- één titel "Reis"; rijen met de status als vinkje, medaille, dunne balk of slot;
+- de hoofdstukkaart met drie stapstippen en één pil;
+- pins op de kaart, tellers met lijniconen;
+- iPad liggend: een gelabelde zijbalk van 200 px met portret 88.
+
+De kaart is er in twee varianten: **(a) Eiland** (standaard) en **(b) Kaart** als glaskaart (`#…/kaart`). **De eigenaar kiest.** [Bewijs en vergelijkingen](qa/v3-faseb/README.md).
+
+**V3.0 fase B — stap 1, de gedeelde visuele laag** (10 november), volgens Ingetogenheid en Verfijning:
+- één ronde letter: SF Pro Rounded waar die er is, anders de ingebedde Nunito ("Topo Rounded", OFL, 33 KB);
+- inkt `#2A2440`, secundair `#5E5872`; titel op 700, rijen op 500, selectie op 600;
+- knoppen: een violette primaire pil met pijl, witte glaspillen, selectie in lavendel met violette rand;
+- één set dunne lijniconen, met de vaste nav-iconen;
+- het woordmerk TOPO in inkt, het portret 112 px.
+
+Raster en schermen volgen per stap, Reis eerst. [Besluit](DECISIONS.md).
+
+**V3.0 fase A — stap 1, canvas en glas** (10 november):
+- viola is de standaard (italia via `#…/italia`);
+- de witte plaat is weg: het artwork is het canvas op desktop en iPad, ook in lessen;
+- één frame, op elke tab gelijk (marge 28/20, radius 28), met de zijbalk als glazen linkerkolom;
+- Landschap-schermen hebben zwevende glaspanelen, Werkblad (Voortgang, Toets instellen) één lichte plaat;
+- een lichte wash en desaturatie achter de UI, nooit op de kaart;
+- verminderde transparantie maakt alles ondoorzichtig.
+
+**Stap 2, kaart** (10 november):
+- de waas is weg; de oorzaak is gemeten en vastgelegd in DECISIONS (halve zee, buurlandsluier, randmasker, kustgloed);
+- het reliëf staat op volle kracht, met een scherpe kust;
+- de kaart zweeft zonder kader, met een zachte schaduw;
+- op de schoolkaart staan de buurlanden overal in landkleur;
+- de geometrie is onveranderd (46/46).
+
+Typografie, knoppen, iconen en het raster volgen in fase B. [Bewijs](qa/v3-glas/README.md) · [voor/na](qa/v3-stijlbeeld/README.md#fase-a-voor-en-na).
+
+**V3.0 review-fixes** (10 november, één commit per punt): (1) toetsfouten zonder "jij:", bij Aanwijzen alleen de plek. [Bewijs](qa/v3-toets/README.md). (2) Telefoon en 320 px: elk scherm buiten lessen krijgt onderaan ruimte voor de tabbalk en de safe area, ook bij toetsenbordfocus. [Bewijs](qa/v3-shell/README.md). (3) Kennismaking: label "Jouw naam" visueel weg, toegankelijke naam blijft. [Bewijs](qa/v3-kennismaking/README.md). Fix 4 (zoombalk in de les) vervalt volgens het eigenaarsbesluit van 10 november (herontwerp van de les).
+
+**V3.0 compleet op `codex/topo-v3`** (5 commits, één per onderdeel). Klaar voor de Hermes-hertest op #76. Geen merge of deployment.
+
+**V3.0 deel 4 — Voortgang** (9 november): toont `n / 45 plekken` met een balk en de echte kaart, gekleurd naar beheersing (beheerst, bezig, nog niet; drempel in DECISIONS). Daaronder staan de 11 hoofdstukken met lesstaven, ✓ en ★, het dagdoel, het V2-kennis-paspoort (verplaatst) en de laatste 10 toetsuitslagen; er is geen streak. [Bewijs](qa/v3-voortgang/README.md).
+
+**V3.0 deel 3 — Toets** (9 november): instellen (hoofdstukken, vorm, lengte) → de V2-toets in de shell, met bovenaan alleen `7 / 20` → resultaat met score, Nino, kaart met ✓/×, fouten, Oefen deze fouten, Kopieer/E-mail en Print A4. Een toets geeft geen beloningen. De laatste 10 uitslagen staan in `topo-v3-toetsen-v1` en gaan mee in de reservekopie. Fix 10-11: een geannuleerde of mislukte import laat ze staan; "Wis voortgang" wist ze (profiel en intro blijven). [Bewijs](qa/v3-toets/README.md).
+
+**V3.0 deel 2 — Schoolblad** (9 november): de knop **Schoolblad** staat op Reis (naast Schoolkaart/Reliëf) en in de leskop van Ontdekken, Aanwijzen en Namen schrijven. Toets **S** werkt overal, behalve in Toets en de Gouden proef. Het V2-venster opent; concept en selectie blijven bewaard. [Bewijs](qa/v3-schoolblad/README.md).
+
+**V3.0 deel 1 — navigatie op alle schermen** (9 november): zijbalk, iPad-rail of telefoontabbalk met Reis · Oefenen · Toets · Beloningen · Voortgang · Instellingen. Dat geldt ook in lessen, bij vrij oefenen en tijdens de toets. De V2-header, de tabs en `#focusMenu` zijn weg. Het Oefenen-scherm laat vorm en groep kiezen. Toets en Voortgang hebben nu alleen een titel; deel 3 en 4 vullen ze in. Spec: [V3_0_REST](v3/V3_0_REST.md). Bewijs: [v3-shell](qa/v3-shell/README.md).
+
+**Hermes GE01-K01 verwerkt** (9 november): de Enter of klik die een antwoord indient, kan geen knop meer activeren in een beloning die daardoor opent (pizza, Vespa-rit, stempel, goud; met en zonder verminderde beweging). De fix zit in de V3-laag; de V2-motor blijft ongewijzigd. Regressietest `scripts/qa-v3-toets-beloning.py` ([bewijs](qa/v3-les/toets-beloning/README.md)). Klaar voor een gerichte Hermes-hertest van GE01.
+
+**Renderassets ingebouwd** (9 november): `assets/v3/render/` van `art/v3-render-assets` @ `908b4a4`, byte-gelijk. BG-01 is de standaardachtergrond; BG-02 en BG-03 zijn schakelbaar in de preview. NINO-PORTRET staat in de zijbalk. Roma, Venezia en Napoli maken de 11 hoofdstukbeelden compleet (miniatuur in de lijst, kop bij de titel). IC-slice en IC-vespa staan bij de tellers. Er is een nieuw V3-scherm **Beloningen**: Reisboekje, VE-01 met de ritten, en tegels voor pizza, stempels, goud en postkaarten, met tellingen uit V2. Portret, Roma en Napoli vernieuwd naar `05ab1d0` (gesloten blauw werkshirt, besluit 9-11). Preview SHA256 `23dced34…b556`, 50.199.445 bytes (**+7,42 MB**); `index.html` blijft byte-gelijk. [Bewijs](qa/v3-stijlbeeld/README.md). Open: de Hermes-modelcheck en het oordeel van de eigenaar per asset. **Klaar voor Hermes-hertest.**
+
+**Hermes-REWORK afb32d1 verwerkt + reliëf z8** (9 november): V3-01 check (geen leerplek-naam in kaartlabels; contextnamen blijven), V3-02 schakelaar bedekt niets meer (sweep per hoofdstuk/kaartstijl), V3-03 focus op hoofdstuktitel na selectie op telefoon. Reis gebruikt de z8-renderlagen van Codex (`v3/relief-z8` @ `2a7b0cf`), met buurlanden gedempt en een zachter zeeverloop. Lessen en `index.html` blijven z7. Preview SHA256 `94b62f8a…5464`. Kustdiscrepantie van Codex (≤ 2,84 SVG px) blijft open. **Klaar voor Hermes-hertest** op de pin in DECISIONS/issue #76.
+
+**Stijlbeeld renderniveau** (9 november; **eigenaar akkoord**, accent Italia; volgende: `relief-z8` en BG-01, daarna scènes, portret en iconen): Reis op desktop en iPad liggend met alleen bestaand materiaal. Het V2-panorama staat tijdelijk full-bleed achter een zwevend matglasvenster (hoeken 24), met de 8 #75-scènes als miniaturen (`assets/v3/scenes/`, manifest met SHA256) en hoofdstukiconen voor Steden 7–23. Het reliëf staat standaard aan, in het renderpalet als SVG-filter op de bestaande laag, met witte kustrand en landschaduw. De geometrie blijft 46/46. Italia en Viola staan naast elkaar via `#thema-bezig`. [Bewijs en vergelijkingen](qa/v3-stijlbeeld/README.md). Let op: op deze Mac staat "Verminder transparantie" aan, en dan is het venster bewust ondoorzichtig.
+
+# NINO 2.0.2 — kandidaat (niet gepubliceerd)
+
+Patch op v2.0.1 voor twee Hermes-bevindingen.
+
+- **Mac:** de app startte niet zonder Rosetta. Oorzaak: een shellscript als hoofdexecutable. De executable is nu een native universal launcher.
+- **Toetsresultaat:** de illustratie bleef niet in haar vlak. Ze is nu begrensd, met behoud van de beeldverhouding.
+- **Installers:** de DMG en de Windows-ZIP worden nu reproduceerbaar gebouwd met `scripts/package-installers.mjs`.
+- **Distributie:** normale Mac-distributie vraagt nog een Developer ID en notarisatie. De Windows-installatie is niet getest.
+
+[Bewijs en hercheck](qa/nino-2.0.2/README.md). Publicatie volgt pas na de Hermes-hercheck en het releaseakkoord.
+
+# NINO — instellingen en toetsresultaat
+
+Het algemene tandwiel is bereikbaar vanuit Reis, Oefenen en het Reisboekje. Reservekopieën en beide resets staan in dat menu. De gewone toets toont het resultaat, Nino-feedback en deelopties in de offline app. Dit is een updatekandidaat naast de gepubliceerde 2.0.0.
+
+# NINO 2.0: UX-ronde 7 november 2026, ronde 2
+
+Nieuwe speelbare HTML `output/html/NINO-2-Proefversie-2026-11-07-r2.html` (SHA256 `e5265ae7…093ba0`) en een losse ontwerppreview `output/html/NINO-2-Ontwerppreview-2026-11-07-r2.html`. De preview kiest in het geheugen tussen Steden 7–12, Eilanden en Alles vrijgespeeld, en heeft **Speel Vespa-rit af**. Wat er nieuw is:
+
+- Het Reisboekje past zonder scrollbalken op acht schermformaten.
+- De postkaarten hebben op de achterkant Nino's tekst.
+- De pizzameter is groter.
+- Er is één knoppenstijl: crème en donkergroen voor hulpmiddelen, terracotta voor de hoofdactie. De leerbalk op iPad en telefoon lag onder de tabbalk en is daar weggehaald.
+- Het favicon is nu de N van Nino (crème op donkergroen, 16 en 32 px), ingebed in de offline HTML; het grote appicoon blijft.
+- **★ Goudronde** met vraagnummer staat boven elke goudvraag, met één duidelijke uitkomst op het resultaat.
+
+[Bewijs, voor en na, gespeelde routes en open punten](qa/ux-20261107-r2/README.md). Geen release-GO.
+
+# NINO 2.0 — UX-ronde, 7 november 2026
+
+Eigenaarsbesluiten na het spelen van de HTML van 6 november: een reisles blijft onder **Reis**, een overgeslagen kennismaking wordt bij de eerste reisles één keer opnieuw aangeboden, alleen de Schoolkaart (Ontdekkingskaart-code blijft, achter `NINO_DISCOVERY_MAP`), één pizzameter op een vaste plek, en **Start de Vespa-rit** op de derde doos. Hermes' bevinding over pijltjestoetsen in het Reisboekje na profielbewerking is gereproduceerd en hersteld. Nieuwe HTML `output/html/NINO-2-Proefversie-2026-11-07.html`. [Bewijs, gespeelde routes en open punten](qa/ux-20261107/README.md). Geen release-GO.
+
+# NINO 2.0 — speelbare kandidaat, 6 november 2026
+
+Eén offline HTML voor eigenaarbeoordeling: sterkere Ontdekkingskaart op dezelfde geometrie, pizza's op het tempo van de leerling met geïllustreerde spaarpizza's, onboarding als één Nino-scène zonder boekkleur, Reisboekje als één compositie op de goedgekeurde folio's, verdiende Vespa-rit en stempel- en Gold-momenten die de juiste pagina openen. [Bewijs, demosave en open punten](qa/playable-20261106/README.md). Geen release-GO.
+
+# NINO 2.0 — speelbare kandidaat, 4 november 2026
+
+Onboarding/profiel, doorlopende11-stoproute, alle folio-/stempel-/bestemmingspagina’s en PR29 Pizza Reward V2 zijn samengebracht. F1 blijft behouden. [Actuele proeflink, bewijs, demo en bronbeperking](qa/playable-20261104/README.md). Groot appicoonbron ontbreekt: huidige volledige Travel-cutout is tijdelijk. Eigenaar visueel GO en onafhankelijke Hermes-review OPEN. Geen merge/deploy of bestaande-downloadvervanging.
+
+# PR71 — Hermes F1 repair, 4 November 2026
+
+Reis/Oefenen now preserves the existing exercise mode/question, draft and native selection direction; book continuity and saved scores/rewards remain unchanged. [F1 evidence and exact-artifact Hermes handoff](qa/f1-71/README.md). Independent re-review **OPEN**; the separate artwork-audit warning and owner folio/Venezia/final visual decisions remain open. No merge/deploy/release or approved-download replacement.
+
+# NINO 2 integration candidate — 3 November 2026
+
+Current integration branch: `codex/nino-v2-integration-20261103`, isolated from existing edits. See [candidate evidence and remaining gates](qa/nino-v2-integration/README.md). This supersedes the earlier current-scope exclusions of passport/design work only for this explicitly authorized integration. Historical release/QA records below retain their original scope. No merge, deployment or approved-download replacement is authorized.
+
 # Project state
 
-**Last verified against repository: 2026-09-28.** Canonical repository: `dennisariens/topo`, branch `main`. Recovered from standalone `topo-italie-v6.html`; older HTML and recovery ZIP are historical.
+## NINO V2 artwork closeout — issue67, 2 November 2026
 
-## Purpose and implementation
+Bounded export/favicons candidate stacked on PR61 `1bf86b3e1c69319bed8ef877243070a64d97a12e`.
+Actual source/provenance inventory, approved technical derivatives, runtime usage,
+offline evidence, limitations and single Hermes handoff are in
+[the artwork closure ledger](qa/nino-v2-closure-67/README.md).
+GO FOR INDEPENDENT QA of this delivery; not final acceptance or package DONE.
+Passport integration and owner folio/edge conditions remain pending; no new
+passport implementation, reward/save/geography change, merge or deployment.
 
-Dutch Group 7 learner; map-first Italy practice with 45 items: 23 cities, 2 islands, 2 mountain ranges, 2 volcanoes, 2 regions, 7 countries/microstates, 5 seas and 2 rivers. Dependency-free HTML/CSS/SVG/JavaScript. `index.html` embeds SVG paths, worksheet photo and all three runtime scripts; `scripts/route-engine.js` is the second source copy. `scripts/learning-engine.js` is a checked source copy for tests. `npm run build` produces the standalone HTML, print page and booklet in `dist/`; `vercel.json` configures static deployment, but no live deployment or CI is verified.
+## Current: lead-integration delivery — PR61, Codex independent gate
 
-## Working in code
+Hermes reused the existing PR61 candidate, integrated around the exact owner SVG, and finalized reproducible lead evidence without a competing branch or runtime rewrite. Installed Chrome156 and WebKit27.2 both pass all45 per-item offline pointer/writing checks; build/lint/17-program regression, selection/session/focus/overlap, actual published-download and real backup/daily/import checks pass. Runtime and released HTML remain byte-identical to `b3540f72b2e21ede842bd38051e6a7015eaa0aa6`. **This is lead validation, not independent QA.** The current owner mission assigns independent technical QA to **Codex**, superseding older text assigning it to Hermes. Native Safari is BLOCKED by disabled Remote Automation; WebKit is not native Safari approval. Physical iPad/OS keyboard/IME/VoiceOver remain untested. [Current delivery, exact artifact and evidence](INTEGRATED_RELEASE_CANDIDATE.md) · [Codex handoff](CODEX_INTEGRATION_QA_HANDOFF.md). Final immutable review SHA is pinned in the PR61 lead handoff comment. Same draft PR, no merge/deploy/server mutation.
 
-- **Leerroute (default screen):** eleven ordered worksheet stops, each with Ontdekken → Aanwijzen → Namen schrijven → Schoolcodes. Completing a stop opens the next; all upcoming stops remain visible but locked. Completed stages can always be replayed. Completed stops offer a separate flawless gold challenge and a six-item review of the weakest places, scheduled after 1/3/7/14 days. Active questions, stages, item error counts and earned gold survive reload in `topo-italie-v3.route`. The path is a separate overview screen; lessons show the existing map with mobile answer controls. Nino, an original scooter-riding learner guide, appears in the route hero, active stop, lesson header, free practice coach, app header and earned-trip toast. Two generated original WebP assets in `output/art/` are embedded as data URLs in the one-file app; `npm run lint` verifies the bytes. Phase/category pictograms and the eight earned pizza wedges remain lightweight SVG. Artwork does not change the SVG map or answer geometry.
-- Learn: four city groups (1–6, 7–12, 13–18, 19–23), thematic groups, all, mistakes, shuffled first highlight and subsequent cards, fixed-order list, group labels and print. The all-items group suppresses labels to avoid collisions. `print.html` offers matching group-specific printable reference and two worksheet question directions; selecting all produces 11 separate group pages. `output/pdf/topo-italie-printboek.pdf` bundles all 11 groups in three printable formats (34 A4 pages including contents).
-- Quiz: **Aanwijzen**, **Namen schrijven** and finite **Toets** share the same selectable worksheet groups (including cities 1–6); practice uses a shuffled deck within the selected group without immediate repeats. Default test alternates worksheet code → full name and name → worksheet code; each direction and an all-formats mix (including map pointing and highlighted-name questions) are selectable. It reports questions answered and the final correct count, counts skipped/revealed answers as incorrect, and offers a restart. A practice skip/reveal shows the answer and records a mistake before the next question. Lowercase a–o and uppercase A–G are distinct; names accept documented aliases/accents. Saved mistakes can recur after five turns; mastery scheduling is absent.
-- Rome/Vatican: small visible Vatican dot near Rome; shared transparent trigger opens a two-target local selector on hover/focus/tap. San Marino has a separate visible dot and transparent hit circle. Exact source coordinates remain unverified.
-- Rewards: each correct answer earns a slice; 8 slices = pizza; every third pizza = Vespa trip along Rome → Florence → Bologna → Venetië → Milaan → Genua → Napels, cycling thereafter. Nonblocking 1.4-second animation respects reduced motion. Good count, mistakes, pizzas, slices and trips persist under `topo-italie-v3`; v2 saves migrate preserving earned pizzas. Pizza-only and full reset work; streak and current question are session-only.
-- Responsive: SVG viewBox fixed; map and panel rearrange below 950 px; main buttons are at least 44 CSS px high. City markers remain tiny when the whole map scales to a phone, and the feedback panel can be separated from the map by scrolling. Local browser connection was blocked at verification; real phone/tablet touch ergonomics and the journey visual layout remain unverified. Automated tests exercise real HTML in jsdom, but cannot prove rendering on physical devices. Do not describe the app as independently school-ready on a phone yet.
-- Deliverables: `index.html` is again **one self-contained file**, as in the known working v6: both the engine and worksheet are embedded. `scripts/learning-engine.js` is an exact, syntax-checked copy of the inline engine for unit tests. `output/html/topo-italie-interactief.html` and `output/html/topo-italie-duolingo.html` must each equal `index.html` byte-for-byte. `print.html` and the PDF derive from the same item/geometry definitions; printed city codes sit beside their unchanged dots with leader lines. For print changes run `node scripts/generate-print.mjs`, `python3 scripts/generate-pdf.py`, then `npm run build`; the build checks `output/pdf/print-source.sha256` to reject a stale PDF. Raw GitHub links and iOS file preview are not interactive hosting. Vercel static deployment is configured, but a working public URL and physical-device click test must be verified before calling it production ready.
+## Owner-supplied refined SVG — current PR61 candidate
 
-## Geography and worksheet
+The exact `TOPO-Rome-Vaticaanstad-approved-refined.svg` is now bundled by the shared selector for neutral Point/Test/Gold/multi-way choices and the existing Discover explanation. Rome’s tip is inside the dotted city rim; Vatican remains within the city. Other approved compositions retain their geography and share the approved pointer ink. Full implementation, exact-asset provenance, current evidence and independent/Safari gates: [APPROVED_ARTWORK_COMPUTER_RELEASE.md](APPROVED_ARTWORK_COMPUTER_RELEASE.md). This supersedes the prior candidate’s choice to retain the older schematic. Same PR #61; no merge or final release.
 
-Surrounding European/North African land is distinct from sea. Country shapes, 23 city markers, microstates, Ligurian Sea label, Po endpoint, Etna, Sicily label and Dolomites have targeted static invariants (`scripts/validate-map.mjs`). These test the **drawn** geometry, not external GIS. Path provenance is unknown; coastlines, mountain regions, rivers and sea zones are partly schematic. Worksheet photo and SVG both measure 890 × 1235; sampled printed red dots mostly align with the SVG markers. A global rotation would degrade alignment. Photo perspective and coastlines remain independently unregistered; keep the readable 1:1 overlay. Details: `MAP_SYSTEM.md`.
+## 30 October — owner-approved integrated computer candidate
 
-## Do not regress / next priority
+`codex/topo-nino-computer-release-20261030` reconciles PR59/60 on the PR51 functional lineage, retaining approved PR59 source-relative Rome/Vatican presentation (owner accepts this alternative) and all its later context/viewport corrections. No engine, geometry, art, progress or reward rewrite. Build generates `TOPO-NINO-Computer-Release.html`; candidate verification, limitations and independent acceptance gate are in [COMPUTER_RELEASE_2026-10-30.md](COMPUTER_RELEASE_2026-10-30.md). Candidate prerelease only; Hermes exact-artifact acceptance and Safari remain open. No upstream merge, final publication, production/server mutation or replacement of the issue-50 download.
 
-Preserve 45 item IDs and school codes, learning groups and reference labels, surrounding land color, corrected locations, Vatican/Rome selector, shuffled deck, saved-progress migration and both resets. **Next package:** Geographic Data Foundation: source/projection, independently sourced coast/points/rivers, visual vs hit validation and browser checks at phone/tablet/desktop sizes. See `ROADMAP.md`.
+## P0 issue #58 — neutral chooser legibility (draft)
+
+Dedicated branch from reviewed PR51 `bd1e57bc48e55a065cbbccb68acea196a64a187c`. Replace visually coincident callouts with exact-anchor geographic crops, constant-size markers, separate badges and noncrossing leaders; non-point options use same-scale outline maps. The resolver, geometry, grading/rewards, saves and artwork remain unchanged. Full tests/lint/build, Focus, Point/Test/Gold and rendered collision QA pass within the recorded matrix. Existing small-phone Focus occlusion is explicitly recorded rather than hidden; physical Safari and owner GO/ADJUST/Hermes review remain pending. [Implementation/evidence/release gate](MAP_PICKER_58.md). Existing child download remains unchanged; no merge/deploy/server mutation.
+
+## P0 issue #50 — downloadable offline computer HTML
+
+Dedicated branch from exact reviewed PR47 `b111ed2abfed15c97106e3d755fcff33c704215f`. Runtime audit found no blocker; canonical `output/html/TOPO-Italie-Computer.html` is byte-identical to the reviewed outputs. Build preserves that name. Actual macOS Chromium file:// offline QA, full tests/lint/build, semantic/Gold/rewards, persistence/reset and Apennines controls pass. Download and precise evidence: [OFFLINE_COMPUTER_50.md](OFFLINE_COMPUTER_50.md). Draft only; no merge/deploy/server mutation; physical Safari and independent Hermes remain pending.
+
+## Current P0: functional iPad update — PR #47
+
+`fix/afternoon-ipad-blockers-20261026` is stacked on exact PR40 `71b33fd`. Apennines now use18 sourced mountain anchors and the unchanged registered DEM, with a connected mainland educational corridor and0% filled-area leakage (PR40:19.62%). Only area-c.shape changes; other44 items/27 anchors/6 lakes stay exact. All45 disables chapter zoom with an explanation; Heel Italië/Zoom op hoofdstuk/Kaartstijl are clear, settings/printing secondary. Actual gates found/fixed stale print artifacts and an observer-loop in chapter disabling. Both offline HTMLs,35-page PDF,17-program chain,7-viewport Focus browser suite,64 existing semantic taps and32 Apennines/offshore taps are verified. See [AFTERNOON_IPAD_BETA_2026-10-26.md](AFTERNOON_IPAD_BETA_2026-10-26.md) for raw evidence/source limits/server8033 instructions. Final independent exact-SHA verdict belongs in PR47 comments; physical Safari remains PENDING. Existing server/test clone untouched. No art/passport/new rewards, merge or production deployment.
+
+## Previous P0: iPad Focus Mode — stacked on independently verified PR #39
+
+`hermes/topo-ipad-focus-mode` starts at exact `fc8f5be4dc77c8b1adb71aae3931a1c134389cf5` and targets `codex/topo-semantic-map-hotfix`, without editing PR #30/#39. Compact/tablet view removes the permanent sidebar, reparents the original quiz/input/check into a keyboard-safe Frosted Parchment sheet, keeps native navigation/controls in explicit Menu, and adds full/chapter camera controls over the one unchanged SVG. Seven responsive/keyboard-simulation viewports and independent integrated semantic probes pass; a genuinely played first stop reaches Gold/three pizzas/one trip. Seventeen test programs, build/lint/source audit pass. Original semantic resolver, engines, art, geography, schoolblad and exports remain protected. **CONDITIONAL**: physical iPad Safari/IME/VoiceOver and the approval-blocked inherited browser-hotfix harness rerun are still pending. See [FOCUS_MODE.md](FOCUS_MODE.md) for evidence, exact limits and owner device procedure. No merge/deployment; #35 illustration polish waits.
+
+## Historical Discovery Map candidate — owner benchmark implementation
+
+`hermes/topo-discovery-map-production` is based on verified schoolblad PR #27 `1c4d00f8` atop integrated PR #17 `c68ace4e`. Exactly two live map styles share the original vector/hit/grading engine. Discovery embeds a 59,152-byte geographically registered DEM relief, Riviera water/materials and restrained original-Nino framing; Schoolkaart paint is retained. Active question/draft/progress survive style selection; explicit preference is separate from learner saves. Both standalone HTML files embed everything. Original schoolblad module/style, owner art, geography, learning/reward engines and print are unchanged. Real browser evidence covers desktop, both iPad orientations, 390/320px phones, route Discover→Point, zoomed neutral touch picking and source schoolblad regression. See `DISCOVERY_MAP.md` for actual reference comparisons, exact sources, test output and explicitly remaining visual gaps. Draft review candidate only: physical iPad/VoiceOver/owner visual acceptance remain open; no merge/deploy. This supersedes treating PR #26's conservative technical proof as the finished visual implementation.
+
+## Release 1.2 candidate — owner art in the runtime
+
+`hermes/topo-nino-visual-integration` is based precisely on Release 1.1 `a481317b33f5f6f55c179ee0fbfe6b211663be7b`, targeting `codex/topo-release-1-1-polish`. Six byte-verified WebP exports from owner art commit `047f74390bbb0cc7cfbd1fa3ba4f65fe23e2ec6d` are embedded in the self-contained app. Welcome, Guide, Encourage, Success, new earned Gold and actual Vespa Arrival follow real events. Gold pauses/replays never use the Gold pose; mixed rounds do not imply perfection. Existing artwork, both learning engines, geography, progress/reward schemas and print assets are preserved. Reusable chapter/postcard slots hide unfinished art without inventing unlocks. No app icon selected; art masters/branch untouched.
+
+Both standalone downloads decode all six illustrations offline. Five viewport sizes, keyboard, reduced motion, resumed answers and real reward events have browser evidence. Candidate asset approval, physical iPad Safari/keyboard and real-printer acceptance remain outstanding. The narrow dev-only undici security update does not add runtime dependencies. See `RELEASE_1_2.md` and `assets/nino/RUNTIME.md`. No merge/deployment performed; stop at draft PR/owner review.
+
+Verified 2026-10-23 for Release 1 integration. GitHub `dennisariens/topo` remains the source of truth. Integration is reviewable on `codex/topo-release-1-integration`; merge and deployment require owner approval. No deployment was performed.
+
+## Canonical application
+
+`index.html` is the self-contained Dutch Group 7 geography app, with all 45 stable learning IDs, reference codes and eleven groups/stops. Its three embedded scripts include the exact checked copies of `scripts/learning-engine.js` and `scripts/route-engine.js`. Original Nino panorama and scooter WebP bytes, coach, route layout, palette, icons and trip toast are retained. The frozen Work ZIP is historical transfer material, never an active second app.
+
+## Integrated behavior
+
+- Route stages: **Ontdekken → Aanwijzen → Namen schrijven**. Finishing writing opens the next stop. All completed stages remain replayable; optional gold requires correct pointing and writing for every item. Six-question pauses do not truncate gold queues (countries cover fourteen tasks).
+- Free Point, Write and finite mixed tests retain group selection, mistakes, reveal/skip feedback and aliases. No question asks for a schoolcode. Codes remain reference metadata. Learn labels and Dutch prompts remain.
+- Smart rounds select six weak, due or new point/write skills from unlocked content. Each skill has independent correct/wrong/streak/seen/due history, spaced 1/3/7/14 days. The knowledge passport covers all 45 places. Legacy aggregate history is preserved without inventing separate skill results.
+- Results label the last six-question round separately from the full lesson totals; lifetime good count is distinct. For legacy in-progress saves without per-answer history, unavailable round scores are shown as unknown rather than invented; whole-lesson totals remain preserved. Daily goals count every accepted correct retrieval independently of pizza eligibility, including completed-stage/gold replays; answered-state guards prevent resubmission/reload credit. Goals roll over by local calendar date and reset with all-progress reset.
+- Correct retrieval earns a slice, eight slices a pizza, every third pizza a Vespa destination. The meter always shows the current partial pizza, including after large lifetime totals. Original eight-wedge art is used on the route, in free practice and in a compact lesson meter; celebrations remain short, inline/nonblocking and reduced-motion aware. No postcards, customisation or additional currencies.
+- Persisted stage/gold reward tokens prevent the same question minting rewards through correction fillers, reload, replay or old-save migration. Fresh review/adaptive/free practice sessions can earn rewards for new retrieval attempts. Schema-1 completed work is treated as already rewarded. Original pizzas/trips and completed writing/gold survive migration; obsolete code sessions close safely.
+- Storage remains local under `topo-italie-v3`, with v2 reward migration. Progress JSON export/import from Work is retained; imports strictly validate supported nested route schemas 1/2 and their chapter/item/skill/session structures before confirmation or storage. Rejected imports preserve memory and localStorage unchanged; permissive startup recovery remains separate. No account or automatic cloud/device sync.
+- Pizza reset changes only rewards; route reset clears route learning/gold while retaining earned rewards and the anti-replay token ledger; full reset clears rewards, mastery, mistakes, route and daily goal. Browser storage failures show an inline warning.
+
+## Geography and interaction
+
+See `MAP_SYSTEM.md` and `docs/geography/README.md`. The Work source-projected geometry is integrated: 27 point anchors, Natural Earth country/island/coast outlines and river centre lines; 36 source-backed target geometries and nine explicitly schematic mountain/region/sea zones. Vesuvius is east of Naples. Coordinates never move to enlarge interaction targets.
+
+Points accept a 22 CSS-pixel radius around their real position. Overlaps open a numbered, neutral local map picker; Rome/Vatican keyboard trigger uses it too. The named explanatory Rome/Vatican inset is reserved for Learn/Discover. Microstate highlights use locator rings and a cropped map at the canonical position. Rivers have separate invisible 44 CSS-pixel strokes, retaining their original visual centre lines. Keyboard activation uses SVG-compatible dispatched events. The map ratio remains 890:1235; the school photo is separate at its original ratio, not a registered overlay.
+
+## Printing and generated outputs
+
+`generate-print.mjs` reads canonical items/geometry; no second geographic content source. Formats: reference, marked place → name, and named place → map location. Temporary V1… labels belong only to that sheet; they are not fixed schoolcodes to memorise. Editorial leaders keep labels clear of cities, volcanoes and microstates. Original photo remains an optional separate reference sheet.
+
+`generate-pdf.py` renders the same vector paths and label positions with ReportLab. The booklet is **35 A4 pages**: contents, 33 group exercise/reference pages, original school-photo appendix. The photograph is not used as a coordinate overlay. Font discovery supports Linux DejaVu and macOS Arial. See README for Python requirements. Physical printer legibility is still an acceptance check.
+
+`generate-preview.mjs` generates the static preview from all 45 canonical definitions; the running app replaces it with live layers. Build produces byte-identical standalone HTML downloads and `dist/index.html`, `dist/print.html`, `dist/printboek.pdf`. PDF source hash freshness is checked by tests/build.
+
+## Verification and limits
+
+Required lint/test/build pass; browser evidence and independent reproduction are in `RELEASE_1_INTEGRATION.md`, `HERMES_QA_RELEASE_1.md` and `visual/release-1/`. DOM coverage includes all stops/gold, legacy migration, reset scopes/daily goal, isolated skills, exact round results, microstate highlighting, neutral keyboard picker, river targets and reward idempotence. Work regression checks are maintained against the canonical app, including 27 projected anchors and 45 geometry hashes; static/live geometry equality covers all 45.
+
+Chrome desktop, tablet-sized and phone-sized viewports were exercised, including adaptive reload on each answer, pointer overlap selection and screenshots. This is not physical iPad Safari verification. Nine areas remain schematic; raw upstream GeoJSON/versioned retrieval artifacts are not in the Work handoff, so retained source URLs, point excerpts and geometry hashes establish provenance/baselines, not an independent survey of every vertex. See map documentation for remaining limits. No production URL was tested or published.
+
+## Hermes QA follow-up — QA-1 and QA-2 only
+
+Fixed replay daily credit and strict nested-backup validation after the independent review of `6746a3079d594693dbf8e08702cdb3db42aa3d4d`. Targeted regressions: `scripts/qa-findings.test.mjs`; real Chrome reproduction: `scripts/qa-findings-browser.mjs`. Evidence is in `visual/release-1-qa-fixes/browser-results.json`. Physical iPad Safari and real printer acceptance remain outstanding; no merge or deployment performed.
+
+## Release 1.1 polish — separate PR against integration
+
+`codex/topo-release-1-1-polish` starts from PR #3 HEAD `9df498919cd6fa1a07aadd6a15e973b496a8b0fd`. All eleven chapter icons have explicit valid references (including Eilanden); stale five-answer pizza copy is removed. Current chapter and next preview remain open, while later and completed stops use native accessible disclosures with replay/Gold access. Mobile modes fit without horizontal clipping, and map provenance moves into **Over de kaart**.
+
+Nino's selected NOW messages come from PR #6's three documents at `d746ac9d1f4cbc5e9c8b7b8544cdba396cf60f1d`, via a checked embedded resolver. First/return/resume, lesson starts, graded answers, round results, chapter/Gold/review messages reflect actual engine events. No new artwork, hints, spelling retries or postcards; no new save schema or reward rules. Learning engines, geography and printable assets are unchanged. Details, browser evidence and device/learner limitations: `RELEASE_1_1.md`. This work is reviewable, not merged/deployed.
+
+## Issue #13 — background lake cartography
+
+From pinned Release 1.1 `a481317b33f5f6f55c179ee0fbfe6b211663be7b`, branch `codex/topo-lakes-map-layer` adds Garda, Maggiore, Como, Lugano, Bolsena and Léman/Genève as noninteractive inline background polygons. Natural Earth 5.0.0 main/Europe datasets are revision/byte-hash pinned, with original excerpts and reproducible projection tooling. Maggiore's upstream mislabelling is explicitly corrected and documented; Como retains its forks. Same geometry in runtime, static fallback and both offline downloads; print remains byte-identical. All 45 learning targets, engines, saves/rewards and Nino remain unchanged apart from the single map composition call.
+
+Full lint/test/build, source audit, Chrome responsive/offline checks at five viewport sizes and existing save/lesson/Gold/replay/import browser regressions pass. Evidence, source/license, device limits, existing development dependency audit finding and controlled Hermes integration instructions: [geography/LAKES.md](geography/LAKES.md). Draft handoff only; no merge, deployment or combined-art acceptance.
+
+## Release 1.2 combined candidate — Issue #16
+
+`integration/topo-release-1-2-nino-lakes` combines pinned Hermes PR #14 `4f15b610` and lake PR #15 `35ff21b6` from common Release 1.1 `a481317b`. Both histories, all six immutable WebPs, art UI/event policies, all six pinned lake polygons and offline embedding are preserved. Actual conflicts in package/build/decision log retain both features; generated files were rebuilt. No learning/reward engine, target, save schema or print/PDF change. The existing undici audit finding is resolved by Hermes' unchanged lockfile patch: fresh audit reports zero vulnerabilities under Node 24.15.0.
+
+All 13 test programs, lint/build, source preservation audit, five responsive Chrome suites and combined file/offline backup+keyboard checks pass. Fresh evidence, conflict ledger, changed-file manifest and exact reproduction: [RELEASE_1_2_INTEGRATION.md](RELEASE_1_2_INTEGRATION.md). Codex verification is a conditional handoff for independent Hermes exact-SHA review and owner visual acceptance; physical Safari/child/print proof are outstanding. No target/main merge or deployment.
+
+## Issue #23 — original schoolblad overlay candidate
+
+`codex/topo-schoolblad-overlay` starts from pinned PR #17 `c68ace4e`. A secondary Schoolblad bekijken button opens the exact original embedded photograph in a labelled native modal with fitted page, zoom/pan/pinch, keyboard containment, Escape/close, reduced motion and focus/caret/scroll recovery. The same utility is available in the mobile lesson dock and route overview. No interactive map-style switch or grading surface is introduced; existing checkbox behavior is retained as an unsupported-native fallback.
+
+All 14 test programs, lint/build, source-preservation audit and five-viewport offline browser QA pass, including both standalone downloads, answered/unanswered/Gold state invariance and iPad large-text/rotation. Canonical HTML minus the two overlay source blocks equals the pinned baseline exactly; print/PDF, geography, art and engines remain unchanged. Evidence and remaining physical Safari/VoiceOver/owner acceptance: [SCHOOLBLAD_OVERLAY.md](SCHOOLBLAD_OVERLAY.md). Draft only; no merge/deployment or combination with Hermes' map-style proof.
+
+## P0 #36 / #34 — semantic map tap hotfix
+
+Isolated patch on PR #30 `f67027d`, with all Discovery/terrain and schoolblad module bytes preserved. The single tap resolver uses existing geometry plus task feature class: 27 point halos, real region/country/island/sea/mountain fills and river corridors. Point capture and Po's invisible stroke no longer steal valid Tuscany/Po Plain selections. Genuine ambiguity uses one neutral stable-ID picker with answer-independent shuffled order and shape wording for areas. Actual wrong→Next→repair→completed region stages are tested; no engine/reward/save/geometry change. Four viewports × two themes × fit/zoom, all anchors/polygons, Gold/replay and both offline downloads have automated evidence. PR #29 remains separate/untouched; #37 mountain geometry and Hermes Focus Mode are outside this interaction patch. See [MAP_SELECTION_HOTFIX.md](MAP_SELECTION_HOTFIX.md) for measured root causes, evidence, reproduction and remaining physical-iPad steps. Draft review only; no merge/deployment.
+
+
+## PR #59 owner revision — 29 October 2026
+
+Replaces rejected `d55e9de` on the same `codex/issue-58-legible-map-picker`
+branch. One regional source map restores coastlines, islands, six lakes, rivers,
+neighbouring places and distinct city/volcano/microstate glyphs. Rome has an
+explicitly illustrative city circle containing a tiny Vatican symbol at its
+source-relative WNW position, with two separately capped neutral callouts;
+broader sets retain this in a local inset. These are symbols, never surveyed
+municipal/state boundaries. All candidate endpoints, badges, orientation and
+>=44px controls fit on first opening. Area/sea outlines retain a common complete
+extent/scale, now fitted together rather than scrolled. No answer-dependent
+camera/paint/name. PR51 resolver/shuffle/grading, all 45 item records, 27 anchors,
+six lakes, 11 chapters, engines/rewards/saves, Focus, art and print remain exact.
+All generated standalone candidate HTMLs are byte-identical.
+
+Full lint/test/build and real offline browser evidence:
+[visual/map-picker-58-revision/README.md](visual/map-picker-58-revision/README.md).
+This is a new owner preview, not owner/Hermes acceptance or physical Safari/child
+proof. Existing learner release, iPad server, main and deployments are unchanged.

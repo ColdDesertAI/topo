@@ -1,0 +1,83 @@
+import{assertPreserved,restoreApprovedArea}from'./ipad-update-source.mjs';
+import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{execFileSync}from'node:child_process';import{JSDOM,VirtualConsole}from'jsdom';import{withoutFocus}from'./focus-source.mjs';
+const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root)),base='fc8f5be4dc77c8b1adb71aae3931a1c134389cf5',html=read('index.html').toString();
+function boot(){const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));const dom=new JSDOM(html,{url:'https://focus.test/',runScripts:'dangerously',virtualConsole:vc,beforeParse(w){w.HTMLElement.prototype.scrollIntoView=()=>{};w.scrollTo=()=>{};w.confirm=()=>true;w.HTMLDialogElement.prototype.showModal=function(){this.open=true};w.HTMLDialogElement.prototype.close=function(){this.open=false}}});return{w:dom.window,d:dom.window.document,ev:s=>dom.window.eval(s),errors,close:()=>dom.window.close()};}
+const settle=()=>new Promise(r=>setTimeout(r,10));
+const snap=a=>a.ev('JSON.stringify({current:state.current,answered:state.answered,mode:state.mode,questionMode:state.questionMode,progress:progressSnapshot(),save:localStorage.getItem("topo-italie-v3")})');
+test('P0 iPad hotfix preserves verified PR39 teaching, rewards and source outside explicit changes',()=>{
+ const baseline=execFileSync('git',['show',base+':index.html'],{cwd:root,maxBuffer:24e6}).toString();
+ const oldArea=baseline.match(/data-reference-id="area-c" d="([^"]+)"/)?.[1],newArea=html.match(/data-reference-id="area-c" d="([^"]+)"/)?.[1];
+ assert.ok(oldArea&&newArea&&oldArea!==newArea,'intentional Apennines geometry correction exists');
+ const oldAtlas=execFileSync('git',['show',base+':scripts/discovery-map.js'],{cwd:root,maxBuffer:24e6}).toString();
+ const newAtlas=read('scripts/discovery-map.js').toString();
+ const oldAtlasCss=execFileSync('git',['show',base+':scripts/discovery-map.css'],{cwd:root,maxBuffer:24e6}).toString();
+ const newAtlasCss=read('scripts/discovery-map.css').toString();
+ const oldHit=execFileSync('git',['show',base+':scripts/map-hit.js'],{cwd:root,maxBuffer:24e6}).toString(),newHit=read('scripts/map-hit.js').toString();
+ // #58 changes only chooser presentation; preserve resolver, selection and grading verbatim.
+ assert.equal(newHit.slice(0,newHit.indexOf('// Layout uses only')),oldHit.slice(0,oldHit.indexOf('function openMapPicker')));
+ const handler="$('#map').addEventListener('click'";assert.equal(newHit.slice(newHit.indexOf(handler)),oldHit.slice(oldHit.indexOf(handler)));
+ assert(html.includes(newHit),'exact reviewed chooser source embedded');
+ let normalized=withoutFocus(html.replace(newHit,oldHit)).replaceAll(newArea,oldArea);
+ assert.ok(normalized.includes(newAtlas),'new Kaartstijl source is embedded');
+ assert.ok(normalized.includes(newAtlasCss),'new Kaartstijl CSS is embedded');
+ normalized=normalized.replace(newAtlas,oldAtlas).replace(newAtlasCss,oldAtlasCss);
+ assert.equal(normalized,baseline,'canonical quiz, targets, route and reward engine unchanged outside scoped corrections');
+ for(const p of ['scripts/schoolblad.js','scripts/schoolblad.css','scripts/learning-engine.js','scripts/route-engine.js','assets/discovery/terrain.webp','geography/lakes/projected-manifest.json','print.html','output/pdf/topo-italie-printboek.pdf','package-lock.json'])assertPreserved(p,read(p),execFileSync('git',['show',base+':'+p],{cwd:root,maxBuffer:24e6}));
+ for(const p of ['output/html/topo-italie-interactief.html','output/html/topo-italie-duolingo.html'])assert(read(p).equals(read('index.html')),p);
+ assert.match(read('scripts/focus-camera.js').toString(),/chapterButton\.disabled=!available/,'all-45 chapter camera really disabled');
+ assert.match(read('scripts/discovery-map.js').toString(),/Kaartstijl/);
+});
+test('one canonical input/submit; responsive reparenting retains draft, caret, task and saved progress',async()=>{const a=boot();try{const input=a.d.getElementById('answer'),check=a.d.getElementById('check'),handler=check.onclick;
+ a.ev('Object.defineProperty(document.documentElement,"clientWidth",{configurable:true,get:()=>820});Object.defineProperty(document.querySelector(".atlasViewport"),"clientWidth",{configurable:true,get:()=>796});Object.defineProperty(document.querySelector(".atlasViewport"),"clientHeight",{configurable:true,get:()=>1000});window.innerWidth=820;window.innerHeight=1180;TopoFocus.apply();mode("write")');await settle();input.value='Onvoltooid';input.focus();input.setSelectionRange(2,6,'backward');const before=snap(a);
+ a.ev('TopoFocus.apply();window.innerWidth=1180;window.innerHeight=820;TopoFocus.apply()');await settle();assert.equal(a.d.querySelector('#focusAnswerSheet #answer'),input);assert.equal(a.d.querySelectorAll('#answer').length,1);assert.equal(a.d.querySelector('#check'),check);assert.equal(check.onclick,handler);assert.equal(input.value,'Onvoltooid');assert.equal(input.selectionStart,2);assert.equal(input.selectionEnd,6);assert.equal(a.d.activeElement,input);assert.equal(a.d.getElementById('routeDockAnswer').disabled,true);assert.equal(snap(a),before);assert.deepEqual(a.errors,[]);
+ }finally{a.close()}});
+test('visual viewport adapter reads real offsets without editing learner state or field selection',async()=>{const a=boot();try{a.ev('Object.defineProperty(document.documentElement,"clientWidth",{get:()=>820});window.innerWidth=820;TopoFocus.apply();mode("write")');await settle();const input=a.d.getElementById('answer');input.value='Floren';input.focus();input.setSelectionRange(1,4);const before=snap(a);a.ev('Object.defineProperty(window,"visualViewport",{configurable:true,value:{offsetTop:24,offsetLeft:10,width:700,height:480,scale:1}});TopoFocus.position()');assert.equal(a.w.TopoFocus.viewport().height,480);assert.equal(a.w.TopoFocus.viewport().top,24);assert.equal(input.value,'Floren');assert.equal(input.selectionStart,1);assert.equal(input.selectionEnd,4);assert.equal(snap(a),before);assert.deepEqual(a.errors,[])}finally{a.close()}});
+test('chapter availability writes are idempotent: no MutationObserver disabled loop',async()=>{const a=boot();try{let writes=0;const proto=a.w.HTMLButtonElement.prototype,descriptor=Object.getOwnPropertyDescriptor(proto,'disabled');Object.defineProperty(proto,'disabled',{...descriptor,set(value){if(this.textContent==='Zoom op hoofdstuk'&&++writes>8)throw Error('Repeated chapter disabled mutation');descriptor.set.call(this,value)}});a.ev('Object.defineProperty(document.documentElement,"clientWidth",{configurable:true,get:()=>820});window.innerWidth=820;mode("write");TopoFocus.apply()');await settle();for(let i=0;i<12;i++)a.w.TopoFocus.apply();await settle();assert(writes<=2,'availability changes at most once, not every update');assert.deepEqual(a.errors,[])}finally{a.close()}});
+test('Frosted Parchment keeps children opaque and exposes reduced-transparency/contrast fallbacks',()=>{const css=read('scripts/focus-mode.css').toString();assert(css.includes('background:rgba(255,249,236,.93)'));assert(css.includes('prefers-reduced-transparency:reduce'));assert(css.includes('forced-colors:active'));assert(css.includes('font-size:16px'));assert(css.includes('min-height:46px'));assert(!/\.focusAnswerSheet\s*\{[^}]*opacity:\s*\./.test(css));});
+test('F1 Reis/Oefenen resumes the visible writing question, draft and backward selection without progress changes',async()=>{const a=boot();try{
+ const button=text=>[...a.d.querySelectorAll('button')].find(b=>b.textContent===text);
+ button('Oefenen').click();a.d.querySelector('[data-mode="write"]').click();await settle();
+ const input=a.d.getElementById('answer');input.value='Navigatieconcept';input.focus();input.setSelectionRange(3,10,'backward');const before=snap(a);
+ for(let n=0;n<2;n++){
+  button('Reis').click();await settle();button('Oefenen').click();await settle();
+  assert.equal(snap(a),before,'same active question/mode and exact progress/save');
+  assert(!a.d.querySelector('.layout').classList.contains('routeHomeLayout'));
+  assert(!a.d.getElementById('quiz').classList.contains('hidden'),'question is visible, not just a hidden input');
+  assert.equal(input.value,'Navigatieconcept');assert.deepEqual([input.selectionStart,input.selectionEnd,input.selectionDirection],[3,10,'backward']);
+ }
+ assert.deepEqual(a.errors,[]);
+ }finally{a.close()}});
+test('F1 navigation preserves every practice mode; a route lesson stays under Reis and resumes through Verder',async()=>{const a=boot();try{
+ const button=text=>[...a.d.querySelectorAll('button')].find(b=>b.textContent===text);
+ button('Oefenen').click();
+ for(const mode of ['learn','point','write','exam']){
+  a.d.querySelector('[data-mode="'+mode+'"]').click();await settle();const before=snap(a);
+  button('Reis').click();await settle();button('Oefenen').click();await settle();assert.equal(snap(a),before,mode);
+ }
+ button('Reis').click();a.d.getElementById('routeContinue').click();await settle();
+ assert.equal(a.ev('state.mode'),'route');assert(a.ev('state.current!==null'));
+ const current=()=>[...a.d.querySelectorAll('.ninoNav button')].filter(b=>b.getAttribute('aria-current')==='page').map(b=>b.textContent).join();
+ assert.equal(current(),'Reis','a route lesson started from the journey stays under Reis');
+ const before=snap(a);button('Reis').click();await settle();a.d.getElementById('routeContinue').click();await settle();assert.equal(snap(a),before);
+ assert(a.d.querySelector('.layout').classList.contains('routeLessonLayout'));assert.equal(current(),'Reis');
+ button('Oefenen').click();await settle();assert.equal(current(),'Oefenen','Oefenen opens free practice');assert.notEqual(a.ev('state.mode'),'route');
+ button('Reis').click();await settle();a.d.getElementById('routeContinue').click();await settle();assert.equal(a.ev('state.mode'),'route');assert.equal(current(),'Reis');assert(a.d.querySelector('.layout').classList.contains('routeLessonLayout'));assert.deepEqual(a.errors,[]);
+ }finally{a.close()}});
+test('F1 Reis can display the journey from a completed round and Verder resumes the same result screen',async()=>{const a=boot();try{
+ const button=text=>[...a.d.querySelectorAll('button')].find(b=>b.textContent===text);
+ a.d.getElementById('routeContinue').click();
+ for(let n=0;n<30&&!a.d.getElementById('finishScreen');n++)a.d.getElementById('next').click();await settle();
+ const finish=a.d.getElementById('finishScreen');assert(finish);const before=snap(a),paused=a.ev('roundPaused');
+ button('Reis').click();await settle();assert(!a.d.querySelector('.layout').classList.contains('finishLayout'),'journey is not hidden by result layout');assert(finish.classList.contains('hidden'));
+ a.d.getElementById('routeContinue').click();await settle();assert.equal(snap(a),before);assert.equal(a.ev('roundPaused'),paused);assert.equal(a.d.getElementById('finishScreen'),finish);assert(!finish.classList.contains('hidden'));assert(a.d.querySelector('.layout').classList.contains('finishLayout'));
+ // Existing direct event handlers must retain destructive/default route-home semantics.
+ [...finish.querySelectorAll('button')].find(b=>b.textContent==='Terug naar de route').click();assert.equal(a.ev('state.current'),null);assert(!a.d.getElementById('finishScreen'));
+ }finally{a.close()}});
+test('F1 canceled journey reset or lesson change keeps the suspended exercise',async()=>{const a=boot();try{
+ const button=text=>[...a.d.querySelectorAll('button')].find(b=>b.textContent===text);
+ a.w.confirm=()=>false;button('Oefenen').click();a.d.querySelector('[data-mode="write"]').click();await settle();
+ const input=a.d.getElementById('answer');input.value='Navigatieconcept';input.setSelectionRange(3,10,'backward');const before=snap(a);
+ button('Reis').click();a.d.getElementById('routeReset').click();button('Oefenen').click();await settle();assert.equal(snap(a),before);assert.equal(input.value,'Navigatieconcept');assert.equal(input.selectionDirection,'backward');
+ button('Reis').click();a.d.getElementById('routeContinue').click();await settle();input.value='route draft';input.setSelectionRange(1,5,'backward');const route=snap(a);
+ button('Reis').click();a.d.getElementById('smartStart').click();a.d.getElementById('routeContinue').click();await settle();assert.equal(snap(a),route);assert.equal(input.value,'route draft');assert.deepEqual([input.selectionStart,input.selectionEnd,input.selectionDirection],[1,5,'backward']);
+ }finally{a.close()}});

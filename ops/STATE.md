@@ -27,6 +27,9 @@ BL-005 is `klaar` (PASS met voorbehoud, PR #91; plan in `ops/reports/integratie.
 - B2C én B2B · hoofddoel: leren op een leuke manier · testkinderen groep 7 (10–11)
 - FR-code gepauzeerd tot M1. FR-data, research en art mogen parallel op Codex (OPERATING_MODEL §5, 🟡)
 
+## Live (14-11)
+- **www.ninotopo.nl** = portal; `/italie/` = Italië-app. Repo verhuisd naar **ColdDesertAI/topo**; Vercel-project `nino-topo-portal-review` bouwt vanaf `main`.
+
 ## Portal (besluit 14-11: optie A)
 - BL-013 in review: portal op `/`, Italië op `/italie/`. Daarna G1 (visuele GO op de preview) en G4 (live + DNS bij Namecheap, BL-009).
 - ROADMAP M0 zei "portal naar één preview-URL"; dat wordt nu: portal live met de huidige Italië-versie, V3 volgt via BL-005.

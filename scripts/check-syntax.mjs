@@ -1,7 +1,14 @@
 import { readFileSync } from 'node:fs';
 import { Script } from 'node:vm';
+import { createHash } from 'node:crypto';
+import { assemble } from './assemble-index.mjs';
 
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+if (!assemble().equals(readFileSync(new URL('../index.html', import.meta.url)))) throw new Error('index.html differs from src/v2 + assets/v2. Edit src/v2, then run: node scripts/assemble-index.mjs');
+console.log('index.html equals assembled src/v2 + assets/v2: OK');
+for (const [file,start,end] of [['schoolblad.js','// BEGIN SCHOOLBLAD\n','// END SCHOOLBLAD'],['schoolblad.css','/* BEGIN SCHOOLBLAD */\n','/* END SCHOOLBLAD */']]) {
+  if(!html.includes(start+readFileSync(new URL(file,import.meta.url),'utf8')+end))throw Error('Embedded schoolblad source is stale; rebuild');
+}
 const heroArt = readFileSync(new URL('../output/art/topo-italie-avontuur.webp', import.meta.url)).toString('base64');
 const ninoArt = readFileSync(new URL('../output/art/nino-op-de-scooter.webp', import.meta.url)).toString('base64');
 if (!html.includes(`<img src="data:image/webp;base64,${heroArt}"`)) throw new Error('Route panorama differs from its source WebP');
@@ -24,3 +31,32 @@ if (bundled.length !== 3 || standalone !== html) throw new Error('Downloaded HTM
 if (readFileSync(new URL('../output/html/topo-italie-duolingo.html', import.meta.url), 'utf8') !== html) throw new Error('New route download differs from canonical app');
 bundled.forEach((match, index) => new Script(match[1], { filename: `standalone:script-${index}` }));
 console.log('App, print page, standalone bundle and learning engine JavaScript syntax: OK');
+
+const nino=readFileSync(new URL('./nino-feedback.js',import.meta.url),'utf8');
+if(!html.includes('// BEGIN NINO FEEDBACK\n'+nino+'// END NINO FEEDBACK'))throw new Error('Embedded Nino resolver differs from tested source');
+const art=readFileSync(new URL('./nino-art.js',import.meta.url),'utf8');
+const artUI=readFileSync(new URL('./nino-art-ui.js',import.meta.url),'utf8');
+const artCSS=readFileSync(new URL('./nino-art.css',import.meta.url),'utf8');
+if(!html.includes(art+'// END NINO ART')||!html.includes('// BEGIN NINO ART UI\n'+artUI+'// END NINO ART UI')||!html.includes(artCSS+'/* END NINO ART CSS */'))throw Error('Embedded illustration code/styles are stale. Rebuild.');
+const manifest=JSON.parse(readFileSync(new URL('../assets/nino/runtime-manifest.json',import.meta.url),'utf8'));
+const embedded=JSON.parse(html.match(/window\.TOPO_NINO_ART_DATA=(\{[^\n]+\});/)?.[1]||'null');
+if(!embedded||embedded.sourceCommit!==manifest.sourceCommit)throw Error('Missing pinned offline art manifest');
+for(const field of ['states','chapters','postcards'])if(JSON.stringify(embedded[field])!==JSON.stringify(manifest[field]))throw Error('Stale art mapping: '+field);
+for(const [role,asset] of Object.entries(manifest.assets)){
+ const bytes=readFileSync(new URL('../'+asset.path,import.meta.url));
+ if(createHash('sha256').update(bytes).digest('hex')!==asset.sha256||embedded.assets[role]?.src!=='data:image/webp;base64,'+bytes.toString('base64'))throw Error('Offline art differs from immutable export: '+role);
+}
+console.log('Pinned Nino art, reusable slots and all offline image bytes: OK');
+const atlasSource=readFileSync(new URL('./discovery-map.js',import.meta.url),'utf8'),atlasCSS=readFileSync(new URL('./discovery-map.css',import.meta.url),'utf8');
+if(!html.includes(atlasSource+'// END DISCOVERY MAP')||!html.includes('/* BEGIN DISCOVERY MAP */\n'+atlasCSS+'/* END DISCOVERY MAP */'))throw Error('Stale Discovery map embedding');
+const atlas=JSON.parse(html.match(/window\.TOPO_ATLAS_DATA=(\{[^\n]+\});/)?.[1]||'null');
+const relief=readFileSync(new URL('../assets/discovery/terrain.webp',import.meta.url)),atlasManifest=JSON.parse(readFileSync(new URL('../assets/discovery/runtime-manifest.json',import.meta.url),'utf8'));
+if(!atlas||atlas.terrain!=='data:image/webp;base64,'+relief.toString('base64')||createHash('sha256').update(relief).digest('hex')!==atlasManifest.sha256)throw Error('Offline terrain source/hash mismatch');
+console.log('Discovery atlas code, original geometry references and embedded DEM bytes: OK');
+
+for(const f of ['focus-camera.js','focus-mode.js','focus-camera.css','focus-mode.css'])if(!html.includes(readFileSync(new URL(f,import.meta.url),'utf8')))throw Error('Stale Focus source: '+f);
+const mapHit=readFileSync(new URL('./map-hit.js',import.meta.url),'utf8');
+if(!html.includes('// BEGIN MAP HIT\n'+mapHit+'// END MAP HIT'))throw Error('Stale embedded map hit resolver; rebuild');
+console.log('Semantic map hit resolver source/standalone parity: OK');
+if(readFileSync(new URL('../output/html/TOPO-NINO-Computer-Release.html',import.meta.url),'utf8')!==html)throw Error('Computer release must be byte-identical to canonical app');
+console.log('TOPO-NINO Computer release filename and canonical bytes: OK');

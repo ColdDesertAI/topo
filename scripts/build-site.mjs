@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
-if (!existsSync(join(dist, 'index.html')) || !readFileSync(join(dist, 'index.html'), 'utf8').includes('Topo Italië')) throw new Error('Draai eerst `npm run build`: dist/index.html moet de Italië-app zijn.');
+const appHtml = existsSync(join(dist, 'index.html')) ? readFileSync(join(dist, 'index.html'), 'utf8') : '';
+if (!/<title>[^<]*Italië/.test(appHtml) || appHtml.includes('Waar gaan we vandaag naartoe?')) throw new Error('Draai eerst `npm run build`: dist/index.html moet de Italië-app zijn (niet al omgezet).');
 
 // 1. Italië-app naar /italie/
 const italie = join(dist, 'italie');
