@@ -29,3 +29,4 @@ Formaat:
 2026-11-15 09:00 | claude/opus | fix | nightly.sh | — | laag | Limiet "hit your 5-hour limit" niet herkend → regex + brief-fallback (Claude→Codex→noodbrief); stap 4 committe gestagede git mv's mee, nu alleen rapport
 2026-11-15 09:20 | evaluator/opus | taak | BL-002 | FAIL | mid | 16/17; 5b: merges van 6 keep-branches (squash #97) zetten 19 verplaatste docs terug; beslissing Dennis (a) tegenmaatregel of (b) revert C2
 2026-11-15 09:25 | claude/opus | taak | BL-014 F1 | review | mid | Reliëf r3 uit dezelfde z8-DEM (Δ r2 < 1 RGB): hoogte-LUT, hillshade 7×, sneeuw ≥ 2200 m, 539 KB; filter reliefDepth eraf; screenshot naar Dennis
+2026-11-15 10:00 | claude/opus | besluit | BL-002 | klaar* | laag | Dennis: optie b, C2 teruggedraaid; *inventaris + linkchecker blijven, verplaatsing na archivering keep-branches

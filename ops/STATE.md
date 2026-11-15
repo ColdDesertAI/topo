@@ -19,7 +19,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-BL-002: evaluator **FAIL op 5b** (`ops/reports/eval-BL-002.md`): na de squash van #97 zetten merges van 6 keep-branches de 19 verplaatste docs terug. Beslissing Dennis nodig (zie open beslissing 5). BL-001b: PASS met voorbehoud. BL-014 F1 (reliëf r3) wacht op GO van Dennis op de screenshot; daarna F2–F4. Nachtscript gefikst (limiet "hit your", brief altijd, alleen rapport committen).
+BL-002 klaar met teruggedraaide verplaatsing (FAIL 5b, besluit Dennis optie b; `ops/reports/eval-BL-002.md`). BL-001b: PASS met voorbehoud. BL-014: F1 reliëf r3 GO (15-11), F2–F4 in bouw. Nachtscript gefikst (limiet "hit your", brief altijd, alleen rapport committen).
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO
@@ -44,8 +44,6 @@ BL-002: evaluator **FAIL op 5b** (`ops/reports/eval-BL-002.md`): na de squash va
 
 3. Integratie V3.0 + art naar `main` (BL-005; plan en proefintegratie in `ops/reports/integratie.md`, evaluator: PASS met voorbehoud, `ops/reports/eval-BL-005.md`; let op: de ±240 gebroken doc-links uit de proefintegratie bestaan op `main` niet, want `docs/qa/` en `docs/visual/` staan er volledig; BL-002 mat 73 gebroken backtick-paden en liet er geen nieuwe bijkomen, besluit per groep in `ops/reports/docs-inventaris.md`). Gekozen volgorde: eerst `art/master` als merge-commit (bewuste uitzondering op squash: art blijft langlopend en synct dan zonder `-X`), dan `codex/topo-v3` als squash. Uitgesloten uit `main`: het grootste deel van `docs/qa/` en `docs/visual/` (op 129 bestanden na, o.a. `docs/qa/v3-stijlbeeld/final/`), `output/installers/` en drie oude `output/html/`-proefversies (samen 2184 bestanden, 856 MB; tags `archive/v3-*` voorgesteld). Proefintegratie `DRY` `df72c39`: lint, test en build alle drie exit 0, `dist/index.html` 41 445 845 B (gelijk aan V). De uitvoering (BL-005b) raakt G3/G4 zolang `main` productie is. Kies: (a) BL-005b pas na G3 (BL-004 PASS) én BL-006 (productie alleen vanaf tag); dan blijft er één G4-akkoord over, op tag `v3.0.0` · (b) als (a), en Dennis keurt daarnaast `ops/reports/integratie.md` vooraf goed · (c) direct na het plan naar `main`, met de merge als G4. **Aanbeveling: (a)**: één contactmoment, en de merge is omkeerbaar zonder productie te raken. **Stand 14-11: Dennis heeft niet anders gekozen, we werken volgens (a)**
 4. M0-scope: **besloten 14-11 door Dennis: de portal schuift niet naar M1, die "kan al eerder klaar zijn"**. Gelezen als optie (c), niets schuiven; deadline M0 blijft vr 20 nov. Controleer bij de volgende planning of de portal-preview daarmee binnen M0 past
-
-5. BL-002 na FAIL 5b, kies: (a) verplaatsing houden + tegenmaatregel (na elke merge van een keep-branch `git rm` op de 19 oude paden; notitie in `branches.md` en BL-005b) · (b) C2 terugdraaien (`git revert ff8596d`), de 19 bestanden naar `archief-later` tot de keep-branches gearchiveerd zijn. **Aanbeveling: (b)**: schoon en omkeerbaar; de inventaris en linkchecker blijven staan
 
 ## Bekende risico's
 - Artwork-goedkeuring is de bottleneck voor elk land
