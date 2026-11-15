@@ -183,3 +183,35 @@
 @media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
  .v3Reis[data-view=reis]>.v3List,.v3Reis>.v3Side,.v3Rewards .v3Tiles,.v3View-voortgang .v3VgRow{background:var(--v3-surface)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 }
+/* Design-critic BL-016e (15-11): Voortgang on the sidebar grid, no ghost frame, one radius/padding/label size,
+   titles inside the first panel. */
+@media (min-width:1024px){
+ /* 1. Voortgang: no leftover frame padding; gaps 20 (iPad 16) like Reis. */
+ .v3Reis[data-view=voortgang]>.v3View-voortgang{padding:0!important;--v3-gut:var(--gap,20px)}
+ .v3View-voortgang .v3VgOverview{gap:var(--gap,20px)!important}
+ /* Title inside the head strip: the title bar is the panel, the counter inside it has no plate of its own. */
+ .v3Reis .v3View-voortgang .v3VgTitleBar{background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur)!important;backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important;border-radius:var(--glas-radius)!important;padding:14px 20px!important}
+ .v3Reis .v3View-voortgang .v3VgTitleBar .v3VgHead{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;padding:0!important}
+ /* 2. The Voortgang map lies free: the neighbours fade out at the edges (no rectangle). */
+ .v3View-voortgang .v3VgMap{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%),linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(180deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%),linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);mask-composite:intersect}
+ /* 4. One radius (24), one inner padding (20; iPad 16), section labels 18/700 as on Reis, small chips radius 12. */
+ .v3Reis :is(.v3OefPanel,.v3ToetsSetup,.v3Rewards .v3Book,.v3Rewards .v3Ride,.v3View-voortgang .v3Field.v3Card){border-radius:var(--glas-radius)!important}
+ .v3Reis :is(.v3OefPanel,.v3ToetsSetup,.v3Rewards .v3Ride,.v3View-voortgang .v3Field.v3Card){padding:var(--pad,20px)!important}
+ .v3Reis :is(.v3ToetsSetup,.v3OefPanel) .v3Field h2,.v3Reis .v3View-voortgang .v3Field.v3Card h2{font:700 18px/24px var(--v3-font)!important;color:var(--v3-ink)!important}
+ .v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{border-radius:12px!important}
+ /* 5. Beloningen: the title inside the book panel (the panels start level with the sidebar). */
+ .v3Reis[data-view=rewards]>.v3Rewards{grid-template-rows:minmax(0,1fr) auto!important;row-gap:var(--gap,20px)!important;column-gap:var(--gap,20px)!important}
+ .v3Rewards>.v3ScreenTitle{grid-column:1/span 5!important;grid-row:1!important;align-self:start!important;justify-self:start!important;z-index:2;margin:0!important;padding:var(--pad,20px) 0 0 calc(var(--pad,20px) + 4px)!important;font:700 28px/34px var(--v3-font)!important;width:auto!important}
+ .v3Rewards .v3Book{grid-column:1/span 5!important;grid-row:1!important;padding-top:64px!important}
+ .v3Rewards .v3Ride{grid-column:6/-1!important;grid-row:1!important}
+ .v3Rewards .v3Tiles{grid-column:1/-1!important;grid-row:2!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+/* 3. Toets on desktop: chips on one line (name, range and check). */
+@media (min-width:1280px){.v3 .v3ToetsSetup .v3Chip{flex-wrap:nowrap!important;padding:0 10px!important;white-space:nowrap}}
+@media (min-width:1024px) and (max-width:1279px){.v3Reis{--pad:16px}}
+@media (min-width:1024px){
+ /* Voortgang: the overview fills the first screen (title strip, map + chapters, tile strip ending on the sidebar's
+    bottom line); further sections start below it, after a scroll. */
+ .v3Reis[data-view=voortgang] .v3View-voortgang .v3VgOverview{height:100%!important;min-height:100%!important;box-sizing:border-box;grid-template-rows:auto minmax(0,1fr) auto!important;margin-bottom:var(--gap,20px)}
+}
