@@ -87,3 +87,10 @@
  .v3Reis .v3Side .v3NavItem{justify-content:center;padding:0;width:52px;font-size:16px!important}
  .v3Reis .v3Side .v3Settings{justify-content:center;padding:12px 0 0}
 }
+/* Phone (< 768): the chapter scene as a calm 2:1 strip too (it rendered unscaled and stretched). */
+@media (max-width:767px){
+.v3Panel .v3CardScene{margin:0;aspect-ratio:2/1;border-radius:16px;overflow:hidden}
+.v3Panel .v3CardScene img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.v3Panel .v3CardKicker{font:700 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--v3-accent-press)}
+.v3PanelLocked .v3CardScene img{filter:grayscale(.55) brightness(1.06) contrast(.85);opacity:.7}
+}
