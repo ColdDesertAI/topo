@@ -950,3 +950,7 @@ Alle zeven schermen opnieuw op expliciet BG-03 vastgelegd: 21 doelbeeldvergelijk
 ## 2026-11-14 — Favicon R3 vastgelegd
 
 **Decision** De favicon en app-iconen gebruiken de rode Vespa in zijaanzicht op een warme ivoorkleurige achtergrond, zonder Nino. Geldt voor `favicon.ico`, PNG 16/32/48, Apple Touch 180 en app-iconen 192/512. Doelpad: `assets/nino-topo/v3-r3/brand/icons/`. **Reason** Het zijaanzicht blijft op 16 px beter herkenbaar dan de driekwart-Vespa. Het is een nieuwe illustratie op basis van de referenties, geen pixelkopie van de R2-Vespa. **Status** ACTIVE (akkoord eigenaar, 14-11, in ChatGPT-chat "Website controleren"). **Supersedes** de driekwart-Vespa-favicon (`assets/nino/app-icon/`).
+
+## 2026-11-15 — BL-019 brongebaseerde regiogeometrie, zonder UI-integratie
+
+**Decision** De BL-019-branch levert Natural Earth 5.1.2 admin-1-provincies samengevoegd op regiocode, met gedeelde vereenvoudiging en aansluiting op het ongewijzigde canonieke landmasker. Bron, public-domainlicentie, hashes, reproduceerbare bouw en itemclassificatie staan in `assets/geo/regions/PROVENANCE.md`. **Reason** Los vereenvoudigde polygonen kunnen naden veroorzaken; alle 45 ITEMS als Italiaanse regiopunten voorstellen is geografisch onjuist. **Status** IMPLEMENTED ON BRANCH; bevestiging van de expliciete niet-toepasselijke/kust-uitzonderingen door eigenaar OPEN. Geen wijziging aan leerinhoud, grading, app-code of geografische ankers; geen release- of mergeakkoord.
