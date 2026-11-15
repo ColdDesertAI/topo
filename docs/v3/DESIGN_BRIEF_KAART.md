@@ -17,6 +17,12 @@ De huidige reliëfkaart is saai en onaantrekkelijk, en icoontjes komen er slecht
 7. **Voortgang**: regio's in drie tinten violet (beheerst, bezig, nog niet) plus een legenda.
 8. **Achtergrond**: BG-03 Kust blijft, zonder wash over de kaart. De kaart is het contrastrijkste vlak.
 
+## Aanvulling 15-11 (test op iMac)
+9. **Punten**: in plaats van placeholders genummerde punten, gekleurd naar beheersing (wit → donkerviolet, met alles daartussen). Iconen groter. Hover maakt ze iets groter en toont een label eronder. Iconen gelijkmatig verdeeld: niet op sommige kaarten bijna niets en op andere steeds dezelfde.
+10. **Actief hoofdstuk boven de kaart**: een violet label, de naam vet, violette voortgangsbullets met een lijntje, en een echte knop om het hoofdstuk te kiezen (zie de render Hoofdstukken/Ontdekken).
+11. **Schoolkaart**: het land lichter. Terracotta overheerst nu, waardoor er te weinig contrast is met gebieden, bergen en rivieren.
+12. **Landen, Zeeën, Rivieren**: buurlanden in grijzere mist met een violet-lavendel rand. De zeeënkaart groter (niet alle landen tonen) en lichter van kleur, eerder lichtviolet of lavendel.
+
 ## Harde grenzen
 - Echte geometrie (check 46/46), niets verschuiven.
 - Tap-tolerantie is niet hetzelfde als de zichtbare vorm.
