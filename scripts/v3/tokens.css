@@ -20,6 +20,12 @@
  /* UI palette: Viola (default, owner 10-11); the country lives in the artwork and the flag. */
  --v3-accent:#5b45e0;--v3-accent-press:#4834c4;--v3-accent-soft:#ebe7fd;--v3-accent-ink:#fff;
  --v3-flag:linear-gradient(90deg,#1f8a4c 0 33.3%,#f4f1ea 0 66.6%,#c8382c 0);
+ /* Glass (BL-016b): ONE level for every panel and the sidebar. Reference: the chapter list on Reis. Use these tokens;
+    never a per-screen value. Checked by scripts/qa-v3-glas2.mjs. */
+ --glas-boven:.66;--glas-onder:.44;
+ --glas-paneel:linear-gradient(180deg,rgba(248,245,255,var(--glas-boven)) 0,rgba(248,245,255,var(--glas-onder)) 100%);
+ --glas-blur:blur(26px) saturate(.8);
+ --glas-rand:inset 0 0 0 1px rgba(255,255,255,.62),0 12px 32px rgba(42,36,64,.10);
 }
 .v3{font:var(--v3-body);color:var(--v3-ink);-webkit-font-smoothing:antialiased}
 /* Italia (terracotta): kept for comparison in the preview (#…/italia). */

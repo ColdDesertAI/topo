@@ -1,7 +1,8 @@
 // BL-016 check (ops/contracts/BL-016.md). Scans every painted surface (not a fixed selector list), so a plate cannot
 // escape the check by sitting in an unlisted element:
 //  1. every surface >= 12 000 px2 (buttons, images and the demo bar excluded) has a bottom alpha <= 0.45;
-//  2. the sidebar's glass layer is open (alpha <= 0.05) at the bottom and nothing paints behind it;
+//  2. ONE glass level (BL-016b): every surface and the sidebar's glass layer at top 0.66 / bottom 0.44 (+-0.02), and
+//     nothing paints behind the sidebar;
 //  3. text contrast >= 4.5:1 (3:1 for large text) against the rendered pixels, on BG-01/02/03;
 //  4. tint spread: mean Lab colour of each surface (text hidden) per background, max pairwise deltaE, averaged;
 //  5. reduced transparency / more contrast: every one of those surfaces is opaque (alpha >= 0.95) without blur.
@@ -37,7 +38,7 @@ const SURFACES=()=>{
   out.push({id,bottom:+bottom.toFixed(2),top:+Math.max(col,img[0]??0).toFixed(2),blur:cs.backdropFilter||cs.webkitBackdropFilter||'none',rect:[r.x,r.y,r.width,r.height].map(Math.round),inRoot:root.contains(e)||!!e.closest('body.v3Les')});
  }
  const side=document.querySelector('.v3Reis>.v3Side')||document.querySelector('body.v3Les .v3ShellNav');let sideInfo=null;
- if(side){const a=getComputedStyle(side,'::after');const g=alphas(a.backgroundImage);sideInfo={bottom:g.length?g[g.length-1]:1,behind:getComputedStyle(document.querySelector('.v3Reis')||document.body).backgroundImage}}
+ if(side){const a=getComputedStyle(side,'::after');const g=alphas(a.backgroundImage);sideInfo={top:g.length?g[0]:0,bottom:g.length?g[g.length-1]:1,behind:getComputedStyle(document.querySelector('.v3Reis')||document.body).backgroundImage}}
  return {surfaces:out.filter(s=>s.inRoot),side:sideInfo};
 };
 const TEXTS=()=>{const texts=[];const vis=e=>e.offsetParent!==null&&getComputedStyle(e).visibility!=='hidden';
@@ -71,8 +72,8 @@ const b=await chromium.launch();const R={alpha:[],side:[],contrast:[],reduced:[]
 for(const [w,h] of SIZES)for(const bg of BGS)for(const v of VIEWS){
  const p=await open(b,w,h,bg,v,false);const s=await p.evaluate(SURFACES);const texts=await p.evaluate(TEXTS);
  if(!s.surfaces.length)R.empty.push({w,bg,v});
- for(const x of s.surfaces)R.alpha.push({w,bg,v,id:x.id,bottom:x.bottom,ok:x.bottom<=.45});
- if(s.side)R.side.push({w,bg,v,bottom:s.side.bottom,behind:s.side.behind,ok:s.side.bottom<=.05&&s.side.behind==='none'});
+ for(const x of s.surfaces)R.alpha.push({w,bg,v,id:x.id,top:x.top,bottom:x.bottom,ok:x.bottom<=.45&&Math.abs(x.top-.66)<=.02&&Math.abs(x.bottom-.44)<=.02});
+ if(s.side)R.side.push({w,bg,v,top:s.side.top,bottom:s.side.bottom,behind:s.side.behind,ok:Math.abs(s.side.top-.66)<=.02&&Math.abs(s.side.bottom-.44)<=.02&&s.side.behind==='none'});
  const shot=await p.screenshot();
  const bgs=await pixels(b,w,h,shot,texts.map(t=>({r:t.rect,tc:t.color})));
  texts.forEach((t,i)=>{const r=ratio(t.color,bgs[i]),need=(t.size>=24||(t.size>=18.66&&t.bold))?3:4.5;if(r<need)R.contrast.push({w,bg,v,t:t.t,size:t.size,ratio:+r.toFixed(2),need})});

@@ -1,64 +1,62 @@
-/* BL-016 Glas en transparantie (feedback Dennis 15-11, incident 3; ops/contracts/BL-016.md). Loaded last.
-   Rule: glass only where input asks for clarity, fading toward transparent further down; no opaque plates.
-   Less saturation in the blur and a faint lavender tint, so every background (BG-01/02/03) gives the same picture.
-   Desktop and iPad (>= 768 px); reduced transparency / more contrast stays opaque (glas.css). */
+/* BL-016 / BL-016b Glas (feedback Dennis 15-11; ops/contracts/BL-016.md, BL-016b.md). Loaded last.
+   ONE glass level for every panel and for the sidebar: --glas-paneel, --glas-blur, --glas-rand (tokens.css).
+   No per-screen values here, no glass on glass, no opaque plates. Desktop and iPad (>= 768 px).
+   Reduced transparency / more contrast: everything opaque, no blur (bottom of this file). */
 @media (min-width:768px){
- .v3,body.v3Les{
-  --v3-glass-filter:blur(26px) saturate(.8);
-  --v3-glass-top:rgba(248,245,255,.66);--v3-glass-bottom:rgba(248,245,255,.44);
-  --v3-glass-grad:linear-gradient(180deg,var(--v3-glass-top) 0,var(--v3-glass-bottom) 100%);
-  /* --v3-glass itself is the fade: every older rule that paints background:var(--v3-glass) (Reis list, Oefenen panel,
-     lesson bar, score cards, rewards) now fades too. --v3-glass-strong stays flat for small controls. */
-  --v3-glass:var(--v3-glass-grad);--v3-glass-strong:rgba(248,245,255,.72);
-  --v3-glass-shadow:inset 0 0 0 1px rgba(255,255,255,.62),0 12px 32px rgba(42,36,64,.10);
- }
- /* Panels: a top-to-bottom fade instead of one flat plate. */
- .v3Reis>:is(.v3List,.v3Rewards),.v3Reis>.v3View,.v3Main>:is(.v3Top,.v3Panel),
- body.v3Les:not([data-focus-shell=true]) :is(.v3LesBar,aside.panel),body.v3Les[data-focus-shell=true] .v3LesBar{background:var(--v3-glass-grad)}
- .v3Reis>.v3Rewards{background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
- .v3View .v3Card,.v3View .v3Field.v3Card{background:rgba(255,255,255,.26)}
- .v3Rewards :is(.v3Book,.v3Tile){background:rgba(255,255,255,.28)}
- .v3Rewards :is(.v3Ride,.v3Tile){background:var(--v3-glass-grad)!important}
- /* Replay buttons at the open bottom of the Reis panel: their own light pill, so they keep AA on every background. */
- .v3Main .v3Again button{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
- .v3Rewards .v3Ride{-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:var(--v3-glass-shadow)}
- .v3Rewards .v3Tile{-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
-
- /* No white strip behind the sidebar (ronde2.css painted 72% white under it, which undid the fade). */
+ .v3,body.v3Les{--v3-glass-grad:var(--glas-paneel);--v3-glass:var(--glas-paneel);--v3-glass-filter:var(--glas-blur);--v3-glass-shadow:var(--glas-rand)}
+ /* No white strip behind the sidebar (ronde2.css). */
  .v3Reis{background:none!important}
- .v3View-voortgang .v3VgRow>.v3VgTile{background:var(--v3-glass-grad);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:var(--v3-glass-shadow)}
- .v3View-voortgang .v3VgLegend{background:var(--v3-glass-grad);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
- /* Lessons: the answer sheet, the learn bar, the map tools and the Nino meter fade like every panel. */
- body.v3Les[data-focus-shell=true] :is(#focusAnswerSheet,#focusLearnBar),body.v3Les .focusCameraTools,body.v3Les #ninoMeter{background:var(--v3-glass-grad)!important;-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
 
- /* Sidebar: frosted at the top (logo, Nino, menu), fading to fully transparent at the bottom; the gear stays visible.
-    The blur sits on a masked pseudo-element so the fade reaches the blur too, not only the tint. */
- .v3Reis>.v3Side,body.v3Les .v3ShellNav{position:relative;isolation:isolate;background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border-right-color:transparent!important}
+ /* Every panel: the one glass. */
+ .v3Reis>.v3List .v3Rows,.v3Main>:is(.v3Top,.v3Panel),.v3Reis>.v3View-oefenen .v3OefPanel,.v3Reis[data-view=toets] .v3ToetsSetup,
+ .v3Rewards :is(.v3Book,.v3Ride,.v3Tile),.v3View-voortgang :is(.v3VgHead,.v3Field.v3Card,.v3VgRow>.v3VgTile,.v3VgLegend),
+ body.v3Les :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,.focusCameraTools,#ninoMeter),.v3View-toetsResult .v3ToetsScoreCard{
+  background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur)!important;backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important}
+ /* Wrappers and plates that would stack glass on glass: transparent. */
+ .v3Reis>:is(.v3List,.v3Rewards),.v3Reis>.v3View,.v3Reis>.v3View-oefenen{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
+ body.v3Les:not([data-focus-shell=true]) .v3LesBar :is(.v3LesBar){background:transparent!important}
+ /* Replay buttons at the bottom of the Reis panel: their own light pill (AA on every background). */
+ .v3Main .v3Again button{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+
+ /* Sidebar: the same glass as the panels (one whole), on a pseudo-element so the blur sits behind the content. */
+ .v3Reis>.v3Side,body.v3Les .v3ShellNav{position:relative;isolation:isolate;background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border-right-color:rgba(255,255,255,.5)!important}
  .v3Reis>.v3Side::after,body.v3Les .v3ShellNav::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
-  background:linear-gradient(180deg,rgba(248,245,255,.72) 0,rgba(248,245,255,.62) 40%,rgba(248,245,255,0) 88%);
-  -webkit-backdrop-filter:blur(26px) saturate(.8);backdrop-filter:blur(26px) saturate(.8);
-  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 45%,transparent 90%);mask-image:linear-gradient(180deg,#000 0,#000 45%,transparent 90%)}
- /* The gear on the open part: its own small glass disc, so it reads on every background. */
- .v3Reis .v3Side .v3Settings,body.v3Les .v3ShellNav .v3Settings{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:999px;box-shadow:0 2px 8px rgba(42,36,64,.12)}
+  background:var(--glas-paneel);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur)}
 
- /* Toets: no worksheet plate; Landschap like Oefenen. The form floats in one glass panel, Nino stands on the scene. */
- .v3Reis[data-view=toets]>.v3View-toets{margin:var(--v3-inner) var(--v3-inner) var(--v3-inner) 8px!important;padding:0!important;height:calc(100% - 2*var(--v3-inner));background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
- .v3Reis[data-view=toets] .v3ToetsSetup{background:var(--v3-glass-grad);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:var(--v3-glass-shadow);
-  border-radius:var(--v3-radius-glass);padding:20px 28px;grid-column:1/span 7;align-self:start;height:auto;max-height:100%;overflow:auto;gap:10px}
+ /* Toets: no worksheet plate; the form floats in one panel, Nino stands on the scene. */
+ .v3Reis[data-view=toets]>.v3View-toets{margin:var(--v3-inner) var(--v3-inner) var(--v3-inner) 8px!important;padding:0!important;height:calc(100% - 2*var(--v3-inner))}
+ .v3Reis[data-view=toets] .v3ToetsSetup{border-radius:var(--v3-radius-glass);padding:20px 28px;grid-column:1/span 7;align-self:start;height:auto;max-height:100%;overflow:auto;gap:10px}
  .v3Reis[data-view=toets] .v3ToetsSetup .v3Field+.v3Field{padding-top:10px}
  .v3Reis[data-view=toets] .v3ToetsSetup .v3Field{gap:8px}
  .v3Reis[data-view=toets] .v3ToetsSetupNino{grid-column:8/-1}
  @media (max-width:1279px){.v3Reis[data-view=toets] .v3ToetsSetup{grid-column:1/span 8;padding:18px 22px}.v3Reis[data-view=toets] .v3ToetsSetupNino{grid-column:9/-1}}
+ /* Voortgang: no worksheet plate; its cards (and the header, which now sits on the scene) carry the glass. */
+ .v3View-voortgang .v3VgHead{padding:14px 22px;border-radius:var(--v3-radius-glass)}
+ body.v3Les .v3LesSteps{background:transparent!important}
+ .v3Reis[data-view=voortgang]>.v3View-voortgang{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
 
- /* Voortgang: the worksheet becomes a fade (clear at the top where the numbers are, open toward the bottom). */
- .v3Reis[data-view=voortgang]>.v3View-voortgang{background:linear-gradient(180deg,rgba(248,245,255,.74) 0,rgba(248,245,255,.42) 100%)!important;
-  -webkit-backdrop-filter:blur(26px) saturate(.8)!important;backdrop-filter:blur(26px) saturate(.8)!important}
+ /* C. Sidebar after the renders (BL-016b): big bold wordmark with the flag stripe; Nino as a free-standing cut-out
+    (no circle) at ~37% of the sidebar height; larger nav (18/16, 600) with a lavender pill for the active item; the
+    gear at the bottom under a thin line. Desktop sidebar only (the lesson rail keeps its compact form). */
+ .v3Reis>.v3Side{gap:0;padding:22px 16px 16px}
+ .v3Reis .v3Brand{gap:8px}
+ .v3Reis .v3Brand b{font:800 36px/1 var(--v3-font);letter-spacing:.01em;text-transform:uppercase}
+ .v3Reis .v3Brand .v3Flag{width:64px;height:5px;border-radius:3px}
+ .v3Reis .v3Side .v3Portrait{width:100%;height:37%;max-height:330px;margin:4px 0 6px;border-radius:0;overflow:visible;background:none!important;box-shadow:none}
+ .v3Reis .v3Side .v3Portrait img,.v3Reis .v3Side .v3Portrait picture{width:100%;height:100%;object-fit:contain;object-position:50% 100%;transform:none;border-radius:0}
+ .v3Reis .v3Side .v3NavList{gap:6px;margin-top:4px}
+ .v3Reis .v3Side .v3NavItem{min-height:52px;padding:0 14px;gap:14px;border-radius:14px;font:600 18px/1.2 var(--v3-font)!important;color:var(--v3-ink)}
+ .v3Reis .v3Side .v3NavItem .v3Icon{width:24px;height:24px}
+ .v3Reis .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft);color:var(--v3-accent);font-weight:700!important}
+ .v3Reis .v3Side .v3NavItem[aria-current=page] .v3Icon{color:var(--v3-accent)}
+ .v3Reis .v3Side .v3Settings{margin-top:auto;align-self:stretch;width:100%;justify-content:flex-start;padding:14px 14px 0;min-height:56px;border-radius:0;border-top:1px solid rgba(42,36,64,.12);background:transparent!important}
+ .v3Reis .v3Side .v3Settings::before{display:none}
+ @media (max-width:1279px){
+  .v3Reis .v3Brand b{font-size:30px}
+  .v3Reis .v3Side .v3NavItem{font-size:16px!important;min-height:48px;gap:12px}
+ }
 }
 @media (min-width:768px) and (prefers-reduced-transparency:reduce),(min-width:768px) and (prefers-contrast:more){
- .v3,body.v3Les{--v3-glass-grad:var(--v3-surface);--v3-glass:var(--v3-surface);--v3-glass-strong:var(--v3-surface);--v3-glass-filter:none}
- .v3Reis>.v3Side::after,body.v3Les .v3ShellNav::after{background:var(--v3-surface);-webkit-mask-image:none;mask-image:none;-webkit-backdrop-filter:none;backdrop-filter:none}
- .v3Reis[data-view=voortgang]>.v3View-voortgang{background:var(--v3-surface)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
- .v3View .v3Card,.v3View .v3Field.v3Card,.v3Rewards :is(.v3Book,.v3Tile,.v3Ride),.v3View-voortgang .v3VgRow>.v3VgTile{background:var(--v3-surface2)!important;-webkit-backdrop-filter:none;backdrop-filter:none}
- .v3View-voortgang .v3VgLegend,body.v3Les[data-focus-shell=true] :is(#focusAnswerSheet,#focusLearnBar),body.v3Les .focusCameraTools,body.v3Les #ninoMeter{background:var(--v3-surface)!important;-webkit-backdrop-filter:none;backdrop-filter:none}
- .v3Reis .v3Side .v3Settings,body.v3Les .v3ShellNav .v3Settings,.v3Main .v3Again button{background:var(--v3-surface);-webkit-backdrop-filter:none;backdrop-filter:none}
+ .v3,body.v3Les{--glas-paneel:var(--v3-surface);--glas-blur:none;--v3-glass-strong:var(--v3-surface)}
+ .v3Main .v3Again button{background:var(--v3-surface);-webkit-backdrop-filter:none;backdrop-filter:none}
 }
