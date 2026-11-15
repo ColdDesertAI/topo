@@ -6,10 +6,11 @@ Contract `ops/contracts/BL-002.md` · bouwer: builder (Sonnet) · de evaluator o
 | Onderdeel | Waarde |
 |---|---|
 | Datum | 2026-11-15 (nachtrun, branch `night/2026-11-15`) |
-| BASE | `c083832a64e9a688c5cc2ed6e5529d7a29b55059` (HEAD van de nachtbranch bij de start; `git merge-base --is-ancestor 52427b5 BASE` slaagt) |
-| `origin/main` | `52427b5c23413598a32566735d1067254a809329` |
-| C1 (inventaris, checker, contract) | deze commit (C1) |
-| C2 (verplaatsing) | volgt (C2) |
+| BASE (inventaris, C1) | `c083832a64e9a688c5cc2ed6e5529d7a29b55059` (HEAD van de oude nachtbranch `night/2026-11-15` bij de start; de inventaris en alle BASE-cijfers hieronder zijn op deze commit gemeten; `git merge-base --is-ancestor 52427b5 c083832` slaagt) |
+| BASE (C2, C3) | `c627d4d80da80bda86e47a2899454f25fd9155de` (`git rev-parse HEAD` bij de start van C2 op `claude/nightly-pr99-kaart-feestje-fvpl06`, bovenop `origin/main` `8ad5002`; het nachtwerk is hierheen overgezet met cherry-pick). `git diff --stat c083832 HEAD -- docs` was leeg: onder `docs/` is sinds de meting niets veranderd |
+| `origin/main` | `52427b5c23413598a32566735d1067254a809329` bij de meting; nu `8ad5002` (BL-015 erbij, `52427b5` is voorouder van BASE C2) |
+| C1 (inventaris, checker, contract) | `f11a79d` (oorspronkelijk `c083832` + C1 op de oude nachtbranch; hier overgezet) |
+| C2 (verplaatsing) | `ff8596d` |
 | C3 (cijfers na C2, boekhouding) | volgt (C3) |
 | Vrije schijf bij de start | 9,7 GiB vrij (`df -h .`; contract eist ≥ 1 GB) |
 | Baseline op BASE | `npm run lint` exit 0 · `npm test` exit 0 (6+4+4+10+9+33 tests, 0 fail) |
@@ -36,7 +37,7 @@ Branch `t/BL-002-docs-inventaris` (sha `44a4ce0`, alleen gelezen met `git log`, 
 | `ops/STATE.md` | vervalt | STATE-stand van 14-11; de nachtbranch heeft een nieuwere STATE. |
 | `ops/contracts/BL-002.md` | vervangen | Het nieuwe contract (nachtrun 15-11) vervangt dit contract; het is op BASE niet getrackt en komt in C1. |
 | `ops/reports/docs-inventaris.md` | vervangen | Oud rapport mat tegen de proefintegratie DRY (70 bestanden, 23 verplaatsingen incl. PROJECT_STATE en ROADMAP); BASE bevat docs/qa en docs/visual volledig. Indeling "release/handoff = archief" is overgenomen, elk getal is opnieuw gemeten, PROJECT_STATE en ROADMAP zijn archief-later (AGENTS.md). |
-| `ops/reports/eval-BL-002.md` | vervalt | Evaluatie van het oude rapport (PASS met voorbehoud); beoordeelt een andere meting en blijft op de branch als historie. |
+| ops/reports/eval-BL-002.md | vervalt | Evaluatie van het oude rapport (PASS met voorbehoud); beoordeelt een andere meting en blijft op de branch als historie. |
 
 Verplaatsingen van die branch zijn niet overgenomen (er waren er geen: het oude rapport was alleen een voorstel). De branch blijft ongemoeid; voorstel voor `branches.md` staat in `## Verplaatsplan`.
 
@@ -143,7 +144,9 @@ Besluiten: `actueel`, `archief` (verplaatst in C2), `archief-later` (blokkade in
 | `docs/visual/schoolblad/` | map (30 bestanden) | 2026-11-14 | scripts/qa-schoolblad.mjs | bewijs | QA-/visueel bewijs bij een release of fase; blijft in docs/qa en docs/visual (buiten verplaatsscope, md-bestanden hierin niet bewerkbaar) |
 
 ## Gebroken verwijzingen
-Meting: `node scripts/check-doc-links.mjs --rev <commit>`. Totaal op BASE: **73**; HEAD-cijfers volgen in C3. Alle 73 op BASE zijn klasse B (backtick-paden); klasse A (markdown-links) heeft op BASE 0 gebroken links, ook in `docs/v3/`. Daarom is er geen enkele platte-tekstvervanging volgens beslissing 4 nodig.
+Meting: `node scripts/check-doc-links.mjs --rev <commit>`. Totaal op BASE (`c083832`): **73**; totaal op HEAD na C2 en C3: **97**. Alle 73 op BASE zijn klasse B (backtick-paden); klasse A (markdown-links) heeft op BASE 0 gebroken links, ook in `docs/v3/`. Daarom is er geen enkele platte-tekstvervanging volgens beslissing 4 nodig en is er in `docs/v3/` alleen een padaanpassing gedaan (`AUDIT.md`: link naar `../archive/V2_AFSLUITING.md`).
+
+**Cijfers na C2 (vergelijkingssleutel `cut -f1,3,5`, met de rename-lijst toegepast op de bronkolom van BASE):** de 24 extra regels op HEAD zijn: (1) 19 inventarisrijen in dit rapport met het BASE-pad van een verplaatst bestand (criterium 3 eist dat BASE-pad in backticks, criterium 9 telt het als gebroken; dit contractconflict is niet op te lossen zonder de checkerdefinitie te wijzigen, zie het verslag van de bouwer) en (2) 5 voorbeeldpaden in `ops/contracts/BL-002.md` (docs/X.md, docs/a/b.md, docs/archive/X.md, docs/archive/a/b.md, ops/contracts/doel; niet-bewerkbaar, het contract bestond niet op BASE). Alle andere verwijzingen in dit rapport die geen BASE-pad van een verplaatst bestand zijn, staan als platte tekst (zonder backticks) zodat het rapport zelf niets nieuws breekt. De regels van `docs/DECISIONS.md` met een oud pad vallen onder de contractuitzondering (0 aanwezig: de toegevoegde regel noemt geen oud pad). In de bronkolom van BASE zijn geen bestanden verplaatst die gebroken verwijzingen bevatten, behalve docs/V2_AFSLUITING.md (rij `docs`→docs/nino, nu bron `docs/archive/V2_AFSLUITING.md`): dezelfde sleutel, geen nieuw gebroken. Gemeten tegen de directe voorganger van C2 (`c627d4d`) zijn er 0 nieuwe sleutels behalve de 19 inventarisrijen.
 
 **Verschil met de ±240 uit eval-BL-005:** dat getal kwam uit een andere meting op een andere boom. Eval-BL-005 telde relatieve links in de proefintegratie `DRY` (waar `docs/qa/` op 128 bestanden na en `docs/visual/` op 1 na waren uitgesloten). BASE bevat na de BL-005-merge (#97) `docs/qa/` (1463) en `docs/visual/` (844) volledig, dus die ±240 links zijn hier niet gebroken. De checker meet bovendien alleen markdown-links en backtick-paden die met `docs|ops|scripts|src|assets|output|work-sync` beginnen, niet kale bestandsnamen.
 
@@ -151,64 +154,72 @@ Meting: `node scripts/check-doc-links.mjs --rev <commit>`. Totaal op BASE: **73*
 
 | Bronmap | Doelmap | Klasse | Aantal BASE | Aantal HEAD | Besluit |
 |---|---|---|---|---|---|
-| `.claude/commands` | `ops/contracts` | B | 1 | n.n.b. | laten: historisch |
-| `assets/nino` | `assets/nino` | B | 2 | n.n.b. | laten: historisch |
-| `assets/v3` | `assets/art` | B | 1 | n.n.b. | vervolgtaak BL-005b |
-| `docs` | `assets/art` | B | 1 | n.n.b. | vervolgtaak BL-005b |
-| `docs` | `docs` | B | 1 | n.n.b. | vervolgtaak BL-005b |
-| `docs` | `docs/nino` | B | 1 | n.n.b. | laten: historisch |
-| `docs` | `docs/v3` | B | 2 | n.n.b. | laten: historisch |
-| `docs` | `docs/v3` | B | 1 | n.n.b. | vervolgtaak BL-005b |
-| `docs/qa` | `docs/qa` | B | 1 | n.n.b. | via tag archive/v3-qa |
-| `docs/qa` | `output/html` | B | 3 | n.n.b. | via tag archive/v3-output-html |
-| `docs/qa` | `scripts/discovery-map.js` | B | 1 | n.n.b. | laten: historisch |
-| `docs/v3` | `assets/nino` | B | 2 | n.n.b. | laten: historisch |
-| `docs/v3` | `assets/v3` | B | 1 | n.n.b. | laten: historisch |
-| `docs/v3` | `scripts` | B | 1 | n.n.b. | laten: historisch |
-| `docs/v4` | `assets/art` | B | 1 | n.n.b. | vervolgtaak BL-005b |
-| `docs/v4` | `docs/v3` | B | 1 | n.n.b. | vervolgtaak BL-005b |
-| `docs/v4` | `docs/v4` | B | 2 | n.n.b. | vervolgtaak BL-005b |
-| `docs/v4` | `src/lands` | B | 1 | n.n.b. | laten: historisch |
-| `ops` | `docs` | B | 3 | n.n.b. | laten: historisch |
-| `ops` | `ops` | B | 2 | n.n.b. | laten: historisch |
-| `ops` | `ops/briefs` | B | 1 | n.n.b. | laten: historisch |
-| `ops` | `src/lands` | B | 3 | n.n.b. | laten: historisch |
-| `ops/playbooks` | `scripts/land` | B | 3 | n.n.b. | laten: historisch |
-| `ops/reports` | `assets` | B | 5 | n.n.b. | vervolgtaak BL-005b |
-| `ops/reports` | `docs` | B | 6 | n.n.b. | laten: historisch |
-| `ops/reports` | `docs` | B | 1 | n.n.b. | vervolgtaak BL-005b |
-| `ops/reports` | `ops` | B | 24 | n.n.b. | laten: historisch |
-| `ops/templates` | `docs/v3` | B | 1 | n.n.b. | laten: historisch |
-| **Totaal** | | | **73** | **n.n.b.** | |
+| .claude/commands | ops/contracts | B | 1 | 1 | laten: historisch |
+| assets/nino | assets/nino | B | 2 | 2 | laten: historisch |
+| assets/v3 | assets/art | B | 1 | 1 | vervolgtaak BL-005b |
+| docs | assets/art | B | 1 | 1 | vervolgtaak BL-005b |
+| docs | docs | B | 0 | 2 | laten: historisch (inventarisrij met BASE-pad) |
+| docs | docs | B | 1 | 1 | vervolgtaak BL-005b |
+| docs | docs/nino | B | 1 | 0 | laten: historisch |
+| docs | docs/v3 | B | 2 | 2 | laten: historisch |
+| docs | docs/v3 | B | 1 | 1 | vervolgtaak BL-005b |
+| docs/archive | docs/nino | B | 0 | 1 | laten: historisch |
+| docs/qa | docs/qa | B | 1 | 1 | via tag archive/v3-qa |
+| docs/qa | output/html | B | 3 | 3 | via tag archive/v3-output-html |
+| docs/qa | scripts/discovery-map.js | B | 1 | 1 | laten: historisch |
+| docs/v3 | assets/nino | B | 2 | 2 | laten: historisch |
+| docs/v3 | assets/v3 | B | 1 | 1 | laten: historisch |
+| docs/v3 | scripts | B | 1 | 1 | laten: historisch |
+| docs/v4 | assets/art | B | 1 | 1 | vervolgtaak BL-005b |
+| docs/v4 | docs/v3 | B | 1 | 1 | vervolgtaak BL-005b |
+| docs/v4 | docs/v4 | B | 2 | 2 | vervolgtaak BL-005b |
+| docs/v4 | src/lands | B | 1 | 1 | laten: historisch |
+| ops | docs | B | 3 | 1 | laten: historisch |
+| ops | ops | B | 2 | 2 | laten: historisch |
+| ops | ops/briefs | B | 1 | 1 | laten: historisch |
+| ops | src/lands | B | 3 | 3 | laten: historisch |
+| ops/contracts | docs | B | 0 | 1 | laten: historisch |
+| ops/contracts | docs/a | B | 0 | 1 | laten: historisch |
+| ops/contracts | docs/archive | B | 0 | 2 | laten: historisch |
+| ops/contracts | ops/contracts | A | 0 | 2 | laten: historisch |
+| ops/playbooks | scripts/land | B | 3 | 3 | laten: historisch |
+| ops/reports | assets | B | 5 | 5 | vervolgtaak BL-005b |
+| ops/reports | docs | B | 6 | 5 | laten: historisch |
+| ops/reports | docs | B | 0 | 18 | laten: historisch (inventarisrij met BASE-pad) |
+| ops/reports | docs | B | 1 | 1 | vervolgtaak BL-005b |
+| ops/reports | docs/superpowers | B | 0 | 1 | laten: historisch (inventarisrij met BASE-pad) |
+| ops/reports | ops | B | 24 | 24 | laten: historisch |
+| ops/templates | docs/v3 | B | 1 | 1 | laten: historisch |
+| **Totaal** | | | **73** | **97** | |
 
-Bronmap en doelmap zijn de map van het bronbestand en van het opgeloste doel, afgekapt op twee niveaus. Toelichting op de besluiten: *laten: historisch* = verslag, branchnaam of sjabloon dat geen echt pad bedoelt (`ops/reports/branches.md` noemt branchnamen als `ops/setup`); *vervolgtaak BL-005b* = het doel bestaat op een keep-branch (`art/master`, `arch/v3-runtime`, `land/fr-*`) en lost op zodra die landt; *via tag archive/…* = uitgesloten bewijs, de tag maakt BL-005c. Zes doelen in actieve documenten bestaan op geen enkele keep-branch (`assets/nino/…`, `scripts/render-relief-v3.py`, `assets/v3/landmarks/italia-landmarks-atlas.png`, `docs/v3/DESIGN_RULES.md`, `docs/nino/APP_ICON_SPEC.md`, `src/lands/…`): het contract staat geen herstel van binaire bestanden toe en klasse B valt buiten beslissing 4; ze blijven staan en horen als `idee` bij de hoofdsessie. De regel `docs/DECISIONS.md:202,226` in `integratie.md` is een regelreeks die de checker (alleen `:N` en `:N-M`) niet strippen kan.
+Bronmap en doelmap zijn de map van het bronbestand en van het opgeloste doel, afgekapt op twee niveaus. Toelichting op de besluiten: *laten: historisch* = verslag, branchnaam of sjabloon dat geen echt pad bedoelt (`ops/reports/branches.md` noemt branchnamen als ops/setup); *vervolgtaak BL-005b* = het doel bestaat op een keep-branch (`art/master`, `arch/v3-runtime`, `land/fr-*`) en lost op zodra die landt; *via tag archive/…* = uitgesloten bewijs, de tag maakt BL-005c. Zes doelen in actieve documenten bestaan op geen enkele keep-branch (assets/nino/…, scripts/render-relief-v3.py, assets/v3/landmarks/italia-landmarks-atlas.png, docs/v3/DESIGN_RULES.md, docs/nino/APP_ICON_SPEC.md, src/lands/…): het contract staat geen herstel van binaire bestanden toe en klasse B valt buiten beslissing 4; ze blijven staan en horen als `idee` bij de hoofdsessie. De regel docs/DECISIONS.md:202,226 in `integratie.md` is een regelreeks die de checker (alleen `:N` en `:N-M`) niet strippen kan.
 
 ## Verplaatsplan
 **Uitgevoerd in C2 (19 bestanden, `git mv`, subpad behouden):**
 
 | Oud pad | Nieuw pad |
 |---|---|
-| `docs/AFTERNOON_IPAD_BETA_2026-10-26.md` | `docs/archive/AFTERNOON_IPAD_BETA_2026-10-26.md` |
-| `docs/APPROVED_ARTWORK_COMPUTER_RELEASE.md` | `docs/archive/APPROVED_ARTWORK_COMPUTER_RELEASE.md` |
-| `docs/CODEX_INTEGRATION_QA_HANDOFF.md` | `docs/archive/CODEX_INTEGRATION_QA_HANDOFF.md` |
-| `docs/COMPUTER_RELEASE_2026-10-30.md` | `docs/archive/COMPUTER_RELEASE_2026-10-30.md` |
-| `docs/DISCOVERY_MAP.md` | `docs/archive/DISCOVERY_MAP.md` |
-| `docs/FOCUS_MODE.md` | `docs/archive/FOCUS_MODE.md` |
-| `docs/HERMES_QA_RELEASE_1.md` | `docs/archive/HERMES_QA_RELEASE_1.md` |
-| `docs/INTEGRATED_RELEASE_CANDIDATE.md` | `docs/archive/INTEGRATED_RELEASE_CANDIDATE.md` |
-| `docs/MAP_PICKER_58.md` | `docs/archive/MAP_PICKER_58.md` |
-| `docs/MAP_SELECTION_HOTFIX.md` | `docs/archive/MAP_SELECTION_HOTFIX.md` |
-| `docs/OFFLINE_COMPUTER_50.md` | `docs/archive/OFFLINE_COMPUTER_50.md` |
-| `docs/RELEASE_1_1.md` | `docs/archive/RELEASE_1_1.md` |
-| `docs/RELEASE_1_2.md` | `docs/archive/RELEASE_1_2.md` |
-| `docs/RELEASE_1_2_INTEGRATION.md` | `docs/archive/RELEASE_1_2_INTEGRATION.md` |
-| `docs/RELEASE_1_INTEGRATION.md` | `docs/archive/RELEASE_1_INTEGRATION.md` |
-| `docs/SCHOOLBLAD_OVERLAY.md` | `docs/archive/SCHOOLBLAD_OVERLAY.md` |
-| `docs/V2_AFSLUITING.md` | `docs/archive/V2_AFSLUITING.md` |
-| `docs/WORK_HANDOFF_2026-10-23.md` | `docs/archive/WORK_HANDOFF_2026-10-23.md` |
-| `docs/superpowers/plans/2026-11-04-nino-playable.md` | `docs/archive/superpowers/plans/2026-11-04-nino-playable.md` |
+| docs/AFTERNOON_IPAD_BETA_2026-10-26.md | `docs/archive/AFTERNOON_IPAD_BETA_2026-10-26.md` |
+| docs/APPROVED_ARTWORK_COMPUTER_RELEASE.md | `docs/archive/APPROVED_ARTWORK_COMPUTER_RELEASE.md` |
+| docs/CODEX_INTEGRATION_QA_HANDOFF.md | `docs/archive/CODEX_INTEGRATION_QA_HANDOFF.md` |
+| docs/COMPUTER_RELEASE_2026-10-30.md | `docs/archive/COMPUTER_RELEASE_2026-10-30.md` |
+| docs/DISCOVERY_MAP.md | `docs/archive/DISCOVERY_MAP.md` |
+| docs/FOCUS_MODE.md | `docs/archive/FOCUS_MODE.md` |
+| docs/HERMES_QA_RELEASE_1.md | `docs/archive/HERMES_QA_RELEASE_1.md` |
+| docs/INTEGRATED_RELEASE_CANDIDATE.md | `docs/archive/INTEGRATED_RELEASE_CANDIDATE.md` |
+| docs/MAP_PICKER_58.md | `docs/archive/MAP_PICKER_58.md` |
+| docs/MAP_SELECTION_HOTFIX.md | `docs/archive/MAP_SELECTION_HOTFIX.md` |
+| docs/OFFLINE_COMPUTER_50.md | `docs/archive/OFFLINE_COMPUTER_50.md` |
+| docs/RELEASE_1_1.md | `docs/archive/RELEASE_1_1.md` |
+| docs/RELEASE_1_2.md | `docs/archive/RELEASE_1_2.md` |
+| docs/RELEASE_1_2_INTEGRATION.md | `docs/archive/RELEASE_1_2_INTEGRATION.md` |
+| docs/RELEASE_1_INTEGRATION.md | `docs/archive/RELEASE_1_INTEGRATION.md` |
+| docs/SCHOOLBLAD_OVERLAY.md | `docs/archive/SCHOOLBLAD_OVERLAY.md` |
+| docs/V2_AFSLUITING.md | `docs/archive/V2_AFSLUITING.md` |
+| docs/WORK_HANDOFF_2026-10-23.md | `docs/archive/WORK_HANDOFF_2026-10-23.md` |
+| docs/superpowers/plans/2026-11-04-nino-playable.md | `docs/archive/superpowers/plans/2026-11-04-nino-playable.md` |
 
-Veiligheid (criterium 5): per bestand geen treffer van de bestandsnaam in `AGENTS.md`, `CLAUDE.md`, `scripts/`, `src/`, `package.json`, `vercel.json`, `index.html` (`git grep -l -F` op BASE); geen keep-branch wijzigt het bestand na BASE (`git log --oneline BASE..<ref> -- <pad>` leeg voor alle 10 keep-branches); geen pad onder `docs/qa|visual|geography|v3/` en geen van de bestanden uit beslissing 5. Padaanpassingen in C2: links en `docs/…`-paden in bewerkbare md-bestanden (`README.md`, `work-sync/`, `docs/`, `ops/*.md`); `docs/DECISIONS.md` krijgt één regel met de verwijzing hiernaar. JSON-bewijs (`docs/visual/release-1-2-integration/changed-files.json`, `docs/qa/nino-v2-closure-67/SHA256SUMS.txt`) noemt oude paden als tekst en blijft ongewijzigd.
+Veiligheid (criterium 5): per bestand geen treffer van de bestandsnaam in `AGENTS.md`, `CLAUDE.md`, `scripts/`, `src/`, `package.json`, `vercel.json`, `index.html` (`git grep -l -F` op BASE); geen keep-branch wijzigt het bestand na BASE (`git log --oneline BASE..<ref> -- <pad>` leeg voor alle 10 keep-branches); geen pad onder `docs/qa|visual|geography|v3/` en geen van de bestanden uit beslissing 5. Padaanpassingen in C2: links en docs/…-paden in bewerkbare md-bestanden (`README.md`, `work-sync/`, `docs/`, `ops/*.md`); `docs/DECISIONS.md` krijgt één regel met de verwijzing hiernaar. JSON-bewijs (`docs/visual/release-1-2-integration/changed-files.json`, `docs/qa/nino-v2-closure-67/SHA256SUMS.txt`) noemt oude paden als tekst en blijft ongewijzigd.
 
 **Blijft staan, `archief-later` (7):**
 
@@ -220,7 +231,7 @@ Veiligheid (criterium 5): per bestand geen treffer van de bestandsnaam in `AGENT
 | `docs/PRODUCT_SPEC.md` | `ops/MEMORY.md` verwijst ernaar. Voorwaarde: `ops/MEMORY.md`-verwijzing aanpassen én beoordelen tegen `docs/v3/SPEC.md` (idee-taak). |
 | `docs/PROJECT_STATE.md` | `AGENTS.md` r.9 en r.15 verwijzen ernaar (plus `README.md`, `docs/v3/OVERDRACHT.md`). Voorwaarde: Dennis keurt het AGENTS.md-voorstel hieronder goed (idee-taak "AGENTS.md naar ops/STATE.md"); daarna `git mv` en padaanpassingen in README/OVERDRACHT. |
 | `docs/ROADMAP.md` | `AGENTS.md` r.18 verwijst ernaar (CLAUDE.md noemt alleen `ops/ROADMAP.md`). Voorwaarde: zelfde AGENTS.md-goedkeuring als PROJECT_STATE; daarna `git mv`. |
-| `docs/v4/FRANKRIJK_HANDOFF.md` | HANDOFF in de naam, maar het is het actieve overdrachtsdocument van het Frankrijk-spoor (`land/fr-geo`, `land/fr-inhoud`). Voorwaarde: Frankrijk-spoor afgerond (na M1) of Dennis beslist eerder; dan `git mv` naar `docs/archive/v4/`. |
+| `docs/v4/FRANKRIJK_HANDOFF.md` | HANDOFF in de naam, maar het is het actieve overdrachtsdocument van het Frankrijk-spoor (`land/fr-geo`, `land/fr-inhoud`). Voorwaarde: Frankrijk-spoor afgerond (na M1) of Dennis beslist eerder; dan `git mv` naar docs/archive/v4/. |
 
 **Tekstvoorstel `AGENTS.md` (niet toegepast; `AGENTS.md` valt buiten deze nachtrun):**
 ```

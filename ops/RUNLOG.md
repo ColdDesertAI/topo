@@ -25,3 +25,4 @@ Formaat:
 2026-11-14 20:40 | claude/opus | live | BL-009/013 | klaar | laag | www.ninotopo.nl live; repo naar ColdDesertAI/topo; Vercel gekoppeld
 2026-11-15 00:40 | claude/opus | taak | BL-015 | review | mid | V3-release-build zonder demo-shim: opslag werkt (profiel/voortgang na herladen), charset na <meta> ingevoegd; site-schakelaar SITE_ITALIE
 2026-11-15 01:30 | claude/sonnet+opus | nacht | BL-001b | review | laag | branches.md herberekend tegen origin/main 52427b5 (120 rijen: 10 delete, 95 archive, 2 merge, 13 keep); niets aan refs gewijzigd; evaluator PASS met voorbehoud na 2 herstelrondes (ops/reports/eval-BL-001b.md)
+2026-11-15 14:00 | claude/sonnet | nacht | BL-002 | review | laag | docs-inventaris (rapport ops/reports/docs-inventaris.md), linkchecker scripts/check-doc-links.mjs, 19 bestanden met git mv naar docs/archive (C2 ff8596d, git revert terugdraaibaar), 0 nieuw gebroken buiten inventarisrijen; wacht op evaluator
