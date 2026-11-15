@@ -319,7 +319,7 @@
    if(done&&c.open){const b=btn('',press(()=>v2Card(c.id)?.querySelectorAll('.routeStep')[n]),'v3StepRow');b.setAttribute('aria-label',STAGE[s]+' opnieuw');b.append(dot,lab,icon('v3again'));li.append(b);}
    else{const d=make('div','v3StepRow');d.append(dot,lab);if(now)d.setAttribute('aria-current','step');li.append(d);}
    steps.append(li);});
-  panel.append(steps);
+  if(WIDE.matches)panel.append(steps); // the window/chapter layouts only (≥ 1024); iPad portrait and phone keep the dots row
   const actions=make('div','v3Actions');
   const isActive=m.active&&m.active.chapterId===c.id;
   if(!c.open){const l=make('p','v3Locked');l.append(icon('v3lock'),make('span',null,'Opent na '+m.chapters[c.index-1].title));panel.append(l);return;}
@@ -378,7 +378,9 @@
  // BL-016d: the chapter page (Reis › Hoofdstuk) and back to the overview.
  function openChapter(id){ui.selected=id;ui.page='hoofdstuk';render();requestAnimationFrame(()=>root.querySelector('.v3Back')?.focus({preventScroll:true}));}
  function closeChapter(){const id=ui.selected;ui.page='overzicht';render();requestAnimationFrame(()=>root.querySelector('.v3Row[data-chapter="'+id+'"]')?.focus({preventScroll:true}));}
- document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ui.page==='hoofdstuk'&&root.dataset.view==='reis'&&WIDE.matches&&!e.defaultPrevented)closeChapter();});
+ // Escape closes the chapter page only when nothing is open above it (settings sheet, a dialog, Schoolblad).
+ document.addEventListener('keydown',e=>{if(e.key!=='Escape'||ui.page!=='hoofdstuk'||root.dataset.view!=='reis'||!WIDE.matches||e.defaultPrevented)return;
+  if(document.querySelector('dialog[open],[role=dialog]:not([hidden]):not([aria-hidden=true]),.ninoSettings[open],.v3SettingsSheet[open],.v3SchoolSheet:not([hidden])'))return;closeChapter();});
  function render(){
   const home=$('#routeHome');if(!home)return;
   if(root.parentNode!==home)home.prepend(root);
