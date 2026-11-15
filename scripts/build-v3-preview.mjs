@@ -1,6 +1,9 @@
 // TOPO V3 owner preview: the V2.0.2 app (index.html, unchanged) + the V3 layers (Reis, les) + labelled demo states.
 // Demo states live in memory only; the real browser storage is never read or written.
 // index.html itself never contains V3 or preview code.
+// TOPO_V3_RELEASE=1: the release build — same V3 layers on the real app, WITHOUT demo states or the in-memory
+// storage shim, so progress is saved in the browser exactly as in V2. Output: output/html/TOPO-V3-Italie.html.
+const RELEASE=process.env.TOPO_V3_RELEASE==='1';
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {project} from './geography/lakes.mjs';
@@ -108,13 +111,16 @@ const sceneJs='window.TOPO_V3_SCENES='+JSON.stringify(scenes)+';window.TOPO_V3_R
 const fontM=JSON.parse(read('assets/v3/font/manifest.json')),fontB=readFileSync(new URL(fontM.path,root));
 if(createHash('sha256').update(fontB).digest('hex')!==fontM.sha256)throw Error('UI font differs from manifest: '+fontM.path);
 const fontCss='@font-face{font-family:"Topo Rounded";src:url(data:font/woff2;base64,'+fontB.toString('base64')+') format("woff2");font-weight:200 1000;font-style:normal;font-display:swap}';
-const css=fontCss+read('scripts/v3/tokens.css')+read('scripts/v3/reis.css')+read('scripts/v3/les.css')+read('scripts/v3/shell.css')+read('scripts/v3/glas.css')+read('scripts/v3/stijl.css')+read('scripts/v3/reis-ijk.css')+read('scripts/v3/oefenen-ijk.css')+read('scripts/v3/les-ijk.css')+read('scripts/v3/toets-ijk.css')+read('scripts/v3/beloningen-ijk.css')+read('scripts/v3/voortgang-ijk.css')+read('scripts/v3/afwerking.css')+read('scripts/v3/ronde2.css')+read('scripts/v3/ronde3.css')+read('scripts/v3/ronde4.css')+read('scripts/v3/ronde5.css')+barCss;
-const head='<head>\n<style>html.v3Boot body{visibility:hidden}html.v3Ready body{animation:v3Ready .16s ease-out}@keyframes v3Ready{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){html.v3Ready body{animation:none}}</style><script>document.documentElement.classList.add("v3Boot");</script>\n<script>\n'+states+'\n'+sceneJs+'\n</script>\n<style>/* BEGIN TOPO V3 */'+css+read('scripts/v3/ronde5b.css')+'/* END TOPO V3 */</style>';
+const css=fontCss+read('scripts/v3/tokens.css')+read('scripts/v3/reis.css')+read('scripts/v3/les.css')+read('scripts/v3/shell.css')+read('scripts/v3/glas.css')+read('scripts/v3/stijl.css')+read('scripts/v3/reis-ijk.css')+read('scripts/v3/oefenen-ijk.css')+read('scripts/v3/les-ijk.css')+read('scripts/v3/toets-ijk.css')+read('scripts/v3/beloningen-ijk.css')+read('scripts/v3/voortgang-ijk.css')+read('scripts/v3/afwerking.css')+read('scripts/v3/ronde2.css')+read('scripts/v3/ronde3.css')+read('scripts/v3/ronde4.css')+read('scripts/v3/ronde5.css')+(RELEASE?'':barCss);
+const head='\n<style>html.v3Boot body{visibility:hidden}html.v3Ready body{animation:v3Ready .16s ease-out}@keyframes v3Ready{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){html.v3Ready body{animation:none}}</style><script>document.documentElement.classList.add("v3Boot");</script>\n<script>\n'+(RELEASE?'':states)+'\n'+sceneJs+'\n</script>\n<style>/* BEGIN TOPO V3 */'+css+read('scripts/v3/ronde5b.css')+'/* END TOPO V3 */</style>';
 const last=html.lastIndexOf('</body>');if(last<0||html.indexOf('<head>')<0)throw Error('Unexpected index.html shape');
-let out=html.replace('<head>',()=>head);
+// Insert after <meta charset>: the V3 head is megabytes (embedded font), and a charset declared later than
+// the first 1024 bytes is ignored by browsers (mojibake such as "Â·").
+const CHARSET='<meta charset="utf-8">';if(!html.includes('<head>'+CHARSET))throw Error('index.html must start its head with '+CHARSET);
+let out=html.replace('<head>'+CHARSET,()=>'<head>'+CHARSET+head);
 const end=out.lastIndexOf('</body>');
 out=out.slice(0,end)+'<script>\n// BEGIN TOPO V3\n'+read('scripts/v3/iconen.js')+'\n'+read('scripts/v3/landmarks.js')+'\n'+read('scripts/v3/reis.js')+'\n'+read('scripts/v3/master-assets.js')+'\n'+read('scripts/v3/les.js')+'\n'+read('scripts/v3/shell.js')+'\n'+read('scripts/v3/schoolblad.js')+'\n'+read('scripts/v3/toets.js')+'\n'+read('scripts/v3/voortgang.js')+'\n'+read('scripts/v3/boek.js')+'\n'+read('scripts/v3/post.js')+'\n'+read('scripts/v3/kennismaking.js')+'\n'+read('scripts/v3/keuze.js')+'\nrequestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");});\n// END TOPO V3\n</script>\n'+out.slice(end);
-out=out.replace(/<title>([^<]*)<\/title>/,(m,t)=>'<title>V3-preview Reis · '+t+'</title>');
+if(!RELEASE)out=out.replace(/<title>([^<]*)<\/title>/,(m,t)=>'<title>V3-preview Reis · '+t+'</title>');
 // Assetdieet (docs/v3/ASSETDIEET.md): replace images in this output only, by the source bytes' sha256, from
 // assets/v3/dieet/manifest.json (made by scripts/v3-assets-export.py). index.html and the masters stay unchanged.
 const dietFile=new URL('assets/v3/dieet/manifest.json',root);
@@ -130,7 +136,8 @@ if(diet){
  });
  console.log('  assetdieet: '+stats.placeholder+' placeholders, '+stats.scale+' scaled');
 }
-const file='output/html/TOPO-V3-Reis-Preview.html';
+const file=RELEASE?'output/html/TOPO-V3-Italie.html':'output/html/TOPO-V3-Reis-Preview.html';
+if(RELEASE&&(out.includes('TOPO_V3_PREVIEW')||out.includes('v3PreviewBar')||out.includes('niets wordt bewaard')))throw Error('Release build contains demo code');
 writeFileSync(new URL(file,root),out);
 const sha=s=>createHash('sha256').update(s).digest('hex');
 console.log(file+'\n  sha256 '+sha(out)+'\n  base index.html sha256 '+sha(html));

@@ -27,6 +27,11 @@ BL-005 is `klaar` (PASS met voorbehoud, PR #91; plan in `ops/reports/integratie.
 - B2C én B2B · hoofddoel: leren op een leuke manier · testkinderen groep 7 (10–11)
 - FR-code gepauzeerd tot M1. FR-data, research en art mogen parallel op Codex (OPERATING_MODEL §5, 🟡)
 
+## V3 naar live (pad, 15-11)
+1. BL-015 V3-release met echte opslag ✅ (in review) — live zetten = Vercel-variabele `SITE_ITALIE=v3`
+2. BL-014 kaart als feestje (overdag, G1 Dennis)
+3. iPad-test Dennis (15-11) + Hermes-hertest → G4 → `SITE_ITALIE=v3`
+
 ## Live (14-11)
 - **www.ninotopo.nl** = portal; `/italie/` = Italië-app. Repo verhuisd naar **ColdDesertAI/topo**; Vercel-project `nino-topo-portal-review` bouwt vanaf `main`.
 
