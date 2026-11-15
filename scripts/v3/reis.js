@@ -277,10 +277,15 @@
   }));
  }
 
- // The chapter card (R-reis-ijk): title, three step dots, one pill; replays quietly below. No scene header (the rows
- // carry the scenes).
+ // The chapter card (R-reis-ijk): title, three step dots, one pill; replays quietly below.
+ // BL-016b B: the chapter scene with Nino (scenes[id].kop, already embedded) large at the top, then "HOOFDSTUK n",
+ // the title, the steps and the pill. A locked chapter shows the same scene, muted, with "Opent na …".
  function renderPanel(m,c,panel=livePanel){
   panel.replaceChildren();if(!c)return;
+  panel.classList.toggle('v3PanelLocked',!c.open);
+  const kop=scenes[c.id]?.kop;
+  if(kop){const f=make('figure','v3CardScene');f.setAttribute('aria-hidden','true');f.append(pic(kop,null,1672,941));panel.append(f);}
+  panel.append(make('p','v3CardKicker','Hoofdstuk '+(c.index+1)));
   // tabindex -1: on phone, focus moves here after choosing a chapter (Hermes V3-03).
   const h=make('h2','v3CardTitle');if(panel===livePanel)h.id='v3Title';h.tabIndex=-1;
   h.append(make('span','v3SrOnly','Hoofdstuk '+(c.index+1)+': '),range(c.title));

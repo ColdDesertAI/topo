@@ -60,3 +60,14 @@
  .v3,body.v3Les{--glas-paneel:var(--v3-surface);--glas-blur:none;--v3-glass-strong:var(--v3-surface)}
  .v3Main .v3Again button{background:var(--v3-surface);-webkit-backdrop-filter:none;backdrop-filter:none}
 }
+/* BL-016b B: featured chapter on Reis — the scene with Nino large at the top (~40% of the block), then the kicker. */
+@media (min-width:768px){
+ .v3Reis[data-view=reis] .v3Main>.v3Panel{padding:14px 14px 20px!important;gap:10px}
+ .v3Reis[data-view=reis] .v3Panel>:not(.v3CardScene){margin-left:10px;margin-right:10px}
+ .v3Panel .v3CardScene{margin:0;aspect-ratio:2.4/1;border-radius:20px;overflow:hidden;box-shadow:0 6px 18px rgba(42,36,64,.16)}
+ .v3Panel .v3CardScene img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+ .v3Panel .v3CardKicker{font:700 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--v3-accent);margin-bottom:-4px}
+ .v3PanelLocked .v3CardScene img{filter:grayscale(.55) brightness(1.06) contrast(.85);opacity:.7}
+ .v3PanelLocked .v3CardKicker{color:var(--v3-ink2)}
+ @media (max-width:1279px){.v3Panel .v3CardScene{aspect-ratio:2/1}}
+}
