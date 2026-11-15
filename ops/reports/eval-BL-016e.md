@@ -25,3 +25,30 @@ Buiten scope opgemerkt (→ backlog-idee):
 - BL-022 (boek iPad), BL-021 (zeeën Voortgang) en de tegelstrook onder de vouw op iPad zijn bekend en staan al op de backlog.
 
 Les: "≤ N per scherm" moet je over de hele scrollhoogte tellen, niet alleen in de beginstand. Een scherm dat scrolt heeft geen vaste "eerste blik".
+
+## Ronde 2
+
+Beoordeeld: HEAD `ab3b3ed` (fix `76cbad9`), gebouwd in een eigen worktree. Chromium headless (Playwright).
+
+VERDICT: PASS
+
+| # | Criterium | Methode | Resultaat | Bewijs |
+|---|---|---|---|---|
+| 1 | Zijbalk identiek op 5 schermen | ongewijzigd sinds ronde 1. De pixelvergelijking 8c44f11 → HEAD laat de zijbalk ongemoeid | PASS | Zie ronde 1. |
+| 2 | Blur op ≤ 4 panelen per scherm | (a) Telling van alle elementen met `backdrop-filter` in de DOM, per scherm. (b) Voortgang: telling van de **zichtbare** blurvlakken bij elke `scrollTop` van 0 tot het einde (`scrollHeight` 2932/2950), in stappen van 25 px. Op 1440×900, 1080×810, 1280×720 en 1024×768, `#alles` en `#bezig` | PASS | (a) Oefenen 2, Toets 2, Beloningen 4, **Voortgang 4** (was 6): zijbalk, titelbalk, kaart "Hoofdstukken", tegelstrook. (b) Maximum **4** op elke scrollpositie, op alle 4 formaten en in beide toestanden. Toetsen en Kennis-paspoort: `rgba(255,255,255,.85)`, `backdrop-filter: none`, radius 24. |
+| 3 | Geen frame of mist | glas2 (`sideFails 0`, `behind none`) | PASS | Ongewijzigd. |
+| 4 | Kaarten zonder paneel eronder | ongewijzigd sinds ronde 1 | PASS | Zie ronde 1. |
+| 5 | Glascheck | `node scripts/qa-v3-glas2.mjs` op de HEAD-build. Daarnaast een eigen contrastmeting in de nieuwe witte secties (tekst transparant, gemiddelde pixel erachter) bij `scrollTop` 500/900/1500/2200, BG-01/02/03, 1440 en 1080. Daarnaast reduced/contrast op de secties | PASS | glas2: 207 / 0 / 0 / 0 / 0, exit 0. Secties: laagste ratio **5,79 : 1** ("Naam", 13 px, `rgb(94,88,114)`). Bij minder transparantie en bij meer contrast worden de secties dicht (`rgb(255,253,249)`) en is er op het scherm 0 blur. |
+| 6 | Niets onder 13 px | TreeWalker in de secties | PASS | Kleinste tekst 13 px. |
+| 7 | Lint en test | in de HEAD-worktree | PASS | lint exit 0. test exit 0, alle suites `# fail 0`. |
+| G1 | GO Dennis | RUNLOG | PASS | Ongewijzigd (19:10). Let op: de lagere secties van Voortgang zien er na `76cbad9` anders uit (wit 85% in plaats van glas met blur), en dat beeld heeft Dennis niet gezien. Screenshot: `/tmp/claude-0/-home-user-topo/0568f8e3-09c7-59a3-9424-2da44b974a18/scratchpad/r2/shots/vg700-1440.png`. |
+
+**FAIL-punt uit ronde 1: opgelost.** Op geen enkele scrollpositie staan nog meer dan 4 blurvlakken in beeld, en ook in de DOM zijn er maar 4.
+
+FAIL-redenen: geen.
+
+Buiten scope opgemerkt (→ backlog-idee):
+- glas2 ziet de nieuwe witte secties niet, want het script slaat vlakken onder de vouw over (`r.top >= innerHeight`). Het groene resultaat zegt daarom niets over deze vlakken. Ze zijn hierboven apart gemeten. Laat glas2 ook bij een of meer scrollposities meten, en neem in de check de klasse "wit .85 zonder blur" voor grote vlakken op, of verbied die bewust.
+- Contractregel "één glas (wit 60%)" tegenover twee grote vlakken van wit 85%: dit volgt mijn advies uit ronde 1. Leg het als uitzondering vast in het contract of in `DESIGN_SYSTEM.md`, zodat de regel en de bouw niet uiteenlopen. Laat Dennis de gescrolde Voortgang zien in de volgende brief.
+- Bij `76cbad9` staat de Voortgang-regel als los blok ná "12. minder transparantie" in `ui.css`, met 4 nieuwe `!important`. Dat doorbreekt de volgorde van BL-023 (zie `eval-BL-023.md`).
+- De branch-HEAD bevat de les-regressie uit BL-023 (`e1073d5`). Zie `eval-BL-023.md`.

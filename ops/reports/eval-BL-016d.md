@@ -34,3 +34,35 @@ Buiten scope opgemerkt (→ backlog-idee):
 - `ops/BACKLOG.md` zet BL-016d al op "klaar" vóór de evaluator. Dat is in strijd met CLAUDE.md regel 4.
 
 Les: een stylesheet weghalen kan globale regels meenemen die buiten de media query van de taak vallen. Daarom moet bij het verwijderen van een CSS-laag elke regel buiten `@media` apart worden nagelopen. Leg na de bouw altijd de niet-doelformaten (810×1080, 390×844) naast de vorige commit, ook als iPad staand en de telefoon "buiten scope" zijn.
+
+## Ronde 2
+
+Beoordeeld: HEAD `ab3b3ed` (code `76cbad9`), gebouwd in een eigen worktree (`git worktree add --detach`). Fixcommits: `785b450` (punt 1 en 4), `76cbad9` (punt 2), `7c8b56d` (punt 3, contract). Metingen in Chromium headless (Playwright). Scripts en screenshots staan in de scratchpad, niet in de repo.
+
+VERDICT: PASS
+
+| # | Criterium | Methode | Resultaat | Bewijs |
+|---|---|---|---|---|
+| 1 | Zelfde glas (.60) en blur | `node scripts/qa-v3-glas2.mjs` op de HEAD-build | PASS | `surfacesChecked 207, alphaFails 0, sideFails 0, contrastFails 0, reducedFails 0`, exit 0. |
+| 2 | Geen mistlaag | glas2 (`side.behind = none`) en computed style | PASS | `body::before` `rgba(0,0,0,0)`, zonder filter, op alle gemeten formaten. Geen codewijziging hieraan sinds ronde 1. |
+| 3 | Kaart ≥ 55% **op het overzicht** (contract aangepast in `7c8b56d`, besluit Dennis in RUNLOG 2026-11-15 21:40), geen paneel eronder | `.v3MapStage` gedeeld door (frame − zijbalk), dezelfde noemer als in ronde 1. Voorouders gecontroleerd op vlak, schaduw en blur | PASS | Overzicht: 804×792 / 1124×792 = **71,5%** (1440) en 686×718 / 952×718 = **72,1%** (1080), op BG-01 en BG-03. 0 voorouders met een vlak, op beide pagina's. De hoofdstukpagina (51,3% op 1440) valt volgens het aangepaste criterium buiten de eis. |
+| 4 | Artwork 16:9 | ongewijzigd sinds ronde 1 (geen CSS-wijziging aan `.v3CardScene`) | PASS | Zie ronde 1. In de screenshot van de HEAD-build op 1440 (vergrendeld, Eilanden) staat het artwork liggend en heel in beeld. |
+| 5 | Blur op ≤ 4 panelen | DOM-telling | PASS | Overzicht 4 (zijbalk, lijst, tellers, balk), hoofdstukpagina 3. Op 1440 en 1080, BG-01 en BG-03. |
+| 6 | AA en niets onder 13 px | Eigen meting van de **vergrendelde hoofdstukpagina**: echte tekstkleur (computed, inclusief de opacity van de voorouders) tegen het gemiddelde van de pixels achter het label (tekst transparant gemaakt). Getest op `#bezig` en `#nieuw` × BG-01/02/03 × 1440, 1080, 1280×720 en 1024×768 × 3 stappen = 72 metingen. Plus glas2 | PASS | Kleur `rgb(69,76,74)` = #454c4a, opacity 1,00. Laagste ratio is **5,51 : 1** (BG-01, "Namen schrijven", 1440 en 1080). De hoogste ratio is 7,76. Alles ≥ 4,5 (was 3,17–3,45). Ik meet een iets lagere ondergrens dan de 5,66 van de hoofdsessie, maar alle waarden halen AA ruim. Kleinste tekst 13 px. |
+| 7 | Minder transparantie / meer contrast | glas2 (reduced) | PASS | `reducedFails 0`. |
+| 8 | Framerate hoofdstuklijst | niet opnieuw gemeten | PASS (uit ronde 1) | Sinds ronde 1 zijn de lijst en de rij-CSS niet gewijzigd. `76cbad9` raakt alleen de kleur van de vergrendelde stappen en Voortgang. De iPad-meting door Dennis blijft open. |
+| 9 | Lint en test | `npm run lint`; `NODE_OPTIONS=--max-old-space-size=6144 npm test` in de HEAD-worktree | PASS | lint exit 0. test exit 0, alle suites `# fail 0`. |
+| G1 | GO Dennis | RUNLOG | PASS | Ongewijzigd (18:20). De wijziging na G1 is alleen de kleur van de vergrendelde stappen (pixeldiff 0,35–0,46%, alleen in het stappenblok). |
+
+**FAIL-punten uit ronde 1:**
+1. **Stappenlijst onder 1024 px: opgelost.** `reis.js:322` rendert de lijst alleen als `WIDE.matches`. 810×1080 en 390×844 (`#bezig/bg03`, met en zonder tik op een rij) naast `c76f6f9`: `.v3StepList` 0 in de DOM. De hoogte van `.v3Panel` is gelijk aan de basis (810: 372/412, 390: 373/417, was 505). Het beeld van de hoofdstukkaart op 810 komt overeen met `c76f6f9`. Het resterende verschil in documenthoogte op 390 (−44 px) komt van de kortere rijnamen ("Extra steden 13–18" wordt "Steden 13–18", `30bf62c`, bewust). Draaien van 810 naar 1440 en terug rendert opnieuw (de `change`-listener op `WIDE`): lijst 0 → 1 → 0, zonder lek.
+2. **AA vergrendelde stappen: opgelost.** Laagste waarde 5,51 : 1 (zie #6).
+3. **Kaart op de hoofdstukpagina: opgelost via het contract** (optie b, vastgelegd in het contract en in de RUNLOG). Het overzicht haalt 71–72%.
+4. **Escape: opgelost.** Op de hoofdstukpagina, 1440: Instellingen open + Esc sluit alleen het sheet (de pagina blijft `hoofdstuk`, de focus gaat terug naar Instellingen). Een tweede Esc gaat naar het overzicht met de focus op de rij. Hetzelfde voor Schoolblad (`schoolbladDialog`). Profiel boven Instellingen: Esc 1 sluit Profiel, Esc 2 sluit Instellingen, Esc 3 gaat terug naar het overzicht. Geen `pageerror`.
+
+FAIL-redenen: geen.
+
+Buiten scope opgemerkt (→ backlog-idee):
+- De branch-HEAD bevat een regressie uit BL-023 (`e1073d5`): in de les op 1440 krijgen `.focusCameraTools` een blurvlak en `.v3LesSteps` een getinte achtergrond. Dat hoort niet bij BL-016d, maar het moet vóór een merge weg. Zie `eval-BL-023.md`.
+- glas2 meet nog steeds alleen `#alles` en neemt de opacity niet mee. De vergrendelde stappen heb ik daarom apart gemeten. Het backlog-idee uit ronde 1 blijft staan.
+- "Opent na Extra steden 19–23" op de vergrendelde pagina, terwijl de lijst "Steden 19–23" toont. Dat is bewust (`reis.js:274`), maar oogt inconsequent.
