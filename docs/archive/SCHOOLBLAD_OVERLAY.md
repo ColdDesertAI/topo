@@ -42,15 +42,15 @@ Physical iPad Safari, the physical on-screen keyboard, VoiceOver and learner fee
 
 ## Evidence
 
-[Browser results](visual/schoolblad/browser-results.json) · [full test/build output](visual/schoolblad/verification.txt) · [photograph/print preservation](visual/schoolblad/preservation.json) · [source/asset audit](visual/schoolblad/source-preservation.json).
+[Browser results](../visual/schoolblad/browser-results.json) · [full test/build output](../visual/schoolblad/verification.txt) · [photograph/print preservation](../visual/schoolblad/preservation.json) · [source/asset audit](../visual/schoolblad/source-preservation.json).
 
-Compact review set (additional five-viewport captures are in [visual/schoolblad](visual/schoolblad)):
+Compact review set (additional five-viewport captures are in [visual/schoolblad](../visual/schoolblad)):
 
 | View | Before / fitted overlay | Legibility / accessibility |
 | --- | --- | --- |
-| iPad landscape | [before](visual/schoolblad/ipad-landscape-before.png) / [fit](visual/schoolblad/ipad-landscape-fit.png) | [200% zoom/pan](visual/schoolblad/ipad-landscape-zoom.png), [large text](visual/schoolblad/ipad-landscape-large-text.png) |
-| iPad portrait | [before](visual/schoolblad/ipad-portrait-before.png) / [fit](visual/schoolblad/ipad-portrait-fit.png) | [two-finger pinch](visual/schoolblad/ipad-portrait-pinch.png), [large text](visual/schoolblad/ipad-portrait-large-text.png), [rotation](visual/schoolblad/ipad-portrait-rotated.png) |
-| Small phone | [320px fitted sheet](visual/schoolblad/phone-320-fit.png) | [zoom](visual/schoolblad/phone-320-zoom.png) |
+| iPad landscape | [before](../visual/schoolblad/ipad-landscape-before.png) / [fit](../visual/schoolblad/ipad-landscape-fit.png) | [200% zoom/pan](../visual/schoolblad/ipad-landscape-zoom.png), [large text](../visual/schoolblad/ipad-landscape-large-text.png) |
+| iPad portrait | [before](../visual/schoolblad/ipad-portrait-before.png) / [fit](../visual/schoolblad/ipad-portrait-fit.png) | [two-finger pinch](../visual/schoolblad/ipad-portrait-pinch.png), [large text](../visual/schoolblad/ipad-portrait-large-text.png), [rotation](../visual/schoolblad/ipad-portrait-rotated.png) |
+| Small phone | [320px fitted sheet](../visual/schoolblad/phone-320-fit.png) | [zoom](../visual/schoolblad/phone-320-zoom.png) |
 
 ```sh
 # From this feature checkout, with supported Node 24.15.0:

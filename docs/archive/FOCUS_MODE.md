@@ -32,11 +32,11 @@ Same window dimensions and initial writing group; these are real browser bounds,
 
 Keyboard-open images use an injected visualViewport test double plus a clearly labelled **SIMULATIE — geen fysieke iPad** occlusion band. They are not OS-keyboard/Safari hardware screenshots.
 
-- Landscape: [before](visual/focus-mode/ipad-landscape-before.png), [closed](visual/focus-mode/ipad-landscape-keyboard-closed.png), [open simulation](visual/focus-mode/ipad-landscape-keyboard-open-SIMULATED.png).
-- Portrait: [before](visual/focus-mode/ipad-portrait-before.png), [closed](visual/focus-mode/ipad-portrait-keyboard-closed.png), [open simulation](visual/focus-mode/ipad-portrait-keyboard-open-SIMULATED.png).
-- Full/context: [landscape overview](visual/focus-mode/ipad-landscape-full-map.png), [chapter](visual/focus-mode/ipad-landscape-chapter-zoom.png); [portrait overview](visual/focus-mode/ipad-portrait-full-map.png), [chapter](visual/focus-mode/ipad-portrait-chapter-zoom.png).
-- Split View: [500px keyboard](visual/focus-mode/split-500-keyboard-open-SIMULATED.png), [700px keyboard](visual/focus-mode/split-700-keyboard-open-SIMULATED.png).
-- Genuinely played route: [point stage complete](visual/focus-mode/real-route-point-complete.png), [writing stage complete](visual/focus-mode/real-route-writing-complete.png), [Gold and third-pizza/first-trip](visual/focus-mode/real-route-gold-and-trip.png).
+- Landscape: [before](../visual/focus-mode/ipad-landscape-before.png), [closed](../visual/focus-mode/ipad-landscape-keyboard-closed.png), [open simulation](../visual/focus-mode/ipad-landscape-keyboard-open-SIMULATED.png).
+- Portrait: [before](../visual/focus-mode/ipad-portrait-before.png), [closed](../visual/focus-mode/ipad-portrait-keyboard-closed.png), [open simulation](../visual/focus-mode/ipad-portrait-keyboard-open-SIMULATED.png).
+- Full/context: [landscape overview](../visual/focus-mode/ipad-landscape-full-map.png), [chapter](../visual/focus-mode/ipad-landscape-chapter-zoom.png); [portrait overview](../visual/focus-mode/ipad-portrait-full-map.png), [chapter](../visual/focus-mode/ipad-portrait-chapter-zoom.png).
+- Split View: [500px keyboard](../visual/focus-mode/split-500-keyboard-open-SIMULATED.png), [700px keyboard](../visual/focus-mode/split-700-keyboard-open-SIMULATED.png).
+- Genuinely played route: [point stage complete](../visual/focus-mode/real-route-point-complete.png), [writing stage complete](../visual/focus-mode/real-route-writing-complete.png), [Gold and third-pizza/first-trip](../visual/focus-mode/real-route-gold-and-trip.png).
 
 ## Executed validation
 
@@ -47,7 +47,7 @@ Keyboard-open images use an injected visualViewport test double plus a clearly l
 - A fresh first stop is actually played from Discover through all Point and Write tasks and Gold (including the Gold pause), using touch/typing/submit/Next. Gold is quiet; all 24 eligible retrievals produce three pizzas and one trip. No completed/unlocked fixture is substituted for this flow.
 - Zero page errors and zero external requests in the integrated Focus run. Engines, map-hit.js, Discovery modules/raster, Schoolblad modules, geometry/lakes, Nino, package lock and print/PDF remain exact protected bytes. Only isolated additive Focus source blocks are excluded by historical source adapters; a new test compares the entire remaining app to exact #39.
 
-Results: [bounds/viewport/state](visual/focus-mode/browser-results.json), [semantic taps](visual/focus-mode/semantic-focus-results.json), [browser output](visual/focus-mode/browser-output.txt), [suite/audit output](visual/focus-mode/verification.txt). No new runtime assets/dependencies/network services.
+Results: [bounds/viewport/state](../visual/focus-mode/browser-results.json), [semantic taps](../visual/focus-mode/semantic-focus-results.json), [browser output](../visual/focus-mode/browser-output.txt), [suite/audit output](../visual/focus-mode/verification.txt). No new runtime assets/dependencies/network services.
 
 ```sh
 # Node 24.15+
@@ -59,7 +59,7 @@ PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs npm run qa:focus
 
 ## Review follow-up
 
-Bounded independent read-only review found no P0/P1 and one P2: restoration could focus the canonical input while its destination was still hidden at a responsive breakpoint. Restoration now occurs after parent moves and visibility changes. A real fine-pointer Chromium regression crosses 1500→1100→1500→1000→1500px while retaining input focus, mid-word backward caret selection, draft, task and saved state: **PASS**, recorded in [breakpoint-focus-results.json](visual/focus-mode/breakpoint-focus-results.json). The genuinely played route also deliberately starts Point with a wrong tap, follows feedback/Next/the six-question pause, repairs it and progresses to Write/Gold without a fixture.
+Bounded independent read-only review found no P0/P1 and one P2: restoration could focus the canonical input while its destination was still hidden at a responsive breakpoint. Restoration now occurs after parent moves and visibility changes. A real fine-pointer Chromium regression crosses 1500→1100→1500→1000→1500px while retaining input focus, mid-word backward caret selection, draft, task and saved state: **PASS**, recorded in [breakpoint-focus-results.json](../visual/focus-mode/breakpoint-focus-results.json). The genuinely played route also deliberately starts Point with a wrong tap, follows feedback/Next/the six-question pause, repairs it and progresses to Write/Gold without a fixture.
 
 ## Physical owner test — about 3–5 minutes, still PENDING
 

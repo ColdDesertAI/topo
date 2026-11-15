@@ -52,7 +52,7 @@ These are automated desktop-browser observations, not a physical iPad test.
   quiz controls after reload and JSON key reordering; navigation and semantic
   comparison corrected those test assumptions; runtime unchanged.
 
-Raw results, screenshots and gate logs: [visual/offline-computer](visual/offline-computer/).
+Raw results, screenshots and gate logs: [visual/offline-computer](../visual/offline-computer/).
 Reproduction requires the development-only Playwright module via `PLAYWRIGHT_MODULE`.
 No development tool is needed by the learner. Node 24.13.1 completed all checks;
 npm ci warned that jsdom's declared range starts at 24.15.0 (or 22.22.2/26).

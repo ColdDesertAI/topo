@@ -17,7 +17,7 @@ PR #26's native two-radio utility, palette/layer constraints, explicit-choice po
 5. **Italian framing / approved Nino**: cream paper mat, restrained lemon/leaf accent outside the SVG, the already-approved original panorama as a quiet header atmosphere, existing Nino portraits/Guide/feedback art. Where a landscape layout already leaves wide paper gutters, character-free CSS crops of that same approved panorama fill **only those gutters**, visibly labelled “Sfeerillustratie · Italië”; they never overlap the geographic SVG or consume additional map area. They are hidden when gutters are narrow, on phones, in formal tests and high-contrast mode. No Nino generation, master correction or character replacement.
 6. **Assessment restraint**: formal Test/Gold keeps explicit chosen palette but removes the relief/waves/header scenery/botanical accent and uses solid, readable land/sea fills. No extra answer label or question-dependent decorative highlight is introduced.
 
-Sources, exact tile hashes, attribution-document hashes, registration bounds and validation: [`assets/discovery/terrain-provenance.json`](../assets/discovery/terrain-provenance.json). The generator verifies terrain samples near Mont Blanc, Gran Sasso, Etna and the Po plain; these are rendering checks, not new learning places. Data credit appears in **Over de kaart**: Mapzen Terrain Tiles; USGS SRTM/GMTED2010; NOAA ETOPO1. No claim of navigation-grade terrain or a fresh survey of the inherited nine schematic educational zones is made.
+Sources, exact tile hashes, attribution-document hashes, registration bounds and validation: [`assets/discovery/terrain-provenance.json`](../../assets/discovery/terrain-provenance.json). The generator verifies terrain samples near Mont Blanc, Gran Sasso, Etna and the Po plain; these are rendering checks, not new learning places. Data credit appears in **Over de kaart**: Mapzen Terrain Tiles; USGS SRTM/GMTED2010; NOAA ETOPO1. No claim of navigation-grade terrain or a fresh survey of the inherited nine schematic educational zones is made.
 
 ## Interaction / preserved learning
 
@@ -32,14 +32,14 @@ Sources, exact tile hashes, attribution-document hashes, registration bounds and
 
 ## Evidence — actual app, not concept screens
 
-[Landscape: reference alongside real app](visual/discovery-map/ipad-landscape-reference-comparison.png) · [Portrait: reference alongside real app](visual/discovery-map/ipad-portrait-reference-comparison.png)
+[Landscape: reference alongside real app](../visual/discovery-map/ipad-landscape-reference-comparison.png) · [Portrait: reference alongside real app](../visual/discovery-map/ipad-portrait-reference-comparison.png)
 
 | Same source frame / question | Schoolkaart | Ontdekkingskaart |
 |---|---|---|
-| iPad landscape | [School](visual/discovery-map/ipad-landscape-school-learn.png) | [Discovery](visual/discovery-map/ipad-landscape-discovery-learn.png) |
-| iPad portrait | [School](visual/discovery-map/ipad-portrait-school-learn.png) | [Discovery](visual/discovery-map/ipad-portrait-discovery-learn.png) |
-| Active route / landscape | [School](visual/discovery-map/ipad-landscape-route-discover-school.png) | [Discovery](visual/discovery-map/ipad-landscape-route-discover-discovery.png) |
-| Active route / portrait | [School](visual/discovery-map/ipad-portrait-route-discover-school.png) | [Discovery](visual/discovery-map/ipad-portrait-route-discover-discovery.png) |
+| iPad landscape | [School](../visual/discovery-map/ipad-landscape-school-learn.png) | [Discovery](../visual/discovery-map/ipad-landscape-discovery-learn.png) |
+| iPad portrait | [School](../visual/discovery-map/ipad-portrait-school-learn.png) | [Discovery](../visual/discovery-map/ipad-portrait-discovery-learn.png) |
+| Active route / landscape | [School](../visual/discovery-map/ipad-landscape-route-discover-school.png) | [Discovery](../visual/discovery-map/ipad-landscape-route-discover-discovery.png) |
+| Active route / portrait | [School](../visual/discovery-map/ipad-portrait-route-discover-school.png) | [Discovery](../visual/discovery-map/ipad-portrait-route-discover-discovery.png) |
 
 Further evidence covers live writing, actual correct feedback, quiet Test style, schoolblad return, 390/320px phone and desktop. These are real Chromium viewport/touch-emulated screenshots, **not physical iPad Safari**. Review boards preserve image aspect ratios and label the concept separately from the actual app. The benchmark is not imported by the app or used as the map.
 
@@ -74,7 +74,7 @@ Normal build is fully local: it embeds the committed hash-pinned relief, modules
 - Both actual standalone downloads opened using `file://`, offline contexts; embedded DEM decodes at original dimensions. Existing schoolblad suite also tests both downloads and dist, reference fit/zoom/pan/pinch, focus/caret/Escape, route/Gold and orientation/large text.
 - Original Nino assets, school photograph, learning/reward engines, all geography and print HTML/PDF are exact protected source bytes. Existing saves/reset scopes/daily and replay idempotence remain covered. Selected UI/boundary contrast and focus are inspected; no new answer labels/targets are added.
 
-Machine-readable [browser results](visual/discovery-map/browser-results.json), [full verification output](visual/discovery-map/verification.txt), [source preservation](visual/discovery-map/source-preservation.json), [schoolblad regression](visual/discovery-map/schoolblad-regression/browser-results.json), and [parent-executed terrain rebuild](visual/discovery-map/terrain-rebuild.txt).
+Machine-readable [browser results](../visual/discovery-map/browser-results.json), [full verification output](../visual/discovery-map/verification.txt), [source preservation](../visual/discovery-map/source-preservation.json), [schoolblad regression](../visual/discovery-map/schoolblad-regression/browser-results.json), and [parent-executed terrain rebuild](../visual/discovery-map/terrain-rebuild.txt).
 
 Optional source rebuild (Python NumPy/Pillow, development only):
 

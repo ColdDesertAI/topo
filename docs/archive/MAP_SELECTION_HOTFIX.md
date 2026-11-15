@@ -13,7 +13,7 @@ The only production application change is the replaced map tap/picker block. No 
 3. **Distance-first chooser bias.** Existing candidates were sorted by distance from the tap. This commonly made the requested point option 1 at marker taps, although the browser reproduction also has a non-first case. No expected-answer-ID sorting was found. This is not evidence that option 1 was correct for arbitrary wrong locations. The baseline enumeration at 1180×820 records option 1 correct in 16 of 17 ambiguous exact-anchor cases. The new tests enumerate all 27 anchors and use deterministic random fixtures to reproduce both correct-first and correct-nonfirst outcomes with identical candidates across prompts, rather than relying on hardcoded Rome/Vatican indices.
 4. **Apparent route deadlock.** The route engine itself can advance after a wrong answer and schedules a later repair. Repeatedly treating a geographically valid Po Plain tap as the Po keeps that repair unresolved. No new engine recovery rule is needed. The fix makes that location pass and tests wrong→Next→spaced repair→actual stage completion, without bypassing a lesson or inventing credit.
 
-[Original fit-map probes](visual/map-hit-hotfix/before.json) · [Actual before-route trace](visual/map-hit-hotfix/before-route.json) · [Legacy dot-order measurements](visual/map-hit-hotfix/before-dot-order.json)
+[Original fit-map probes](../visual/map-hit-hotfix/before.json) · [Actual before-route trace](../visual/map-hit-hotfix/before-route.json) · [Legacy dot-order measurements](../visual/map-hit-hotfix/before-dot-order.json)
 
 ## Bounded implementation
 
@@ -50,15 +50,15 @@ PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs npm run qa:map-hit
 - Both generated HTML downloads run under offline `file://`, including both paints, zoom, Tuscany/Po Plain/Po and neutral microstate choice. No JS errors or external image/script requests.
 - A **read-only compatibility fixture** inserts only the resolver into frozen pizza PR #29 `dcc474e` HTML: a real eighth-answer Po Plain tap still earns Quattro, resets the meter to Margherita and advances the existing third-pizza trip. This is a compatibility smoke check, not a merged release candidate; PR #29 remains unchanged.
 
-[Browser results](visual/map-hit-hotfix/browser-results.json) · [Source preservation](visual/map-hit-hotfix/source-preservation.json) · [Lint](visual/map-hit-hotfix/lint.txt) · [Full tests](visual/map-hit-hotfix/tests.txt) · [Build](visual/map-hit-hotfix/build.txt) · [Audit](visual/map-hit-hotfix/audit.txt) · [Browser run](visual/map-hit-hotfix/browser.txt)
+[Browser results](../visual/map-hit-hotfix/browser-results.json) · [Source preservation](../visual/map-hit-hotfix/source-preservation.json) · [Lint](../visual/map-hit-hotfix/lint.txt) · [Full tests](../visual/map-hit-hotfix/tests.txt) · [Build](../visual/map-hit-hotfix/build.txt) · [Audit](../visual/map-hit-hotfix/audit.txt) · [Browser run](../visual/map-hit-hotfix/browser.txt)
 
 ## Before / after evidence
 
-- Po Plain, same Schoolkaart tap and 200% zoom: [before: wrong Po](visual/map-hit-hotfix/before-route-area-g.png) → [after: correct plain](visual/map-hit-hotfix/after-repro-route-area-g.png).
-- Tuscany, same Schoolkaart interior at fit: [before: dot popup](visual/map-hit-hotfix/before-route-area-h.png) → [after: correct region](visual/map-hit-hotfix/after-repro-route-area-h.png).
-- [iPad portrait: repaired stage completed](visual/map-hit-hotfix/ipad-portrait-stage-complete-after-repair.png) · [iPad landscape](visual/map-hit-hotfix/ipad-landscape-stage-complete-after-repair.png).
-- [Wrong neutral point choice rejected](visual/map-hit-hotfix/neutral-picker-wrong-is-rejected.png) · [Neutral overlapping sea areas](visual/map-hit-hotfix/neutral-overlapping-sea-areas.png) · [Gold replay](visual/map-hit-hotfix/gold-replay-no-duplicate-reward.png).
-- [Offline interactive HTML](visual/map-hit-hotfix/topo-italie-interactief-offline.png) · [Offline route HTML](visual/map-hit-hotfix/topo-italie-duolingo-offline.png).
+- Po Plain, same Schoolkaart tap and 200% zoom: [before: wrong Po](../visual/map-hit-hotfix/before-route-area-g.png) → [after: correct plain](../visual/map-hit-hotfix/after-repro-route-area-g.png).
+- Tuscany, same Schoolkaart interior at fit: [before: dot popup](../visual/map-hit-hotfix/before-route-area-h.png) → [after: correct region](../visual/map-hit-hotfix/after-repro-route-area-h.png).
+- [iPad portrait: repaired stage completed](../visual/map-hit-hotfix/ipad-portrait-stage-complete-after-repair.png) · [iPad landscape](../visual/map-hit-hotfix/ipad-landscape-stage-complete-after-repair.png).
+- [Wrong neutral point choice rejected](../visual/map-hit-hotfix/neutral-picker-wrong-is-rejected.png) · [Neutral overlapping sea areas](../visual/map-hit-hotfix/neutral-overlapping-sea-areas.png) · [Gold replay](../visual/map-hit-hotfix/gold-replay-no-duplicate-reward.png).
+- [Offline interactive HTML](../visual/map-hit-hotfix/topo-italie-interactief-offline.png) · [Offline route HTML](../visual/map-hit-hotfix/topo-italie-duolingo-offline.png).
 
 ## Physical iPad acceptance — about three minutes, still pending
 
