@@ -40,5 +40,7 @@ Regels:
 | BL-019 | Hoofdstukpagina: de plekken van het hoofdstuk als kleine pillen ("Je ontdekt: Milaan, Venetië, …") | M1 | P2 | S | idee (design-critic 15-11) | hoofdsessie | — |
 | BL-020 | Kaart: spookcontouren van buurlanden (Corsica, Balkan, Malta) een derde lichter, of alleen bij Landen/Zeeën | M1 | P2 | S | idee (design-critic 15-11) | builder | — |
 | BL-016d | Reis herzien: zwevende panelen in één helder glas, kaart vrij, Reis = overzicht + hoofdstukpagina (feedback 15-11 17:48) | M0 | P0 | M | klaar (G1 GO Dennis 15-11) | hoofdsessie | `ops/contracts/BL-016d.md` |
-| BL-016e | De Reis-regels (BL-016d) naar Oefenen, Toets, Beloningen en Voortgang: zijbalk, één helder glas, kaart vrij, maten | M0 | P0 | M | doing | hoofdsessie | `ops/contracts/BL-016e.md` |
+| BL-016e | De Reis-regels (BL-016d) naar Oefenen, Toets, Beloningen en Voortgang: zijbalk, één helder glas, kaart vrij, maten | M0 | P0 | M | review (G1 GO Dennis 15-11; wacht op evaluator) | hoofdsessie | `ops/contracts/BL-016e.md` |
 | BL-021 | Voortgang-kaart: beheerste zeeën als zachte violette vulling zonder harde veelhoeklijn (evt. zeenaam); Vespa-paneel 'nog n ritten tot …' (design-critic 15-11) | M1 | P2 | S | idee (hoort bij BL-014 F4) | hoofdsessie | — |
+| BL-022 | Beloningen iPad: het boek wordt 5% smal getrokken (verhouding 0,95 i.p.v. 1; object-fit fill) → passend schalen (object-fit: contain). Gemeld door Dennis bij G1 15-11 | M0 | P1 | XS | idee (latere update) | builder | — |
+| BL-023 | CSS opruimen zonder beeldverandering: glas.css, glas2.css, kaart.css, reis2.css en de rondebestanden naar één bestand per regelset, minder `!important`; vangnet: glascheck + screenshots voor/na | M0 | P1 | S | idee | builder | — |

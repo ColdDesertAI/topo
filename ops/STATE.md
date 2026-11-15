@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-15 · door: Claude (BL-016d, wacht op G1)
+> Bijgewerkt: 2026-11-15 · door: Claude (G1 BL-016e)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,9 +19,9 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-**BL-016d (Reis herzien): G1 GO Dennis 15-11.** Nu BL-016e: dezelfde regels naar Oefenen, Toets, Beloningen, Voortgang. design-critic GO-voorstel (15-11, commit `30bf62c` + fade-fix). Zwevende panelen in één helder glas (token: wit 60%, blur 20 saturate 1.6 brightness 1.06, rand 70%, schaduw 0 18 50 .14), kaart vrij op de scène, Reis = overzicht (zijbalk | Hoofdstukken | kaart + hoofdstukbalk [Verder]) + hoofdstukpagina (← Hoofdstukken, artwork 16:9, stappen, knop, kaart ingezoomd). Glascheck 207 vlakken 0 fouten (vóór de laatste fixes); lint en test groen. BG-01: andere uitsnede (besluit Dennis), hoger gezet.
-- Na GO: dezelfde regels naar Oefenen, Toets, Beloningen, Voortgang. Open: framerate overgang overzicht→hoofdstuk 45 fps headless (kaart-glide; blur kost niets) → meten op de iPad 9.
-- Vervallen: BL-016b-lay-out en variant B (BL-016c). Daarna: BL-014 F2/F4, BL-017, BL-018, ideeën BL-019/020.
+**BL-016d (Reis) en BL-016e (Oefenen, Toets, Beloningen, Voortgang): G1 GO Dennis 15-11** (de laatste "met een slag om de arm"). Glascheck 207 vlakken 0 fouten op `589abbf`; design-critic GO-voorstel op beide. Nog nodig voor "klaar": evaluator op BL-016d+e (loopt), daarna BL-023 CSS-opruiming (vijf lagen met `!important`), daarna de iPad-test van Dennis (framerate van de overgang naar de hoofdstukpagina, 45 fps headless; glas op een echte iPad 9).
+- Backlog uit G1: BL-022 (boek op de iPad 5% smal getrokken), BL-021 (zeeën op de Voortgang-kaart, Vespa-zin), BL-019/020.
+- Daarna: BL-014 F2 (laagland, water, buurlanden) en F4 (Voortgang in drie tinten, genummerde punten), BL-017, BL-018.
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO

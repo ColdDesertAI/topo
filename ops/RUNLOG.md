@@ -35,3 +35,4 @@ Formaat:
 2026-11-15 16:30 | claude/opus | taak | BL-016b | gepauzeerd | hoog | Besluit b+c gebouwd (lijst links/iPad-sheet, kaart 64,6%/90%); Dennis: geen samenhang, geen Apple meets Linear → compositie eerst in de Claude-app
 2026-11-15 18:05 | claude/opus+design-critic | taak | BL-016c→016d | review | hoog | Variant B (één venster) gebouwd en verworpen door Dennis (mistig); herzien: helder glas, kaart vrij, twee pagina's; design-critic NO-GO → 6 fixes → GO-voorstel
 2026-11-15 18:20 | dennis | G1 | BL-016d | GO | — | Reis herzien goedgekeurd; regels door naar de andere schermen (BL-016e)
+2026-11-15 19:10 | dennis | G1 | BL-016e | GO | — | Vier schermen goedgekeurd ("geen fan"); boek op de iPad 5% smal getrokken → BL-022; CSS-schuld → BL-023
