@@ -26,3 +26,4 @@ Formaat:
 2026-11-15 00:40 | claude/opus | taak | BL-015 | review | mid | V3-release-build zonder demo-shim: opslag werkt (profiel/voortgang na herladen), charset na <meta> ingevoegd; site-schakelaar SITE_ITALIE
 2026-11-15 | claude/sonnet | taak | BL-001b | review | laag | branches.md herberekend tegen origin/main 52427b5 (120 rijen: 10 delete, 94 archive, 3 merge, 13 keep); niets aan refs gewijzigd; wacht op evaluator
 2026-11-15 | claude/sonnet | taak | BL-001b | review | laag | branches.md herberekend tegen origin/main 52427b5 (120 rijen: 10 delete, 95 archive, 2 merge, 13 keep); niets aan refs gewijzigd; wacht op evaluator
+2026-11-15 01:30 | claude/sonnet+opus | nacht | BL-001b | review | laag | branches.md herberekend tegen origin/main 52427b5 (120 rijen: 10 delete, 95 archive, 2 merge, 13 keep); niets aan refs gewijzigd; evaluator PASS met voorbehoud na 2 herstelrondes (ops/reports/eval-BL-001b.md)
