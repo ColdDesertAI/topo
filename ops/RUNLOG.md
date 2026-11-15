@@ -24,3 +24,4 @@ Formaat:
 2026-11-14 20:40 | claude/opus | taak | BL-005 | review | mid | codex/topo-v3 in main gemerged (3 conflicten opgelost); lint+test groen (volledige historie), site-build OK, /italie/ toont V2.0.2; wacht op push (sessie zonder schrijfrecht) en G4
 2026-11-14 20:40 | claude/opus | live | BL-009/013 | klaar | laag | www.ninotopo.nl live; repo naar ColdDesertAI/topo; Vercel gekoppeld
 2026-11-15 00:40 | claude/opus | taak | BL-015 | review | mid | V3-release-build zonder demo-shim: opslag werkt (profiel/voortgang na herladen), charset na <meta> ingevoegd; site-schakelaar SITE_ITALIE
+2026-11-15 12:17 | codex | taak | BL-019 | review* | laag | 20 regio’s, 44.267 B, bron/licentie/SHA vast; regiocontroles 7/7, lint en bestaande npm-testset PASS, eindreview akkoord; *45/45 geografisch onmogelijk (32 strikt, Venetië kustuitzondering, 12 niet-toepasselijk); eigenaarsemantiek OPEN; geen UI/merge/deploy, app-build raakt uitgesloten index en is niet gedraaid
