@@ -4,17 +4,21 @@
    Reduced transparency / more contrast: everything opaque, no blur (bottom of this file). */
 @media (min-width:768px){
  .v3,body.v3Les{--v3-glass-grad:var(--glas-paneel);--v3-glass:var(--glas-paneel);--v3-glass-filter:var(--glas-blur);--v3-glass-shadow:var(--glas-rand)}
- /* No white strip behind the sidebar (ronde2.css). */
+ /* No white strip behind the sidebar (ronde2.css): not on Reis (.v3Reis) and not in lessons (body::before, a fixed
+    72% layer as wide as the sidebar; evaluator BL-016 ronde 2). */
  .v3Reis{background:none!important}
+ body:is(.v3Home,.v3Les)::before{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 
  /* Every panel: the one glass. */
  .v3Reis>.v3List .v3Rows,.v3Main>:is(.v3Top,.v3Panel),.v3Reis>.v3View-oefenen .v3OefPanel,.v3Reis[data-view=toets] .v3ToetsSetup,
  .v3Rewards :is(.v3Book,.v3Ride,.v3Tile),.v3View-voortgang :is(.v3VgHead,.v3Field.v3Card,.v3VgRow>.v3VgTile,.v3VgLegend),
- body.v3Les :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,.focusCameraTools,#ninoMeter),.v3View-toetsResult .v3ToetsScoreCard{
+ body.v3Les :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter),.v3View-toetsResult .v3ToetsScoreCard{
   background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur)!important;backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important}
  /* Wrappers and plates that would stack glass on glass: transparent. */
  .v3Reis>:is(.v3List,.v3Rewards),.v3Reis>.v3View,.v3Reis>.v3View-oefenen{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
  body.v3Les:not([data-focus-shell=true]) .v3LesBar :is(.v3LesBar){background:transparent!important}
+ /* Focus Mode map tools: no plate behind the chips (they carry their own background). */
+ body.v3Les .focusCameraTools{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
  /* Replay buttons at the bottom of the Reis panel: their own light pill (AA on every background). */
  .v3Main .v3Again button{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 
@@ -66,7 +70,7 @@
  .v3Reis[data-view=reis] .v3Panel>:not(.v3CardScene){margin-left:10px;margin-right:10px}
  .v3Panel .v3CardScene{margin:0;aspect-ratio:2.4/1;border-radius:20px;overflow:hidden;box-shadow:0 6px 18px rgba(42,36,64,.16)}
  .v3Panel .v3CardScene img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
- .v3Panel .v3CardKicker{font:700 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--v3-accent);margin-bottom:-4px}
+ .v3Panel .v3CardKicker{font:700 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--v3-accent-press);margin-bottom:-4px}
  .v3PanelLocked .v3CardScene img{filter:grayscale(.55) brightness(1.06) contrast(.85);opacity:.7}
  .v3PanelLocked .v3CardKicker{color:var(--v3-ink2)}
  @media (max-width:1279px){.v3Panel .v3CardScene{aspect-ratio:2/1}}

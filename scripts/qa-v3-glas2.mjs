@@ -12,7 +12,7 @@ import {resolve} from 'path';
 import {writeFileSync} from 'fs';
 const {chromium}=createRequire(import.meta.url)('playwright');
 const args=process.argv.slice(2),html=resolve(args[0]&&!args[0].startsWith('--')?args[0]:'output/html/TOPO-V3-Reis-Preview.html');
-const VIEWS=['reis','oefenen','toets','rewards','voortgang','les'],BGS=['bg01','bg02','bg03'],SIZES=[[1440,900],[1080,810],[810,1080]];
+const VIEWS=['reis','oefenen','toets','rewards','voortgang','les','les-antwoord'],BGS=['bg01','bg02','bg03'],SIZES=[[1440,900],[1080,810],[810,1080]];
 
 const lum=([r,g,b])=>{const f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(r)+.7152*f(g)+.0722*f(b)};
 const ratio=(a,b)=>{const [x,y]=[lum(a),lum(b)].sort((p,q)=>q-p);return (x+.05)/(y+.05)};
@@ -24,22 +24,35 @@ const dE=(a,b)=>Math.hypot(...a.map((v,i)=>v-b[i]));
 // In-page: list painted surfaces with their alpha at the bottom edge.
 const SURFACES=()=>{
  const alphas=s=>[...s.matchAll(/rgba?\(([^)]+)\)/g)].map(m=>{const q=m[1].split(',').map(Number);return q.length>3?q[3]:1});
- const root=document.querySelector('.v3Reis')||document.body;const out=[];
- for(const e of document.querySelectorAll('body *')){
-  // .v3Portrait is Nino's round picture frame (artwork), not a plate.
-  if(e.closest('.v3PreviewBar,.v3Portrait,button,a,[role=button],svg,img,picture,input,label,dialog:not([open])'))continue;
-  const r=e.getBoundingClientRect();if(r.width*r.height<12000||r.bottom<=0||r.top>=innerHeight)continue;
-  const cs=getComputedStyle(e);if(cs.visibility==='hidden'||+cs.opacity<.05)continue;
-  if(/url\(/.test(cs.backgroundImage))continue; // artwork (portraits, thumbnails), not a plate
-  const col=alphas(cs.backgroundColor)[0]??0,img=cs.backgroundImage==='none'?[]:alphas(cs.backgroundImage);
-  // A background-size narrower than the box (a strip) counts too: it is still paint.
-  const bottom=Math.max(col,img.length?img[img.length-1]:0);if(bottom<=0.001&&!(img.length&&img[0]>0))continue;
-  const id=e.tagName.toLowerCase()+'.'+[...e.classList].slice(0,2).join('.');
-  out.push({id,bottom:+bottom.toFixed(2),top:+Math.max(col,img[0]??0).toFixed(2),blur:cs.backdropFilter||cs.webkitBackdropFilter||'none',rect:[r.x,r.y,r.width,r.height].map(Math.round),inRoot:root.contains(e)||!!e.closest('body.v3Les')});
+ const out=[];
+ const vis=(e)=>e.isConnected&&(e===document.documentElement||e===document.body||e.getClientRects().length>0);
+ // Every element, html and body included, and every ::before/::after (app-wide mist layers live on body::before).
+ for(const e of [document.documentElement,document.body,...document.querySelectorAll('body *')]){
+  if(!vis(e))continue;
+  // .v3Portrait is Nino's round picture frame (artwork); #message is lesson feedback (right/wrong), which has to be
+  // unmistakable (contract BL-016 § uitzonderingen). Buttons, inputs and images are controls or artwork, not plates.
+  if(e!==document.documentElement&&e!==document.body&&e.closest('.v3PreviewBar,.v3Portrait,#message,button,a,[role=button],svg,img,picture,input,label,dialog:not([open])'))continue;
+  for(const pseudo of [null,'::before','::after']){
+   const cs=getComputedStyle(e,pseudo);if(pseudo&&(cs.content==='none'||cs.content==='normal'||cs.display==='none'))continue;
+   if(cs.visibility==='hidden'||+cs.opacity<.05)continue;
+   if(/url\(/.test(cs.backgroundImage))continue; // artwork (portraits, thumbnails), not a plate
+   if(!pseudo&&(e===document.documentElement||e===document.body))continue; // the canvas itself carries the artwork
+   let w,h,x=0,y=0;if(pseudo){w=parseFloat(cs.width)||0;h=parseFloat(cs.height)||0;const pr=e.getBoundingClientRect();if(cs.position==='fixed'){x=parseFloat(cs.left)||0;y=parseFloat(cs.top)||0}else{x=pr.x;y=pr.y}}
+   else{const r=e.getBoundingClientRect();w=r.width;h=r.height;x=r.x;y=r.y;if(r.bottom<=0||r.top>=innerHeight)continue}
+   if(w*h<12000)continue;
+   const col=alphas(cs.backgroundColor)[0]??0,img=cs.backgroundImage==='none'?[]:alphas(cs.backgroundImage);
+   const bottom=Math.max(col,img.length?img[img.length-1]:0);if(bottom<=0.001&&!(img.length&&img[0]>0))continue;
+   const id=(e===document.body?'body':e===document.documentElement?'html':e.tagName.toLowerCase()+'.'+[...e.classList].slice(0,2).join('.'))+(pseudo||'');
+   out.push({id,bottom:+bottom.toFixed(2),top:+Math.max(col,img[0]??0).toFixed(2),blur:cs.backdropFilter||cs.webkitBackdropFilter||'none',rect:[x,y,w,h].map(Math.round)});
+  }
  }
- const side=document.querySelector('.v3Reis>.v3Side')||document.querySelector('body.v3Les .v3ShellNav');let sideInfo=null;
- if(side){const a=getComputedStyle(side,'::after');const g=alphas(a.backgroundImage);sideInfo={top:g.length?g[0]:0,bottom:g.length?g[g.length-1]:1,behind:getComputedStyle(document.querySelector('.v3Reis')||document.body).backgroundImage}}
- return {surfaces:out.filter(s=>s.inRoot),side:sideInfo};
+ const side=[document.querySelector('.v3Reis>.v3Side'),document.querySelector('body.v3Les .v3ShellNav')].find(n=>n&&n.getClientRects().length);let sideInfo=null;
+ // What lies behind the sidebar: the visible frame (.v3Reis) or, in lessons, body::before.
+ if(side){const a=getComputedStyle(side,'::after');const g=alphas(a.backgroundImage);const reis=document.querySelector('.v3Reis');const host=reis&&reis.getClientRects().length?getComputedStyle(reis):null;
+  const bb=getComputedStyle(document.body,'::before');const behindBody=bb.content!=='none'&&(alphas(bb.backgroundColor)[0]??0)>.001;
+  sideInfo={top:g.length?g[0]:0,bottom:g.length?g[g.length-1]:1,behind:(host&&host.backgroundImage!=='none')?host.backgroundImage:behindBody?'body::before '+bb.backgroundColor:'none'}}
+ // Sidebar glass is a panel too: drop its ::after from the list (checked via side).
+ return {surfaces:out.filter(s=>!/v3Side::after|v3ShellNav::after/.test(s.id)),side:sideInfo};
 };
 const TEXTS=()=>{const texts=[];const vis=e=>e.offsetParent!==null&&getComputedStyle(e).visibility!=='hidden';
  const walk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
@@ -55,7 +68,9 @@ async function open(b,w,h,bg,v,reduced){
  const p=await b.newPage({viewport:{width:w,height:h}});
  if(reduced){const c=await p.context().newCDPSession(p);await c.send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-transparency',value:'reduce'},{name:'prefers-contrast',value:'more'}]})}
  await p.goto('file://'+html+'#alles/'+bg);await p.waitForTimeout(1100);
- if(v==='les'){await p.locator('.v3Main .v3Btn.primary').filter({visible:true}).first().click();await p.waitForTimeout(1300)}
+ if(v.startsWith('les')){await p.locator('.v3Main .v3Btn.primary').filter({visible:true}).first().click();await p.waitForTimeout(1300);
+  // A state after an answer: reveal the answer (the feedback appears), so the lesson is not a sample of one.
+  if(v==='les-antwoord'){const r=p.locator('#reveal').filter({visible:true});if(await r.count()){await r.first().click();await p.waitForTimeout(600)}}}
  else if(v!=='reis'){await p.locator(`[data-nav=${v}]`).filter({visible:true}).first().click();await p.waitForTimeout(700)}
  await p.evaluate(()=>document.activeElement?.blur?.());await p.mouse.move(1,1);await p.waitForTimeout(250);return p}
 async function pixels(b,w,h,png,boxes){const q=await b.newPage({viewport:{width:w,height:h}});
