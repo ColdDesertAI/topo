@@ -217,5 +217,7 @@
 }
 /* iPad landscape, Voortgang: the map + chapters row runs to the sidebar's bottom line (no near-miss of 11 px). */
 @media (min-width:1024px) and (max-width:1279px){
- .v3Reis[data-view=voortgang] .v3View-voortgang .v3VgOverview>.v3Field.v3Card{align-self:stretch!important;height:auto!important;max-height:none!important}
+ .v3Reis[data-view=voortgang]>.v3View-voortgang{grid-template-rows:auto calc(100dvh - var(--v3-bar,0px) - 2*var(--v3-frame-m) - var(--vg-kop,72px) - var(--gap,16px)) auto!important;row-gap:var(--gap,16px)!important}
+ .v3Reis[data-view=voortgang] .v3View-voortgang .v3VgOverview>:is(.v3Field.v3Card,.v3VgKaart){align-self:stretch!important;height:auto!important;max-height:none!important}
 }
+@media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){.v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{background:var(--v3-surface)!important}}

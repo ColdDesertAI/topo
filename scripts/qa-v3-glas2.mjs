@@ -31,9 +31,10 @@ const SURFACES=()=>{
  // Every element, html and body included, and every ::before/::after (app-wide mist layers live on body::before).
  for(const e of [document.documentElement,document.body,...document.querySelectorAll('body *')]){
   if(!vis(e))continue;
+  // .v3VgLegend/.v3VgKaartTitle are small white chips without blur (BL-016e), like the map tools.
   // .v3Portrait is Nino's round picture frame (artwork); #message is lesson feedback (right/wrong), which has to be
   // unmistakable (contract BL-016 § uitzonderingen). Buttons, inputs and images are controls or artwork, not plates.
-  if(e!==document.documentElement&&e!==document.body&&e.closest('.v3PreviewBar,.v3Portrait,#message,button,a,[role=button],svg,img,picture,input,label,dialog:not([open])'))continue;
+  if(e!==document.documentElement&&e!==document.body&&e.closest('.v3PreviewBar,.v3Portrait,#message,.v3VgLegend,.v3VgKaartTitle,button,a,[role=button],svg,img,picture,input,label,dialog:not([open])'))continue;
   for(const pseudo of [null,'::before','::after']){
    const cs=getComputedStyle(e,pseudo);if(pseudo&&(cs.content==='none'||cs.content==='normal'||cs.display==='none'))continue;
    if(cs.visibility==='hidden'||+cs.opacity<.05)continue;
