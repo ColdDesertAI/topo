@@ -191,7 +191,10 @@
    // Variant (a) Eiland: Italy itself is the object — a tight frame (4%), not clamped to the canvas (the sea is
    // transparent and the neighbours fade out, so nothing beyond the data reads as sea); the stage letterboxes it.
    // BL-016d chapter page: zoom on this chapter's places, with room around them (at least 90 map units).
-   if(fr0==='hoofdstuk'){const cx=(x0+x1)/2,cy=(y0+y1)/2,hw=Math.max((x1-x0)*.62,90),hh=Math.max((y1-y0)*.62,90);x0=cx-hw;x1=cx+hw;y0=cy-hh;y1=cy+hh;}
+   if(fr0==='hoofdstuk'){const cx=(x0+x1)/2,cy=(y0+y1)/2,hw=Math.max((x1-x0)*.62,90),hh=Math.max((y1-y0)*.62,90);x0=cx-hw;x1=cx+hw;y0=cy-hh;y1=cy+hh;
+    // Places spread over most of Italy: show Italy whole (a zoom would cut the land off at the panel).
+    let i0=Infinity,j0=Infinity,i1=-Infinity,j1=-Infinity;for(const n of svg.querySelectorAll('.italy,.v3Isle')){const b=n.getBBox();i0=Math.min(i0,b.x);j0=Math.min(j0,b.y);i1=Math.max(i1,b.x+b.width);j1=Math.max(j1,b.y+b.height);}
+    if(isFinite(i0)&&((x1-x0)>.85*(i1-i0)||(y1-y0)>.85*(j1-j0))){x0=i0;y0=j0;x1=i1;y1=j1;}}
    if(svg.dataset.kaart==='eiland'){const p=Math.max(x1-x0,y1-y0)*.04;x0-=p;y0-=p;x1+=p;y1+=p;svg.style.width=svg.style.height='';
     svg.setAttribute('viewBox',[x0,y0,x1-x0,y1-y0].map(v=>Math.round(v)).join(' '));
     // The viewBox, the fade and the mask region are the element's whole visible box in map units (the neighbours draw
@@ -268,7 +271,9 @@
   rows.replaceChildren(...m.chapters.map(c=>{
    const st=stateOf(c,m),li=make('li'),b=make('button','v3Row');b.type='button';b.dataset.chapter=c.id;b.dataset.state=st;
    b.setAttribute('aria-pressed',String(ui.selected===c.id));if(st==='now')b.setAttribute('aria-current','step');
-   const name=make('span','v3Name');name.append(range(c.title));
+   // In the list, "Extra steden 13–18" reads as "Steden 13–18" (one line; the range stays visible); the full title
+   // stays the row's tooltip and accessible name.
+   const name=make('span','v3Name');name.append(range(c.title.replace(/^Extra steden/,'Steden')));b.setAttribute('aria-label',c.title);
    const thumb=make('span','v3Thumb'),src=scenes[c.id]?.mini;
    if(src)thumb.append(pic(src,null,480,270));
    else if(art['chapter'+c.index]){thumb.classList.add('v3ThumbIcon');thumb.append(img(art['chapter'+c.index]));}

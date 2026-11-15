@@ -132,3 +132,23 @@
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3TopLeft>.v3MapTools>*{height:44px!important;min-height:44px!important;border-radius:12px!important;background:rgba(255,255,255,.85)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{--v3-fit-top:0px}
 }
+/* Design-critic BL-016d (15-11). */
+@media (min-width:1024px){
+ /* Chapter page: a wider panel (artwork ±420×236 on desktop), as tall as its content (no empty glass); one left line. */
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk]{--hfd:470px}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Panel{align-self:start!important;max-height:100%}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel :is(.v3Actions,.v3Locked){margin-top:6px!important}
+ .v3Reis[data-view=reis] .v3Panel .v3CardTitle{padding:0!important;margin-left:0!important;text-indent:0}
+ /* Top bar: one height (44) for every control; the segmented control with a 4 px inner padding. */
+ .v3Reis[data-view=reis] .v3Switch{height:44px!important;padding:4px!important;box-sizing:border-box;align-items:stretch!important}
+ .v3Reis[data-view=reis] .v3Switch .v3Btn{height:36px!important;min-height:36px!important;align-self:center}
+ /* Chapter list: one line per row (no wrapped names), the panel as tall as its rows. */
+ .v3Reis[data-view=reis]>.v3List{align-self:start!important;max-height:100%}
+ .v3Reis[data-view=reis] .v3Rows .v3Name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+ .v3Reis[data-view=reis] .v3Rows .v3RowMid{min-width:0}
+ /* BG-01: a slightly stronger drop shadow under the land so the coast reads on the warm haze. */
+ body[data-v3-background=bg01] .v3Reis[data-view=reis] .v3Map[data-relief=on] .v3IsleBase{filter:drop-shadow(0 10px 30px rgba(60,40,0,.28))!important}
+}
+@media (min-width:1024px) and (max-width:1279px){.v3Reis[data-view=reis][data-reis-page=hoofdstuk]{--hfd:330px}}
+@media (min-width:768px) and (min-aspect-ratio:4/3){body.v3Home[data-v3-background=bg01]{background-position:100% 35%!important}}
+@media (min-width:1024px){.v3Reis[data-view=reis] .v3Main>.v3Panel>:not(.v3CardScene){margin-left:0!important;margin-right:0!important}}
