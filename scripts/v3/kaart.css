@@ -43,25 +43,3 @@
  .v3Reis[data-view=reis] .v3Main .v3Again button .v3Icon{width:14px;height:14px}
 }
 @media (min-width:768px) and (max-width:1279px){.v3Reis[data-view=reis] .v3Main>.v3Panel{padding:10px 10px 14px!important;gap:8px}}
-/* BL-016b besluit Dennis 15-11 — (b) desktop: sidebar | chapter list | map, the chapter card over the map's bottom-right
-   (the map keeps --v3-fit-right free for it, so no land lies under the card: < 1% measured); all 11 chapters visible. */
-.v3Reis .v3ListBtn{display:none!important}
-@media (min-width:1280px){
- .v3Reis[data-view=reis]{grid-template-columns:var(--v3-side-w) 260px minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr) auto!important}
- .v3Reis[data-view=reis] .v3Rows{grid-column:2!important;grid-row:1/-1!important;margin:var(--v3-inner) 0 var(--v3-inner) 8px!important;align-self:stretch}
- .v3Reis[data-view=reis] .v3Main>.v3MapStage{grid-column:3!important;grid-row:1/-1!important;margin:var(--v3-inner) var(--v3-inner) var(--v3-inner) 0!important;--v3-fit-right:250px}
- .v3Reis[data-view=reis] .v3Main>.v3Top{grid-column:3!important;grid-row:1!important;z-index:3;justify-self:end;margin:var(--v3-inner) var(--v3-inner) 0 0!important}
- .v3Reis[data-view=reis] .v3Main>.v3Panel{grid-column:3!important;grid-row:3!important;z-index:3;justify-self:end;align-self:end;width:300px;margin:0 var(--v3-inner) var(--v3-inner) 0!important}
-}
-/* (c) iPad landscape: no list column; the map takes the width, the card lies over its bottom-right, and the chapter list
-   is a sheet behind the "Hoofdstukken" button (Escape or a choice closes it). */
-@media (min-width:1024px) and (max-width:1279px){
- .v3Reis[data-view=reis]{grid-template-columns:var(--v3-side-w) minmax(0,1fr) 0!important;grid-template-rows:auto minmax(0,1fr) auto!important}
- .v3Reis[data-view=reis] .v3Main>.v3MapStage{grid-column:2!important;grid-row:1/-1!important;margin:var(--v3-inner) var(--v3-inner) var(--v3-inner) 8px!important;--v3-fit-right:200px}
- .v3Reis[data-view=reis] .v3Main>.v3Top{grid-column:2!important;grid-row:1!important;z-index:3;justify-self:end;flex-wrap:nowrap!important;margin:var(--v3-inner) var(--v3-inner) 0 0!important}
- .v3Reis[data-view=reis] .v3Main>.v3Panel{grid-column:2!important;grid-row:3!important;z-index:3;justify-self:end;align-self:end;width:280px;margin:0 var(--v3-inner) var(--v3-inner) 0!important}
- .v3Reis[data-view=reis] .v3ListBtn{display:inline-flex!important;min-height:40px;padding:0 14px;gap:8px;background:var(--v3-glass-strong);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);box-shadow:var(--glas-rand);font:600 15px/1 var(--v3-font)}
- .v3Reis[data-view=reis]:not([data-lijst=open]) .v3Rows{display:none!important}
- .v3Reis[data-view=reis][data-lijst=open] .v3Rows{grid-column:2!important;grid-row:1/-1!important;z-index:5;justify-self:start;align-self:start;width:300px;max-height:calc(100% - 2*var(--v3-inner));margin:calc(var(--v3-inner) + 52px) 0 0 8px!important;
-  background:var(--v3-surface)!important;box-shadow:0 18px 50px rgba(42,36,64,.28)!important;-webkit-mask-image:none!important;mask-image:none!important}
-}

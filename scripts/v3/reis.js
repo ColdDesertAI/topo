@@ -249,14 +249,10 @@
   pz.append(pic(V3ART.icons.slice,'v3CountArt',40,40),make('b',null,cycle+' / 24'));
   const trip=make('span','v3Count');trip.setAttribute('aria-label',state.trips+' Vespa-ritten');trip.append(pic(V3ART.icons.vespa,'v3CountArt',40,40),make('b',null,String(state.trips)));
   const counts=make('div','v3Counts');counts.append(pz,make('i','v3CountSep'),trip);
-  // BL-016b (c): on iPad landscape the chapter list is a sheet behind this button (CSS shows it only there).
-  const lb=btn('',e=>{e.stopPropagation();setSheet(root.dataset.lijst!=='open');},'v3Btn v3ListBtn');lb.append(icon('v3map'),make('span',null,'Hoofdstukken'));
-  lb.setAttribute('aria-expanded',String(root.dataset.lijst==='open'));lb.setAttribute('aria-controls','v3Rows');
-  top.replaceChildren(lb,tools,counts);
+  // BL-016c: counters top-right of the right column; the map tools sit on the map zone (top-right corner).
+  if(WIDE.matches){top.replaceChildren(counts);if(tools.parentNode!==stage)stage.append(tools);}else top.replaceChildren(tools,counts);
  }
- function setSheet(open){if(open)root.dataset.lijst='open';else delete root.dataset.lijst;root.querySelector('.v3ListBtn')?.setAttribute('aria-expanded',String(open));
-  if(open)root.querySelector('.v3Row[aria-pressed=true]')?.focus();}
- document.addEventListener('keydown',e=>{if(e.key==='Escape'&&root.dataset.lijst==='open'){setSheet(false);root.querySelector('.v3ListBtn')?.focus();}});
+ const WIDE=matchMedia('(min-width:1024px)');WIDE.addEventListener?.('change',()=>render());
 
  // Chapter rows (R-reis-ijk): scene, name, status. Done = the earned stamp; gold = the illustrated laurel; in progress = a thin bar under
  // the name; locked = a lock only. The selected row is the selection style.
@@ -274,8 +270,9 @@
    else if(st==='done'){end.append(pic(V3ART.icons.stamp,'v3StatusArt',32,32));end.classList.add('v3EndDone');end.setAttribute('aria-label','afgerond');}
    else if(st==='locked'){end.append(icon('v3lock'));end.setAttribute('aria-label','op slot');}
    else{const bar=make('span','v3RowBar');bar.style.setProperty('--v3-on',String(c.r.stage/3));bar.setAttribute('aria-hidden','true');mid.append(bar);end.setAttribute('aria-label',c.r.stage+' van 3 lessen');}
-   b.append(thumb,mid,end);
-   b.addEventListener('click',e=>{e.stopPropagation();ui.selected=c.id;const wasSheet=root.dataset.lijst==='open';if(wasSheet)setSheet(false);render();if(wasSheet){root.querySelector('.v3ListBtn')?.focus();return;}
+   const num=make('span','v3RowNum',String(c.index+1));num.setAttribute('aria-hidden','true');b.title=c.title;
+   b.append(num,thumb,mid,end);
+   b.addEventListener('click',e=>{e.stopPropagation();ui.selected=c.id;render();
     // Phone: the chosen chapter appears at the top: focus its title (keyboard position kept, read by screen readers)
     // and bring it into view; elsewhere keep focus on the list.
     if(matchMedia('(max-width:767px)').matches){$('#v3Title')?.focus({preventScroll:true});main.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});}

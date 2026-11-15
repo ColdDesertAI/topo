@@ -50,7 +50,9 @@ const SURFACES=()=>{
  // What lies behind the sidebar: the visible frame (.v3Reis) or, in lessons, body::before.
  if(side){const a=getComputedStyle(side,'::after');const g=alphas(a.backgroundImage);const reis=document.querySelector('.v3Reis');const host=reis&&reis.getClientRects().length?getComputedStyle(reis):null;
   const bb=getComputedStyle(document.body,'::before');const behindBody=bb.content!=='none'&&(alphas(bb.backgroundColor)[0]??0)>.001;
-  sideInfo={top:g.length?g[0]:0,bottom:g.length?g[g.length-1]:1,behind:(host&&host.backgroundImage!=='none')?host.backgroundImage:behindBody?'body::before '+bb.backgroundColor:'none'}}
+  sideInfo={top:g.length?g[0]:0,bottom:g.length?g[g.length-1]:1,behind:(host&&host.backgroundImage!=='none')?host.backgroundImage:behindBody?'body::before '+bb.backgroundColor:'none'};
+  // BL-016c: on Reis the window (.v3Reis) IS the one glass and the sidebar has none of its own; check the window instead.
+  if(a.display==='none'&&host){const wg=alphas(host.backgroundImage);sideInfo={top:wg[0]??0,bottom:wg.length?wg[wg.length-1]:0,behind:behindBody?'body::before '+bb.backgroundColor:'none',venster:true}}}
  // Sidebar glass is a panel too: drop its ::after from the list (checked via side).
  return {surfaces:out.filter(s=>!/v3Side::after|v3ShellNav::after/.test(s.id)),side:sideInfo};
 };

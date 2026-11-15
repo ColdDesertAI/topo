@@ -32,6 +32,11 @@ window.TopoV3Landmarks=function(svg,k){
  if(chapter){const ids=new Set(chapter.itemIds);shown=art.items.filter(i=>i.relevantItems.some(id=>ids.has(id)));svg.dataset.landmarkSet='chapter';
   if(!shown.length){shown=art.items.filter(i=>(art.basisSet||[]).includes(i.id));svg.dataset.landmarkSet='basis';}}
  else delete svg.dataset.landmarkSet;
+ // BL-016c: on Reis only ONE landmark, at the active pin (the chapter's first place still to learn, else its first), as a
+ // small badge: the illustration on a white pill with a soft shadow. No loose icons, no circles.
+ const onReis=!!svg.closest('.v3MapStage');
+ if(onReis&&shown.length){const hits=[...svg.querySelectorAll('circle.v3Hit')].map(c=>c.getAttribute('data-id'));
+  const pick=shown.find(i=>i.relevantItems.some(id=>hits.includes(id)))||shown[0];shown=[pick];svg.dataset.landmarkSet='badge';}
  for(const item of shown){
   const asset=item.exports[size];
   const [left,top,right,bottom]=asset.paintBounds;
@@ -44,8 +49,7 @@ window.TopoV3Landmarks=function(svg,k){
   const node=make('g',{'data-landmark':item.id,'data-longitude':item.coordinates[0],'data-latitude':item.coordinates[1],transform:'translate('+item.point[0]+' '+item.point[1]+') scale('+k+')'});
   if(dx||dy){node.dataset.shift=dx+' '+dy;}
   // BL-016b D: never loose on the relief — each landmark sits on a white badge (circle + shadow, CSS .v3Badge).
-  const cx=dx,cy=dy-ph/2,rad=Math.max(pw,ph)/2+5;
-  node.append(make('circle',{class:'v3Badge',cx,cy,r:rad}));
+  if(onReis){const pad=6,bwid=pw+2*pad,bht=ph+2*pad;node.append(make('rect',{class:'v3Badge',x:dx-bwid/2,y:dy-ph-pad,width:bwid,height:bht,rx:bht/2}));}
   node.append(make('image',{href:asset.src,x:-(left+right)/2*units+dx,y:-bottom*units+dy,width,height:width,'data-export-size':size}));g.append(node);
  }
  // Ronde 5 punt 7: the chapter's lifestyle icons (a fixed list per chapter, locations.json), Reis only, smaller than the
