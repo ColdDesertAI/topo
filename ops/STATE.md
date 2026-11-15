@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-15 · door: Claude (BL-016/016b)
+> Bijgewerkt: 2026-11-15 · door: Claude (pauze: compositie eerst)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,7 +19,12 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-BL-016 (glas): ronde 3 lost de r2-punten op; laatste regressie (TOPO buiten de smalle zijbalk) hersteld in `e1571d6`, nog te hertoetsen. BL-016b (glas, zijbalk, uitgelicht hoofdstuk, kaart): evaluator FAIL op C1/B1/lijst/schakelaar, design-critic NO-GO; C1, schakelaar en hard faults hersteld. **Wacht op Dennis**: rechterkolom (a) zo laten · (b) lijst links van de kaart zoals render Ontdekken (aanbevolen) · (c) iPad-lijst als sheet; titel "Reis" weg ja/nee; BG-01-uitsnede met rustige zone links; transparant vs. gelijk beeld (ΔE 8,7). Daarna BL-014 F2 (laagland, water, buurlanden), F4 (Voortgang drie tinten, genummerde punten), BL-017, BL-018.
+**Pauze in de bouw: compositie eerst (Dennis 15-11, eind van de middag).** Dennis: de build mist samenhang. Er is geen "Apple meets Linear", Nino is te groot (alleen een hoofd), de witte rondjes achter de landmarks moeten weg en de lijst links van de kaart werkt niet. Werkhypothese: één licht venster met de scène eromheen, ingedeeld met ruimte en dunne lijnen in plaats van zwevende glazen kaarten (zoals zijn renders). Dennis bepaalt de compositie van Reis (1440×900 en iPad) **in de Claude-app**, met 2–3 varianten. Uitkomst: één goedgekeurd beeld in `docs/v3/renders/kaart/` plus ontwerpregels. Daarna hier een nieuw contract (BL-016c), de bouw, en het doortrekken naar alle schermen.
+- Stand van de code (`eabab73`, gepusht, PR #101 draft): glas-tokens (`--glas-paneel`/`--glas-blur`/`--glas-rand`), reliëf r3, witte kustrand, pins 1,5×, hoofdstukscène in het uitgelichte blok (dieet 740×416, +1,07 MB), lijst links (≥ 1280) en sheet (iPad liggend). Lint en test groen. Met revert terug te draaien.
+- Blijft volgens Dennis: reliëf r3, de kustrand, de druppelpins, de hoofdstukscène. Gaat eruit: de witte badge-rondjes, Nino als groot hoofd, de lijst links (variant A: zijbalk en lijst één paneel; B: lijst rechts met detail in hetzelfde vlak).
+- Besloten 15-11: transparant (geen eis op gelijke tint), titel "Reis" mag weg, de iPad-lijst mag een sheet zijn. Open: BG-01 heeft links geen rustige zone (aangepaste uitsnede of variant nodig; telefoon en iPad staand hoeven geen eigen BG).
+- Evaluaties: BL-016 r3 FAIL (alleen een regressie, hersteld, niet hertoetst); BL-016b FAIL en design-critic NO-GO (`ops/reports/eval-BL-016*.md`). Niet opnieuw toetsen vóór de nieuwe compositie.
+- Daarna: BL-014 F2 (laagland warmer, water, buurlanden in mist), F4 (Voortgang drie tinten, genummerde punten), BL-017, BL-018.
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO
@@ -28,7 +33,7 @@ BL-016 (glas): ronde 3 lost de r2-punten op; laatste regressie (TOPO buiten de s
 
 ## V3 naar live (pad, 15-11)
 1. BL-015 V3-release met echte opslag ✅ (in review) — live zetten = Vercel-variabele `SITE_ITALIE=v3`
-2. BL-014 kaart als feestje (overdag, G1 Dennis)
+2. BL-014/016 kaart en glas: compositie eerst (Claude-app), dan bouw en G1
 3. iPad-test Dennis (15-11) + Hermes-hertest → G4 → `SITE_ITALIE=v3`
 
 ## Live (14-11)
