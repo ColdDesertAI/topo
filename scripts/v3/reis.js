@@ -19,7 +19,7 @@
  const icon=name=>{const s=document.createElementNS(SVGNS,'svg');s.setAttribute('viewBox',name==='vespa'?'0 0 72 48':'0 0 32 32');s.setAttribute('aria-hidden','true');s.classList.add('v3Icon');const u=document.createElementNS(SVGNS,'use');u.setAttribute('href','#topo-'+name);s.append(u);return s;};
  const range=t=>{const f=document.createDocumentFragment();t.split(/(\d+–\d+)/).forEach(p=>{if(!p)return;if(/^\d+–\d+$/.test(p))f.append(make('span','nw',p));else f.append(p);});return f;};
  // Stijlbeeld (renderniveau): relief is the default map style; Schoolkaart stays one tap away.
- const ui={selected:null,relief:true,view:'reis'};
+ const ui={selected:null,relief:true,view:'reis',page:'overzicht'}; // BL-016d: Reis = overzicht | hoofdstuk (≥ 1024 px)
  // Reis map (fase B; chosen in the afwerking 10-11): "eiland" = Italy floating as land, neighbours as soft silhouettes,
  // the sea transparent on the wash. Variant (b), the map in a glass card, is gone.
  ui.kaart='eiland';
@@ -55,7 +55,7 @@
   const brand=make('div','v3Brand');brand.append(make('b',null,'Topo'),make('i','v3Flag'));
   // Nino portrait (render asset NINO-PORTRET); the guide cut-out only when the portrait is missing.
   const portrait=make('div','v3Portrait');if(V3ART?.portrait){portrait.classList.add('v3PortraitArt');portrait.append(pic(V3ART.portrait,null,512,512));}else if(nino.guide)portrait.append(img(nino.guide));
-  const navItem=(tab,label,glyph)=>{const b=btn('',go(tab),'v3Btn v3NavItem');b.append(icon(glyph),make('span',null,label));b.dataset.nav=tab;return b;};
+  const navItem=(tab,label,glyph)=>{const b=btn('',tab==='reis'?e=>{ui.page='overzicht';go(tab)(e);render();}:go(tab),'v3Btn v3NavItem');b.append(icon(glyph),make('span',null,label));b.dataset.nav=tab;return b;};
   const nav=make('div','v3NavList');nav.append(...TABS.map(t=>navItem(...t)));
   const settings=navItem('instellingen','Instellingen','v3gear');settings.classList.add('v3Settings');
   side.append(brand,portrait,nav,settings);markNav(side);return side;
@@ -121,7 +121,7 @@
   mapClone.dataset.focus=c?(c.itemIds[0]?.startsWith('city')?'points':'areas'):'';
   // Ronde 5 punt 1: two fixed frames, one scale. Italy (with Sicily and Sardinia) for every chapter; only the chapters
   // whose items lie beyond Italy (OMGEVING: Landen, Zeeën) zoom out to "Italië en omgeving".
-  mapClone.dataset.frame=c&&OMGEVING.includes(c.id)?'omgeving':'italy';
+  mapClone.dataset.frame=c&&OMGEVING.includes(c.id)?'omgeving':ui.page==='hoofdstuk'&&WIDE.matches&&c?'hoofdstuk':'italy';
   if(c)mapClone.dataset.chapter=c.id;else delete mapClone.dataset.chapter;
   reserve();fit(mapClone);
  }
@@ -181,7 +181,8 @@
  const CANVAS={w:890,h:1235},MARGIN=.14,OMGEVING=['countries','seas'];
  function fit(svg){
   try{
-   const fr0=svg.dataset.frame,parts=[...svg.querySelectorAll(fr0==='italy'||fr0==='omgeving'?'.italy,.v3Isle':'.italy,.v3Hit')];if(!parts.length)return;
+   const fr0=svg.dataset.frame;let parts=[...svg.querySelectorAll(fr0==='italy'||fr0==='omgeving'?'.italy,.v3Isle':fr0==='hoofdstuk'?'.v3Hit':'.italy,.v3Hit')];
+   if(fr0==='hoofdstuk'&&!parts.length)parts=[...svg.querySelectorAll('.italy,.v3Isle')];if(!parts.length)return;
    // "Italië en omgeving": Italy plus every item of the OMGEVING chapters (neighbouring countries and seas), whichever is selected.
    if(fr0==='omgeving')for(const id of ROUTE_CHAPTERS.filter(c=>OMGEVING.includes(c.id)).flatMap(c=>c.itemIds))svg.querySelectorAll('[data-id="'+id+'"]').forEach(n=>parts.push(n));
    let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
@@ -189,6 +190,8 @@
    if(!isFinite(x0))return;
    // Variant (a) Eiland: Italy itself is the object — a tight frame (4%), not clamped to the canvas (the sea is
    // transparent and the neighbours fade out, so nothing beyond the data reads as sea); the stage letterboxes it.
+   // BL-016d chapter page: zoom on this chapter's places, with room around them (at least 90 map units).
+   if(fr0==='hoofdstuk'){const cx=(x0+x1)/2,cy=(y0+y1)/2,hw=Math.max((x1-x0)*.62,90),hh=Math.max((y1-y0)*.62,90);x0=cx-hw;x1=cx+hw;y0=cy-hh;y1=cy+hh;}
    if(svg.dataset.kaart==='eiland'){const p=Math.max(x1-x0,y1-y0)*.04;x0-=p;y0-=p;x1+=p;y1+=p;svg.style.width=svg.style.height='';
     svg.setAttribute('viewBox',[x0,y0,x1-x0,y1-y0].map(v=>Math.round(v)).join(' '));
     // The viewBox, the fade and the mask region are the element's whole visible box in map units (the neighbours draw
@@ -251,7 +254,10 @@
   const trip=make('span','v3Count');trip.setAttribute('aria-label',state.trips+' Vespa-ritten');trip.append(pic(V3ART.icons.vespa,'v3CountArt',40,40),make('b',null,String(state.trips)));
   const counts=make('div','v3Counts');counts.append(pz,make('i','v3CountSep'),trip);
   // BL-016c: counters top-right of the right column; the map tools sit on the map zone (top-right corner).
-  if(WIDE.matches){top.replaceChildren(counts);if(tools.parentNode!==stage)stage.append(tools);}else top.replaceChildren(tools,counts);
+  const back=btn('',e=>{e.stopPropagation();closeChapter();},'v3Btn v3Back');back.append(icon('v3back'),make('span',null,'Hoofdstukken'));
+  // On the chapter page the tools sit in the top bar (the zoomed map fades at its edges).
+  if(WIDE.matches&&ui.page==='hoofdstuk'){const l=make('div','v3TopLeft');l.append(back,tools);top.replaceChildren(l,counts);}
+  else if(WIDE.matches){top.replaceChildren(back,counts);if(tools.parentNode!==stage)stage.append(tools);}else top.replaceChildren(tools,counts);
  }
  const WIDE=matchMedia('(min-width:1024px)');WIDE.addEventListener?.('change',()=>render());
 
@@ -274,7 +280,7 @@
    else{const bar=make('span','v3RowBar');bar.style.setProperty('--v3-on',String(c.r.stage/3));bar.setAttribute('aria-hidden','true');mid.append(bar);end.setAttribute('aria-label',c.r.stage+' van 3 lessen');}
    const num=make('span','v3RowNum',String(c.index+1));num.setAttribute('aria-hidden','true');b.title=c.title;
    b.append(num,thumb,mid,end);
-   b.addEventListener('click',e=>{e.stopPropagation();ui.selected=c.id;render();
+   b.addEventListener('click',e=>{e.stopPropagation();if(WIDE.matches){openChapter(c.id);return;}ui.selected=c.id;render();
     // Phone: the chosen chapter appears at the top: focus its title (keyboard position kept, read by screen readers)
     // and bring it into view; elsewhere keep focus on the list.
     if(matchMedia('(max-width:767px)').matches){$('#v3Title')?.focus({preventScroll:true});main.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});}
@@ -324,6 +330,8 @@
    else actions.append(due?pill('Opfrissen',()=>v2Card(c.id)?.querySelector('.routeActions button:not(.goldButton)'),'v3again'):pill('Goud nog eens',()=>v2Card(c.id)?.querySelector('.goldButton'),'v3medal'));
   }
   panel.append(actions);
+  // BL-016d: on the overview the chapter bar shows [Verder] (opens the chapter page); the real action lives there.
+  const barGo=btn('',e=>{e.stopPropagation();openChapter(c.id);},'v3Btn primary v3BarGo');barGo.append(make('span',null,'Verder'));panel.append(barGo);
   // Replays: quiet, only for lessons already done.
   if(c.r.stage>0){const again=make('div','v3Again');TopoRoute.STAGES.forEach((s,n)=>{if(n<c.r.stage){const b=btn('',press(()=>v2Card(c.id)?.querySelectorAll('.routeStep')[n]));b.append(icon('v3again'),make('span',null,STAGE[s]));b.setAttribute('aria-label',STAGE[s]+' opnieuw');again.append(b);}});panel.append(again);}
  }
@@ -362,6 +370,10 @@
   if(window.TOPO_V3?.schoolblad&&!tools.querySelector('.v3SchoolBtn'))tools.prepend(window.TOPO_V3.schoolblad.button('v3SchoolBtn'));
   sw.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.relief===String(ui.relief))));
  }
+ // BL-016d: the chapter page (Reis › Hoofdstuk) and back to the overview.
+ function openChapter(id){ui.selected=id;ui.page='hoofdstuk';render();requestAnimationFrame(()=>root.querySelector('.v3Back')?.focus({preventScroll:true}));}
+ function closeChapter(){const id=ui.selected;ui.page='overzicht';render();requestAnimationFrame(()=>root.querySelector('.v3Row[data-chapter="'+id+'"]')?.focus({preventScroll:true}));}
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ui.page==='hoofdstuk'&&root.dataset.view==='reis'&&WIDE.matches&&!e.defaultPrevented)closeChapter();});
  function render(){
   const home=$('#routeHome');if(!home)return;
   if(root.parentNode!==home)home.prepend(root);
@@ -372,7 +384,7 @@
   // Backdrop: BG-03 (BG-01/BG-02 in the preview), full-bleed behind the window; the V2 panorama only as fallback.
   const pano=V3ART?.bg?.[window.TOPO_V3_BG||'bg03']||V3ART?.bg?.bg03||$('.routeScene img')?.currentSrc||$('.routeScene img')?.src;
   if(V3ART?.bg)background();else if(pano)document.body.style.setProperty('--v3-pano','url("'+pano+'")');
-  root.dataset.view=views[ui.view]?ui.view:'reis';root.dataset.kaart=ui.kaart;
+  root.dataset.view=views[ui.view]?ui.view:'reis';root.dataset.kaart=ui.kaart;root.dataset.reisPage=ui.page;
   markNav(root);
   renderTop(m);renderRows(m);renderPanel(m,c);renderSwitch();paintMap(c);renderRewards(m);
   if(renderers[root.dataset.view])try{renderers[root.dataset.view](views[root.dataset.view],m);}catch(e){console.error('V3 view',e);}

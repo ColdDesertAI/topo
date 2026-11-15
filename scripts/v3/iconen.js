@@ -22,6 +22,7 @@
   // Actions and status.
   v3play:'<path d="M10.5 7v18l14-9z"/>',
   v3arrow:'<path d="M5 16h21M18.5 8.5 26 16l-7.5 7.5"/>',
+  v3back:'<path d="M27 16H6M13.5 8.5 6 16l7.5 7.5"/>',
   v3again:'<path d="M25.5 16a9.5 9.5 0 1 1-2.8-6.7M25.5 5.5v5h-5"/>',
   v3checkmark:'<path d="m9 16.5 4.6 4.6L23 11.5"/>',
   v3check:'<circle cx="16" cy="16" r="11.5"/><path d="m10.5 16.5 3.7 3.7 7.3-8"/>',
