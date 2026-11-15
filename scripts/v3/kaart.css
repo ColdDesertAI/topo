@@ -17,3 +17,29 @@
 /* The island tile: a 2.5 px white coast rim on Italy and its islands (the soft drop shadow is .v3IsleBase). */
 .v3Map[data-relief=on] :is(.italy,.v3Isle){stroke:#fff!important;stroke-opacity:1!important;stroke-width:2.5px!important;vector-effect:non-scaling-stroke}
 .v3Map[data-relief=on] .v3IsleBase{filter:drop-shadow(0 14px 18px rgba(42,36,64,.30))}
+/* Design-critic G1 (15-11), hard faults. */
+@media (min-width:768px){
+ /* Chapter list: compact rows, whole rows only (snap) and a soft fade at the scroll edges, so no row is cut in half. */
+ .v3Reis[data-view=reis] .v3Rows{gap:2px;padding:8px;scroll-snap-type:y mandatory;scroll-padding:8px;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14px,#000 calc(100% - 18px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14px,#000 calc(100% - 18px),transparent 100%)}
+ .v3Reis[data-view=reis] .v3Rows .v3Row{scroll-snap-align:start;min-height:44px;padding:4px 8px;grid-template-columns:48px minmax(0,1fr) 22px;gap:10px}
+ .v3Reis[data-view=reis] .v3Rows .v3Thumb{width:48px;height:32px;border-radius:9px}
+ /* Rewards: the book panel has the same radius as every glass panel. */
+ .v3Rewards .v3Book{border-radius:var(--v3-radius-glass)!important;overflow:hidden}
+ /* Toets chips: the name and the range each stay whole; a long chip wraps between them, centred. */
+ .v3 .v3ToetsSetup .v3Chip{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:4px;row-gap:0;text-align:center}
+ .v3 .v3ToetsSetup .v3Chip>*{white-space:nowrap}
+}
+@media (min-width:768px) and (max-width:1279px){
+ /* Reis tools inside the right column: Schoolblad as an icon button (its label stays for screen readers). */
+ .v3Reis .v3MapTools .v3SchoolBtn{width:40px;padding:0}
+ .v3Reis .v3MapTools .v3SchoolBtn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .v3Reis[data-view=reis] .v3Main>.v3Top{flex-wrap:wrap;justify-content:flex-end;max-width:100%;overflow:visible}
+}
+@media (min-width:768px){
+ /* Replays: one quiet row of small chips. */
+ .v3Reis[data-view=reis] .v3Main .v3Again{gap:6px}
+ .v3Reis[data-view=reis] .v3Main .v3Again button{min-height:34px;padding:0 10px;gap:5px;font:600 14px/1 var(--v3-font)}
+ .v3Reis[data-view=reis] .v3Main .v3Again button .v3Icon{width:14px;height:14px}
+}
+@media (min-width:768px) and (max-width:1279px){.v3Reis[data-view=reis] .v3Main>.v3Panel{padding:10px 10px 14px!important;gap:8px}}
