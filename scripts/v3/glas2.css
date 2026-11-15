@@ -1,0 +1,52 @@
+/* BL-016 Glas en transparantie (feedback Dennis 15-11, incident 3; ops/contracts/BL-016.md). Loaded last.
+   Rule: glass only where input asks for clarity, fading toward transparent further down; no opaque plates.
+   Less saturation in the blur and a faint lavender tint, so every background (BG-01/02/03) gives the same picture.
+   Desktop and iPad (>= 768 px); reduced transparency / more contrast stays opaque (glas.css). */
+@media (min-width:768px){
+ .v3,body.v3Les{
+  --v3-glass-filter:blur(26px) saturate(.8);
+  --v3-glass-top:rgba(248,245,255,.66);--v3-glass-bottom:rgba(248,245,255,.44);
+  --v3-glass-grad:linear-gradient(180deg,var(--v3-glass-top) 0,var(--v3-glass-bottom) 100%);
+  --v3-glass:rgba(248,245,255,.58);--v3-glass-strong:rgba(248,245,255,.70);
+  --v3-glass-shadow:inset 0 0 0 1px rgba(255,255,255,.62),0 12px 32px rgba(42,36,64,.10);
+ }
+ /* Panels: a top-to-bottom fade instead of one flat plate. */
+ .v3Reis>:is(.v3List,.v3Rewards),.v3Reis>.v3View,.v3Main>:is(.v3Top,.v3Panel),
+ body.v3Les:not([data-focus-shell=true]) :is(.v3LesBar,aside.panel),body.v3Les[data-focus-shell=true] .v3LesBar{background:var(--v3-glass-grad)}
+ .v3Reis>.v3Rewards{background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+ .v3View .v3Card,.v3View .v3Field.v3Card{background:rgba(255,255,255,.26)}
+ .v3Rewards :is(.v3Book,.v3Tile){background:rgba(255,255,255,.28)}
+ .v3Rewards :is(.v3Ride,.v3Tile){background:var(--v3-glass-grad)!important}
+ /* Replay buttons at the open bottom of the Reis panel: their own light pill, so they keep AA on every background. */
+ .v3Main .v3Again button{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+ .v3Rewards .v3Ride{-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:var(--v3-glass-shadow)}
+ .v3Rewards .v3Tile{-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
+
+ /* Sidebar: frosted at the top (logo, Nino, menu), fading to fully transparent at the bottom; the gear stays visible.
+    The blur sits on a masked pseudo-element so the fade reaches the blur too, not only the tint. */
+ .v3Reis>.v3Side,body.v3Les .v3ShellNav{position:relative;isolation:isolate;background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border-right-color:transparent!important}
+ .v3Reis>.v3Side::after,body.v3Les .v3ShellNav::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(180deg,rgba(248,245,255,.72) 0,rgba(248,245,255,.62) 40%,rgba(248,245,255,0) 88%);
+  -webkit-backdrop-filter:blur(26px) saturate(.8);backdrop-filter:blur(26px) saturate(.8);
+  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 45%,transparent 90%);mask-image:linear-gradient(180deg,#000 0,#000 45%,transparent 90%)}
+ /* The gear on the open part: its own small glass disc, so it reads on every background. */
+ .v3Reis .v3Side .v3Settings,body.v3Les .v3ShellNav .v3Settings{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:999px;box-shadow:0 2px 8px rgba(42,36,64,.12)}
+
+ /* Toets: no worksheet plate; Landschap like Oefenen. The form floats in one glass panel, Nino stands on the scene. */
+ .v3Reis[data-view=toets]>.v3View-toets{margin:var(--v3-inner) var(--v3-inner) var(--v3-inner) 8px!important;padding:0!important;height:calc(100% - 2*var(--v3-inner));background:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ .v3Reis[data-view=toets] .v3ToetsSetup{background:var(--v3-glass-grad);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:var(--v3-glass-shadow);
+  border-radius:var(--v3-radius-glass);padding:20px 28px;grid-column:1/span 7;align-self:start;height:auto;max-height:100%;overflow:auto;gap:10px}
+ .v3Reis[data-view=toets] .v3ToetsSetup .v3Field+.v3Field{padding-top:10px}
+ .v3Reis[data-view=toets] .v3ToetsSetup .v3Field{gap:8px}
+ .v3Reis[data-view=toets] .v3ToetsSetupNino{grid-column:8/-1}
+ @media (max-width:1279px){.v3Reis[data-view=toets] .v3ToetsSetup{grid-column:1/span 8;padding:18px 22px}.v3Reis[data-view=toets] .v3ToetsSetupNino{grid-column:9/-1}}
+
+ /* Voortgang: the worksheet becomes a fade (clear at the top where the numbers are, open toward the bottom). */
+ .v3Reis[data-view=voortgang]>.v3View-voortgang{background:linear-gradient(180deg,rgba(248,245,255,.74) 0,rgba(248,245,255,.42) 100%)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(.8)!important;backdrop-filter:blur(26px) saturate(.8)!important}
+}
+@media (min-width:768px) and (prefers-reduced-transparency:reduce),(min-width:768px) and (prefers-contrast:more){
+ .v3,body.v3Les{--v3-glass-grad:var(--v3-surface)}
+ .v3Reis>.v3Side::after,body.v3Les .v3ShellNav::after{background:var(--v3-surface);-webkit-mask-image:none;mask-image:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+ .v3Reis[data-view=voortgang]>.v3View-voortgang{background:var(--v3-surface)!important}
+}
