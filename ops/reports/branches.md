@@ -36,7 +36,7 @@
 | `art/nino-travel-stamps-v2-20261026` | remote | 2026-10-27 8a704cb | 12 | 34 | 34 | 173 | archive | gedateerde art-branch; tag en verwijderen |
 | `art/nino-venezia-scalloped-20261031` | remote | 2026-10-31 cec9fd2 | 12 | 37 | 37 | 174 | archive | gelijk aan lokale `pr66`; tag en verwijderen |
 | `art/pisa-hinge-source-preserving-final-20261103` | remote | 2026-11-03 8414319 | 12 | 30 | 30 | 63 | archive | gelijk aan lokale `pr72`; tag en verwijderen |
-| `art/v3-render-assets` | remote | 2026-11-10 b70e1ac | 12 | 105 | 99 | 125 | archive | volledig in `art/nino-topo-r3-refinements` (`git merge-base --is-ancestor` slaagt, cherry = 0); eerst taggen |
+| `art/v3-render-assets` | remote | 2026-11-10 b70e1ac | 12 | 105 | 99 | 125 | archive | volledig in `art/nino-topo-r3-refinements` (`git merge-base --is-ancestor` slaagt, cherry tegen r3-refinements = 0); eerst taggen |
 | `bak/BL-003-pre-rebase` | lokaal | 2026-11-14 fd6bad8 | 5 | 4 | 4 | 8 | archive | lokale backup van BL-003 voor de rebase; 4 unieke commits, alleen lokaal, eerst taggen |
 | `codex/issue-50-offline-computer` | remote | 2026-10-27 bd1e57b | 12 | 31 | 30 | 27 | archive | gelijk aan lokale `pr51`; oud issue-werk, tag en verwijderen |
 | `codex/issue-52-calm-desktop-learning` | remote | 2026-10-31 940a6a5 | 12 | 60 | 58 | 33 | archive | gelijk aan lokale `pr64`; tag en verwijderen |
@@ -78,7 +78,7 @@
 | `main` | beide | 2026-11-14 52427b5 | 0 | 0 | 0 | 0 | keep | beschermd; lokale `main` en `origin/main` zijn gelijk (`52427b5`) |
 | `night/2026-11-13` | lokaal | 2026-11-13 84f238b | 9 | 0 | 0 | 0 | delete | Cherry-uniek = 0 en Tree-uniek = 0: geen eigen commits en geen eigen inhoud, `84f238b` zit in `origin/main` |
 | `night/2026-11-14` | beide | 2026-11-14 1f69dbe | 9 | 2 | 2 | 4 | archive | niet meer beschermd (vervangen door `night/2026-11-15`); 2 unieke commits en 4 unieke bestanden, eerst taggen; lokaal: cherry 1, tree 1 |
-| `night/2026-11-15` | lokaal | 2026-11-14 52427b5 | 0 | 0 | 0 | 0 | keep | beschermd: huidige nachtbranch (zelfde sha als `origin/main`) |
+| `night/2026-11-15` | lokaal | 2026-11-14 52427b5 | 0 | 0 | 0 | 0 | keep | beschermd: huidige nachtbranch; momentopname op 52427b5, vóór de BL-001b-commits |
 | `ops/bl012` | remote | 2026-11-14 e1a526d | 3 | 1 | 0 | 2 | delete | Cherry-uniek = 0: de commit is patch-equivalent in `origin/main` (squash-PR) |
 | `ops/domein` | remote | 2026-11-13 1639a5a | 11 | 1 | 0 | 3 | delete | Cherry-uniek = 0: de commit is patch-equivalent in `origin/main` (squash-PR) |
 | `ops/domein-gekocht` | remote | 2026-11-14 4edd622 | 5 | 1 | 0 | 3 | delete | Cherry-uniek = 0: de commit is patch-equivalent in `origin/main` (squash-PR) |
