@@ -35,6 +35,7 @@ window.TopoV3Landmarks=function(svg,k){
  // BL-016c: on Reis only ONE landmark, at the active pin (the chapter's first place still to learn, else its first), as a
  // small badge: the illustration on a white pill with a soft shadow. No loose icons, no circles.
  const onReis=!!svg.closest('.v3MapStage');
+ if(onReis&&svg.dataset.focus!=='points')shown=[]; // a badge only where there is an active pin (not on rivers/areas)
  if(onReis&&shown.length){const hits=[...svg.querySelectorAll('circle.v3Hit')].map(c=>c.getAttribute('data-id'));
   const pick=shown.find(i=>i.relevantItems.some(id=>hits.includes(id)))||shown[0];shown=[pick];svg.dataset.landmarkSet='badge';}
  for(const item of shown){

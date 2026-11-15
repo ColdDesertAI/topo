@@ -91,3 +91,52 @@
 @media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
  .v3Reis[data-view=reis]{background:var(--v3-surface)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 }
+/* Design-critic BL-016c (15-11), afwerking. */
+.v3StepList{display:none}
+@media (min-width:1024px){
+ /* One footer zone across all three zones: the gear line, the strip line and the top of the button zone share one y.
+    One inner padding for every zone (20; iPad 16). */
+ .v3Reis[data-view=reis]{--venster-voet:88px;--venster-pad:20px;grid-template-rows:auto minmax(0,1fr) var(--venster-voet)!important}
+ .v3Reis[data-view=reis]>.v3Side{padding:24px var(--venster-pad) 0!important}
+ .v3Reis[data-view=reis] .v3Side .v3Settings{flex:0 0 var(--venster-voet);height:var(--venster-voet)!important;min-height:0!important;margin:auto calc(-1*var(--venster-pad)) 0!important;width:calc(100% + 2*var(--venster-pad))!important;padding:0 calc(var(--venster-pad) + 12px)!important;align-items:center!important}
+ .v3Reis[data-view=reis] .v3Main>.v3MapStage{padding:var(--venster-pad) var(--venster-pad) 8px!important}
+ .v3Reis[data-view=reis] .v3MapStage>.v3MapTools{top:var(--venster-pad);right:var(--venster-pad);align-items:stretch}
+ .v3Reis[data-view=reis] .v3MapStage>.v3MapTools>*{height:44px!important;min-height:44px!important;border-radius:12px!important;box-sizing:border-box}
+ .v3Reis[data-view=reis] .v3MapStage>.v3MapTools .v3Btn{height:44px!important;min-height:44px!important}
+ .v3Reis[data-view=reis] .v3Rows{height:var(--venster-voet)!important;padding:0 var(--venster-pad)!important;align-items:center!important;
+  -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent)!important;mask-image:linear-gradient(90deg,#000 calc(100% - 24px),transparent)!important}
+ .v3Reis[data-view=reis] .v3Rows>li:last-child{padding-right:24px}
+ .v3Reis[data-view=reis] .v3Main>.v3Top{padding:var(--venster-pad) var(--venster-pad) 6px!important}
+ .v3Reis[data-view=reis] .v3Main>.v3Panel{padding:8px var(--venster-pad) 0!important;gap:14px!important}
+ /* Steps: one vertical list under the title (dot, name; a finished step replays); no dots row, no chips. */
+ .v3Reis[data-view=reis] .v3Panel .v3StageBar,.v3Reis[data-view=reis] .v3Panel .v3Again{display:none!important}
+ .v3Reis[data-view=reis] .v3StepList{display:block;list-style:none;margin:0;padding:0;position:relative}
+ .v3Reis[data-view=reis] .v3StepList>li{border-top:1px solid var(--venster-lijn)}
+ .v3Reis[data-view=reis] .v3StepList>li:last-child{border-bottom:1px solid var(--venster-lijn)}
+ .v3Reis[data-view=reis] .v3StepRow{appearance:none;display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:0 4px;border:0;background:transparent;color:var(--v3-ink);font:500 16px/1.2 var(--v3-font);text-align:left;border-radius:0;cursor:default}
+ .v3Reis[data-view=reis] button.v3StepRow{cursor:pointer}
+ .v3Reis[data-view=reis] button.v3StepRow:hover{background:rgba(42,36,64,.04)}
+ .v3Reis[data-view=reis] button.v3StepRow:focus-visible{outline:3px solid var(--v3-focus);outline-offset:-3px}
+ .v3Reis[data-view=reis] .v3StepRow>.v3Icon{margin-left:auto;width:18px;height:18px;color:var(--v3-ink2)}
+ .v3Reis[data-view=reis] .v3StepLabel{flex:1}
+ .v3Reis[data-view=reis] .v3StepDot{flex:none;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px rgba(42,36,64,.2);display:grid;place-items:center}
+ .v3Reis[data-view=reis] .v3StepList li.on .v3StepDot{background:var(--v3-accent);box-shadow:none}
+ .v3Reis[data-view=reis] .v3StepList li.on .v3StepDot .v3Icon{width:14px;height:14px;color:#fff;stroke-width:2.8}
+ .v3Reis[data-view=reis] .v3StepList li.now .v3StepDot{box-shadow:inset 0 0 0 2.5px var(--v3-accent)}
+ .v3Reis[data-view=reis] .v3StepList li.now .v3StepDot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--v3-accent)}
+ .v3Reis[data-view=reis] .v3StepList li.now .v3StepLabel{font-weight:600}
+ .v3Reis[data-view=reis] .v3PanelLocked .v3StepList{opacity:.55}
+ /* The button zone = the footer zone, under the same line as the strip and the gear. */
+ .v3Reis[data-view=reis] .v3Panel :is(.v3Actions,.v3Locked){order:6;flex:0 0 var(--venster-voet);height:var(--venster-voet);margin:auto calc(-1*var(--venster-pad)) 0!important;padding:0 var(--venster-pad)!important;
+  border-top:1px solid var(--venster-lijn);display:flex!important;align-items:center;gap:8px;width:auto!important}
+ .v3Reis[data-view=reis] .v3Panel .v3Locked{color:var(--v3-ink2);font:500 16px/1.2 var(--v3-font)}
+ /* Sidebar details: the active item bolder; the white flag segment keeps a hairline on the light glass. */
+ .v3Reis[data-view=reis] .v3Side .v3NavItem[aria-current=page]{font-weight:700!important}
+ .v3Reis[data-view=reis] .v3Brand .v3Flag{box-shadow:inset 0 0 0 1px rgba(42,36,64,.12)}
+}
+@media (min-width:1024px) and (max-width:1279px){
+ .v3Reis[data-view=reis]{--venster-voet:80px;--venster-pad:16px}
+ .v3Reis[data-view=reis]>.v3Side{padding:16px 10px 0!important}
+ .v3Reis[data-view=reis] .v3Side .v3Settings{margin:auto -10px 0!important;width:calc(100% + 20px)!important;padding:0!important;justify-content:center!important}
+ .v3Reis[data-view=reis] .v3Panel .v3CardTitle{font-size:28px!important;line-height:34px!important}
+}

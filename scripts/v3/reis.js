@@ -257,6 +257,7 @@
  // Chapter rows (R-reis-ijk): scene, name, status. Done = the earned stamp; gold = the illustrated laurel; in progress = a thin bar under
  // the name; locked = a lock only. The selected row is the selection style.
  function renderRows(m){
+  requestAnimationFrame(()=>{const a=rows.querySelector('.v3Row[aria-pressed=true]');if(a&&rows.scrollWidth>rows.clientWidth){const l=a.offsetLeft-rows.clientWidth/2+a.offsetWidth/2;rows.scrollLeft=Math.max(0,l);}});
   rows.replaceChildren(...m.chapters.map(c=>{
    const st=stateOf(c,m),li=make('li'),b=make('button','v3Row');b.type='button';b.dataset.chapter=c.id;b.dataset.state=st;
    b.setAttribute('aria-pressed',String(ui.selected===c.id));if(st==='now')b.setAttribute('aria-current','step');
@@ -297,6 +298,16 @@
   const segs=make('div','v3StageBar');segs.setAttribute('role','list');segs.setAttribute('aria-label','Lessen');
   TopoRoute.STAGES.forEach((s,n)=>{const d=make('span',n<c.r.stage?'on':n===c.r.stage&&c.open&&!c.done?'now':'');d.setAttribute('role','listitem');d.setAttribute('aria-label',STAGE[s]+(n<c.r.stage?', klaar':n===c.r.stage&&c.open?', nu':''));if(n<c.r.stage)d.append(icon('v3checkmark'));segs.append(d);});
   head.append(segs);panel.append(head);
+  // BL-016c: on the window layout the steps are ONE vertical list with names (dot, label; a finished step is a row
+  // that replays it). The dots row and the replay chips stay for the other layouts; CSS shows one or the other.
+  const steps=make('ol','v3StepList');steps.setAttribute('aria-label','Lessen');
+  TopoRoute.STAGES.forEach((s,n)=>{const done=n<c.r.stage,now=n===c.r.stage&&c.open&&!c.done,li=make('li',done?'on':now?'now':'');
+   const dot=make('span','v3StepDot');dot.setAttribute('aria-hidden','true');if(done)dot.append(icon('v3checkmark'));
+   const lab=make('span','v3StepLabel',STAGE[s]);
+   if(done&&c.open){const b=btn('',press(()=>v2Card(c.id)?.querySelectorAll('.routeStep')[n]),'v3StepRow');b.setAttribute('aria-label',STAGE[s]+' opnieuw');b.append(dot,lab,icon('v3again'));li.append(b);}
+   else{const d=make('div','v3StepRow');d.append(dot,lab);if(now)d.setAttribute('aria-current','step');li.append(d);}
+   steps.append(li);});
+  panel.append(steps);
   const actions=make('div','v3Actions');
   const isActive=m.active&&m.active.chapterId===c.id;
   if(!c.open){const l=make('p','v3Locked');l.append(icon('v3lock'),make('span',null,'Opent na '+m.chapters[c.index-1].title));panel.append(l);return;}
