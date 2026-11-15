@@ -37,3 +37,4 @@ Design Taste-protocol: elke correctie krijgt een categorie (lay-out, identiteit,
 | 2026-11-15 | Oefenen/Les | Antwoordpaneel groeit mee met het scherm (±80% op een 27"-iMac): maximale breedte | lay-out | BL-018 |
 | 2026-11-15 | Instellingen | Hover op knoppen (subtiel) en een klikbevestiging | interactie, motion | BL-017 |
 | 2026-11-15 | Reis | Besluit: desktop lijst links van de kaart (render Ontdekken); iPad lijst als sheet achter een knop; titel "Reis" mag weg voor schermruimte; transparant boven een gelijk beeld | lay-out | BL-016b (vervolg) |
+| 2026-11-15 | Reis | G1 GO op BL-016d: zwevende panelen in één helder glas, kaart vrij op een verzadigde scène, Reis = overzicht + hoofdstukpagina, artwork 16:9 | lay-out, identiteit | Golden Screen voor alle schermen (BL-016e) |

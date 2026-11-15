@@ -39,4 +39,5 @@ Regels:
 | BL-016c | Compositie Reis als één venster (Apple meets Linear), daarna alle schermen | M0 | P0 | M | vervangen door BL-016d | hoofdsessie | — |
 | BL-019 | Hoofdstukpagina: de plekken van het hoofdstuk als kleine pillen ("Je ontdekt: Milaan, Venetië, …") | M1 | P2 | S | idee (design-critic 15-11) | hoofdsessie | — |
 | BL-020 | Kaart: spookcontouren van buurlanden (Corsica, Balkan, Malta) een derde lichter, of alleen bij Landen/Zeeën | M1 | P2 | S | idee (design-critic 15-11) | builder | — |
-| BL-016d | Reis herzien: zwevende panelen in één helder glas, kaart vrij, Reis = overzicht + hoofdstukpagina (feedback 15-11 17:48) | M0 | P0 | M | review (design-critic GO-voorstel; wacht op G1 Dennis) | hoofdsessie | `ops/contracts/BL-016d.md` |
+| BL-016d | Reis herzien: zwevende panelen in één helder glas, kaart vrij, Reis = overzicht + hoofdstukpagina (feedback 15-11 17:48) | M0 | P0 | M | klaar (G1 GO Dennis 15-11) | hoofdsessie | `ops/contracts/BL-016d.md` |
+| BL-016e | De Reis-regels (BL-016d) naar Oefenen, Toets, Beloningen en Voortgang: zijbalk, één helder glas, kaart vrij, maten | M0 | P0 | M | doing | hoofdsessie | `ops/contracts/BL-016e.md` |
