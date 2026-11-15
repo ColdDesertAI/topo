@@ -1,0 +1,582 @@
+{
+  "status": "draft",
+  "land": "fr",
+  "audience": "groep 7",
+  "scope": "Concept Frankrijk voor FR-01, uitsluitend de zes gevraagde itemtypes; geen definitieve schooltoetslijst.",
+  "allowedTypes": [
+    "stad",
+    "rivier",
+    "gebergte",
+    "water",
+    "regio",
+    "eiland"
+  ],
+  "answerLanguage": "nl",
+  "aliasesNote": "Alleen expliciet genoemde naamvarianten. Franse namen zijn displaydata en worden niet automatisch een antwoordalias. Hoofdletters/accenten/interpunctie worden door dit concept niet beoordeeld; dat blijft verantwoordelijkheid van de gedeelde kern.",
+  "provenance": {
+    "reusedBranch": "land/fr-inhoud",
+    "reusedCommit": "dc46b20bd77a63ab07abe864ec530ee0be7fbab7",
+    "reusedFile": "data/fr/items.draft.json",
+    "sourceCheckedAt": "2026-11-15",
+    "sourceDocuments": [
+      {
+        "id": "schoolblad-frankrijk",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "sha256": "61f29c9a44977c95f3bb164f8d5852c45dd93efc3c46d6e555eccb362c084f04",
+        "evidence": "Dezelfde 35 opgenomen Nederlandse namen/types visueel gecontroleerd tegen het blad. De Franse namen zijn uit de bestaande branche overgenomen, niet uit dit Nederlandstalige blad afgelezen. School/methode niet vermeld."
+      },
+      {
+        "id": "toposite-frankrijk",
+        "url": "https://www.brujon.net/topo/eu-frankrijk.htm",
+        "retrievedSha256": "ab35ad299d061884285da70ad01e9c7a6491dffc93ed9f4bd28fb158bca4ec04",
+        "evidence": "De vijf aanvullingen staan letterlijk in de Groep 7-onderdelenlijst. HTML gecontroleerd als ISO-8859-1; webtekstweergave had een decodeerfout."
+      },
+      {
+        "id": "cielen-schoolatlaslijst",
+        "url": "https://www.cielen.eu/aardrijkskunde-5e-klas-werkboek-voor-kinderen.pdf#page=22",
+        "retrievedSha256": "caa9dec309084fc1f5017f77f9ad4d6b17fb8033ec82a35cad38c52e52ac7e9d",
+        "evidence": "Aardrijkskunde Europa, vijfde klas, 2004-2005; p.22: Lille (Rijsel). Dit is een aanvullende schoolatlas-opdrachtenlijst, geen Nederlandse landelijke norm."
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "bordeaux",
+      "type": "stad",
+      "nl": "Bordeaux",
+      "fr": "Bordeaux",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 1"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "calais",
+      "type": "stad",
+      "nl": "Calais",
+      "fr": "Calais",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 2"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "le-havre",
+      "type": "stad",
+      "nl": "Le Havre",
+      "fr": "Le Havre",
+      "aliases": [
+        "LeHavre"
+      ],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 3"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "lille",
+      "type": "stad",
+      "nl": "Lille",
+      "fr": "Lille",
+      "aliases": [
+        "Rijsel"
+      ],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 4"
+      },
+      "origin": "land/fr-inhoud",
+      "aliasSources": [
+        {
+          "alias": "Rijsel",
+          "url": "https://www.cielen.eu/aardrijkskunde-5e-klas-werkboek-voor-kinderen.pdf#page=22",
+          "locator": "p. 22, Steden: Lille (Rijsel)"
+        }
+      ]
+    },
+    {
+      "id": "lyon",
+      "type": "stad",
+      "nl": "Lyon",
+      "fr": "Lyon",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 5"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "marseille",
+      "type": "stad",
+      "nl": "Marseille",
+      "fr": "Marseille",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 6"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "metz",
+      "type": "stad",
+      "nl": "Metz",
+      "fr": "Metz",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 7"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "montpellier",
+      "type": "stad",
+      "nl": "Montpellier",
+      "fr": "Montpellier",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 8"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "nancy",
+      "type": "stad",
+      "nl": "Nancy",
+      "fr": "Nancy",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 9"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "nantes",
+      "type": "stad",
+      "nl": "Nantes",
+      "fr": "Nantes",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 10"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "nice",
+      "type": "stad",
+      "nl": "Nice",
+      "fr": "Nice",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 11"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "parijs",
+      "type": "stad",
+      "nl": "Parijs",
+      "fr": "Paris",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 12"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "straatsburg",
+      "type": "stad",
+      "nl": "Straatsburg",
+      "fr": "Strasbourg",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 13"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "toulouse",
+      "type": "stad",
+      "nl": "Toulouse",
+      "fr": "Toulouse",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Plaatsen › Belangrijke steden › nr. 14"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "amiens",
+      "type": "stad",
+      "nl": "Amiens",
+      "fr": "Amiens",
+      "aliases": [],
+      "source": {
+        "kind": "topografietoetslijst",
+        "url": "https://www.brujon.net/topo/eu-frankrijk.htm",
+        "locator": "Topografie Groep 7 - Frankrijk, zichtbare onderdelenlijst: Amiens"
+      },
+      "origin": "FR-01-conceptaanvulling"
+    },
+    {
+      "id": "dijon",
+      "type": "stad",
+      "nl": "Dijon",
+      "fr": "Dijon",
+      "aliases": [],
+      "source": {
+        "kind": "topografietoetslijst",
+        "url": "https://www.brujon.net/topo/eu-frankrijk.htm",
+        "locator": "Topografie Groep 7 - Frankrijk, zichtbare onderdelenlijst: Dijon"
+      },
+      "origin": "FR-01-conceptaanvulling"
+    },
+    {
+      "id": "grenoble",
+      "type": "stad",
+      "nl": "Grenoble",
+      "fr": "Grenoble",
+      "aliases": [],
+      "source": {
+        "kind": "topografietoetslijst",
+        "url": "https://www.brujon.net/topo/eu-frankrijk.htm",
+        "locator": "Topografie Groep 7 - Frankrijk, zichtbare onderdelenlijst: Grenoble"
+      },
+      "origin": "FR-01-conceptaanvulling"
+    },
+    {
+      "id": "orleans",
+      "type": "stad",
+      "nl": "Orléans",
+      "fr": "Orléans",
+      "aliases": [],
+      "source": {
+        "kind": "topografietoetslijst",
+        "url": "https://www.brujon.net/topo/eu-frankrijk.htm",
+        "locator": "Topografie Groep 7 - Frankrijk, zichtbare onderdelenlijst: Orléans"
+      },
+      "origin": "FR-01-conceptaanvulling"
+    },
+    {
+      "id": "reims",
+      "type": "stad",
+      "nl": "Reims",
+      "fr": "Reims",
+      "aliases": [],
+      "source": {
+        "kind": "topografietoetslijst",
+        "url": "https://www.brujon.net/topo/eu-frankrijk.htm",
+        "locator": "Topografie Groep 7 - Frankrijk, zichtbare onderdelenlijst: Reims"
+      },
+      "origin": "FR-01-conceptaanvulling"
+    },
+    {
+      "id": "corsica",
+      "type": "eiland",
+      "nl": "Corsica",
+      "fr": "Corse",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Eilanden › a"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "alpen",
+      "type": "gebergte",
+      "nl": "Alpen",
+      "fr": "Alpes",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Bergen en vulkanen › b"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "pyreneeen",
+      "type": "gebergte",
+      "nl": "Pyreneeën",
+      "fr": "Pyrénées",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Bergen en vulkanen › c"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "vogezen",
+      "type": "gebergte",
+      "nl": "Vogezen",
+      "fr": "Vosges",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Bergen en vulkanen › d"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "bretagne",
+      "type": "regio",
+      "nl": "Bretagne",
+      "fr": "Bretagne",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Streken › e"
+      },
+      "origin": "land/fr-inhoud",
+      "note": "Historische/toeristische streek; geen claim van een huidige administratieve région."
+    },
+    {
+      "id": "normandie",
+      "type": "regio",
+      "nl": "Normandië",
+      "fr": "Normandie",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Streken › h"
+      },
+      "origin": "land/fr-inhoud",
+      "note": "Historische/toeristische streek; geen claim van een huidige administratieve région."
+    },
+    {
+      "id": "dordogne",
+      "type": "regio",
+      "nl": "Dordogne",
+      "fr": "Dordogne",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Streken › f"
+      },
+      "origin": "land/fr-inhoud",
+      "note": "De streek uit het schoolblad, niet de rivier met dezelfde naam."
+    },
+    {
+      "id": "elzas",
+      "type": "regio",
+      "nl": "Elzas",
+      "fr": "Alsace",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Streken › g"
+      },
+      "origin": "land/fr-inhoud",
+      "note": "Historische/toeristische streek; geen claim van een huidige administratieve région."
+    },
+    {
+      "id": "provence",
+      "type": "regio",
+      "nl": "Provence",
+      "fr": "Provence",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Gebieden › Streken › i"
+      },
+      "origin": "land/fr-inhoud",
+      "note": "Historische/toeristische streek; geen claim van een huidige administratieve région."
+    },
+    {
+      "id": "noordzee",
+      "type": "water",
+      "nl": "Noordzee",
+      "fr": "Mer du Nord",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Zeeën, oceanen › A"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "atlantische-oceaan",
+      "type": "water",
+      "nl": "Atlantische Oceaan",
+      "fr": "Océan Atlantique",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Zeeën, oceanen › B"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "middellandse-zee",
+      "type": "water",
+      "nl": "Middellandse Zee",
+      "fr": "Mer Méditerranée",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Zeeën, oceanen › C"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "het-kanaal",
+      "type": "water",
+      "nl": "Het Kanaal",
+      "fr": "La Manche",
+      "aliases": [
+        "Kanaal"
+      ],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Zeeën, oceanen › D"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "nauw-van-calais",
+      "type": "water",
+      "nl": "Nauw van Calais",
+      "fr": "Pas de Calais",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Zeeën, oceanen › E"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "golf-van-biskaje",
+      "type": "water",
+      "nl": "Golf van Biskaje",
+      "fr": "Golfe de Gascogne",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Zeeën, oceanen › F"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "garonne",
+      "type": "rivier",
+      "nl": "Garonne",
+      "fr": "Garonne",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Rivieren › G"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "loire",
+      "type": "rivier",
+      "nl": "Loire",
+      "fr": "Loire",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Rivieren › H"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "maas",
+      "type": "rivier",
+      "nl": "Maas",
+      "fr": "Meuse",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Rivieren › I"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "rhone",
+      "type": "rivier",
+      "nl": "Rhône",
+      "fr": "Rhône",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Rivieren › J"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "rijn",
+      "type": "rivier",
+      "nl": "Rijn",
+      "fr": "Rhin",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Rivieren › K"
+      },
+      "origin": "land/fr-inhoud"
+    },
+    {
+      "id": "seine",
+      "type": "rivier",
+      "nl": "Seine",
+      "fr": "Seine",
+      "aliases": [],
+      "source": {
+        "kind": "schooltoetslijst",
+        "url": "https://github.com/ColdDesertAI/topo/blob/dc46b20bd77a63ab07abe864ec530ee0be7fbab7/docs/v4/bron/IMG_0802.HEIC",
+        "locator": "Wateren › Rivieren › L"
+      },
+      "origin": "land/fr-inhoud"
+    }
+  ]
+}
