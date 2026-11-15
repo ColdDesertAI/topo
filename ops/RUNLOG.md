@@ -30,3 +30,5 @@ Formaat:
 2026-11-15 09:20 | evaluator/opus | taak | BL-002 | FAIL | mid | 16/17; 5b: merges van 6 keep-branches (squash #97) zetten 19 verplaatste docs terug; beslissing Dennis (a) tegenmaatregel of (b) revert C2
 2026-11-15 09:25 | claude/opus | taak | BL-014 F1 | review | mid | Reliëf r3 uit dezelfde z8-DEM (Δ r2 < 1 RGB): hoogte-LUT, hillshade 7×, sneeuw ≥ 2200 m, 539 KB; filter reliefDepth eraf; screenshot naar Dennis
 2026-11-15 10:00 | claude/opus | besluit | BL-002 | klaar* | laag | Dennis: optie b, C2 teruggedraaid; *inventaris + linkchecker blijven, verplaatsing na archivering keep-branches
+2026-11-15 11:40 | evaluator/opus | taak | BL-016 | FAIL (r1, r2) | hoog | Check mat wrappers i.p.v. panelen (r1), body::before-mist in de les onzichtbaar voor de check (r2); beide hersteld
+2026-11-15 13:50 | claude/opus+evaluator+design-critic | taak | BL-016 r3 + BL-016b | FAIL / NO-GO | hoog | Eén glasniveau (tokens), zijbalk volgens render, uitgelicht hoofdstuk met scène, kaart 58,6/57,3%, pins 0 px; rechterkolom te vol (lijst 3–4 rijen) → beslissing Dennis

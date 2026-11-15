@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-15 · door: Claude (nachtfix, PR #99-werk, BL-014 F1)
+> Bijgewerkt: 2026-11-15 · door: Claude (BL-016/016b)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,7 +19,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-BL-002 klaar met teruggedraaide verplaatsing (FAIL 5b, besluit Dennis optie b; `ops/reports/eval-BL-002.md`). BL-001b: PASS met voorbehoud. BL-014: F1 reliëf r3 GO (15-11), F2–F4 in bouw. Nachtscript gefikst (limiet "hit your", brief altijd, alleen rapport committen).
+BL-016 (glas): ronde 3 lost de r2-punten op; laatste regressie (TOPO buiten de smalle zijbalk) hersteld in `e1571d6`, nog te hertoetsen. BL-016b (glas, zijbalk, uitgelicht hoofdstuk, kaart): evaluator FAIL op C1/B1/lijst/schakelaar, design-critic NO-GO; C1, schakelaar en hard faults hersteld. **Wacht op Dennis**: rechterkolom (a) zo laten · (b) lijst links van de kaart zoals render Ontdekken (aanbevolen) · (c) iPad-lijst als sheet; titel "Reis" weg ja/nee; BG-01-uitsnede met rustige zone links; transparant vs. gelijk beeld (ΔE 8,7). Daarna BL-014 F2 (laagland, water, buurlanden), F4 (Voortgang drie tinten, genummerde punten), BL-017, BL-018.
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO
