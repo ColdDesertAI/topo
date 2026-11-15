@@ -1,3 +1,9 @@
+# FR-02 — geodata Frankrijk voor review (15 november 2026)
+
+Branch `t/FR-02-geo`, vanaf main `7e7b0ad`: [bron/provenance en controles](../src/lands/fr/geo/PROVENANCE.md), 40 items, 19 bronvaste steden, 13 metropolitane regio's, contextland, zes rivieren en drie gebergtezones. Eigen projectie 1000×1000; 9/9 gerichte checks inclusief herbouw groen. Waterpunten zijn representatieve ankers, geen maritieme hitgebieden. Geen app-integratie of wijziging aan de Italië-baan. De eerdere drie squash-merges zijn ieder met lint en volledige npm-testset op main gecontroleerd. Actuele projectstatus blijft `ops/STATE.md`.
+
+---
+
 # BL-019 — Italiaanse regiogeometrie (15 november 2026)
 
 Branch `t/BL-019-regios`, basis `ColdDesertAI/topo` main `8ad5002`. Twintig regio's in `assets/geo/regions/regions.json` (44.267 bytes), bron/licentie/revisie/hashes en acceptatiebeperkingen in [PROVENANCE](../assets/geo/regions/PROVENANCE.md). Data-only: geen integratie in V3 of wijziging aan index/V2. Bronextractie, gezamenlijke topologie, kustlijn en bytegelijke herbouw getest. **Geen 45/45-containmentclaim:** 32 Italiaanse ankers strikt binnen hun regio, Venetië als expliciete kustbronuitzondering, 12 niet-Italiaanse regio-items uitgesloten. Eigenaarbevestiging van die semantiek staat open. Actuele projectstatus blijft `ops/STATE.md`.

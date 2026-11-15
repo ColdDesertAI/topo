@@ -1,0 +1,34 @@
+{
+  "status": "draft",
+  "land": "fr",
+  "sourceCrs": "EPSG:4326",
+  "type": "affine-longitude-latitude",
+  "viewBox": [
+    0,
+    0,
+    1000,
+    1000
+  ],
+  "x": {
+    "scale": 60,
+    "offset": 390
+  },
+  "y": {
+    "scale": -88,
+    "offset": 4576
+  },
+  "boundsWgs84": {
+    "west": -6.5,
+    "south": 40.63636363636364,
+    "east": 10.166666666666668,
+    "north": 52
+  },
+  "pathPrecision": 0.01,
+  "simplification": {
+    "sharedRegionArcs": 0.35,
+    "countryOutline": 0.2,
+    "otherShapes": 0.25,
+    "riverLines": 0.2
+  },
+  "scope": "France métropolitaine et Corse; educational affine drawing, not a metric projection."
+}

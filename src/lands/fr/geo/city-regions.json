@@ -1,0 +1,21 @@
+{
+  "bordeaux": "FR-NAQ",
+  "calais": "FR-HDF",
+  "le-havre": "FR-NOR",
+  "lille": "FR-HDF",
+  "lyon": "FR-ARA",
+  "marseille": "FR-PAC",
+  "metz": "FR-GES",
+  "montpellier": "FR-OCC",
+  "nancy": "FR-GES",
+  "nantes": "FR-PDL",
+  "nice": "FR-PAC",
+  "parijs": "FR-IDF",
+  "straatsburg": "FR-GES",
+  "toulouse": "FR-OCC",
+  "amiens": "FR-HDF",
+  "dijon": "FR-BFC",
+  "grenoble": "FR-ARA",
+  "orleans": "FR-CVL",
+  "reims": "FR-GES"
+}

@@ -1,0 +1,56 @@
+{
+  "license": "public domain",
+  "licenseUrl": "https://www.naturalearthdata.com/about/terms-of-use/",
+  "credit": "Made with Natural Earth",
+  "revision": "ca96624a56bd078437bca8184e78163e5039ad19",
+  "version": "5.2.0-pre",
+  "retrievedAt": "2026-11-15",
+  "sourceSha256": "94ccfecf81c64016a4706b0ffbfab762e8e0d204820f3bb79a3ba0c0c61862f9",
+  "layers": [
+    {
+      "id": "countries",
+      "file": "ne_10m_admin_0_countries.geojson",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_admin_0_countries.geojson",
+      "sha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255",
+      "features": 17
+    },
+    {
+      "id": "departments",
+      "file": "ne_10m_admin_1_states_provinces.geojson",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_admin_1_states_provinces.geojson",
+      "sha256": "22d0e3ad85eb3e27f17cabf8ba2d50e554fbc27a87796ff891d958185da62fb5",
+      "features": 96
+    },
+    {
+      "id": "places",
+      "file": "ne_10m_populated_places.geojson",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_populated_places.geojson",
+      "sha256": "9b8e3de09048ef00dfc70357dbb9fa324493f214b5e0ae4daf1aa79a8d10116b",
+      "features": 19
+    },
+    {
+      "id": "rivers",
+      "file": "ne_10m_rivers_lake_centerlines.geojson",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_rivers_lake_centerlines.geojson",
+      "sha256": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a",
+      "features": 10
+    },
+    {
+      "id": "mountains",
+      "file": "ne_10m_geography_regions_polys.geojson",
+      "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/ca96624a56bd078437bca8184e78163e5039ad19/geojson/ne_10m_geography_regions_polys.geojson",
+      "sha256": "b7b26e50ea917d3696aec87f932def2bf5f890f5770e441d59c162c6f4c92a77",
+      "features": 3
+    }
+  ],
+  "legacy": {
+    "commit": "dc9d094dd9aeff635021ae897d25337f64a76982",
+    "file": "data/fr/map.json",
+    "sha256": "9331755e8532f7c465feb73013f663150d85badd8626cdacf1e1b556ad14b860",
+    "note": "Only the six existing representative water-label points are reused; they are not surveyed maritime boundaries or hit areas."
+  },
+  "builder": {
+    "tool": "mapshaper",
+    "version": "0.7.101"
+  }
+}
