@@ -1,0 +1,19 @@
+/* BL-014 / BL-016b D — the map as the largest element (ops/contracts/BL-016b.md § D; docs/v3/DESIGN_BRIEF_KAART.md).
+   Loaded last. The map stays left, in front of the calmest part of the background (besluit Dennis 15-11).
+   As in the renders: no screen title above the map (the sidebar names the screen; the heading stays for screen
+   readers), the map runs from the top of the content area, the tools and counters sit in the right column. */
+@media (min-width:768px){
+ .v3Reis[data-view=reis]{--kaart-rechts:.32;grid-template-columns:var(--v3-side-w) minmax(0,1fr) calc((100% - var(--v3-side-w) - 2*var(--v3-inner)) * var(--kaart-rechts) + var(--v3-inner))!important}
+ .v3Reis[data-view=reis] .v3ScreenTitle{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ .v3Reis[data-view=reis] .v3Main>.v3MapStage{grid-row:1/4!important;margin-top:var(--v3-inner)!important;margin-bottom:12px!important}
+ .v3Reis[data-view=reis] .v3Main>.v3Top{flex-wrap:wrap;justify-content:flex-end;row-gap:8px;min-width:0}
+}
+@media (min-width:768px) and (max-width:1279px){.v3Reis[data-view=reis]{--kaart-rechts:.36}}
+/* Pins: violet drop with a white ring and a soft shadow (1.5x, reis.js); the tip is the path origin = the point. */
+.v3Map .v3Pin path{fill:var(--v3-accent);stroke:#fff;stroke-width:2.4;stroke-linejoin:round}
+.v3Map .v3Pins{filter:drop-shadow(0 3px 3px rgba(42,36,64,.32))}
+/* Landmarks on a white badge with a shadow. */
+.v3Landmarks .v3Badge{fill:#fff;filter:drop-shadow(0 2px 4px rgba(42,36,64,.28))}
+/* The island tile: a 2.5 px white coast rim on Italy and its islands (the soft drop shadow is .v3IsleBase). */
+.v3Map[data-relief=on] :is(.italy,.v3Isle){stroke:#fff!important;stroke-opacity:1!important;stroke-width:2.5px!important;vector-effect:non-scaling-stroke}
+.v3Map[data-relief=on] .v3IsleBase{filter:drop-shadow(0 14px 18px rgba(42,36,64,.30))}

@@ -43,6 +43,9 @@ window.TopoV3Landmarks=function(svg,k){
   const box=at(dx,dy);obstacles.push(box);
   const node=make('g',{'data-landmark':item.id,'data-longitude':item.coordinates[0],'data-latitude':item.coordinates[1],transform:'translate('+item.point[0]+' '+item.point[1]+') scale('+k+')'});
   if(dx||dy){node.dataset.shift=dx+' '+dy;}
+  // BL-016b D: never loose on the relief — each landmark sits on a white badge (circle + shadow, CSS .v3Badge).
+  const cx=dx,cy=dy-ph/2,rad=Math.max(pw,ph)/2+5;
+  node.append(make('circle',{class:'v3Badge',cx,cy,r:rad}));
   node.append(make('image',{href:asset.src,x:-(left+right)/2*units+dx,y:-bottom*units+dy,width,height:width,'data-export-size':size}));g.append(node);
  }
  // Ronde 5 punt 7: the chapter's lifestyle icons (a fixed list per chapter, locations.json), Reis only, smaller than the
@@ -50,7 +53,8 @@ window.TopoV3Landmarks=function(svg,k){
  // the same collision search keeps them off pins, marks, labels and the landmarks just placed.
  let ls=svg.querySelector(':scope>.v3Lifestyle');
  const plan=chapter&&window.TOPO_V3_ART?.lifestyle?.chapters?.[chapter.id];
- if(!plan){ls?.remove();return;}
+ // BL-016b D: no loose lifestyle icons on the Reis relief (they had no badge); the layer stays off.
+ if(!plan||svg.closest('.v3MapStage')){ls?.remove();return;}
  if(!ls)ls=make('g',{class:'v3Lifestyle','aria-hidden':'true','pointer-events':'none'});
  g.after(ls);ls.replaceChildren();
  const lsTarget=matchMedia('(max-width:1279px)').matches?28:32,lsItems=window.TOPO_V3_ART.lifestyle.items;

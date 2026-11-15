@@ -173,7 +173,7 @@
   const g=svg.querySelector('.v3Pins');if(!g)return;g.replaceChildren();
   if(svg.dataset.focus!=='points')return;
   for(const c of svg.querySelectorAll('circle.v3Hit')){const x=+c.getAttribute('cx'),y=+c.getAttribute('cy');if(!isFinite(x)||!isFinite(y))continue;
-   const p=document.createElementNS(SVGNS,'g');p.setAttribute('class','v3Pin');p.setAttribute('transform','translate('+x+' '+y+') scale('+k+')');
+   const p=document.createElementNS(SVGNS,'g');p.setAttribute('class','v3Pin');p.setAttribute('transform','translate('+x+' '+y+') scale('+k*1.5+')'); // BL-016b D: 1.5x, tip (0,0) on the point
    p.innerHTML='<path d="'+PIN+'"/><circle cx="0" cy="-17.5" r="4.2"/>';g.append(p);}
  }
  // Frame Italy and the chapter's places with a generous margin, then widen the frame to the stage's shape
