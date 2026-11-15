@@ -15,22 +15,22 @@
   grid-template-columns:var(--zij) var(--lijst) minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr) auto!important;column-gap:20px!important;row-gap:0!important;
   background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;overflow:visible!important}
  /* The one glass, on the four panels. */
- .v3Reis[data-view=reis]>.v3Side,.v3Reis[data-view=reis]>.v3List,.v3Reis[data-view=reis] .v3Main>.v3Panel,.v3Reis[data-view=reis] .v3Counts{
+ .v3Reis>.v3Side,.v3Reis>.v3List,.v3Reis .v3Main>.v3Panel,.v3Reis .v3Counts{
   background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur)!important;backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important;border:0!important;border-radius:var(--glas-radius)!important}
- .v3Reis[data-view=reis]>.v3Side::after{display:none!important}
+ .v3Reis>.v3Side::after{display:none!important}
  /* Everything else: no plate of its own. */
  .v3Reis[data-view=reis] :is(.v3Rows,.v3Top,.v3MapStage),.v3Reis[data-view=reis]>.v3Main{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
 
  /* Sidebar (render): logo with the flag stripe, Nino as a bust (~25%), nav, gear. */
- .v3Reis[data-view=reis]>.v3Side{grid-column:1!important;grid-row:1/-1!important;margin:0!important;padding:24px 16px 16px!important;gap:0!important}
- .v3Reis[data-view=reis] .v3Brand b{font:800 30px/1 var(--v3-font)!important;letter-spacing:.02em}
- .v3Reis[data-view=reis] .v3Brand .v3Flag{box-shadow:inset 0 0 0 1px rgba(42,36,64,.12)}
- .v3Reis[data-view=reis] .v3Side .v3Portrait{width:100%!important;height:25%!important;max-height:none!important;margin:12px 0 8px!important;border-radius:0!important;background:none!important;overflow:hidden!important;display:block!important}
- .v3Reis[data-view=reis] .v3Side .v3Portrait img{width:100%!important;height:100%!important;margin:0!important;object-fit:cover!important;object-position:50% 12%!important}
- .v3Reis[data-view=reis] .v3Side .v3NavItem{min-height:44px!important;padding:0 12px!important;gap:12px!important;border-radius:12px!important;font:600 16px/1.2 var(--v3-font)!important;background:transparent!important}
- .v3Reis[data-view=reis] .v3Side .v3NavItem .v3Icon{width:20px!important;height:20px!important}
- .v3Reis[data-view=reis] .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft)!important;color:var(--v3-accent-press)!important;font-weight:700!important}
- .v3Reis[data-view=reis] .v3Side .v3Settings{margin-top:auto!important;width:100%!important;padding:12px 12px 0!important;min-height:52px!important;border-top:1px solid rgba(42,36,64,.08)!important;border-radius:0!important;justify-content:flex-start!important;background:transparent!important;box-shadow:none!important}
+ .v3Reis>.v3Side{grid-column:1!important;grid-row:1/-1!important;margin:0!important;padding:24px 16px 16px!important;gap:0!important}
+ .v3Reis .v3Brand b{font:800 30px/1 var(--v3-font)!important;letter-spacing:.02em}
+ .v3Reis .v3Brand .v3Flag{box-shadow:inset 0 0 0 1px rgba(42,36,64,.12)}
+ .v3Reis .v3Side .v3Portrait{width:100%!important;height:25%!important;max-height:none!important;margin:12px 0 8px!important;border-radius:0!important;background:none!important;overflow:hidden!important;display:block!important}
+ .v3Reis .v3Side .v3Portrait img{width:100%!important;height:100%!important;margin:0!important;object-fit:cover!important;object-position:50% 12%!important}
+ .v3Reis .v3Side .v3NavItem{min-height:44px!important;padding:0 12px!important;gap:12px!important;border-radius:12px!important;font:600 16px/1.2 var(--v3-font)!important;background:transparent!important}
+ .v3Reis .v3Side .v3NavItem .v3Icon{width:20px!important;height:20px!important}
+ .v3Reis .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft)!important;color:var(--v3-accent-press)!important;font-weight:700!important}
+ .v3Reis .v3Side .v3Settings{margin-top:auto!important;width:100%!important;padding:12px 12px 0!important;min-height:52px!important;border-top:1px solid rgba(42,36,64,.08)!important;border-radius:0!important;justify-content:flex-start!important;background:transparent!important;box-shadow:none!important}
 
  /* Chapter list panel: "Hoofdstukken" + 11 rows (16:9 thumbnail, name, progress bar, check/lock). */
  .v3Reis[data-view=reis]>.v3List{grid-column:2!important;grid-row:1/-1!important;display:flex!important;flex-direction:column!important;margin:0!important;padding:20px 12px 12px!important;min-height:0}
@@ -64,19 +64,19 @@
 /* iPad landscape: the sidebar as an icon rail; the list in one column (narrower). */
 @media (min-width:1024px) and (max-width:1279px){
  .v3Reis[data-view=reis]{--zij:72px;--lijst:250px;column-gap:16px!important}
- .v3Reis[data-view=reis]>.v3Side{padding:16px 10px 12px!important;align-items:center!important}
- .v3Reis[data-view=reis] .v3Brand b{font-size:15px!important}
- .v3Reis[data-view=reis] .v3Side .v3Portrait{width:48px!important;height:48px!important;margin:10px auto 6px!important;border-radius:14px!important}
- .v3Reis[data-view=reis] .v3Side .v3NavItem{width:48px!important;padding:0!important;justify-content:center!important}
- .v3Reis[data-view=reis] .v3Side .v3NavItem span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
- .v3Reis[data-view=reis] .v3Side .v3Settings{justify-content:center!important;padding:10px 0 0!important}
+ .v3Reis>.v3Side{padding:16px 10px 12px!important;align-items:center!important}
+ .v3Reis .v3Brand b{font-size:15px!important}
+ .v3Reis .v3Side .v3Portrait{width:48px!important;height:48px!important;margin:10px auto 6px!important;border-radius:14px!important}
+ .v3Reis .v3Side .v3NavItem{width:48px!important;padding:0!important;justify-content:center!important}
+ .v3Reis .v3Side .v3NavItem span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .v3Reis .v3Side .v3Settings{justify-content:center!important;padding:10px 0 0!important}
  .v3Reis[data-view=reis] .v3Rows .v3Row{grid-template-columns:56px minmax(0,1fr) 20px!important;gap:10px!important;min-height:48px!important}
  .v3Reis[data-view=reis] .v3Rows .v3Thumb{width:56px!important;height:32px!important}
  .v3Reis[data-view=reis] .v3Main>.v3Panel{column-gap:16px;padding:12px 12px 12px 18px!important}
  .v3Reis[data-view=reis] .v3Panel .v3Actions .v3Btn.primary{min-width:0}
 }
 @media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
- .v3Reis[data-view=reis]>.v3Side,.v3Reis[data-view=reis]>.v3List,.v3Reis[data-view=reis] .v3Main>.v3Panel,.v3Reis[data-view=reis] .v3Counts{background:var(--v3-surface)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ .v3Reis>.v3Side,.v3Reis>.v3List,.v3Reis .v3Main>.v3Panel,.v3Reis .v3Counts{background:var(--v3-surface)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 }
 /* Step 3 — two pages. Overview: the chapter bar shows [Verder]; the chapter page has the real action. */
 .v3Reis .v3BarGo,.v3Reis .v3Back{display:none}
@@ -152,3 +152,34 @@
 @media (min-width:1024px) and (max-width:1279px){.v3Reis[data-view=reis][data-reis-page=hoofdstuk]{--hfd:330px}}
 @media (min-width:768px) and (min-aspect-ratio:4/3){body.v3Home[data-v3-background=bg01]{background-position:100% 35%!important}}
 @media (min-width:1024px){.v3Reis[data-view=reis] .v3Main>.v3Panel>:not(.v3CardScene){margin-left:0!important;margin-right:0!important}}
+/* BL-016e — the Reis rules on Oefenen, Toets, Beloningen and Voortgang (G1 GO Reis 15-11; ops/contracts/BL-016e.md).
+   No frame, no mist; the sidebar is the same floating panel; panels float 20 px (iPad 16) beside it, top and bottom
+   in line with the sidebar; at most 4 blurred panels per screen (tile rows become one strip; small labels are white
+   chips without blur); maps lie free on the scene. */
+@media (min-width:1024px){
+ .v3Reis:not([data-view=reis]){grid-template-columns:var(--zij,240px) minmax(0,1fr)!important;column-gap:var(--gap,20px)!important;row-gap:0!important;
+  background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;overflow:visible!important}
+ .v3Reis{--zij:240px;--gap:20px}
+ .v3Reis>.v3Side{background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur)!important;backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important;border:0!important;border-radius:var(--glas-radius)!important}
+ .v3Reis:not([data-view=reis])>.v3Side{grid-column:1!important;grid-row:1/-1!important;margin:0!important}
+ .v3Reis:not([data-view=reis])>.v3View,.v3Reis:not([data-view=reis])>.v3Rewards{grid-column:2!important;grid-row:1/-1!important;margin:0!important;min-height:0}
+ /* Beloningen: the four tiles as ONE strip (one glass, thin dividers); book and ride stay panels. */
+ .v3Rewards .v3Tiles{background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur)!important;backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important;border-radius:var(--glas-radius)!important;gap:0!important;overflow:hidden}
+ .v3Rewards .v3Tiles>.v3Tile{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border-radius:0!important}
+ .v3Rewards .v3Tiles>.v3Tile+.v3Tile{border-left:1px solid rgba(42,36,64,.08)!important}
+ /* Voortgang: the three tiles as ONE strip; the map free (no gold rim, no panel); legend and the "Italië" label as
+    white chips without blur. */
+ .v3View-voortgang .v3VgRow{background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur)!important;backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important;border-radius:var(--glas-radius)!important;column-gap:0!important;overflow:hidden}
+ .v3View-voortgang .v3VgRow>.v3VgTile{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border-radius:0!important}
+ .v3View-voortgang .v3VgRow>.v3VgTile+.v3VgTile{border-left:1px solid rgba(42,36,64,.08)!important}
+ .v3View-voortgang .v3VgKaart,.v3Reis .v3View-voortgang .v3VgKaart.v3VgAllDone{background:none!important;box-shadow:none!important;outline:0!important;border:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ .v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{background:rgba(255,255,255,.85)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important;border-radius:14px!important}
+}
+@media (min-width:1024px) and (max-width:1279px){.v3Reis{--zij:72px;--gap:16px}}
+@media (min-width:1024px){
+ /* The Reis chapter list keeps the one glass (an older rule with a higher specificity cleared it). */
+ .v3Reis[data-view=reis]>.v3List{background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur)!important;backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important;border-radius:var(--glas-radius)!important}
+}
+@media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
+ .v3Reis[data-view=reis]>.v3List,.v3Reis>.v3Side,.v3Rewards .v3Tiles,.v3View-voortgang .v3VgRow{background:var(--v3-surface)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+}
