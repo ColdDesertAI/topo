@@ -36,7 +36,7 @@
 | `art/nino-travel-stamps-v2-20261026` | remote | 2026-10-27 8a704cb | 12 | 34 | 34 | 173 | archive | gedateerde art-branch; tag en verwijderen |
 | `art/nino-venezia-scalloped-20261031` | remote | 2026-10-31 cec9fd2 | 12 | 37 | 37 | 174 | archive | gelijk aan lokale `pr66`; tag en verwijderen |
 | `art/pisa-hinge-source-preserving-final-20261103` | remote | 2026-11-03 8414319 | 12 | 30 | 30 | 63 | archive | gelijk aan lokale `pr72`; tag en verwijderen |
-| `art/v3-render-assets` | remote | 2026-11-10 b70e1ac | 12 | 105 | 99 | 125 | merge | 99 commits niet in `art/master`, 15 niet in `codex/topo-v3`, 125 bestanden verschillen met `origin/main`: mergen naar `origin/art/master`, 15 resterende commits beoordelen (zie herbeoordeling) |
+| `art/v3-render-assets` | remote | 2026-11-10 b70e1ac | 12 | 105 | 99 | 125 | archive | volledig in `art/nino-topo-r3-refinements` (`git merge-base --is-ancestor` slaagt, cherry = 0); eerst taggen |
 | `bak/BL-003-pre-rebase` | lokaal | 2026-11-14 fd6bad8 | 5 | 4 | 4 | 8 | archive | lokale backup van BL-003 voor de rebase; 4 unieke commits, alleen lokaal, eerst taggen |
 | `codex/issue-50-offline-computer` | remote | 2026-10-27 bd1e57b | 12 | 31 | 30 | 27 | archive | gelijk aan lokale `pr51`; oud issue-werk, tag en verwijderen |
 | `codex/issue-52-calm-desktop-learning` | remote | 2026-10-31 940a6a5 | 12 | 60 | 58 | 33 | archive | gelijk aan lokale `pr64`; tag en verwijderen |
@@ -136,7 +136,7 @@
 | `t/BL-005-integratie` | beide | 2026-11-14 e09d33e | 1 | 227 | 219 | 0 | delete | Tree-uniek = 0 (Cherry-uniek 219, vangt de squash): alle inhoud staat via #91/#97 al in `origin/main` |
 | `t/BL-013-portal-r3` | remote | 2026-11-14 c738fd8 | 2 | 6 | 5 | 7 | keep | open taakbranch BL-013 (review), 5 commits nog niet in `origin/main`; blijft tot de merge |
 | `t/BL-015-v3-release` | beide | 2026-11-15 05ca133 | 0 | 1 | 1 | 8 | keep | open taakbranch BL-015, nog niet gemerged; blijft tot de merge |
-| `v3/relief-z8` | remote | 2026-11-09 2a7b0cf | 12 | 85 | 79 | 58 | merge | 2 commits niet in `codex/topo-v3`, 58 bestanden verschillen met `origin/main`: mergen naar `codex/topo-v3` (zie herbeoordeling) |
+| `v3/relief-z8` | remote | 2026-11-09 2a7b0cf | 12 | 85 | 79 | 58 | merge | 2 commits niet in `codex/topo-v3`, 58 bestanden verschillen met `origin/main`: mergen naar `origin/main` (`codex/topo-v3` is al via #97 gesquasht) (zie herbeoordeling) |
 | `work/topo-sync-2026-10-23` | remote | 2026-10-23 141a0f9 | 12 | 1 | 1 | 3 | archive | gelijk aan lokale `pr2`; tag en verwijderen |
 
 ## Herbeoordeling merge-rijen en codex/topo-v3
@@ -144,18 +144,18 @@ Ref = `origin/<branch>`, merge-base met `origin/main` = `7e38160` voor alle vier
 
 | Branch | Cherry vs `origin/main` | Tree-uniek | Extra getal | Top-mappen tree-uniek | Uitkomst |
 |---|---|---|---|---|---|
-| `art/nino-topo-r3-refinements` | 128 | 222 | `git cherry origin/art/master` = 128; (vs `origin/codex/topo-v3` = 44) | `assets/nino-topo` 97, `docs/qa` 76, `assets/v3` 30, `scripts/v3` 5, `docs/v3` 3 | merge naar `origin/art/master`: nog uniek en niet vervangen |
-| `art/v3-render-assets` | 99 | 125 | `git cherry origin/art/master` = 99; (vs `origin/codex/topo-v3` = 15) | `docs/qa` 76, `assets/v3` 30, `scripts/v3` 5, `docs/v3` 3, `scripts/qa-v3-stijlbeeld.py` 1 | merge naar `origin/art/master`; `docs/qa` valt onder de uitsluitingen, dus eerst de 15 resterende commits beoordelen |
-| `v3/relief-z8` | 79 | 58 | `git cherry origin/codex/topo-v3` = 2 | `docs/qa` 40, `scripts/geography` 4, `scripts/v3` 3, `assets/discovery` 2, `scripts/qa-v3-reis.py` 1 | merge naar `codex/topo-v3`: 2 commits nog uniek (rest is erin opgenomen); `docs/qa`-bestanden vallen onder de uitsluitingen |
+| `art/nino-topo-r3-refinements` | 128 | 222 | `git cherry origin/art/master` = 128; (vs `origin/codex/topo-v3` = 44) | `assets/nino-topo` 97, `docs/qa` 76, `assets/v3` 30, `scripts/v3` 5, `docs/v3` 3 | merge naar `origin/art/master`: nog uniek en niet vervangen; bevat `art/v3-render-assets` volledig |
+| `art/v3-render-assets` | 99 | 125 | `git cherry origin/art/master` = 99; vs `origin/codex/topo-v3` = 15; vs `origin/art/nino-topo-r3-refinements` = 0 | `docs/qa` 76, `assets/v3` 30, `scripts/v3` 5, `docs/v3` 3, `scripts/qa-v3-stijlbeeld.py` 1 | archive: volledig opgenomen in `art/nino-topo-r3-refinements` (ancestor); geen eigen merge nodig |
+| `v3/relief-z8` | 79 | 58 | `git cherry origin/codex/topo-v3` = 2 | `docs/qa` 40, `scripts/geography` 4, `scripts/v3` 3, `assets/discovery` 2, `scripts/qa-v3-reis.py` 1 | merge, doel `origin/main`: `codex/topo-v3` is al via #97 squash-gemerged, dus mergen naar die branch brengt `d9b78fa`/`2a7b0cf` niet in `main`; eerst naar `origin/main` brengen. Verder: 2 commits nog uniek (rest is erin opgenomen); `docs/qa`-bestanden vallen onder de uitsluitingen |
 | `codex/topo-v3` | 219 | 3 | Tree-uniek buiten `docs/qa`, `docs/visual`, `output/installers`, `output/html` = 3 | `package.json` 1, `docs/DECISIONS.md` 1, `AGENTS.md` 1 | `keep` (3 > 0): inhoud via #97 in `main`; de 3 bestanden zijn mogelijk later in `main` verder aangepast en moeten handmatig vergeleken worden (`git diff origin/main origin/codex/topo-v3 -- package.json AGENTS.md docs/DECISIONS.md`) |
 
 Opmerking `codex/topo-v3`: lokaal cherry 212, tree 14 (lokale ref loopt achter op de remote). Alle 3 tree-unieke bestanden liggen buiten de uitgesloten paden; de uitgesloten paden zelf (`docs/qa`, `docs/visual`, `output/*`) gaan via BL-005c-tags.
 
 ## Samenvatting
 - keep: 13 (`main`, `night/2026-11-15`, `art/master`, `arch/v3-runtime`, `feat/nino-topo-portal-r2`, `art/nino-topo-website-v1`, `land/fr-geo`, `land/fr-inhoud`, `codex/topo-v3`, `t/BL-002-docs-inventaris`, `t/BL-003-state-herleidbaar`, `t/BL-013-portal-r3`, `t/BL-015-v3-release`)
-- merge: 3 (`art/nino-topo-r3-refinements`, `art/v3-render-assets` naar `origin/art/master`; `v3/relief-z8` naar `codex/topo-v3`)
-- archive: 94
+- merge: 2 (`art/nino-topo-r3-refinements` naar `origin/art/master`; `v3/relief-z8` naar `origin/main`)
+- archive: 95
 - delete: 10 (`night/2026-11-13`, `t/BL-005-integratie` [Tree 0], en 8 `ops/*`-branches [Cherry 0]: `ops/bl012`, `ops/domein`, `ops/domein-gekocht`, `ops/favicon-r3`, `ops/model-routing`, `ops/nightly-fix`, `ops/nightly-install`, `ops/setup`)
-- Totaal: 13 + 3 + 94 + 10 = 120
+- Totaal: 13 + 2 + 95 + 10 = 120
 - Na opruiming: 13 branches (alle `keep`; `merge`-rijen verdwijnen na het mergen, `archive` en `delete` na taggen/akkoord). De 4 `t/BL-*`-branches verdwijnen zodra hun taak gemerged is, dan blijven er 9. Taakbranches (zonder `main`, `art/master`, nachtbranch): nu 10, na de merges 6 (norm ≤ 5): `codex/topo-v3` (V3.0, M0), `feat/nino-topo-portal-r2` (portal, M0), `art/nino-topo-website-v1` (website, M0), `land/fr-geo` en `land/fr-inhoud` (FR-data parallel op Codex, code gepauzeerd tot M1), `arch/v3-runtime` (runtime-migratie M1). Voorstel: `land/fr-geo` en `land/fr-inhoud` samenvoegen (GIT_RELEASE §1).
 - Dubbel werk: de lokale `pr*`-branches die dezelfde sha hebben als een remote-branch zijn dubbelen; `pr7` en `pr70` zijn alleen lokaal en uniek (eerst taggen).
