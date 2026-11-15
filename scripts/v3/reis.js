@@ -66,7 +66,7 @@
  const list=make('section','v3List');list.setAttribute('aria-labelledby','v3ListTitle');
  // One title per screen (R-reis-ijk): the screen title "Reis"; the list heading stays for screen readers only.
  const screenTitle=make('h1','v3ScreenTitle','Reis');screenTitle.id='v3ReisTitle';screenTitle.tabIndex=-1;
- const listTitle=make('h2','v3SrOnly','Hoofdstukken');listTitle.id='v3ListTitle';const rows=make('ol','v3Rows');list.append(screenTitle,listTitle,rows);
+ const listTitle=make('h2','v3SrOnly','Hoofdstukken');listTitle.id='v3ListTitle';const rows=make('ol','v3Rows');rows.id='v3Rows';list.append(screenTitle,listTitle,rows);
  const main=make('section','v3Main');main.setAttribute('aria-labelledby','v3Title');
  const top=make('div','v3Top'),panel=make('div','v3Panel'),stage=make('div','v3MapStage');
  main.append(top,stage,panel);const livePanel=panel;
@@ -194,8 +194,9 @@
     // The viewBox, the fade and the mask region are the element's whole visible box in map units (the neighbours draw
     // beyond the data): the fade reaches zero at that box's edges, so nothing ends in a straight cut. A panel laid
     // over the map's bottom (Reis, afwerking 10-11) reserves --v3-fit-bottom px: Italy fits in the box above it.
-    const r=svg.getBoundingClientRect(),fr=svg.querySelector('.v3FadeRect'),mk=fr?.parentNode,res=Math.min(r.height*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-bottom'))||0);
-    if(r.width&&r.height){const w=x1-x0,h=y1-y0,k=Math.max(w/r.width,h/(r.height-res)),bw=r.width*k,bh=r.height*k,bx=x0-(bw-w)/2,by=y0-((r.height-res)*k-h)/2;
+    const r=svg.getBoundingClientRect(),fr=svg.querySelector('.v3FadeRect'),mk=fr?.parentNode,res=Math.min(r.height*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-bottom'))||0),
+     resR=Math.min(r.width*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-right'))||0); // BL-016b: a card over the map's right side
+    if(r.width&&r.height){const w=x1-x0,h=y1-y0,k=Math.max(w/(r.width-resR),h/(r.height-res)),bw=r.width*k,bh=r.height*k,bx=x0-((r.width-resR)*k-w)/2,by=y0-((r.height-res)*k-h)/2;
      const box=v=>{svg._v3Shown=v;svg.setAttribute('viewBox',v.map(n=>Math.round(n*10)/10).join(' '));if(fr)for(const n of [fr,mk])['x','y','width','height'].forEach((a,i)=>n.setAttribute(a,v[i]));};
      const settle=()=>{box([bx,by,bw,bh]);
       // The land's drop shadow in screen px (afwerking 10-11: 0 18px 24px rgba(42,36,64,.28)), in map units.
@@ -248,8 +249,14 @@
   pz.append(pic(V3ART.icons.slice,'v3CountArt',40,40),make('b',null,cycle+' / 24'));
   const trip=make('span','v3Count');trip.setAttribute('aria-label',state.trips+' Vespa-ritten');trip.append(pic(V3ART.icons.vespa,'v3CountArt',40,40),make('b',null,String(state.trips)));
   const counts=make('div','v3Counts');counts.append(pz,make('i','v3CountSep'),trip);
-  top.replaceChildren(tools,counts);
+  // BL-016b (c): on iPad landscape the chapter list is a sheet behind this button (CSS shows it only there).
+  const lb=btn('',e=>{e.stopPropagation();setSheet(root.dataset.lijst!=='open');},'v3Btn v3ListBtn');lb.append(icon('v3map'),make('span',null,'Hoofdstukken'));
+  lb.setAttribute('aria-expanded',String(root.dataset.lijst==='open'));lb.setAttribute('aria-controls','v3Rows');
+  top.replaceChildren(lb,tools,counts);
  }
+ function setSheet(open){if(open)root.dataset.lijst='open';else delete root.dataset.lijst;root.querySelector('.v3ListBtn')?.setAttribute('aria-expanded',String(open));
+  if(open)root.querySelector('.v3Row[aria-pressed=true]')?.focus();}
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&root.dataset.lijst==='open'){setSheet(false);root.querySelector('.v3ListBtn')?.focus();}});
 
  // Chapter rows (R-reis-ijk): scene, name, status. Done = the earned stamp; gold = the illustrated laurel; in progress = a thin bar under
  // the name; locked = a lock only. The selected row is the selection style.
@@ -268,7 +275,7 @@
    else if(st==='locked'){end.append(icon('v3lock'));end.setAttribute('aria-label','op slot');}
    else{const bar=make('span','v3RowBar');bar.style.setProperty('--v3-on',String(c.r.stage/3));bar.setAttribute('aria-hidden','true');mid.append(bar);end.setAttribute('aria-label',c.r.stage+' van 3 lessen');}
    b.append(thumb,mid,end);
-   b.addEventListener('click',e=>{e.stopPropagation();ui.selected=c.id;render();
+   b.addEventListener('click',e=>{e.stopPropagation();ui.selected=c.id;const wasSheet=root.dataset.lijst==='open';if(wasSheet)setSheet(false);render();if(wasSheet){root.querySelector('.v3ListBtn')?.focus();return;}
     // Phone: the chosen chapter appears at the top: focus its title (keyboard position kept, read by screen readers)
     // and bring it into view; elsewhere keep focus on the list.
     if(matchMedia('(max-width:767px)').matches){$('#v3Title')?.focus({preventScroll:true});main.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});}
