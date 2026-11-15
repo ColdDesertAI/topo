@@ -21,7 +21,7 @@ Working branch: `hermes/topo-nino-visual-integration`. Draft PR targets **`codex
 | Real Vespa trip | Short existing trip toast | Arrival scene in same non-blocking toast, actual engine destination, generic travel-illustration label |
 | Missing future art | No hooks | Manifest + reusable chapter/postcard slot API; pending/locked art hidden, original route is the fallback |
 
-`TopoArt` is presentation-only: no storage, mastery, grade, reward, ownership or unlock mutations. See [`assets/nino/RUNTIME.md`](../../assets/nino/RUNTIME.md) for extending slots without editing the learning engine.
+`TopoArt` is presentation-only: no storage, mastery, grade, reward, ownership or unlock mutations. See [`assets/nino/RUNTIME.md`](../assets/nino/RUNTIME.md) for extending slots without editing the learning engine.
 
 A small related copy correction resolves the earlier Release 1.1 P3: a Discover-only six-place pause uses the already approved neutral “Tijd voor een kleine pauze.” rather than claiming six retrieval questions. Formal-test copy is unchanged. A scoped grid min-width fix prevents long Gold titles from expanding the 320px lesson layout; no map coordinates are altered.
 
@@ -52,13 +52,13 @@ Required regression coverage includes unchanged 45 IDs, all eleven chapters, poi
 
 ## Evidence
 
-Machine-readable run: [`visual/release-1-2/browser-results.json`](../visual/release-1-2/browser-results.json).
+Machine-readable run: [`visual/release-1-2/browser-results.json`](visual/release-1-2/browser-results.json).
 
-- Before: [`before-release-1-1.png`](../visual/release-1-2/before-release-1-1.png)
-- Six states: [`welcome.png`](../visual/release-1-2/welcome.png), [`guide.png`](../visual/release-1-2/guide.png), [`encourage.png`](../visual/release-1-2/encourage.png), [`success.png`](../visual/release-1-2/success.png), [`gold.png`](../visual/release-1-2/gold.png), [`arrival.png`](../visual/release-1-2/arrival.png)
-- Boundaries: [`gold-six-question-pause.png`](../visual/release-1-2/gold-six-question-pause.png), [`gold-replay-no-new-medal.png`](../visual/release-1-2/gold-replay-no-new-medal.png), [`mixed-round-no-success.png`](../visual/release-1-2/mixed-round-no-success.png), [`gold-missed-no-medal.png`](../visual/release-1-2/gold-missed-no-medal.png)
-- Small phone: [`small-phone-guide.png`](../visual/release-1-2/small-phone-guide.png), [`small-phone-gold.png`](../visual/release-1-2/small-phone-gold.png), [`small-phone-arrival.png`](../visual/release-1-2/small-phone-arrival.png)
-- iPad: [`ipad-portrait-guide.png`](../visual/release-1-2/ipad-portrait-guide.png), [`ipad-landscape-guide.png`](../visual/release-1-2/ipad-landscape-guide.png), plus corresponding Welcome/Encourage/Gold/Arrival captures.
+- Before: [`before-release-1-1.png`](visual/release-1-2/before-release-1-1.png)
+- Six states: [`welcome.png`](visual/release-1-2/welcome.png), [`guide.png`](visual/release-1-2/guide.png), [`encourage.png`](visual/release-1-2/encourage.png), [`success.png`](visual/release-1-2/success.png), [`gold.png`](visual/release-1-2/gold.png), [`arrival.png`](visual/release-1-2/arrival.png)
+- Boundaries: [`gold-six-question-pause.png`](visual/release-1-2/gold-six-question-pause.png), [`gold-replay-no-new-medal.png`](visual/release-1-2/gold-replay-no-new-medal.png), [`mixed-round-no-success.png`](visual/release-1-2/mixed-round-no-success.png), [`gold-missed-no-medal.png`](visual/release-1-2/gold-missed-no-medal.png)
+- Small phone: [`small-phone-guide.png`](visual/release-1-2/small-phone-guide.png), [`small-phone-gold.png`](visual/release-1-2/small-phone-gold.png), [`small-phone-arrival.png`](visual/release-1-2/small-phone-arrival.png)
+- iPad: [`ipad-portrait-guide.png`](visual/release-1-2/ipad-portrait-guide.png), [`ipad-landscape-guide.png`](visual/release-1-2/ipad-landscape-guide.png), plus corresponding Welcome/Encourage/Gold/Arrival captures.
 
 Exact implementation/evidence HEAD is recorded in the draft PR after final verification. Screenshots are execution results, not memory or claims of learner outcomes.
 

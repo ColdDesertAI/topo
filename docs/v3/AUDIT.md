@@ -22,7 +22,7 @@ Eén script-tag van 40 MB bevat artwork-data en daarna de app-lagen in deze volg
 
 - **Tokens:** C+ (`scripts/nino-cplus.css`: forest `#073f3b`, paper/cream, teal, sun) en de knopregels van 7 november r2 (44/48 px, radius 12, terracotta `#b9502f` alleen voor de hoofdactie). Font: platformfont (SF Pro op Apple-apparaten); er is geen merkfont gekozen.
 - **Artwork in de runtime (`NINO_V2_ART`):** 11 hoofdstukiconen, 11 stempels, Nino welcome/travel, Gold-zegel en Esploratore d'oro, drie Pisa-dozen en drie pizza's, aankomst, vier postkaarten en de achterkant, folio's en omslag. Voor het Reis-scherm gebruikt: hoofdstukiconen, welcome, travel, Gold-zegel (64), Esploratore d'oro (480) en de pizza-illustraties. Van alle 18 gebruikte beelden zijn de ingebedde bytes gelijk aan het bronbestand in de repo ([artwork-used.json](../qa/v3-reis/artwork-used.json)).
-- **Alleen als asset, niet ingebouwd:** de 8 hoofdstukscènes, het Pisa-scharnier en de masters (#75). Het premium-appicoon ontbreekt nog steeds. Zie de [V2-afsluiting](../archive/V2_AFSLUITING.md).
+- **Alleen als asset, niet ingebouwd:** de 8 hoofdstukscènes, het Pisa-scharnier en de masters (#75). Het premium-appicoon ontbreekt nog steeds. Zie de [V2-afsluiting](../V2_AFSLUITING.md).
 - **Routeprincipe (DECISIONS 6 november):** de rit is verhalend, geen landkaart, zodat ze geen ligging verklapt. De V3-route volgt dat.
 
 ## Open PR's die iets toevoegen

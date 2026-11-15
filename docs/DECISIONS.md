@@ -950,5 +950,3 @@ Alle zeven schermen opnieuw op expliciet BG-03 vastgelegd: 21 doelbeeldvergelijk
 ## 2026-11-14 — Favicon R3 vastgelegd
 
 **Decision** De favicon en app-iconen gebruiken de rode Vespa in zijaanzicht op een warme ivoorkleurige achtergrond, zonder Nino. Geldt voor `favicon.ico`, PNG 16/32/48, Apple Touch 180 en app-iconen 192/512. Doelpad: `assets/nino-topo/v3-r3/brand/icons/`. **Reason** Het zijaanzicht blijft op 16 px beter herkenbaar dan de driekwart-Vespa. Het is een nieuwe illustratie op basis van de referenties, geen pixelkopie van de R2-Vespa. **Status** ACTIVE (akkoord eigenaar, 14-11, in ChatGPT-chat "Website controleren"). **Supersedes** de driekwart-Vespa-favicon (`assets/nino/app-icon/`).
-
-**2026-11-15 — BL-002:** 19 release-, handoff- en afgeronde featuredocumenten uit `docs/` (waarvan 1 plan uit superpowers/plans) zijn met `git mv` verplaatst naar `docs/archive/` (zelfde subpad); de volledige lijst oud → nieuw staat in `ops/reports/docs-inventaris.md` §Verplaatsplan, terugdraaien kan met `git revert` van de verplaatscommit.

@@ -29,7 +29,7 @@ The lead finalization changes QA portability, reference capture and evidence/han
 
 ## Executed lead validation
 
-All raw results below are under [`qa/integration-lead-20261030/`](../qa/integration-lead-20261030/). Author's older evidence remains separately under `qa/approved-artwork-20261030/`.
+All raw results below are under [`qa/integration-lead-20261030/`](qa/integration-lead-20261030/). Author's older evidence remains separately under `qa/approved-artwork-20261030/`.
 
 | Gate | Result / scope |
 |---|---|
@@ -50,15 +50,15 @@ These all45 runs use explicit current-question fixtures and real mouse/chooser/w
 
 ## Visual evidence
 
-- [Approved original reference](../qa/integration-lead-20261030/fidelity/owner-original.png)
-- [Rome/Vatican actual chooser](../qa/integration-lead-20261030/fidelity/point-original.png) / [swapped neutral numbers](../qa/integration-lead-20261030/fidelity/point-swapped.png)
-- [Discover explanation](../qa/integration-lead-20261030/fidelity/discover-lens.png) / [multi-way](../qa/integration-lead-20261030/fidelity/desktop-multiway.png)
-- [Naples/Vesuvius](../qa/integration-lead-20261030/selection/revised-desktop-school-naples.png)
-- [Catania/Etna](../qa/integration-lead-20261030/selection/revised-desktop-school-etna.png)
-- [Milan/Varese](../qa/integration-lead-20261030/selection/revised-desktop-school-milan.png)
-- [Bologna/Modena](../qa/integration-lead-20261030/selection/revised-desktop-school-bologna.png)
-- [San Marino](../qa/integration-lead-20261030/selection/revised-desktop-school-san-marino.png)
-- [Actual downloaded file offline](../qa/integration-lead-20261030/download/downloaded-offline.png)
+- [Approved original reference](qa/integration-lead-20261030/fidelity/owner-original.png)
+- [Rome/Vatican actual chooser](qa/integration-lead-20261030/fidelity/point-original.png) / [swapped neutral numbers](qa/integration-lead-20261030/fidelity/point-swapped.png)
+- [Discover explanation](qa/integration-lead-20261030/fidelity/discover-lens.png) / [multi-way](qa/integration-lead-20261030/fidelity/desktop-multiway.png)
+- [Naples/Vesuvius](qa/integration-lead-20261030/selection/revised-desktop-school-naples.png)
+- [Catania/Etna](qa/integration-lead-20261030/selection/revised-desktop-school-etna.png)
+- [Milan/Varese](qa/integration-lead-20261030/selection/revised-desktop-school-milan.png)
+- [Bologna/Modena](qa/integration-lead-20261030/selection/revised-desktop-school-bologna.png)
+- [San Marino](qa/integration-lead-20261030/selection/revised-desktop-school-san-marino.png)
+- [Actual downloaded file offline](qa/integration-lead-20261030/download/downloaded-offline.png)
 
 ## Reproduce
 

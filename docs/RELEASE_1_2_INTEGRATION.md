@@ -13,7 +13,7 @@ Issue #16. Candidate branch: `integration/topo-release-1-2-nino-lakes`. Draft ta
 
 The branch was created from the pinned baseline, advanced to the pinned Hermes commit, and combined with the pinned lake commit using a merge on this new branch. Both feature histories are retained. No shared design/art branch was edited. Original PNG masters were neither imported nor modified; the six approved runtime WebP exports are byte-identical to their original owner Git objects and Hermes copies.
 
-[Source preservation audit](../visual/release-1-2-integration/source-preservation.json) verifies that removing **exactly three lake insertions** from the combined canonical HTML produces Hermes' pinned HTML byte-for-byte. These insertions are the generated lake SVG definition block, static preview use, and one runtime composition call. This preserves every art slot, inline image, event policy, UI hook and responsive style without hand-reimplementing Hermes' work. Lake source/projection/manifest/generation files are exact copies from pinned PR #15. Learning/route engines, original artwork, print HTML, PDF and freshness hash are exact baseline bytes. No target coordinates, learning arrays or persistence schema changed.
+[Source preservation audit](visual/release-1-2-integration/source-preservation.json) verifies that removing **exactly three lake insertions** from the combined canonical HTML produces Hermes' pinned HTML byte-for-byte. These insertions are the generated lake SVG definition block, static preview use, and one runtime composition call. This preserves every art slot, inline image, event policy, UI hook and responsive style without hand-reimplementing Hermes' work. Lake source/projection/manifest/generation files are exact copies from pinned PR #15. Learning/route engines, original artwork, print HTML, PDF and freshness hash are exact baseline bytes. No target coordinates, learning arrays or persistence schema changed.
 
 The combined candidate retains 45 learning targets, eleven chapter groups, 27 point anchors, three point/write/discover stages, 890:1235 map frame, removed schoolcode questions, eight slices per pizza, real third-pizza travel, Gold/replay/daily ledgers, strict backup imports, reset scopes and keyboard microstate picker. Future chapter scenes and postcards remain safe empty/locked slots; no unapproved app icon or new artwork is introduced.
 
@@ -33,7 +33,7 @@ The combined candidate retains 45 learning targets, eleven chapter groups, 27 po
 
 ## Actual verification
 
-Supported **Node 24.15.0**, Chrome **146.0.7680.153**. `npm ci` installed all 37 development packages. [Full lint/test/build output](../visual/release-1-2-integration/verification.txt), [summary](../visual/release-1-2-integration/verification-summary.json), [fresh npm audit](../visual/release-1-2-integration/npm-audit.json).
+Supported **Node 24.15.0**, Chrome **146.0.7680.153**. `npm ci` installed all 37 development packages. [Full lint/test/build output](visual/release-1-2-integration/verification.txt), [summary](visual/release-1-2-integration/verification-summary.json), [fresh npm audit](visual/release-1-2-integration/npm-audit.json).
 
 | Gate | Actual result |
 | --- | --- |
@@ -54,23 +54,23 @@ Responsive dimensions are desktop **1440×1000**, iPad portrait **820×1180**, i
 
 ## Combined evidence and reproduction
 
-Fresh evidence is under [visual/release-1-2-integration](../visual/release-1-2-integration); the retained `visual/release-1-2` and `visual/lakes` directories belong to the original separate feature runs. Original feature documents likewise describe their isolated scope. This combined report supersedes their lake-out-of-scope and old dependency-audit limitations for this candidate only.
+Fresh evidence is under [visual/release-1-2-integration](visual/release-1-2-integration); the retained `visual/release-1-2` and `visual/lakes` directories belong to the original separate feature runs. Original feature documents likewise describe their isolated scope. This combined report supersedes their lake-out-of-scope and old dependency-audit limitations for this candidate only.
 
 Machine-readable combined results:
 
-- [Nino](../visual/release-1-2-integration/nino/browser-results.json)
-- [Lakes and responsive anchor measurements](../visual/release-1-2-integration/lakes/browser-results.json)
-- [Learning/navigation/saves](../visual/release-1-2-integration/polish/browser-results.json)
-- [Replay/import safeguards](../visual/release-1-2-integration/replay/browser-results.json)
-- [Both offline downloads, images + lakes + backups + keyboard](../visual/release-1-2-integration/combined-offline.json)
-- [Changed-file manifest relative to pinned baseline](../visual/release-1-2-integration/changed-files.json)
+- [Nino](visual/release-1-2-integration/nino/browser-results.json)
+- [Lakes and responsive anchor measurements](visual/release-1-2-integration/lakes/browser-results.json)
+- [Learning/navigation/saves](visual/release-1-2-integration/polish/browser-results.json)
+- [Replay/import safeguards](visual/release-1-2-integration/replay/browser-results.json)
+- [Both offline downloads, images + lakes + backups + keyboard](visual/release-1-2-integration/combined-offline.json)
+- [Changed-file manifest relative to pinned baseline](visual/release-1-2-integration/changed-files.json)
 
 Screenshots were visually inspected in addition to automated checks:
 
-- Before/after: [Release 1.1 welcome](../visual/release-1-2-integration/nino/before-release-1-1.png), [combined welcome](../visual/release-1-2-integration/nino/welcome.png), [desktop lesson with Nino and lakes](../visual/release-1-2-integration/nino/desktop-guide.png).
-- Northern lakes: [before](../visual/release-1-2-integration/lakes/switzerland-before.png), [after](../visual/release-1-2-integration/lakes/switzerland-after.png); Como's fork, Maggiore and Lugano remain separate, with Geneva at its unwarped position.
-- Lazio/Bolsena: [before](../visual/release-1-2-integration/lakes/lazio-before.png), [after](../visual/release-1-2-integration/lakes/lazio-after.png); source-backed Bolsena remains northwest of Rome, below labels/points/rivers.
-- [iPad portrait Guide](../visual/release-1-2-integration/nino/ipad-portrait-guide.png), [iPad landscape real Arrival](../visual/release-1-2-integration/nino/ipad-landscape-arrival.png), [390px Encourage on resume](../visual/release-1-2-integration/nino/phone-encourage-resumed.png), [320px earned Gold](../visual/release-1-2-integration/nino/small-phone-gold.png), [320px offline keyboard modal](../visual/release-1-2-integration/offline-320-keyboard-picker.png).
+- Before/after: [Release 1.1 welcome](visual/release-1-2-integration/nino/before-release-1-1.png), [combined welcome](visual/release-1-2-integration/nino/welcome.png), [desktop lesson with Nino and lakes](visual/release-1-2-integration/nino/desktop-guide.png).
+- Northern lakes: [before](visual/release-1-2-integration/lakes/switzerland-before.png), [after](visual/release-1-2-integration/lakes/switzerland-after.png); Como's fork, Maggiore and Lugano remain separate, with Geneva at its unwarped position.
+- Lazio/Bolsena: [before](visual/release-1-2-integration/lakes/lazio-before.png), [after](visual/release-1-2-integration/lakes/lazio-after.png); source-backed Bolsena remains northwest of Rome, below labels/points/rivers.
+- [iPad portrait Guide](visual/release-1-2-integration/nino/ipad-portrait-guide.png), [iPad landscape real Arrival](visual/release-1-2-integration/nino/ipad-landscape-arrival.png), [390px Encourage on resume](visual/release-1-2-integration/nino/phone-encourage-resumed.png), [320px earned Gold](visual/release-1-2-integration/nino/small-phone-gold.png), [320px offline keyboard modal](visual/release-1-2-integration/offline-320-keyboard-picker.png).
 
 ```sh
 # Supported Node 24.15.0; execute from this checkout, with pinned commits available.
@@ -91,7 +91,7 @@ TOPO_URL=http://127.0.0.1:8016/ QA_OUTPUT=docs/visual/release-1-2-integration/re
 npm run qa:release-1-2
 ```
 
-The source audit compares the immutable owner art Git objects; a fresh clone may need a read-only `git fetch origin 047f74390bbb0cc7cfbd1fa3ba4f65fe23e2ec6d`. Source provenance/license and the known upstream Maggiore/Como name correction remain in [geography/LAKES.md](../geography/LAKES.md). No new lake approximation or geographic source is introduced by integration.
+The source audit compares the immutable owner art Git objects; a fresh clone may need a read-only `git fetch origin 047f74390bbb0cc7cfbd1fa3ba4f65fe23e2ec6d`. Source provenance/license and the known upstream Maggiore/Como name correction remain in [geography/LAKES.md](geography/LAKES.md). No new lake approximation or geographic source is introduced by integration.
 
 ## Verdict and independent review handoff
 

@@ -24,7 +24,7 @@
 
 ## Reproduction and evidence
 
-[Lead report and commands](INTEGRATED_RELEASE_CANDIDATE.md) · [machine summary](../qa/integration-lead-20261030/summary.json) · [Chrome 45-row ledger](../qa/integration-lead-20261030/integrity/ledger.json) · [WebKit 45-row ledger](../qa/integration-lead-20261030/webkit/ledger.json) · [download proof](../qa/integration-lead-20261030/download/verification.json) · [screenshots](../qa/integration-lead-20261030/selection/) · [owner-source comparison](../qa/integration-lead-20261030/fidelity/).
+[Lead report and commands](INTEGRATED_RELEASE_CANDIDATE.md) · [machine summary](qa/integration-lead-20261030/summary.json) · [Chrome 45-row ledger](qa/integration-lead-20261030/integrity/ledger.json) · [WebKit 45-row ledger](qa/integration-lead-20261030/webkit/ledger.json) · [download proof](qa/integration-lead-20261030/download/verification.json) · [screenshots](qa/integration-lead-20261030/selection/) · [owner-source comparison](qa/integration-lead-20261030/fidelity/).
 
 Execute `bash scripts/validate-integrated-release.sh` with `PLAYWRIGHT_MODULE` and Node24 as documented. Native Safari probe is separate. Raw gate logs are committed. Test only fresh/disposable contexts.
 

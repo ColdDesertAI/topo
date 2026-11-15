@@ -12,9 +12,9 @@ Baseline: exact PR #40 `71b33fd973c7b650c63e7921af3e7bf6aab5f79f`. Reuses draft 
 
 ## Geography proof
 
-[Filled-area result](../visual/ipad-update-47/apennines-filled-area.json): polygon difference against the largest connected canonical Italy component, **not boundary sampling alone**. Original PR40: **19.6197% outside mainland**; corrected polygon: **0%**, valid and connected. Old quadratic curves flattened at200 segments per curve; corrected398-vertex polygon measured directly. Areas are SVG projected units, not geodesic km².
+[Filled-area result](visual/ipad-update-47/apennines-filled-area.json): polygon difference against the largest connected canonical Italy component, **not boundary sampling alone**. Original PR40: **19.6197% outside mainland**; corrected polygon: **0%**, valid and connected. Old quadratic curves flattened at200 segments per curve; corrected398-vertex polygon measured directly. Areas are SVG projected units, not geodesic km².
 
-[DEM overlay](../visual/ipad-update-47/apennines-dem-overlay.png): red=PR40, blue=corrected; dots=sourced Cadibona/Aspromonte. All63 original Terrarium tile hashes rechecked. [Provenance](../geography/apennines-provenance.json) records18 source URLs and recipe: elevation-biased routing near reference segments,10-unit corridor,2-unit mainland inset. Original DEM/raster is unchanged. Signed path SHA256 `e5216860fead38464ae54f22fbec0b868e164b9d17e9a978db90be76d8dbdcd2`.
+[DEM overlay](visual/ipad-update-47/apennines-dem-overlay.png): red=PR40, blue=corrected; dots=sourced Cadibona/Aspromonte. All63 original Terrarium tile hashes rechecked. [Provenance](geography/apennines-provenance.json) records18 source URLs and recipe: elevation-biased routing near reference segments,10-unit corridor,2-unit mainland inset. Original DEM/raster is unchanged. Signed path SHA256 `e5216860fead38464ae54f22fbec0b868e164b9d17e9a978db90be76d8dbdcd2`.
 
 Extent: [Treccani](https://www.treccani.it/enciclopedia/appennino/) and [Treccani ragazzi](https://www.treccani.it/enciclopedia/appennini_(Enciclopedia-dei-ragazzi)/), conventional Cadibona to the Strait of Messina. Archived Wikipedia coordinate responses locate reference peaks/passes; registered DEM guides intervening ridges. No official perimeter/GIS-survey precision claimed. No submerged ribbon or new Sicily learning target.
 
@@ -26,7 +26,7 @@ Extent: [Treccani](https://www.treccani.it/enciclopedia/appennino/) and [Treccan
 - Additional update matrix:8 orientation/style/zoom runs,32 real Apennines/old-offshore taps. Native disabled/hint at all45 and primary menu tested both iPad orientations. Real UI questions, no expected-answer replacement/direct grading.
 -35-page PDF regenerated with unchanged generator; map page visually inspected. Canonical index, both output HTMLs and dist are identical. Native Safari/OS keyboard approval remains **PENDING**; Chromium simulation is not hardware proof.
 
-Raw JSON/screenshots/logs: [visual/ipad-update-47/](../visual/ipad-update-47/).
+Raw JSON/screenshots/logs: [visual/ipad-update-47/](visual/ipad-update-47/).
 
 ```sh
 npm ci

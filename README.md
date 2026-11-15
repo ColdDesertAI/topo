@@ -31,4 +31,4 @@ npm run build
 
 PDF generation requires ReportLab and Pillow, plus DejaVu Sans on Linux or Arial on macOS. A temporary Python environment is recommended. On this Mac's old Python 3.8/OpenSSL, regeneration used ReportLab 3.6.12 and Pillow 9.5.0; use a current supported Python and compatible ReportLab for ongoing development. Build/tests reject a booklet with a stale print-source hash. Do not manually edit generated files.
 
-Browser QA: see `docs/archive/HERMES_QA_RELEASE_1.md` and `scripts/qa-release-1.mjs` (Playwright path/browser can be supplied by environment or command options). Physical iPad Safari and actual printer acceptance remain separate checks.
+Browser QA: see `docs/HERMES_QA_RELEASE_1.md` and `scripts/qa-release-1.mjs` (Playwright path/browser can be supplied by environment or command options). Physical iPad Safari and actual printer acceptance remain separate checks.

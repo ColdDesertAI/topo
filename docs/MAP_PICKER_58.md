@@ -1,6 +1,6 @@
 > Historical rejected candidate below: `d55e9de` was ADJUST / NO-GO.
 > The owner-required implementation and fresh evidence supersede its point-crop
-> design and visual-pass claims: [29 October revision](../visual/map-picker-58-revision/README.md).
+> design and visual-pass claims: [29 October revision](visual/map-picker-58-revision/README.md).
 > Automated passes do not establish owner/Hermes GO.
 
 # Issue #58 — legible neutral map selection (draft review candidate)
@@ -18,7 +18,7 @@ normalise only the embedded chooser source; they still compare the rest of the
 canonical HTML and protected files exactly.
 
 The old actual browser chooser places Rome/Vatican endpoints only about 7.68 CSS
-pixels apart on desktop (see [pinned before telemetry](../visual/map-picker-58/before/results.json)).
+pixels apart on desktop (see [pinned before telemetry](visual/map-picker-58/before/results.json)).
 The 80-source-unit minimum crop magnifies the same tiny marks inadequately.
 
 ## Design
@@ -124,9 +124,9 @@ bounded chooser change; the desktop priority path is unaffected. No genuine
 river/region/mountain/island multi-choice sets were found in this documented
 matrix. This is not proof that no other continuous-scale/boundary case exists.
 
-[Before/after screenshot gallery](../visual/map-picker-58/README.md) ·
-[Raw matrix](../visual/map-picker-58/collision-results.json) ·
-[Summary](../visual/map-picker-58/summary.json).
+[Before/after screenshot gallery](visual/map-picker-58/README.md) ·
+[Raw matrix](visual/map-picker-58/collision-results.json) ·
+[Summary](visual/map-picker-58/summary.json).
 
 An additional **48 actual taps at exactly identical CSS coordinates** compare
 Rome/Vatican, Bologna/Modena and the real sea overlap against different requested
