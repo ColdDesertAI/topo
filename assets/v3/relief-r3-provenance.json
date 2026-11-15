@@ -1,0 +1,92 @@
+{
+  "task": "BL-014 F1 kaart als feestje",
+  "source": "assets/discovery/terrain-z8-render-provenance.json",
+  "sourceSha256": "556cec8daca711aa0f30f83d28a342125f1652276b06c2ddc01a9611ebb22ced",
+  "rawDemSha256": "8bdb621dcec0a20ecd75231a2dee36913ecc86f7a5b9ff65ed184158cc739b0b",
+  "pinnedRawDemSha256": "b831aff53b152259c12b2b67b12dfb9b910fa5a6525d5db858dc9dee865a9fe3",
+  "demNote": "DEM rebuilt from the 208 pinned tiles (all SHA256 equal) with the v3/relief-z8 generator; float hash differs from the pinned one by numpy/libm version; r2 recolour of this DEM vs shipped relief-r2.webp: mean |delta| 0.96 RGB (encoder noise), so registration and heights are unchanged.",
+  "registration": "unchanged; source z8 DPR2 pixel centres, original SVG clip",
+  "output": {
+    "path": "assets/v3/relief-r3.webp",
+    "size": [
+      1780,
+      2470
+    ],
+    "bytes": 539418,
+    "sha256": "4686b2c92415999ba653f08a6c7f953ffc52886e12434ecaef127d21555028a1",
+    "webpQuality": 85
+  },
+  "displayPalette": [
+    {
+      "elevation_m": 0,
+      "color": "#8CC24B"
+    },
+    {
+      "elevation_m": 120,
+      "color": "#9CC84A"
+    },
+    {
+      "elevation_m": 300,
+      "color": "#B9CC4C"
+    },
+    {
+      "elevation_m": 550,
+      "color": "#D8B847"
+    },
+    {
+      "elevation_m": 850,
+      "color": "#D0923C"
+    },
+    {
+      "elevation_m": 1250,
+      "color": "#B06C38"
+    },
+    {
+      "elevation_m": 1700,
+      "color": "#8E5634"
+    },
+    {
+      "elevation_m": 2150,
+      "color": "#9C8676"
+    },
+    {
+      "elevation_m": 2350,
+      "color": "#E4E8EE"
+    },
+    {
+      "elevation_m": 2650,
+      "color": "#FAFCFF"
+    },
+    {
+      "elevation_m": 5000,
+      "color": "#FFFFFF"
+    }
+  ],
+  "snow": {
+    "from_m": 2200,
+    "full_m": 2650
+  },
+  "saturation": 1.12,
+  "hillshade": {
+    "lights": [
+      [
+        315,
+        0.6
+      ],
+      [
+        270,
+        0.22
+      ],
+      [
+        0,
+        0.18
+      ]
+    ],
+    "altitude_degrees": 38,
+    "vertical_exaggeration": 7.0
+  },
+  "encoder": {
+    "numpy": "2.5.3",
+    "pillow": "12.3.0"
+  }
+}

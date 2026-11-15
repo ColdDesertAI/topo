@@ -160,7 +160,7 @@
   const nbg=document.createElementNS(SVGNS,'g');nbg.setAttribute('class','v3Neighbours');nbg.setAttribute('aria-hidden','true');nbg.setAttribute('pointer-events','none');nbg.setAttribute('mask','url(#'+prefix+'nbFade)');
   for(const n of svg.querySelectorAll('.contextLand,.country:not(.v3Isle)')){const q=document.createElementNS(SVGNS,'path');q.setAttribute('d',n.getAttribute('d')||'');nbg.append(q);}
   const base=document.createElementNS(SVGNS,'path');base.setAttribute('d',d);base.setAttribute('class','v3IsleBase');base.setAttribute('aria-hidden','true');base.setAttribute('pointer-events','none');base.setAttribute('filter','url(#'+prefix+'isleShadow)');
-  terrain.setAttribute('filter','url(#'+prefix+'reliefDepth)');
+  // BL-014 F1: the festive look (LUT, hillshade, snow) is baked into relief-r3, so no SVG filter on the relief (iPad).
   // The sun layer: the whole canvas, clipped to Italy's outline, above the relief and below the coast rim (punt 8).
   const sun=document.createElementNS(SVGNS,'rect');for(const [k,v] of Object.entries({x:0,y:0,width:890,height:1235,fill:'url(#'+prefix+'sun)',class:'v3Sun','aria-hidden':'true','pointer-events':'none','clip-path':'url(#'+prefix+'italyClip)'}))sun.setAttribute(k,v);
   const coast=svg.querySelector('.v3RCoast');if(coast)coast.before(sun);else terrain.after(sun);
