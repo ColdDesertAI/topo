@@ -36,4 +36,7 @@ Regels:
 | BL-017 | Shell-details (feedback 15-11): wordmark dikker, actief menu-item vet, tandwiel recht, menu-iconen nalopen, hover en klikbevestiging in Instellingen; artwork: Nino-aviator groter en ontdekkend (Codex/art) | M0 | P1 | S | idee | builder | — |
 | BL-018 | Hoofdstuk en beloning (feedback 15-11): de route met 3 pizza's en de Vespa in mist, helderder met de voortgang; Reisboekje in het midden; maximale breedte van het antwoordpaneel in Oefenen/Les | M0 | P1 | M | idee | hoofdsessie | — |
 | BL-016b | Eén glasniveau, zijbalk, uitgelicht hoofdstuk, kaart (feedback 15-11 11:52) | M0 | P0 | M | gepauzeerd: compositie eerst (Dennis, Claude-app) | hoofdsessie | `ops/contracts/BL-016b.md` |
-| BL-016c | Compositie Reis als één venster (Apple meets Linear), daarna alle schermen | M0 | P0 | M | idee (wacht op het goedgekeurde beeld van Dennis) | hoofdsessie | — |
+| BL-016c | Compositie Reis als één venster (Apple meets Linear), daarna alle schermen | M0 | P0 | M | vervangen door BL-016d | hoofdsessie | — |
+| BL-019 | Hoofdstukpagina: de plekken van het hoofdstuk als kleine pillen ("Je ontdekt: Milaan, Venetië, …") | M1 | P2 | S | idee (design-critic 15-11) | hoofdsessie | — |
+| BL-020 | Kaart: spookcontouren van buurlanden (Corsica, Balkan, Malta) een derde lichter, of alleen bij Landen/Zeeën | M1 | P2 | S | idee (design-critic 15-11) | builder | — |
+| BL-016d | Reis herzien: zwevende panelen in één helder glas, kaart vrij, Reis = overzicht + hoofdstukpagina (feedback 15-11 17:48) | M0 | P0 | M | review (design-critic GO-voorstel; wacht op G1 Dennis) | hoofdsessie | `ops/contracts/BL-016d.md` |

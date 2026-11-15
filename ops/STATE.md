@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-15 · door: Claude (pauze: compositie eerst)
+> Bijgewerkt: 2026-11-15 · door: Claude (BL-016d, wacht op G1)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,12 +19,9 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-**Pauze in de bouw: compositie eerst (Dennis 15-11, eind van de middag).** Dennis: de build mist samenhang. Er is geen "Apple meets Linear", Nino is te groot (alleen een hoofd), de witte rondjes achter de landmarks moeten weg en de lijst links van de kaart werkt niet. Werkhypothese: één licht venster met de scène eromheen, ingedeeld met ruimte en dunne lijnen in plaats van zwevende glazen kaarten (zoals zijn renders). Dennis bepaalt de compositie van Reis (1440×900 en iPad) **in de Claude-app**, met 2–3 varianten. Uitkomst: één goedgekeurd beeld in `docs/v3/renders/kaart/` plus ontwerpregels. Daarna hier een nieuw contract (BL-016c), de bouw, en het doortrekken naar alle schermen.
-- Stand van de code (`eabab73`, gepusht, PR #101 draft): glas-tokens (`--glas-paneel`/`--glas-blur`/`--glas-rand`), reliëf r3, witte kustrand, pins 1,5×, hoofdstukscène in het uitgelichte blok (dieet 740×416, +1,07 MB), lijst links (≥ 1280) en sheet (iPad liggend). Lint en test groen. Met revert terug te draaien.
-- Blijft volgens Dennis: reliëf r3, de kustrand, de druppelpins, de hoofdstukscène. Gaat eruit: de witte badge-rondjes, Nino als groot hoofd, de lijst links (variant A: zijbalk en lijst één paneel; B: lijst rechts met detail in hetzelfde vlak).
-- Besloten 15-11: transparant (geen eis op gelijke tint), titel "Reis" mag weg, de iPad-lijst mag een sheet zijn. Open: BG-01 heeft links geen rustige zone (aangepaste uitsnede of variant nodig; telefoon en iPad staand hoeven geen eigen BG).
-- Evaluaties: BL-016 r3 FAIL (alleen een regressie, hersteld, niet hertoetst); BL-016b FAIL en design-critic NO-GO (`ops/reports/eval-BL-016*.md`). Niet opnieuw toetsen vóór de nieuwe compositie.
-- Daarna: BL-014 F2 (laagland warmer, water, buurlanden in mist), F4 (Voortgang drie tinten, genummerde punten), BL-017, BL-018.
+**BL-016d (Reis herzien) wacht op G1 van Dennis**: design-critic GO-voorstel (15-11, commit `30bf62c` + fade-fix). Zwevende panelen in één helder glas (token: wit 60%, blur 20 saturate 1.6 brightness 1.06, rand 70%, schaduw 0 18 50 .14), kaart vrij op de scène, Reis = overzicht (zijbalk | Hoofdstukken | kaart + hoofdstukbalk [Verder]) + hoofdstukpagina (← Hoofdstukken, artwork 16:9, stappen, knop, kaart ingezoomd). Glascheck 207 vlakken 0 fouten (vóór de laatste fixes); lint en test groen. BG-01: andere uitsnede (besluit Dennis), hoger gezet.
+- Na GO: dezelfde regels naar Oefenen, Toets, Beloningen, Voortgang. Open: framerate overgang overzicht→hoofdstuk 45 fps headless (kaart-glide; blur kost niets) → meten op de iPad 9.
+- Vervallen: BL-016b-lay-out en variant B (BL-016c). Daarna: BL-014 F2/F4, BL-017, BL-018, ideeën BL-019/020.
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO

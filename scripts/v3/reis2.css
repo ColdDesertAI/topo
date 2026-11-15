@@ -123,8 +123,8 @@
 @media (min-width:1024px){
  /* Zoomed map: clipped to its zone with a soft fade at the edges (no hard cut, nothing under the top bar). */
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{overflow:hidden!important;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%),linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);-webkit-mask-composite:source-in;
-  mask-image:linear-gradient(180deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%),linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-composite:intersect}
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 60px,#000 calc(100% - 40px),transparent 100%),linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(180deg,transparent 0,#000 60px,#000 calc(100% - 40px),transparent 100%),linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-composite:intersect}
 }
 @media (min-width:1024px){
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3TopLeft{display:flex;align-items:center;gap:8px}

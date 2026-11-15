@@ -33,3 +33,4 @@ Formaat:
 2026-11-15 11:40 | evaluator/opus | taak | BL-016 | FAIL (r1, r2) | hoog | Check mat wrappers i.p.v. panelen (r1), body::before-mist in de les onzichtbaar voor de check (r2); beide hersteld
 2026-11-15 13:50 | claude/opus+evaluator+design-critic | taak | BL-016 r3 + BL-016b | FAIL / NO-GO | hoog | Eén glasniveau (tokens), zijbalk volgens render, uitgelicht hoofdstuk met scène, kaart 58,6/57,3%, pins 0 px; rechterkolom te vol (lijst 3–4 rijen) → beslissing Dennis
 2026-11-15 16:30 | claude/opus | taak | BL-016b | gepauzeerd | hoog | Besluit b+c gebouwd (lijst links/iPad-sheet, kaart 64,6%/90%); Dennis: geen samenhang, geen Apple meets Linear → compositie eerst in de Claude-app
+2026-11-15 18:05 | claude/opus+design-critic | taak | BL-016c→016d | review | hoog | Variant B (één venster) gebouwd en verworpen door Dennis (mistig); herzien: helder glas, kaart vrij, twee pagina's; design-critic NO-GO → 6 fixes → GO-voorstel
