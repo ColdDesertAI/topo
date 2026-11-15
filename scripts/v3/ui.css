@@ -45,7 +45,7 @@
  .v3Reis .v3Side .v3NavList{gap:6px;margin-top:4px}
  .v3Reis .v3Side .v3NavItem{min-height:52px;padding:0 14px;gap:14px;border-radius:14px;font:600 18px/1.2 var(--v3-font);color:var(--v3-ink)}
  .v3Reis .v3Side .v3NavItem .v3Icon{width:24px;height:24px}
- .v3Reis .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft);color:var(--v3-accent);font-weight:700!important}
+ .v3Reis .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft);color:var(--v3-accent);font-weight:700}
  .v3Reis .v3Side .v3NavItem[aria-current=page] .v3Icon{color:var(--v3-accent)}
  .v3Reis .v3Side .v3Settings{margin-top:auto;align-self:stretch;width:100%;justify-content:flex-start;padding:14px 14px 0;min-height:56px;border-radius:0;border-top:1px solid rgba(42,36,64,.12);background:transparent}
  .v3Reis .v3Side .v3Settings::before{display:none}
@@ -170,12 +170,12 @@
  /* Reis › Hoofdstuk: back button top-left, counters top-right; the map zoomed on this chapter's places (left);
     the chapter panel right: artwork 16:9 on top (never a portrait crop), HOOFDSTUK n, title, the three steps as
     rows, one primary button at the bottom. The list is not on this page. */
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk]{grid-template-columns:var(--zij) minmax(0,1fr) var(--hfd,380px)!important;grid-template-rows:auto minmax(0,1fr);row-gap:16px}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk]{grid-template-columns:var(--zij) minmax(0,1fr) var(--hfd,380px);grid-template-rows:auto minmax(0,1fr);row-gap:16px}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk]>.v3List{display:none}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Top{grid-column:2/4;grid-row:1;justify-self:stretch;display:flex;justify-content:space-between;align-items:center}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border-radius:12px;background:rgba(255,255,255,.85);box-shadow:0 4px 14px rgba(40,25,80,.12);font:600 16px/1 var(--v3-font);color:var(--v3-ink)}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Back .v3Icon{width:20px;height:20px}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:2;grid-row:2!important;--v3-card-over:0;--v3-fit-top:56px;--v3-fit-bottom:0px}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:2;grid-row:2;--v3-card-over:0;--v3-fit-top:56px;--v3-fit-bottom:0px}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3MapStage>.v3MapTools{top:0;left:auto;right:0}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Panel{grid-column:3;grid-row:2;align-self:stretch;display:flex;flex-direction:column;gap:14px;align-items:stretch;text-align:left;padding:16px 20px 20px!important;overflow:auto}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardScene{display:block;flex:none;width:100%;aspect-ratio:16/9;height:auto;border-radius:var(--glas-radius-kaart);box-shadow:none;margin:0}
@@ -346,7 +346,7 @@
  .v3Reis .v3Side .v3Portrait{width:48px;height:48px;margin:10px auto 6px;border-radius:14px}
  .v3Reis .v3Side .v3NavItem{width:48px;padding:0;justify-content:center}
  .v3Reis .v3Side .v3NavItem span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
- .v3Reis .v3Side .v3Settings{justify-content:center;padding:10px 0 0!important}
+ .v3Reis .v3Side .v3Settings{justify-content:center;padding:10px 0 0}
  .v3Reis[data-view=reis] .v3Rows .v3Row{grid-template-columns:56px minmax(0,1fr) 20px;gap:10px;min-height:48px}
  .v3Reis[data-view=reis] .v3Rows .v3Thumb{width:56px;height:32px}
  .v3Reis[data-view=reis] .v3Main>.v3Panel{column-gap:16px;padding:12px 12px 12px 18px!important}
