@@ -202,8 +202,8 @@
  .v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{border-radius:12px!important}
  /* 5. Beloningen: the title inside the book panel (the panels start level with the sidebar). */
  .v3Reis[data-view=rewards]>.v3Rewards{grid-template-rows:minmax(0,1fr) auto!important;row-gap:var(--gap,20px)!important;column-gap:var(--gap,20px)!important}
- .v3Rewards>.v3ScreenTitle{grid-column:1/span 5!important;grid-row:1!important;align-self:start!important;justify-self:start!important;z-index:2;margin:0!important;padding:var(--pad,20px) 0 0 calc(var(--pad,20px) + 4px)!important;font:700 28px/34px var(--v3-font)!important;width:auto!important}
- .v3Rewards .v3Book{grid-column:1/span 5!important;grid-row:1!important;padding-top:64px!important}
+ .v3Rewards>.v3ScreenTitle{grid-column:1/span 5!important;grid-row:1!important;align-self:start!important;justify-self:start!important;z-index:2;margin:0!important;padding:var(--pad,20px) 0 0 calc(var(--pad,20px) + 4px)!important;width:auto!important}
+ .v3Rewards .v3Book{grid-column:1/span 5!important;grid-row:1!important;padding-top:80px!important}
  .v3Rewards .v3Ride{grid-column:6/-1!important;grid-row:1!important}
  .v3Rewards .v3Tiles{grid-column:1/-1!important;grid-row:2!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
 }
@@ -214,4 +214,8 @@
  /* Voortgang: the overview fills the first screen (title strip, map + chapters, tile strip ending on the sidebar's
     bottom line); further sections start below it, after a scroll. */
  .v3Reis[data-view=voortgang] .v3View-voortgang .v3VgOverview{height:100%!important;min-height:100%!important;box-sizing:border-box;grid-template-rows:auto minmax(0,1fr) auto!important;margin-bottom:var(--gap,20px)}
+}
+/* iPad landscape, Voortgang: the map + chapters row runs to the sidebar's bottom line (no near-miss of 11 px). */
+@media (min-width:1024px) and (max-width:1279px){
+ .v3Reis[data-view=voortgang] .v3View-voortgang .v3VgOverview>.v3Field.v3Card{align-self:stretch!important;height:auto!important;max-height:none!important}
 }
