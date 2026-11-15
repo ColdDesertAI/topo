@@ -18,6 +18,10 @@ echo "=== start $(date) ==="
 
 
 body() { awk 'BEGIN{n=0} /^---$/ && n<2 {n++; next} n>=2' "$1"; }   # strip frontmatter
+# Limietmelding van Claude herkennen, o.a. "You've hit your 5-hour limit" (nacht 15-11 gemist).
+# Alleen de laatste regels: de nachtrun zelf kan over "rate limit" praten zonder er een te raken.
+LIMIT_RE="usage limit|limit reached|rate limit|hit your|5-hour limit|weekly limit"
+hit_limit() { printf '%s\n' "$1" | tail -n 15 | grep -qiE "$LIMIT_RE"; }
 
 # 1. Verse worktree vanaf origin/main
 cd "$REPO"
@@ -49,32 +53,51 @@ set -e
 echo "$OUT" | tail -40
 
 # 3. Failover naar Codex bij een usage limit: bouwt de bovenste ready-taak, evaluatie volgt overdag door Claude
-if [ $RC -ne 0 ] && echo "$OUT" | grep -qiE 'usage limit|limit reached|rate limit'; then
+LIMIT=nee; hit_limit "$OUT" && LIMIT=ja
+if [ "$LIMIT" = ja ]; then
   echo "Claude-limiet bereikt → Codex-failover"
   codex exec --full-auto "Lees AGENTS.md en ops/HARNESS.md. Pak de bovenste taak met status ready uit ops/BACKLOG.md en het contract in ops/contracts/. Bouw precies dat, draai de tests uit het contract, commit met de BL-ID in de message. Zet de status op 'review (wacht op evaluator)' en voeg een regel toe aan ops/RUNLOG.md met agent codex. Niet pushen, niet mergen." || true
   echo "$DATE | codex-failover | zie git log" >> "$STATE_DIR/failover.log"
 fi
 
 # 4. Machine-feiten in het nachtrapport (de brief rapporteert limiet/failover anders als "onbekend")
-REPORT="ops/reports/night-$DATE.md"
+REPORT="ops/reports/night-$DATE.md"; mkdir -p ops/reports
 FAILOVER=nee; grep -q "^$DATE" "$STATE_DIR/failover.log" 2>/dev/null && FAILOVER=ja
-LIMIT=nee; echo "$OUT" | grep -qiE 'usage limit|limit reached|rate limit' && LIMIT=ja
 { echo; echo "<!-- script -->"; echo "Claude exit-code: $RC · limiet geraakt: $LIMIT · failover Codex: $FAILOVER · duur: $SECONDS s"; } >> "$REPORT"
-git add "$REPORT" && git commit -qm "docs(night): machine-feiten $DATE" || true
+# Alleen het rapport committen: staged werk van een afgebroken run hoort hier niet bij (nacht 15-11)
+git add "$REPORT" && git commit -qm "docs(night): machine-feiten $DATE" -- "$REPORT" || true
 
 # 5. Push en draft-PR als er werk is
 if [ -n "$(git log origin/main..HEAD --oneline)" ]; then
-  git push -u origin "$BRANCH"
+  git push -u origin "$BRANCH" || echo "push mislukt; brief draait toch"
   gh pr create --draft --base main --head "$BRANCH" --title "Nachtrun $DATE" --body-file "$REPORT" || true
 fi
 
-# 6. Brief (Sonnet) → bestand + Telegram
+# 6. Brief (Sonnet) → bestand + Telegram. Na een Claude-limiet faalt ook deze aanroep (zelfde account),
+#    dus: Claude → Codex → minimale brief uit de machine-feiten. Er gaat altijd iets naar Dennis.
+BRIEF_FILE="ops/briefs/$DATE.md"
 set +e
-BRIEF="$(claude -p "$(body .claude/commands/brief.md)" --model sonnet --max-turns 30 \
-  --permission-mode bypassPermissions --disallowedTools "${DENIED[@]}" 2>&1)"
+BRIEF=""
+if [ "$LIMIT" = nee ]; then
+  BRIEF="$(claude -p "$(body .claude/commands/brief.md)" --model sonnet --max-turns 30 \
+    --permission-mode bypassPermissions --disallowedTools "${DENIED[@]}" 2>&1)"
+  hit_limit "$BRIEF" && { echo "Brief: Claude-limiet → Codex"; BRIEF=""; }
+fi
+if [ -z "$BRIEF" ] || [ ! -s "$BRIEF_FILE" ]; then
+  codex exec --full-auto "$(body .claude/commands/brief.md) Vandaag is $DATE. Niet pushen." >/dev/null 2>&1
+  [ -s "$BRIEF_FILE" ] && BRIEF="$(cat "$BRIEF_FILE")"
+fi
+if [ -z "$BRIEF" ]; then
+  mkdir -p ops/briefs
+  { echo "# Brief $DATE (noodbrief, script)"; echo
+    echo "Claude-limiet: $LIMIT · Codex-failover: $FAILOVER · exit-code: $RC"
+    echo "Commits deze nacht:"; git log origin/main..HEAD --oneline | head -10
+    echo; echo "Laatste regels nachtrun:"; printf '%s\n' "$OUT" | tail -n 5; } > "$BRIEF_FILE"
+  BRIEF="$(cat "$BRIEF_FILE")"
+fi
 set -e
 if [ -n "$(git status --porcelain ops/briefs)" ]; then
-  git add ops/briefs && git commit -m "docs(brief): $DATE" && git push origin "$BRANCH" || true
+  git add ops/briefs && git commit -m "docs(brief): $DATE" -- ops/briefs && git push origin "$BRANCH" || true
 fi
 if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
   curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
