@@ -7,7 +7,9 @@
   --v3-glass-filter:blur(26px) saturate(.8);
   --v3-glass-top:rgba(248,245,255,.66);--v3-glass-bottom:rgba(248,245,255,.44);
   --v3-glass-grad:linear-gradient(180deg,var(--v3-glass-top) 0,var(--v3-glass-bottom) 100%);
-  --v3-glass:rgba(248,245,255,.58);--v3-glass-strong:rgba(248,245,255,.70);
+  /* --v3-glass itself is the fade: every older rule that paints background:var(--v3-glass) (Reis list, Oefenen panel,
+     lesson bar, score cards, rewards) now fades too. --v3-glass-strong stays flat for small controls. */
+  --v3-glass:var(--v3-glass-grad);--v3-glass-strong:rgba(248,245,255,.72);
   --v3-glass-shadow:inset 0 0 0 1px rgba(255,255,255,.62),0 12px 32px rgba(42,36,64,.10);
  }
  /* Panels: a top-to-bottom fade instead of one flat plate. */
@@ -21,6 +23,13 @@
  .v3Main .v3Again button{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
  .v3Rewards .v3Ride{-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:var(--v3-glass-shadow)}
  .v3Rewards .v3Tile{-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
+
+ /* No white strip behind the sidebar (ronde2.css painted 72% white under it, which undid the fade). */
+ .v3Reis{background:none!important}
+ .v3View-voortgang .v3VgRow>.v3VgTile{background:var(--v3-glass-grad);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:var(--v3-glass-shadow)}
+ .v3View-voortgang .v3VgLegend{background:var(--v3-glass-grad);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
+ /* Lessons: the answer sheet, the learn bar, the map tools and the Nino meter fade like every panel. */
+ body.v3Les[data-focus-shell=true] :is(#focusAnswerSheet,#focusLearnBar),body.v3Les .focusCameraTools,body.v3Les #ninoMeter{background:var(--v3-glass-grad)!important;-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
 
  /* Sidebar: frosted at the top (logo, Nino, menu), fading to fully transparent at the bottom; the gear stays visible.
     The blur sits on a masked pseudo-element so the fade reaches the blur too, not only the tint. */
@@ -46,7 +55,10 @@
   -webkit-backdrop-filter:blur(26px) saturate(.8)!important;backdrop-filter:blur(26px) saturate(.8)!important}
 }
 @media (min-width:768px) and (prefers-reduced-transparency:reduce),(min-width:768px) and (prefers-contrast:more){
- .v3,body.v3Les{--v3-glass-grad:var(--v3-surface)}
+ .v3,body.v3Les{--v3-glass-grad:var(--v3-surface);--v3-glass:var(--v3-surface);--v3-glass-strong:var(--v3-surface);--v3-glass-filter:none}
  .v3Reis>.v3Side::after,body.v3Les .v3ShellNav::after{background:var(--v3-surface);-webkit-mask-image:none;mask-image:none;-webkit-backdrop-filter:none;backdrop-filter:none}
- .v3Reis[data-view=voortgang]>.v3View-voortgang{background:var(--v3-surface)!important}
+ .v3Reis[data-view=voortgang]>.v3View-voortgang{background:var(--v3-surface)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ .v3View .v3Card,.v3View .v3Field.v3Card,.v3Rewards :is(.v3Book,.v3Tile,.v3Ride),.v3View-voortgang .v3VgRow>.v3VgTile{background:var(--v3-surface2)!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+ .v3View-voortgang .v3VgLegend,body.v3Les[data-focus-shell=true] :is(#focusAnswerSheet,#focusLearnBar),body.v3Les .focusCameraTools,body.v3Les #ninoMeter{background:var(--v3-surface)!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+ .v3Reis .v3Side .v3Settings,body.v3Les .v3ShellNav .v3Settings,.v3Main .v3Again button{background:var(--v3-surface);-webkit-backdrop-filter:none;backdrop-filter:none}
 }
