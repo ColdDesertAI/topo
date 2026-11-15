@@ -20,7 +20,7 @@
  /* Focus Mode map tools: no plate behind the chips (they carry their own background). */
  body.v3Les .focusCameraTools{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
  /* Replay buttons at the bottom of the Reis panel: their own light pill (AA on every background). */
- .v3Main .v3Again button{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+ .v3Main .v3Again button{background:var(--v3-glass-strong);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur)}
 
  /* Sidebar: the same glass as the panels (one whole), on a pseudo-element so the blur sits behind the content. */
  .v3Reis>.v3Side,body.v3Les .v3ShellNav{position:relative;isolation:isolate;background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border-right-color:rgba(255,255,255,.5)!important}
@@ -47,7 +47,10 @@
  .v3Reis .v3Brand b{font:800 36px/1 var(--v3-font);letter-spacing:.01em;text-transform:uppercase}
  .v3Reis .v3Brand .v3Flag{width:64px;height:5px;border-radius:3px}
  .v3Reis .v3Side .v3Portrait{width:100%;height:37%;max-height:330px;margin:4px 0 6px;border-radius:0;overflow:visible;background:none!important;box-shadow:none}
- .v3Reis .v3Side .v3Portrait img,.v3Reis .v3Side .v3Portrait picture{width:100%;height:100%;object-fit:contain;object-position:50% 100%;transform:none;border-radius:0}
+ /* The visible Nino is ~37% of the sidebar height: the image takes the full box height and may reach past the
+    sidebar's right edge (inside the frame), as in the renders. */
+ .v3Reis .v3Side .v3Portrait{display:flex;justify-content:flex-start;position:relative;z-index:2}
+ .v3Reis .v3Side .v3Portrait img,.v3Reis .v3Side .v3Portrait picture{height:100%;width:auto;max-width:none;margin-left:-6px;object-fit:contain;object-position:50% 100%;transform:none;border-radius:0}
  .v3Reis .v3Side .v3NavList{gap:6px;margin-top:4px}
  .v3Reis .v3Side .v3NavItem{min-height:52px;padding:0 14px;gap:14px;border-radius:14px;font:600 18px/1.2 var(--v3-font)!important;color:var(--v3-ink)}
  .v3Reis .v3Side .v3NavItem .v3Icon{width:24px;height:24px}
@@ -74,4 +77,13 @@
  .v3PanelLocked .v3CardScene img{filter:grayscale(.55) brightness(1.06) contrast(.85);opacity:.7}
  .v3PanelLocked .v3CardKicker{color:var(--v3-ink2)}
  @media (max-width:1279px){.v3Panel .v3CardScene{aspect-ratio:2/1}}
+}
+/* iPad portrait and narrower (768–1023): the sidebar is a 76 px rail; the C layout (big wordmark, big Nino, labels)
+   does not fit there, so the rail keeps its compact form (evaluator BL-016 r3: TOPO overflowed the rail). */
+@media (min-width:768px) and (max-width:1023px){
+ .v3Reis .v3Brand b{font-size:17px}
+ .v3Reis .v3Side .v3Portrait{width:56px;height:56px;margin:4px auto;border-radius:50%;overflow:hidden;background:var(--v3-accent-soft)!important;justify-content:center}
+ .v3Reis .v3Side .v3Portrait img{height:100%;width:100%;margin:0;object-fit:cover;object-position:50% 20%}
+ .v3Reis .v3Side .v3NavItem{justify-content:center;padding:0;width:52px;font-size:16px!important}
+ .v3Reis .v3Side .v3Settings{justify-content:center;padding:12px 0 0}
 }
