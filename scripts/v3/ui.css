@@ -198,7 +198,9 @@
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepDot{box-shadow:inset 0 0 0 2.5px var(--v3-accent)}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepDot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--v3-accent)}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepLabel{font-weight:600}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3PanelLocked .v3StepList{opacity:.55}
+ /* Locked: muted by colour, not opacity, so the labels keep AA on the glass (evaluator BL-016d). */
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3PanelLocked .v3StepRow{color:#454c4a}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3PanelLocked .v3StepDot{background:transparent;box-shadow:inset 0 0 0 2px rgba(42,36,64,.16)}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel :is(.v3Actions,.v3Locked){order:6;margin-top:auto;display:flex;width:100%}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3Actions .v3Btn.primary{flex:1;justify-content:space-between}
 }
@@ -366,4 +368,12 @@
 @media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
  .v3Reis>.v3Side,.v3Reis>.v3List,.v3Reis .v3Main>.v3Panel,.v3Reis .v3Counts,.v3Reis[data-view=reis]>.v3List,.v3Rewards .v3Tiles,.v3View-voortgang .v3VgRow{background:var(--v3-surface);-webkit-backdrop-filter:none;backdrop-filter:none}
  .v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{background:var(--v3-surface)!important}
+}
+/* Voortgang (evaluator BL-016e): the sections below the overview are white chip surfaces without blur, so at most
+   4 blurred panels are on screen at any scroll position. */
+@media (min-width:1024px){
+ .v3Reis[data-view=voortgang]>.v3View-voortgang>.v3Field.v3Card{background:rgba(255,255,255,.85)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+}
+@media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
+ .v3Reis[data-view=voortgang]>.v3View-voortgang>.v3Field.v3Card{background:var(--v3-surface)!important}
 }
