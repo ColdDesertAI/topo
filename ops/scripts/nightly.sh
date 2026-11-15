@@ -64,7 +64,8 @@ fi
 REPORT="ops/reports/night-$DATE.md"; mkdir -p ops/reports
 FAILOVER=nee; grep -q "^$DATE" "$STATE_DIR/failover.log" 2>/dev/null && FAILOVER=ja
 { echo; echo "<!-- script -->"; echo "Claude exit-code: $RC · limiet geraakt: $LIMIT · failover Codex: $FAILOVER · duur: $SECONDS s"; } >> "$REPORT"
-git add "$REPORT" && git commit -qm "docs(night): machine-feiten $DATE" || true
+# Alleen het rapport committen: staged werk van een afgebroken run hoort hier niet bij (nacht 15-11)
+git add "$REPORT" && git commit -qm "docs(night): machine-feiten $DATE" -- "$REPORT" || true
 
 # 5. Push en draft-PR als er werk is
 if [ -n "$(git log origin/main..HEAD --oneline)" ]; then
@@ -96,7 +97,7 @@ if [ -z "$BRIEF" ]; then
 fi
 set -e
 if [ -n "$(git status --porcelain ops/briefs)" ]; then
-  git add ops/briefs && git commit -m "docs(brief): $DATE" && git push origin "$BRANCH" || true
+  git add ops/briefs && git commit -m "docs(brief): $DATE" -- ops/briefs && git push origin "$BRANCH" || true
 fi
 if [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
   curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
