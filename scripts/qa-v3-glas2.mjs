@@ -1,19 +1,21 @@
-// BL-016 check (ops/contracts/BL-016.md). Scans every painted surface (not a fixed selector list), so a plate cannot
+// Glass check (BL-016 → BL-016b → BL-016d). Scans every painted surface (not a fixed selector list), so a plate cannot
 // escape the check by sitting in an unlisted element:
-//  1. every surface >= 12 000 px2 (buttons, images and the demo bar excluded) has a bottom alpha <= 0.45;
-//  2. ONE glass level (BL-016b): every surface and the sidebar's glass layer at top 0.66 / bottom 0.44 (+-0.02), and
-//     nothing paints behind the sidebar;
+//  1+2. ONE glass level (BL-016d): every surface >= 12 000 px2 (buttons, images, artwork, the demo bar, lesson feedback
+//       excluded) and the sidebar carry the token, white 60% flat (+-0.02); nothing paints behind the sidebar;
 //  3. text contrast >= 4.5:1 (3:1 for large text) against the rendered pixels, on BG-01/02/03;
-//  4. tint spread: mean Lab colour of each surface (text hidden) per background, max pairwise deltaE, averaged;
+//  4. tint spread: mean Lab colour of each surface (text hidden) per background, max pairwise deltaE, averaged (info);
 //  5. reduced transparency / more contrast: every one of those surfaces is opaque (alpha >= 0.95) without blur.
+//  Screens: Reis overview and chapter page, Oefenen, Toets, Beloningen, Voortgang, a lesson (start and after an answer).
 // Usage: node scripts/qa-v3-glas2.mjs [preview.html] [--json out.json]. Exit 1 on any failure in 1, 2, 3 or 5.
 import {createRequire} from 'module';
 import {resolve} from 'path';
 import {writeFileSync} from 'fs';
 const {chromium}=createRequire(import.meta.url)('playwright');
 const args=process.argv.slice(2),html=resolve(args[0]&&!args[0].startsWith('--')?args[0]:'output/html/TOPO-V3-Reis-Preview.html');
-const VIEWS=['reis','oefenen','toets','rewards','voortgang','les','les-antwoord'],BGS=['bg01','bg02','bg03'],SIZES=[[1440,900],[1080,810],[810,1080]];
+const VIEWS=['reis','reis-hoofdstuk','oefenen','toets','rewards','voortgang','les','les-antwoord'],BGS=['bg01','bg02','bg03'],SIZES=[[1440,900],[1080,810],[810,1080]];
 
+// BL-016d: ONE glass level = the token (white 60%, flat) on every panel (was a 66→44 fade in BL-016/016b).
+const GLAS=.60;
 const lum=([r,g,b])=>{const f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(r)+.7152*f(g)+.0722*f(b)};
 const ratio=(a,b)=>{const [x,y]=[lum(a),lum(b)].sort((p,q)=>q-p);return (x+.05)/(y+.05)};
 const lab=([r,g,b])=>{const f=c=>{c/=255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4};const [R,G,B]=[f(r),f(g),f(b)];
@@ -52,7 +54,7 @@ const SURFACES=()=>{
   const bb=getComputedStyle(document.body,'::before');const behindBody=bb.content!=='none'&&(alphas(bb.backgroundColor)[0]??0)>.001;
   sideInfo={top:g.length?g[0]:0,bottom:g.length?g[g.length-1]:1,behind:(host&&host.backgroundImage!=='none')?host.backgroundImage:behindBody?'body::before '+bb.backgroundColor:'none'};
   // BL-016c: on Reis the window (.v3Reis) IS the one glass and the sidebar has none of its own; check the window instead.
-  if(a.display==='none'&&host){const wg=alphas(host.backgroundImage);sideInfo={top:wg[0]??0,bottom:wg.length?wg[wg.length-1]:0,behind:behindBody?'body::before '+bb.backgroundColor:'none',venster:true}}}
+  if(a.display==='none'){const own=getComputedStyle(side);const og=alphas(own.backgroundImage);sideInfo={top:og[0]??0,bottom:og.length?og[og.length-1]:0,behind:(host&&host.backgroundImage!=='none')?host.backgroundImage:behindBody?'body::before '+bb.backgroundColor:'none'}}}
  // Sidebar glass is a panel too: drop its ::after from the list (checked via side).
  return {surfaces:out.filter(s=>!/v3Side::after|v3ShellNav::after/.test(s.id)),side:sideInfo};
 };
@@ -73,6 +75,7 @@ async function open(b,w,h,bg,v,reduced){
  if(v.startsWith('les')){await p.locator('.v3Main .v3Btn.primary').filter({visible:true}).first().click();await p.waitForTimeout(1300);
   // A state after an answer: reveal the answer (the feedback appears), so the lesson is not a sample of one.
   if(v==='les-antwoord'){const r=p.locator('#reveal').filter({visible:true});if(await r.count()){await r.first().click();await p.waitForTimeout(600)}}}
+ else if(v==='reis-hoofdstuk'){const g=p.locator('.v3BarGo').filter({visible:true});if(await g.count()){await g.first().click();await p.waitForTimeout(1200)}}
  else if(v!=='reis'){await p.locator(`[data-nav=${v}]`).filter({visible:true}).first().click();await p.waitForTimeout(700)}
  await p.evaluate(()=>document.activeElement?.blur?.());await p.mouse.move(1,1);await p.waitForTimeout(250);return p}
 async function pixels(b,w,h,png,boxes){const q=await b.newPage({viewport:{width:w,height:h}});
@@ -89,8 +92,8 @@ const b=await chromium.launch();const R={alpha:[],side:[],contrast:[],reduced:[]
 for(const [w,h] of SIZES)for(const bg of BGS)for(const v of VIEWS){
  const p=await open(b,w,h,bg,v,false);const s=await p.evaluate(SURFACES);const texts=await p.evaluate(TEXTS);
  if(!s.surfaces.length)R.empty.push({w,bg,v});
- for(const x of s.surfaces)R.alpha.push({w,bg,v,id:x.id,top:x.top,bottom:x.bottom,ok:x.bottom<=.45&&Math.abs(x.top-.66)<=.02&&Math.abs(x.bottom-.44)<=.02});
- if(s.side)R.side.push({w,bg,v,top:s.side.top,bottom:s.side.bottom,behind:s.side.behind,ok:Math.abs(s.side.top-.66)<=.02&&Math.abs(s.side.bottom-.44)<=.02&&s.side.behind==='none'});
+ for(const x of s.surfaces)R.alpha.push({w,bg,v,id:x.id,top:x.top,bottom:x.bottom,ok:Math.abs(x.top-GLAS)<=.02&&Math.abs(x.bottom-GLAS)<=.02});
+ if(s.side)R.side.push({w,bg,v,top:s.side.top,bottom:s.side.bottom,behind:s.side.behind,ok:Math.abs(s.side.top-GLAS)<=.02&&Math.abs(s.side.bottom-GLAS)<=.02&&s.side.behind==='none'});
  const shot=await p.screenshot();
  const bgs=await pixels(b,w,h,shot,texts.map(t=>({r:t.rect,tc:t.color})));
  texts.forEach((t,i)=>{const r=ratio(t.color,bgs[i]),need=(t.size>=24||(t.size>=18.66&&t.bold))?3:4.5;if(r<need)R.contrast.push({w,bg,v,t:t.t,size:t.size,ratio:+r.toFixed(2),need})});
