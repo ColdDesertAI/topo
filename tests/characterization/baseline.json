@@ -1,0 +1,36 @@
+{
+  "source": "8ad5002d525636423828374c7535ed69bcbd00f4",
+  "items_sha256": "59c4aadfa4ad3da20bca97ebbe9ad435c30090b890f628fba3027bd0adcaafd4",
+  "chapters_sha256": "5ec9fbb15d3fce7266de774c5afd7d4dd1cc2fd74c252bbd6cbe42e2cc7317a0",
+  "italy_sha256": "d0ae7bbf931af162143fb2b90d39c64aed1d3e01dd9bf627740659534070db31",
+  "context_sha256": "c81d76f51af4d019d5b0e60070f85d1f18ce8f9c17c8f93402fd890f9d08dad9",
+  "name_anchors_sha256": "83d7d603c81a0e2d0bc08fe01b888d275ff37e982a6d5b57715bc33e75414123",
+  "chapter_ids": [
+    "city1",
+    "city2",
+    "city3",
+    "city4",
+    "islands",
+    "mountains",
+    "volcanoes",
+    "regions",
+    "countries",
+    "seas",
+    "rivers"
+  ],
+  "chapter_sizes": [
+    6,
+    6,
+    6,
+    5,
+    2,
+    2,
+    2,
+    2,
+    7,
+    5,
+    2
+  ],
+  "reference_index_sha256": "3aced3c31259011b0af2947c78f71965cb4beb2e88c69d1663e61792b0304f5a",
+  "architecture_reference": "75263a72a4c629f6a6f4c82258ef0186716e081d:docs/v3/ARCHITECTUUR.md §2 stap 1"
+}

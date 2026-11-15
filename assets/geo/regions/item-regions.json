@@ -1,0 +1,250 @@
+[
+  {
+    "itemId": "city-1",
+    "regionId": "IT-75",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-2",
+    "regionId": "IT-45",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-3",
+    "regionId": "IT-52",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-4",
+    "regionId": "IT-42",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-5",
+    "regionId": "IT-25",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-6",
+    "regionId": "IT-72",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-7",
+    "regionId": "IT-82",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-8",
+    "regionId": "IT-52",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-9",
+    "regionId": "IT-62",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-10",
+    "regionId": "IT-21",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-11",
+    "regionId": "IT-34",
+    "status": "coastal-source-exception",
+    "reason": "Venice lies in a lagoon unresolved by the app 50m land mask; unchanged anchor is 2.54px from Veneto. Not strict containment."
+  },
+  {
+    "itemId": "city-12",
+    "regionId": "IT-34",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-13",
+    "regionId": "IT-25",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-14",
+    "regionId": "IT-88",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-15",
+    "regionId": "IT-82",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-16",
+    "regionId": "IT-78",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-17",
+    "regionId": "IT-75",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-18",
+    "regionId": "IT-42",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-19",
+    "regionId": "IT-82",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-20",
+    "regionId": "IT-45",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-21",
+    "regionId": "IT-65",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-22",
+    "regionId": "IT-32",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "city-23",
+    "regionId": "IT-36",
+    "status": "contained-anchor"
+  },
+  {
+    "itemId": "area-a",
+    "regionId": "IT-82",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "area-b",
+    "regionId": "IT-88",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "area-c",
+    "regionId": "IT-62",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "area-d",
+    "regionId": "IT-34",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "area-e",
+    "regionId": "IT-72",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "area-f",
+    "regionId": "IT-82",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "area-g",
+    "regionId": "IT-45",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "area-h",
+    "regionId": "IT-52",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "area-i",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Foreign country outside Italy."
+  },
+  {
+    "itemId": "area-j",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Foreign country outside Italy."
+  },
+  {
+    "itemId": "area-k",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Foreign country outside Italy."
+  },
+  {
+    "itemId": "area-l",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Foreign country outside Italy."
+  },
+  {
+    "itemId": "area-m",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Foreign country outside Italy."
+  },
+  {
+    "itemId": "area-n",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Independent sovereign microstate, not an Italian region."
+  },
+  {
+    "itemId": "area-o",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Independent sovereign microstate, not an Italian region."
+  },
+  {
+    "itemId": "water-A",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Sea outside administrative land regions."
+  },
+  {
+    "itemId": "water-B",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Sea outside administrative land regions."
+  },
+  {
+    "itemId": "water-C",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Sea outside administrative land regions."
+  },
+  {
+    "itemId": "water-D",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Sea outside administrative land regions."
+  },
+  {
+    "itemId": "water-E",
+    "regionId": null,
+    "status": "outside-italian-regions",
+    "reason": "Sea outside administrative land regions."
+  },
+  {
+    "itemId": "water-F",
+    "regionId": "IT-62",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  },
+  {
+    "itemId": "water-G",
+    "regionId": "IT-45",
+    "status": "contained-anchor",
+    "scope": "Existing label/teaching anchor only; not containment of the whole river or schematic zone."
+  }
+]
