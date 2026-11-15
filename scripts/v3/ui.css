@@ -57,7 +57,7 @@
 @media (min-width:1024px){
  /* The one glass, on the four panels. */
  .v3Reis>.v3Side,.v3Reis>.v3List,.v3Reis .v3Main>.v3Panel,.v3Reis .v3Counts{
-  background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand)!important;border:0!important;border-radius:var(--glas-radius)}
+  background:var(--glas-paneel)!important;-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur)!important;box-shadow:var(--glas-rand);border:0!important;border-radius:var(--glas-radius)}
  .v3Reis>.v3Side::after{display:none}
  /* Sidebar (render): logo with the flag stripe, Nino as a bust (~25%), nav, gear. */
  .v3Reis>.v3Side{grid-column:1;grid-row:1/-1;margin:0;padding:24px 16px 16px;gap:0}
@@ -65,10 +65,10 @@
  .v3Reis .v3Brand .v3Flag{box-shadow:inset 0 0 0 1px rgba(42,36,64,.12)}
  .v3Reis .v3Side .v3Portrait{width:100%;height:25%;max-height:none;margin:12px 0 8px;border-radius:0;background:none;overflow:hidden;display:block}
  .v3Reis .v3Side .v3Portrait img{width:100%;height:100%;margin:0;object-fit:cover;object-position:50% 12%}
- .v3Reis .v3Side .v3NavItem{min-height:44px;padding:0 12px;gap:12px;border-radius:12px;font:600 16px/1.2 var(--v3-font)!important;background:transparent}
+ .v3Reis .v3Side .v3NavItem{min-height:44px;padding:0 12px;gap:12px;border-radius:12px;font:600 16px/1.2 var(--v3-font);background:transparent}
  .v3Reis .v3Side .v3NavItem .v3Icon{width:20px;height:20px}
- .v3Reis .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft)!important;color:var(--v3-accent-press);font-weight:700}
- .v3Reis .v3Side .v3Settings{margin-top:auto;width:100%;padding:12px 12px 0!important;min-height:52px!important;border-top:1px solid rgba(42,36,64,.08);border-radius:0!important;justify-content:flex-start;background:transparent;box-shadow:none}
+ .v3Reis .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft);color:var(--v3-accent-press);font-weight:700}
+ .v3Reis .v3Side .v3Settings{margin-top:auto;width:100%;padding:12px 12px 0;min-height:52px;border-top:1px solid rgba(42,36,64,.08);border-radius:0;justify-content:flex-start;background:transparent;box-shadow:none}
 }
 
 /* === 3. Reis overview (BL-016b B/D, BL-014 map as largest element, BL-016d) === */
@@ -119,9 +119,9 @@
 }
 @media (min-width:1024px){
  .v3Reis[data-view=reis]{--zij:240px;--lijst:300px;--pad:20px;
-  grid-template-columns:var(--zij) var(--lijst) minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr) auto;column-gap:20px;row-gap:0;
+  grid-template-columns:var(--zij) var(--lijst) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;column-gap:20px;row-gap:0;
   background:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;border:0;border-radius:0;overflow:visible}
- .v3Reis[data-view=reis] :is(.v3Rows,.v3Top,.v3MapStage),.v3Reis[data-view=reis]>.v3Main{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none!important;box-shadow:none!important;border:0}
+ .v3Reis[data-view=reis] :is(.v3Rows,.v3Top,.v3MapStage),.v3Reis[data-view=reis]>.v3Main{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none!important;border:0}
  /* Chapter list panel: "Hoofdstukken" + 11 rows (16:9 thumbnail, name, progress bar, check/lock). */
  .v3Reis[data-view=reis]>.v3List{grid-column:2;grid-row:1/-1;display:flex;flex-direction:column;margin:0;padding:20px 12px 12px;min-height:0}
  .v3Reis[data-view=reis] .v3ScreenTitle{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
@@ -133,7 +133,7 @@
  .v3Reis[data-view=reis] .v3Rows .v3Row[aria-pressed=true]{background:var(--v3-accent-soft);box-shadow:none}
  /* The map lies free on the scene, full height of the content column; the chapter bar floats over its bottom
     (the map keeps that band free: --v3-card-over). */
- .v3Reis[data-view=reis] .v3Main>.v3MapStage{grid-column:3;grid-row:1/-1!important;margin:0!important;padding:0;position:relative;--v3-card-over:1;--v3-fit-right:0px;--v3-fit-top:60px}
+ .v3Reis[data-view=reis] .v3Main>.v3MapStage{grid-column:3;grid-row:1/-1;margin:0;padding:0;position:relative;--v3-card-over:1;--v3-fit-right:0px;--v3-fit-top:60px}
  .v3Reis[data-view=reis] .v3MapStage>.v3MapTools{position:absolute;top:0;left:0;z-index:3;display:flex;gap:8px}
  .v3Reis[data-view=reis] .v3MapStage>.v3MapTools>*{height:44px;min-height:44px;border-radius:12px;background:rgba(255,255,255,.85);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 4px 14px rgba(40,25,80,.12)}
  .v3Reis[data-view=reis] .v3Main>.v3Top{grid-column:3;grid-row:1;justify-self:end;align-self:start;margin:0;padding:0;z-index:3}
@@ -170,21 +170,21 @@
  /* Reis › Hoofdstuk: back button top-left, counters top-right; the map zoomed on this chapter's places (left);
     the chapter panel right: artwork 16:9 on top (never a portrait crop), HOOFDSTUK n, title, the three steps as
     rows, one primary button at the bottom. The list is not on this page. */
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk]{grid-template-columns:var(--zij) minmax(0,1fr) var(--hfd,380px)!important;grid-template-rows:auto minmax(0,1fr)!important;row-gap:16px!important}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk]>.v3List{display:none!important}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Top{grid-column:2/4!important;grid-row:1;justify-self:stretch!important;display:flex;justify-content:space-between;align-items:center}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk]{grid-template-columns:var(--zij) minmax(0,1fr) var(--hfd,380px)!important;grid-template-rows:auto minmax(0,1fr);row-gap:16px}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk]>.v3List{display:none}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Top{grid-column:2/4;grid-row:1;justify-self:stretch;display:flex;justify-content:space-between;align-items:center}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border-radius:12px;background:rgba(255,255,255,.85);box-shadow:0 4px 14px rgba(40,25,80,.12);font:600 16px/1 var(--v3-font);color:var(--v3-ink)}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Back .v3Icon{width:20px;height:20px}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:2!important;grid-row:2!important;--v3-card-over:0;--v3-fit-top:56px;--v3-fit-bottom:0px}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:2;grid-row:2!important;--v3-card-over:0;--v3-fit-top:56px;--v3-fit-bottom:0px}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3MapStage>.v3MapTools{top:0;left:auto;right:0}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Panel{grid-column:3;grid-row:2!important;align-self:stretch;display:flex!important;flex-direction:column;gap:14px;align-items:stretch;text-align:left;padding:16px 20px 20px!important;overflow:auto}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardScene{display:block!important;flex:none;width:100%;aspect-ratio:16/9;height:auto;border-radius:var(--glas-radius-kaart);box-shadow:none;margin:0}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Panel{grid-column:3;grid-row:2;align-self:stretch;display:flex;flex-direction:column;gap:14px;align-items:stretch;text-align:left;padding:16px 20px 20px!important;overflow:auto}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardScene{display:block;flex:none;width:100%;aspect-ratio:16/9;height:auto;border-radius:var(--glas-radius-kaart);box-shadow:none;margin:0}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardScene img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{margin:4px 0 -6px!important}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{display:block!important}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font:700 28px/34px var(--v3-font)!important}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{margin:4px 0 -6px}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{display:block}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font:700 28px/34px var(--v3-font)}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3StageBar,.v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel .v3Again{display:none}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3StepList{display:block!important;list-style:none;margin:0;padding:0}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3StepList{display:block;list-style:none;margin:0;padding:0}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3StepList>li{border-top:1px solid rgba(42,36,64,.08)}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3StepList>li:last-child{border-bottom:1px solid rgba(42,36,64,.08)}
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3StepRow{appearance:none;display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:0 4px;border:0;background:transparent;color:var(--v3-ink);font:500 16px/1.2 var(--v3-font);text-align:left;border-radius:0}
@@ -217,8 +217,8 @@
 @media (min-width:1024px){
  /* Chapter page: a wider panel (artwork ±420×236 on desktop), as tall as its content (no empty glass); one left line. */
  .v3Reis[data-view=reis][data-reis-page=hoofdstuk]{--hfd:470px}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Panel{align-self:start!important;max-height:100%}
- .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel :is(.v3Actions,.v3Locked){margin-top:6px!important}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Main>.v3Panel{align-self:start;max-height:100%}
+ .v3Reis[data-view=reis][data-reis-page=hoofdstuk] .v3Panel :is(.v3Actions,.v3Locked){margin-top:6px}
 }
 @media (min-width:1024px) and (max-width:1279px){.v3Reis[data-view=reis][data-reis-page=hoofdstuk]{--hfd:330px}}
 
@@ -233,7 +233,7 @@
 @media (min-width:1024px) and (max-width:1279px){.v3Reis{--pad:16px}}
 @media (min-width:1024px){
  /* 4. One radius (24), one inner padding (20; iPad 16), section labels 18/700 as on Reis, small chips radius 12. */
- .v3Reis :is(.v3OefPanel,.v3ToetsSetup,.v3Rewards .v3Book,.v3Rewards .v3Ride,.v3View-voortgang .v3Field.v3Card){border-radius:var(--glas-radius)!important}
+ .v3Reis :is(.v3OefPanel,.v3ToetsSetup,.v3Rewards .v3Book,.v3Rewards .v3Ride,.v3View-voortgang .v3Field.v3Card){border-radius:var(--glas-radius)}
  .v3Reis :is(.v3OefPanel,.v3ToetsSetup,.v3Rewards .v3Ride,.v3View-voortgang .v3Field.v3Card){padding:var(--pad,20px)}
  .v3Reis :is(.v3ToetsSetup,.v3OefPanel) .v3Field h2,.v3Reis .v3View-voortgang .v3Field.v3Card h2{font:700 18px/24px var(--v3-font);color:var(--v3-ink)}
 }
@@ -265,7 +265,7 @@
 @media (min-width:1024px){
  /* Beloningen: the four tiles as ONE strip (one glass, thin dividers); book and ride stay panels. */
  .v3Rewards .v3Tiles{background:var(--glas-paneel);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);box-shadow:var(--glas-rand);border-radius:var(--glas-radius);gap:0;overflow:hidden}
- .v3Rewards .v3Tiles>.v3Tile{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none!important;box-shadow:none!important;border-radius:0}
+ .v3Rewards .v3Tiles>.v3Tile{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none!important;border-radius:0}
  .v3Rewards .v3Tiles>.v3Tile+.v3Tile{border-left:1px solid rgba(42,36,64,.08)}
  /* 5. Beloningen: the title inside the book panel (the panels start level with the sidebar). */
  .v3Reis[data-view=rewards]>.v3Rewards{grid-template-rows:minmax(0,1fr) auto;row-gap:var(--gap,20px);column-gap:var(--gap,20px)}
@@ -285,16 +285,16 @@
  /* Voortgang: the three tiles as ONE strip; the map free (no gold rim, no panel); legend and the "Italië" label as
     white chips without blur. */
  .v3View-voortgang .v3VgRow{background:var(--glas-paneel);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);box-shadow:var(--glas-rand);border-radius:var(--glas-radius);column-gap:0;overflow:hidden}
- .v3View-voortgang .v3VgRow>.v3VgTile{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none!important;box-shadow:none!important;border-radius:0}
+ .v3View-voortgang .v3VgRow>.v3VgTile{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none!important;border-radius:0}
  .v3View-voortgang .v3VgRow>.v3VgTile+.v3VgTile{border-left:1px solid rgba(42,36,64,.08)}
  .v3View-voortgang .v3VgKaart,.v3Reis .v3View-voortgang .v3VgKaart.v3VgAllDone{background:none;box-shadow:none!important;outline:0;border:0;-webkit-backdrop-filter:none;backdrop-filter:none}
- .v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{background:rgba(255,255,255,.85)!important;-webkit-backdrop-filter:none;backdrop-filter:none!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
+ .v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{background:rgba(255,255,255,.85)!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
  /* 1. Voortgang: no leftover frame padding; gaps 20 (iPad 16) like Reis. */
  .v3Reis[data-view=voortgang]>.v3View-voortgang{padding:0;--v3-gut:var(--gap,20px)}
  .v3View-voortgang .v3VgOverview{gap:var(--gap,20px)}
  /* Title inside the head strip: the title bar is the panel, the counter inside it has no plate of its own. */
  .v3Reis .v3View-voortgang .v3VgTitleBar{background:var(--glas-paneel);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);box-shadow:var(--glas-rand);border-radius:var(--glas-radius);padding:14px 20px}
- .v3Reis .v3View-voortgang .v3VgTitleBar .v3VgHead{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none!important;box-shadow:none!important;padding:0}
+ .v3Reis .v3View-voortgang .v3VgTitleBar .v3VgHead{background:transparent!important;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none!important;padding:0}
  /* 2. The Voortgang map lies free: the neighbours fade out at the edges (no rectangle). */
  .v3View-voortgang .v3VgMap{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%),linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(180deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%),linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);mask-composite:intersect}
@@ -333,22 +333,22 @@
    does not fit there, so the rail keeps its compact form (evaluator BL-016 r3: TOPO overflowed the rail). */
 @media (min-width:768px) and (max-width:1023px){
  .v3Reis .v3Brand b{font-size:17px}
- .v3Reis .v3Side .v3Portrait{width:56px;height:56px;margin:4px auto;border-radius:50%;overflow:hidden;background:var(--v3-accent-soft)!important;justify-content:center}
+ .v3Reis .v3Side .v3Portrait{width:56px;height:56px;margin:4px auto;border-radius:50%;overflow:hidden;background:var(--v3-accent-soft);justify-content:center}
  .v3Reis .v3Side .v3Portrait img{height:100%;width:100%;margin:0;object-fit:cover;object-position:50% 20%}
  .v3Reis .v3Side .v3NavItem{justify-content:center;padding:0;width:52px;font-size:16px}
  .v3Reis .v3Side .v3Settings{justify-content:center;padding:12px 0 0}
 }
 /* iPad landscape: the sidebar as an icon rail; the list in one column (narrower). */
 @media (min-width:1024px) and (max-width:1279px){
- .v3Reis[data-view=reis]{--zij:72px;--lijst:250px;column-gap:16px!important}
- .v3Reis>.v3Side{padding:16px 10px 12px!important;align-items:center}
- .v3Reis .v3Brand b{font-size:15px!important}
- .v3Reis .v3Side .v3Portrait{width:48px!important;height:48px!important;margin:10px auto 6px!important;border-radius:14px!important}
- .v3Reis .v3Side .v3NavItem{width:48px!important;padding:0!important;justify-content:center}
+ .v3Reis[data-view=reis]{--zij:72px;--lijst:250px;column-gap:16px}
+ .v3Reis>.v3Side{padding:16px 10px 12px;align-items:center}
+ .v3Reis .v3Brand b{font-size:15px}
+ .v3Reis .v3Side .v3Portrait{width:48px;height:48px;margin:10px auto 6px;border-radius:14px}
+ .v3Reis .v3Side .v3NavItem{width:48px;padding:0;justify-content:center}
  .v3Reis .v3Side .v3NavItem span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
  .v3Reis .v3Side .v3Settings{justify-content:center;padding:10px 0 0!important}
- .v3Reis[data-view=reis] .v3Rows .v3Row{grid-template-columns:56px minmax(0,1fr) 20px!important;gap:10px!important;min-height:48px!important}
- .v3Reis[data-view=reis] .v3Rows .v3Thumb{width:56px!important;height:32px!important}
+ .v3Reis[data-view=reis] .v3Rows .v3Row{grid-template-columns:56px minmax(0,1fr) 20px;gap:10px;min-height:48px}
+ .v3Reis[data-view=reis] .v3Rows .v3Thumb{width:56px;height:32px}
  .v3Reis[data-view=reis] .v3Main>.v3Panel{column-gap:16px;padding:12px 12px 12px 18px!important}
  .v3Reis[data-view=reis] .v3Panel .v3Actions .v3Btn.primary{min-width:0}
 }
