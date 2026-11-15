@@ -22,10 +22,12 @@
  --v3-flag:linear-gradient(90deg,#1f8a4c 0 33.3%,#f4f1ea 0 66.6%,#c8382c 0);
  /* Glass (BL-016b): ONE level for every panel and the sidebar. Reference: the chapter list on Reis. Use these tokens;
     never a per-screen value. Checked by scripts/qa-v3-glas2.mjs. */
- --glas-boven:.66;--glas-onder:.44;
- --glas-paneel:linear-gradient(180deg,rgba(248,245,255,var(--glas-boven)) 0,rgba(248,245,255,var(--glas-onder)) 100%);
- --glas-blur:blur(26px) saturate(.8);
- --glas-rand:inset 0 0 0 1px rgba(255,255,255,.62),0 12px 32px rgba(42,36,64,.10);
+ --glas-boven:.60;--glas-onder:.60;
+ --glas-paneel:linear-gradient(rgba(255,255,255,var(--glas-boven)),rgba(255,255,255,var(--glas-onder)));
+ --glas-blur:blur(20px) saturate(1.6) brightness(1.06);
+ /* Rim (1 px white 70%), top highlight and soft shadow (BL-016d, Dennis 15-11 17:48). */
+ --glas-rand:inset 0 0 0 1px rgba(255,255,255,.70),inset 0 1px 0 rgba(255,255,255,.6),0 18px 50px rgba(40,25,80,.14);
+ --glas-radius:24px;--glas-radius-kaart:16px;
 }
 .v3{font:var(--v3-body);color:var(--v3-ink);-webkit-font-smoothing:antialiased}
 /* Italia (terracotta): kept for comparison in the preview (#…/italia). */

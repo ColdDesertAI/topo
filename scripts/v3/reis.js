@@ -195,8 +195,9 @@
     // beyond the data): the fade reaches zero at that box's edges, so nothing ends in a straight cut. A panel laid
     // over the map's bottom (Reis, afwerking 10-11) reserves --v3-fit-bottom px: Italy fits in the box above it.
     const r=svg.getBoundingClientRect(),fr=svg.querySelector('.v3FadeRect'),mk=fr?.parentNode,res=Math.min(r.height*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-bottom'))||0),
-     resR=Math.min(r.width*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-right'))||0); // BL-016b: a card over the map's right side
-    if(r.width&&r.height){const w=x1-x0,h=y1-y0,k=Math.max(w/(r.width-resR),h/(r.height-res)),bw=r.width*k,bh=r.height*k,bx=x0-((r.width-resR)*k-w)/2,by=y0-((r.height-res)*k-h)/2;
+     resR=Math.min(r.width*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-right'))||0), // BL-016b: a card over the map's right side
+     resT=Math.min(r.height*.3,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-top'))||0); // BL-016d: tools over the map's top
+    if(r.width&&r.height){const w=x1-x0,h=y1-y0,k=Math.max(w/(r.width-resR),h/(r.height-res-resT)),bw=r.width*k,bh=r.height*k,bx=x0-((r.width-resR)*k-w)/2,by=y0-resT*k-((r.height-res-resT)*k-h)/2;
      const box=v=>{svg._v3Shown=v;svg.setAttribute('viewBox',v.map(n=>Math.round(n*10)/10).join(' '));if(fr)for(const n of [fr,mk])['x','y','width','height'].forEach((a,i)=>n.setAttribute(a,v[i]));};
      const settle=()=>{box([bx,by,bw,bh]);
       // The land's drop shadow in screen px (afwerking 10-11: 0 18px 24px rgba(42,36,64,.28)), in map units.
