@@ -284,6 +284,9 @@
  .v3Reis[data-view=voortgang]>.v3View-voortgang{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
 }
 @media (min-width:1024px){
+ /* Sections below the overview: white surfaces without blur, so at most 4 blurred panels are on screen at any scroll
+    position (evaluator BL-016e). */
+ .v3Reis[data-view=voortgang]>.v3View-voortgang>.v3Field.v3Card{background:rgba(255,255,255,.85)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
  /* Voortgang: the three tiles as ONE strip; the map free (no gold rim, no panel); legend and the "Italië" label as
     white chips without blur. */
  .v3View-voortgang .v3VgRow{background:var(--glas-paneel);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);box-shadow:var(--glas-rand);border-radius:var(--glas-radius);column-gap:0;overflow:hidden}
@@ -312,8 +315,9 @@
 @media (min-width:768px){
  body.v3Les:not([data-focus-shell=true]) .v3LesBar :is(.v3LesBar){background:transparent!important}
  /* Focus Mode map tools: no plate behind the chips (they carry their own background). */
- body.v3Les .focusCameraTools{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
- body.v3Les .v3LesSteps{background:transparent}
+ /* !important stays: an older lesson layer wins above ~1280 px otherwise (evaluator BL-023). */
+ body.v3Les .focusCameraTools{background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
+ body.v3Les .v3LesSteps{background:transparent!important}
 }
 
 /* === 10. Map (BL-014: pins, badge, coast rim) === */
@@ -367,13 +371,6 @@
 }
 @media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
  .v3Reis>.v3Side,.v3Reis>.v3List,.v3Reis .v3Main>.v3Panel,.v3Reis .v3Counts,.v3Reis[data-view=reis]>.v3List,.v3Rewards .v3Tiles,.v3View-voortgang .v3VgRow{background:var(--v3-surface);-webkit-backdrop-filter:none;backdrop-filter:none}
- .v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{background:var(--v3-surface)!important}
-}
-/* Voortgang (evaluator BL-016e): the sections below the overview are white chip surfaces without blur, so at most
-   4 blurred panels are on screen at any scroll position. */
-@media (min-width:1024px){
- .v3Reis[data-view=voortgang]>.v3View-voortgang>.v3Field.v3Card{background:rgba(255,255,255,.85)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
-}
-@media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
  .v3Reis[data-view=voortgang]>.v3View-voortgang>.v3Field.v3Card{background:var(--v3-surface)!important}
+ .v3Reis .v3View-voortgang .v3VgLegend,.v3Reis .v3View-voortgang .v3VgKaartTitle{background:var(--v3-surface)!important}
 }
