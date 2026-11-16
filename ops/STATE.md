@@ -20,7 +20,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 
 ## Volgende taak
 Nacht 16-11: BL-008 + BL-008b speeltest-protocol in `review` (`ops/playbooks/SPEELTEST.md`, beide PASS met voorbehoud). Vóór BL-010: Dennis bevestigt het Safari-wispad op de iPad 9. BL-001b/BL-002 in review (PR #101).
-Kritieke route M0 hangt aan gates: BL-004 (G3, Hermes) → BL-005b → BL-006, plus iPad-test Dennis. Backlog-rijen BL-007/FR-01/BL-019 staan al op `main`; status door Dennis te bevestigen. Schijf: 3,3 GB vrij (16-11)
+Kritieke route M0: BL-004a iPad-checklist in `review` (`ops/playbooks/IPAD_TEST.md`; BL-004b-rest vóór de test). Daarna BL-004 (G3, Hermes) → BL-005b → BL-006. BL-007/FR-01/BL-019 staan al op `main`; status door Dennis te bevestigen. Schijf: ~2,4 GB vrij (16-11)
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO
