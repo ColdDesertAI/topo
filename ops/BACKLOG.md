@@ -49,3 +49,5 @@ Regels:
 | BL-028 | Toets geeft geen pizzapunten, ritten of goud; dagdoel telt wel (ARCHITECTUUR §1; gevonden door evaluator BL-004b, nacht 16-11) | M0 | P0 | XS | klaar (PASS 16-11) | hoofdsessie | `ops/contracts/BL-028.md` |
 | BL-029 | V3-compositie volgens render Menu 1: één werkruimte met horizontaal verloop, vaste zijbalk, één kaart (hoofdstukken), vrij blok actief hoofdstuk; terugval Menu 2 (Dennis 16-11) | M0 | P0 | M | bezig | hoofdsessie | `ops/contracts/BL-029.md` |
 | BL-030 | Nazorg BL-028: dubbele toets-beveiliging in `scripts/v3/toets.js` r101–103 laten staan of opruimen (besluit vastleggen); `restoreExamReward` assert op precies één treffer; exam-flow ook voor aanwijzen (evaluator 16-11) | M1 | P2 | XS | idee | builder | — |
+| BL-031 | Schermwissel sneller: de kaartkopie voor Oefenen/Voortgang één keer bouwen en hergebruiken (nu één frame van 1,1–1,8 s bij CPU 4×; ≥ 50 fps bij schermwissel, BL-029 crit. 4) | M0 | P1 | S | idee (BL-029 16-11) | builder | — |
+| BL-032 | 2560 breed: de Menu 1-opbouw schaalt niet mee (alles op 1440-maat, veel lege scène); schaal kolommen/typografie vanaf 1920 | M1 | P2 | S | idee (BL-029 16-11) | hoofdsessie | — |

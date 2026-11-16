@@ -89,7 +89,9 @@
   for(const r of results){const li=make('li');li.append(make('span','v3VgDate',fmt(r.at)),make('span','v3VgOnderwerp',r.chapters.length===ROUTE_CHAPTERS.length?'Alles':r.chapters.map(id=>ROUTE_CHAPTERS.find(c=>c.id===id)?.title).join(', ')),make('strong',null,r.correct+' / '+r.total));rl.append(li);}
   const toetsen=results.length?rl:make('p','v3VgEmpty','Nog geen toetsen.');
 
-  const pass=make('div','v3VgPaspoort');if(mastery){pass.append(mastery);}
+  const pass=make('div','v3VgPaspoort');if(mastery){pass.append(mastery);
+   // BL-029: passport() opens it to read its table; on screen the paspoort starts closed (the child opens it).
+   mastery.open=false;}
 
   // Raster (12 kolommen): titelbalk; kaartkaart 1–7 en hoofdstukken 8–12; Dagdoel, Pizza's en Vespa-ritten; Toetsen; paspoort.
   const side=make('div','v3VgSide');side.append(section('Hoofdstukken','v3VgHoofdstukken',list));

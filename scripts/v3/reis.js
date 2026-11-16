@@ -438,7 +438,7 @@
   // Backdrop: BG-03 (BG-01/BG-02 in the preview), full-bleed behind the window; the V2 panorama only as fallback.
   const pano=V3ART?.bg?.[window.TOPO_V3_BG||'bg03']||V3ART?.bg?.bg03||$('.routeScene img')?.currentSrc||$('.routeScene img')?.src;
   if(V3ART?.bg)background();else if(pano)document.body.style.setProperty('--v3-pano','url("'+pano+'")');
-  root.dataset.menu=MENU;root.dataset.view=views[ui.view]?ui.view:'reis';root.dataset.kaart=ui.kaart;root.dataset.reisPage=ui.page;
+  root.dataset.menu=MENU;document.body.dataset.v3Menu=MENU;root.dataset.view=views[ui.view]?ui.view:'reis';root.dataset.kaart=ui.kaart;root.dataset.reisPage=ui.page;
   markNav(root);
   renderTop(m);renderRows(m);renderPanel(m,c);renderSwitch();paintMap(c);renderRewards(m);
   if(renderers[root.dataset.view])try{renderers[root.dataset.view](views[root.dataset.view],m);}catch(e){console.error('V3 view',e);}
