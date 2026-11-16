@@ -27,6 +27,9 @@ const FREE={overzicht:['#v3ListTitle','.v3Panel .v3CardKicker','.v3Panel .v3Card
  oefenen:['.v3OefPanel>.v3ScreenTitle'],toets:['.v3ToetsSetup>.v3ScreenTitle'],
  rewards:['.v3Rewards>.v3ScreenTitle','.v3Ride>b','.v3Ride>span'],
  voortgang:['.v3VgSide .v3Card>h2','.v3VgTitleBar>h1','.v3VgCount strong','.v3VgCount span']};
+// Measured on every screen as well: the sidebar labels and the counters.
+const ALWAYS=['.v3Side .v3NavItem>span','.v3Counts .v3Count>b'];
+const RESULT=['#finishScreen h2','#finishScreen p','#finishScreen .finishStats *','#finishScreen button'];
 const fails=[];const fail=(where,what)=>{fails.push(where+': '+what);};
 
 async function open(b,W,H,bg){
@@ -39,7 +42,7 @@ async function show(p,screen){
  else await p.locator(`.v3Side [data-nav=${screen}]`).filter({visible:true}).first().click();
  await p.waitForTimeout(900);
 }
-// Layout facts inside the page.
+// Layout facts inside the page. Overlap: text, buttons and the chapter markers on the map against each other.
 const probe=()=>{
  const vis=e=>{const r=e.getBoundingClientRect();if(r.width<2||r.height<2)return false;const c=getComputedStyle(e);if(c.visibility==='hidden'||+c.opacity===0)return false;
   for(let a=e;a;a=a.parentElement){const s=getComputedStyle(a);if(s.display==='none')return false;if(s.clip&&s.clip!=='auto'&&a.getBoundingClientRect().width<=1)return false;}
@@ -55,6 +58,7 @@ const probe=()=>{
   r=r?{left:Math.min(r.left,q.left),top:Math.min(r.top,q.top),right:Math.max(r.right,q.right),bottom:Math.max(r.bottom,q.bottom)}:{left:q.left,top:q.top,right:q.right,bottom:q.bottom};}
   if(r)boxes.push({e,r,t:e.textContent.trim().slice(0,18)});}
  for(const e of buttons){const r=e.getBoundingClientRect();boxes.push({e,r,t:'['+e.textContent.trim().slice(0,14)+']',btn:true});}
+ for(const c of scope.querySelectorAll('.v3Markers .v3Marker circle')){if(!vis(c))continue;boxes.push({e:c,r:c.getBoundingClientRect(),t:'marker '+(c.parentNode.textContent||'').trim()});}
  const over=[];for(let i=0;i<boxes.length;i++)for(let j=i+1;j<boxes.length;j++){const a=boxes[i],b=boxes[j];if(a.e.contains(b.e)||b.e.contains(a.e))continue;
   const x=Math.min(a.r.right,b.r.right)-Math.max(a.r.left,b.r.left),y=Math.min(a.r.bottom,b.r.bottom)-Math.max(a.r.top,b.r.top);
   if(x>2&&y>2&&!(a.btn&&b.btn&&a.e.parentElement===b.e.parentElement&&false))over.push(a.t+' × '+b.t+' ('+Math.round(x)+'×'+Math.round(y)+')');}
@@ -62,42 +66,58 @@ const probe=()=>{
  // Blur: elements and their ::before/::after with a backdrop-filter, visible on screen.
  let blur=0;const blurred=[];for(const e of document.querySelectorAll('body *')){if(!vis(e))continue;for(const ps of [null,'::before','::after']){const c=getComputedStyle(e,ps);
   if(ps&&(c.content==='none'||c.display==='none'))continue;const f=c.backdropFilter||c.webkitBackdropFilter;if(f&&f!=='none'){blur++;blurred.push((e.className||e.tagName)+(ps||''));}}}
- const portrait=document.querySelector('.v3Reis .v3Side .v3Portrait,body.v3Les .v3ShellNav .v3Portrait');const pr=portrait&&vis(portrait)?portrait.getBoundingClientRect():null;
+ const portrait=[...document.querySelectorAll('.v3Reis .v3Side .v3Portrait,.v3ShellNav .v3Portrait')].find(vis);const pr=portrait?portrait.getBoundingClientRect():null;
  const pas=document.querySelector('.v3View-voortgang details.mastery');
  return {small,lowBtn,over,wide,blur,blurred,nino:pr?Math.round(pr.width)+'×'+Math.round(pr.height):null,paspoortOpen:pas?pas.open:null};
 };
-// Contrast of free text against the real backdrop: hide the text, screenshot, read the pixels under each text box.
+// Contrast, two ways per text box:
+//   p5   backdrop: the text hidden, the pixels under it against the text colour (5th percentile);
+//   ink  what is really drawn: the shown screenshot against the hidden one (98th percentile of the per-pixel ratio),
+//        so a layer lying OVER the text (evaluator BL-029: the workspace over the lesson result) fails as well.
 async function contrast(p,sels){
- const info=await p.evaluate(sels=>sels.flatMap(s=>[...document.querySelectorAll(s)].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').map(e=>{
+ // Visually hidden text (sr-only: clipped to 1 px, e.g. the rail labels on iPad) is not measured.
+ const info=await p.evaluate(sels=>sels.flatMap(s=>[...document.querySelectorAll(s)].filter(e=>{if(!e.getClientRects().length||getComputedStyle(e).visibility==='hidden')return false;const b=e.getBoundingClientRect();if(b.width<=2||b.height<=2)return false;
+  for(let a=e;a;a=a.parentElement){const c=getComputedStyle(a);if(c.display==='none'||(c.clip&&c.clip!=='auto'))return false;}return true;}).map(e=>{
   const rg=document.createRange();rg.selectNodeContents(e);const r=rg.getBoundingClientRect(),c=getComputedStyle(e);
   return {s,r:[r.x,r.y,r.width,r.height],color:c.color,size:parseFloat(c.fontSize),weight:+c.fontWeight};})).filter(t=>t.r[2]>1&&t.r[3]>1),sels);
  if(!info.length)return [];
+ const shown=(await p.screenshot()).toString('base64');
  const tag=await p.addStyleTag({content:sels.join(',')+'{color:transparent!important;-webkit-text-fill-color:transparent!important}'+sels.map(s=>s+' *').join(',')+'{color:transparent!important;-webkit-text-fill-color:transparent!important}'});
  await p.waitForTimeout(120);const png=(await p.screenshot()).toString('base64');
  await tag.evaluate(n=>n.remove());
- return p.evaluate(async([png,info])=>{const img=new Image();img.src='data:image/png;base64,'+png;await img.decode();
-  const cv=document.createElement('canvas');cv.width=img.width;cv.height=img.height;const g=cv.getContext('2d');g.drawImage(img,0,0);const k=img.width/innerWidth;
+ return p.evaluate(async([png,shown,info])=>{const load=async src=>{const img=new Image();img.src='data:image/png;base64,'+src;await img.decode();
+   const cv=document.createElement('canvas');cv.width=img.width;cv.height=img.height;const g=cv.getContext('2d');g.drawImage(img,0,0);return {cv,g};};
+  const {cv,g}=await load(png),S=await load(shown);const k=cv.width/innerWidth;
   const lin=v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;},L=(r,gg,b)=>.2126*lin(r)+.7152*lin(gg)+.0722*lin(b);
   return info.map(t=>{const m=t.color.match(/[\d.]+/g).map(Number),fg=L(m[0],m[1],m[2]);const [x,y,w,h]=t.r.map(v=>Math.round(v*k));
    const d=g.getImageData(Math.max(0,x),Math.max(0,y),Math.max(1,Math.min(w,cv.width-x)),Math.max(1,Math.min(h,cv.height-y))).data;const cr=[];
+   const ds=S.g.getImageData(Math.max(0,x),Math.max(0,y),Math.max(1,Math.min(w,cv.width-x)),Math.max(1,Math.min(h,cv.height-y))).data;const ink=[];
    for(let i=0;i<d.length;i+=4*3){const bl=L(d[i],d[i+1],d[i+2]);cr.push((Math.max(fg,bl)+.05)/(Math.min(fg,bl)+.05));}
-   cr.sort((a,b)=>a-b);const large=t.size>=24||(t.size>=18.66&&t.weight>=700);return {s:t.s,p5:+cr[Math.floor(cr.length/20)].toFixed(2),need:large?3:4.5};});},[png,info]);
+   for(let i=0;i<d.length;i+=4){const a=L(d[i],d[i+1],d[i+2]),bb=L(ds[i],ds[i+1],ds[i+2]);ink.push((Math.max(a,bb)+.05)/(Math.min(a,bb)+.05));}
+   cr.sort((a,b)=>a-b);ink.sort((a,b)=>a-b);const large=t.size>=24||(t.size>=18.66&&t.weight>=700);
+   return {s:t.s,p5:+cr[Math.floor(cr.length/20)].toFixed(2),ink:+ink[Math.floor(ink.length*.98)].toFixed(2),need:large?3:4.5};});},[png,shown,info]);
 }
 async function lessonResult(b,W,H){
  const {p,errors}=await open(b,W,H,'bg03');
  await p.locator('.v3Panel .v3Actions .v3Btn.primary').filter({visible:true}).first().click();await p.waitForTimeout(900);
+ const where=`les-resultaat ${W}×${H}`;
+ // Blur during a lesson question (≤ 3); Nino the same size as on the other screens.
+ const q=await p.evaluate(probe);if(q.blur>3)fail(`les-vraag ${W}×${H}`,'blur op '+q.blur+': '+q.blurred.join(', '));
+ if(q.nino!==(W<1280?'60×64':'184×200'))fail(`les-vraag ${W}×${H}`,'Nino '+q.nino);
  for(let i=0;i<80;i++){if(await p.locator('#finishScreen').count())break;
   await p.evaluate(()=>{try{grade(true);}catch{}try{next();}catch{}});await p.waitForTimeout(40);}
  await p.waitForTimeout(700);
+ // Blur with the reward modal open (≤ 3).
+ const m=await p.evaluate(probe);if(m.blur>3)fail(where+' (modal)','blur op '+m.blur+': '+m.blurred.join(', '));
  // A reward modal (pizza, Vespa) may sit on top of the result: close it the way a child would, then measure the result.
  for(let i=0;i<4;i++){const d=p.locator('dialog[open] button,[role=dialog]:not([hidden]) button').filter({visible:true});if(!await d.count())break;await d.last().click().catch(()=>{});await p.waitForTimeout(600);}
  const has=await p.locator('#finishScreen').count();const r=has?await p.evaluate(probe):null;
- const where=`les-resultaat ${W}×${H}`;
  if(!has)fail(where,'lesresultaat niet bereikt');
  else{if(r.over.length)fail(where,'overlap: '+r.over.slice(0,4).join('; '));if(r.wide)fail(where,'breder dan het scherm');if(r.small.length)fail(where,'tekst < 13 px: '+r.small.slice(0,3).join('; '));}
+ if(has){const aa=await contrast(p,RESULT);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}}
  if(errors.length)fail(where,'page errors: '+errors.join(' | '));
  if(has)await p.screenshot({path:join(OUT,`qa-menu1-lesresultaat-${W}.png`)}).catch(()=>{});
- console.log(where,has?JSON.stringify({over:r.over.length,blur:r.blur,nino:r.nino}):'—');
+ console.log(where,has?JSON.stringify({over:r.over.length,blurVraag:q.blur,blurModal:m.blur,blur:r.blur,nino:r.nino,ninoVraag:q.nino}):'—');
  await p.close();return r;
 }
 async function fps(b){
@@ -105,10 +125,11 @@ async function fps(b){
  await p.goto(HTML+'#alles/bg03');await p.waitForTimeout(1500);await c.send('Emulation.setCPUThrottlingRate',{rate:4});await p.waitForTimeout(300);
  const meter=async(action,ms=1800)=>{await p.evaluate(()=>{window.__f=[];let l=performance.now();const t=n=>{window.__f.push(n-l);l=n;if(!window.__stop)requestAnimationFrame(t)};window.__stop=false;requestAnimationFrame(t)});
   await action();await p.waitForTimeout(ms);
-  return p.evaluate(()=>{window.__stop=true;const f=window.__f.slice(2);const tot=f.reduce((a,b)=>a+b,0);const s=[...f].sort((a,b)=>a-b);return {fps:+(1000*f.length/tot).toFixed(1),p95ms:+(s[Math.floor(s.length*.95)]||0).toFixed(1)}})};
+  return p.evaluate(()=>{window.__stop=true;const f=window.__f.slice(2);const tot=f.reduce((a,b)=>a+b,0);const s=[...f].sort((a,b)=>a-b);
+   const rest=s.slice(0,-1),tr=rest.reduce((a,b)=>a+b,0);
+   return {fps:+(1000*f.length/tot).toFixed(1),p95ms:+(s[Math.floor(s.length*.95)]||0).toFixed(1),longestMs:Math.round(s.at(-1)||0),over33:f.filter(x=>x>33.4).length,fpsWithoutLongest:+(1000*rest.length/tr).toFixed(1)}})};
  const out={};
- const box=await p.locator('.v3Rows').boundingBox();
- out.lijstScroll=await meter(async()=>{await p.mouse.move(box.x+box.width/2,box.y+200);for(let i=0;i<10;i++){await p.mouse.wheel(0,120);await p.waitForTimeout(80);}});
+ // (The chapter list does not scroll at 1080×810: all 11 rows fit; Voortgang is the screen that scrolls.)
  out.naarHoofdstuk=await meter(async()=>{await p.locator('.v3Rows .v3Row').nth(1).click();});
  for(const v of ['oefenen','toets','rewards','voortgang'])out['naar '+v]=await meter(async()=>{await p.locator(`.v3Side [data-nav=${v}]`).filter({visible:true}).first().click();},1500);
  const vb=await p.locator('.v3View-voortgang').boundingBox();
@@ -132,7 +153,7 @@ for(const [W,H] of SIZES)for(const bg of BGS){
   if(r.blur>3)fail(where,'blur op '+r.blur+' elementen: '+r.blurred.join(', '));
   const wc=W<1280?'ipad':'desktop';(nino[wc]??=new Set()).add(r.nino);
   if(screen==='voortgang'&&r.paspoortOpen!==false)fail(where,'Kennis-paspoort niet ingeklapt');
-  const aa=await contrast(p,FREE[screen]||[]);for(const t of aa)if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);
+  const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}
   table.push({where,blur:r.blur,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
  }
  if(errors.length)fail(`${W}×${H} ${bg}`,'page errors: '+errors.join(' | '));

@@ -17,9 +17,9 @@
   background:none;box-shadow:none;border:0;border-radius:0}
  .v3Reis[data-menu="1"]:not([data-view=reis]){grid-template-columns:var(--zij) minmax(0,1fr)}
  /* Workspace: one layer from the sidebar to the right edge. No border, no shadow. */
- .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:0;pointer-events:none;
+ .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:calc((100% - var(--zij)) * .28);pointer-events:none;
   background:rgba(252,250,246,.72);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.5) 48%,transparent 72%);mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.5) 48%,transparent 72%)}
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%)}
  .v3Reis[data-menu="1"]>*{position:relative;z-index:1}
  /* No glass anywhere else: the old panel glass and blur step aside on every screen. */
  .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup,.v3Book,.v3Ride,.v3Tiles,.v3Tile,.v3VgTitleBar,.v3VgRow,.v3VgTile,.v3VgHead,.v3VgLegend,.v3Field.v3Card,.v3Top,.v3Panel,.v3Rows,.v3MapStage),
@@ -32,7 +32,7 @@
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  .v3Reis[data-menu="1"]>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
   background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 62%,transparent 92%);mask-image:linear-gradient(to bottom,#000 0%,#000 62%,transparent 92%)}
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 190px),transparent calc(100% - 40px));mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 190px),transparent calc(100% - 40px))}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand{align-items:center}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand b{font:800 36px/1 var(--v3-font);letter-spacing:.02em}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand .v3Flag{width:64px;height:6px}
@@ -93,7 +93,7 @@
  .v3Reis[data-menu="1"][data-view=reis] .v3MapStage>.v3MapTools{position:absolute;top:auto;bottom:24px;left:0;z-index:3;display:flex;gap:8px}
  .v3Reis[data-menu="1"] .v3Switch{padding:0!important;align-items:stretch}
  .v3Reis[data-menu="1"] .v3Switch .v3Btn{height:44px!important;min-height:44px!important;padding:0 14px;border-radius:999px}
- .v3Reis[data-menu="1"] .v3MapTools>*{height:44px;min-height:44px;border-radius:999px;background:rgba(255,255,255,.9)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 4px 14px rgba(40,25,80,.12)}
+ .v3Reis[data-menu="1"] .v3MapTools>*{height:44px;min-height:44px;border-radius:999px;background:#fff!important;outline:1px solid rgba(42,36,64,.08);-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 4px 14px rgba(40,25,80,.12)}
  /* Chapter markers: white circle 36 px with the number, the selected one filled violet. */
  .v3Map .v3Markers .v3Marker{cursor:pointer}
  .v3Map .v3Markers .v3Marker circle{fill:#fff;stroke:rgba(42,36,64,.10);stroke-width:1;filter:drop-shadow(0 3px 6px rgba(40,25,80,.22))}
@@ -132,7 +132,7 @@
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{display:inline-flex;align-items:center;gap:8px;height:44px;min-height:44px;padding:0 16px 0 12px;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12);font:600 16px/1 var(--v3-font)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3MapTools{position:static;display:flex;gap:8px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Counts{grid-column:3/5;grid-row:1;justify-self:end;align-self:start;margin:24px 28px 0 0;position:relative;z-index:3}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:3/5;grid-row:1/-1;margin:0;padding:0;--v3-card-over:0;--v3-fit-top:96px;--v3-fit-right:0px;--v3-fit-bottom:84px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:3/5;grid-row:1/-1;margin:0;padding:0;--v3-card-over:0;--v3-fit-top:24px;--v3-fit-right:0px;--v3-fit-bottom:24px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList{grid-column:2;grid-row:2/-1;z-index:1;align-self:start;position:relative;list-style:none;margin:62px 32px 0 24px!important;padding:8px;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);display:block!important}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList::before{content:"Lessen";position:absolute;left:4px;top:-30px;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li{margin:0;padding:0}
@@ -147,7 +147,7 @@
  /* The artwork under the lessons card (3 rows of 56 px + padding), in its own layer above the workspace. */
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene{grid-column:2;grid-row:2/-1;position:relative;z-index:1;align-self:start;justify-self:stretch;width:auto!important;max-width:none;margin:calc(62px + 3*56px + 16px + 24px) 32px 0 24px!important;aspect-ratio:16/9;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px rgba(40,25,80,.22);display:block!important}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-column:4;grid-row:2;align-self:start;margin:calc(16vh - 80px) 40px 12px 8px!important;position:relative;z-index:2}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-column:4;grid-row:2;align-self:start;margin:16vh 40px 12px 8px!important;position:relative;z-index:3}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{grid-column:4;grid-row:3;z-index:2;margin:0 40px 0 8px;position:relative;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;height:auto!important;align-items:flex-start!important;gap:18px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font-size:52px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions{grid-column:4;grid-row:4;z-index:2;margin:28px 40px 0 8px!important;align-self:start;justify-self:start;width:auto!important}
@@ -181,7 +181,8 @@
   border:0!important;border-radius:12px;background:transparent!important;box-shadow:none!important;text-align:left}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile+.v3Tile{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)!important;border-radius:0}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile::before,.v3Reis[data-menu="1"] .v3Rewards .v3Tile::after{display:none!important}
- .v3Reis[data-menu="1"] .v3Rewards .v3Tile>*{align-self:center!important;margin-top:0!important;margin-bottom:0!important;line-height:1.2}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile{grid-template-rows:auto!important;grid-auto-rows:0!important;row-gap:0!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile>*{grid-row:1!important;align-self:center!important;margin-top:0!important;margin-bottom:0!important;line-height:1.2}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile .v3TileIcon{grid-area:icon;width:44px;height:44px;margin:0;object-fit:contain}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile>span{grid-area:label;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);margin:0;text-align:left;justify-self:start}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile>b{grid-area:value;font:700 20px/1 var(--v3-font);color:var(--v3-ink);margin:0}
@@ -242,22 +243,27 @@
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .v3ShellNav{top:var(--v3-bar,0px)!important;left:0!important;bottom:0!important;width:256px!important;margin:0;border:0!important;border-radius:0!important;
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav::after,body.v3Les[data-v3-menu="1"] .v3ShellNav::before{display:none!important}
+ /* Lesson panels as Menu 1 cards: white, no blur (sidebar + workspace are the only blurs). */
+ body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter,.finishScreen,.atlasZoom,.atlasZoom *){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter){background:rgba(255,255,255,.94)!important}
+ /* The result card starts below the lesson bar (it lay 112 px under it, also in Menu 2). */
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .layout.finishLayout #finishScreen{margin-top:calc(var(--v3-lesbar-h,136px) + var(--v3-gut,24px))}
  /* No window frame around the lesson (glas.css body::after): one workspace, no frame. */
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::after{display:none!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side{position:relative;isolation:isolate;height:100%;width:100%;margin:0;border-radius:0;padding:28px 20px 22px;box-sizing:border-box;
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
   background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 62%,transparent 92%);mask-image:linear-gradient(to bottom,#000 0%,#000 62%,transparent 92%)}
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:0;top:var(--v3-bar,0px);bottom:0;left:256px;right:0;width:auto;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 190px),transparent calc(100% - 40px));mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 190px),transparent calc(100% - 40px))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:calc((100vw - 256px) * .28);width:auto;pointer-events:none;
   background:rgba(252,250,246,.72);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.5) 48%,transparent 72%);mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.5) 48%,transparent 72%)}
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%)}
 }
 @media (min-width:1024px) and (max-width:1279px){
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(84px - var(--v3-frame-m));--v3-side:calc(84px - var(--v3-frame-m))}
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .v3ShellNav{width:84px!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side{padding:20px 10px 16px}
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:84px}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:84px;right:calc((100vw - 84px) * .28)}
 }
 
 /* === 10. iPad landscape (1024–1279): the sidebar as an icon rail; same layers; narrower card column. === */

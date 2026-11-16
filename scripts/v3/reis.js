@@ -124,7 +124,7 @@
   mapClone.dataset.focus=c&&!m1Overview()?(c.itemIds[0]?.startsWith('city')?'points':'areas'):'';
   // Ronde 5 punt 1: two fixed frames, one scale. Italy (with Sicily and Sardinia) for every chapter; only the chapters
   // whose items lie beyond Italy (OMGEVING: Landen, Zeeën) zoom out to "Italië en omgeving".
-  mapClone.dataset.frame=m1Overview()?'italy':c&&OMGEVING.includes(c.id)?'omgeving':ui.page==='hoofdstuk'&&WIDE.matches&&c?'hoofdstuk':'italy';
+  mapClone.dataset.frame=m1Overview()||(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&!(c&&OMGEVING.includes(c.id)))?'italy':c&&OMGEVING.includes(c.id)?'omgeving':ui.page==='hoofdstuk'&&WIDE.matches&&c?'hoofdstuk':'italy';
   if(c)mapClone.dataset.chapter=c.id;else delete mapClone.dataset.chapter;
   reserve();fit(mapClone);
  }
@@ -210,7 +210,13 @@
  function drawMarkers(svg,k){
   let g=svg.querySelector('.v3Markers');if(!g){g=document.createElementNS(SVGNS,'g');g.setAttribute('class','v3Markers');g.setAttribute('aria-hidden','true');svg.append(g);}
   const a=chapterAnchors(svg);
-  ROUTE_CHAPTERS.forEach((c,i)=>{const p=a[c.id];if(!p)return;
+  // Markers keep 40 screen px between centres (36 px circle + 4 px gap): pairs that come closer at this scale are pushed
+  // apart along the line between them (a few px; each marker stays at its chapter's place).
+  const pos={};for(const c of ROUTE_CHAPTERS)if(a[c.id])pos[c.id]=[...a[c.id]];
+  const ids=Object.keys(pos),min=40*k;
+  for(let it=0;it<30;it++){let moved=false;for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++){const p=pos[ids[i]],q=pos[ids[j]];let dx=q[0]-p[0],dy=q[1]-p[1],d=Math.hypot(dx,dy);
+    if(d>=min)continue;if(d<1e-6){dx=1;dy=0;d=1;}const push=(min-d)/2+.01;p[0]-=dx/d*push;p[1]-=dy/d*push;q[0]+=dx/d*push;q[1]+=dy/d*push;moved=true;}if(!moved)break;}
+  ROUTE_CHAPTERS.forEach((c,i)=>{const p=pos[c.id];if(!p)return;
    const m=document.createElementNS(SVGNS,'g');m.setAttribute('class','v3Marker');m.dataset.chapter=c.id;
    if(c.id===ui.selected)m.classList.add('on');
    m.setAttribute('transform','translate('+p[0]+' '+p[1]+') scale('+k+')');
@@ -288,9 +294,9 @@
    Object.assign(probe.style,{position:'absolute',visibility:'hidden',pointerEvents:'none',left:'0',top:'0',width:panel.getBoundingClientRect().width+'px'});panel.after(probe);
    try{for(const c of m.chapters){renderPanel(m,c,probe);hMax=Math.max(hMax,probe.getBoundingClientRect().height);}}finally{probe.remove();}}
   // BL-029 Menu 1: the map runs under the free chapter block; Italy keeps clear of most of the block's width.
-  if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width*.6)+'px');
+  if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width+16)+'px');
   // Chapter page (Menu 1): the panel is display:contents; its free block is the head's column.
-  else if(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead');stage.style.setProperty('--v3-fit-right',Math.round((h?.getBoundingClientRect().width||360)+48)+'px');}
+  else if(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead');stage.style.setProperty('--v3-fit-right',Math.round((h?.getBoundingClientRect().width||360)+16)+'px');}
   else stage.style.removeProperty('--v3-fit-right');
   stage.style.setProperty('--v3-fit-bottom',over?Math.round(Math.max(hMax,panel.getBoundingClientRect().height)+24)+'px':'0px');};
  if('ResizeObserver' in window){const ro=new ResizeObserver(()=>{reserve();if(mapClone)fit(mapClone);});ro.observe(stage);ro.observe(panel);}

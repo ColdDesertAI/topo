@@ -68,7 +68,7 @@
    else if(st==='open'&&ART?.icons?.slice)status.append(V.pic(ART.icons.slice,null,96,96));
    else status.append(V.icon(st==='locked'?'v3lock':'v3checkmark'));
    li.setAttribute('aria-label',c.title+': '+r.stage+' van 3 lessen'+(r.goldAt>0?', goud':st==='locked'?', nog dicht':''));
-   const name=make('span','v3VgName');name.append(make('span','v3VgNum',(i+1)+'.'),document.createTextNode(' '+c.title));
+   const name=make('span','v3VgName');name.append(make('span','v3VgNum',(i+1)+'.'),document.createTextNode(' '+c.title.replace(/^Extra steden/,'Steden')));
    li.append(thumb,name,steps,status);list.append(li);});
 
   // Dagdoel (V2).

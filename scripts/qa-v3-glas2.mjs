@@ -7,6 +7,8 @@
 //  5. reduced transparency / more contrast: every one of those surfaces is opaque (alpha >= 0.95) without blur.
 //  Screens: Reis overview and chapter page, Oefenen, Toets, Beloningen, Voortgang, a lesson (start and after an answer).
 // Usage: node scripts/qa-v3-glas2.mjs [preview.html] [--json out.json]. Exit 1 on any failure in 1, 2, 3 or 5.
+// BL-029: this is the glass model of Menu 2 (loose panels, the fallback). It runs with TOPO_V3_MENU='2'; the default
+// Menu 1 (one workspace with a fade) is checked by scripts/qa-v3-menu1.mjs.
 import {createRequire} from 'module';
 import {resolve} from 'path';
 import {writeFileSync} from 'fs';
@@ -70,7 +72,7 @@ const TEXTS=()=>{const texts=[];const vis=e=>e.offsetParent!==null&&getComputedS
  return texts};
 
 async function open(b,w,h,bg,v,reduced){
- const p=await b.newPage({viewport:{width:w,height:h}});
+ const p=await b.newPage({viewport:{width:w,height:h}});await p.addInitScript(()=>{window.TOPO_V3_MENU='2';});
  if(reduced){const c=await p.context().newCDPSession(p);await c.send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-transparency',value:'reduce'},{name:'prefers-contrast',value:'more'}]})}
  await p.goto('file://'+html+'#alles/'+bg);await p.waitForTimeout(1100);
  if(v.startsWith('les')){await p.locator('.v3Main .v3Btn.primary').filter({visible:true}).first().click();await p.waitForTimeout(1300);

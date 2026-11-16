@@ -120,3 +120,45 @@ Gebruikt: `node scripts/qa-v3-menu1.mjs` (0 fouten, blur ≤ 2, Nino 184×200 / 
 - De vijf must-fixes zijn klein (CSS en layout, geen logica).
 
 **NO-GO.** Na must-fix 1–5 en een nieuwe screenshotronde verwacht ik een GO-voorstel.
+
+---
+
+## Ronde 2 (commit `61d6fb4`, worktree `wt29`)
+Getoetst met eigen screenshots op 1440×900 en 1080×810 (BG-01/BG-03) van alle schermen en een les, plus DOM- en pixelmetingen op 1440, 1080 en 2560 met BG-01/02/03. `qa-v3-menu1.mjs --quick` geeft 0 fouten.
+
+**Oordeel: NO-GO, maar het is dichtbij.** Drie van de vijf must-fixes zijn goed opgelost. Eén reparatie bracht een nieuwe AA-fout mee, die de QA niet ziet. De rest is half gedaan.
+
+### Opgelost
+- **Must-fix 2 (Voortgang, één kaart):** het Italië-kaartje is weg en de legenda staat als vrije witte pillen. Rustig, en consistent met de tellers.
+- **Must-fix 3a (Beloningen, actie):** "Open Reisboekje" staat als zichtbare violette pill onder het boek. Goed.
+- **Must-fix 4 (lege segmenten):** de segmenten zijn nu telbaar op het overzicht, de hoofdstukpagina en de Vespa (ook BG-01 op 1080).
+- **Must-fix 5 (chips):** Oefenen en Toets tonen "Steden 13–18 / 19–23" met lucht in de chip.
+- **Must-fix 1, deels:**
+  - De artwork onder de lessenkaart vult het lege vlak links. Dat is de juiste vondst.
+  - De schakelaars staan op beide pagina's op dezelfde plek.
+
+### Nog open: must-fix vóór G1
+1. **Regressie: de kicker "HOOFDSTUK n" op de hoofdstukpagina is uitgewassen.**
+   - Gemeten op de echte pixels (donkerste inkt tegen de achtergrond): **1,9–2,6 : 1** op alle BG's en maten (1080: 1,92–1,95; 1440: 2,37–2,40; 2560: 2,58–2,62). Eis: 4,5.
+   - Oorzaak: de gloed `.v3CardHead::before` (inset-top −150 px) hoort bij `.v3CardHead`. Die heeft z-index 2 en een eigen stapelcontext, en komt in de DOM ná de kicker. Daardoor ligt de gloed (wit .9) óver de kicker.
+   - De QA mist dit, omdat ze de tekst verbergt en dan de achtergrond meet. Een overlay boven de tekst ziet ze daardoor niet.
+   - Fix: geef de kicker `z-index:3`, of hang de gloed aan een gemeenschappelijke ouder (zoals op het overzicht, `.v3Panel::before`).
+   - Laat de QA voortaan ook de gerenderde inkt meten: het donkerste pixel in de tekstbox, met de tekst zichtbaar.
+2. **De hoofdstukpagina staat nog niet op overzichtsmaat.**
+   - Italië beslaat 15% van het scherm (was 11%), tegenover 31% op het overzicht.
+   - Het titelblok staat 80 px hoger dan op het overzicht (kicker y 196 tegen 276 op 1440; 182 tegen 262 op 1080). Bij het openen springen dus de titel én de kaart.
+   - Fix: gebruik op de hoofdstukpagina hetzelfde kaartframe als op het overzicht (Italië-frame, zelfde `--v3-fit-*`), zodat de kaart blijft liggen en alleen de markers pins worden. Zet de kicker op dezelfde `margin-top` als op het overzicht.
+3. **De tellerrijen op Beloningen staan nog niet gecentreerd.**
+   - `.v3Tile` heeft `grid-template-rows: 44px 0 0`: drie impliciete rijen, met `gap:14px` ook als rijafstand. Label en getal staan daardoor op y+12 in een rij van 72 px, met ~28 px lucht eronder.
+   - Fix: `.v3Tile{row-gap:0;grid-template-rows:auto}` (of `gap:0 14px`), en zoek de verborgen kinderen die de extra rijen maken.
+4. **Eén naam per hoofdstuk, ook in Voortgang.**
+   - De Voortgang-lijst toont nog "3. Extra steden 13–18" en "4. Extra steden 19–23".
+   - Fix: dezelfde korte naam als op Reis en in de chips, met de volledige titel als `aria-label`.
+
+### Nieuwe nice-to-have
+- **De linkerrand van "Schoolblad" lost op 1440 op** in het dichte deel van de werkruimte (wit .9 op bijna-wit).
+  - Fix: geef de pills dezelfde schaduw als de tellers, of verhoog hun dekking naar 1.
+- **In de Oefenen-chips staat een dubbele spatie tussen "Steden" en "1–6".** Dat komt door de range-span met gap.
+- De nice-to-haves uit ronde 1 blijven staan (losse vormen in de zee, de plek van marker 2, de zijbalkfade, één pizzanotatie, de les, BL-031/032).
+
+**NO-GO.** Punt 1 is een harde AA-fout. Punt 2 en 3 waren als opgelost gemeld, maar zijn het zichtbaar niet. Alle vier zijn kleine CSS-wijzigingen. Na reparatie en een check van de kicker op de gerenderde pixels verwacht ik een GO-voorstel.
