@@ -288,7 +288,10 @@
    Object.assign(probe.style,{position:'absolute',visibility:'hidden',pointerEvents:'none',left:'0',top:'0',width:panel.getBoundingClientRect().width+'px'});panel.after(probe);
    try{for(const c of m.chapters){renderPanel(m,c,probe);hMax=Math.max(hMax,probe.getBoundingClientRect().height);}}finally{probe.remove();}}
   // BL-029 Menu 1: the map runs under the free chapter block; Italy keeps clear of most of the block's width.
-  if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width*.6)+'px');else stage.style.removeProperty('--v3-fit-right');
+  if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width*.6)+'px');
+  // Chapter page (Menu 1): the panel is display:contents; its free block is the head's column.
+  else if(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead');stage.style.setProperty('--v3-fit-right',Math.round((h?.getBoundingClientRect().width||360)+48)+'px');}
+  else stage.style.removeProperty('--v3-fit-right');
   stage.style.setProperty('--v3-fit-bottom',over?Math.round(Math.max(hMax,panel.getBoundingClientRect().height)+24)+'px':'0px');};
  if('ResizeObserver' in window){const ro=new ResizeObserver(()=>{reserve();if(mapClone)fit(mapClone);});ro.observe(stage);ro.observe(panel);}
 
@@ -304,7 +307,8 @@
   // BL-016c: counters top-right of the right column; the map tools sit on the map zone (top-right corner).
   const back=btn('',e=>{e.stopPropagation();closeChapter();},'v3Btn v3Back');back.append(icon('v3back'),make('span',null,'Hoofdstukken'));
   // On the chapter page the tools sit in the top bar (the zoomed map fades at its edges).
-  if(WIDE.matches&&ui.page==='hoofdstuk'){const l=make('div','v3TopLeft');l.append(back,tools);top.replaceChildren(l,counts);}
+  if(WIDE.matches&&ui.page==='hoofdstuk'&&MENU==='1'){const l=make('div','v3TopLeft');l.append(back);top.replaceChildren(l,counts);if(tools.parentNode!==stage)stage.append(tools);}
+  else if(WIDE.matches&&ui.page==='hoofdstuk'){const l=make('div','v3TopLeft');l.append(back,tools);top.replaceChildren(l,counts);}
   else if(WIDE.matches){top.replaceChildren(back,counts);if(tools.parentNode!==stage)stage.append(tools);}else top.replaceChildren(tools,counts);
  }
  const WIDE=matchMedia('(min-width:1024px)');WIDE.addEventListener?.('change',()=>render());

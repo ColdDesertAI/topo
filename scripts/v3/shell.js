@@ -78,7 +78,7 @@
  function chip(label,on,fn,cls='v3Chip'){const b=btn(label,e=>{e.stopPropagation();fn();},'v3Btn '+cls);b.setAttribute('aria-pressed',String(!!on));return b;}
  function groupChips(selected,toggle,{multi=false,extra=[]}={}){
   const wrap=make('div','v3Chips');wrap.setAttribute('role','group');
-  for(const c of ROUTE_CHAPTERS){const b=chip('',selected(c.id),()=>toggle(c.id));b.append(V.range(c.title));b.dataset.group=c.id;wrap.append(b);}
+  for(const c of ROUTE_CHAPTERS){const b=chip('',selected(c.id),()=>toggle(c.id));b.append(V.range(c.title.replace(/^Extra steden/,'Steden')));if(/^Extra steden/.test(c.title))b.setAttribute('aria-label',c.title);b.dataset.group=c.id;wrap.append(b);}
   for(const [id,label,disabled] of extra){const b=chip(label,selected(id),()=>toggle(id));b.dataset.group=id;if(disabled)b.disabled=true;wrap.append(b);}
   return wrap;
  }

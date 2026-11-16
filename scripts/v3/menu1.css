@@ -90,7 +90,7 @@
  .v3Reis[data-menu="1"][data-view=reis] .v3Main>.v3MapStage::before{content:"";position:absolute;inset:4% -6% 2% -10%;z-index:0;pointer-events:none;
   background:radial-gradient(closest-side,rgba(150,205,240,.62),rgba(170,215,245,.32) 55%,rgba(190,225,250,0) 100%)}
  .v3Reis[data-menu="1"][data-view=reis] .v3MapStage>svg{position:relative;z-index:1}
- .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3MapStage>.v3MapTools{top:auto;bottom:24px;left:0;z-index:3}
+ .v3Reis[data-menu="1"][data-view=reis] .v3MapStage>.v3MapTools{position:absolute;top:auto;bottom:24px;left:0;z-index:3;display:flex;gap:8px}
  .v3Reis[data-menu="1"] .v3Switch{padding:0!important;align-items:stretch}
  .v3Reis[data-menu="1"] .v3Switch .v3Btn{height:44px!important;min-height:44px!important;padding:0 14px;border-radius:999px}
  .v3Reis[data-menu="1"] .v3MapTools>*{height:44px;min-height:44px;border-radius:999px;background:rgba(255,255,255,.9)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 4px 14px rgba(40,25,80,.12)}
@@ -110,7 +110,7 @@
  /* Progress in segments (one per lesson). */
  .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar{display:flex;gap:6px;margin:0;padding:0;background:none;position:static!important;inset:auto!important;transform:none!important}
  .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar::before,.v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar::after{display:none}
- .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span{width:44px;height:8px;min-width:0;padding:0;margin:0;border:0;border-radius:4px;background:rgba(42,36,64,.16);box-shadow:none}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span{width:44px;height:8px;min-width:0;padding:0;margin:0;border:0;border-radius:4px;background:rgba(42,36,64,.20);box-shadow:none}
  .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span::before,.v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span::after{display:none}
  .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span.on{background:var(--v3-accent)}
  .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span .v3Icon{display:none}
@@ -125,15 +125,15 @@
 
  /* === 5. Reis chapter page: the lessons are the one card (where the list was); the map zooms in the middle; the
         artwork (16:9), title, progress and the one primary button stand free on the right. === */
- .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]{--rechts:minmax(360px,31%);grid-template-columns:var(--zij) var(--kol1) minmax(0,1fr) var(--rechts);grid-template-rows:auto auto auto auto auto minmax(0,1fr);row-gap:0}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]{grid-template-columns:var(--zij) var(--kol1) minmax(0,1fr) var(--rechts);grid-template-rows:auto auto auto auto auto minmax(0,1fr);row-gap:0}
  .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]>.v3List{display:none}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] :is(.v3Main>.v3Top,.v3Main>.v3Panel){display:contents!important}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft{grid-column:2;grid-row:1;display:flex;flex-wrap:wrap;gap:8px;align-self:start;margin:24px 24px 0;position:relative;z-index:3}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{display:inline-flex;align-items:center;gap:8px;height:44px;min-height:44px;padding:0 16px 0 12px;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12);font:600 16px/1 var(--v3-font)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3MapTools{position:static;display:flex;gap:8px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Counts{grid-column:3/5;grid-row:1;justify-self:end;align-self:start;margin:24px 28px 0 0;position:relative;z-index:3}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:3;grid-row:1/-1;margin:0;padding:0;--v3-card-over:0;--v3-fit-top:88px;--v3-fit-right:0px;--v3-fit-bottom:24px}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList{grid-column:2;grid-row:2/-1;align-self:start;position:relative;list-style:none;margin:62px 32px 0 24px!important;padding:8px;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);display:block!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:3/5;grid-row:1/-1;margin:0;padding:0;--v3-card-over:0;--v3-fit-top:96px;--v3-fit-right:0px;--v3-fit-bottom:84px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList{grid-column:2;grid-row:2/-1;z-index:1;align-self:start;position:relative;list-style:none;margin:62px 32px 0 24px!important;padding:8px;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);display:block!important}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList::before{content:"Lessen";position:absolute;left:4px;top:-30px;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li{margin:0;padding:0}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li+li{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)}
@@ -144,13 +144,14 @@
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot .v3Icon{width:14px;height:14px;color:#fff}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepDot{border-color:var(--v3-accent);box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 14px var(--v3-accent)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow>.v3Icon{width:18px;height:18px;color:#8a85a0}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene{grid-column:4;grid-row:2;align-self:start;justify-self:stretch;width:auto!important;max-width:none;margin:12px 40px 0 8px!important;aspect-ratio:16/9;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px rgba(40,25,80,.22);display:block!important}
+ /* The artwork under the lessons card (3 rows of 56 px + padding), in its own layer above the workspace. */
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene{grid-column:2;grid-row:2/-1;position:relative;z-index:1;align-self:start;justify-self:stretch;width:auto!important;max-width:none;margin:calc(62px + 3*56px + 16px + 24px) 32px 0 24px!important;aspect-ratio:16/9;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px rgba(40,25,80,.22);display:block!important}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-column:4;grid-row:3;margin:28px 40px 6px 8px!important;position:relative}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{grid-column:4;grid-row:4;margin:0 40px 0 8px;position:relative;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;height:auto!important;align-items:flex-start!important;gap:18px}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font-size:44px}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions{grid-column:4;grid-row:5;margin:28px 40px 0 8px!important;align-self:start;justify-self:start;width:auto!important}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Locked{grid-column:4;grid-row:5;margin:24px 40px 0 8px!important;align-self:start}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-column:4;grid-row:2;align-self:start;margin:calc(16vh - 80px) 40px 12px 8px!important;position:relative;z-index:2}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{grid-column:4;grid-row:3;z-index:2;margin:0 40px 0 8px;position:relative;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;height:auto!important;align-items:flex-start!important;gap:18px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font-size:52px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions{grid-column:4;grid-row:4;z-index:2;margin:28px 40px 0 8px!important;align-self:start;justify-self:start;width:auto!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Locked{grid-column:4;grid-row:4;z-index:2;margin:24px 40px 0 8px!important;align-self:start}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Again{display:none!important}
 
  /* === 6. Oefenen: the choices are the one card (left); the map lies free on the rest. === */
@@ -160,7 +161,7 @@
   border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
  .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup)>.v3ScreenTitle{position:absolute;left:0;top:-30px;margin:0 0 0 4px}
  .v3Reis[data-menu="1"] .v3OefPanel .v3Chips{grid-template-columns:repeat(2,minmax(0,1fr))!important}
- .v3Reis[data-menu="1"] .v3OefPanel .v3Chip{min-width:0;white-space:nowrap;padding-left:8px;padding-right:8px}
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup) .v3Chip{min-width:0;white-space:nowrap;padding-left:12px!important;padding-right:12px!important}
  .v3Reis[data-menu="1"] .v3View-oefenen>.v3OefStage{grid-column:2;grid-row:1;margin:0!important;padding:0;min-height:0;background:none!important;box-shadow:none!important;border:0!important}
 
  /* === 7. Toets: the set-up is the one card; Nino stands free on the right. === */
@@ -180,11 +181,14 @@
   border:0!important;border-radius:12px;background:transparent!important;box-shadow:none!important;text-align:left}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile+.v3Tile{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)!important;border-radius:0}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile::before,.v3Reis[data-menu="1"] .v3Rewards .v3Tile::after{display:none!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile>*{align-self:center!important;margin-top:0!important;margin-bottom:0!important;line-height:1.2}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile .v3TileIcon{grid-area:icon;width:44px;height:44px;margin:0;object-fit:contain}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile>span{grid-area:label;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);margin:0;text-align:left;justify-self:start}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile>b{grid-area:value;font:700 20px/1 var(--v3-font);color:var(--v3-ink);margin:0}
  .v3Reis[data-menu="1"] .v3Rewards>.v3Book{grid-column:2;grid-row:1/-1;align-self:center;justify-self:center;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto;height:auto}
- .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover{background:transparent!important;box-shadow:none!important;border:0!important;padding:0}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover{display:flex;flex-direction:column;align-items:center;gap:20px;background:transparent!important;box-shadow:none!important;border:0!important;padding:0}
+ /* The book's action made visible (design-critic BL-029): a violet pill under the cover; the button keeps its aria-label. */
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover::after{content:"Open Reisboekje  →";display:inline-flex;align-items:center;min-height:56px;padding:0 26px;border-radius:999px;background:var(--v3-accent);color:#fff;font:700 19px/1 var(--v3-font);box-shadow:0 10px 24px rgba(91,60,200,.28);white-space:pre}
  .v3Reis[data-menu="1"] .v3Rewards>.v3Book,.v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover{max-width:100%;min-width:0}
  .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3CoverArt{max-width:100%;width:min(400px,100%);height:auto;filter:drop-shadow(0 22px 30px rgba(40,25,80,.28))}
  .v3Reis[data-menu="1"] .v3Rewards>.v3Ride{grid-column:1;grid-row:3;align-self:start;justify-self:start;position:relative;margin:28px 32px 0 28px!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto;height:auto;
@@ -194,7 +198,9 @@
  .v3Reis[data-menu="1"] .v3Rewards .v3RideArt{grid-area:art;width:150px;height:auto}
  .v3Reis[data-menu="1"] .v3Rewards .v3Ride>b{grid-area:num;font:800 52px/1 var(--v3-font);color:var(--v3-ink);align-self:end}
  .v3Reis[data-menu="1"] .v3Rewards .v3Ride>span{grid-area:lab;font:600 17px/1.2 var(--v3-font);color:var(--v3-ink)}
- .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps{grid-area:steps;width:120px;margin:6px 0 0}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps{grid-area:steps;width:108px;margin:6px 0 0}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps>i{background:rgba(42,36,64,.20)}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps>i.on{background:var(--v3-accent)}
 
  /* === 9. Voortgang: the chapters are the one card; the map free in the middle; title, count and the day/pizza/ride
         pills free on the right. Toetsen and the Kennis-paspoort (closed by default) follow below, in the card column. === */
@@ -207,7 +213,9 @@
  .v3Reis[data-menu="1"] .v3VgSide .v3VgChapters{margin:0;padding:8px;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);overflow:auto;min-height:0}
  .v3Reis[data-menu="1"] .v3VgKaart{grid-column:2;grid-row:1/-1;position:relative;margin:0!important;padding:0!important;min-height:0;background:transparent!important;box-shadow:none!important;border:0!important;outline:0!important}
  .v3Reis[data-menu="1"] .v3VgKaart::after{display:none}
- .v3Reis[data-menu="1"] .v3VgLegend{background:rgba(255,255,255,.9)!important;border-radius:16px!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
+ .v3Reis[data-menu="1"] .v3VgKaart>.v3VgKaartTitle{display:none!important}
+ .v3Reis[data-menu="1"] .v3VgLegend{display:flex!important;flex-wrap:wrap;gap:8px;padding:0!important;margin:0;background:transparent!important;border-radius:0!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3VgLegend>li{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px 0 10px;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(40,25,80,.12);font:500 15px/1 var(--v3-font)}
  .v3Reis[data-menu="1"] .v3VgTitleBar{grid-column:3;grid-row:1;align-self:start;display:flex!important;flex-direction:column;align-items:flex-start;gap:14px;height:auto!important;margin:96px 40px 0 8px!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto;position:relative}
  .v3Reis[data-menu="1"] .v3VgTitleBar>h1{font:800 52px/1.05 var(--v3-font);margin:0;color:var(--v3-ink)}
  .v3Reis[data-menu="1"] .v3VgHead{flex:0 0 auto!important;height:auto!important;display:flex!important;flex-direction:column;align-items:flex-start;gap:10px;width:100%;padding:0!important;margin:0!important;background:transparent!important;box-shadow:none!important}
@@ -263,8 +271,7 @@
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Settings{align-self:center}
  .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3CardTitle{font-size:40px}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font-size:34px}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene{margin-right:24px!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font-size:40px}
  .v3Reis[data-menu="1"][data-view=toets]>.v3View-toets{grid-template-columns:540px minmax(0,1fr)}
  .v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{grid-template-columns:320px minmax(0,1fr)}
  .v3Reis[data-menu="1"] .v3Rewards .v3RidePizza{flex-basis:72px;width:72px!important;height:72px!important}
@@ -279,13 +286,12 @@
  .v3Reis[data-menu="1"]>.v3Side::after{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
 }
 /* === 12. Local lift for free text, only where the backdrop misses AA (r2, measured 16-11 without glow: BG-03 kicker
-   4.16 at 1440 and 4.22 at 1080 < 4.5; BG-01 chapter-page title 1.25–1.54 < 3; the rest passes). Temporary, until the new backgrounds arrive.
+   4.16 at 1440 and 4.22 at 1080 < 4.5; chapter-page title on every background (BG-01 1.25–1.54, BG-02 2.87 at 1280, BG-03 kicker): always on there; the rest passes). Temporary, until the new backgrounds arrive.
    A soft radial glow behind the text, not a panel. === */
 @media (min-width:1024px){
  body[data-v3-background=bg03] .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Main>.v3Panel::before,
- body[data-v3-background=bg03] .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead::before,
- body[data-v3-background=bg01] .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead::before,
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead::before,
  body[data-v3-background=bg03] .v3Reis[data-menu="1"] .v3VgTitleBar::before{content:"";position:absolute;z-index:-1;inset:-90px -70px -80px -90px;pointer-events:none;
   background:radial-gradient(closest-side,rgba(252,250,246,.9),rgba(252,250,246,.72) 50%,rgba(252,250,246,0) 100%)}
- body:is([data-v3-background=bg03],[data-v3-background=bg01]) .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead::before{inset:-150px -70px -80px -90px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead::before{inset:-150px -70px -80px -90px}
 }
