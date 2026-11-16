@@ -30,7 +30,7 @@ Gebruikersaantallen en omzet volgen hieruit en zijn in 2026–Q1 2027 geen stuur
 
 ## Kwaliteit en plezier
 - Plezier is meetbaar: speeltests met 2–3 echte kinderen per mijlpaal. Observeer wat ze vanzelf opnieuw willen doen.
-- **Testkinderen: groep 7, 10–11 jaar** (besluit 13-11). Protocol: BL-008.
+- **Testkinderen: groep 7, 10–11 jaar** (besluit 13-11). Protocol: [BL-008](playbooks/SPEELTEST.md).
 - Prioriteit bij conflict: geografische juistheid → leereffect → duidelijkheid → bruikbaarheid → consistentie → plezier (uit `AGENTS.md`).
 
 ## Grenzen
