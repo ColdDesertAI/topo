@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-16 · door: Claude (BL-016d/e, BL-023 klaar)
+> Bijgewerkt: 2026-11-16 · door: Claude (BL-028 klaar, nachtscript hervat na limiet)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -22,7 +22,8 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 **BL-016d, BL-016e en BL-023: klaar** (16-11). Reis herzien (overzicht + hoofdstukpagina) en de vier andere schermen in één helder glas, G1 GO Dennis, evaluator PASS; CSS van drie lagen naar `scripts/v3/ui.css` (pixel-identiek, `!important` 373 → 68). Alles op `claude/nightly-pr99-kaart-feestje-fvpl06`, draft-PR #101.
 - **Volgende:** iPad-test Dennis (framerate van de overgang naar de hoofdstukpagina: 37–45 fps headless; het glas op een echte iPad 9), daarna PR #101 naar main (G3/G4-afspraak) en `SITE_ITALIE=v3`.
 - Daarna: BL-014 F2 (laagland, water, buurlanden) en F4 (Voortgang in drie tinten, genummerde punten), BL-022 (boek iPad), BL-017, BL-018; ideeën BL-019–021, BL-024–027.
-- Nachtrun: `main` heeft sinds 15-11 de nachtscript-fix (#106); BL-001b/BL-002 staan daar op review, dus de nachtrun pakt BL-003.
+- **BL-028 klaar (16-11, PASS):** een toets geeft geen pizzapunten/ritten/goud meer, het dagdoel telt wel. Gevolg voor BL-004b (night/2026-11-16): `IPAD_TEST.md` gaat ervan uit dat de Toets ritten geeft; ritten komen nu alleen uit Oefenen/Les.
+- **Nachtscript (op deze branch, `454c203`):** bij een limiet wachten tot reset + 2 min en hervatten tot 07:00; Codex-flags uit `codex exec --help`. Werkt pas na een PR naar `main` (akkoord Dennis). Nodig: uitvoer van `codex exec --help` op de Mac mini.
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO

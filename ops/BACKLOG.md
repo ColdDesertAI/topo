@@ -46,3 +46,5 @@ Regels:
 | BL-025 | Telefoon: tabbalklabels 11 px en hoofdstuklijst rechts buiten beeld (al vóór BL-016d; evaluator 15-11) | M0 | P1 | S | idee | builder | — |
 | BL-026 | Vaste pixelset voor refactors: Voortgang gescrold erbij; referentiebuild = basis + tussentijdse functionele commits; breakpoint-grenzen 1024/1279/1280 en de les verplicht (evaluator 16-11) | M0 | P2 | XS | idee | builder | — |
 | BL-027 | Oudere CSS-lagen (ronde2–5b, *-ijk.css, afwerking.css) opruimen zodat de laatste !important in ui.css blok 3/4 weg kunnen; kaartreserve-meting minder afhankelijk van CSS-volgorde | M1 | P2 | M | idee | builder | — |
+| BL-028 | Toets geeft geen pizzapunten, ritten of goud; dagdoel telt wel (ARCHITECTUUR §1; gevonden door evaluator BL-004b, nacht 16-11) | M0 | P0 | XS | klaar (PASS 16-11) | hoofdsessie | `ops/contracts/BL-028.md` |
+| BL-029 | Nazorg BL-028: dubbele toets-beveiliging in `scripts/v3/toets.js` r101–103 laten staan of opruimen (besluit vastleggen); `restoreExamReward` assert op precies één treffer; exam-flow ook voor aanwijzen (evaluator 16-11) | M1 | P2 | XS | idee | builder | — |
