@@ -37,3 +37,5 @@ Formaat:
 2026-11-15 18:20 | dennis | G1 | BL-016d | GO | — | Reis herzien goedgekeurd; regels door naar de andere schermen (BL-016e)
 2026-11-15 19:10 | dennis | G1 | BL-016e | GO | — | Vier schermen goedgekeurd ("geen fan"); boek op de iPad 5% smal getrokken → BL-022; CSS-schuld → BL-023
 2026-11-15 21:40 | dennis | besluit | BL-016d | — | — | Kaart ≥ 55% alleen op het Reis-overzicht (optie b); hoofdstukpagina houdt het grote artwork
+2026-11-15 22:30 | claude/opus | taak | nachtfix-main | klaar | laag | PR #106 (nightly.sh-fix + BL-001b/BL-002 op review) gesquasht naar main met akkoord Dennis
+2026-11-16 04:20 | builder/sonnet+evaluator/opus | taak | BL-016d/e, BL-023 | PASS | hoog | BL-016d/e r2 PASS; BL-023 r1 FAIL (les ≥1280, 1024/1280-kaart, hoofdstukpaneel: weggehaalde !important), r2 PASS (214/240 identiek, rest bedoeld)

@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-15 · door: Claude (G1 BL-016e)
+> Bijgewerkt: 2026-11-16 · door: Claude (BL-016d/e, BL-023 klaar)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,9 +19,10 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-**BL-016d (Reis) en BL-016e (Oefenen, Toets, Beloningen, Voortgang): G1 GO Dennis 15-11** (de laatste "met een slag om de arm"). Glascheck 207 vlakken 0 fouten op `589abbf`; design-critic GO-voorstel op beide. Nog nodig voor "klaar": evaluator op BL-016d+e (loopt), daarna BL-023 CSS-opruiming (vijf lagen met `!important`), daarna de iPad-test van Dennis (framerate van de overgang naar de hoofdstukpagina, 45 fps headless; glas op een echte iPad 9).
-- Backlog uit G1: BL-022 (boek op de iPad 5% smal getrokken), BL-021 (zeeën op de Voortgang-kaart, Vespa-zin), BL-019/020.
-- Daarna: BL-014 F2 (laagland, water, buurlanden) en F4 (Voortgang in drie tinten, genummerde punten), BL-017, BL-018.
+**BL-016d, BL-016e en BL-023: klaar** (16-11). Reis herzien (overzicht + hoofdstukpagina) en de vier andere schermen in één helder glas, G1 GO Dennis, evaluator PASS; CSS van drie lagen naar `scripts/v3/ui.css` (pixel-identiek, `!important` 373 → 68). Alles op `claude/nightly-pr99-kaart-feestje-fvpl06`, draft-PR #101.
+- **Volgende:** iPad-test Dennis (framerate van de overgang naar de hoofdstukpagina: 37–45 fps headless; het glas op een echte iPad 9), daarna PR #101 naar main (G3/G4-afspraak) en `SITE_ITALIE=v3`.
+- Daarna: BL-014 F2 (laagland, water, buurlanden) en F4 (Voortgang in drie tinten, genummerde punten), BL-022 (boek iPad), BL-017, BL-018; ideeën BL-019–021, BL-024–027.
+- Nachtrun: `main` heeft sinds 15-11 de nachtscript-fix (#106); BL-001b/BL-002 staan daar op review, dus de nachtrun pakt BL-003.
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO

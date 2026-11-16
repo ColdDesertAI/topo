@@ -1,12 +1,10 @@
 # Backlog
-
 Regels:
 - Bovenaan staat wat het eerst gebeurt. De nachtrun pakt de **bovenste taak met status `ready`**.
 - `ready` betekent dat er een contract is met toetsbare criteria. Zonder contract blijft een taak op `idee`.
 - Prioriteit: P0 = blokkeert de mijlpaal · P1 = mijlpaal · P2 = later.
 - Grootte: S ≤ 1 run · M ≤ 3 runs · L moet eerst gesplitst worden.
 - Statussen: `idee` → `ready` → `bezig` → `review` → `klaar` | `fail(n)` | `geblokkeerd: <reden>`
-
 | ID | Taak | Mijlpaal | P | Grootte | Status | Bouwer | Contract |
 |---|---|---|---|---|---|---|---|
 | BL-001 | Branch-inventaris: per branch de status (gemerged, achter, uniek werk), voorstel keep/merge/archive | M0 | P0 | S | review | Claude | `ops/contracts/BL-001.md` (11 criteria: alle branches in `ops/reports/branches.md`, cijfers via `git rev-list`, actie + reden per rij, niets verwijderd) |
@@ -39,10 +37,12 @@ Regels:
 | BL-016c | Compositie Reis als één venster (Apple meets Linear), daarna alle schermen | M0 | P0 | M | vervangen door BL-016d | hoofdsessie | — |
 | BL-019 | Hoofdstukpagina: de plekken van het hoofdstuk als kleine pillen ("Je ontdekt: Milaan, Venetië, …") | M1 | P2 | S | idee (design-critic 15-11) | hoofdsessie | — |
 | BL-020 | Kaart: spookcontouren van buurlanden (Corsica, Balkan, Malta) een derde lichter, of alleen bij Landen/Zeeën | M1 | P2 | S | idee (design-critic 15-11) | builder | — |
-| BL-016d | Reis herzien: zwevende panelen in één helder glas, kaart vrij, Reis = overzicht + hoofdstukpagina (feedback 15-11 17:48) | M0 | P0 | M | review: G1 GO, evaluator FAIL (4 punten, `ops/reports/eval-BL-016d.md`), herstel na BL-023 | hoofdsessie | `ops/contracts/BL-016d.md` |
-| BL-016e | De Reis-regels (BL-016d) naar Oefenen, Toets, Beloningen en Voortgang: zijbalk, één helder glas, kaart vrij, maten | M0 | P0 | M | review: G1 GO, evaluator FAIL (Voortgang blur na scrollen), herstel na BL-023 | hoofdsessie | `ops/contracts/BL-016e.md` |
+| BL-016d | Reis herzien: zwevende panelen in één helder glas, kaart vrij, Reis = overzicht + hoofdstukpagina (feedback 15-11 17:48) | M0 | P0 | M | klaar (G1 GO + evaluator PASS r2, 16-11) | hoofdsessie | `ops/contracts/BL-016d.md` |
+| BL-016e | De Reis-regels (BL-016d) naar Oefenen, Toets, Beloningen en Voortgang: zijbalk, één helder glas, kaart vrij, maten | M0 | P0 | M | klaar (G1 GO + evaluator PASS r2, 16-11) | hoofdsessie | `ops/contracts/BL-016e.md` |
 | BL-021 | Voortgang-kaart: beheerste zeeën als zachte violette vulling zonder harde veelhoeklijn (evt. zeenaam); Vespa-paneel 'nog n ritten tot …' (design-critic 15-11) | M1 | P2 | S | idee (hoort bij BL-014 F4) | hoofdsessie | — |
 | BL-022 | Beloningen iPad: het boek wordt 5% smal getrokken (verhouding 0,95 i.p.v. 1; object-fit fill) → passend schalen (object-fit: contain). Gemeld door Dennis bij G1 15-11 | M0 | P1 | XS | idee (latere update) | builder | — |
-| BL-023 | CSS opruimen zonder beeldverandering: glas.css, glas2.css, kaart.css, reis2.css en de rondebestanden naar één bestand per regelset, minder `!important`; vangnet: glascheck + screenshots voor/na | M0 | P1 | S | review (48 schermparen pixel-identiek, !important 373 → 40; wacht op evaluator) | builder | `ops/contracts/BL-023.md` |
+| BL-023 | CSS opruimen zonder beeldverandering: glas.css, glas2.css, kaart.css, reis2.css en de rondebestanden naar één bestand per regelset, minder `!important`; vangnet: glascheck + screenshots voor/na | M0 | P1 | S | klaar (evaluator PASS r2: 214/240 paren identiek, rest bedoeld; !important 373 → 68) | builder | `ops/contracts/BL-023.md` |
 | BL-024 | Glascheck: toestandsmatrix (#nieuw, #bezig, vergrendeld hoofdstuk), tekst-opacity meerekenen, blurtelling over de hele scrollhoogte (evaluator 15-11) | M0 | P1 | S | idee | builder | — |
 | BL-025 | Telefoon: tabbalklabels 11 px en hoofdstuklijst rechts buiten beeld (al vóór BL-016d; evaluator 15-11) | M0 | P1 | S | idee | builder | — |
+| BL-026 | Vaste pixelset voor refactors: Voortgang gescrold erbij; referentiebuild = basis + tussentijdse functionele commits; breakpoint-grenzen 1024/1279/1280 en de les verplicht (evaluator 16-11) | M0 | P2 | XS | idee | builder | — |
+| BL-027 | Oudere CSS-lagen (ronde2–5b, *-ijk.css, afwerking.css) opruimen zodat de laatste !important in ui.css blok 3/4 weg kunnen; kaartreserve-meting minder afhankelijk van CSS-volgorde | M1 | P2 | M | idee | builder | — |
