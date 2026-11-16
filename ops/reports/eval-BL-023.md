@@ -42,3 +42,31 @@ Buiten scope opgemerkt (→ backlog-idee):
 - glas2 meet de les niet op het aantal blurvlakken en ook niet op glas op glas. Een telling van de blur per scherm, inclusief de les, had deze regressie gevangen.
 
 Les: "`!important` weg waar geen oudere laag meer wint" moet je per regel met beeld toetsen, op elk breakpoint van die oudere lagen. Een oudere laag met een media query (hier in de les, ergens tussen 1180 en 1279 px) wint pas boven die breedte. Toetsen op 1080 en 810 bewijst dus niets voor 1440.
+
+## Ronde 2
+
+HEAD `25b3e4a` (herstel `1ec91ff`, `7568d47`, `25b3e4a`). Ik heb drie builds gemaakt, elk in een eigen worktree (`git worktree add --detach`, `node scripts/build-v3-preview.mjs`, alle drie exit 0):
+- `785b450`: de zuivere baseline, de directe ouder van de eerste refactorcommit;
+- `25b3e4a`: HEAD;
+- **referentie**: `785b450` plus de functionele wijziging uit `76cbad9`, alleen in mijn scratch-worktree toegevoegd aan `reis2.css`. Concreet: de regel `.v3PanelLocked .v3StepList{opacity:.55}` is vervangen door de twee `.v3StepRow`/`.v3StepDot`-regels, en de twee Voortgang-mediablokken staan aan het eind. Zo is BL-023 los te toetsen van de bedoelde beeldwijziging in BL-016d/e.
+
+Screenshots in Chromium headless. `Math.random` staat vast via een init-script (mulberry32, seed 42), zodat de lesvraag in elke run gelijk is. Formaten: 1440×900, **1280×800, 1279×800, 1180×820, 1024×768**, 1080×810, 810×1080 en 390×844. Er zijn 30 toestanden: de 25 uit ronde 1 plus `les-alles`, `les-bg01`, `rt-les` (de les in reduced transparency) en `hfst-eilanden-bg01`. Dat geeft 240 paren. Een pixel telt als afwijkend als één kanaal verschilt.
+
+VERDICT: PASS
+
+| # | Criterium | Methode | Resultaat | Bewijs |
+|---|---|---|---|---|
+| 1 | Pixel-identiek (anti-aliasing ≤ 0,05%, per geval verklaard) | 240 paren `785b450` ↔ HEAD. Daarnaast 80 paren referentie ↔ HEAD voor elke toestand die verschilde, plus een ruisbasis HEAD ↔ HEAD (twee runs) | PASS | **De les is overal identiek**: 32/32 paren (`les`, `les-alles`, `les-bg01`, `rt-les` × 8 formaten), ook op 1279, 1280 en 1440. De FAIL uit ronde 1 is opgelost. Het overzicht en de hoofdstukpagina op 1024/1180/1279/1280 zijn identiek, en Eilanden ook. `785b450` ↔ HEAD: 214/240 identiek. De 26 verschillen: (a) `hfst-locked` bg01/bg03 op 1024–1440 (0,35–0,51%, bbox = de stappenlijst) en (b) `voortgang-scroll` op ≥ 1024 (55–61%: de kaarten onder het overzicht zijn wit en zonder blur). Beide komen uit `76cbad9`, de bedoelde wijziging van BL-016d/e. **Referentie ↔ HEAD: alle `hfst-locked`- en `voortgang-scroll`-paren zijn identiek (0 px).** Dan blijft er 0–173 px over (≤ 0,02%, max Δ 5) op `rt-rewards`, `rt/ct-voortgang-810` (actief navigatie-icoon), `nieuw-bg03` en `reis-alles-bg01` (5–15 px, Δ 1). Dezelfde paren verschillen ook tussen twee runs van dezelfde HEAD-build, met dezelfde bbox en aantallen. Het is dus ruis, zoals in ronde 1. |
+| 2 | Glascheck groen | `node scripts/qa-v3-glas2.mjs` op de HEAD-build | PASS | `surfacesChecked 207, alphaFails 0, sideFails 0, contrastFails 0, reducedFails 0, emptyViews 0`, exit 0. |
+| 3 | Minder `!important`, met een getal | `grep -o '!important'`, met en zonder commentaar | PASS | Vóór (`785b450`): glas2 36 + kaart 10 + reis2 327 = **373**. HEAD `ui.css`: 71 treffers, waarvan 3 in commentaar, dus **68** declaraties. Het verloop: 40 (`8c44f11`), 44 (`76cbad9`, +4 Voortgang), 49 (`1ec91ff`), 56 (`7568d47`), 68 (`25b3e4a`). Dat is een daling van 82% ten opzichte van vóór. |
+| 4 | Drie bestanden worden één | `ls scripts/v3`, de build, `grep` | PASS | Alleen `ui.css` (376 regels). `glas2/kaart/reis2.css` bestaan niet meer, en scripts/tests verwijzen er niet meer naar. De build laadt `ui.css` na `ronde5b.css`. Twaalf blokken in de volgorde van het contract, met besluitkoppen. De losse Voortgang-regel van `76cbad9` staat nu in blok 8 (en de reduced-variant in blok 12). Er staat niets meer na blok 12. |
+| 5 | Lint en test | `npm run lint`; `NODE_OPTIONS=--max-old-space-size=6144 npm test`, in de HEAD-worktree | PASS | lint exit 0. test exit 0, 6 suites, alle `# fail 0` (62 tests). |
+
+FAIL-redenen: geen.
+
+Buiten scope opgemerkt (→ backlog-idee):
+- De 77 paren van de hoofdsessie bevatten geen Voortgang gescrold. Die toestand verschilt met `785b450` (de bedoelde wijziging uit `76cbad9`) en hoort in de vaste set. Neem voor een vervolgstap een referentiebuild (baseline plus de bedoelde functionele wijzigingen) als vergelijkingsbasis. Dan moet het resultaat 0 px zijn, en hoeft niemand een verschil weg te verklaren.
+- `7568d47` laat zien dat de JS-meting van de kaartreserve (een meetkopie van de hoofdstukbalk) afhangt van welke CSS-laag wint. Die koppeling is fragiel. Bij de opruiming van de oudere lagen (ronde2–5b, `*-ijk.css`) zitten de resterende 68 `!important` vooral in het Reis-overzicht en de hoofdstukpagina (blok 3/4). Die verdwijnen pas als de oudere regels voor `.v3Panel`/`.v3Actions` weg zijn.
+- De glascheck telt nog steeds geen blurvlakken per scherm en ziet glas op glas in de les niet (zie ronde 1).
+
+Les: vergelijk een refactor met een referentiebuild die de tussentijdse functionele commits al bevat. Dan is "identiek" letterlijk 0 px, en kan geen echte regressie zich verstoppen achter een "bedoeld verschil".
