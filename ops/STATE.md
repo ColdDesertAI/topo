@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-14 · door: Claude (afsluiting BL-005)
+> Bijgewerkt: 2026-11-16 · door: Claude (nachtrun, BL-008)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,8 +19,8 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-BL-001 staat in `review` (PASS met voorbehoud C4, shell ontbrak). Daarna: BL-002 docs-inventaris. Vervolg BL-001: tegen `origin/main` opnieuw draaien met `git cherry` (shelltoegang nodig)
-BL-005 is `klaar` (PASS met voorbehoud, PR #91; plan in `ops/reports/integratie.md`). Volgende: BL-002 docs-inventaris (`ready`; neemt de ±240 gebroken doc-links en `docs/qa/v3-reis/` uit BL-005 mee), daarna BL-005c (archieftags). BL-005b wacht op G3 (BL-004) en BL-006
+Nacht 16-11: BL-008 speeltest-protocol in `review` (`ops/playbooks/SPEELTEST.md`, PASS met voorbehoud; kleine rest in BL-008b, vóór BL-010). BL-001b/BL-002 in review (PR #101).
+Kritieke route M0 hangt aan gates: BL-004 (G3, Hermes) → BL-005b → BL-006, plus iPad-test Dennis. Backlog-rijen BL-007/FR-01/BL-019 staan al op `main`; status door Dennis te bevestigen. Schijf: 3,3 GB vrij (16-11)
 
 ## Besloten 13-11
 - Roadmap M0–M3: GO
