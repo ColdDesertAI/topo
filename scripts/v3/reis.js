@@ -19,7 +19,10 @@
  const icon=name=>{const s=document.createElementNS(SVGNS,'svg');s.setAttribute('viewBox',name==='vespa'?'0 0 72 48':'0 0 32 32');s.setAttribute('aria-hidden','true');s.classList.add('v3Icon');const u=document.createElementNS(SVGNS,'use');u.setAttribute('href','#topo-'+name);s.append(u);return s;};
  const range=t=>{const f=document.createDocumentFragment();t.split(/(\d+–\d+)/).forEach(p=>{if(!p)return;if(/^\d+–\d+$/.test(p))f.append(make('span','nw',p));else f.append(p);});return f;};
  // Stijlbeeld (renderniveau): relief is the default map style; Schoolkaart stays one tap away.
- const ui={selected:null,relief:true,view:'reis',page:'overzicht'}; // BL-016d: Reis = overzicht | hoofdstuk (≥ 1024 px)
+ const ui={selected:null,relief:true,view:'reis',page:'overzicht'};
+ // BL-029: composition after render "Menu 1" (default) or the fallback "Menu 2" (TOPO_V3_MENU='2').
+ const MENU=String(window.TOPO_V3_MENU||'1');
+ const m1Overview=()=>MENU==='1'&&WIDE.matches&&ui.page==='overzicht'&&ui.view==='reis'; // BL-016d: Reis = overzicht | hoofdstuk (≥ 1024 px)
  // Reis map (fase B; chosen in the afwerking 10-11): "eiland" = Italy floating as land, neighbours as soft silhouettes,
  // the sea transparent on the wash. Variant (b), the map in a glass card, is gone.
  ui.kaart='eiland';
@@ -116,12 +119,12 @@
    const sea=mapClone.querySelector('.sea');if(sea)mapClone.style.setProperty('--v3-sea-school',getComputedStyle(sea).fill);}}
   if(!mapClone)return;
   mapClone.dataset.relief=ui.relief?'on':'off';mapClone.dataset.kaart=ui.kaart;
-  const set=new Set(c?c.itemIds:[]);
+  const set=new Set(c&&!m1Overview()?c.itemIds:[]);
   mapClone.querySelectorAll('[data-id]').forEach(n=>n.classList.toggle('v3Hit',set.has(n.getAttribute('data-id'))));
-  mapClone.dataset.focus=c?(c.itemIds[0]?.startsWith('city')?'points':'areas'):'';
+  mapClone.dataset.focus=c&&!m1Overview()?(c.itemIds[0]?.startsWith('city')?'points':'areas'):'';
   // Ronde 5 punt 1: two fixed frames, one scale. Italy (with Sicily and Sardinia) for every chapter; only the chapters
   // whose items lie beyond Italy (OMGEVING: Landen, Zeeën) zoom out to "Italië en omgeving".
-  mapClone.dataset.frame=c&&OMGEVING.includes(c.id)?'omgeving':ui.page==='hoofdstuk'&&WIDE.matches&&c?'hoofdstuk':'italy';
+  mapClone.dataset.frame=m1Overview()?'italy':c&&OMGEVING.includes(c.id)?'omgeving':ui.page==='hoofdstuk'&&WIDE.matches&&c?'hoofdstuk':'italy';
   if(c)mapClone.dataset.chapter=c.id;else delete mapClone.dataset.chapter;
   reserve();fit(mapClone);
  }
@@ -176,6 +179,46 @@
    const p=document.createElementNS(SVGNS,'g');p.setAttribute('class','v3Pin');p.setAttribute('transform','translate('+x+' '+y+') scale('+k*1.5+')'); // BL-016b D: 1.5x, tip (0,0) on the point
    p.innerHTML='<path d="'+PIN+'"/><circle cx="0" cy="-17.5" r="4.2"/>';g.append(p);}
  }
+ // BL-029 (Menu 1): on the overview each chapter is one numbered marker (white circle, 36 px; the selected one violet);
+ // no pins or landmarks there. The chapter page keeps the real places with pins.
+ function decorate(svg,k){
+  const g=svg.querySelector('.v3Markers');if(g)g.replaceChildren();
+  if(svg===mapClone&&m1Overview()){drawMarkers(svg,k);svg.querySelector('.v3Pins')?.replaceChildren();window.TopoV3Landmarks?.(svg,k,true);return;}
+  drawPins(svg,k);window.TopoV3Landmarks?.(svg,k);
+ }
+ // One anchor per chapter, in map units: among the chapter's own places inside Italy's box, the one farthest from the
+ // anchors already placed (so the city chapters do not stack), ties to the place nearest the chapter's centre.
+ let anchors=null;
+ function chapterAnchors(svg){
+  if(anchors)return anchors;anchors={};
+  let i0=Infinity,j0=Infinity,i1=-Infinity,j1=-Infinity;for(const n of svg.querySelectorAll('.italy,.v3Isle')){const b=n.getBBox();i0=Math.min(i0,b.x);j0=Math.min(j0,b.y);i1=Math.max(i1,b.x+b.width);j1=Math.max(j1,b.y+b.height);}
+  const placed=[];
+  for(const c of ROUTE_CHAPTERS){
+   const pts=[];for(const id of c.itemIds){const n=svg.querySelector('[data-id="'+id+'"]');if(!n)continue;let x,y;
+    if(n.tagName==='circle'){x=+n.getAttribute('cx');y=+n.getAttribute('cy');}else{const b=n.getBBox();x=b.x+b.width/2;y=b.y+b.height/2;}
+    if(isFinite(x)&&isFinite(y)&&x>=i0&&x<=i1&&y>=j0&&y<=j1)pts.push([x,y]);}
+   if(!pts.length)continue;
+   const mx=pts.reduce((a,p)=>a+p[0],0)/pts.length,my=pts.reduce((a,p)=>a+p[1],0)/pts.length;
+   // Places on Italy's own land first (Landen: San Marino, Vaticaanstad), so no marker floats beside the coast.
+   const land=[...svg.querySelectorAll('.italy,.v3Isle')],onLand=p=>land.some(n=>{try{return n.isPointInFill(new DOMPoint(p[0],p[1]));}catch{return false;}});
+   const inside=pts.filter(onLand);if(inside.length)pts.splice(0,pts.length,...inside);
+   const score=p=>(placed.length?Math.min(...placed.map(q=>Math.hypot(p[0]-q[0],p[1]-q[1]))):0)-.15*Math.hypot(p[0]-mx,p[1]-my);
+   const best=pts.reduce((a,p)=>score(p)>score(a)?p:a);anchors[c.id]=best;placed.push(best);
+  }
+  return anchors;
+ }
+ function drawMarkers(svg,k){
+  let g=svg.querySelector('.v3Markers');if(!g){g=document.createElementNS(SVGNS,'g');g.setAttribute('class','v3Markers');g.setAttribute('aria-hidden','true');svg.append(g);}
+  const a=chapterAnchors(svg);
+  ROUTE_CHAPTERS.forEach((c,i)=>{const p=a[c.id];if(!p)return;
+   const m=document.createElementNS(SVGNS,'g');m.setAttribute('class','v3Marker');m.dataset.chapter=c.id;
+   if(c.id===ui.selected)m.classList.add('on');
+   m.setAttribute('transform','translate('+p[0]+' '+p[1]+') scale('+k+')');
+   m.innerHTML='<circle r="18"/><text y="5.5" text-anchor="middle">'+(i+1)+'</text>';
+   // A pointer shortcut only (the list is the accessible route): the marker selects its chapter.
+   m.addEventListener('click',e=>{e.stopPropagation();ui.selected=c.id;render();});
+   g.append(m);});
+ }
  // Frame Italy and the chapter's places with a generous margin, then widen the frame to the stage's shape
  // inside the map canvas (890×1235), so neighbouring countries, seas and islands stay visible as reference.
  const CANVAS={w:890,h:1235},MARGIN=.14,OMGEVING=['countries','seas'];
@@ -208,7 +251,7 @@
      const settle=()=>{box([bx,by,bw,bh]);
       // The land's drop shadow in screen px (afwerking 10-11: 0 18px 24px rgba(42,36,64,.28)), in map units.
       const ds=svg.querySelector('filter[id$="isleShadow"] feDropShadow');if(ds){ds.setAttribute('dy',(18*k).toFixed(1));ds.setAttribute('stdDeviation',(12*k).toFixed(1));}
-      drawPins(svg,k);window.TopoV3Landmarks?.(svg,k);};
+      decorate(svg,k);};
      // A change between the two fixed frames glides (±450 ms); a refit within one frame, or reduced motion, is immediate.
      // A refit during a glide (the card's resize) keeps gliding, from the box shown now, within the same 450 ms.
      const kind=svg.dataset.frame||'',calm=matchMedia('(prefers-reduced-motion: reduce)').matches,busy=svg.dataset.gliding==='1'&&!calm;
@@ -233,7 +276,7 @@
    if(aspect&&Math.abs(vb-aspect)>.01){if(vb<aspect)svg.style.width=Math.round(box.height*vb)+'px';else svg.style.height=Math.round(box.width/vb)+'px';}
    // The neighbours' fade follows the frame; pins keep their on-screen size (map units per px).
    const fr=svg.querySelector('.v3FadeRect');if(fr){fr.setAttribute('x',x0);fr.setAttribute('y',y0);fr.setAttribute('width',x1-x0);fr.setAttribute('height',y1-y0);}
-   const r2=svg.getBoundingClientRect();if(r2.width&&r2.height){const k=Math.max((x1-x0)/r2.width,(y1-y0)/r2.height);drawPins(svg,k);window.TopoV3Landmarks?.(svg,k);}
+   const r2=svg.getBoundingClientRect();if(r2.width&&r2.height){const k=Math.max((x1-x0)/r2.width,(y1-y0)/r2.height);decorate(svg,k);}
   }catch{}
  }
  // The stage size changes with the layout (rotation, sidebar width): refit on resize.
@@ -244,6 +287,8 @@
   let hMax=0;if(over){const m=model(),probe=panel.cloneNode(false);probe.removeAttribute('id');probe.setAttribute('aria-hidden','true');probe.inert=true;
    Object.assign(probe.style,{position:'absolute',visibility:'hidden',pointerEvents:'none',left:'0',top:'0',width:panel.getBoundingClientRect().width+'px'});panel.after(probe);
    try{for(const c of m.chapters){renderPanel(m,c,probe);hMax=Math.max(hMax,probe.getBoundingClientRect().height);}}finally{probe.remove();}}
+  // BL-029 Menu 1: the map runs under the free chapter block; Italy keeps clear of most of the block's width.
+  if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width*.6)+'px');else stage.style.removeProperty('--v3-fit-right');
   stage.style.setProperty('--v3-fit-bottom',over?Math.round(Math.max(hMax,panel.getBoundingClientRect().height)+24)+'px':'0px');};
  if('ResizeObserver' in window){const ro=new ResizeObserver(()=>{reserve();if(mapClone)fit(mapClone);});ro.observe(stage);ro.observe(panel);}
 
@@ -279,11 +324,13 @@
    else if(art['chapter'+c.index]){thumb.classList.add('v3ThumbIcon');thumb.append(img(art['chapter'+c.index]));}
    const mid=make('span','v3RowMid');mid.append(name);
    const end=make('span','v3End');
-   if(st==='gold'){end.append(pic(V3ART.icons.gold,'v3StatusArt',32,32));end.classList.add('v3EndGold');end.setAttribute('aria-label','goud');}
+   if(MENU==='1'&&st==='done'){const ok=make('span','v3OkDot');ok.append(icon('v3checkmark'));end.append(ok);end.classList.add('v3EndDone');end.setAttribute('aria-label','afgerond');}
+   else if(st==='gold'){end.append(pic(V3ART.icons.gold,'v3StatusArt',32,32));end.classList.add('v3EndGold');end.setAttribute('aria-label','goud');}
    else if(st==='done'){end.append(pic(V3ART.icons.stamp,'v3StatusArt',32,32));end.classList.add('v3EndDone');end.setAttribute('aria-label','afgerond');}
    else if(st==='locked'){end.append(icon('v3lock'));end.setAttribute('aria-label','op slot');}
    else{const bar=make('span','v3RowBar');bar.style.setProperty('--v3-on',String(c.r.stage/3));bar.setAttribute('aria-hidden','true');mid.append(bar);end.setAttribute('aria-label',c.r.stage+' van 3 lessen');}
    const num=make('span','v3RowNum',String(c.index+1));num.setAttribute('aria-hidden','true');b.title=c.title;
+   if(MENU==='1'&&st!=='locked'&&st!=='done'&&st!=='gold'){const ch=make('span','v3Chev');ch.setAttribute('aria-hidden','true');ch.append(icon('v3back'));end.append(ch);}
    b.append(num,thumb,mid,end);
    b.addEventListener('click',e=>{e.stopPropagation();if(WIDE.matches){openChapter(c.id);return;}ui.selected=c.id;render();
     // Phone: the chosen chapter appears at the top: focus its title (keyboard position kept, read by screen readers)
@@ -391,7 +438,7 @@
   // Backdrop: BG-03 (BG-01/BG-02 in the preview), full-bleed behind the window; the V2 panorama only as fallback.
   const pano=V3ART?.bg?.[window.TOPO_V3_BG||'bg03']||V3ART?.bg?.bg03||$('.routeScene img')?.currentSrc||$('.routeScene img')?.src;
   if(V3ART?.bg)background();else if(pano)document.body.style.setProperty('--v3-pano','url("'+pano+'")');
-  root.dataset.view=views[ui.view]?ui.view:'reis';root.dataset.kaart=ui.kaart;root.dataset.reisPage=ui.page;
+  root.dataset.menu=MENU;root.dataset.view=views[ui.view]?ui.view:'reis';root.dataset.kaart=ui.kaart;root.dataset.reisPage=ui.page;
   markNav(root);
   renderTop(m);renderRows(m);renderPanel(m,c);renderSwitch();paintMap(c);renderRewards(m);
   if(renderers[root.dataset.view])try{renderers[root.dataset.view](views[root.dataset.view],m);}catch(e){console.error('V3 view',e);}
