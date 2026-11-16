@@ -139,14 +139,14 @@
  .v3Reis[data-view=reis] .v3Main>.v3Top{grid-column:3;grid-row:1;justify-self:end;align-self:start;margin:0;padding:0;z-index:3}
  .v3Reis[data-view=reis] .v3Counts{padding:8px 16px;gap:12px}
  /* Chapter bar (overview): "HOOFDSTUK n / title · steps · [button]" in one glass bar at the bottom of the map zone. */
- .v3Reis[data-view=reis] .v3Main>.v3Panel{grid-column:3;grid-row:3;justify-self:stretch;align-self:end;width:auto;margin:0;z-index:3;
+ .v3Reis[data-view=reis] .v3Main>.v3Panel{grid-column:3!important;grid-row:3!important;justify-self:stretch!important;align-self:end!important;width:auto!important;margin:0!important;z-index:3;
   display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"kick dots btn" "title dots btn";align-items:center;column-gap:24px;row-gap:2px;padding:14px 16px 14px 24px!important}
  .v3Reis[data-view=reis] .v3Panel .v3CardScene,.v3Reis[data-view=reis] .v3Panel .v3StepList,.v3Reis[data-view=reis] .v3Panel .v3Again{display:none}
  .v3Reis[data-view=reis] .v3Panel .v3CardKicker{grid-area:kick;margin:0;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--v3-accent-press)}
  .v3Reis[data-view=reis] .v3Panel .v3CardHead{display:contents}
  .v3Reis[data-view=reis] .v3Panel .v3CardTitle{grid-area:title;font:700 24px/30px var(--v3-font);margin:0}
  .v3Reis[data-view=reis] .v3Panel .v3StageBar{grid-area:dots;position:relative}
- .v3Reis[data-view=reis] .v3Panel .v3Actions,.v3Reis[data-view=reis] .v3Panel .v3Locked{grid-area:btn;margin:0}
+ .v3Reis[data-view=reis] .v3Panel .v3Actions,.v3Reis[data-view=reis] .v3Panel .v3Locked{grid-area:btn;margin:0!important} /* !important stays: an older lesson/panel margin wins otherwise (1024–1280, locked chapters) */
  .v3Reis[data-view=reis] .v3Panel .v3Actions .v3Btn.primary{min-width:200px}
 }
 /* Step 3 — two pages. Overview: the chapter bar shows [Verder]; the chapter page has the real action. */
