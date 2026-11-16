@@ -272,9 +272,16 @@ test('free practice wrong-only art, exam suppression, and arrival only at real r
     both(a=>a.ev("mode('exam')"));
     both(a=>a.ev('grade(false,null,true)')); assert.equal(role(app,'#practiceArt'),null);
     assert.deepEqual(snapshot(app),snapshot(old),'exam wrong grading matches base');
-    both(a=>a.q('next').click()); both(a=>a.ev('grade(true,state.current)'));
+    both(a=>a.q('next').click());
+    const pts=a=>a.ev('JSON.stringify([state.good,state.slices,state.pizzas,state.trips])');
+    const before=pts(app); both(a=>a.ev('grade(true,state.current)'));
     assert.equal(role(app,'#practiceArt'),null,'exam correct answer has no artwork');
-    assert.deepEqual(snapshot(app),snapshot(old),'exam correct grading matches base');
+    // BL-028 / ARCHITECTUUR §1: a test answer counts for the daily goal, never for pizza points, trips or gold. The
+    // baseline still awarded a slice here; that was the bug. Everything else must still match the baseline.
+    assert.equal(pts(app),before,'exam correct answer gives no pizza points');
+    const strip=x=>{const o=typeof x==='string'?JSON.parse(x):structuredClone(x);for(const k of ['good','slices','pizzas','trips'])delete o[k];return o};
+    assert.deepEqual(strip(snapshot(app)),strip(snapshot(old)),'exam correct grading matches base apart from the reward');
+    both(a=>a.ev('state.good='+JSON.parse(before)[0]+';state.slices='+JSON.parse(before)[1]));
     both(a=>a.ev("mode('write');state.pizzas=2;state.slices=7;state.trips=0;sync()"));
     assert.equal(role(app,'#arrivalArt'),null,'no arrival for an almost-earned trip');
     both(a=>{a.q('answer').value=a.ev('state.current.name');a.q('check').click();});

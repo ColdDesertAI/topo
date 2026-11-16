@@ -1,7 +1,9 @@
 import{restoreApprovedIpadUI}from'./ipad-update-source.mjs';
 import{withoutFocus}from'./focus-source.mjs';
 // Audit adapter: restore exactly the replaced legacy resolver, not arbitrary app changes.
-export function restoreLegacyMapHit(html,reference){html=restoreApprovedIpadUI(withoutFocus(html));
+// BL-028 (ARCHITECTUUR §1): a test answer gives no pizza points; this one bounded change in grade() is restored before comparing.
+export const restoreExamReward=html=>html.replace("const reward=state.mode==='exam'?{pizza:false,trip:false}:TopoLearning.award(state);",'const reward=TopoLearning.award(state);');
+export function restoreLegacyMapHit(html,reference){html=restoreApprovedIpadUI(withoutFocus(restoreExamReward(html)));
  const start=reference.indexOf('// Neutral location picker:'),end=reference.indexOf('// Separate 44-screen-pixel river targets',start);
  if(start<0||end<0)throw Error('Pinned baseline map resolver not found');
  const marker=/\/\/ BEGIN MAP HIT\n[\s\S]*?\/\/ END MAP HIT\n\n/;

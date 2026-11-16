@@ -15,6 +15,7 @@ const items = [
   { id: 'water-A', name: 'Middellandse Zee', code: 'A', kind: 'water', aliases: [] },
   { id: 'city-9', name: 'Rome', code: '9', kind: 'city', aliases: [] }
 ];
+let daily = 0;
 const nodes = new Map();
 function node(key) {
   if (!nodes.has(key)) nodes.set(key, {
@@ -32,7 +33,7 @@ const context = {
   state, TopoArt:{roleFor:()=>null}, updatePracticeArt() {}, TopoNino:engineContext.TopoNino, TopoRoute:engineContext.TopoRoute, ITEMS: items, TopoLearning: engineContext.TopoLearning,
   $: node, groupItems: () => items, clearActive() {}, highlight() {}, sync() {},
   message: (text) => { node('#message').textContent = text; },
-  hideLens() {}, showLens() {}, isRomeArea: () => false, celebrateTrip() {},celebrateReward() {}, recordDailyCorrect() {},
+  hideLens() {}, showLens() {}, isRomeArea: () => false, celebrateTrip() {},celebrateReward() {}, recordDailyCorrect() { daily++; },
   norm: value => (value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim()
 };
 runInNewContext(`${examCode}\nthis.exam={resetExam,next,check,grade};`, context);
@@ -46,6 +47,9 @@ assert.match(node('#prompt').textContent, /Wat is dit/i);
 node('#answer').value = state.current.name;
 E.check();
 assert.equal(state.examCorrect, 1);
+// BL-028 / ARCHITECTUUR §1: a test answer counts for the daily goal, never for pizza points, trips or gold.
+assert.equal(daily, 1, 'a correct test answer counts for the daily goal');
+assert.deepEqual([state.good, state.slices, state.pizzas, state.trips], [0, 0, 0, 0], 'a test answer gives no pizza points, pizzas or trips');
 assert.equal(state.examAnswered, 1);
 E.next();
 assert.equal(state.examAnswered, 1);
