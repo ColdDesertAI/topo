@@ -11,7 +11,7 @@ Herbruikbaar protocol (BL-008). Gebruik het bij elke mijlpaal met een nieuwe geb
 ## Voorbereiding
 - **Apparaat:** iPad 9 (de ondergrens, iPadOS/Safari). Geen desktop als vervanging, tenzij de iPad ontbreekt (noteer dat dan).
 - **Versie:** noteer vooraf de geteste pin (commit) of preview-URL in het scoreformulier. Zonder versie telt de test niet.
-- **Schoon begin:** wis de opslag vóór elk kind, zodat de kennismaking opnieuw doorlopen wordt, en ook na het laatste kind. Vaste methode: Safari > Instellingen > Geavanceerd > Websitegegevens > de site verwijderen (of Instellingen > Safari > Wis geschiedenis en websitegegevens). Tijdens een kind blijft de opslag staan (nodig voor T5).
+- **Schoon begin:** wis de opslag vóór elk kind, zodat de kennismaking opnieuw doorlopen wordt, en ook na het laatste kind. Vaste methode: Instellingen > Safari > Geavanceerd > Websitegegevens > de site verwijderen (op iPadOS 18 en later: Instellingen > Apps > Safari > Geavanceerd > Websitegegevens). Of: Wis geschiedenis en websitegegevens in dezelfde Safari-instellingen. Tijdens een kind blijft de opslag staan (nodig voor T5).
 - **Scherm en geluid:** helderheid hoog, niet-storen aan, geluid aan. Geen andere apps open.
 - **Materiaal:** dit protocol, het scoreformulier (op papier of lokaal bestand), een klok. Geen scherm- of camera-opname.
 - **Plek:** rustig, kind zit zelf aan de iPad, Dennis ernaast en iets achter het kind.
@@ -20,7 +20,7 @@ Herbruikbaar protocol (BL-008). Gebruik het bij elke mijlpaal met een nieuwe geb
 ## Toestemming en privacy
 - Toestemming van een ouder of verzorger vooraf, mondeling of schriftelijk, over wat er gebeurt en dat meedoen vrijwillig is. Het kind mag altijd stoppen.
 - Geen namen: kinderen krijgen codes K1, K2 en K3. Bij de kennismaking vult het kind als naam zijn code of een verzonnen naam in, nooit de echte naam. De koppeling tussen naam en code wordt nergens vastgelegd.
-- E-mail en Print op het resultaatscherm worden niet gebruikt.
+- Kopieer, E-mail en Print op het resultaatscherm worden niet gebruikt.
 - Geen video of foto's van het kind, geen geluidsopnamen. Alleen handgeschreven of getypte notities.
 - Notities blijven lokaal en gaan niet in git. Alleen het geanonimiseerde rapport (zie Verwerking) komt in de repo, zonder leeftijd per kind, school of datum met tijd.
 - Grenzen volgen `ops/NORTH_STAR.md` §Grenzen: geen tracking, geen accounts, data blijft lokaal.
@@ -33,7 +33,7 @@ Lees de taak voor in eigen woorden, zonder de knoppen te benoemen. Help pas na d
 | T1 | Open het spel en maak kennis met Nino. Stel jezelf in. | Kind komt zelfstandig door kennismaking en profiel en staat op het startscherm (Reis). | 3 min |
 | T2 | Kies een hoofdstuk en begin met oefenen (de route). | Kind start zelfstandig een hoofdstuk en beantwoordt de eerste opdracht op de kaart. | 3 min |
 | T3 | Speel de route uit. | Kind rondt de route af zonder hulp bij de bediening (hulp bij de inhoud telt niet als bediening). | 10 min |
-| T4 | Doe nu de toets over wat je geleerd hebt. | Dennis zet de toets in vlak voor hij de iPad geeft: het hoofdstuk dat het kind in T2 koos, lengte Alle, vorm both (standaard). Kind voltooit de toets en ziet het resultaat. Dennis noteert goed/totaal en de instelling. Rondt het kind T3 niet af, dan doet het T4 toch met dat hoofdstuk (noteer dit). | 6 min |
+| T4 | Doe nu de toets over wat je geleerd hebt. | Dennis zet de toets in vlak voor hij de iPad geeft, in deze volgorde: (1) staat `Alles` aan, tik het uit; (2) tik andere hoofdstukken met een vinkje uit; (3) tik het T2-hoofdstuk aan als het nog geen vinkje heeft; (4) controleer dat alleen dat hoofdstuk een vinkje heeft; (5) tik lengte `Alle` als die niet al gekozen is; (6) kies vorm `Beide`. Kind voltooit de toets en ziet het resultaat. Dennis noteert goed/totaal en de instelling. Rondt het kind T3 niet af, dan doet het T4 toch met dat hoofdstuk (noteer dit). | 6 min |
 | T5 | Sluit het spel, laad de pagina opnieuw (herladen) en kijk of je verder kunt. | Na herladen staat het profiel en de voortgang er nog, zonder nieuwe kennismaking. | 2 min |
 | T6 | Zoek waar je kunt zien hoe ver je bent. | Kind opent zelfstandig Voortgang of Beloningen en benoemt wat het ziet. | 2 min |
 
@@ -62,7 +62,7 @@ Stel in deze volgorde, praat in kindtaal, laat stiltes toe, vraag door met "hoe 
 |---|---|
 | V1 | Wat vertel je thuis over dit spel? |
 | V2 | Wat was het leukste moment? Wat deed je toen? |
-| V3 | Was er iets lastig of saai? |
+| V3 | Wat vond je lastig of saai? |
 | V4 | Wat zou je nog een keer willen doen? |
 | V5 | Wat was er lastig om te vinden of te snappen? |
 | V6 | Wie is Nino voor jou? Wat doet hij? |
