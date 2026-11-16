@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';import {snapshot} from './config.mjs';
+const base=new URL('../../ops/reports/audit/'+snapshot+'/',import.meta.url),visual=JSON.parse(await fs.readFile(new URL('visual-elements.json',base))),rows=[];
+for(const screen of visual)for(const [i,e]of (screen.elements||[]).entries()){
+ const identity=[e.tag,e.id,e.classes,e.alt,e.label].filter(Boolean).join(' ');let decision='KEEP',reason='Bestaande bediening of informatiebeeld; bevestig rol bij gekoppeld schermcontract.';
+ if(/divider|separator|^HR\b/i.test(identity)){decision='REPLACE-BY-LAYOUT';reason='Groepsafstand en uitlijning kunnen dezelfde scheiding dragen.';}
+ else if(/map|landmark|lifestyle|country|relief|island|kaart/i.test(identity)){decision='KEEP';reason='Geografische/contextuele kaartlaag: vorm en coördinaat blijven echt; alleen niet-taakgerichte laag per scherm bespreken.';}
+ else if(/Portrait|Nino|nino/i.test(identity)){decision='KEEP / CUT';reason=screen.state==='kennismaking'?'KEEP actieve begroetende Nino; CUT tweede onderliggende portret tijdens dialoog.':['feedback','feedback-fout','ontdekken','aanwijzen','schrijven','toets-actief'].includes(screen.state)?'CUT decoratieve pose; KEEP alleen een pose die concreet de volgende stap helpt.':'KEEP één klein herkenningsportret of goedgekeurde scène, geen tweede decoratieve Nino.';}
+ else if(/thumb|scene|cover|post|stamp|gold|pizza|vespa|ride/i.test(identity)){decision='KEEP';reason='Bestaande goedgekeurde kunst met hoofdstuk-, verzamel- of voortgangsbetekenis; container vereenvoudigen.';}
+ else if(/icon|svg/i.test(identity)){decision='KEEP / CUT';reason='KEEP wanneer dit de eigen bediening of kleuronafhankelijke status identificeert; CUT wanneer hetzelfde werkwoord/status er direct naast staat en het icoon alleen herhaalt. Toegankelijke naam behouden.';}
+ rows.push({screen:screen.state,index:i,...e,decision,reason});
+}
+await fs.writeFile(new URL('visual-cut-inventory.json',base),JSON.stringify(rows,null,2));await fs.writeFile(new URL('visual-cut-inventory.md',base),'# Iconen, kunst en dividers — beslisinventaris\n\nDit zijn voorstellen op patroonniveau. KEEP/CUT betekent een expliciet contextafhankelijk voorstel, geen toestemming tot verwijderen. Exacte rol bij review bevestigen; kaartgeometrie altijd behouden.\n\n|Scherm|Element|Besluit|Waarom|\n|---|---|---|---|\n'+rows.map(r=>`|${r.screen}|${[r.tag,r.id,r.classes,r.alt,r.label].filter(Boolean).join(' ').replaceAll('|','\\|')}|${r.decision}|${r.reason}|`).join('\n'));

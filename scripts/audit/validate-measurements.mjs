@@ -1,0 +1,9 @@
+import fs from 'node:fs/promises';import {snapshot,states,viewports} from './config.mjs';
+const base=new URL('../../ops/reports/audit/'+snapshot+'/',import.meta.url),read=n=>fs.readFile(new URL(n,base),'utf8').then(JSON.parse),run=await read('run.json'),perf=await read('performance.json'),errors=[];
+const actual=new Set(run.cases.map(c=>c.id));for(const s of states)for(const v of viewports)for(const reduced of [false,true]){const id=`chromium-${s}-${v.join('x')}-${reduced?'reduced':'normal'}`;if(!actual.has(id))errors.push('missing '+id);}
+for(const c of run.cases){try{const data=await read('cases/'+c.id+'.json'),png=await fs.readFile(new URL(data.screenshot,base));if(png.readUInt32BE(16)!==c.viewport[0]||png.readUInt32BE(20)!==c.viewport[1])errors.push('wrong screenshot dimensions '+c.id);if(c.engine==='chromium'&&c.reduced&&(!data.preferences.motion||!data.preferences.transparency))errors.push('reduced media not active '+c.id);}catch(e){errors.push('missing/corrupt evidence '+c.id+': '+e.message)}}
+if(run.engines.some(e=>e.name==='webkit'&&!e.unavailable))for(const s of states)if(!actual.has(`webkit-${s}-1080x810-normal`))errors.push('missing WebKit '+s);
+errors.push(...run.errors.map(e=>'capture '+e.id+': '+e.error));for(const r of perf.rows)if(r.error)errors.push('performance '+r.screen+': '+r.error);
+for(const s of states)if(!perf.rows.some(r=>r.screen===s&&!r.error))errors.push('missing performance '+s);
+if(!Number.isFinite(perf.heapGrowthAfter10Switches))errors.push('missing heap measurement');
+const status={complete:errors.length===0,expectedChromium:states.length*viewports.length*2,actual:run.cases.length,errors};await fs.writeFile(new URL('measurement-status.json',base),JSON.stringify(status,null,2));if(errors.length)throw Error('Measurement incomplete: '+errors.slice(0,5).join('; '));console.log('Measurement coverage complete:',status.actual);

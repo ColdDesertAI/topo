@@ -1,0 +1,6570 @@
+{
+  "texts": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "span.",
+      "text": "‹",
+      "words": 0,
+      "fontSize": 26,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 924.5625,
+        "y": 78.5,
+        "w": 7.09375,
+        "h": 35
+      }
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "strong.v3LesTitle",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 962.109375,
+        "y": 75.796875,
+        "w": 111.203125,
+        "h": 43
+      }
+    },
+    {
+      "id": 2,
+      "clipped": true,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1073.3125,
+        "y": 75.796875,
+        "w": 53.453125,
+        "h": 43
+      }
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.v3LesStepName",
+      "text": "Ontdekken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(74, 54, 201)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1091.265625,
+        "y": 145,
+        "w": 79.5625,
+        "h": 22
+      }
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "span.",
+      "text": "Schoolblad",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1248.84375,
+        "y": 86,
+        "w": 87.15625,
+        "h": 23
+      }
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "button.",
+      "text": "−",
+      "words": 0,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 329.5,
+        "y": 78,
+        "w": 9,
+        "h": 20
+      }
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "button.",
+      "text": "+",
+      "words": 0,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 381.5,
+        "y": 78,
+        "w": 9,
+        "h": 20
+      }
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "button.",
+      "text": "100%",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 427,
+        "y": 78,
+        "w": 41.0625,
+        "h": 20
+      }
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "button.",
+      "text": "Heel Italië",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 594.84375,
+        "y": 78,
+        "w": 70,
+        "h": 20
+      }
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "button.",
+      "text": "Zoom op hoofdstuk",
+      "words": 3,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 702.84375,
+        "y": 78,
+        "w": 132.25,
+        "h": 20
+      }
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "text.mapLabel",
+      "text": "I T A L I Ë",
+      "words": 6,
+      "fontSize": 12.1082995951417,
+      "weight": "700",
+      "color": "rgb(87, 102, 93)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 561.7095336914062,
+        "y": 435.7674255371094,
+        "w": 70.140625,
+        "h": 15
+      }
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "DUITSLAND",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 496.0168151855469,
+        "y": 152.19529724121094,
+        "w": 55.015655517578125,
+        "h": 10
+      }
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "TSJECHIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 663.7679443359375,
+        "y": 132.2165985107422,
+        "w": 46.4375,
+        "h": 10
+      }
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "SLOWAKIJE",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 786.8426513671875,
+        "y": 161.88192749023438,
+        "w": 54.56243896484375,
+        "h": 10.000015258789062
+      }
+    },
+    {
+      "id": 14,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "HONGARIJE",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 739.2139892578125,
+        "y": 243.6129608154297,
+        "w": 55.375,
+        "h": 10
+      }
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "BOSNIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 761.818359375,
+        "y": 372.56634521484375,
+        "w": 35.59368896484375,
+        "h": 10
+      }
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "TUNESIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 501.2708740234375,
+        "y": 772.7457275390625,
+        "w": 40.875,
+        "h": 9.99993896484375
+      }
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 9.081224696356275,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 651.9627685546875,
+        "y": 524.4517822265625,
+        "w": 7,
+        "h": 11
+      }
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 9.081224696356275,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 671.04541015625,
+        "y": 667.705078125,
+        "w": 7,
+        "h": 11
+      }
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Bari",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 744.8038330078125,
+        "y": 501.70635986328125,
+        "w": 18.40625,
+        "h": 11
+      }
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Bologna",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 560.5760498046875,
+        "y": 343.8504638671875,
+        "w": 37.296875,
+        "h": 11
+      }
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Florence",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 557.5792236328125,
+        "y": 377.4328308105469,
+        "w": 39.671875,
+        "h": 11
+      }
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 480.3282775878906,
+        "y": 348.06414794921875,
+        "w": 29.15625,
+        "h": 11
+      }
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Milaan",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 489.421630859375,
+        "y": 298.55938720703125,
+        "w": 30.140625,
+        "h": 10.999969482421875
+      }
+    },
+    {
+      "id": 24,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Napels",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 657.24267578125,
+        "y": 514.3958740234375,
+        "w": 31.609375,
+        "h": 11
+      }
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "span.",
+      "text": "Nino laat je eerst alle plekken op de kaart zien.",
+      "words": 10,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 973.09375,
+        "y": 265.546875,
+        "w": 299.09375,
+        "h": 16
+      }
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "div.eyebrow",
+      "text": "Kijk · zeg · onthoud",
+      "words": 3,
+      "fontSize": 12,
+      "weight": "900",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 319,
+        "w": 169.296875,
+        "h": 15
+      }
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "#learnPrompt",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 27,
+      "weight": "850",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 345.390625,
+        "w": 79.59375,
+        "h": 32
+      }
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "#learnHelp",
+      "text": "Stad · 4 van 6",
+      "words": 4,
+      "fontSize": 14,
+      "weight": "400",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 391.625,
+        "w": 89.265625,
+        "h": 17
+      }
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "#learnNext",
+      "text": "Volgende plek →",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "800",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 923.09375,
+        "y": 440.328125,
+        "w": 130.578125,
+        "h": 18
+      }
+    },
+    {
+      "id": 30,
+      "clipped": false,
+      "element": "div.message",
+      "text": "Bekijk de plek, zeg de naam hardop en ga verder.",
+      "words": 10,
+      "fontSize": 16,
+      "weight": "700",
+      "color": "rgb(26, 91, 85)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 924.09375,
+        "y": 502.921875,
+        "w": 376.859375,
+        "h": 18
+      }
+    },
+    {
+      "id": 31,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 558.109375,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 32,
+      "clipped": false,
+      "element": "span.",
+      "text": "Bari",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 558.109375,
+        "w": 23.578125,
+        "h": 16
+      }
+    },
+    {
+      "id": 33,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 593.953125,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 34,
+      "clipped": false,
+      "element": "span.",
+      "text": "Bologna",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 593.953125,
+        "w": 49.34375,
+        "h": 16
+      }
+    },
+    {
+      "id": 35,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 629.796875,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 36,
+      "clipped": false,
+      "element": "span.",
+      "text": "Florence",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 629.796875,
+        "w": 52.28125,
+        "h": 16
+      }
+    },
+    {
+      "id": 37,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 665.640625,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 38,
+      "clipped": false,
+      "element": "span.",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 665.640625,
+        "w": 39.109375,
+        "h": 16
+      }
+    },
+    {
+      "id": 39,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 701.484375,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 40,
+      "clipped": false,
+      "element": "span.",
+      "text": "Milaan",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 701.484375,
+        "w": 39.34375,
+        "h": 16
+      }
+    },
+    {
+      "id": 41,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 737.328125,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 42,
+      "clipped": false,
+      "element": "span.",
+      "text": "Napels",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 737.328125,
+        "w": 41.828125,
+        "h": 16
+      }
+    },
+    {
+      "id": 43,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 30,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 104.96875,
+        "y": 46,
+        "w": 85.0625,
+        "h": 41
+      }
+    },
+    {
+      "id": 44,
+      "clipped": false,
+      "element": "span.",
+      "text": "Reis",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 256.296875,
+        "w": 34.703125,
+        "h": 24
+      }
+    },
+    {
+      "id": 45,
+      "clipped": false,
+      "element": "span.",
+      "text": "Oefenen",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(74, 54, 201)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 308.296875,
+        "w": 69.640625,
+        "h": 24
+      }
+    },
+    {
+      "id": 46,
+      "clipped": false,
+      "element": "span.",
+      "text": "Toets",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 360.296875,
+        "w": 44.71875,
+        "h": 24
+      }
+    },
+    {
+      "id": 47,
+      "clipped": false,
+      "element": "span.",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 412.296875,
+        "w": 93.34375,
+        "h": 24
+      }
+    },
+    {
+      "id": 48,
+      "clipped": false,
+      "element": "span.",
+      "text": "Voortgang",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 464.296875,
+        "w": 86.96875,
+        "h": 24
+      }
+    }
+  ],
+  "activeWords": 71,
+  "words": 71,
+  "minFontSize": 7.870394736842106,
+  "targets": [
+    {
+      "element": "button.v3Btn.v3LesBack",
+      "name": "Terug naar Oefenen",
+      "rect": {
+        "x": 906.109375,
+        "y": 76,
+        "w": 44,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3School.v3LesSchool",
+      "name": "Schoolblad",
+      "rect": {
+        "x": 1208.84375,
+        "y": 76,
+        "w": 139.15625,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "Kaart verkleinen",
+      "rect": {
+        "x": 312,
+        "y": 68,
+        "w": 44,
+        "h": 40
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "Kaart vergroten",
+      "rect": {
+        "x": 364,
+        "y": 68,
+        "w": 44,
+        "h": 40
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "Hele kaart",
+      "rect": {
+        "x": 416,
+        "y": 68,
+        "w": 63.0625,
+        "h": 40
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "Heel Italië",
+      "rect": {
+        "x": 579.84375,
+        "y": 68,
+        "w": 100,
+        "h": 40
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "Zoom op hoofdstuk",
+      "rect": {
+        "x": 687.84375,
+        "y": 68,
+        "w": 162.25,
+        "h": 40
+      },
+      "disabled": false
+    },
+    {
+      "element": "div.mapArea.atlasViewport",
+      "name": "Interactieve kaart van Italië. Vergroot met de kaartknoppen; verschuif met aanraken of pijltjestoetsen.",
+      "rect": {
+        "x": 311.625,
+        "y": 116,
+        "w": 538.828125,
+        "h": 747.6875
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.water.parent",
+      "name": "Middellandse Zee",
+      "rect": {
+        "x": 317.68353271484375,
+        "y": 567.6395874023438,
+        "w": 144.6942138671875,
+        "h": 163.4620361328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.water",
+      "name": "Adriatische Zee",
+      "rect": {
+        "x": 592.585205078125,
+        "y": 307.4042663574219,
+        "w": 249.99310302734375,
+        "h": 251.15408325195312
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.water",
+      "name": "Ligurische Zee",
+      "rect": {
+        "x": 340.0838928222656,
+        "y": 362.2525634765625,
+        "w": 191.31112670898438,
+        "h": 133.34262084960938
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.water",
+      "name": "Tyrreense Zee",
+      "rect": {
+        "x": 496.8863830566406,
+        "y": 433.8428649902344,
+        "w": 227.03060913085938,
+        "h": 266.9880065917969
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.water",
+      "name": "Ionische Zee",
+      "rect": {
+        "x": 694.251708984375,
+        "y": 543.086669921875,
+        "w": 148.93206787109375,
+        "h": 247.34564208984375
+      },
+      "disabled": false
+    },
+    {
+      "element": "#atlas-land-19",
+      "name": "Frankrijk",
+      "rect": {
+        "x": 16.525909423828125,
+        "y": 53.20030212402344,
+        "w": 476.78857421875,
+        "h": 452.7535400390625
+      },
+      "disabled": false
+    },
+    {
+      "element": "#atlas-land-20",
+      "name": "Zwitserland",
+      "rect": {
+        "x": 373.8963317871094,
+        "y": 208.04122924804688,
+        "w": 149.32559204101562,
+        "h": 90.69723510742188
+      },
+      "disabled": false
+    },
+    {
+      "element": "#atlas-land-21",
+      "name": "Oostenrijk",
+      "rect": {
+        "x": 492.23681640625,
+        "y": 150.90823364257812,
+        "w": 253.83837890625,
+        "h": 121.27066040039062
+      },
+      "disabled": false
+    },
+    {
+      "element": "#atlas-land-22",
+      "name": "Slovenië",
+      "rect": {
+        "x": 620.5726318359375,
+        "y": 250.57164001464844,
+        "w": 104.4886474609375,
+        "h": 66.89228820800781
+      },
+      "disabled": false
+    },
+    {
+      "element": "#atlas-land-23",
+      "name": "Kroatië",
+      "rect": {
+        "x": 625.2041015625,
+        "y": 265.8886413574219,
+        "w": 195.9122314453125,
+        "h": 191.21426391601562
+      },
+      "disabled": false
+    },
+    {
+      "element": "#atlas-land-25",
+      "name": "Sicilië",
+      "rect": {
+        "x": 572.563232421875,
+        "y": 649.9578247070312,
+        "w": 123.1474609375,
+        "h": 74.9625244140625
+      },
+      "disabled": false
+    },
+    {
+      "element": "#atlas-land-26",
+      "name": "Sardinië",
+      "rect": {
+        "x": 447.5147705078125,
+        "y": 511.9111328125,
+        "w": 54.087799072265625,
+        "h": 109.434814453125
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.zone",
+      "name": "Apennijnen",
+      "rect": {
+        "x": 447.24237060546875,
+        "y": 351.50640869140625,
+        "w": 281.5179443359375,
+        "h": 311.18328857421875
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.zone",
+      "name": "Dolomieten",
+      "rect": {
+        "x": 558.638671875,
+        "y": 260.47113037109375,
+        "w": 43.58990478515625,
+        "h": 29.282958984375
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.zone",
+      "name": "de Povlakte",
+      "rect": {
+        "x": 426.6582336425781,
+        "y": 313.51055908203125,
+        "w": 160.43496704101562,
+        "h": 50.7095947265625
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.zone",
+      "name": "Toscane",
+      "rect": {
+        "x": 519.2867431640625,
+        "y": 366.036376953125,
+        "w": 73.860595703125,
+        "h": 79.30938720703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.lineTarget",
+      "name": "Tiber",
+      "rect": {
+        "x": 575.7296142578125,
+        "y": 394.9933776855469,
+        "w": 20.19659423828125,
+        "h": 94.29339599609375
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.lineTarget",
+      "name": "Po",
+      "rect": {
+        "x": 411.65606689453125,
+        "y": 327.0960693359375,
+        "w": 180.80108642578125,
+        "h": 27.46771240234375
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.",
+      "name": "Tiber",
+      "rect": {
+        "x": 575.7296142578125,
+        "y": 394.9933776855469,
+        "w": 20.19659423828125,
+        "h": 94.29339599609375
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.",
+      "name": "Po",
+      "rect": {
+        "x": 411.65606689453125,
+        "y": 327.0960693359375,
+        "w": 180.80108642578125,
+        "h": 27.46771240234375
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.feature",
+      "name": "Vesuvius",
+      "rect": {
+        "x": 649.4085693359375,
+        "y": 526.1868286132812,
+        "w": 12.1082763671875,
+        "h": 10.29205322265625
+      },
+      "disabled": false
+    },
+    {
+      "element": "path.feature",
+      "name": "Etna",
+      "rect": {
+        "x": 668.4912719726562,
+        "y": 669.4401245117188,
+        "w": 12.1082763671875,
+        "h": 10.29205322265625
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.feature.microstate",
+      "name": "San Marino",
+      "rect": {
+        "x": 586.66943359375,
+        "y": 384.3017578125,
+        "w": 5.44873046875,
+        "h": 5.44873046875
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.feature.microstate",
+      "name": "Vaticaanstad",
+      "rect": {
+        "x": 588.1466064453125,
+        "y": 480.1571044921875,
+        "w": 3.269287109375,
+        "h": 3.269256591796875
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Bari",
+      "rect": {
+        "x": 732.9982299804688,
+        "y": 514.6416015625,
+        "w": 7.87042236328125,
+        "h": 7.870361328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Bologna",
+      "rect": {
+        "x": 548.7704467773438,
+        "y": 356.78564453125,
+        "w": 7.87042236328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Florence",
+      "rect": {
+        "x": 545.7736206054688,
+        "y": 390.3680114746094,
+        "w": 7.87042236328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city.activeTarget",
+      "name": "Genua",
+      "rect": {
+        "x": 468.522705078125,
+        "y": 360.99932861328125,
+        "w": 7.870361328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Milaan",
+      "rect": {
+        "x": 477.61602783203125,
+        "y": 311.49456787109375,
+        "w": 7.870391845703125,
+        "h": 7.870361328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Napels",
+      "rect": {
+        "x": 645.43701171875,
+        "y": 527.3310546875,
+        "w": 7.87042236328125,
+        "h": 7.870361328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Palermo",
+      "rect": {
+        "x": 615.6324462890625,
+        "y": 653.8930053710938,
+        "w": 7.87042236328125,
+        "h": 7.87042236328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Pisa",
+      "rect": {
+        "x": 517.470458984375,
+        "y": 393.14080810546875,
+        "w": 7.87042236328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Rome",
+      "rect": {
+        "x": 586.8934326171875,
+        "y": 478.225830078125,
+        "w": 7.62823486328125,
+        "h": 7.628204345703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Turijn",
+      "rect": {
+        "x": 426.5008544921875,
+        "y": 330.1231689453125,
+        "w": 7.870361328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Venetië",
+      "rect": {
+        "x": 581.8988037109375,
+        "y": 313.04443359375,
+        "w": 7.870361328125,
+        "h": 7.870361328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Verona",
+      "rect": {
+        "x": 537.1162109375,
+        "y": 312.9656982421875,
+        "w": 7.870361328125,
+        "h": 7.87042236328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Varese",
+      "rect": {
+        "x": 465.0294494628906,
+        "y": 295.2452392578125,
+        "w": 7.870391845703125,
+        "h": 7.870361328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Cagliari",
+      "rect": {
+        "x": 474.3165283203125,
+        "y": 602.8323364257812,
+        "w": 7.870361328125,
+        "h": 7.87042236328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Catania",
+      "rect": {
+        "x": 673.3043212890625,
+        "y": 683.1224975585938,
+        "w": 7.870361328125,
+        "h": 7.870361328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Catanzaro",
+      "rect": {
+        "x": 723.9169921875,
+        "y": 617.840576171875,
+        "w": 7.870361328125,
+        "h": 7.870361328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Foggia",
+      "rect": {
+        "x": 689.2872314453125,
+        "y": 498.4951171875,
+        "w": 7.87042236328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "La Spezia",
+      "rect": {
+        "x": 498.2848815917969,
+        "y": 375.31134033203125,
+        "w": 7.870391845703125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Messina",
+      "rect": {
+        "x": 688.9542846679688,
+        "y": 650.4663696289062,
+        "w": 7.87042236328125,
+        "h": 7.87042236328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Modena",
+      "rect": {
+        "x": 534.7853393554688,
+        "y": 349.811279296875,
+        "w": 7.87042236328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Pescara",
+      "rect": {
+        "x": 644.6258544921875,
+        "y": 452.1142883300781,
+        "w": 7.870361328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Trente",
+      "rect": {
+        "x": 541.4449462890625,
+        "y": 283.130859375,
+        "w": 7.870361328125,
+        "h": 7.870391845703125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.city",
+      "name": "Triëst",
+      "rect": {
+        "x": 630.68310546875,
+        "y": 303.1761474609375,
+        "w": 7.870361328125,
+        "h": 7.87042236328125
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.microHit",
+      "name": "San Marino",
+      "rect": {
+        "x": 586.36669921875,
+        "y": 383.9990539550781,
+        "w": 6.05419921875,
+        "h": 6.05413818359375
+      },
+      "disabled": false
+    },
+    {
+      "element": "circle.microHit",
+      "name": "Kies Rome of Vaticaanstad",
+      "rect": {
+        "x": 581.6263427734375,
+        "y": 472.9587097167969,
+        "w": 18.16241455078125,
+        "h": 18.162445068359375
+      },
+      "disabled": false
+    },
+    {
+      "element": "#learnNext",
+      "name": "Volgende plek →",
+      "rect": {
+        "x": 910.09375,
+        "y": 425.921875,
+        "w": 156.578125,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "•\nBari",
+      "rect": {
+        "x": 910.09375,
+        "y": 549.109375,
+        "w": 445.90625,
+        "h": 35.84375
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "•\nBologna",
+      "rect": {
+        "x": 910.09375,
+        "y": 584.953125,
+        "w": 445.90625,
+        "h": 35.84375
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "•\nFlorence",
+      "rect": {
+        "x": 910.09375,
+        "y": 620.796875,
+        "w": 445.90625,
+        "h": 35.84375
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.selected",
+      "name": "•\nGenua",
+      "rect": {
+        "x": 910.09375,
+        "y": 656.640625,
+        "w": 445.90625,
+        "h": 35.84375
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "•\nMilaan",
+      "rect": {
+        "x": 910.09375,
+        "y": 692.484375,
+        "w": 445.90625,
+        "h": 35.84375
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.",
+      "name": "•\nNapels",
+      "rect": {
+        "x": 910.09375,
+        "y": 728.328125,
+        "w": 445.90625,
+        "h": 35.84375
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Reis",
+      "rect": {
+        "x": 44,
+        "y": 245,
+        "w": 207,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Oefenen",
+      "rect": {
+        "x": 44,
+        "y": 297,
+        "w": 207,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Toets",
+      "rect": {
+        "x": 44,
+        "y": 349,
+        "w": 207,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Beloningen",
+      "rect": {
+        "x": 44,
+        "y": 401,
+        "w": 207,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Voortgang",
+      "rect": {
+        "x": 44,
+        "y": 453,
+        "w": 207,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem.v3Settings",
+      "name": "Instellingen",
+      "rect": {
+        "x": 44,
+        "y": 800,
+        "w": 48,
+        "h": 48
+      },
+      "disabled": false
+    }
+  ],
+  "closeTargets": [
+    [
+      2,
+      13
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      4,
+      13
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      7,
+      12
+    ],
+    [
+      7,
+      13
+    ],
+    [
+      7,
+      14
+    ],
+    [
+      7,
+      15
+    ],
+    [
+      7,
+      16
+    ],
+    [
+      7,
+      17
+    ],
+    [
+      7,
+      18
+    ],
+    [
+      7,
+      19
+    ],
+    [
+      7,
+      20
+    ],
+    [
+      7,
+      21
+    ],
+    [
+      7,
+      22
+    ],
+    [
+      7,
+      23
+    ],
+    [
+      7,
+      24
+    ],
+    [
+      7,
+      25
+    ],
+    [
+      7,
+      26
+    ],
+    [
+      7,
+      27
+    ],
+    [
+      7,
+      28
+    ],
+    [
+      7,
+      29
+    ],
+    [
+      7,
+      30
+    ],
+    [
+      7,
+      31
+    ],
+    [
+      7,
+      32
+    ],
+    [
+      7,
+      33
+    ],
+    [
+      7,
+      34
+    ],
+    [
+      7,
+      35
+    ],
+    [
+      7,
+      36
+    ],
+    [
+      7,
+      37
+    ],
+    [
+      7,
+      38
+    ],
+    [
+      7,
+      39
+    ],
+    [
+      7,
+      40
+    ],
+    [
+      7,
+      41
+    ],
+    [
+      7,
+      42
+    ],
+    [
+      7,
+      43
+    ],
+    [
+      7,
+      44
+    ],
+    [
+      7,
+      45
+    ],
+    [
+      7,
+      46
+    ],
+    [
+      7,
+      47
+    ],
+    [
+      7,
+      48
+    ],
+    [
+      7,
+      49
+    ],
+    [
+      7,
+      50
+    ],
+    [
+      7,
+      51
+    ],
+    [
+      7,
+      52
+    ],
+    [
+      7,
+      53
+    ],
+    [
+      7,
+      54
+    ],
+    [
+      7,
+      55
+    ],
+    [
+      7,
+      56
+    ],
+    [
+      8,
+      19
+    ],
+    [
+      8,
+      20
+    ],
+    [
+      9,
+      11
+    ],
+    [
+      9,
+      12
+    ],
+    [
+      9,
+      16
+    ],
+    [
+      9,
+      17
+    ],
+    [
+      9,
+      20
+    ],
+    [
+      9,
+      22
+    ],
+    [
+      9,
+      23
+    ],
+    [
+      9,
+      24
+    ],
+    [
+      9,
+      25
+    ],
+    [
+      9,
+      26
+    ],
+    [
+      9,
+      27
+    ],
+    [
+      9,
+      28
+    ],
+    [
+      9,
+      30
+    ],
+    [
+      9,
+      31
+    ],
+    [
+      9,
+      32
+    ],
+    [
+      9,
+      37
+    ],
+    [
+      9,
+      40
+    ],
+    [
+      9,
+      42
+    ],
+    [
+      9,
+      48
+    ],
+    [
+      9,
+      52
+    ],
+    [
+      9,
+      54
+    ],
+    [
+      9,
+      55
+    ],
+    [
+      9,
+      56
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      10,
+      13
+    ],
+    [
+      10,
+      20
+    ],
+    [
+      10,
+      22
+    ],
+    [
+      10,
+      23
+    ],
+    [
+      10,
+      25
+    ],
+    [
+      10,
+      27
+    ],
+    [
+      10,
+      35
+    ],
+    [
+      10,
+      39
+    ],
+    [
+      10,
+      49
+    ],
+    [
+      10,
+      51
+    ],
+    [
+      11,
+      12
+    ],
+    [
+      11,
+      13
+    ],
+    [
+      11,
+      17
+    ],
+    [
+      11,
+      18
+    ],
+    [
+      11,
+      19
+    ],
+    [
+      11,
+      20
+    ],
+    [
+      11,
+      23
+    ],
+    [
+      11,
+      24
+    ],
+    [
+      11,
+      26
+    ],
+    [
+      11,
+      28
+    ],
+    [
+      11,
+      29
+    ],
+    [
+      11,
+      31
+    ],
+    [
+      11,
+      37
+    ],
+    [
+      11,
+      38
+    ],
+    [
+      11,
+      40
+    ],
+    [
+      11,
+      46
+    ],
+    [
+      11,
+      47
+    ],
+    [
+      11,
+      48
+    ],
+    [
+      11,
+      50
+    ],
+    [
+      11,
+      52
+    ],
+    [
+      11,
+      56
+    ],
+    [
+      12,
+      18
+    ],
+    [
+      12,
+      20
+    ],
+    [
+      12,
+      47
+    ],
+    [
+      12,
+      50
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      13,
+      15
+    ],
+    [
+      13,
+      19
+    ],
+    [
+      13,
+      20
+    ],
+    [
+      13,
+      22
+    ],
+    [
+      13,
+      25
+    ],
+    [
+      13,
+      27
+    ],
+    [
+      13,
+      35
+    ],
+    [
+      13,
+      36
+    ],
+    [
+      13,
+      41
+    ],
+    [
+      13,
+      44
+    ],
+    [
+      13,
+      49
+    ],
+    [
+      13,
+      64
+    ],
+    [
+      13,
+      65
+    ],
+    [
+      13,
+      66
+    ],
+    [
+      13,
+      67
+    ],
+    [
+      13,
+      68
+    ],
+    [
+      14,
+      15
+    ],
+    [
+      14,
+      44
+    ],
+    [
+      15,
+      16
+    ],
+    [
+      15,
+      17
+    ],
+    [
+      15,
+      21
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      16,
+      54
+    ],
+    [
+      17,
+      20
+    ],
+    [
+      17,
+      52
+    ],
+    [
+      17,
+      54
+    ],
+    [
+      18,
+      20
+    ],
+    [
+      18,
+      29
+    ],
+    [
+      18,
+      38
+    ],
+    [
+      18,
+      46
+    ],
+    [
+      18,
+      50
+    ],
+    [
+      19,
+      20
+    ],
+    [
+      19,
+      45
+    ],
+    [
+      20,
+      22
+    ],
+    [
+      20,
+      23
+    ],
+    [
+      20,
+      24
+    ],
+    [
+      20,
+      25
+    ],
+    [
+      20,
+      26
+    ],
+    [
+      20,
+      27
+    ],
+    [
+      20,
+      28
+    ],
+    [
+      20,
+      29
+    ],
+    [
+      20,
+      30
+    ],
+    [
+      20,
+      31
+    ],
+    [
+      20,
+      32
+    ],
+    [
+      20,
+      33
+    ],
+    [
+      20,
+      34
+    ],
+    [
+      20,
+      35
+    ],
+    [
+      20,
+      37
+    ],
+    [
+      20,
+      38
+    ],
+    [
+      20,
+      39
+    ],
+    [
+      20,
+      40
+    ],
+    [
+      20,
+      45
+    ],
+    [
+      20,
+      47
+    ],
+    [
+      20,
+      48
+    ],
+    [
+      20,
+      49
+    ],
+    [
+      20,
+      50
+    ],
+    [
+      20,
+      51
+    ],
+    [
+      20,
+      52
+    ],
+    [
+      20,
+      55
+    ],
+    [
+      20,
+      56
+    ],
+    [
+      22,
+      23
+    ],
+    [
+      22,
+      25
+    ],
+    [
+      22,
+      27
+    ],
+    [
+      22,
+      33
+    ],
+    [
+      22,
+      35
+    ],
+    [
+      22,
+      36
+    ],
+    [
+      22,
+      41
+    ],
+    [
+      22,
+      42
+    ],
+    [
+      22,
+      43
+    ],
+    [
+      22,
+      51
+    ],
+    [
+      23,
+      24
+    ],
+    [
+      23,
+      26
+    ],
+    [
+      23,
+      30
+    ],
+    [
+      23,
+      33
+    ],
+    [
+      23,
+      34
+    ],
+    [
+      23,
+      39
+    ],
+    [
+      23,
+      55
+    ],
+    [
+      24,
+      26
+    ],
+    [
+      24,
+      30
+    ],
+    [
+      24,
+      31
+    ],
+    [
+      24,
+      40
+    ],
+    [
+      24,
+      55
+    ],
+    [
+      24,
+      56
+    ],
+    [
+      25,
+      27
+    ],
+    [
+      25,
+      33
+    ],
+    [
+      25,
+      35
+    ],
+    [
+      25,
+      36
+    ],
+    [
+      25,
+      41
+    ],
+    [
+      25,
+      42
+    ],
+    [
+      25,
+      43
+    ],
+    [
+      25,
+      51
+    ],
+    [
+      26,
+      30
+    ],
+    [
+      26,
+      31
+    ],
+    [
+      26,
+      40
+    ],
+    [
+      26,
+      55
+    ],
+    [
+      26,
+      56
+    ],
+    [
+      27,
+      33
+    ],
+    [
+      27,
+      35
+    ],
+    [
+      27,
+      36
+    ],
+    [
+      27,
+      41
+    ],
+    [
+      27,
+      42
+    ],
+    [
+      27,
+      43
+    ],
+    [
+      27,
+      51
+    ],
+    [
+      28,
+      37
+    ],
+    [
+      29,
+      46
+    ],
+    [
+      30,
+      55
+    ],
+    [
+      31,
+      40
+    ],
+    [
+      31,
+      56
+    ],
+    [
+      33,
+      51
+    ],
+    [
+      40,
+      56
+    ],
+    [
+      58,
+      59
+    ],
+    [
+      59,
+      60
+    ],
+    [
+      60,
+      61
+    ],
+    [
+      61,
+      62
+    ],
+    [
+      62,
+      63
+    ],
+    [
+      64,
+      65
+    ],
+    [
+      65,
+      66
+    ],
+    [
+      66,
+      67
+    ],
+    [
+      67,
+      68
+    ]
+  ],
+  "overflow": [
+    {
+      "element": "button.v3Btn.v3NavItem.v3Settings",
+      "value": "168>48",
+      "rect": {
+        "x": 44,
+        "y": 800,
+        "w": 48,
+        "h": 48
+      }
+    }
+  ],
+  "filters": [
+    {
+      "element": "nav.v3.v3LesBar",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "aside.panel",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "div.v3.v3ShellNav::after",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    }
+  ],
+  "variants": [
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3LesBack",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.72)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+        "padding": "0px 10px",
+        "fontSize": "17px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3School.v3LesSchool",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.72)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+        "padding": "0px 12px",
+        "fontSize": "17px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "panel",
+      "element": "section.mapCard",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "25px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.74)",
+        "backdropFilter": "none",
+        "border": "1px solid rgba(42, 36, 64, 0.16)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "padding": "8px 10px",
+        "fontSize": "15px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.74)",
+        "backdropFilter": "none",
+        "border": "1px solid rgba(42, 36, 64, 0.16)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "padding": "8px 10px",
+        "fontSize": "15px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.74)",
+        "backdropFilter": "none",
+        "border": "1px solid rgba(42, 36, 64, 0.16)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "padding": "8px 10px",
+        "fontSize": "15px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.74)",
+        "backdropFilter": "none",
+        "border": "1px solid rgba(42, 36, 64, 0.16)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "padding": "8px 14px",
+        "fontSize": "15px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.74)",
+        "backdropFilter": "none",
+        "border": "1px solid rgba(42, 36, 64, 0.16)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "padding": "8px 14px",
+        "fontSize": "15px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "path.",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "path.",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "circle.feature.microstate",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "circle.feature.microstate",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "circle.microHit",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "panel",
+      "element": "aside.panel",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "28px",
+        "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+        "padding": "24px",
+        "fontSize": "16px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "row",
+      "element": "div.eyebrow",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(91, 69, 224)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "12px",
+        "fontWeight": "900"
+      }
+    },
+    {
+      "type": "button",
+      "element": "#learnNext",
+      "styles": {
+        "backgroundColor": "rgb(185, 80, 47)",
+        "backdropFilter": "none",
+        "border": "1px solid rgb(147, 57, 31)",
+        "borderRadius": "12px",
+        "boxShadow": "rgb(147, 57, 31) 0px 2px 0px 0px",
+        "padding": "9px 12px",
+        "fontSize": "16px",
+        "fontWeight": "800"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backdropFilter": "none",
+        "border": "",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "8px",
+        "fontSize": "13px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backdropFilter": "none",
+        "border": "",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "8px",
+        "fontSize": "13px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backdropFilter": "none",
+        "border": "",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "8px",
+        "fontSize": "13px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.selected",
+      "styles": {
+        "backgroundColor": "rgb(228, 247, 240)",
+        "backdropFilter": "none",
+        "border": "",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(91, 69, 224) 4px 0px 0px 0px inset",
+        "padding": "8px",
+        "fontSize": "13px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backdropFilter": "none",
+        "border": "",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "8px",
+        "fontSize": "13px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.",
+      "styles": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backdropFilter": "none",
+        "border": "",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "8px",
+        "fontSize": "13px",
+        "fontWeight": "400"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "999px",
+        "boxShadow": "none",
+        "padding": "0px 12px",
+        "fontSize": "18px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgb(236, 232, 254)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(74, 54, 201)",
+        "borderRadius": "999px",
+        "boxShadow": "none",
+        "padding": "0px 12px",
+        "fontSize": "18px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "999px",
+        "boxShadow": "none",
+        "padding": "0px 12px",
+        "fontSize": "18px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "999px",
+        "boxShadow": "none",
+        "padding": "0px 12px",
+        "fontSize": "18px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "999px",
+        "boxShadow": "none",
+        "padding": "0px 12px",
+        "fontSize": "18px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem.v3Settings",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "50%",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "18px",
+        "fontWeight": "600"
+      }
+    }
+  ],
+  "images": [
+    {
+      "element": "img.",
+      "width": 512,
+      "height": 512,
+      "bytes": 1048576,
+      "source": "embedded"
+    }
+  ],
+  "decodedImageBytes": 1048576,
+  "domNodes": 1833,
+  "overlaps": [],
+  "contrast": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "span.",
+      "text": "‹",
+      "words": 0,
+      "fontSize": 26,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 924.5625,
+        "y": 78.5,
+        "w": 7.09375,
+        "h": 35
+      },
+      "samples": 31,
+      "ratio": 13.975697039728173,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "strong.v3LesTitle",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 962.109375,
+        "y": 75.796875,
+        "w": 111.203125,
+        "h": 43
+      },
+      "samples": 1156,
+      "ratio": 11.845676077368735,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 2,
+      "clipped": true,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1073.3125,
+        "y": 75.796875,
+        "w": 53.453125,
+        "h": 43
+      },
+      "samples": 481,
+      "ratio": 11.845676077368735,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.v3LesStepName",
+      "text": "Ontdekken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(74, 54, 201)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1091.265625,
+        "y": 145,
+        "w": 79.5625,
+        "h": 22
+      },
+      "samples": 462,
+      "ratio": 6.588563104050865,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "span.",
+      "text": "Schoolblad",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1248.84375,
+        "y": 86,
+        "w": 87.15625,
+        "h": 23
+      },
+      "samples": 547,
+      "ratio": 14.340612812033447,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "button.",
+      "text": "−",
+      "words": 0,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 329.5,
+        "y": 78,
+        "w": 9,
+        "h": 20
+      },
+      "samples": 16,
+      "ratio": 10.774816457664873,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "button.",
+      "text": "+",
+      "words": 0,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 381.5,
+        "y": 78,
+        "w": 9,
+        "h": 20
+      },
+      "samples": 28,
+      "ratio": 11.705358263591396,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "button.",
+      "text": "100%",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 427,
+        "y": 78,
+        "w": 41.0625,
+        "h": 20
+      },
+      "samples": 245,
+      "ratio": 12.981604905856958,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "button.",
+      "text": "Heel Italië",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 594.84375,
+        "y": 78,
+        "w": 70,
+        "h": 20
+      },
+      "samples": 384,
+      "ratio": 12.85209046601296,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "button.",
+      "text": "Zoom op hoofdstuk",
+      "words": 3,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 702.84375,
+        "y": 78,
+        "w": 132.25,
+        "h": 20
+      },
+      "samples": 704,
+      "ratio": 12.806438844748902,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "text.mapLabel",
+      "text": "I T A L I Ë",
+      "words": 6,
+      "fontSize": 12.1082995951417,
+      "weight": "700",
+      "color": "rgb(87, 102, 93)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 561.7095336914062,
+        "y": 435.7674255371094,
+        "w": 70.140625,
+        "h": 15
+      },
+      "samples": 210,
+      "ratio": 2.2105293164863165,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "DUITSLAND",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 496.0168151855469,
+        "y": 152.19529724121094,
+        "w": 55.015655517578125,
+        "h": 10
+      },
+      "samples": 186,
+      "ratio": 3.050844534363056,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "TSJECHIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 663.7679443359375,
+        "y": 132.2165985107422,
+        "w": 46.4375,
+        "h": 10
+      },
+      "samples": 167,
+      "ratio": 3.050844534363056,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "SLOWAKIJE",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 786.8426513671875,
+        "y": 161.88192749023438,
+        "w": 54.56243896484375,
+        "h": 10.000015258789062
+      },
+      "samples": 194,
+      "ratio": 3.02220377960654,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 14,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "HONGARIJE",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 739.2139892578125,
+        "y": 243.6129608154297,
+        "w": 55.375,
+        "h": 10
+      },
+      "samples": 187,
+      "ratio": 3.050844534363056,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "BOSNIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 761.818359375,
+        "y": 372.56634521484375,
+        "w": 35.59368896484375,
+        "h": 10
+      },
+      "samples": 134,
+      "ratio": 3.050844534363056,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "TUNESIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 501.2708740234375,
+        "y": 772.7457275390625,
+        "w": 40.875,
+        "h": 9.99993896484375
+      },
+      "samples": 148,
+      "ratio": 3.050844534363056,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 9.081224696356275,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 651.9627685546875,
+        "y": 524.4517822265625,
+        "w": 7,
+        "h": 11
+      },
+      "samples": 26,
+      "ratio": 1.6812730814915275,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 9.081224696356275,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 671.04541015625,
+        "y": 667.705078125,
+        "w": 7,
+        "h": 11
+      },
+      "samples": 28,
+      "ratio": 1.6812730814915275,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Bari",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 744.8038330078125,
+        "y": 501.70635986328125,
+        "w": 18.40625,
+        "h": 11
+      },
+      "samples": 180,
+      "ratio": 7.632176153565662,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Bologna",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 560.5760498046875,
+        "y": 343.8504638671875,
+        "w": 37.296875,
+        "h": 11
+      },
+      "samples": 327,
+      "ratio": 5.663582577014687,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Florence",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 557.5792236328125,
+        "y": 377.4328308105469,
+        "w": 39.671875,
+        "h": 11
+      },
+      "samples": 338,
+      "ratio": 4.4634665066330985,
+      "required": 4.5,
+      "status": "fail",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 480.3282775878906,
+        "y": 348.06414794921875,
+        "w": 29.15625,
+        "h": 11
+      },
+      "samples": 254,
+      "ratio": 6.1579359871152,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Milaan",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 489.421630859375,
+        "y": 298.55938720703125,
+        "w": 30.140625,
+        "h": 10.999969482421875
+      },
+      "samples": 284,
+      "ratio": 9.34186759434007,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 24,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Napels",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 657.24267578125,
+        "y": 514.3958740234375,
+        "w": 31.609375,
+        "h": 11
+      },
+      "samples": 284,
+      "ratio": 6.4027536292051,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "span.",
+      "text": "Nino laat je eerst alle plekken op de kaart zien.",
+      "words": 10,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 973.09375,
+        "y": 265.546875,
+        "w": 299.09375,
+        "h": 16
+      },
+      "samples": 1520,
+      "ratio": 13.584122311551244,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "div.eyebrow",
+      "text": "Kijk · zeg · onthoud",
+      "words": 3,
+      "fontSize": 12,
+      "weight": "900",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 319,
+        "w": 169.296875,
+        "h": 15
+      },
+      "samples": 752,
+      "ratio": 4.764108137350527,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "#learnPrompt",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 27,
+      "weight": "850",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 345.390625,
+        "w": 79.59375,
+        "h": 32
+      },
+      "samples": 963,
+      "ratio": 11.969521936649222,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "#learnHelp",
+      "text": "Stad · 4 van 6",
+      "words": 4,
+      "fontSize": 14,
+      "weight": "400",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 391.625,
+        "w": 89.265625,
+        "h": 17
+      },
+      "samples": 370,
+      "ratio": 5.31238690329233,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "#learnNext",
+      "text": "Volgende plek →",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "800",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 923.09375,
+        "y": 440.328125,
+        "w": 130.578125,
+        "h": 18
+      },
+      "samples": 889,
+      "ratio": 4.939585277983376,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 30,
+      "clipped": false,
+      "element": "div.message",
+      "text": "Bekijk de plek, zeg de naam hardop en ga verder.",
+      "words": 10,
+      "fontSize": 16,
+      "weight": "700",
+      "color": "rgb(26, 91, 85)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 924.09375,
+        "y": 502.921875,
+        "w": 376.859375,
+        "h": 18
+      },
+      "samples": 2495,
+      "ratio": 7.203342481730559,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 31,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 558.109375,
+        "w": 6.234375,
+        "h": 16
+      },
+      "samples": 14,
+      "ratio": 6.22694230054701,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 32,
+      "clipped": false,
+      "element": "span.",
+      "text": "Bari",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 558.109375,
+        "w": 23.578125,
+        "h": 16
+      },
+      "samples": 121,
+      "ratio": 21,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 33,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 593.953125,
+        "w": 6.234375,
+        "h": 16
+      },
+      "samples": 14,
+      "ratio": 6.22694230054701,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 34,
+      "clipped": false,
+      "element": "span.",
+      "text": "Bologna",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 593.953125,
+        "w": 49.34375,
+        "h": 16
+      },
+      "samples": 260,
+      "ratio": 21,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 35,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 629.796875,
+        "w": 6.234375,
+        "h": 16
+      },
+      "samples": 14,
+      "ratio": 6.22694230054701,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 36,
+      "clipped": false,
+      "element": "span.",
+      "text": "Florence",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 629.796875,
+        "w": 52.28125,
+        "h": 16
+      },
+      "samples": 236,
+      "ratio": 21,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 37,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 665.640625,
+        "w": 6.234375,
+        "h": 16
+      },
+      "samples": 14,
+      "ratio": 5.592789284069277,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 38,
+      "clipped": false,
+      "element": "span.",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 665.640625,
+        "w": 39.109375,
+        "h": 16
+      },
+      "samples": 186,
+      "ratio": 18.86135591061081,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 39,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 701.484375,
+        "w": 6.234375,
+        "h": 16
+      },
+      "samples": 14,
+      "ratio": 6.22694230054701,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 40,
+      "clipped": false,
+      "element": "span.",
+      "text": "Milaan",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 701.484375,
+        "w": 39.34375,
+        "h": 16
+      },
+      "samples": 204,
+      "ratio": 21,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 41,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 737.328125,
+        "w": 6.234375,
+        "h": 16
+      },
+      "samples": 14,
+      "ratio": 6.22694230054701,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 42,
+      "clipped": false,
+      "element": "span.",
+      "text": "Napels",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 737.328125,
+        "w": 41.828125,
+        "h": 16
+      },
+      "samples": 219,
+      "ratio": 21,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 43,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 30,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 104.96875,
+        "y": 46,
+        "w": 85.0625,
+        "h": 41
+      },
+      "samples": 885,
+      "ratio": 8.105656357484158,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 44,
+      "clipped": false,
+      "element": "span.",
+      "text": "Reis",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 256.296875,
+        "w": 34.703125,
+        "h": 24
+      },
+      "samples": 231,
+      "ratio": 12.802958787697802,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 45,
+      "clipped": false,
+      "element": "span.",
+      "text": "Oefenen",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(74, 54, 201)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 308.296875,
+        "w": 69.640625,
+        "h": 24
+      },
+      "samples": 426,
+      "ratio": 6.588563104050865,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 46,
+      "clipped": false,
+      "element": "span.",
+      "text": "Toets",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 360.296875,
+        "w": 44.71875,
+        "h": 24
+      },
+      "samples": 262,
+      "ratio": 12.510822854541177,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 47,
+      "clipped": false,
+      "element": "span.",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 412.296875,
+        "w": 93.34375,
+        "h": 24
+      },
+      "samples": 599,
+      "ratio": 10.02967931820124,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 48,
+      "clipped": false,
+      "element": "span.",
+      "text": "Voortgang",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 464.296875,
+        "w": 86.96875,
+        "h": 24
+      },
+      "samples": 539,
+      "ratio": 8.817708501935616,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    }
+  ],
+  "textCandidates": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "span.",
+      "text": "‹",
+      "words": 0,
+      "fontSize": 26,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 924.5625,
+        "y": 78.5,
+        "w": 7.09375,
+        "h": 35
+      }
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "strong.v3LesTitle",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 962.109375,
+        "y": 75.796875,
+        "w": 111.203125,
+        "h": 43
+      }
+    },
+    {
+      "id": 2,
+      "clipped": true,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1073.3125,
+        "y": 75.796875,
+        "w": 53.453125,
+        "h": 43
+      }
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.v3LesStepName",
+      "text": "Ontdekken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(74, 54, 201)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1091.265625,
+        "y": 145,
+        "w": 79.5625,
+        "h": 22
+      }
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "span.",
+      "text": "Schoolblad",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1248.84375,
+        "y": 86,
+        "w": 87.15625,
+        "h": 23
+      }
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "button.",
+      "text": "−",
+      "words": 0,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 329.5,
+        "y": 78,
+        "w": 9,
+        "h": 20
+      }
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "button.",
+      "text": "+",
+      "words": 0,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 381.5,
+        "y": 78,
+        "w": 9,
+        "h": 20
+      }
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "button.",
+      "text": "100%",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 427,
+        "y": 78,
+        "w": 41.0625,
+        "h": 20
+      }
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "button.",
+      "text": "Heel Italië",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 594.84375,
+        "y": 78,
+        "w": 70,
+        "h": 20
+      }
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "button.",
+      "text": "Zoom op hoofdstuk",
+      "words": 3,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 702.84375,
+        "y": 78,
+        "w": 132.25,
+        "h": 20
+      }
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "text.mapLabel",
+      "text": "I T A L I Ë",
+      "words": 6,
+      "fontSize": 12.1082995951417,
+      "weight": "700",
+      "color": "rgb(87, 102, 93)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 561.7095336914062,
+        "y": 435.7674255371094,
+        "w": 70.140625,
+        "h": 15
+      }
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "DUITSLAND",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 496.0168151855469,
+        "y": 152.19529724121094,
+        "w": 55.015655517578125,
+        "h": 10
+      }
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "TSJECHIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 663.7679443359375,
+        "y": 132.2165985107422,
+        "w": 46.4375,
+        "h": 10
+      }
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "SLOWAKIJE",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 786.8426513671875,
+        "y": 161.88192749023438,
+        "w": 54.56243896484375,
+        "h": 10.000015258789062
+      }
+    },
+    {
+      "id": 14,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "HONGARIJE",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 739.2139892578125,
+        "y": 243.6129608154297,
+        "w": 55.375,
+        "h": 10
+      }
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "BOSNIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 761.818359375,
+        "y": 372.56634521484375,
+        "w": 35.59368896484375,
+        "h": 10
+      }
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "text.contextLabel",
+      "text": "TUNESIË",
+      "words": 1,
+      "fontSize": 7.870394736842106,
+      "weight": "700",
+      "color": "rgb(120, 130, 119)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 501.2708740234375,
+        "y": 772.7457275390625,
+        "w": 40.875,
+        "h": 9.99993896484375
+      }
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 9.081224696356275,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 651.9627685546875,
+        "y": 524.4517822265625,
+        "w": 7,
+        "h": 11
+      }
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 9.081224696356275,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 671.04541015625,
+        "y": 667.705078125,
+        "w": 7,
+        "h": 11
+      }
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Bari",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 744.8038330078125,
+        "y": 501.70635986328125,
+        "w": 18.40625,
+        "h": 11
+      }
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Bologna",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 560.5760498046875,
+        "y": 343.8504638671875,
+        "w": 37.296875,
+        "h": 11
+      }
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Florence",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 557.5792236328125,
+        "y": 377.4328308105469,
+        "w": 39.671875,
+        "h": 11
+      }
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 480.3282775878906,
+        "y": 348.06414794921875,
+        "w": 29.15625,
+        "h": 11
+      }
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Milaan",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 489.421630859375,
+        "y": 298.55938720703125,
+        "w": 30.140625,
+        "h": 10.999969482421875
+      }
+    },
+    {
+      "id": 24,
+      "clipped": false,
+      "element": "text.studyName",
+      "text": "Napels",
+      "words": 1,
+      "fontSize": 9.081224696356275,
+      "weight": "850",
+      "color": "rgb(21, 46, 56)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 657.24267578125,
+        "y": 514.3958740234375,
+        "w": 31.609375,
+        "h": 11
+      }
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "span.",
+      "text": "Nino laat je eerst alle plekken op de kaart zien.",
+      "words": 10,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 973.09375,
+        "y": 265.546875,
+        "w": 299.09375,
+        "h": 16
+      }
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "div.eyebrow",
+      "text": "Kijk · zeg · onthoud",
+      "words": 3,
+      "fontSize": 12,
+      "weight": "900",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 319,
+        "w": 169.296875,
+        "h": 15
+      }
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "#learnPrompt",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 27,
+      "weight": "850",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 345.390625,
+        "w": 79.59375,
+        "h": 32
+      }
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "#learnHelp",
+      "text": "Stad · 4 van 6",
+      "words": 4,
+      "fontSize": 14,
+      "weight": "400",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 910.09375,
+        "y": 391.625,
+        "w": 89.265625,
+        "h": 17
+      }
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "#learnNext",
+      "text": "Volgende plek →",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "800",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 923.09375,
+        "y": 440.328125,
+        "w": 130.578125,
+        "h": 18
+      }
+    },
+    {
+      "id": 30,
+      "clipped": false,
+      "element": "div.message",
+      "text": "Bekijk de plek, zeg de naam hardop en ga verder.",
+      "words": 10,
+      "fontSize": 16,
+      "weight": "700",
+      "color": "rgb(26, 91, 85)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 924.09375,
+        "y": 502.921875,
+        "w": 376.859375,
+        "h": 18
+      }
+    },
+    {
+      "id": 31,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 558.109375,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 32,
+      "clipped": false,
+      "element": "span.",
+      "text": "Bari",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 558.109375,
+        "w": 23.578125,
+        "h": 16
+      }
+    },
+    {
+      "id": 33,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 593.953125,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 34,
+      "clipped": false,
+      "element": "span.",
+      "text": "Bologna",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 593.953125,
+        "w": 49.34375,
+        "h": 16
+      }
+    },
+    {
+      "id": 35,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 629.796875,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 36,
+      "clipped": false,
+      "element": "span.",
+      "text": "Florence",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 629.796875,
+        "w": 52.28125,
+        "h": 16
+      }
+    },
+    {
+      "id": 37,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 665.640625,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 38,
+      "clipped": false,
+      "element": "span.",
+      "text": "Genua",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 665.640625,
+        "w": 39.109375,
+        "h": 16
+      }
+    },
+    {
+      "id": 39,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 701.484375,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 40,
+      "clipped": false,
+      "element": "span.",
+      "text": "Milaan",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 701.484375,
+        "w": 39.34375,
+        "h": 16
+      }
+    },
+    {
+      "id": 41,
+      "clipped": false,
+      "element": "b.",
+      "text": "•",
+      "words": 0,
+      "fontSize": 13,
+      "weight": "700",
+      "color": "rgb(91, 69, 224)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 918.09375,
+        "y": 737.328125,
+        "w": 6.234375,
+        "h": 16
+      }
+    },
+    {
+      "id": 42,
+      "clipped": false,
+      "element": "span.",
+      "text": "Napels",
+      "words": 1,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(0, 0, 0)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 951.09375,
+        "y": 737.328125,
+        "w": 41.828125,
+        "h": 16
+      }
+    },
+    {
+      "id": 43,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 30,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 104.96875,
+        "y": 46,
+        "w": 85.0625,
+        "h": 41
+      }
+    },
+    {
+      "id": 44,
+      "clipped": false,
+      "element": "span.",
+      "text": "Reis",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 256.296875,
+        "w": 34.703125,
+        "h": 24
+      }
+    },
+    {
+      "id": 45,
+      "clipped": false,
+      "element": "span.",
+      "text": "Oefenen",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(74, 54, 201)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 308.296875,
+        "w": 69.640625,
+        "h": 24
+      }
+    },
+    {
+      "id": 46,
+      "clipped": false,
+      "element": "span.",
+      "text": "Toets",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 360.296875,
+        "w": 44.71875,
+        "h": 24
+      }
+    },
+    {
+      "id": 47,
+      "clipped": false,
+      "element": "span.",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 412.296875,
+        "w": 93.34375,
+        "h": 24
+      }
+    },
+    {
+      "id": 48,
+      "clipped": false,
+      "element": "span.",
+      "text": "Voortgang",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 90,
+        "y": 464.296875,
+        "w": 86.96875,
+        "h": 24
+      }
+    }
+  ],
+  "unpaintedOrUnknownText": [],
+  "preferences": {
+    "motion": false,
+    "transparency": false
+  },
+  "axe": {
+    "violations": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "help": "Elements must only use permitted ARIA attributes",
+        "nodes": [
+          {
+            "target": [
+              "path[aria-label=\"Middellandse Zee\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Adriatische Zee\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Ligurische Zee\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Tyrreense Zee\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Ionische Zee\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "#atlas-land-19"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "#atlas-land-20"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "#atlas-land-21"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "#atlas-land-22"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "#atlas-land-23"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "#atlas-land-25"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "#atlas-land-26"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Apennijnen\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Dolomieten\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"de Povlakte\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Toscane\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              ".lineTarget[aria-label=\"Tiber\"][data-id=\"water-F\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              ".lineTarget[aria-label=\"Po\"][data-id=\"water-G\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Vesuvius\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "path[aria-label=\"Etna\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a path with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Bari\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Bologna\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Florence\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              ".activeTarget"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Milaan\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Napels\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Palermo\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Pisa\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Rome\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Turijn\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Venetië\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Verona\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Varese\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Cagliari\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Catania\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Catanzaro\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Foggia\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"La Spezia\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Messina\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Modena\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Pescara\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Trente\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              "circle[aria-label=\"Triëst\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          },
+          {
+            "target": [
+              ".microHit[aria-label=\"San Marino\"][r=\"5\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a circle with no valid role attribute."
+          }
+        ]
+      },
+      {
+        "id": "nested-interactive",
+        "impact": "serious",
+        "help": "Interactive controls must not be nested",
+        "nodes": [
+          {
+            "target": [
+              "#map"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has focusable descendants"
+          }
+        ]
+      },
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "help": "Page should contain a level-one heading",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            ".v3LesTitle"
+          ],
+          [
+            "span[data-audit-text=\"2\"]"
+          ],
+          [
+            "span[data-audit-text=\"4\"]"
+          ],
+          [
+            "button[data-audit-text=\"5\"]"
+          ],
+          [
+            "button[data-audit-text=\"7\"]"
+          ],
+          [
+            "button[data-audit-text=\"8\"]"
+          ],
+          [
+            "button[data-audit-text=\"9\"]"
+          ],
+          [
+            "text[data-audit-text=\"10\"]"
+          ],
+          [
+            "text[data-audit-text=\"11\"]"
+          ],
+          [
+            "text[data-audit-text=\"12\"]"
+          ],
+          [
+            "text[data-audit-text=\"13\"]"
+          ],
+          [
+            "text[data-audit-text=\"14\"]"
+          ],
+          [
+            "text[data-audit-text=\"15\"]"
+          ],
+          [
+            "text[data-audit-text=\"16\"]"
+          ],
+          [
+            "text[data-audit-text=\"17\"]"
+          ],
+          [
+            "text[data-audit-text=\"18\"]"
+          ],
+          [
+            "text[x=\"715.5\"]"
+          ],
+          [
+            "text[x=\"411.2\"]"
+          ],
+          [
+            "text[x=\"406.25\"]"
+          ],
+          [
+            "text[x=\"278.65\"]"
+          ],
+          [
+            "text[x=\"293.67\"]"
+          ],
+          [
+            "text[x=\"570.87\"]"
+          ],
+          [
+            "div[data-audit-text=\"26\"]"
+          ],
+          [
+            "#learnPrompt"
+          ],
+          [
+            "#learnHelp"
+          ],
+          [
+            "b[data-audit-text=\"43\"]"
+          ],
+          [
+            "span[data-audit-text=\"44\"]"
+          ],
+          [
+            "span[data-audit-text=\"45\"]"
+          ],
+          [
+            "span[data-audit-text=\"46\"]"
+          ],
+          [
+            "span[data-audit-text=\"47\"]"
+          ],
+          [
+            "span[data-audit-text=\"48\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  "focus": {
+    "order": [
+      {
+        "nodeId": 1,
+        "element": "BUTTON.",
+        "name": "Kaart verkleinen",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "modal": false
+      },
+      {
+        "nodeId": 2,
+        "element": "BUTTON.",
+        "name": "Kaart vergroten",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "modal": false
+      },
+      {
+        "nodeId": 3,
+        "element": "BUTTON.",
+        "name": "Hele kaart",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "modal": false
+      },
+      {
+        "nodeId": 4,
+        "element": "BUTTON.",
+        "name": "Heel Italië",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "modal": false
+      },
+      {
+        "nodeId": 5,
+        "element": "BUTTON.",
+        "name": "Zoom op hoofdstuk",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+        "modal": false
+      },
+      {
+        "nodeId": 6,
+        "element": "DIV.mapArea.atlasViewport",
+        "name": "Interactieve kaart van Italië. Vergroot met de kaartknoppen; verschuif met aanraken of pijltjestoetsen.",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgba(28, 40, 44, 0.1) 0px 2px 6px 0px, rgba(28, 40, 44, 0.45) 0px 22px 48px -22px",
+        "modal": false
+      },
+      {
+        "nodeId": 7,
+        "element": "path.water.parent",
+        "name": "Middellandse Zee",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 8,
+        "element": "path.water",
+        "name": "Adriatische Zee",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 9,
+        "element": "path.water",
+        "name": "Ligurische Zee",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 10,
+        "element": "path.water",
+        "name": "Tyrreense Zee",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 11,
+        "element": "path.water",
+        "name": "Ionische Zee",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 12,
+        "element": "#atlas-land-19",
+        "name": "Frankrijk",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 13,
+        "element": "#atlas-land-20",
+        "name": "Zwitserland",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 14,
+        "element": "#atlas-land-21",
+        "name": "Oostenrijk",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 15,
+        "element": "#atlas-land-22",
+        "name": "Slovenië",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 16,
+        "element": "#atlas-land-23",
+        "name": "Kroatië",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 17,
+        "element": "#atlas-land-25",
+        "name": "Sicilië",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 18,
+        "element": "#atlas-land-26",
+        "name": "Sardinië",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 19,
+        "element": "path.zone",
+        "name": "Apennijnen",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 20,
+        "element": "path.zone",
+        "name": "Dolomieten",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 21,
+        "element": "path.zone",
+        "name": "de Povlakte",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 22,
+        "element": "path.zone",
+        "name": "Toscane",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 23,
+        "element": "path.lineTarget",
+        "name": "Tiber",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 24,
+        "element": "path.lineTarget",
+        "name": "Po",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 25,
+        "element": "path.",
+        "name": "Tiber",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 26,
+        "element": "path.",
+        "name": "Po",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 27,
+        "element": "path.feature",
+        "name": "Vesuvius",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 28,
+        "element": "path.feature",
+        "name": "Etna",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 29,
+        "element": "circle.feature.microstate",
+        "name": "San Marino",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 30,
+        "element": "circle.feature.microstate",
+        "name": "Vaticaanstad",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 31,
+        "element": "circle.city",
+        "name": "Bari",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 32,
+        "element": "circle.city",
+        "name": "Bologna",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 33,
+        "element": "circle.city",
+        "name": "Florence",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 34,
+        "element": "circle.city.activeTarget",
+        "name": "Genua",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 35,
+        "element": "circle.city",
+        "name": "Milaan",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 36,
+        "element": "circle.city",
+        "name": "Napels",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 37,
+        "element": "circle.city",
+        "name": "Palermo",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 38,
+        "element": "circle.city",
+        "name": "Pisa",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 39,
+        "element": "circle.city",
+        "name": "Rome",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 40,
+        "element": "circle.city",
+        "name": "Turijn",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 41,
+        "element": "circle.city",
+        "name": "Venetië",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 42,
+        "element": "circle.city",
+        "name": "Verona",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 43,
+        "element": "circle.city",
+        "name": "Varese",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 44,
+        "element": "circle.city",
+        "name": "Cagliari",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 45,
+        "element": "circle.city",
+        "name": "Catania",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 46,
+        "element": "circle.city",
+        "name": "Catanzaro",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 47,
+        "element": "circle.city",
+        "name": "Foggia",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 48,
+        "element": "circle.city",
+        "name": "La Spezia",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 49,
+        "element": "circle.city",
+        "name": "Messina",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 50,
+        "element": "circle.city",
+        "name": "Modena",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 51,
+        "element": "circle.city",
+        "name": "Pescara",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 52,
+        "element": "circle.city",
+        "name": "Trente",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 53,
+        "element": "circle.city",
+        "name": "Triëst",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) auto 5px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 54,
+        "element": "circle.microHit",
+        "name": "San Marino",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) none 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 55,
+        "element": "circle.microHit",
+        "name": "Kies Rome of Vaticaanstad",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) none 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 56,
+        "element": "BUTTON.",
+        "name": "1 · Rome",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 2px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 57,
+        "element": "BUTTON.",
+        "name": "2 · Vaticaanstad",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 2px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 58,
+        "element": "#learnNext",
+        "name": "Volgende plek →",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgb(147, 57, 31) 0px 2px 0px 0px",
+        "modal": false
+      },
+      {
+        "nodeId": 59,
+        "element": "BUTTON.",
+        "name": "•\nBari",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 60,
+        "element": "BUTTON.",
+        "name": "•\nBologna",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 61,
+        "element": "BUTTON.",
+        "name": "•\nFlorence",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 62,
+        "element": "BUTTON.selected",
+        "name": "•\nGenua",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgb(91, 69, 224) 4px 0px 0px 0px inset",
+        "modal": false
+      },
+      {
+        "nodeId": 63,
+        "element": "BUTTON.",
+        "name": "•\nMilaan",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 64,
+        "element": "BUTTON.",
+        "name": "•\nNapels",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 65,
+        "element": "BUTTON.v3Btn.v3NavItem",
+        "name": "Reis",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(29, 111, 216) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 66,
+        "element": "BUTTON.v3Btn.v3NavItem",
+        "name": "Oefenen",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(29, 111, 216) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 67,
+        "element": "BUTTON.v3Btn.v3NavItem",
+        "name": "Toets",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(29, 111, 216) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 68,
+        "element": "BUTTON.v3Btn.v3NavItem",
+        "name": "Beloningen",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(29, 111, 216) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 69,
+        "element": "BUTTON.v3Btn.v3NavItem",
+        "name": "Voortgang",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(29, 111, 216) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 70,
+        "element": "BUTTON.v3Btn.v3NavItem.v3Settings",
+        "name": "Instellingen",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(29, 111, 216) solid 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 71,
+        "element": "BODY.ninoSchoolMapOnly.v3On.v3Shell.v3Les",
+        "name": "‹\nSteden 1–6\nOntdekken\nSchoolblad\n−\n+\n100%\nHeel Italië\nZoom op hoofdstuk\nI T A L I Ë\nDUITSLAND\nTSJECHIË\nSLOWAKIJE\nHONGAR",
+        "visible": true,
+        "focusVisible": false,
+        "outline": "rgb(42, 36, 64) none 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 72,
+        "element": "BUTTON.v3Btn.v3LesBack",
+        "name": "Terug naar Oefenen",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(29, 111, 216) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+        "modal": false
+      },
+      {
+        "nodeId": 73,
+        "element": "BUTTON.v3Btn.v3School.v3LesSchool",
+        "name": "Schoolblad",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(29, 111, 216) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+        "modal": false
+      }
+    ],
+    "completedCycle": true,
+    "truncated": false,
+    "invisible": [],
+    "focusRingCandidates": [
+      {
+        "nodeId": 54,
+        "element": "circle.microHit",
+        "name": "San Marino",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) none 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 55,
+        "element": "circle.microHit",
+        "name": "Kies Rome of Vaticaanstad",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) none 3px",
+        "shadow": "none",
+        "modal": false
+      }
+    ],
+    "note": "Modal cycles are expected; non-modal incomplete/truncated walks need review. Accessible-name heuristic plus axe, not a full platform AX tree."
+  },
+  "id": "chromium-ontdekken-1440x900-normal",
+  "engine": "chromium",
+  "state": "ontdekken",
+  "viewport": [
+    1440,
+    900
+  ],
+  "reduced": false,
+  "screenshot": "screenshots/chromium-ontdekken-1440x900-normal.png",
+  "intentionalHiddenOverflow": [
+    {
+      "element": "span.",
+      "value": "96>1",
+      "rect": {
+        "x": 67.5,
+        "y": 823.5,
+        "w": 1,
+        "h": 1
+      }
+    }
+  ]
+}

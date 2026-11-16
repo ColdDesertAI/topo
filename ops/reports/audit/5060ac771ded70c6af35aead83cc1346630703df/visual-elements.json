@@ -1,0 +1,2951 @@
+[
+  {
+    "state": "kennismaking",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Map v3LandmarkMap",
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "rect",
+        "id": "",
+        "classes": "v3Badge",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "profileWelcome",
+        "alt": "Nino heet je welkom",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      }
+    ]
+  },
+  {
+    "state": "reis-nieuw",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Map v3LandmarkMap",
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "rect",
+        "id": "",
+        "classes": "v3Badge",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "reis",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Map v3LandmarkMap",
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Map v3LandmarkMap",
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "oefenen",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Map v3OefMap",
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "ontdekken",
+    "elements": [
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "map",
+        "classes": null,
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "ninoPortrait",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "aanwijzen",
+    "elements": [
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "map",
+        "classes": null,
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "schrijven",
+    "elements": [
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "map",
+        "classes": null,
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "feedback",
+    "elements": [
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "map",
+        "classes": null,
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "feedback-fout",
+    "elements": [
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "map",
+        "classes": null,
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "toets",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "classes": "v3FormIcons",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "classes": "v3FormIcons",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "classes": "v3FormIcons",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "toets-actief",
+    "elements": [
+      {
+        "tag": "svg",
+        "id": "map",
+        "classes": null,
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "toets-resultaat",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3ToetsTreat",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3ToetsMap v3Map v3LandmarkMap",
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "beloningen",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CoverArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3RideArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3TileIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3TileIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3TileIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3TileIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      }
+    ]
+  },
+  {
+    "state": "reisboekje",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CoverArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3RideArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3TileIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3TileIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3TileIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3TileIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "folioPaper",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "bookPortrait",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "bookNino",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "favoriteSticker",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "folioPaper",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "factIcon",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  },
+  {
+    "state": "voortgang",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3VgMap v3Map",
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3VgTreat",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "classes": "v3VgTileIcon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "classes": "v3VgTileIcon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "SPAN",
+        "id": "",
+        "classes": "v3VgTileIcon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      }
+    ]
+  },
+  {
+    "state": "instellingen",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": "",
+        "classes": "v3Portrait v3PortraitArt",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": null,
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3StatusArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "IMG",
+        "id": "",
+        "classes": "v3CountArt",
+        "alt": "",
+        "label": null,
+        "hiddenFromAT": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Map v3LandmarkMap",
+        "alt": null,
+        "label": "Interactieve kaart van Italië en omringende landen",
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "classes": "v3Icon",
+        "alt": null,
+        "label": null,
+        "hiddenFromAT": "true"
+      }
+    ]
+  }
+]

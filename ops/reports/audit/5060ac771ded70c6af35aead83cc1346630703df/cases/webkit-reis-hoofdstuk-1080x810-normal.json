@@ -1,0 +1,1539 @@
+{
+  "texts": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 34.109375,
+        "y": 34.6669921875,
+        "w": 43.76597595214844,
+        "h": 17.666015625
+      }
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "span.",
+      "text": "Hoofdstukken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 148.00279235839844,
+        "y": 38.578125,
+        "w": 104.88504028320312,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Schoolkaart",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "500",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 340.8980407714844,
+        "y": 39.1669921875,
+        "w": 82.29766845703125,
+        "h": 17.666015625
+      }
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Reliëf",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 447.21051025390625,
+        "y": 39.1669921875,
+        "w": 40.1414794921875,
+        "h": 17.666015625
+      }
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 24",
+      "words": 2,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 907.125,
+        "y": 37.400390625,
+        "w": 50.1092529296875,
+        "h": 21.19921875
+      }
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "b.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1032.234375,
+        "y": 37.400390625,
+        "w": 11.759765625,
+        "h": 21.19921875
+      }
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "p.v3CardKicker",
+      "text": "Hoofdstuk 11",
+      "words": 2,
+      "fontSize": 13,
+      "weight": "600",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 750,
+        "y": 289.4697265625,
+        "w": 111.4271240234375,
+        "h": 15.310546875
+      }
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "#v3Title",
+      "text": "Rivieren",
+      "words": 1,
+      "fontSize": 28,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 750,
+        "y": 313.63671875,
+        "w": 103.635009765625,
+        "h": 32.9765625
+      }
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Ontdekken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 376.703125,
+        "w": 79.3961181640625,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Aanwijzen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 425.703125,
+        "w": 74.26983642578125,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Namen schrijven",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 474.703125,
+        "w": 120.755615234375,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "span.",
+      "text": "Goud nog eens",
+      "words": 3,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 810.0068969726562,
+        "y": 543.1142578125,
+        "w": 118.0174560546875,
+        "h": 20.021484375
+      }
+    }
+  ],
+  "activeWords": 17,
+  "words": 17,
+  "minFontSize": 13,
+  "targets": [
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Reis",
+      "rect": {
+        "x": 32,
+        "y": 132,
+        "w": 48,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Oefenen",
+      "rect": {
+        "x": 32,
+        "y": 182,
+        "w": 48,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Toets",
+      "rect": {
+        "x": 32,
+        "y": 232,
+        "w": 48,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Beloningen",
+      "rect": {
+        "x": 32,
+        "y": 282,
+        "w": 48,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem",
+      "name": "Voortgang",
+      "rect": {
+        "x": 32,
+        "y": 332,
+        "w": 48,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3NavItem.v3Settings",
+      "name": "Instellingen",
+      "rect": {
+        "x": 30,
+        "y": 726,
+        "w": 48,
+        "h": 52
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3Back",
+      "name": "Hoofdstukken",
+      "rect": {
+        "x": 108,
+        "y": 26,
+        "w": 160.890625,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.v3School.v3SchoolBtn",
+      "name": "Schoolblad",
+      "rect": {
+        "x": 276.890625,
+        "y": 26,
+        "w": 40,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn",
+      "name": "Schoolkaart",
+      "rect": {
+        "x": 328.890625,
+        "y": 30,
+        "w": 106.3125,
+        "h": 36
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn",
+      "name": "Reliëf",
+      "rect": {
+        "x": 435.203125,
+        "y": 30,
+        "w": 64.15625,
+        "h": 36
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3StepRow",
+      "name": "Ontdekken opnieuw",
+      "rect": {
+        "x": 750,
+        "y": 362.125,
+        "w": 290,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3StepRow",
+      "name": "Aanwijzen opnieuw",
+      "rect": {
+        "x": 750,
+        "y": 411.125,
+        "w": 290,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3StepRow",
+      "name": "Namen schrijven opnieuw",
+      "rect": {
+        "x": 750,
+        "y": 460.125,
+        "w": 290,
+        "h": 48
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.v3Btn.primary",
+      "name": "Goud nog eens",
+      "rect": {
+        "x": 750,
+        "y": 529.125,
+        "w": 290,
+        "h": 48
+      },
+      "disabled": false
+    }
+  ],
+  "closeTargets": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11,
+      12
+    ]
+  ],
+  "overflow": [],
+  "filters": [
+    {
+      "element": "nav.v3Side",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "nav.v3Side::after",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "div.v3Counts",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "div.v3Panel",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    }
+  ],
+  "variants": [
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgb(235, 231, 253)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(72, 52, 196)",
+        "borderRadius": "12px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "12px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "12px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "12px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "12px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3NavItem.v3Settings",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "10px 0px 0px",
+        "fontSize": "16px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3Back",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.85)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "12px",
+        "boxShadow": "rgba(40, 25, 80, 0.12) 0px 4px 14px 0px",
+        "padding": "0px 16px 0px 12px",
+        "fontSize": "16px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.v3School.v3SchoolBtn",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.85)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "12px",
+        "boxShadow": "rgba(40, 25, 80, 0.12) 0px 4px 14px 0px",
+        "padding": "0px",
+        "fontSize": "17px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(94, 88, 114)",
+        "borderRadius": "999px",
+        "boxShadow": "none",
+        "padding": "0px 12px",
+        "fontSize": "15px",
+        "fontWeight": "500"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn",
+      "styles": {
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.14) 0px 1px 3px 0px",
+        "padding": "0px 12px",
+        "fontSize": "15px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "panel",
+      "element": "div.v3Panel",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "24px",
+        "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+        "padding": "16px 20px 20px",
+        "fontSize": "16px",
+        "fontWeight": "500"
+      }
+    },
+    {
+      "type": "panel",
+      "element": "figure.v3CardScene",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "16px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "500"
+      }
+    },
+    {
+      "type": "panel",
+      "element": "p.v3CardKicker",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(72, 52, 196)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "13px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "panel",
+      "element": "div.v3CardHead",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "16px",
+        "fontWeight": "500"
+      }
+    },
+    {
+      "type": "panel",
+      "element": "#v3Title",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px",
+        "fontSize": "28px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3StepRow",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px 4px",
+        "fontSize": "16px",
+        "fontWeight": "500"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3StepRow",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px 4px",
+        "fontSize": "16px",
+        "fontWeight": "500"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3StepRow",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(42, 36, 64)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "0px 4px",
+        "fontSize": "16px",
+        "fontWeight": "500"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.v3Btn.primary",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(255, 255, 255)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+        "padding": "8px 22px 8px 26px",
+        "fontSize": "17px",
+        "fontWeight": "600"
+      }
+    }
+  ],
+  "images": [
+    {
+      "element": "img.",
+      "width": 512,
+      "height": 512,
+      "bytes": 1048576,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3CountArt",
+      "width": 96,
+      "height": 96,
+      "bytes": 36864,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3CountArt",
+      "width": 88,
+      "height": 88,
+      "bytes": 30976,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 740,
+      "height": 416,
+      "bytes": 1231360,
+      "source": "embedded"
+    }
+  ],
+  "decodedImageBytes": 2347776,
+  "domNodes": 1499,
+  "overlaps": [],
+  "contrast": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 34.109375,
+        "y": 34.6669921875,
+        "w": 43.76597595214844,
+        "h": 17.666015625
+      },
+      "samples": 285,
+      "ratio": 7.195528752864358,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "span.",
+      "text": "Hoofdstukken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 148.00279235839844,
+        "y": 38.578125,
+        "w": 104.88504028320312,
+        "h": 18.84375
+      },
+      "samples": 702,
+      "ratio": 12.033351420983333,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Schoolkaart",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "500",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 340.8980407714844,
+        "y": 39.1669921875,
+        "w": 82.29766845703125,
+        "h": 17.666015625
+      },
+      "samples": 456,
+      "ratio": 6.23011343215794,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Reliëf",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 447.21051025390625,
+        "y": 39.1669921875,
+        "w": 40.1414794921875,
+        "h": 17.666015625
+      },
+      "samples": 276,
+      "ratio": 14.73858252103728,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 24",
+      "words": 2,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 907.125,
+        "y": 37.400390625,
+        "w": 50.1092529296875,
+        "h": 21.19921875
+      },
+      "samples": 296,
+      "ratio": 11.113190610457142,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "b.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1032.234375,
+        "y": 37.400390625,
+        "w": 11.759765625,
+        "h": 21.19921875
+      },
+      "samples": 53,
+      "ratio": 11.036626133952241,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "p.v3CardKicker",
+      "text": "Hoofdstuk 11",
+      "words": 2,
+      "fontSize": 13,
+      "weight": "600",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 750,
+        "y": 289.4697265625,
+        "w": 111.4271240234375,
+        "h": 15.310546875
+      },
+      "samples": 541,
+      "ratio": 5.915577519381633,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "#v3Title",
+      "text": "Rivieren",
+      "words": 1,
+      "fontSize": 28,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 750,
+        "y": 313.63671875,
+        "w": 103.635009765625,
+        "h": 32.9765625
+      },
+      "samples": 1137,
+      "ratio": 9.536103005175942,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Ontdekken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 376.703125,
+        "w": 79.3961181640625,
+        "h": 18.84375
+      },
+      "samples": 494,
+      "ratio": 10.482734043089781,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Aanwijzen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 425.703125,
+        "w": 74.26983642578125,
+        "h": 18.84375
+      },
+      "samples": 456,
+      "ratio": 10.099241437752887,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Namen schrijven",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 474.703125,
+        "w": 120.755615234375,
+        "h": 18.84375
+      },
+      "samples": 732,
+      "ratio": 9.746790086978937,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "span.",
+      "text": "Goud nog eens",
+      "words": 3,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 810.0068969726562,
+        "y": 543.1142578125,
+        "w": 118.0174560546875,
+        "h": 20.021484375
+      },
+      "samples": 718,
+      "ratio": 5.699261106891715,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    }
+  ],
+  "textCandidates": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 34.109375,
+        "y": 34.6669921875,
+        "w": 43.76597595214844,
+        "h": 17.666015625
+      }
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "span.",
+      "text": "Hoofdstukken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 148.00279235839844,
+        "y": 38.578125,
+        "w": 104.88504028320312,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Schoolkaart",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "500",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 340.8980407714844,
+        "y": 39.1669921875,
+        "w": 82.29766845703125,
+        "h": 17.666015625
+      }
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Reliëf",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 447.21051025390625,
+        "y": 39.1669921875,
+        "w": 40.1414794921875,
+        "h": 17.666015625
+      }
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 24",
+      "words": 2,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 907.125,
+        "y": 37.400390625,
+        "w": 50.1092529296875,
+        "h": 21.19921875
+      }
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "b.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 1032.234375,
+        "y": 37.400390625,
+        "w": 11.759765625,
+        "h": 21.19921875
+      }
+    },
+    {
+      "id": 6,
+      "clipped": true,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 22.30031948881789,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 774.5238037109375,
+        "y": 727.0061645507812,
+        "w": 17.8721923828125,
+        "h": 26.26385498046875
+      }
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "p.v3CardKicker",
+      "text": "Hoofdstuk 11",
+      "words": 2,
+      "fontSize": 13,
+      "weight": "600",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 750,
+        "y": 289.4697265625,
+        "w": 111.4271240234375,
+        "h": 15.310546875
+      }
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "#v3Title",
+      "text": "Rivieren",
+      "words": 1,
+      "fontSize": 28,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 750,
+        "y": 313.63671875,
+        "w": 103.635009765625,
+        "h": 32.9765625
+      }
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Ontdekken",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 376.703125,
+        "w": 79.3961181640625,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Aanwijzen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 425.703125,
+        "w": 74.26983642578125,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "span.v3StepLabel",
+      "text": "Namen schrijven",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "500",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 788,
+        "y": 474.703125,
+        "w": 120.755615234375,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "span.",
+      "text": "Goud nog eens",
+      "words": 3,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 810.0068969726562,
+        "y": 543.1142578125,
+        "w": 118.0174560546875,
+        "h": 20.021484375
+      }
+    }
+  ],
+  "unpaintedOrUnknownText": [
+    {
+      "id": 6,
+      "clipped": true,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 22.30031948881789,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 774.5238037109375,
+        "y": 727.0061645507812,
+        "w": 17.8721923828125,
+        "h": 26.26385498046875
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 3,
+      "status": "unknown",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    }
+  ],
+  "preferences": {
+    "motion": false,
+    "transparency": false
+  },
+  "axe": {
+    "violations": [
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "help": "Page should contain a level-one heading",
+        "nodes": [
+          {
+            "target": [
+              "html"
+            ],
+            "failureSummary": "Fix all of the following:\n  Page must have a level-one heading"
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": [
+          [
+            ".v3Count:nth-child(1)"
+          ],
+          [
+            "span[aria-label=\"7 Vespa-ritten\"]"
+          ]
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            "b[data-audit-text=\"0\"]"
+          ],
+          [
+            "span[data-audit-text=\"1\"]"
+          ],
+          [
+            "button[data-relief=\"false\"]"
+          ],
+          [
+            "b[data-audit-text=\"4\"]"
+          ],
+          [
+            "b[data-audit-text=\"5\"]"
+          ],
+          [
+            ".v3CardKicker"
+          ],
+          [
+            "#v3Title"
+          ],
+          [
+            "span[data-audit-text=\"9\"]"
+          ],
+          [
+            "span[data-audit-text=\"10\"]"
+          ],
+          [
+            "span[data-audit-text=\"11\"]"
+          ],
+          [
+            "span[data-audit-text=\"12\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  "focus": {
+    "order": [
+      {
+        "nodeId": 1,
+        "element": "BODY.ninoSchoolMapOnly.v3On.v3Home.v3Shell",
+        "name": "TOPO\nReis\nOefenen\nToets\nBeloningen\nVoortgang\nInstellingen\nHoofdstukken\nSchoolblad\nSchoolkaart\nReliëf\n0 / 24\n7\n▲\n▲\n\nHOOFD",
+        "visible": true,
+        "focusVisible": false,
+        "outline": "3px none rgb(42, 36, 64)",
+        "shadow": "none",
+        "modal": false
+      }
+    ],
+    "completedCycle": true,
+    "truncated": false,
+    "invisible": [],
+    "focusRingCandidates": [],
+    "note": "Modal cycles are expected; non-modal incomplete/truncated walks need review. Accessible-name heuristic plus axe, not a full platform AX tree."
+  },
+  "id": "webkit-reis-hoofdstuk-1080x810-normal",
+  "engine": "webkit",
+  "state": "reis-hoofdstuk",
+  "viewport": [
+    1080,
+    810
+  ],
+  "reduced": false,
+  "screenshot": "screenshots/webkit-reis-hoofdstuk-1080x810-normal.png",
+  "intentionalHiddenOverflow": [
+    {
+      "element": "span.",
+      "value": "11>1",
+      "rect": {
+        "x": 55.5,
+        "y": 153.5,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "element": "span.",
+      "value": "12>1",
+      "rect": {
+        "x": 55.5,
+        "y": 203.5,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "element": "span.",
+      "value": "10>1",
+      "rect": {
+        "x": 55.5,
+        "y": 253.5,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "element": "span.",
+      "value": "10>1",
+      "rect": {
+        "x": 55.5,
+        "y": 303.5,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "element": "span.",
+      "value": "11>1",
+      "rect": {
+        "x": 55.5,
+        "y": 353.5,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "element": "span.",
+      "value": "87>1",
+      "rect": {
+        "x": 53.5,
+        "y": 757,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "element": "span.",
+      "value": "11>1",
+      "rect": {
+        "x": 296.390625,
+        "y": 47.5,
+        "w": 1,
+        "h": 1
+      }
+    },
+    {
+      "element": "span.v3SrOnly",
+      "value": "175>1",
+      "rect": {
+        "x": 749,
+        "y": 312.125,
+        "w": 1,
+        "h": 1
+      }
+    }
+  ]
+}

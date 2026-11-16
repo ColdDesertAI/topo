@@ -1,0 +1,3586 @@
+[
+  {
+    "state": "kennismaking",
+    "element": "#ninoProfileTitle",
+    "text": "Ciao! Ik ben Nino.",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "kennismaking",
+    "element": "p.profileIntro",
+    "text": "Hoe mag ik je noemen?",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "kennismaking",
+    "element": "legend.",
+    "text": "Wat is jouw favoriete pizza?",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "kennismaking",
+    "element": "span.",
+    "text": "Margherita",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "kennismaking",
+    "element": "span.",
+    "text": "Salami",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "kennismaking",
+    "element": "span.",
+    "text": "Quattro Formaggi",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "kennismaking",
+    "element": "button.button.v3Btn",
+    "text": "Start meteen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "kennismaking",
+    "element": "button.button.v3Btn.primary",
+    "text": "Andiamo!",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Eén Nederlandse primaire actie Beginnen op de vaste startplek; vertaling is onderdeel van voorstel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "#v3ListTitle",
+    "text": "Hoofdstukken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "#v3Title",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.nw",
+    "text": "7–12",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.nw",
+    "text": "13–18",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.nw",
+    "text": "19–23",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3Name",
+    "text": "Eilanden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3Name",
+    "text": "Bergen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3Name",
+    "text": "Vulkanen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3Name",
+    "text": "Streken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3Name",
+    "text": "Landen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3Name",
+    "text": "Zeeën",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3Name",
+    "text": "Rivieren",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "b.",
+    "text": "0 / 24",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "b.",
+    "text": "0",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Schoolblad",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "button.v3Btn",
+    "text": "Schoolkaart",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "button.v3Btn",
+    "text": "Reliëf",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "p.v3CardKicker",
+    "text": "Hoofdstuk 1",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Verder",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.",
+    "text": "Ontdekken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3StepLabel",
+    "text": "Aanwijzen",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3StepLabel",
+    "text": "Namen schrijven",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "1",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "2",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "3",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "4",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "5",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "7",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "9",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "10",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-nieuw",
+    "element": "span.v3RowNum",
+    "text": "11",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "#v3ListTitle",
+    "text": "Hoofdstukken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3Name",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.nw",
+    "text": "7–12",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.nw",
+    "text": "13–18",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.nw",
+    "text": "19–23",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3Name",
+    "text": "Eilanden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3Name",
+    "text": "Bergen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3Name",
+    "text": "Vulkanen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3Name",
+    "text": "Streken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3Name",
+    "text": "Landen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3Name",
+    "text": "Zeeën",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "#v3Title",
+    "text": "Rivieren",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "b.",
+    "text": "0 / 24",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "b.",
+    "text": "7",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Schoolblad",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "button.v3Btn",
+    "text": "Schoolkaart",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "button.v3Btn",
+    "text": "Reliëf",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "p.v3CardKicker",
+    "text": "Hoofdstuk 11",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Verder",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "1",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "2",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "3",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "4",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "5",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "9",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.v3RowNum",
+    "text": "10",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Ontdekken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Aanwijzen",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Namen schrijven",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Goud nog eens",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Hoofdstukken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Schoolblad",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "button.v3Btn",
+    "text": "Schoolkaart",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "button.v3Btn",
+    "text": "Reliëf",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "b.",
+    "text": "0 / 24",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "b.",
+    "text": "7",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "p.v3CardKicker",
+    "text": "Hoofdstuk 11",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "#v3Title",
+    "text": "Rivieren",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Ontdekken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Aanwijzen",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Namen schrijven",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Goud nog eens",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3Name",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "2",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.nw",
+    "text": "7–12",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "3",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.nw",
+    "text": "13–18",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "4",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.nw",
+    "text": "19–23",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "5",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3Name",
+    "text": "Eilanden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3Name",
+    "text": "Bergen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3Name",
+    "text": "Vulkanen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3Name",
+    "text": "Streken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "9",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3Name",
+    "text": "Landen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "10",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3Name",
+    "text": "Zeeën",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.v3RowNum",
+    "text": "11",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reis-hoofdstuk",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "#v3OefenenTitle",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Ontdekken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Aanwijzen",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Namen schrijven",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Slim rondje",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.nw",
+    "text": "7–12",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Extra steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.nw",
+    "text": "13–18",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.nw",
+    "text": "19–23",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Eilanden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Bergen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Vulkanen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Streken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Landen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Zeeën",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Rivieren",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Alles",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Mijn fouten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Start",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "oefenen",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "‹",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "strong.v3LesTitle",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.v3LesStepName",
+    "text": "Ontdekken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "Schoolblad",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "button.",
+    "text": "−",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "button.",
+    "text": "+",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "button.",
+    "text": "100%",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "button.",
+    "text": "Heel Italië",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "button.",
+    "text": "Zoom op hoofdstuk",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.mapLabel",
+    "text": "I T A L I Ë",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.contextLabel",
+    "text": "DUITSLAND",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.contextLabel",
+    "text": "TSJECHIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.contextLabel",
+    "text": "SLOWAKIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.contextLabel",
+    "text": "HONGARIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.contextLabel",
+    "text": "BOSNIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.contextLabel",
+    "text": "TUNESIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.studyName",
+    "text": "Bari",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.studyName",
+    "text": "Bologna",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.studyName",
+    "text": "Florence",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "#learnPrompt",
+    "text": "Genua",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.studyName",
+    "text": "Milaan",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "text.studyName",
+    "text": "Napels",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "Nino laat je eerst alle plekken op de kaart zien.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "div.eyebrow",
+    "text": "Kijk · zeg · onthoud",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "#learnHelp",
+    "text": "Stad · 4 van 6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "#learnNext",
+    "text": "Volgende plek →",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "div.message",
+    "text": "Bekijk de plek, zeg de naam hardop en ga verder.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "b.",
+    "text": "•",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "ontdekken",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.",
+    "text": "‹",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "strong.v3LesTitle",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.v3LesStepName",
+    "text": "Aanwijzen",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.",
+    "text": "Schoolblad",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "button.",
+    "text": "−",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "button.",
+    "text": "+",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "button.",
+    "text": "100%",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "button.",
+    "text": "Heel Italië",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "button.",
+    "text": "Zoom op hoofdstuk",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "text.mapLabel",
+    "text": "I T A L I Ë",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "text.contextLabel",
+    "text": "DUITSLAND",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "text.contextLabel",
+    "text": "TSJECHIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "text.contextLabel",
+    "text": "SLOWAKIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "text.contextLabel",
+    "text": "HONGARIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "text.contextLabel",
+    "text": "BOSNIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "text.contextLabel",
+    "text": "TUNESIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "strong.",
+    "text": "0 van 8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "p.ninoMeterPoints",
+    "text": "punten voor Margherita",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "p.ninoMeterGoal",
+    "text": "Nog drie pizza’s tot je",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.ninoNoWrap",
+    "text": "Vespa-rit",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "#prompt",
+    "text": "Waar ligt Genua?",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "#next",
+    "text": "Overslaan →",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "#reveal",
+    "text": "Toon antwoord",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "#mistakes",
+    "text": "Oefen fouten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "#focusSheetToggle",
+    "text": "Kaart vrijmaken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "aanwijzen",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.",
+    "text": "‹",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "strong.v3LesTitle",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.v3LesStepName",
+    "text": "Namen schrijven",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.",
+    "text": "Schoolblad",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "button.",
+    "text": "−",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "button.",
+    "text": "+",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "button.",
+    "text": "100%",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "button.",
+    "text": "Heel Italië",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "button.",
+    "text": "Zoom op hoofdstuk",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "text.mapLabel",
+    "text": "I T A L I Ë",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "text.contextLabel",
+    "text": "DUITSLAND",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "text.contextLabel",
+    "text": "TSJECHIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "text.contextLabel",
+    "text": "SLOWAKIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "text.contextLabel",
+    "text": "HONGARIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "text.contextLabel",
+    "text": "BOSNIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "text.contextLabel",
+    "text": "TUNESIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "strong.",
+    "text": "0 van 8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "p.ninoMeterPoints",
+    "text": "punten voor Margherita",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "schrijven",
+    "element": "p.ninoMeterGoal",
+    "text": "Nog drie pizza’s tot je",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.ninoNoWrap",
+    "text": "Vespa-rit",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "#prompt",
+    "text": "Wat is dit op de kaart?",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "#check",
+    "text": "Controleer",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "#next",
+    "text": "Overslaan →",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "#reveal",
+    "text": "Toon antwoord",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "#mistakes",
+    "text": "Oefen fouten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "#focusSheetToggle",
+    "text": "Kaart vrijmaken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "schrijven",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.",
+    "text": "‹",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "strong.v3LesTitle",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.v3LesStepName",
+    "text": "Namen schrijven",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "feedback",
+    "element": "span.",
+    "text": "Schoolblad",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "button.",
+    "text": "−",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "button.",
+    "text": "+",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "button.",
+    "text": "100%",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "button.",
+    "text": "Heel Italië",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "button.",
+    "text": "Zoom op hoofdstuk",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "text.mapLabel",
+    "text": "I T A L I Ë",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "text.contextLabel",
+    "text": "DUITSLAND",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "text.contextLabel",
+    "text": "TSJECHIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "text.contextLabel",
+    "text": "SLOWAKIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "text.contextLabel",
+    "text": "HONGARIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "text.contextLabel",
+    "text": "BOSNIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "text.contextLabel",
+    "text": "TUNESIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "strong.",
+    "text": "1 van 8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "p.ninoMeterPoints",
+    "text": "punten voor Margherita",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "feedback",
+    "element": "#prompt",
+    "text": "Wat is dit op de kaart?",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "#check",
+    "text": "Controleer",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "#message",
+    "text": "Goed geschreven!",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "#next",
+    "text": "Volgende →",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "#reveal",
+    "text": "Toon antwoord",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "#mistakes",
+    "text": "Oefen fouten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "#focusSheetToggle",
+    "text": "Kaart vrijmaken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "p.ninoMeterGoal",
+    "text": "Nog drie pizza’s tot je",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "feedback",
+    "element": "span.ninoNoWrap",
+    "text": "Vespa-rit",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.",
+    "text": "‹",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "strong.v3LesTitle",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.v3LesStepName",
+    "text": "Namen schrijven",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.",
+    "text": "Schoolblad",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "button.",
+    "text": "−",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "button.",
+    "text": "+",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "button.",
+    "text": "100%",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "button.",
+    "text": "Heel Italië",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "button.",
+    "text": "Zoom op hoofdstuk",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "text.mapLabel",
+    "text": "I T A L I Ë",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "text.contextLabel",
+    "text": "DUITSLAND",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "text.contextLabel",
+    "text": "TSJECHIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "text.contextLabel",
+    "text": "SLOWAKIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "text.contextLabel",
+    "text": "HONGARIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "text.contextLabel",
+    "text": "BOSNIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "text.contextLabel",
+    "text": "TUNESIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "strong.",
+    "text": "0 van 8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "p.ninoMeterPoints",
+    "text": "punten voor Margherita",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "#prompt",
+    "text": "Wat is dit op de kaart?",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "#check",
+    "text": "Controleer",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "#message",
+    "text": "De juiste naam is Genua.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "#next",
+    "text": "Volgende →",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "#reveal",
+    "text": "Toon antwoord",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "#mistakes",
+    "text": "Oefen fouten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "#focusSheetToggle",
+    "text": "Kaart vrijmaken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "p.ninoMeterGoal",
+    "text": "Nog drie pizza’s tot je",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.ninoNoWrap",
+    "text": "Vespa-rit",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "feedback-fout",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "#v3ToetsTitle",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "#v3ToetsHoofdstukken",
+    "text": "Hoofdstukken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.nw",
+    "text": "1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.nw",
+    "text": "7–12",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Extra steden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.nw",
+    "text": "13–18",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.nw",
+    "text": "19–23",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Eilanden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Bergen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Vulkanen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Streken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Landen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Zeeën",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Rivieren",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Alles",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Willekeurig",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "#v3ToetsVorm",
+    "text": "Vorm",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Aanwijzen",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Namen schrijven",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Beide",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "#v3ToetsLengte",
+    "text": "Lengte",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "10",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "20",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "button.v3Btn.v3Chip",
+    "text": "Alle",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Start toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "span.",
+    "text": "‹",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "span.v3LesCount",
+    "text": "1 / 10",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "button.",
+    "text": "−",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "button.",
+    "text": "+",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "button.",
+    "text": "100%",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "button.",
+    "text": "Heel Italië",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "button.",
+    "text": "Zoom op hoofdstuk",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "text.mapLabel",
+    "text": "I T A L I Ë",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "text.contextLabel",
+    "text": "DUITSLAND",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "text.contextLabel",
+    "text": "TSJECHIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "text.contextLabel",
+    "text": "SLOWAKIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "text.contextLabel",
+    "text": "HONGARIJE",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "text.contextLabel",
+    "text": "BOSNIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "text.contextLabel",
+    "text": "TUNESIË",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "#prompt",
+    "text": "Wat is dit op de kaart?",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "#check",
+    "text": "Controleer",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "#next",
+    "text": "Overslaan →",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "#focusSheetToggle",
+    "text": "Kaart vrijmaken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-actief",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.v3ToetsLabel",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "#v3ToetsScore",
+    "text": "9 / 10",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "text.",
+    "text": "✓",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "text.",
+    "text": "×",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "strong.",
+    "text": "Tiber",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "#v3ToetsFoutenTitel",
+    "text": "Fouten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Fout",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Oefen deze fouten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Nieuwe toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Kopieer",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "E-mail",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Print",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "toets-resultaat",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "#v3RewardsTitle",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "b.",
+    "text": "7",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Vespa-ritten",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "beloningen",
+    "element": "b.",
+    "text": "0 / 8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Pizza",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "beloningen",
+    "element": "b.",
+    "text": "11 / 11",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Stempels",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Goud",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "b.",
+    "text": "4 / 4",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Postkaarten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "beloningen",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "#travelBookTitle",
+    "text": "Mijn reisboekje",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "button.button",
+    "text": "Sluit boekje",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "h3.bookScript",
+    "text": "Il mio viaggio in Italia",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "reisboekje",
+    "element": "p.coverTitle",
+    "text": "Demo’s reisboekje",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "p.favoriteLabel",
+    "text": "Mijn favoriete pizza: Margherita",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "button.bookLink",
+    "text": "Pas mijn boekje aan",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "h3.bookScript",
+    "text": "Ciao, Demo!",
+    "decision": "CUT",
+    "why": "Herhaalt identiteit/hoofdstukcontext of een reeds door vorm/vulling getoonde beloning; één Nederlandse boekkop volstaat."
+  },
+  {
+    "state": "reisboekje",
+    "element": "strong.",
+    "text": "11 van 11",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "p.",
+    "text": "haltes afgerond",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "strong.",
+    "text": "11",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "p.",
+    "text": "gouden haltes",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "strong.",
+    "text": "7",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "p.",
+    "text": "Vespa-ritten gemaakt",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "p.bookNote",
+    "text": "0 van 8 punten voor Margherita. 3 pizza’s tot je volgende rit.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "button.bookLink",
+    "text": "Verder leren",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "button.button",
+    "text": "Vorige",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "span.micro",
+    "text": "1–2 / 12",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "button.button",
+    "text": "Volgende",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "reisboekje",
+    "element": "span.micro",
+    "text": "1 / 12",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "b.",
+    "text": "Topo",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "Reis",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "Oefenen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "Toets",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "Beloningen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "#v3VoortgangTitle",
+    "text": "Voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "strong.",
+    "text": "45 / 45",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "plekken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "text.",
+    "text": "▲",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "figcaption.v3VgKaartTitle",
+    "text": "Italië",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "45 / 45 beheerst",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "Beheerst · 45",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "Bezig · 0",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "Nog niet · 0",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "#v3VgHoofdstukken",
+    "text": "Hoofdstukken",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "1.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Steden 1–6",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "2.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Steden 7–12",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "3.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Extra steden 13–18",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "4.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Extra steden 19–23",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "5.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Eilanden",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "6.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Bergen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "7.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Vulkanen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "8.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Streken",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "9.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Landen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "10.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Zeeën",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgNum",
+    "text": "11.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgName",
+    "text": "Rivieren",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgTileLabel",
+    "text": "Dagdoel",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "strong.",
+    "text": "0 / 8",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgTileLabel",
+    "text": "Pizza’s",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "voortgang",
+    "element": "strong.",
+    "text": "0 / 3",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.v3VgTileLabel",
+    "text": "Vespa-ritten",
+    "decision": "REPLACE-BY-LAYOUT",
+    "why": "Behoud noodzakelijke keuze-/navigatienaam één keer; schrap alleen een tweede contextlabel in dezelfde groep."
+  },
+  {
+    "state": "voortgang",
+    "element": "strong.",
+    "text": "7",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "voortgang",
+    "element": "span.",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "#ninoSettingsTitle",
+    "text": "Instellingen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "button.button",
+    "text": "Sluiten",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "h3.",
+    "text": "Profiel",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "button.v3Btn",
+    "text": "Naam en favoriete pizza",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "h3.",
+    "text": "Achtergrond",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "button.v3Btn",
+    "text": "Kust",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "button.v3Btn",
+    "text": "Toscane",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "button.v3Btn",
+    "text": "Meer",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "button.v3Btn",
+    "text": "Wisselen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "h3.",
+    "text": "Reservekopie",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "#exportProgress",
+    "text": "Bewaar reservekopie",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "#importProgress",
+    "text": "Zet reservekopie terug",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "#backupStatus",
+    "text": "Bewaard op dit apparaat. Neem een reservekopie mee naar je iPad.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "h3.",
+    "text": "Opnieuw beginnen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "#resetAll",
+    "text": "Wis voortgang",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "p.",
+    "text": "Wist lessen, punten, pizza’s, ritten en stempels. Je profiel blijft staan.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "button.button.ninoResetDanger",
+    "text": "Begin helemaal opnieuw",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "p.",
+    "text": "Wist ook je naam en favoriete pizza en start de kennismaking opnieuw.",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "summary.",
+    "text": "Alleen een onderdeel wissen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  },
+  {
+    "state": "instellingen",
+    "element": "#routeReset",
+    "text": "Leerroute opnieuw beginnen",
+    "decision": "KEEP",
+    "why": "Taakinhoud, keuze, veldnaam of concrete uitkomst; hoort bij het schermdoel."
+  }
+]

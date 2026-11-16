@@ -1,0 +1,3630 @@
+{
+  "method": "Chromium headless, CPU 4x, viewport 1080×810 DPR2; operational readiness includes fixture navigation, fonts and 500ms settle, NOT Lighthouse TTI. Heap GC after warm-up; ten switches plus ten full five-tab cycles. Image estimates include visible CSS/SVG raster references, exclude vector/GPU/internal cache overhead; measured after readiness snapshot. FPS samples ten full tab cycles, excluding forced-GC checkpoints. Not physical iPad proof.",
+  "rows": [
+    {
+      "screen": "kennismaking",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 63901328,
+        "instanceBytes": 63901328,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 88,
+            "height": 88,
+            "bytes": 30976
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 291,
+            "height": 436,
+            "bytes": 507504
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 184,
+            "height": 184,
+            "bytes": 135424
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 184,
+            "height": 181,
+            "bytes": 133216
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 184,
+            "height": 184,
+            "bytes": 135424
+          }
+        ]
+      },
+      "operationalReadyMs": 8395.016708,
+      "domNodes": 1497,
+      "decodedHtmlImageBytes": 7730384,
+      "visibleBackdropFilters": 7,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#welkom/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5970,
+        "navigationId": 8895,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.2999999523162842,
+        "domainLookupStart": 0.2999999523162842,
+        "domainLookupEnd": 0.2999999523162842,
+        "connectStart": 0.2999999523162842,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.2999999523162842,
+        "requestStart": 0.2999999523162842,
+        "responseStart": 0.2999999523162842,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 789.3999999761581,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4674.799999952316,
+        "domContentLoadedEventStart": 4674.799999952316,
+        "domContentLoadedEventEnd": 4676.5,
+        "domComplete": 5957.099999964237,
+        "loadEventStart": 5970,
+        "loadEventEnd": 5970,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 141.89999997615814,
+          "duration": 73
+        },
+        {
+          "start": 411,
+          "duration": 51
+        },
+        {
+          "start": 737.7999999523163,
+          "duration": 50
+        },
+        {
+          "start": 816.6999999880791,
+          "duration": 829
+        },
+        {
+          "start": 1695.5999999642372,
+          "duration": 61
+        },
+        {
+          "start": 1761,
+          "duration": 1078
+        },
+        {
+          "start": 2902,
+          "duration": 1763
+        },
+        {
+          "start": 4674.799999952316,
+          "duration": 119
+        },
+        {
+          "start": 4794.199999988079,
+          "duration": 1157
+        },
+        {
+          "start": 5970.099999964237,
+          "duration": 206
+        },
+        {
+          "start": 6176.699999988079,
+          "duration": 177
+        },
+        {
+          "start": 7152.199999988079,
+          "duration": 593
+        }
+      ]
+    },
+    {
+      "screen": "reis-nieuw",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 62989760,
+        "instanceBytes": 62989760,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 88,
+            "height": 88,
+            "bytes": 30976
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          }
+        ]
+      },
+      "operationalReadyMs": 8497.563458999999,
+      "domNodes": 1465,
+      "decodedHtmlImageBytes": 6818816,
+      "visibleBackdropFilters": 5,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#nieuw/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 6030.599999964237,
+        "navigationId": 5948,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 0.19999998807907104,
+        "responseStart": 0.19999998807907104,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 849,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4737.599999964237,
+        "domContentLoadedEventStart": 4737.800000011921,
+        "domContentLoadedEventEnd": 4739.5,
+        "domComplete": 6020.899999976158,
+        "loadEventStart": 6030.599999964237,
+        "loadEventEnd": 6030.599999964237,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 131.5999999642372,
+          "duration": 75
+        },
+        {
+          "start": 750.8000000119209,
+          "duration": 53
+        },
+        {
+          "start": 882,
+          "duration": 872
+        },
+        {
+          "start": 1800.5,
+          "duration": 1066
+        },
+        {
+          "start": 2930.899999976158,
+          "duration": 1797
+        },
+        {
+          "start": 4737.599999964237,
+          "duration": 118
+        },
+        {
+          "start": 4856.099999964237,
+          "duration": 1158
+        },
+        {
+          "start": 6037.399999976158,
+          "duration": 211
+        },
+        {
+          "start": 7174.800000011921,
+          "duration": 665
+        }
+      ]
+    },
+    {
+      "screen": "reis",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 62764480,
+        "instanceBytes": 63133120,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 11,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 88,
+            "height": 88,
+            "bytes": 30976
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          }
+        ]
+      },
+      "operationalReadyMs": 8618.570958,
+      "domNodes": 1498,
+      "decodedHtmlImageBytes": 7224320,
+      "visibleBackdropFilters": 5,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5797.600000023842,
+        "navigationId": 6850,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.10000002384185791,
+        "domainLookupStart": 0.10000002384185791,
+        "domainLookupEnd": 0.10000002384185791,
+        "connectStart": 0.10000002384185791,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.10000002384185791,
+        "requestStart": 0.10000002384185791,
+        "responseStart": 0.10000002384185791,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 850.3000000119209,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4590.100000023842,
+        "domContentLoadedEventStart": 4590.100000023842,
+        "domContentLoadedEventEnd": 4591.699999988079,
+        "domComplete": 5787.5,
+        "loadEventStart": 5797.600000023842,
+        "loadEventEnd": 5797.600000023842,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 151.69999998807907,
+          "duration": 82
+        },
+        {
+          "start": 777.6999999880791,
+          "duration": 53
+        },
+        {
+          "start": 882.1000000238419,
+          "duration": 841
+        },
+        {
+          "start": 1770.6000000238419,
+          "duration": 1049
+        },
+        {
+          "start": 2883.900000035763,
+          "duration": 1697
+        },
+        {
+          "start": 4590.100000023842,
+          "duration": 111
+        },
+        {
+          "start": 4701.300000011921,
+          "duration": 1083
+        },
+        {
+          "start": 5803.600000023842,
+          "duration": 217
+        },
+        {
+          "start": 6954.900000035763,
+          "duration": 603
+        }
+      ]
+    },
+    {
+      "screen": "reis-hoofdstuk",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 58256576,
+        "instanceBytes": 58256576,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 88,
+            "height": 88,
+            "bytes": 30976
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 740,
+            "height": 416,
+            "bytes": 1231360
+          }
+        ]
+      },
+      "operationalReadyMs": 8882.524542,
+      "domNodes": 1499,
+      "decodedHtmlImageBytes": 2347776,
+      "visibleBackdropFilters": 4,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5757.100000023842,
+        "navigationId": 1746,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.10000002384185791,
+        "domainLookupStart": 0.10000002384185791,
+        "domainLookupEnd": 0.10000002384185791,
+        "connectStart": 0.10000002384185791,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.10000002384185791,
+        "requestStart": 0.10000002384185791,
+        "responseStart": 0.10000002384185791,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 791.3000000119209,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4515.900000035763,
+        "domContentLoadedEventStart": 4515.900000035763,
+        "domContentLoadedEventEnd": 4517.5,
+        "domComplete": 5748,
+        "loadEventStart": 5757.100000023842,
+        "loadEventEnd": 5757.100000023842,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 126.30000001192093,
+          "duration": 66
+        },
+        {
+          "start": 731.4000000357628,
+          "duration": 58
+        },
+        {
+          "start": 821,
+          "duration": 848
+        },
+        {
+          "start": 1715.300000011921,
+          "duration": 1047
+        },
+        {
+          "start": 2823.300000011921,
+          "duration": 1683
+        },
+        {
+          "start": 4515.900000035763,
+          "duration": 114
+        },
+        {
+          "start": 4630.100000023842,
+          "duration": 1115
+        },
+        {
+          "start": 5762.300000011921,
+          "duration": 219
+        },
+        {
+          "start": 6937,
+          "duration": 597
+        },
+        {
+          "start": 7590.600000023842,
+          "duration": 206
+        }
+      ]
+    },
+    {
+      "screen": "oefenen",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 56957376,
+        "instanceBytes": 56957376,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          }
+        ]
+      },
+      "operationalReadyMs": 8830.530665999999,
+      "domNodes": 1799,
+      "decodedHtmlImageBytes": 1048576,
+      "visibleBackdropFilters": 3,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5821.699999988079,
+        "navigationId": 6625,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.2999999523162842,
+        "domainLookupStart": 0.2999999523162842,
+        "domainLookupEnd": 0.2999999523162842,
+        "connectStart": 0.2999999523162842,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.2999999523162842,
+        "requestStart": 0.2999999523162842,
+        "responseStart": 0.2999999523162842,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 827.3999999761581,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4627.599999964237,
+        "domContentLoadedEventStart": 4627.599999964237,
+        "domContentLoadedEventEnd": 4629.699999988079,
+        "domComplete": 5809.799999952316,
+        "loadEventStart": 5821.699999988079,
+        "loadEventEnd": 5821.699999988079,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 138.0999999642372,
+          "duration": 74
+        },
+        {
+          "start": 756.5999999642372,
+          "duration": 56
+        },
+        {
+          "start": 858.5999999642372,
+          "duration": 858
+        },
+        {
+          "start": 1766.5999999642372,
+          "duration": 1106
+        },
+        {
+          "start": 2937.5,
+          "duration": 1680
+        },
+        {
+          "start": 4627.599999964237,
+          "duration": 111
+        },
+        {
+          "start": 4739.299999952316,
+          "duration": 1067
+        },
+        {
+          "start": 5828.299999952316,
+          "duration": 215
+        },
+        {
+          "start": 6966.299999952316,
+          "duration": 172
+        },
+        {
+          "start": 7138.899999976158,
+          "duration": 631
+        }
+      ]
+    },
+    {
+      "screen": "ontdekken",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 1048576,
+        "instanceBytes": 1048576,
+        "images": [
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          }
+        ]
+      },
+      "operationalReadyMs": 11424.203500000003,
+      "domNodes": 1833,
+      "decodedHtmlImageBytes": 1048576,
+      "visibleBackdropFilters": 3,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5845,
+        "navigationId": 1047,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.30000001192092896,
+        "domainLookupStart": 0.30000001192092896,
+        "domainLookupEnd": 0.30000001192092896,
+        "connectStart": 0.30000001192092896,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.30000001192092896,
+        "requestStart": 0.30000001192092896,
+        "responseStart": 0.30000001192092896,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 811.3000000119209,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4605.699999988079,
+        "domContentLoadedEventStart": 4606.600000023842,
+        "domContentLoadedEventEnd": 4607.5,
+        "domComplete": 5835.399999976158,
+        "loadEventStart": 5845,
+        "loadEventEnd": 5845,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 129.89999997615814,
+          "duration": 71
+        },
+        {
+          "start": 740.8999999761581,
+          "duration": 55
+        },
+        {
+          "start": 840.8000000119209,
+          "duration": 841
+        },
+        {
+          "start": 1731.1000000238419,
+          "duration": 1042
+        },
+        {
+          "start": 2834.899999976158,
+          "duration": 1762
+        },
+        {
+          "start": 4605.699999988079,
+          "duration": 114
+        },
+        {
+          "start": 4720.5,
+          "duration": 1112
+        },
+        {
+          "start": 5850.399999976158,
+          "duration": 214
+        },
+        {
+          "start": 6989.899999976158,
+          "duration": 168
+        },
+        {
+          "start": 7158.600000023842,
+          "duration": 642
+        },
+        {
+          "start": 7873.100000023842,
+          "duration": 692
+        },
+        {
+          "start": 8565.899999976158,
+          "duration": 73
+        },
+        {
+          "start": 8686.600000023842,
+          "duration": 936
+        },
+        {
+          "start": 9623.399999976158,
+          "duration": 197
+        },
+        {
+          "start": 9823.5,
+          "duration": 148
+        }
+      ]
+    },
+    {
+      "screen": "aanwijzen",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 4044032,
+        "instanceBytes": 4044032,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 208,
+            "height": 208,
+            "bytes": 173056
+          },
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          }
+        ]
+      },
+      "operationalReadyMs": 11182.91175,
+      "domNodes": 1821,
+      "decodedHtmlImageBytes": 1048576,
+      "visibleBackdropFilters": 4,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5784.600000023842,
+        "navigationId": 4053,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.20000004768371582,
+        "domainLookupStart": 0.20000004768371582,
+        "domainLookupEnd": 0.20000004768371582,
+        "connectStart": 0.20000004768371582,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.20000004768371582,
+        "requestStart": 0.20000004768371582,
+        "responseStart": 0.20000004768371582,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 822.7000000476837,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4577.100000023842,
+        "domContentLoadedEventStart": 4577.100000023842,
+        "domContentLoadedEventEnd": 4578.600000023842,
+        "domComplete": 5776.200000047684,
+        "loadEventStart": 5784.600000023842,
+        "loadEventEnd": 5784.600000023842,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 138.80000001192093,
+          "duration": 69
+        },
+        {
+          "start": 762.6000000238419,
+          "duration": 57
+        },
+        {
+          "start": 851.8000000119209,
+          "duration": 849
+        },
+        {
+          "start": 1751.9000000357628,
+          "duration": 1037
+        },
+        {
+          "start": 2852.300000011921,
+          "duration": 1715
+        },
+        {
+          "start": 4577,
+          "duration": 111
+        },
+        {
+          "start": 4688.800000011921,
+          "duration": 1084
+        },
+        {
+          "start": 5790.700000047684,
+          "duration": 219
+        },
+        {
+          "start": 6934.900000035763,
+          "duration": 166
+        },
+        {
+          "start": 7101.200000047684,
+          "duration": 624
+        },
+        {
+          "start": 7810.800000011921,
+          "duration": 707
+        },
+        {
+          "start": 8518.400000035763,
+          "duration": 73
+        },
+        {
+          "start": 8641.400000035763,
+          "duration": 820
+        },
+        {
+          "start": 9462.300000011921,
+          "duration": 210
+        }
+      ]
+    },
+    {
+      "screen": "schrijven",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 4044032,
+        "instanceBytes": 4044032,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 208,
+            "height": 208,
+            "bytes": 173056
+          },
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          }
+        ]
+      },
+      "operationalReadyMs": 11273.317582999996,
+      "domNodes": 1821,
+      "decodedHtmlImageBytes": 1048576,
+      "visibleBackdropFilters": 4,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5824.699999988079,
+        "navigationId": 3864,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 0.19999998807907104,
+        "responseStart": 0.19999998807907104,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 874.8000000119209,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4636.699999988079,
+        "domContentLoadedEventStart": 4636.699999988079,
+        "domContentLoadedEventEnd": 4638.5,
+        "domComplete": 5814.399999976158,
+        "loadEventStart": 5824.699999988079,
+        "loadEventEnd": 5824.699999988079,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 149,
+          "duration": 78
+        },
+        {
+          "start": 781.8999999761581,
+          "duration": 55
+        },
+        {
+          "start": 909.3999999761581,
+          "duration": 851
+        },
+        {
+          "start": 1808.199999988079,
+          "duration": 1044
+        },
+        {
+          "start": 2913.100000023842,
+          "duration": 1714
+        },
+        {
+          "start": 4636.699999988079,
+          "duration": 112
+        },
+        {
+          "start": 4748.699999988079,
+          "duration": 1063
+        },
+        {
+          "start": 5832.300000011921,
+          "duration": 219
+        },
+        {
+          "start": 6974.100000023842,
+          "duration": 170
+        },
+        {
+          "start": 7144.5,
+          "duration": 626
+        },
+        {
+          "start": 7840.600000023842,
+          "duration": 696
+        },
+        {
+          "start": 8538.899999976158,
+          "duration": 66
+        },
+        {
+          "start": 8682.300000011921,
+          "duration": 878
+        },
+        {
+          "start": 9562.199999988079,
+          "duration": 211
+        }
+      ]
+    },
+    {
+      "screen": "feedback",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 4044032,
+        "instanceBytes": 4044032,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 208,
+            "height": 208,
+            "bytes": 173056
+          },
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          }
+        ]
+      },
+      "operationalReadyMs": 11491.399791000003,
+      "domNodes": 1821,
+      "decodedHtmlImageBytes": 1048576,
+      "visibleBackdropFilters": 4,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5810.199999988079,
+        "navigationId": 1758,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 0.19999998807907104,
+        "responseStart": 0.19999998807907104,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 812.6999999880791,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4564.600000023842,
+        "domContentLoadedEventStart": 4564.800000011921,
+        "domContentLoadedEventEnd": 4566.300000011921,
+        "domComplete": 5799.100000023842,
+        "loadEventStart": 5810.199999988079,
+        "loadEventEnd": 5810.199999988079,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 133.80000001192093,
+          "duration": 72
+        },
+        {
+          "start": 741.6999999880791,
+          "duration": 55
+        },
+        {
+          "start": 844.1000000238419,
+          "duration": 854
+        },
+        {
+          "start": 1745.300000011921,
+          "duration": 1053
+        },
+        {
+          "start": 2859.300000011921,
+          "duration": 1696
+        },
+        {
+          "start": 4564.600000023842,
+          "duration": 114
+        },
+        {
+          "start": 4678.900000035763,
+          "duration": 1117
+        },
+        {
+          "start": 5816,
+          "duration": 215
+        },
+        {
+          "start": 6955.600000023842,
+          "duration": 169
+        },
+        {
+          "start": 7124.600000023842,
+          "duration": 624
+        },
+        {
+          "start": 7820.199999988079,
+          "duration": 706
+        },
+        {
+          "start": 8526.800000011921,
+          "duration": 73
+        },
+        {
+          "start": 8674.800000011921,
+          "duration": 906
+        },
+        {
+          "start": 9583.600000023842,
+          "duration": 218
+        },
+        {
+          "start": 10270.199999988079,
+          "duration": 125
+        }
+      ]
+    },
+    {
+      "screen": "feedback-fout",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 4044032,
+        "instanceBytes": 4044032,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 208,
+            "height": 208,
+            "bytes": 173056
+          },
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          }
+        ]
+      },
+      "operationalReadyMs": 11580.772415999993,
+      "domNodes": 1822,
+      "decodedHtmlImageBytes": 1048576,
+      "visibleBackdropFilters": 4,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5930.600000023842,
+        "navigationId": 3603,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.20000004768371582,
+        "domainLookupStart": 0.20000004768371582,
+        "domainLookupEnd": 0.20000004768371582,
+        "connectStart": 0.20000004768371582,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.20000004768371582,
+        "requestStart": 0.20000004768371582,
+        "responseStart": 0.20000004768371582,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 839.3000000119209,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4680.400000035763,
+        "domContentLoadedEventStart": 4680.5,
+        "domContentLoadedEventEnd": 4682.600000023842,
+        "domComplete": 5919.5,
+        "loadEventStart": 5930.600000023842,
+        "loadEventEnd": 5930.600000023842,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 129,
+          "duration": 71
+        },
+        {
+          "start": 753.9000000357628,
+          "duration": 54
+        },
+        {
+          "start": 869.7000000476837,
+          "duration": 876
+        },
+        {
+          "start": 1794.800000011921,
+          "duration": 1061
+        },
+        {
+          "start": 2920.600000023842,
+          "duration": 1750
+        },
+        {
+          "start": 4680.400000035763,
+          "duration": 117
+        },
+        {
+          "start": 4797.600000023842,
+          "duration": 1118
+        },
+        {
+          "start": 5937.400000035763,
+          "duration": 210
+        },
+        {
+          "start": 7079.300000011921,
+          "duration": 170
+        },
+        {
+          "start": 7249.600000023842,
+          "duration": 657
+        },
+        {
+          "start": 7974.100000023842,
+          "duration": 704
+        },
+        {
+          "start": 8679.5,
+          "duration": 70
+        },
+        {
+          "start": 8788,
+          "duration": 882
+        },
+        {
+          "start": 9671,
+          "duration": 215
+        },
+        {
+          "start": 10356.900000035763,
+          "duration": 125
+        }
+      ]
+    },
+    {
+      "screen": "toets",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 25624576,
+        "instanceBytes": 25624576,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 800,
+            "height": 1200,
+            "bytes": 3840000
+          }
+        ]
+      },
+      "operationalReadyMs": 8337.756209,
+      "domNodes": 1577,
+      "decodedHtmlImageBytes": 4888576,
+      "visibleBackdropFilters": 3,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5937.600000023842,
+        "navigationId": 1481,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 0.19999998807907104,
+        "responseStart": 0.19999998807907104,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 847.3999999761581,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4728.399999976158,
+        "domContentLoadedEventStart": 4728.5,
+        "domContentLoadedEventEnd": 4729.800000011921,
+        "domComplete": 5924.699999988079,
+        "loadEventStart": 5937.600000023842,
+        "loadEventEnd": 5937.600000023842,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 132.80000001192093,
+          "duration": 69
+        },
+        {
+          "start": 415.89999997615814,
+          "duration": 54
+        },
+        {
+          "start": 763.6000000238419,
+          "duration": 54
+        },
+        {
+          "start": 878.8000000119209,
+          "duration": 931
+        },
+        {
+          "start": 1857.5,
+          "duration": 1062
+        },
+        {
+          "start": 2982.399999976158,
+          "duration": 1736
+        },
+        {
+          "start": 4728.399999976158,
+          "duration": 112
+        },
+        {
+          "start": 4841.199999988079,
+          "duration": 1080
+        },
+        {
+          "start": 5943.199999988079,
+          "duration": 218
+        },
+        {
+          "start": 7085.100000023842,
+          "duration": 157
+        }
+      ]
+    },
+    {
+      "screen": "toets-actief",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 1048576,
+        "instanceBytes": 1048576,
+        "images": [
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          }
+        ]
+      },
+      "operationalReadyMs": 10888.050374999992,
+      "domNodes": 1591,
+      "decodedHtmlImageBytes": 1048576,
+      "visibleBackdropFilters": 3,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5838.400000035763,
+        "navigationId": 1657,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.19999998807907104,
+        "domainLookupStart": 0.19999998807907104,
+        "domainLookupEnd": 0.19999998807907104,
+        "connectStart": 0.19999998807907104,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.19999998807907104,
+        "requestStart": 0.19999998807907104,
+        "responseStart": 0.19999998807907104,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 807.4000000357628,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4601.400000035763,
+        "domContentLoadedEventStart": 4601.400000035763,
+        "domContentLoadedEventEnd": 4602.699999988079,
+        "domComplete": 5828.199999988079,
+        "loadEventStart": 5838.400000035763,
+        "loadEventEnd": 5838.400000035763,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 138.30000001192093,
+          "duration": 72
+        },
+        {
+          "start": 733.1999999880791,
+          "duration": 59
+        },
+        {
+          "start": 839.1999999880791,
+          "duration": 887
+        },
+        {
+          "start": 1773.300000011921,
+          "duration": 1055
+        },
+        {
+          "start": 2893.600000023842,
+          "duration": 1698
+        },
+        {
+          "start": 4601.199999988079,
+          "duration": 114
+        },
+        {
+          "start": 4716.100000023842,
+          "duration": 1110
+        },
+        {
+          "start": 5843.699999988079,
+          "duration": 223
+        },
+        {
+          "start": 7018.699999988079,
+          "duration": 607
+        },
+        {
+          "start": 7626.300000011921,
+          "duration": 154
+        },
+        {
+          "start": 7860.5,
+          "duration": 185
+        },
+        {
+          "start": 8106.900000035763,
+          "duration": 177
+        },
+        {
+          "start": 8323.199999988079,
+          "duration": 873
+        },
+        {
+          "start": 9197.600000023842,
+          "duration": 192
+        }
+      ]
+    },
+    {
+      "screen": "toets-resultaat",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 61873304,
+        "instanceBytes": 61873304,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 873,
+            "height": 582,
+            "bytes": 2032344
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          }
+        ]
+      },
+      "operationalReadyMs": 23155.376415999985,
+      "domNodes": 1923,
+      "decodedHtmlImageBytes": 3343064,
+      "visibleBackdropFilters": 4,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5866.599999964237,
+        "navigationId": 360,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.30000001192092896,
+        "domainLookupStart": 0.30000001192092896,
+        "domainLookupEnd": 0.30000001192092896,
+        "connectStart": 0.30000001192092896,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.30000001192092896,
+        "requestStart": 0.30000001192092896,
+        "responseStart": 0.30000001192092896,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 823.3999999761581,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4601.599999964237,
+        "domContentLoadedEventStart": 4601.599999964237,
+        "domContentLoadedEventEnd": 4603.800000011921,
+        "domComplete": 5855.5,
+        "loadEventStart": 5866.599999964237,
+        "loadEventEnd": 5866.599999964237,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 129.5,
+          "duration": 75
+        },
+        {
+          "start": 759.3999999761581,
+          "duration": 62
+        },
+        {
+          "start": 852.1999999880791,
+          "duration": 829
+        },
+        {
+          "start": 1730.0999999642372,
+          "duration": 1052
+        },
+        {
+          "start": 2843.699999988079,
+          "duration": 1748
+        },
+        {
+          "start": 4601.599999964237,
+          "duration": 117
+        },
+        {
+          "start": 4719.300000011921,
+          "duration": 1134
+        },
+        {
+          "start": 5873,
+          "duration": 223
+        },
+        {
+          "start": 7023.399999976158,
+          "duration": 160
+        },
+        {
+          "start": 7263.899999976158,
+          "duration": 176
+        },
+        {
+          "start": 7494.5,
+          "duration": 178
+        },
+        {
+          "start": 7709.899999976158,
+          "duration": 856
+        },
+        {
+          "start": 8566.699999988079,
+          "duration": 198
+        },
+        {
+          "start": 9335.599999964237,
+          "duration": 152
+        },
+        {
+          "start": 9816.599999964237,
+          "duration": 609
+        },
+        {
+          "start": 10426.5,
+          "duration": 68
+        },
+        {
+          "start": 10495.899999976158,
+          "duration": 559
+        },
+        {
+          "start": 11267.699999988079,
+          "duration": 120
+        },
+        {
+          "start": 11717.5,
+          "duration": 95
+        },
+        {
+          "start": 11812.599999964237,
+          "duration": 115
+        },
+        {
+          "start": 12297,
+          "duration": 79
+        },
+        {
+          "start": 12700.800000011921,
+          "duration": 86
+        },
+        {
+          "start": 12786.899999976158,
+          "duration": 62
+        },
+        {
+          "start": 13076.199999988079,
+          "duration": 117
+        },
+        {
+          "start": 13502.800000011921,
+          "duration": 88
+        },
+        {
+          "start": 13591.300000011921,
+          "duration": 64
+        },
+        {
+          "start": 13971.199999988079,
+          "duration": 141
+        },
+        {
+          "start": 14416.399999976158,
+          "duration": 90
+        },
+        {
+          "start": 14507.5,
+          "duration": 64
+        },
+        {
+          "start": 14797.699999988079,
+          "duration": 117
+        },
+        {
+          "start": 15249.399999976158,
+          "duration": 90
+        },
+        {
+          "start": 15339.899999976158,
+          "duration": 63
+        },
+        {
+          "start": 15629.899999976158,
+          "duration": 113
+        },
+        {
+          "start": 16034.399999976158,
+          "duration": 91
+        },
+        {
+          "start": 16125.899999976158,
+          "duration": 67
+        },
+        {
+          "start": 16542.5,
+          "duration": 118
+        },
+        {
+          "start": 16978.80000001192,
+          "duration": 89
+        },
+        {
+          "start": 17068.599999964237,
+          "duration": 63
+        },
+        {
+          "start": 17440.599999964237,
+          "duration": 118
+        },
+        {
+          "start": 17886.399999976158,
+          "duration": 88
+        },
+        {
+          "start": 17975.5,
+          "duration": 71
+        },
+        {
+          "start": 18279.30000001192,
+          "duration": 120
+        },
+        {
+          "start": 18399.5,
+          "duration": 546
+        },
+        {
+          "start": 18946,
+          "duration": 536
+        },
+        {
+          "start": 19647,
+          "duration": 2055
+        },
+        {
+          "start": 21723,
+          "duration": 261
+        }
+      ]
+    },
+    {
+      "screen": "beloningen",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 34343056,
+        "instanceBytes": 42810256,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 834,
+            "height": 834,
+            "bytes": 2782224
+          },
+          {
+            "kinds": [
+              "css::before",
+              "css::after"
+            ],
+            "instances": 2,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "css::before",
+              "css::after"
+            ],
+            "instances": 2,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "css::before",
+              "css::after"
+            ],
+            "instances": 2,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 660,
+            "height": 440,
+            "bytes": 1161600
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          }
+        ]
+      },
+      "operationalReadyMs": 8243.918082999997,
+      "domNodes": 1498,
+      "decodedHtmlImageBytes": 5139856,
+      "visibleBackdropFilters": 5,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5818.400000035763,
+        "navigationId": 1731,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.30000001192092896,
+        "domainLookupStart": 0.30000001192092896,
+        "domainLookupEnd": 0.30000001192092896,
+        "connectStart": 0.30000001192092896,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.30000001192092896,
+        "requestStart": 0.30000001192092896,
+        "responseStart": 0.30000001192092896,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 823.6000000238419,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4587.900000035763,
+        "domContentLoadedEventStart": 4587.900000035763,
+        "domContentLoadedEventEnd": 4589.300000011921,
+        "domComplete": 5808.699999988079,
+        "loadEventStart": 5818.400000035763,
+        "loadEventEnd": 5818.400000035763,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 127.5,
+          "duration": 70
+        },
+        {
+          "start": 750.9000000357628,
+          "duration": 58
+        },
+        {
+          "start": 858.5,
+          "duration": 838
+        },
+        {
+          "start": 1744.5,
+          "duration": 1050
+        },
+        {
+          "start": 2854.199999988079,
+          "duration": 1724
+        },
+        {
+          "start": 4587.900000035763,
+          "duration": 114
+        },
+        {
+          "start": 4702.800000011921,
+          "duration": 1103
+        },
+        {
+          "start": 5823.800000011921,
+          "duration": 223
+        },
+        {
+          "start": 6973.900000035763,
+          "duration": 230
+        }
+      ]
+    },
+    {
+      "screen": "reisboekje",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 47677264,
+        "instanceBytes": 56144464,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 834,
+            "height": 834,
+            "bytes": 2782224
+          },
+          {
+            "kinds": [
+              "css::before",
+              "css::after"
+            ],
+            "instances": 2,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "css::before",
+              "css::after"
+            ],
+            "instances": 2,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "css::before",
+              "css::after"
+            ],
+            "instances": 2,
+            "width": 840,
+            "height": 840,
+            "bytes": 2822400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 660,
+            "height": 440,
+            "bytes": 1161600
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 1086,
+            "height": 1448,
+            "bytes": 6290112
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 388,
+            "height": 388,
+            "bytes": 602176
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 184,
+            "height": 184,
+            "bytes": 135424
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 1086,
+            "height": 1448,
+            "bytes": 6290112
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 64,
+            "height": 64,
+            "bytes": 16384
+          }
+        ]
+      },
+      "operationalReadyMs": 8521.33587499999,
+      "domNodes": 1529,
+      "decodedHtmlImageBytes": 18474064,
+      "visibleBackdropFilters": 5,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5816.5,
+        "navigationId": 2734,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.30000001192092896,
+        "domainLookupStart": 0.30000001192092896,
+        "domainLookupEnd": 0.30000001192092896,
+        "connectStart": 0.30000001192092896,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.30000001192092896,
+        "requestStart": 0.30000001192092896,
+        "responseStart": 0.30000001192092896,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 816.3999999761581,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4592.800000011921,
+        "domContentLoadedEventStart": 4592.899999976158,
+        "domContentLoadedEventEnd": 4595,
+        "domComplete": 5804.099999964237,
+        "loadEventStart": 5816.5,
+        "loadEventEnd": 5816.5,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 134.69999998807907,
+          "duration": 69
+        },
+        {
+          "start": 387.5999999642372,
+          "duration": 51
+        },
+        {
+          "start": 745.3999999761581,
+          "duration": 56
+        },
+        {
+          "start": 848.3999999761581,
+          "duration": 844
+        },
+        {
+          "start": 1739.300000011921,
+          "duration": 1075
+        },
+        {
+          "start": 2876.300000011921,
+          "duration": 1707
+        },
+        {
+          "start": 4592.800000011921,
+          "duration": 120
+        },
+        {
+          "start": 4714.300000011921,
+          "duration": 1087
+        },
+        {
+          "start": 5822.199999988079,
+          "duration": 216
+        },
+        {
+          "start": 6965.899999976158,
+          "duration": 236
+        },
+        {
+          "start": 7296.399999976158,
+          "duration": 160
+        }
+      ]
+    },
+    {
+      "screen": "voortgang",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 64341184,
+        "instanceBytes": 64709824,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 720,
+            "bytes": 1382400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 256,
+            "height": 256,
+            "bytes": 262144
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 11,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          }
+        ]
+      },
+      "operationalReadyMs": 9658.387749999994,
+      "domNodes": 2114,
+      "decodedHtmlImageBytes": 8801024,
+      "visibleBackdropFilters": 5,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 6028.299999952316,
+        "navigationId": 796,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.2999999523162842,
+        "domainLookupStart": 0.2999999523162842,
+        "domainLookupEnd": 0.2999999523162842,
+        "connectStart": 0.2999999523162842,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.2999999523162842,
+        "requestStart": 0.2999999523162842,
+        "responseStart": 0.2999999523162842,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 879.8999999761581,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4808.799999952316,
+        "domContentLoadedEventStart": 4808.799999952316,
+        "domContentLoadedEventEnd": 4811,
+        "domComplete": 6011.699999988079,
+        "loadEventStart": 6028.299999952316,
+        "loadEventEnd": 6028.299999952316,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "low"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 153.19999998807907,
+          "duration": 80
+        },
+        {
+          "start": 433,
+          "duration": 53
+        },
+        {
+          "start": 913.5999999642372,
+          "duration": 892
+        },
+        {
+          "start": 1856.8999999761581,
+          "duration": 1149
+        },
+        {
+          "start": 3070.5,
+          "duration": 1729
+        },
+        {
+          "start": 4808.799999952316,
+          "duration": 112
+        },
+        {
+          "start": 4921.299999952316,
+          "duration": 1087
+        },
+        {
+          "start": 6034.299999952316,
+          "duration": 222
+        },
+        {
+          "start": 7183.099999964237,
+          "duration": 609
+        },
+        {
+          "start": 7792.199999988079,
+          "duration": 188
+        },
+        {
+          "start": 7980.199999988079,
+          "duration": 542
+        }
+      ]
+    },
+    {
+      "screen": "instellingen",
+      "imageEstimate": {
+        "method": "visible raster references incl. SVG image and CSS pseudo backgrounds, deduplicated by exact URL, estimated naturalWidth×naturalHeight×4; excludes vector/GPU/internal cache allocations",
+        "uniqueBytes": 62764480,
+        "instanceBytes": 63133120,
+        "images": [
+          {
+            "kinds": [
+              "css"
+            ],
+            "instances": 1,
+            "width": 2880,
+            "height": 1800,
+            "bytes": 20736000
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 512,
+            "height": 512,
+            "bytes": 1048576
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 11,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 480,
+            "height": 270,
+            "bytes": 518400
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 96,
+            "height": 96,
+            "bytes": 36864
+          },
+          {
+            "kinds": [
+              "img"
+            ],
+            "instances": 1,
+            "width": 88,
+            "height": 88,
+            "bytes": 30976
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          },
+          {
+            "kinds": [
+              "svg-image"
+            ],
+            "instances": 1,
+            "width": 1780,
+            "height": 2470,
+            "bytes": 17586400
+          }
+        ]
+      },
+      "operationalReadyMs": 9241.61387500001,
+      "domNodes": 1498,
+      "decodedHtmlImageBytes": 7224320,
+      "visibleBackdropFilters": 7,
+      "navigation": {
+        "name": "file:///Users/dennisariens/projects/topo-france-main/output/html/TOPO-V3-Reis-Preview.html#alles/bg03",
+        "entryType": "navigation",
+        "startTime": 0,
+        "duration": 5814.300000011921,
+        "navigationId": 2222,
+        "initiatorType": "navigation",
+        "deliveryType": "",
+        "nextHopProtocol": "",
+        "renderBlockingStatus": "non-blocking",
+        "contentType": "text/html",
+        "contentEncoding": "",
+        "workerStart": 0,
+        "workerRouterEvaluationStart": 0,
+        "workerCacheLookupStart": 0,
+        "workerMatchedSourceType": "",
+        "workerFinalSourceType": "",
+        "redirectStart": 0,
+        "redirectEnd": 0,
+        "fetchStart": 0.20000004768371582,
+        "domainLookupStart": 0.20000004768371582,
+        "domainLookupEnd": 0.20000004768371582,
+        "connectStart": 0.20000004768371582,
+        "secureConnectionStart": 0,
+        "connectEnd": 0.20000004768371582,
+        "requestStart": 0.20000004768371582,
+        "responseStart": 0.20000004768371582,
+        "firstInterimResponseStart": 0,
+        "finalResponseHeadersStart": 0,
+        "responseEnd": 813.5,
+        "transferSize": 30178879,
+        "encodedBodySize": 30178579,
+        "decodedBodySize": 30178579,
+        "responseStatus": 200,
+        "serverTiming": [],
+        "unloadEventStart": 0,
+        "unloadEventEnd": 0,
+        "domInteractive": 4578.700000047684,
+        "domContentLoadedEventStart": 4578.800000011921,
+        "domContentLoadedEventEnd": 4580,
+        "domComplete": 5799.200000047684,
+        "loadEventStart": 5814.300000011921,
+        "loadEventEnd": 5814.300000011921,
+        "type": "navigate",
+        "redirectCount": 0,
+        "activationStart": 0,
+        "criticalCHRestart": 0,
+        "notRestoredReasons": null,
+        "confidence": {
+          "randomizedTriggerRate": 0.4994798,
+          "value": "high"
+        }
+      },
+      "longTasks": [
+        {
+          "start": 135.4000000357628,
+          "duration": 75
+        },
+        {
+          "start": 751.7000000476837,
+          "duration": 60
+        },
+        {
+          "start": 843.4000000357628,
+          "duration": 854
+        },
+        {
+          "start": 1747.1000000238419,
+          "duration": 1059
+        },
+        {
+          "start": 2869,
+          "duration": 1699
+        },
+        {
+          "start": 4578.700000047684,
+          "duration": 115
+        },
+        {
+          "start": 4694.5,
+          "duration": 1102
+        },
+        {
+          "start": 5820.800000011921,
+          "duration": 226
+        },
+        {
+          "start": 6975.100000023842,
+          "duration": 71
+        },
+        {
+          "start": 7046.900000035763,
+          "duration": 1082
+        }
+      ]
+    }
+  ],
+  "baseline": {
+    "usedSize": 8139816,
+    "totalSize": 9371648,
+    "embedderHeapUsedSize": 8209992,
+    "backingStorageSize": 50613114
+  },
+  "after10Switches": {
+    "usedSize": 8242796,
+    "totalSize": 9895936,
+    "embedderHeapUsedSize": 7973392,
+    "backingStorageSize": 50613114
+  },
+  "after10FullCycles": {
+    "usedSize": 8326124,
+    "totalSize": 9633792,
+    "embedderHeapUsedSize": 8229744,
+    "backingStorageSize": 50613149
+  },
+  "heapGrowthAfter10Switches": 0.01265139162850848,
+  "heapGrowthAfter10FullCycles": 0.022888478068791684,
+  "tabSwitchFps": 5.4501287268465575,
+  "scroll": {
+    "available": false,
+    "reason": "No scrollable chapter list at this viewport/state"
+  }
+}

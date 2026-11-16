@@ -1,0 +1,2275 @@
+{
+  "texts": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 34.109375,
+        "y": 34.6669921875,
+        "w": 43.76597595214844,
+        "h": 17.666015625
+      }
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "#v3RewardsTitle",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 36,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 128,
+        "y": 35.49609375,
+        "w": 184.77597045898438,
+        "h": 42.3984375
+      }
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "b.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 765.171875,
+        "y": 361.65625,
+        "w": 18.35968017578125,
+        "h": 37.6875
+      }
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.",
+      "text": "Vespa-ritten",
+      "words": 1,
+      "fontSize": 22,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 795.546875,
+        "y": 368.138671875,
+        "w": 129.5078125,
+        "h": 25.91015625
+      }
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 8",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 185.2705078125,
+        "y": 726.4453125,
+        "w": 83.458984375,
+        "h": 47.109375
+      }
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "b.",
+      "text": "11 / 11",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 411.5503845214844,
+        "y": 726.4453125,
+        "w": 107.88357543945312,
+        "h": 47.109375
+      }
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "b.",
+      "text": "11 / 11",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 649.5504150390625,
+        "y": 726.4453125,
+        "w": 107.883544921875,
+        "h": 47.109375
+      }
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "b.",
+      "text": "4 / 4",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 900.021484375,
+        "y": 726.4453125,
+        "w": 82.94140625,
+        "h": 47.109375
+      }
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "#travelBookTitle",
+      "text": "Mijn reisboekje",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "700",
+      "color": "rgb(246, 233, 204)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 12,
+        "y": 18.9814453125,
+        "w": 122.78515625,
+        "h": 20.021484375
+      }
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Sluit boekje",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 963.0001220703125,
+        "y": 19.578125,
+        "w": 91.999755859375,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 14,
+      "clipped": false,
+      "element": "h3.bookScript",
+      "text": "Il mio viaggio in Italia",
+      "words": 5,
+      "fontSize": 30.33,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 131.375,
+        "y": 169.96438598632812,
+        "w": 279.7374267578125,
+        "h": 34.46185302734375
+      }
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "p.coverTitle",
+      "text": "Demo’s reisboekje",
+      "words": 2,
+      "fontSize": 21.231001,
+      "weight": "700",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 131.375,
+        "y": 383.7939147949219,
+        "w": 178.87118530273438,
+        "h": 28.95904541015625
+      }
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "p.favoriteLabel",
+      "text": "Mijn favoriete pizza: Margherita",
+      "words": 4,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 182.859375,
+        "y": 434.16064453125,
+        "w": 209.47265625,
+        "h": 20.4599609375
+      }
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "button.bookLink",
+      "text": "Pas mijn boekje aan",
+      "words": 4,
+      "fontSize": 14.6595,
+      "weight": "700",
+      "color": "rgb(110, 20, 20)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 133.38034057617188,
+        "y": 503.2834777832031,
+        "w": 134.67681884765625,
+        "h": 19.995513916015625
+      }
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "h3.bookScript",
+      "text": "Ciao, Demo!",
+      "words": 2,
+      "fontSize": 30.33,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 163.2161102294922,
+        "w": 152.92626953125,
+        "h": 33.08338928222656
+      }
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "strong.",
+      "text": "11 van 11",
+      "words": 3,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 672.125,
+        "y": 208.6851806640625,
+        "w": 104.857177734375,
+        "h": 31.426513671875
+      }
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "p.",
+      "text": "haltes afgerond",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 784.65625,
+        "y": 217.42140197753906,
+        "w": 101.159423828125,
+        "h": 19.641571044921875
+      }
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "strong.",
+      "text": "11",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 253.6070556640625,
+        "w": 27.64801025390625,
+        "h": 31.426513671875
+      }
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "p.",
+      "text": "gouden haltes",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 667.140625,
+        "y": 262.34326171875,
+        "w": 91.9599609375,
+        "h": 19.6416015625
+      }
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "strong.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 296.1383056640625,
+        "w": 13.823974609375,
+        "h": 31.426513671875
+      }
+    },
+    {
+      "id": 24,
+      "clipped": false,
+      "element": "p.",
+      "text": "Vespa-ritten gemaakt",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 653.3125,
+        "y": 304.87451171875,
+        "w": 139.39532470703125,
+        "h": 19.6416015625
+      }
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "p.bookNote",
+      "text": "0 van 8 punten voor Margherita. 3 pizza’s tot je volgende rit.",
+      "words": 12,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(91, 70, 48)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 381.8245849609375,
+        "w": 316.11260986328125,
+        "h": 35.100830078125
+      }
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "button.bookLink",
+      "text": "Verder leren",
+      "words": 2,
+      "fontSize": 14.6595,
+      "weight": "700",
+      "color": "rgb(110, 20, 20)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 633.7257080078125,
+        "y": 436.8786926269531,
+        "w": 80.892333984375,
+        "h": 19.19573974609375
+      }
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Vorige",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 0.4,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": true,
+      "rect": {
+        "x": 25.007232666015625,
+        "y": 770.578125,
+        "w": 50.73553466796875,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "span.micro",
+      "text": "1–2 / 12",
+      "words": 3,
+      "fontSize": 14,
+      "weight": "400",
+      "color": "rgb(246, 233, 204)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 501.421875,
+        "y": 771.748046875,
+        "w": 54.3798828125,
+        "h": 16.48828125
+      }
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Volgende",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 981.4844360351562,
+        "y": 770.578125,
+        "w": 73.49981689453125,
+        "h": 18.84375
+      }
+    }
+  ],
+  "activeWords": 51,
+  "words": 63,
+  "minFontSize": 13,
+  "targets": [
+    {
+      "element": "button.button",
+      "name": "Sluit boekje",
+      "rect": {
+        "x": 950,
+        "y": 7,
+        "w": 118,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.bookLink",
+      "name": "Pas mijn boekje aan",
+      "rect": {
+        "x": 131.375,
+        "y": 491.28125,
+        "w": 138.6875,
+        "h": 44
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.bookLink",
+      "name": "Verder leren",
+      "rect": {
+        "x": 631.8125,
+        "y": 425.359375,
+        "w": 84.71875,
+        "h": 42.234375
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.button",
+      "name": "Vorige",
+      "rect": {
+        "x": 12,
+        "y": 758,
+        "w": 76.75,
+        "h": 44
+      },
+      "disabled": true
+    },
+    {
+      "element": "button.button",
+      "name": "Volgende",
+      "rect": {
+        "x": 968.484375,
+        "y": 758,
+        "w": 99.5,
+        "h": 44
+      },
+      "disabled": false
+    }
+  ],
+  "closeTargets": [],
+  "overflow": [],
+  "filters": [
+    {
+      "element": "nav.v3Side",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "nav.v3Side::after",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "div.v3Book",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "div.v3Ride",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "div.v3Tiles",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    }
+  ],
+  "variants": [
+    {
+      "type": "button",
+      "element": "button.button",
+      "styles": {
+        "backgroundColor": "rgb(246, 233, 204)",
+        "backdropFilter": "none",
+        "border": "1px solid rgba(42, 36, 64, 0.16)",
+        "borderRadius": "13px",
+        "boxShadow": "none",
+        "padding": "9px 12px",
+        "fontSize": "16px",
+        "fontWeight": "750"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.bookLink",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(110, 20, 20)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "6px 2px",
+        "fontSize": "14.6595px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.bookLink",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "0px none rgb(110, 20, 20)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "padding": "6px 2px",
+        "fontSize": "14.6595px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.button",
+      "styles": {
+        "backgroundColor": "rgb(246, 233, 204)",
+        "backdropFilter": "none",
+        "border": "1px solid rgba(42, 36, 64, 0.16)",
+        "borderRadius": "13px",
+        "boxShadow": "none",
+        "padding": "9px 12px",
+        "fontSize": "16px",
+        "fontWeight": "750"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.button",
+      "styles": {
+        "backgroundColor": "rgb(246, 233, 204)",
+        "backdropFilter": "none",
+        "border": "1px solid rgba(42, 36, 64, 0.16)",
+        "borderRadius": "13px",
+        "boxShadow": "none",
+        "padding": "9px 12px",
+        "fontSize": "16px",
+        "fontWeight": "750"
+      }
+    }
+  ],
+  "images": [
+    {
+      "element": "img.",
+      "width": 512,
+      "height": 512,
+      "bytes": 1048576,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3CoverArt",
+      "width": 834,
+      "height": 834,
+      "bytes": 2782224,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3RideArt",
+      "width": 660,
+      "height": 440,
+      "bytes": 1161600,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3TileIcon",
+      "width": 96,
+      "height": 96,
+      "bytes": 36864,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3TileIcon",
+      "width": 96,
+      "height": 96,
+      "bytes": 36864,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3TileIcon",
+      "width": 96,
+      "height": 96,
+      "bytes": 36864,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3TileIcon",
+      "width": 96,
+      "height": 96,
+      "bytes": 36864,
+      "source": "embedded"
+    },
+    {
+      "element": "img.folioPaper",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 6290112,
+      "source": "embedded"
+    },
+    {
+      "element": "img.bookNino",
+      "width": 388,
+      "height": 388,
+      "bytes": 602176,
+      "source": "embedded"
+    },
+    {
+      "element": "img.favoriteSticker",
+      "width": 184,
+      "height": 184,
+      "bytes": 135424,
+      "source": "embedded"
+    },
+    {
+      "element": "img.folioPaper",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 6290112,
+      "source": "embedded"
+    },
+    {
+      "element": "img.factIcon",
+      "width": 64,
+      "height": 64,
+      "bytes": 16384,
+      "source": "embedded"
+    }
+  ],
+  "decodedImageBytes": 18474064,
+  "domNodes": 1529,
+  "overlaps": [
+    [
+      0,
+      12,
+      190
+    ],
+    [
+      1,
+      12,
+      24
+    ],
+    [
+      2,
+      25,
+      322
+    ],
+    [
+      3,
+      25,
+      1583
+    ]
+  ],
+  "contrast": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 34.109375,
+        "y": 34.6669921875,
+        "w": 43.76597595214844,
+        "h": 17.666015625
+      },
+      "samples": 274,
+      "ratio": 1.211884561430788,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "#v3RewardsTitle",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 36,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 128,
+        "y": 35.49609375,
+        "w": 184.77597045898438,
+        "h": 42.3984375
+      },
+      "samples": 740,
+      "ratio": 1.1910692419173954,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "b.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 765.171875,
+        "y": 361.65625,
+        "w": 18.35968017578125,
+        "h": 37.6875
+      },
+      "samples": 85,
+      "ratio": 10.693227660985125,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.",
+      "text": "Vespa-ritten",
+      "words": 1,
+      "fontSize": 22,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 795.546875,
+        "y": 368.138671875,
+        "w": 129.5078125,
+        "h": 25.91015625
+      },
+      "samples": 455,
+      "ratio": 10.462849874902005,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 8",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 185.2705078125,
+        "y": 726.4453125,
+        "w": 83.458984375,
+        "h": 47.109375
+      },
+      "samples": 444,
+      "ratio": 1.0199740025729789,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "b.",
+      "text": "11 / 11",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 411.5503845214844,
+        "y": 726.4453125,
+        "w": 107.88357543945312,
+        "h": 47.109375
+      },
+      "samples": 400,
+      "ratio": 1.0199740025729789,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "b.",
+      "text": "11 / 11",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 649.5504150390625,
+        "y": 726.4453125,
+        "w": 107.883544921875,
+        "h": 47.109375
+      },
+      "samples": 402,
+      "ratio": 1.0098170852330175,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "b.",
+      "text": "4 / 4",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 900.021484375,
+        "y": 726.4453125,
+        "w": 82.94140625,
+        "h": 47.109375
+      },
+      "samples": 376,
+      "ratio": 1.0169025704320056,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "#travelBookTitle",
+      "text": "Mijn reisboekje",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "700",
+      "color": "rgb(246, 233, 204)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 12,
+        "y": 18.9814453125,
+        "w": 122.78515625,
+        "h": 20.021484375
+      },
+      "samples": 1026,
+      "ratio": 8.561558886769792,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Sluit boekje",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 963.0001220703125,
+        "y": 19.578125,
+        "w": 91.999755859375,
+        "h": 18.84375
+      },
+      "samples": 700,
+      "ratio": 11.310053889650051,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 14,
+      "clipped": false,
+      "element": "h3.bookScript",
+      "text": "Il mio viaggio in Italia",
+      "words": 5,
+      "fontSize": 30.33,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 131.375,
+        "y": 169.96438598632812,
+        "w": 279.7374267578125,
+        "h": 34.46185302734375
+      },
+      "samples": 2315,
+      "ratio": 10.764171319051835,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "p.coverTitle",
+      "text": "Demo’s reisboekje",
+      "words": 2,
+      "fontSize": 21.231001,
+      "weight": "700",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 131.375,
+        "y": 383.7939147949219,
+        "w": 178.87118530273438,
+        "h": 28.95904541015625
+      },
+      "samples": 1346,
+      "ratio": 10.415926696008983,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "p.favoriteLabel",
+      "text": "Mijn favoriete pizza: Margherita",
+      "words": 4,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 182.859375,
+        "y": 434.16064453125,
+        "w": 209.47265625,
+        "h": 20.4599609375
+      },
+      "samples": 1034,
+      "ratio": 11.10718122528492,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "button.bookLink",
+      "text": "Pas mijn boekje aan",
+      "words": 4,
+      "fontSize": 14.6595,
+      "weight": "700",
+      "color": "rgb(110, 20, 20)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 133.38034057617188,
+        "y": 503.2834777832031,
+        "w": 134.67681884765625,
+        "h": 19.995513916015625
+      },
+      "samples": 757,
+      "ratio": 7.725119795903528,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "h3.bookScript",
+      "text": "Ciao, Demo!",
+      "words": 2,
+      "fontSize": 30.33,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 163.2161102294922,
+        "w": 152.92626953125,
+        "h": 33.08338928222656
+      },
+      "samples": 1191,
+      "ratio": 9.35596448291042,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "strong.",
+      "text": "11 van 11",
+      "words": 3,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 672.125,
+        "y": 208.6851806640625,
+        "w": 104.857177734375,
+        "h": 31.426513671875
+      },
+      "samples": 568,
+      "ratio": 11.114098757676905,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "p.",
+      "text": "haltes afgerond",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 784.65625,
+        "y": 217.42140197753906,
+        "w": 101.159423828125,
+        "h": 19.641571044921875
+      },
+      "samples": 467,
+      "ratio": 11.856705486847016,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "strong.",
+      "text": "11",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 253.6070556640625,
+        "w": 27.64801025390625,
+        "h": 31.426513671875
+      },
+      "samples": 174,
+      "ratio": 8.203696216128419,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "p.",
+      "text": "gouden haltes",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 667.140625,
+        "y": 262.34326171875,
+        "w": 91.9599609375,
+        "h": 19.6416015625
+      },
+      "samples": 425,
+      "ratio": 10.999985820502669,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "strong.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 296.1383056640625,
+        "w": 13.823974609375,
+        "h": 31.426513671875
+      },
+      "samples": 83,
+      "ratio": 10.183634222907804,
+      "required": 3,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 24,
+      "clipped": false,
+      "element": "p.",
+      "text": "Vespa-ritten gemaakt",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 653.3125,
+        "y": 304.87451171875,
+        "w": 139.39532470703125,
+        "h": 19.6416015625
+      },
+      "samples": 621,
+      "ratio": 11.27556000825877,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "p.bookNote",
+      "text": "0 van 8 punten voor Margherita. 3 pizza’s tot je volgende rit.",
+      "words": 12,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(91, 70, 48)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 381.8245849609375,
+        "w": 316.11260986328125,
+        "h": 35.100830078125
+      },
+      "samples": 1233,
+      "ratio": 5.9875977139862915,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "button.bookLink",
+      "text": "Verder leren",
+      "words": 2,
+      "fontSize": 14.6595,
+      "weight": "700",
+      "color": "rgb(110, 20, 20)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 633.7257080078125,
+        "y": 436.8786926269531,
+        "w": 80.892333984375,
+        "h": 19.19573974609375
+      },
+      "samples": 405,
+      "ratio": 7.989438770273025,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Vorige",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 0.4,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": true,
+      "rect": {
+        "x": 25.007232666015625,
+        "y": 770.578125,
+        "w": 50.73553466796875,
+        "h": 18.84375
+      },
+      "samples": 362,
+      "ratio": 3.087622806013182,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "ancestor/fill opacity needs group compositing",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "span.micro",
+      "text": "1–2 / 12",
+      "words": 3,
+      "fontSize": 14,
+      "weight": "400",
+      "color": "rgb(246, 233, 204)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 501.421875,
+        "y": 771.748046875,
+        "w": 54.3798828125,
+        "h": 16.48828125
+      },
+      "samples": 180,
+      "ratio": 10.981589050178187,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Volgende",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 981.4844360351562,
+        "y": 770.578125,
+        "w": 73.49981689453125,
+        "h": 18.84375
+      },
+      "samples": 553,
+      "ratio": 5.50613357225309,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    }
+  ],
+  "textCandidates": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 34.109375,
+        "y": 34.6669921875,
+        "w": 43.76597595214844,
+        "h": 17.666015625
+      }
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "#v3RewardsTitle",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 36,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 128,
+        "y": 35.49609375,
+        "w": 184.77597045898438,
+        "h": 42.3984375
+      }
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "b.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 32,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 765.171875,
+        "y": 361.65625,
+        "w": 18.35968017578125,
+        "h": 37.6875
+      }
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.",
+      "text": "Vespa-ritten",
+      "words": 1,
+      "fontSize": 22,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 795.546875,
+        "y": 368.138671875,
+        "w": 129.5078125,
+        "h": 25.91015625
+      }
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 8",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 185.2705078125,
+        "y": 726.4453125,
+        "w": 83.458984375,
+        "h": 47.109375
+      }
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "span.",
+      "text": "Pizza",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 207.18887329101562,
+        "y": 703.578125,
+        "w": 39.62225341796875,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "b.",
+      "text": "11 / 11",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 411.5503845214844,
+        "y": 726.4453125,
+        "w": 107.88357543945312,
+        "h": 47.109375
+      }
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "span.",
+      "text": "Stempels",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 430.4558410644531,
+        "y": 703.578125,
+        "w": 70.08831787109375,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "b.",
+      "text": "11 / 11",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 649.5504150390625,
+        "y": 726.4453125,
+        "w": 107.883544921875,
+        "h": 47.109375
+      }
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "span.",
+      "text": "Goud",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 683.3281860351562,
+        "y": 703.578125,
+        "w": 40.3436279296875,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "b.",
+      "text": "4 / 4",
+      "words": 2,
+      "fontSize": 40,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 900.021484375,
+        "y": 726.4453125,
+        "w": 82.94140625,
+        "h": 47.109375
+      }
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "span.",
+      "text": "Postkaarten",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 896.57958984375,
+        "y": 703.578125,
+        "w": 89.8251953125,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "#travelBookTitle",
+      "text": "Mijn reisboekje",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "700",
+      "color": "rgb(246, 233, 204)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 12,
+        "y": 18.9814453125,
+        "w": 122.78515625,
+        "h": 20.021484375
+      }
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Sluit boekje",
+      "words": 2,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 963.0001220703125,
+        "y": 19.578125,
+        "w": 91.999755859375,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 14,
+      "clipped": false,
+      "element": "h3.bookScript",
+      "text": "Il mio viaggio in Italia",
+      "words": 5,
+      "fontSize": 30.33,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 131.375,
+        "y": 169.96438598632812,
+        "w": 279.7374267578125,
+        "h": 34.46185302734375
+      }
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "p.coverTitle",
+      "text": "Demo’s reisboekje",
+      "words": 2,
+      "fontSize": 21.231001,
+      "weight": "700",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 131.375,
+        "y": 383.7939147949219,
+        "w": 178.87118530273438,
+        "h": 28.95904541015625
+      }
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "p.favoriteLabel",
+      "text": "Mijn favoriete pizza: Margherita",
+      "words": 4,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 182.859375,
+        "y": 434.16064453125,
+        "w": 209.47265625,
+        "h": 20.4599609375
+      }
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "button.bookLink",
+      "text": "Pas mijn boekje aan",
+      "words": 4,
+      "fontSize": 14.6595,
+      "weight": "700",
+      "color": "rgb(110, 20, 20)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 133.38034057617188,
+        "y": 503.2834777832031,
+        "w": 134.67681884765625,
+        "h": 19.995513916015625
+      }
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "h3.bookScript",
+      "text": "Ciao, Demo!",
+      "words": 2,
+      "fontSize": 30.33,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 163.2161102294922,
+        "w": 152.92626953125,
+        "h": 33.08338928222656
+      }
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "strong.",
+      "text": "11 van 11",
+      "words": 3,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 672.125,
+        "y": 208.6851806640625,
+        "w": 104.857177734375,
+        "h": 31.426513671875
+      }
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "p.",
+      "text": "haltes afgerond",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 784.65625,
+        "y": 217.42140197753906,
+        "w": 101.159423828125,
+        "h": 19.641571044921875
+      }
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "strong.",
+      "text": "11",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 253.6070556640625,
+        "w": 27.64801025390625,
+        "h": 31.426513671875
+      }
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "p.",
+      "text": "gouden haltes",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 667.140625,
+        "y": 262.34326171875,
+        "w": 91.9599609375,
+        "h": 19.6416015625
+      }
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "strong.",
+      "text": "7",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "600",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 296.1383056640625,
+        "w": 13.823974609375,
+        "h": 31.426513671875
+      }
+    },
+    {
+      "id": 24,
+      "clipped": false,
+      "element": "p.",
+      "text": "Vespa-ritten gemaakt",
+      "words": 2,
+      "fontSize": 15,
+      "weight": "400",
+      "color": "rgb(43, 29, 17)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 653.3125,
+        "y": 304.87451171875,
+        "w": 139.39532470703125,
+        "h": 19.6416015625
+      }
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "p.bookNote",
+      "text": "0 van 8 punten voor Margherita. 3 pizza’s tot je volgende rit.",
+      "words": 12,
+      "fontSize": 13,
+      "weight": "400",
+      "color": "rgb(91, 70, 48)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 631.8125,
+        "y": 381.8245849609375,
+        "w": 316.11260986328125,
+        "h": 35.100830078125
+      }
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "button.bookLink",
+      "text": "Verder leren",
+      "words": 2,
+      "fontSize": 14.6595,
+      "weight": "700",
+      "color": "rgb(110, 20, 20)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 633.7257080078125,
+        "y": 436.8786926269531,
+        "w": 80.892333984375,
+        "h": 19.19573974609375
+      }
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Vorige",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 0.4,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": true,
+      "rect": {
+        "x": 25.007232666015625,
+        "y": 770.578125,
+        "w": 50.73553466796875,
+        "h": 18.84375
+      }
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "span.micro",
+      "text": "1–2 / 12",
+      "words": 3,
+      "fontSize": 14,
+      "weight": "400",
+      "color": "rgb(246, 233, 204)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 501.421875,
+        "y": 771.748046875,
+        "w": 54.3798828125,
+        "h": 16.48828125
+      }
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "button.button",
+      "text": "Volgende",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "750",
+      "color": "rgb(59, 39, 22)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 981.4844360351562,
+        "y": 770.578125,
+        "w": 73.49981689453125,
+        "h": 18.84375
+      }
+    }
+  ],
+  "unpaintedOrUnknownText": [
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "span.",
+      "text": "Pizza",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 207.18887329101562,
+        "y": 703.578125,
+        "w": 39.62225341796875,
+        "h": 18.84375
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "span.",
+      "text": "Stempels",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 430.4558410644531,
+        "y": 703.578125,
+        "w": 70.08831787109375,
+        "h": 18.84375
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "span.",
+      "text": "Goud",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 683.3281860351562,
+        "y": 703.578125,
+        "w": 40.3436279296875,
+        "h": 18.84375
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "span.",
+      "text": "Postkaarten",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 896.57958984375,
+        "y": 703.578125,
+        "w": 89.8251953125,
+        "h": 18.84375
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    }
+  ],
+  "preferences": {
+    "motion": false,
+    "transparency": false
+  },
+  "axe": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            "#travelBookTitle"
+          ],
+          [
+            "h3[data-audit-text=\"14\"]"
+          ],
+          [
+            ".coverTitle"
+          ],
+          [
+            ".favoriteLabel"
+          ],
+          [
+            "button[data-profile-edit=\"\"]"
+          ],
+          [
+            "h3[data-audit-text=\"18\"]"
+          ],
+          [
+            "p[data-audit-text=\"20\"]"
+          ],
+          [
+            "strong[data-audit-text=\"19\"]"
+          ],
+          [
+            "p[data-audit-text=\"22\"]"
+          ],
+          [
+            "strong[data-audit-text=\"21\"]"
+          ],
+          [
+            "p[data-audit-text=\"24\"]"
+          ],
+          [
+            "strong[data-audit-text=\"23\"]"
+          ],
+          [
+            ".bookNote"
+          ],
+          [
+            "button[data-audit-text=\"26\"]"
+          ],
+          [
+            "span[data-audit-text=\"28\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  "focus": {
+    "order": [
+      {
+        "nodeId": 1,
+        "element": "#travelBook",
+        "name": "Mijn reisboekje",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "3px auto rgb(91, 69, 224)",
+        "shadow": "none",
+        "modal": true
+      },
+      {
+        "nodeId": 2,
+        "element": "BODY.ninoSchoolMapOnly.v3On.v3Home.v3Shell",
+        "name": "TOPO\nReis\nOefenen\nToets\nBeloningen\nVoortgang\nInstellingen\nBeloningen\n7\nVespa-ritten\n0 / 8\nPizza\n11 / 11\nStempels\n11 / 11",
+        "visible": true,
+        "focusVisible": false,
+        "outline": "3px none rgb(42, 36, 64)",
+        "shadow": "none",
+        "modal": false
+      }
+    ],
+    "completedCycle": true,
+    "truncated": false,
+    "invisible": [],
+    "focusRingCandidates": [],
+    "note": "Modal cycles are expected; non-modal incomplete/truncated walks need review. Accessible-name heuristic plus axe, not a full platform AX tree."
+  },
+  "id": "webkit-reisboekje-1080x810-normal",
+  "engine": "webkit",
+  "state": "reisboekje",
+  "viewport": [
+    1080,
+    810
+  ],
+  "reduced": false,
+  "screenshot": "screenshots/webkit-reisboekje-1080x810-normal.png",
+  "backdropPseudoAudited": true,
+  "intentionalHiddenOverflow": []
+}

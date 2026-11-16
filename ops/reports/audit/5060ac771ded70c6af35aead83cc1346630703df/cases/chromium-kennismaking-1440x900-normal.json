@@ -1,0 +1,3006 @@
+{
+  "texts": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 30,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 104.15625,
+        "y": 46,
+        "w": 87.671875,
+        "h": 41
+      }
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "span.",
+      "text": "Reis",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "700",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 330.40625,
+        "w": 31.328125,
+        "h": 22
+      }
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "span.",
+      "text": "Oefenen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 380.40625,
+        "w": 61.90625,
+        "h": 22
+      }
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.",
+      "text": "Toets",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 430.40625,
+        "w": 39.75,
+        "h": 22
+      }
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "span.",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 480.40625,
+        "w": 82.96875,
+        "h": 22
+      }
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "span.",
+      "text": "Voortgang",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 530.40625,
+        "w": 77.3125,
+        "h": 22
+      }
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "#v3ListTitle",
+      "text": "Hoofdstukken",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 308,
+        "y": 48,
+        "w": 117.109375,
+        "h": 24
+      }
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 114.5,
+        "w": 59.203125,
+        "h": 23
+      }
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 114.5,
+        "w": 28.90625,
+        "h": 23
+      }
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 174,
+        "w": 59.203125,
+        "h": 23
+      }
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 228,
+        "w": 59.203125,
+        "h": 23
+      }
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 282,
+        "w": 59.203125,
+        "h": 23
+      }
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Eilanden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 336,
+        "w": 67.234375,
+        "h": 23
+      }
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Bergen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 390,
+        "w": 55.953125,
+        "h": 23
+      }
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Vulkanen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 444,
+        "w": 72.453125,
+        "h": 23
+      }
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Streken",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 498,
+        "w": 59.578125,
+        "h": 23
+      }
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Landen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 552,
+        "w": 57.265625,
+        "h": 23
+      }
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Zeeën",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 606,
+        "w": 47.046875,
+        "h": 23
+      }
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Rivieren",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 660,
+        "w": 62.859375,
+        "h": 23
+      }
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 24",
+      "words": 2,
+      "fontSize": 20,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1256.515625,
+        "y": 42,
+        "w": 52.484375,
+        "h": 27
+      }
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "b.",
+      "text": "0",
+      "words": 1,
+      "fontSize": 20,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1384,
+        "y": 42,
+        "w": 12,
+        "h": 27
+      }
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 11.799794679764261,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1111.139892578125,
+        "y": 668.1746215820312,
+        "w": 9.09375,
+        "h": 16
+      }
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "span.",
+      "text": "Schoolblad",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 648,
+        "y": 38,
+        "w": 87.15625,
+        "h": 23
+      }
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Schoolkaart",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "500",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 771.15625,
+        "y": 40,
+        "w": 80.96875,
+        "h": 20
+      }
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Reliëf",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 876.125,
+        "y": 40,
+        "w": 39.5,
+        "h": 20
+      }
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "p.v3CardKicker",
+      "text": "Hoofdstuk 1",
+      "words": 2,
+      "fontSize": 13,
+      "weight": "600",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 632,
+        "y": 806,
+        "w": 103.5,
+        "h": 18
+      }
+    },
+    {
+      "id": 30,
+      "clipped": false,
+      "element": "#v3Title",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 632,
+        "y": 826,
+        "w": 83.40625,
+        "h": 32
+      }
+    },
+    {
+      "id": 31,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 24,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 715.40625,
+        "y": 826,
+        "w": 40.09375,
+        "h": 32
+      }
+    },
+    {
+      "id": 32,
+      "clipped": false,
+      "element": "span.",
+      "text": "Verder",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1262,
+        "y": 820,
+        "w": 54.765625,
+        "h": 24
+      }
+    },
+    {
+      "id": 33,
+      "clipped": false,
+      "element": "#ninoProfileTitle",
+      "text": "Ciao! Ik ben Nino.",
+      "words": 4,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 584,
+        "y": 199.59375,
+        "w": 127.875,
+        "h": 23
+      }
+    },
+    {
+      "id": 34,
+      "clipped": false,
+      "element": "p.profileIntro",
+      "text": "Hoe mag ik je noemen?",
+      "words": 5,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 584,
+        "y": 227.59375,
+        "w": 179.453125,
+        "h": 23
+      }
+    },
+    {
+      "id": 35,
+      "clipped": false,
+      "element": "legend.",
+      "text": "Wat is jouw favoriete pizza?",
+      "words": 5,
+      "fontSize": 17,
+      "weight": "750",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 433,
+        "y": 478.59375,
+        "w": 223.015625,
+        "h": 23
+      }
+    },
+    {
+      "id": 36,
+      "clipped": false,
+      "element": "span.",
+      "text": "Margherita",
+      "words": 1,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 490.65625,
+        "y": 611.59375,
+        "w": 70.6875,
+        "h": 19
+      }
+    },
+    {
+      "id": 37,
+      "clipped": false,
+      "element": "span.",
+      "text": "Salami",
+      "words": 1,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 697.984375,
+        "y": 611.59375,
+        "w": 44.015625,
+        "h": 19
+      }
+    },
+    {
+      "id": 38,
+      "clipped": false,
+      "element": "span.",
+      "text": "Quattro Formaggi",
+      "words": 2,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 856.671875,
+        "y": 611.59375,
+        "w": 114.640625,
+        "h": 19
+      }
+    },
+    {
+      "id": 39,
+      "clipped": false,
+      "element": "button.button.v3Btn",
+      "text": "Start meteen",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 881.640625,
+        "y": 672.390625,
+        "w": 101.359375,
+        "h": 23
+      }
+    },
+    {
+      "id": 40,
+      "clipped": false,
+      "element": "button.button.v3Btn.primary",
+      "text": "Andiamo!",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 460,
+        "y": 672.390625,
+        "w": 78.3125,
+        "h": 24
+      }
+    }
+  ],
+  "activeWords": 21,
+  "words": 53,
+  "minFontSize": 11.799794679764261,
+  "targets": [
+    {
+      "element": "input.",
+      "name": "",
+      "rect": {
+        "x": 433,
+        "y": 413.59375,
+        "w": 574,
+        "h": 52
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.button.v3Btn",
+      "name": "Start meteen",
+      "rect": {
+        "x": 857.640625,
+        "y": 658.390625,
+        "w": 149.359375,
+        "h": 52
+      },
+      "disabled": false
+    },
+    {
+      "element": "button.button.v3Btn.primary",
+      "name": "Andiamo!",
+      "rect": {
+        "x": 433,
+        "y": 658.390625,
+        "w": 412.640625,
+        "h": 52
+      },
+      "disabled": false
+    }
+  ],
+  "closeTargets": [],
+  "overflow": [],
+  "filters": [
+    {
+      "element": "nav.v3Side",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "nav.v3Side::after",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "section.v3List",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "div.v3Counts",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "div.v3Panel",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "dialog.ninoProfile.ninoFirstRun.v3",
+      "value": "blur(20px) saturate(1.6) brightness(1.06)"
+    },
+    {
+      "element": "dialog.ninoProfile.ninoFirstRun.v3.v3Welkom::backdrop",
+      "value": "blur(4px)"
+    }
+  ],
+  "variants": [
+    {
+      "type": "button",
+      "element": "button.button.v3Btn",
+      "styles": {
+        "backgroundColor": "rgba(255, 255, 255, 0.55)",
+        "backdropFilter": "none",
+        "border": "0px none rgba(42, 36, 64, 0.16)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.12) 0px 0px 0px 1px inset",
+        "padding": "0px 24px",
+        "fontSize": "17px",
+        "fontWeight": "600"
+      }
+    },
+    {
+      "type": "button",
+      "element": "button.button.v3Btn.primary",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backdropFilter": "none",
+        "border": "1px solid rgb(147, 57, 31)",
+        "borderRadius": "999px",
+        "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+        "padding": "0px 22px 0px 26px",
+        "fontSize": "18px",
+        "fontWeight": "600"
+      }
+    }
+  ],
+  "images": [
+    {
+      "element": "img.",
+      "width": 512,
+      "height": 512,
+      "bytes": 1048576,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 480,
+      "height": 270,
+      "bytes": 518400,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3CountArt",
+      "width": 96,
+      "height": 96,
+      "bytes": 36864,
+      "source": "embedded"
+    },
+    {
+      "element": "img.v3CountArt",
+      "width": 88,
+      "height": 88,
+      "bytes": 30976,
+      "source": "embedded"
+    },
+    {
+      "element": "img.profileWelcome",
+      "width": 291,
+      "height": 436,
+      "bytes": 507504,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 184,
+      "height": 184,
+      "bytes": 135424,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 184,
+      "height": 181,
+      "bytes": 133216,
+      "source": "embedded"
+    },
+    {
+      "element": "img.",
+      "width": 184,
+      "height": 184,
+      "bytes": 135424,
+      "source": "embedded"
+    }
+  ],
+  "decodedImageBytes": 7730384,
+  "domNodes": 1497,
+  "overlaps": [
+    [
+      18,
+      35,
+      38
+    ]
+  ],
+  "contrast": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 30,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 104.15625,
+        "y": 46,
+        "w": 87.671875,
+        "h": 41
+      },
+      "samples": 2214,
+      "ratio": 3.8506664716327195,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "span.",
+      "text": "Reis",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "700",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 330.40625,
+        "w": 31.328125,
+        "h": 22
+      },
+      "samples": 455,
+      "ratio": 2.985042042755982,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "span.",
+      "text": "Oefenen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 380.40625,
+        "w": 61.90625,
+        "h": 22
+      },
+      "samples": 839,
+      "ratio": 5.204982666862872,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.",
+      "text": "Toets",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 430.40625,
+        "w": 39.75,
+        "h": 22
+      },
+      "samples": 557,
+      "ratio": 4.41983333723757,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "span.",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 480.40625,
+        "w": 82.96875,
+        "h": 22
+      },
+      "samples": 1205,
+      "ratio": 4.00089248089214,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "span.",
+      "text": "Voortgang",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 530.40625,
+        "w": 77.3125,
+        "h": 22
+      },
+      "samples": 1127,
+      "ratio": 3.772025227280266,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "#v3ListTitle",
+      "text": "Hoofdstukken",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 308,
+        "y": 48,
+        "w": 117.109375,
+        "h": 24
+      },
+      "samples": 1859,
+      "ratio": 4.677386469989491,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 114.5,
+        "w": 59.203125,
+        "h": 23
+      },
+      "samples": 833,
+      "ratio": 5.305734746354051,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 114.5,
+        "w": 28.90625,
+        "h": 23
+      },
+      "samples": 366,
+      "ratio": 5.305734746354051,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 174,
+        "w": 59.203125,
+        "h": 23
+      },
+      "samples": 455,
+      "ratio": 5.157448617116754,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 228,
+        "w": 59.203125,
+        "h": 23
+      },
+      "samples": 396,
+      "ratio": 4.662804244210415,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 282,
+        "w": 59.203125,
+        "h": 23
+      },
+      "samples": 395,
+      "ratio": 4.605927672864458,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Eilanden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 336,
+        "w": 67.234375,
+        "h": 23
+      },
+      "samples": 388,
+      "ratio": 4.202154690691247,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Bergen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 390,
+        "w": 55.953125,
+        "h": 23
+      },
+      "samples": 381,
+      "ratio": 4.253141848183096,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Vulkanen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 444,
+        "w": 72.453125,
+        "h": 23
+      },
+      "samples": 352,
+      "ratio": 4.316087702279407,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Streken",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 498,
+        "w": 59.578125,
+        "h": 23
+      },
+      "samples": 373,
+      "ratio": 4.208738120638916,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Landen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 552,
+        "w": 57.265625,
+        "h": 23
+      },
+      "samples": 315,
+      "ratio": 4.066266026212546,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Zeeën",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 606,
+        "w": 47.046875,
+        "h": 23
+      },
+      "samples": 361,
+      "ratio": 3.938734391960257,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Rivieren",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 660,
+        "w": 62.859375,
+        "h": 23
+      },
+      "samples": 352,
+      "ratio": 4.001203240013662,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 24",
+      "words": 2,
+      "fontSize": 20,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1256.515625,
+        "y": 42,
+        "w": 52.484375,
+        "h": 27
+      },
+      "samples": 790,
+      "ratio": 5.160706997866107,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "b.",
+      "text": "0",
+      "words": 1,
+      "fontSize": 20,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1384,
+        "y": 42,
+        "w": 12,
+        "h": 27
+      },
+      "samples": 211,
+      "ratio": 5.603605156610468,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 11.799794679764261,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1111.139892578125,
+        "y": 668.1746215820312,
+        "w": 9.09375,
+        "h": 16
+      },
+      "samples": 21,
+      "ratio": 1.3503739954327665,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "span.",
+      "text": "Schoolblad",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 648,
+        "y": 38,
+        "w": 87.15625,
+        "h": 23
+      },
+      "samples": 1334,
+      "ratio": 5.827056280095995,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Schoolkaart",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "500",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 771.15625,
+        "y": 40,
+        "w": 80.96875,
+        "h": 20
+      },
+      "samples": 868,
+      "ratio": 2.6625252228184455,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Reliëf",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 876.125,
+        "y": 40,
+        "w": 39.5,
+        "h": 20
+      },
+      "samples": 581,
+      "ratio": 6.237670482224719,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "p.v3CardKicker",
+      "text": "Hoofdstuk 1",
+      "words": 2,
+      "fontSize": 13,
+      "weight": "600",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 632,
+        "y": 806,
+        "w": 103.5,
+        "h": 18
+      },
+      "samples": 978,
+      "ratio": 2.6229815482716057,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 30,
+      "clipped": false,
+      "element": "#v3Title",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 632,
+        "y": 826,
+        "w": 83.40625,
+        "h": 32
+      },
+      "samples": 1585,
+      "ratio": 4.58503023216844,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 31,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 24,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 715.40625,
+        "y": 826,
+        "w": 40.09375,
+        "h": 32
+      },
+      "samples": 735,
+      "ratio": 4.511757639738497,
+      "required": 3,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 32,
+      "clipped": false,
+      "element": "span.",
+      "text": "Verder",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1262,
+        "y": 820,
+        "w": 54.765625,
+        "h": 24
+      },
+      "samples": 739,
+      "ratio": 8.339555536403159,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 33,
+      "clipped": false,
+      "element": "#ninoProfileTitle",
+      "text": "Ciao! Ik ben Nino.",
+      "words": 4,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 584,
+        "y": 199.59375,
+        "w": 127.875,
+        "h": 23
+      },
+      "samples": 661,
+      "ratio": 12.683167436650743,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 34,
+      "clipped": false,
+      "element": "p.profileIntro",
+      "text": "Hoe mag ik je noemen?",
+      "words": 5,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 584,
+        "y": 227.59375,
+        "w": 179.453125,
+        "h": 23
+      },
+      "samples": 943,
+      "ratio": 12.484890918687876,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 35,
+      "clipped": false,
+      "element": "legend.",
+      "text": "Wat is jouw favoriete pizza?",
+      "words": 5,
+      "fontSize": 17,
+      "weight": "750",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 433,
+        "y": 478.59375,
+        "w": 223.015625,
+        "h": 23
+      },
+      "samples": 1364,
+      "ratio": 9.819467205392533,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 36,
+      "clipped": false,
+      "element": "span.",
+      "text": "Margherita",
+      "words": 1,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 490.65625,
+        "y": 611.59375,
+        "w": 70.6875,
+        "h": 19
+      },
+      "samples": 388,
+      "ratio": 12.580557379921062,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 37,
+      "clipped": false,
+      "element": "span.",
+      "text": "Salami",
+      "words": 1,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 697.984375,
+        "y": 611.59375,
+        "w": 44.015625,
+        "h": 19
+      },
+      "samples": 233,
+      "ratio": 11.798938742667632,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 38,
+      "clipped": false,
+      "element": "span.",
+      "text": "Quattro Formaggi",
+      "words": 2,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 856.671875,
+        "y": 611.59375,
+        "w": 114.640625,
+        "h": 19
+      },
+      "samples": 620,
+      "ratio": 11.660319437434186,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 39,
+      "clipped": false,
+      "element": "button.button.v3Btn",
+      "text": "Start meteen",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 881.640625,
+        "y": 672.390625,
+        "w": 101.359375,
+        "h": 23
+      },
+      "samples": 586,
+      "ratio": 11.705384078297389,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 40,
+      "clipped": false,
+      "element": "button.button.v3Btn.primary",
+      "text": "Andiamo!",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 460,
+        "y": 672.390625,
+        "w": 78.3125,
+        "h": 24
+      },
+      "samples": 463,
+      "ratio": 5.564108062640302,
+      "required": 4.5,
+      "status": "pass",
+      "reason": null,
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    }
+  ],
+  "textCandidates": [
+    {
+      "id": 0,
+      "clipped": false,
+      "element": "b.",
+      "text": "Topo",
+      "words": 1,
+      "fontSize": 30,
+      "weight": "800",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 104.15625,
+        "y": 46,
+        "w": 87.671875,
+        "h": 41
+      }
+    },
+    {
+      "id": 1,
+      "clipped": false,
+      "element": "span.",
+      "text": "Reis",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "700",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 330.40625,
+        "w": 31.328125,
+        "h": 22
+      }
+    },
+    {
+      "id": 2,
+      "clipped": false,
+      "element": "span.",
+      "text": "Oefenen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 380.40625,
+        "w": 61.90625,
+        "h": 22
+      }
+    },
+    {
+      "id": 3,
+      "clipped": false,
+      "element": "span.",
+      "text": "Toets",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 430.40625,
+        "w": 39.75,
+        "h": 22
+      }
+    },
+    {
+      "id": 4,
+      "clipped": false,
+      "element": "span.",
+      "text": "Beloningen",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 480.40625,
+        "w": 82.96875,
+        "h": 22
+      }
+    },
+    {
+      "id": 5,
+      "clipped": false,
+      "element": "span.",
+      "text": "Voortgang",
+      "words": 1,
+      "fontSize": 16,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 88,
+        "y": 530.40625,
+        "w": 77.3125,
+        "h": 22
+      }
+    },
+    {
+      "id": 6,
+      "clipped": false,
+      "element": "#v3ListTitle",
+      "text": "Hoofdstukken",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 308,
+        "y": 48,
+        "w": 117.109375,
+        "h": 24
+      }
+    },
+    {
+      "id": 7,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 114.5,
+        "w": 59.203125,
+        "h": 23
+      }
+    },
+    {
+      "id": 8,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 114.5,
+        "w": 28.90625,
+        "h": 23
+      }
+    },
+    {
+      "id": 9,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 174,
+        "w": 59.203125,
+        "h": 23
+      }
+    },
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "7–12",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 174,
+        "w": 39.109375,
+        "h": 23
+      }
+    },
+    {
+      "id": 11,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 228,
+        "w": 59.203125,
+        "h": 23
+      }
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "13–18",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 228,
+        "w": 49.3125,
+        "h": 23
+      }
+    },
+    {
+      "id": 13,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 282,
+        "w": 59.203125,
+        "h": 23
+      }
+    },
+    {
+      "id": 14,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "19–23",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 282,
+        "w": 49.3125,
+        "h": 23
+      }
+    },
+    {
+      "id": 15,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Eilanden",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 336,
+        "w": 67.234375,
+        "h": 23
+      }
+    },
+    {
+      "id": 16,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Bergen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 390,
+        "w": 55.953125,
+        "h": 23
+      }
+    },
+    {
+      "id": 17,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Vulkanen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 444,
+        "w": 72.453125,
+        "h": 23
+      }
+    },
+    {
+      "id": 18,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Streken",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 498,
+        "w": 59.578125,
+        "h": 23
+      }
+    },
+    {
+      "id": 19,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Landen",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 552,
+        "w": 57.265625,
+        "h": 23
+      }
+    },
+    {
+      "id": 20,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Zeeën",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 606,
+        "w": 47.046875,
+        "h": 23
+      }
+    },
+    {
+      "id": 21,
+      "clipped": false,
+      "element": "span.v3Name",
+      "text": "Rivieren",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 384,
+        "y": 660,
+        "w": 62.859375,
+        "h": 23
+      }
+    },
+    {
+      "id": 22,
+      "clipped": false,
+      "element": "b.",
+      "text": "0 / 24",
+      "words": 2,
+      "fontSize": 20,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1256.515625,
+        "y": 42,
+        "w": 52.484375,
+        "h": 27
+      }
+    },
+    {
+      "id": 23,
+      "clipped": false,
+      "element": "b.",
+      "text": "0",
+      "words": 1,
+      "fontSize": 20,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1384,
+        "y": 42,
+        "w": 12,
+        "h": 27
+      }
+    },
+    {
+      "id": 24,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 11.799794679764261,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1086.3446044921875,
+        "y": 482.0368347167969,
+        "w": 9.09375,
+        "h": 15.999969482421875
+      }
+    },
+    {
+      "id": 25,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 11.799794679764261,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1111.139892578125,
+        "y": 668.1746215820312,
+        "w": 9.09375,
+        "h": 16
+      }
+    },
+    {
+      "id": 26,
+      "clipped": false,
+      "element": "span.",
+      "text": "Schoolblad",
+      "words": 1,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 648,
+        "y": 38,
+        "w": 87.15625,
+        "h": 23
+      }
+    },
+    {
+      "id": 27,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Schoolkaart",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "500",
+      "color": "rgb(94, 88, 114)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 771.15625,
+        "y": 40,
+        "w": 80.96875,
+        "h": 20
+      }
+    },
+    {
+      "id": 28,
+      "clipped": false,
+      "element": "button.v3Btn",
+      "text": "Reliëf",
+      "words": 1,
+      "fontSize": 15,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 876.125,
+        "y": 40,
+        "w": 39.5,
+        "h": 20
+      }
+    },
+    {
+      "id": 29,
+      "clipped": false,
+      "element": "p.v3CardKicker",
+      "text": "Hoofdstuk 1",
+      "words": 2,
+      "fontSize": 13,
+      "weight": "600",
+      "color": "rgb(72, 52, 196)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 632,
+        "y": 806,
+        "w": 103.5,
+        "h": 18
+      }
+    },
+    {
+      "id": 30,
+      "clipped": false,
+      "element": "#v3Title",
+      "text": "Steden",
+      "words": 1,
+      "fontSize": 24,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 632,
+        "y": 826,
+        "w": 83.40625,
+        "h": 32
+      }
+    },
+    {
+      "id": 31,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "1–6",
+      "words": 2,
+      "fontSize": 24,
+      "weight": "700",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 715.40625,
+        "y": 826,
+        "w": 40.09375,
+        "h": 32
+      }
+    },
+    {
+      "id": 32,
+      "clipped": false,
+      "element": "span.",
+      "text": "Verder",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1262,
+        "y": 820,
+        "w": 54.765625,
+        "h": 24
+      }
+    },
+    {
+      "id": 33,
+      "clipped": false,
+      "element": "#ninoProfileTitle",
+      "text": "Ciao! Ik ben Nino.",
+      "words": 4,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 584,
+        "y": 199.59375,
+        "w": 127.875,
+        "h": 23
+      }
+    },
+    {
+      "id": 34,
+      "clipped": false,
+      "element": "p.profileIntro",
+      "text": "Hoe mag ik je noemen?",
+      "words": 5,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 584,
+        "y": 227.59375,
+        "w": 179.453125,
+        "h": 23
+      }
+    },
+    {
+      "id": 35,
+      "clipped": false,
+      "element": "legend.",
+      "text": "Wat is jouw favoriete pizza?",
+      "words": 5,
+      "fontSize": 17,
+      "weight": "750",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 433,
+        "y": 478.59375,
+        "w": 223.015625,
+        "h": 23
+      }
+    },
+    {
+      "id": 36,
+      "clipped": false,
+      "element": "span.",
+      "text": "Margherita",
+      "words": 1,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 490.65625,
+        "y": 611.59375,
+        "w": 70.6875,
+        "h": 19
+      }
+    },
+    {
+      "id": 37,
+      "clipped": false,
+      "element": "span.",
+      "text": "Salami",
+      "words": 1,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 697.984375,
+        "y": 611.59375,
+        "w": 44.015625,
+        "h": 19
+      }
+    },
+    {
+      "id": 38,
+      "clipped": false,
+      "element": "span.",
+      "text": "Quattro Formaggi",
+      "words": 2,
+      "fontSize": 14,
+      "weight": "650",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 856.671875,
+        "y": 611.59375,
+        "w": 114.640625,
+        "h": 19
+      }
+    },
+    {
+      "id": 39,
+      "clipped": false,
+      "element": "button.button.v3Btn",
+      "text": "Start meteen",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 881.640625,
+        "y": 672.390625,
+        "w": 101.359375,
+        "h": 23
+      }
+    },
+    {
+      "id": 40,
+      "clipped": false,
+      "element": "button.button.v3Btn.primary",
+      "text": "Andiamo!",
+      "words": 1,
+      "fontSize": 18,
+      "weight": "600",
+      "color": "rgb(255, 255, 255)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": false,
+      "active": true,
+      "rect": {
+        "x": 460,
+        "y": 672.390625,
+        "w": 78.3125,
+        "h": 24
+      }
+    }
+  ],
+  "unpaintedOrUnknownText": [
+    {
+      "id": 10,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "7–12",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 174,
+        "w": 39.109375,
+        "h": 23
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 12,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "13–18",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 228,
+        "w": 49.3125,
+        "h": 23
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 14,
+      "clipped": false,
+      "element": "span.nw",
+      "text": "19–23",
+      "words": 2,
+      "fontSize": 17,
+      "weight": "600",
+      "color": "rgb(42, 36, 64)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 443.203125,
+        "y": 282,
+        "w": 49.3125,
+        "h": 23
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    },
+    {
+      "id": 24,
+      "clipped": false,
+      "element": "text.",
+      "text": "▲",
+      "words": 0,
+      "fontSize": 11.799794679764261,
+      "weight": "900",
+      "color": "rgb(91, 73, 61)",
+      "paintOpacity": 1,
+      "fillOpacity": 1,
+      "disabled": true,
+      "active": false,
+      "rect": {
+        "x": 1086.3446044921875,
+        "y": 482.0368347167969,
+        "w": 9.09375,
+        "h": 15.999969482421875
+      },
+      "samples": 0,
+      "ratio": null,
+      "required": 4.5,
+      "status": "exempt",
+      "reason": "no painted glyph samples",
+      "method": "5th-percentile backdrop at changed glyph pixels; computed foreground/fill; group opacity classified unknown"
+    }
+  ],
+  "preferences": {
+    "motion": false,
+    "transparency": false
+  },
+  "axe": {
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            "#ninoProfileTitle"
+          ],
+          [
+            ".profileIntro"
+          ],
+          [
+            "input[name=\"name\"]"
+          ],
+          [
+            "legend"
+          ],
+          [
+            "span[data-audit-text=\"36\"]"
+          ],
+          [
+            "span[data-audit-text=\"37\"]"
+          ],
+          [
+            "span[data-audit-text=\"38\"]"
+          ],
+          [
+            "button[data-profile-cancel=\"\"]"
+          ],
+          [
+            "button[type=\"submit\"]"
+          ]
+        ]
+      }
+    ]
+  },
+  "focus": {
+    "order": [
+      {
+        "nodeId": 1,
+        "element": "INPUT.",
+        "name": "Margherita",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(0, 0, 0) none 0px",
+        "shadow": "none",
+        "modal": true
+      },
+      {
+        "nodeId": 2,
+        "element": "BUTTON.button.v3Btn",
+        "name": "Start meteen",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(7, 63, 59) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.12) 0px 0px 0px 1px inset",
+        "modal": true
+      },
+      {
+        "nodeId": 3,
+        "element": "BUTTON.button.v3Btn.primary",
+        "name": "Andiamo!",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(7, 63, 59) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+        "modal": true
+      },
+      {
+        "nodeId": 4,
+        "element": "BODY.ninoSchoolMapOnly.v3On.v3Home.v3Shell",
+        "name": "TOPO\nReis\nOefenen\nToets\nBeloningen\nVoortgang\nInstellingen\nReis\nHoofdstukken\nSteden 1–6\nSteden 7–12\nSteden 13–18\nSteden 1",
+        "visible": true,
+        "focusVisible": false,
+        "outline": "rgb(42, 36, 64) none 3px",
+        "shadow": "none",
+        "modal": false
+      },
+      {
+        "nodeId": 5,
+        "element": "INPUT.",
+        "name": "Jouw naam(mag leeg blijven)",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(91, 69, 224) solid 3px",
+        "shadow": "rgba(42, 36, 64, 0.12) 0px 0px 0px 1px inset",
+        "modal": true
+      }
+    ],
+    "completedCycle": true,
+    "truncated": false,
+    "invisible": [],
+    "focusRingCandidates": [
+      {
+        "nodeId": 1,
+        "element": "INPUT.",
+        "name": "Margherita",
+        "visible": true,
+        "focusVisible": true,
+        "outline": "rgb(0, 0, 0) none 0px",
+        "shadow": "none",
+        "modal": true
+      }
+    ],
+    "note": "Modal cycles are expected; non-modal incomplete/truncated walks need review. Accessible-name heuristic plus axe, not a full platform AX tree."
+  },
+  "id": "chromium-kennismaking-1440x900-normal",
+  "engine": "chromium",
+  "state": "kennismaking",
+  "viewport": [
+    1440,
+    900
+  ],
+  "reduced": false,
+  "screenshot": "screenshots/chromium-kennismaking-1440x900-normal.png",
+  "backdropPseudoAudited": true,
+  "intentionalHiddenOverflow": [
+    {
+      "element": "span.v3SrOnly",
+      "value": "85>1",
+      "rect": {
+        "x": 432,
+        "y": 412.59375,
+        "w": 1,
+        "h": 1
+      }
+    }
+  ]
+}

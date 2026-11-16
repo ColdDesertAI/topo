@@ -1,0 +1,5554 @@
+{
+  "button": {
+    "count": 94,
+    "target": 2,
+    "variants": [
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.55)",
+          "backdropFilter": "none",
+          "border": "0px none rgba(42, 36, 64, 0.16)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.12) 0px 0px 0px 1px inset",
+          "padding": "0px 24px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-kennismaking-1440x900-normal",
+            "element": "button.button.v3Btn"
+          },
+          {
+            "case": "chromium-kennismaking-1440x900-reduced",
+            "element": "button.button.v3Btn"
+          },
+          {
+            "case": "chromium-kennismaking-1080x810-normal",
+            "element": "button.button.v3Btn"
+          },
+          {
+            "case": "chromium-kennismaking-810x1080-reduced",
+            "element": "button.button.v3Btn"
+          },
+          {
+            "case": "chromium-kennismaking-1080x810-reduced",
+            "element": "button.button.v3Btn"
+          },
+          {
+            "case": "chromium-kennismaking-810x1080-normal",
+            "element": "button.button.v3Btn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "1px solid rgb(147, 57, 31)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "0px 22px 0px 26px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-kennismaking-1440x900-normal",
+            "element": "button.button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-kennismaking-1440x900-reduced",
+            "element": "button.button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-kennismaking-390x844-normal",
+            "element": "button.button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-kennismaking-390x844-reduced",
+            "element": "button.button.v3Btn.primary"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "1px solid rgb(147, 57, 31)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "0px 22px 0px 26px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-kennismaking-1080x810-normal",
+            "element": "button.button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-kennismaking-810x1080-reduced",
+            "element": "button.button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-kennismaking-1080x810-reduced",
+            "element": "button.button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-kennismaking-810x1080-normal",
+            "element": "button.button.v3Btn.primary"
+          },
+          {
+            "case": "webkit-kennismaking-1080x810-normal",
+            "element": "button.button.v3Btn.primary"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(72, 52, 196)",
+          "borderRadius": "12px",
+          "boxShadow": "none",
+          "padding": "0px 12px",
+          "fontSize": "16px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "12px",
+          "boxShadow": "none",
+          "padding": "0px 12px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "12px 12px 0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.85)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "12px",
+          "boxShadow": "rgba(40, 25, 80, 0.12) 0px 4px 14px 0px",
+          "padding": "0px 12px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-1440x900-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-1440x900-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(94, 88, 114)",
+          "borderRadius": "999px",
+          "boxShadow": "none",
+          "padding": "0px 12px",
+          "fontSize": "15px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.14) 0px 1px 3px 0px",
+          "padding": "0px 12px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "0px 22px 0px 26px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Btn.primary.v3BarGo"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Btn.primary.v3BarGo"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-reis-1440x900-reduced",
+            "element": "button.v3Btn.primary.v3BarGo"
+          },
+          {
+            "case": "chromium-reis-1440x900-normal",
+            "element": "button.v3Btn.primary.v3BarGo"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(72, 52, 196)",
+          "borderRadius": "12px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "12px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "10px 0px 0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.85)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "12px",
+          "boxShadow": "rgba(40, 25, 80, 0.12) 0px 4px 14px 0px",
+          "padding": "0px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-1080x810-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-1080x810-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "0px 22px 0px 26px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Btn.primary.v3BarGo"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Btn.primary.v3BarGo"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-reis-1080x810-reduced",
+            "element": "button.v3Btn.primary.v3BarGo"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3Btn.primary"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "14px",
+          "boxShadow": "none",
+          "padding": "4px 2px",
+          "fontSize": "11px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "14px",
+          "boxShadow": "none",
+          "padding": "4px 2px",
+          "fontSize": "11px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "14px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "11px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 12px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.v3Btn.v3School.v3LesSchool"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(91, 69, 224)",
+          "borderRadius": "14px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "14px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "12px 0px 0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "button.v3Btn.v3School.v3SchoolBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.74)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(94, 88, 114)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 10px",
+          "fontSize": "14px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "button.v3Btn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(94, 88, 114)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 14px",
+          "fontSize": "15px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "button.v3Btn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(94, 88, 114)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 10px",
+          "fontSize": "14px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "button.v3Btn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.85)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "12px",
+          "boxShadow": "rgba(40, 25, 80, 0.12) 0px 4px 14px 0px",
+          "padding": "0px 16px 0px 12px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "button.v3Btn.v3Back"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "button.v3Btn.v3Back"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-normal",
+            "element": "button.v3Btn.v3Back"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-reduced",
+            "element": "button.v3Btn.v3Back"
+          },
+          {
+            "case": "webkit-reis-hoofdstuk-1080x810-normal",
+            "element": "button.v3Btn.v3Back"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "8px 22px 8px 26px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "button.v3Btn.primary"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "8px 22px 8px 26px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-normal",
+            "element": "button.v3Btn.primary"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-reduced",
+            "element": "button.v3Btn.primary"
+          },
+          {
+            "case": "webkit-reis-hoofdstuk-1080x810-normal",
+            "element": "button.v3Btn.primary"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "8px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "20px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "8px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "6px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "20px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "6px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "webkit-oefenen-1080x810-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "14px 8px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-390x844-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-390x844-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-390x844-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "20px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "14px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-390x844-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "14px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-810x1080-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 10px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.v3Btn.v3LesBack"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button.v3Btn.v3LesBack"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button.v3Btn.v3LesBack"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button.v3Btn.v3LesBack"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-normal",
+            "element": "button.v3Btn.v3LesBack"
+          },
+          {
+            "case": "chromium-ontdekken-390x844-normal",
+            "element": "button.v3Btn.v3LesBack"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "8px 10px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "8px 14px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-schrijven-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-schrijven-1440x900-reduced",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "path."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "path."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "circle.feature.microstate"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "circle.feature.microstate"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "circle.microHit"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "path."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(185, 80, 47)",
+          "backdropFilter": "none",
+          "border": "1px solid rgb(147, 57, 31)",
+          "borderRadius": "12px",
+          "boxShadow": "rgb(147, 57, 31) 0px 2px 0px 0px",
+          "padding": "9px 12px",
+          "fontSize": "16px",
+          "fontWeight": "800"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "#learnNext"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "#learnNext"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "8px",
+          "fontSize": "13px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(228, 247, 240)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "rgb(91, 69, 224) 4px 0px 0px 0px inset",
+          "padding": "8px",
+          "fontSize": "13px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.selected"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button.selected"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "none",
+          "padding": "0px 12px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "999px",
+          "boxShadow": "none",
+          "padding": "0px 12px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "50%",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.74)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "8px 10px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.74)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "8px 14px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 12px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "1px solid rgb(91, 69, 224)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 12px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-1080x810-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-reduced",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(185, 80, 47)",
+          "backdropFilter": "none",
+          "border": "1px solid rgb(147, 57, 31)",
+          "borderRadius": "12px",
+          "boxShadow": "rgb(147, 57, 31) 0px 2px 0px 0px",
+          "padding": "8px 14px",
+          "fontSize": "14px",
+          "fontWeight": "800"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "#learnNext"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "#learnNext"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-normal",
+            "element": "#learnNext"
+          },
+          {
+            "case": "chromium-ontdekken-390x844-normal",
+            "element": "#learnNext"
+          },
+          {
+            "case": "chromium-ontdekken-390x844-reduced",
+            "element": "#learnNext"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-reduced",
+            "element": "#learnNext"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "999px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-aanwijzen-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "50%",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-aanwijzen-1080x810-normal",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-reduced",
+            "element": "button.v3Btn.v3NavItem.v3Settings"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "10px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 12px",
+          "fontSize": "14px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-390x844-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-390x844-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-390x844-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-390x844-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-reduced",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "9px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 12px",
+          "fontSize": "13px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-390x844-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-390x844-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-schrijven-390x844-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-schrijven-390x844-reduced",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "1px solid rgb(91, 69, 224)",
+          "borderRadius": "9px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 12px",
+          "fontSize": "13px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-390x844-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-ontdekken-390x844-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-reduced",
+            "element": "button."
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-schrijven-390x844-normal",
+            "element": "button."
+          },
+          {
+            "case": "chromium-schrijven-390x844-reduced",
+            "element": "button."
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 20px",
+          "fontSize": "17px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-reduced",
+            "element": "#next"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 20px",
+          "fontSize": "17px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "#reveal"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "#mistakes"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "#reveal"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "#mistakes"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "#reveal"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "#mistakes"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(94, 88, 114)",
+          "borderRadius": "12px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "6px 12px",
+          "fontSize": "14px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-aanwijzen-1080x810-normal",
+            "element": "#focusSheetToggle"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-reduced",
+            "element": "#focusSheetToggle"
+          },
+          {
+            "case": "chromium-aanwijzen-1080x810-reduced",
+            "element": "#focusSheetToggle"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-normal",
+            "element": "#focusSheetToggle"
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-reduced",
+            "element": "#focusSheetToggle"
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-normal",
+            "element": "#focusSheetToggle"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(94, 88, 114)",
+          "borderRadius": "12px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "0px 12px",
+          "fontSize": "15px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-aanwijzen-1080x810-normal",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-reduced",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-aanwijzen-1080x810-reduced",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-normal",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-reduced",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-normal",
+            "element": "#next"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "8px 16px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-reduced",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-toets-actief-1440x900-normal",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-toets-actief-1440x900-reduced",
+            "element": "#check"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(185, 80, 47)",
+          "backdropFilter": "none",
+          "border": "1px solid rgb(147, 57, 31)",
+          "borderRadius": "12px",
+          "boxShadow": "rgb(147, 57, 31) 0px 2px 0px 0px",
+          "padding": "8px 16px",
+          "fontSize": "15px",
+          "fontWeight": "800"
+        },
+        "examples": [
+          {
+            "case": "chromium-schrijven-1080x810-reduced",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-schrijven-1080x810-normal",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-schrijven-810x1080-reduced",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-schrijven-810x1080-normal",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-toets-actief-1080x810-reduced",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-toets-actief-1080x810-normal",
+            "element": "#check"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(185, 80, 47)",
+          "backdropFilter": "none",
+          "border": "1px solid rgb(147, 57, 31)",
+          "borderRadius": "12px",
+          "boxShadow": "rgb(147, 57, 31) 0px 2px 0px 0px",
+          "padding": "8px 16px",
+          "fontSize": "14px",
+          "fontWeight": "800"
+        },
+        "examples": [
+          {
+            "case": "chromium-schrijven-390x844-normal",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-schrijven-390x844-reduced",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-toets-actief-390x844-reduced",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-toets-actief-390x844-normal",
+            "element": "#check"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(248, 245, 239)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(94, 88, 114)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.1) 0px 0px 0px 1px inset",
+          "padding": "8px 16px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-feedback-1440x900-normal",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-feedback-1440x900-reduced",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-feedback-fout-1440x900-reduced",
+            "element": "#check"
+          },
+          {
+            "case": "chromium-feedback-fout-1440x900-normal",
+            "element": "#check"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "9px 12px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-feedback-1440x900-normal",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-feedback-1440x900-reduced",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-feedback-fout-1440x900-reduced",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-feedback-fout-1440x900-normal",
+            "element": "#next"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.18) 0px 1px 2px 0px, rgba(255, 255, 255, 0.18) 0px 1px 0px 0px inset",
+          "padding": "8px 12px",
+          "fontSize": "18px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-feedback-1080x810-reduced",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-feedback-810x1080-normal",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-feedback-1080x810-normal",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-feedback-390x844-normal",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-feedback-390x844-reduced",
+            "element": "#next"
+          },
+          {
+            "case": "chromium-feedback-810x1080-reduced",
+            "element": "#next"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "8px 10px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-1440x900-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-1440x900-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "20px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "8px 10px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-1440x900-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "8px 10px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-1080x810-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-1080x810-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-810x1080-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-810x1080-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "20px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "8px 10px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-1080x810-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-810x1080-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-810x1080-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-390x844-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "8px 10px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-390x844-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          },
+          {
+            "case": "chromium-toets-390x844-reduced",
+            "element": "button.v3Btn.v3FormBtn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "18px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "10px 6px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-resultaat-1440x900-normal",
+            "element": "button.v3Btn.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1440x900-normal",
+            "element": "button.v3Btn.v3ToetsKopieer.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1440x900-normal",
+            "element": "button.v3Btn.v3ToetsPrint.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1440x900-reduced",
+            "element": "button.v3Btn.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1440x900-reduced",
+            "element": "button.v3Btn.v3ToetsKopieer.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1440x900-reduced",
+            "element": "button.v3Btn.v3ToetsPrint.v3ToetsTile"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "18px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "10px 6px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-resultaat-1080x810-normal",
+            "element": "button.v3Btn.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1080x810-normal",
+            "element": "button.v3Btn.v3ToetsKopieer.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1080x810-normal",
+            "element": "button.v3Btn.v3ToetsPrint.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1080x810-reduced",
+            "element": "button.v3Btn.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1080x810-reduced",
+            "element": "button.v3Btn.v3ToetsKopieer.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-1080x810-reduced",
+            "element": "button.v3Btn.v3ToetsPrint.v3ToetsTile"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-1440x900-normal",
+            "element": "button.v3Btn.v3BookCover"
+          },
+          {
+            "case": "chromium-beloningen-1440x900-reduced",
+            "element": "button.v3Btn.v3BookCover"
+          },
+          {
+            "case": "chromium-beloningen-1080x810-reduced",
+            "element": "button.v3Btn.v3BookCover"
+          },
+          {
+            "case": "chromium-beloningen-1080x810-normal",
+            "element": "button.v3Btn.v3BookCover"
+          },
+          {
+            "case": "chromium-beloningen-390x844-normal",
+            "element": "button.v3Btn.v3BookCover"
+          },
+          {
+            "case": "chromium-beloningen-810x1080-reduced",
+            "element": "button.v3Btn.v3BookCover"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "16px 12px 18px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-1440x900-normal",
+            "element": "button.v3Tile.v3TileStamp"
+          },
+          {
+            "case": "chromium-beloningen-1440x900-normal",
+            "element": "button.v3Tile.v3TileGold"
+          },
+          {
+            "case": "chromium-beloningen-1440x900-reduced",
+            "element": "button.v3Tile.v3TileStamp"
+          },
+          {
+            "case": "chromium-beloningen-1440x900-reduced",
+            "element": "button.v3Tile.v3TileGold"
+          },
+          {
+            "case": "chromium-beloningen-1080x810-reduced",
+            "element": "button.v3Tile.v3TileStamp"
+          },
+          {
+            "case": "chromium-beloningen-1080x810-reduced",
+            "element": "button.v3Tile.v3TileGold"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "18px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "10px 6px",
+          "fontSize": "15px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-resultaat-390x844-reduced",
+            "element": "button.v3Btn.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-390x844-reduced",
+            "element": "button.v3Btn.v3ToetsKopieer.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-390x844-reduced",
+            "element": "button.v3Btn.v3ToetsPrint.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-390x844-normal",
+            "element": "button.v3Btn.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-390x844-normal",
+            "element": "button.v3Btn.v3ToetsKopieer.v3ToetsTile"
+          },
+          {
+            "case": "chromium-toets-resultaat-390x844-normal",
+            "element": "button.v3Btn.v3ToetsPrint.v3ToetsTile"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "blur(28px) saturate(1.4)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(42, 36, 64, 0.12) 0px 12px 32px 0px",
+          "padding": "16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-390x844-normal",
+            "element": "button.v3Tile.v3TileStamp"
+          },
+          {
+            "case": "chromium-beloningen-390x844-normal",
+            "element": "button.v3Tile.v3TileGold"
+          },
+          {
+            "case": "chromium-beloningen-390x844-reduced",
+            "element": "button.v3Tile.v3TileStamp"
+          },
+          {
+            "case": "chromium-beloningen-390x844-reduced",
+            "element": "button.v3Tile.v3TileGold"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px 12px 18px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-810x1080-reduced",
+            "element": "button.v3Tile.v3TileStamp"
+          },
+          {
+            "case": "chromium-beloningen-810x1080-reduced",
+            "element": "button.v3Tile.v3TileGold"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px 12px 18px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-810x1080-normal",
+            "element": "button.v3Tile.v3TileStamp"
+          },
+          {
+            "case": "chromium-beloningen-810x1080-normal",
+            "element": "button.v3Tile.v3TileGold"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(246, 233, 204)",
+          "backdropFilter": "none",
+          "border": "1px solid rgba(42, 36, 64, 0.16)",
+          "borderRadius": "13px",
+          "boxShadow": "none",
+          "padding": "9px 12px",
+          "fontSize": "16px",
+          "fontWeight": "750"
+        },
+        "examples": [
+          {
+            "case": "chromium-reisboekje-1440x900-reduced",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-reisboekje-1440x900-reduced",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-reisboekje-1440x900-reduced",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-reisboekje-1440x900-normal",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-reisboekje-1440x900-normal",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-reisboekje-1440x900-normal",
+            "element": "button.button"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(110, 20, 20)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "6px 2px",
+          "fontSize": "15.747px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reisboekje-1440x900-reduced",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-1440x900-reduced",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-1440x900-normal",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-1440x900-normal",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-810x1080-normal",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-810x1080-reduced",
+            "element": "button.bookLink"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(110, 20, 20)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "6px 2px",
+          "fontSize": "14.6595px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reisboekje-1080x810-reduced",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-1080x810-reduced",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-1080x810-normal",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-1080x810-normal",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "webkit-reisboekje-1080x810-normal",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "webkit-reisboekje-1080x810-normal",
+            "element": "button.bookLink"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(110, 20, 20)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "6px 2px",
+          "fontSize": "13px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reisboekje-390x844-reduced",
+            "element": "button.bookLink"
+          },
+          {
+            "case": "chromium-reisboekje-390x844-normal",
+            "element": "button.bookLink"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "0px none rgba(42, 36, 64, 0.16)",
+          "borderRadius": "12px",
+          "boxShadow": "none",
+          "padding": "10px 14px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-reduced",
+            "element": "button.button"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 16px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-reduced",
+            "element": "button.v3Btn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "12px",
+          "boxShadow": "rgb(91, 69, 224) 0px 0px 0px 1.5px inset",
+          "padding": "0px 16px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-1080x810-reduced",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-1080x810-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-390x844-normal",
+            "element": "button.v3Btn"
+          },
+          {
+            "case": "chromium-instellingen-810x1080-reduced",
+            "element": "button.v3Btn"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "10px 14px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "#exportProgress"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "#importProgress"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "#resetAll"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "button.button.ninoResetDanger"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-reduced",
+            "element": "#exportProgress"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-reduced",
+            "element": "#importProgress"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "8px 4px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-1440x900-normal",
+            "element": "#resetPizza"
+          },
+          {
+            "case": "chromium-instellingen-1440x900-reduced",
+            "element": "#resetPizza"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "0px none rgba(42, 36, 64, 0.16)",
+          "borderRadius": "12px",
+          "boxShadow": "none",
+          "padding": "10px 14px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-1080x810-reduced",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-instellingen-1080x810-normal",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-instellingen-810x1080-reduced",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-instellingen-810x1080-normal",
+            "element": "button.button"
+          },
+          {
+            "case": "webkit-instellingen-1080x810-normal",
+            "element": "button.button"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "10px 14px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-1080x810-reduced",
+            "element": "#exportProgress"
+          },
+          {
+            "case": "chromium-instellingen-1080x810-reduced",
+            "element": "#importProgress"
+          },
+          {
+            "case": "chromium-instellingen-1080x810-reduced",
+            "element": "#resetAll"
+          },
+          {
+            "case": "chromium-instellingen-1080x810-reduced",
+            "element": "button.button.ninoResetDanger"
+          },
+          {
+            "case": "chromium-instellingen-1080x810-normal",
+            "element": "#exportProgress"
+          },
+          {
+            "case": "chromium-instellingen-1080x810-normal",
+            "element": "#importProgress"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "0px none rgba(42, 36, 64, 0.16)",
+          "borderRadius": "12px",
+          "boxShadow": "none",
+          "padding": "10px 14px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-390x844-normal",
+            "element": "button.button"
+          },
+          {
+            "case": "chromium-instellingen-390x844-reduced",
+            "element": "button.button"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "10px 14px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-390x844-normal",
+            "element": "#exportProgress"
+          },
+          {
+            "case": "chromium-instellingen-390x844-normal",
+            "element": "#importProgress"
+          },
+          {
+            "case": "chromium-instellingen-390x844-normal",
+            "element": "#resetAll"
+          },
+          {
+            "case": "chromium-instellingen-390x844-normal",
+            "element": "button.button.ninoResetDanger"
+          },
+          {
+            "case": "chromium-instellingen-390x844-reduced",
+            "element": "#exportProgress"
+          },
+          {
+            "case": "chromium-instellingen-390x844-reduced",
+            "element": "#importProgress"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "8px 4px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-instellingen-810x1080-reduced",
+            "element": "#resetPizza"
+          },
+          {
+            "case": "chromium-instellingen-810x1080-reduced",
+            "element": "#routeReset"
+          },
+          {
+            "case": "chromium-instellingen-810x1080-normal",
+            "element": "#resetPizza"
+          },
+          {
+            "case": "chromium-instellingen-810x1080-normal",
+            "element": "#routeReset"
+          }
+        ]
+      }
+    ]
+  },
+  "row": {
+    "count": 19,
+    "target": 2,
+    "variants": [
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "#v3Rows"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "#v3Rows"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "#v3Rows"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "#v3Rows"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "div.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "div.v3StepRow"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "16px",
+          "boxShadow": "none",
+          "padding": "6px 8px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-1440x900-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-1440x900-normal",
+            "element": "button.v3Row"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "span.v3RowMid"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(42, 36, 64, 0.1)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "2px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "span.v3RowBar"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "span.v3RowBar"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "16px",
+          "boxShadow": "none",
+          "padding": "6px 8px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "button.v3Row"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(235, 231, 253)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "16px",
+          "boxShadow": "none",
+          "padding": "6px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-1080x810-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-1080x810-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "webkit-reis-nieuw-1080x810-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "webkit-reis-1080x810-normal",
+            "element": "button.v3Row"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "span.v3RowMid"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "span.v3RowMid"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(42, 36, 64, 0.1)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "2px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "span.v3RowBar"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "span.v3RowBar"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "span.v3RowBar"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "span.v3RowBar"
+          },
+          {
+            "case": "webkit-reis-nieuw-1080x810-normal",
+            "element": "span.v3RowBar"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "16px",
+          "boxShadow": "none",
+          "padding": "6px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "button.v3Row"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "8px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "#v3Rows"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "#v3Rows"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "#v3Rows"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "18px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "4px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "button.v3Row"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "18px",
+          "boxShadow": "none",
+          "padding": "4px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Row"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "button.v3Row"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "8px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "#v3Rows"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "#v3Rows"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "#v3Rows"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(239, 239, 239)",
+          "backdropFilter": "none",
+          "border": "2px outset rgb(0, 0, 0)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "1px 6px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "button.v3StepRow"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px 4px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "button.v3StepRow"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "button.v3StepRow"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(91, 69, 224)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "12px",
+          "fontWeight": "900"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "div.eyebrow"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "div.eyebrow"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "div.pizzaSavedRow.ninoMeterSaved.pizzaSaved"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "div.pizzaSavedRow.ninoMeterSaved.pizzaSaved"
+          },
+          {
+            "case": "chromium-aanwijzen-1080x810-normal",
+            "element": "div.pizzaSavedRow.ninoMeterSaved.pizzaSaved"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-reduced",
+            "element": "div.pizzaSavedRow.ninoMeterSaved.pizzaSaved"
+          },
+          {
+            "case": "chromium-aanwijzen-1080x810-reduced",
+            "element": "div.pizzaSavedRow.ninoMeterSaved.pizzaSaved"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-normal",
+            "element": "div.pizzaSavedRow.ninoMeterSaved.pizzaSaved"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-1440x900-normal",
+            "element": "div.v3VgRow"
+          },
+          {
+            "case": "chromium-voortgang-1080x810-normal",
+            "element": "div.v3VgRow"
+          },
+          {
+            "case": "webkit-voortgang-1080x810-normal",
+            "element": "div.v3VgRow"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-1440x900-reduced",
+            "element": "div.v3VgRow"
+          },
+          {
+            "case": "chromium-voortgang-1080x810-reduced",
+            "element": "div.v3VgRow"
+          }
+        ]
+      }
+    ]
+  },
+  "panel": {
+    "count": 21,
+    "target": 2,
+    "variants": [
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "14px 16px 14px 24px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-1440x900-normal",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "24px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-1440x900-reduced",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-1440x900-normal",
+            "element": "#v3Title"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "14px 16px 14px 24px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-1440x900-reduced",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "12px 12px 12px 18px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-1080x810-reduced",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "12px 12px 12px 18px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-1080x810-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "webkit-reis-nieuw-1080x810-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "webkit-reis-1080x810-normal",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "22px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(42, 36, 64, 0.12) 0px 12px 32px 0px",
+          "padding": "16px 20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-reduced",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-normal",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-390x844-reduced",
+            "element": "#v3Title"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "10px 10px 14px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "28px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "#v3Title"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "#v3Title"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "10px 10px 14px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px 20px 20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-normal",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "webkit-reis-hoofdstuk-1080x810-normal",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px 20px 20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "div.v3Panel"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1080x810-reduced",
+            "element": "div.v3Panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "div.v3OefPanel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1440x900-reduced",
+            "element": "div.v3OefPanel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "div.v3OefPanel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1080x810-normal",
+            "element": "div.v3OefPanel"
+          },
+          {
+            "case": "webkit-oefenen-1080x810-normal",
+            "element": "div.v3OefPanel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "div.v3OefPanel"
+          },
+          {
+            "case": "chromium-oefenen-390x844-reduced",
+            "element": "div.v3OefPanel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "22px 20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-810x1080-reduced",
+            "element": "div.v3OefPanel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "22px 20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-810x1080-normal",
+            "element": "div.v3OefPanel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "24px",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-reduced",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-feedback-1440x900-reduced",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-feedback-fout-1440x900-reduced",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-toets-actief-1440x900-reduced",
+            "element": "aside.panel"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "24px",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-feedback-1440x900-normal",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-feedback-fout-1440x900-normal",
+            "element": "aside.panel"
+          },
+          {
+            "case": "chromium-toets-actief-1440x900-normal",
+            "element": "aside.panel"
+          }
+        ]
+      }
+    ]
+  },
+  "card": {
+    "count": 22,
+    "target": 2,
+    "variants": [
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(72, 52, 196)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "13px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-1440x900-normal",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-nieuw-1440x900-reduced",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-reduced",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-nieuw-1080x810-normal",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-1440x900-reduced",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-1440x900-normal",
+            "element": "p.v3CardKicker"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "16px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-390x844-reduced",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-normal",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-1440x900-reduced",
+            "element": "figure.v3CardScene"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(72, 52, 196)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "13px",
+          "fontWeight": "700"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "p.v3CardKicker"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "p.v3CardKicker"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-390x844-normal",
+            "element": "div.v3CardHead"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "div.v3CardHead"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "div.v3CardHead"
+          },
+          {
+            "case": "chromium-reis-nieuw-390x844-reduced",
+            "element": "div.v3CardHead"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "div.v3CardHead"
+          },
+          {
+            "case": "chromium-reis-390x844-normal",
+            "element": "div.v3CardHead"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "20px",
+          "boxShadow": "rgba(42, 36, 64, 0.16) 0px 6px 18px 0px",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-reis-nieuw-810x1080-reduced",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-nieuw-810x1080-normal",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-810x1080-normal",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-810x1080-reduced",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-reduced",
+            "element": "figure.v3CardScene"
+          },
+          {
+            "case": "chromium-reis-hoofdstuk-810x1080-normal",
+            "element": "figure.v3CardScene"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "25px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1440x900-reduced",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-ontdekken-1440x900-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-aanwijzen-1440x900-reduced",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-schrijven-1440x900-reduced",
+            "element": "section.mapCard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-1080x810-reduced",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-ontdekken-1080x810-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-ontdekken-810x1080-reduced",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-aanwijzen-1080x810-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-aanwijzen-810x1080-reduced",
+            "element": "section.mapCard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(250, 245, 232)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "15px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        "examples": [
+          {
+            "case": "chromium-ontdekken-390x844-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-ontdekken-390x844-reduced",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-reduced",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-aanwijzen-390x844-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-schrijven-390x844-normal",
+            "element": "section.mapCard"
+          },
+          {
+            "case": "chromium-schrijven-390x844-reduced",
+            "element": "section.mapCard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px 24px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-resultaat-1440x900-normal",
+            "element": "div.v3ToetsScoreCard"
+          },
+          {
+            "case": "chromium-toets-resultaat-1080x810-normal",
+            "element": "div.v3ToetsScoreCard"
+          },
+          {
+            "case": "chromium-toets-resultaat-810x1080-normal",
+            "element": "div.v3ToetsScoreCard"
+          },
+          {
+            "case": "webkit-toets-resultaat-1080x810-normal",
+            "element": "div.v3ToetsScoreCard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px 24px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-resultaat-1440x900-reduced",
+            "element": "div.v3ToetsScoreCard"
+          },
+          {
+            "case": "chromium-toets-resultaat-1080x810-reduced",
+            "element": "div.v3ToetsScoreCard"
+          },
+          {
+            "case": "chromium-toets-resultaat-810x1080-reduced",
+            "element": "div.v3ToetsScoreCard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "16px 12px 18px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-1440x900-normal",
+            "element": "button.v3Tile.v3TilePostcard"
+          },
+          {
+            "case": "chromium-beloningen-1440x900-reduced",
+            "element": "button.v3Tile.v3TilePostcard"
+          },
+          {
+            "case": "chromium-beloningen-1080x810-reduced",
+            "element": "button.v3Tile.v3TilePostcard"
+          },
+          {
+            "case": "chromium-beloningen-1080x810-normal",
+            "element": "button.v3Tile.v3TilePostcard"
+          },
+          {
+            "case": "webkit-beloningen-1080x810-normal",
+            "element": "button.v3Tile.v3TilePostcard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "blur(28px) saturate(1.4)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(42, 36, 64, 0.12) 0px 12px 32px 0px",
+          "padding": "12px 16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-resultaat-390x844-reduced",
+            "element": "div.v3ToetsScoreCard"
+          },
+          {
+            "case": "chromium-toets-resultaat-390x844-normal",
+            "element": "div.v3ToetsScoreCard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "blur(28px) saturate(1.4)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(42, 36, 64, 0.12) 0px 12px 32px 0px",
+          "padding": "16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-390x844-normal",
+            "element": "button.v3Tile.v3TilePostcard"
+          },
+          {
+            "case": "chromium-beloningen-390x844-reduced",
+            "element": "button.v3Tile.v3TilePostcard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px 12px 18px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-810x1080-reduced",
+            "element": "button.v3Tile.v3TilePostcard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px 12px 18px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-beloningen-810x1080-normal",
+            "element": "button.v3Tile.v3TilePostcard"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-1440x900-normal",
+            "element": "section.v3Field.v3Card"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-1440x900-reduced",
+            "element": "section.v3Field.v3Card"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-1080x810-normal",
+            "element": "section.v3Field.v3Card"
+          },
+          {
+            "case": "webkit-voortgang-1080x810-normal",
+            "element": "section.v3Field.v3Card"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "24px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-1080x810-reduced",
+            "element": "section.v3Field.v3Card"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 253, 249)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "20px 20px 16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-810x1080-reduced",
+            "element": "section.v3Field.v3Card"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "blur(20px) saturate(1.6) brightness(1.06)",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(255, 255, 255, 0.7) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(40, 25, 80, 0.14) 0px 18px 50px 0px",
+          "padding": "20px 20px 16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-810x1080-normal",
+            "element": "section.v3Field.v3Card"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "28px",
+          "boxShadow": "rgba(28, 40, 44, 0.05) 0px 1px 2px 0px, rgba(28, 40, 44, 0.28) 0px 10px 30px -18px",
+          "padding": "20px 20px 16px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-voortgang-390x844-reduced",
+            "element": "section.v3Field.v3Card"
+          },
+          {
+            "case": "chromium-voortgang-390x844-normal",
+            "element": "section.v3Field.v3Card"
+          }
+        ]
+      }
+    ]
+  },
+  "pill": {
+    "count": 13,
+    "target": 2,
+    "variants": [
+      {
+        "styles": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "padding": "0px",
+          "fontSize": "16px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "div.v3Chips"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-reduced",
+            "element": "div.v3Chips"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "div.v3Chips"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-normal",
+            "element": "div.v3Chips"
+          },
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "div.v3Chips"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-reduced",
+            "element": "div.v3Chips"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "999px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "0px 8px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-reduced",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 8px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "999px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "0px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-810x1080-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "webkit-oefenen-1080x810-normal",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 8px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "999px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "0px 10px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-390x844-reduced",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 10px",
+          "fontSize": "15px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-oefenen-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "999px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "0px 10px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "0px 10px",
+          "fontSize": "17px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1440x900-reduced",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "999px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "8px 10px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "8px 10px",
+          "fontSize": "16px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-1080x810-normal",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgb(236, 232, 254)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(74, 54, 201)",
+          "borderRadius": "999px",
+          "boxShadow": "rgb(122, 102, 238) 0px 0px 0px 1.5px inset",
+          "padding": "8px 10px",
+          "fontSize": "15px",
+          "fontWeight": "600"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      },
+      {
+        "styles": {
+          "backgroundColor": "rgba(255, 255, 255, 0.72)",
+          "backdropFilter": "none",
+          "border": "0px none rgb(42, 36, 64)",
+          "borderRadius": "999px",
+          "boxShadow": "rgba(42, 36, 64, 0.08) 0px 0px 0px 1px inset",
+          "padding": "8px 10px",
+          "fontSize": "15px",
+          "fontWeight": "500"
+        },
+        "examples": [
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-normal",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-reduced",
+            "element": "button.v3Btn.v3Chip"
+          },
+          {
+            "case": "chromium-toets-390x844-reduced",
+            "element": "button.v3Btn.v3Chip"
+          }
+        ]
+      }
+    ]
+  }
+}

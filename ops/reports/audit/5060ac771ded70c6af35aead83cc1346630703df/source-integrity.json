@@ -1,0 +1,20 @@
+{
+  "snapshot": "5060ac771ded70c6af35aead83cc1346630703df",
+  "files": [
+    {
+      "file": "index.html",
+      "baselineBlob": "f137300427afb7a2d573fb27f2e60da954114f2a",
+      "currentBlob": "f137300427afb7a2d573fb27f2e60da954114f2a",
+      "currentSha256": "3aced3c31259011b0af2947c78f71965cb4beb2e88c69d1663e61792b0304f5a",
+      "unchanged": true
+    },
+    {
+      "file": "package.json",
+      "baselineBlob": "151a38f41aab90ba6c7aba9e4e4c45ad2153fbdc",
+      "currentBlob": "151a38f41aab90ba6c7aba9e4e4c45ad2153fbdc",
+      "currentSha256": "1a25bec6d6a60525d5d576ae60d36cf7ec13718c5c749bc9b63a83f1d275f9cc",
+      "unchanged": true
+    }
+  ],
+  "changesOutsideLane": []
+}

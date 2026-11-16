@@ -1,0 +1,699 @@
+[
+  {
+    "screen": "kennismaking",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 53,
+        "activeWords": 21,
+        "over40": false
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 47,
+        "activeWords": 21,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 60,
+        "activeWords": 21,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 36,
+        "activeWords": 21,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "reis-nieuw",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 38,
+        "activeWords": 38,
+        "over40": false
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 32,
+        "activeWords": 32,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 22,
+        "activeWords": 22,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 46,
+        "activeWords": 46,
+        "over40": true
+      }
+    ]
+  },
+  {
+    "screen": "reis",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 36,
+        "activeWords": 36,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 48,
+        "activeWords": 48,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 30,
+        "activeWords": 30,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 26,
+        "activeWords": 26,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "reis-hoofdstuk",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 23,
+        "activeWords": 23,
+        "over40": false
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 17,
+        "activeWords": 17,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 46,
+        "activeWords": 46,
+        "over40": true
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 20,
+        "activeWords": 20,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "oefenen",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 38,
+        "activeWords": 38,
+        "over40": false
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 33,
+        "activeWords": 33,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 38,
+        "activeWords": 38,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 33,
+        "activeWords": 33,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "ontdekken",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 71,
+        "activeWords": 71,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 28,
+        "activeWords": 28,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 26,
+        "activeWords": 26,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 32,
+        "activeWords": 32,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "aanwijzen",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 49,
+        "activeWords": 49,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 40,
+        "activeWords": 40,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 40,
+        "activeWords": 40,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 41,
+        "activeWords": 41,
+        "over40": true
+      }
+    ]
+  },
+  {
+    "screen": "schrijven",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 54,
+        "activeWords": 54,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 45,
+        "activeWords": 45,
+        "over40": true
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 46,
+        "activeWords": 46,
+        "over40": true
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 45,
+        "activeWords": 45,
+        "over40": true
+      }
+    ]
+  },
+  {
+    "screen": "feedback",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 50,
+        "activeWords": 50,
+        "over40": true
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 46,
+        "activeWords": 46,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 46,
+        "activeWords": 46,
+        "over40": true
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 47,
+        "activeWords": 47,
+        "over40": true
+      }
+    ]
+  },
+  {
+    "screen": "feedback-fout",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 53,
+        "activeWords": 53,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 49,
+        "activeWords": 49,
+        "over40": true
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 49,
+        "activeWords": 49,
+        "over40": true
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 50,
+        "activeWords": 50,
+        "over40": true
+      }
+    ]
+  },
+  {
+    "screen": "toets",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 42,
+        "activeWords": 42,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 37,
+        "activeWords": 37,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 39,
+        "activeWords": 39,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 37,
+        "activeWords": 37,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "toets-actief",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 35,
+        "activeWords": 35,
+        "over40": false
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 30,
+        "activeWords": 30,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 30,
+        "activeWords": 30,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 34,
+        "activeWords": 34,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "toets-resultaat",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 21,
+        "activeWords": 21,
+        "over40": false
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 16,
+        "activeWords": 16,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 16,
+        "activeWords": 16,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 21,
+        "activeWords": 21,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "beloningen",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 21,
+        "activeWords": 21,
+        "over40": false
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 16,
+        "activeWords": 16,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 15,
+        "activeWords": 15,
+        "over40": false
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 16,
+        "activeWords": 16,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "reisboekje",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 69,
+        "activeWords": 51,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 63,
+        "activeWords": 51,
+        "over40": true
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 28,
+        "activeWords": 23,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 31,
+        "activeWords": 23,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "voortgang",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 62,
+        "activeWords": 62,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 49,
+        "activeWords": 49,
+        "over40": true
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 39,
+        "activeWords": 39,
+        "over40": false
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 26,
+        "activeWords": 26,
+        "over40": false
+      }
+    ]
+  },
+  {
+    "screen": "instellingen",
+    "viewports": [
+      {
+        "viewport": [
+          1440,
+          900
+        ],
+        "allWords": 89,
+        "activeWords": 63,
+        "over40": true
+      },
+      {
+        "viewport": [
+          1080,
+          810
+        ],
+        "allWords": 78,
+        "activeWords": 59,
+        "over40": true
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "allWords": 71,
+        "activeWords": 59,
+        "over40": true
+      },
+      {
+        "viewport": [
+          810,
+          1080
+        ],
+        "allWords": 101,
+        "activeWords": 66,
+        "over40": true
+      }
+    ]
+  }
+]

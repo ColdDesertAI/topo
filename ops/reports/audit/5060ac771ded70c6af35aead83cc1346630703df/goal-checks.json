@@ -1,0 +1,319 @@
+[
+  {
+    "id": "01",
+    "screens": [
+      "schrijven",
+      "aanwijzen",
+      "ontdekken"
+    ],
+    "maxWords": 40,
+    "description": "Learning text ≥13px, AA, controls ≥44px; active words ≤40",
+    "status": "needs-work",
+    "failures": [
+      "chromium-ontdekken-1440x900-normal: activeWords 71>40",
+      "chromium-ontdekken-1440x900-normal: font",
+      "chromium-ontdekken-1440x900-normal: targets",
+      "chromium-ontdekken-1440x900-normal: contrast",
+      "chromium-ontdekken-1080x810-normal: targets",
+      "chromium-ontdekken-1080x810-normal: contrast",
+      "chromium-ontdekken-810x1080-normal: targets",
+      "chromium-ontdekken-810x1080-normal: contrast",
+      "chromium-ontdekken-390x844-normal: font",
+      "chromium-ontdekken-390x844-normal: targets",
+      "chromium-ontdekken-390x844-normal: contrast",
+      "chromium-aanwijzen-1440x900-normal: activeWords 49>40",
+      "chromium-aanwijzen-1440x900-normal: font",
+      "chromium-aanwijzen-1440x900-normal: targets",
+      "chromium-aanwijzen-1440x900-normal: contrast",
+      "chromium-aanwijzen-1080x810-normal: font",
+      "chromium-aanwijzen-1080x810-normal: targets",
+      "chromium-aanwijzen-1080x810-normal: contrast",
+      "chromium-aanwijzen-810x1080-normal: font",
+      "chromium-aanwijzen-810x1080-normal: targets",
+      "chromium-aanwijzen-810x1080-normal: contrast",
+      "chromium-aanwijzen-390x844-normal: activeWords 41>40",
+      "chromium-aanwijzen-390x844-normal: font",
+      "chromium-aanwijzen-390x844-normal: targets",
+      "chromium-aanwijzen-390x844-normal: contrast",
+      "chromium-schrijven-1440x900-normal: activeWords 54>40",
+      "chromium-schrijven-1440x900-normal: font",
+      "chromium-schrijven-1440x900-normal: targets",
+      "chromium-schrijven-1440x900-normal: contrast",
+      "chromium-schrijven-1080x810-normal: activeWords 45>40",
+      "chromium-schrijven-1080x810-normal: font",
+      "chromium-schrijven-1080x810-normal: targets",
+      "chromium-schrijven-1080x810-normal: contrast",
+      "chromium-schrijven-390x844-normal: activeWords 46>40",
+      "chromium-schrijven-390x844-normal: font",
+      "chromium-schrijven-390x844-normal: targets",
+      "chromium-schrijven-390x844-normal: contrast",
+      "chromium-schrijven-810x1080-normal: activeWords 45>40",
+      "chromium-schrijven-810x1080-normal: font",
+      "chromium-schrijven-810x1080-normal: targets",
+      "chromium-schrijven-810x1080-normal: contrast"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "02",
+    "screens": [
+      "toets"
+    ],
+    "maxWords": 40,
+    "description": "Test setup stays at ≤40 words, one primary action",
+    "status": "needs-work",
+    "failures": [
+      "chromium-toets-1440x900-normal: activeWords 42>40",
+      "chromium-toets-390x844-normal: font"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "03",
+    "screens": [
+      "reis",
+      "reis-hoofdstuk"
+    ],
+    "maxWords": 40,
+    "description": "Journey has a single primary action and readable controls",
+    "status": "needs-work",
+    "failures": [
+      "chromium-reis-1440x900-normal: font",
+      "chromium-reis-1440x900-normal: targets",
+      "chromium-reis-1440x900-normal: contrast",
+      "chromium-reis-1440x900-normal: filters",
+      "chromium-reis-810x1080-normal: activeWords 48>40",
+      "chromium-reis-810x1080-normal: font",
+      "chromium-reis-810x1080-normal: targets",
+      "chromium-reis-810x1080-normal: contrast",
+      "chromium-reis-810x1080-normal: filters",
+      "chromium-reis-1080x810-normal: font",
+      "chromium-reis-1080x810-normal: targets",
+      "chromium-reis-1080x810-normal: contrast",
+      "chromium-reis-1080x810-normal: filters",
+      "chromium-reis-390x844-normal: font",
+      "chromium-reis-390x844-normal: targets",
+      "chromium-reis-hoofdstuk-1440x900-normal: targets",
+      "chromium-reis-hoofdstuk-1080x810-normal: targets",
+      "chromium-reis-hoofdstuk-810x1080-normal: activeWords 46>40",
+      "chromium-reis-hoofdstuk-810x1080-normal: font",
+      "chromium-reis-hoofdstuk-810x1080-normal: targets",
+      "chromium-reis-hoofdstuk-810x1080-normal: contrast",
+      "chromium-reis-hoofdstuk-810x1080-normal: filters",
+      "chromium-reis-hoofdstuk-390x844-normal: font",
+      "chromium-reis-hoofdstuk-390x844-normal: targets",
+      "chromium-reis-hoofdstuk-390x844-normal: contrast"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "04",
+    "screens": [
+      "kennismaking"
+    ],
+    "maxWords": 28,
+    "description": "Welcome ≤28 active words and ≥44px targets",
+    "status": "needs-work",
+    "failures": [
+      "chromium-kennismaking-1440x900-normal: filters",
+      "chromium-kennismaking-1080x810-normal: filters",
+      "chromium-kennismaking-810x1080-normal: filters"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "05",
+    "screens": [
+      "reisboekje"
+    ],
+    "maxWords": 40,
+    "description": "Book ≥13px and ≥44px controls",
+    "status": "needs-work",
+    "failures": [
+      "chromium-reisboekje-1440x900-normal: activeWords 51>40",
+      "chromium-reisboekje-1440x900-normal: filters",
+      "chromium-reisboekje-1080x810-normal: activeWords 51>40",
+      "chromium-reisboekje-1080x810-normal: targets",
+      "chromium-reisboekje-1080x810-normal: filters",
+      "chromium-reisboekje-810x1080-normal: filters",
+      "chromium-reisboekje-390x844-normal: targets",
+      "chromium-reisboekje-390x844-normal: filters"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "06",
+    "screens": [
+      "voortgang"
+    ],
+    "maxWords": 35,
+    "description": "Progress ≤35 words; text AA",
+    "status": "needs-work",
+    "failures": [
+      "chromium-voortgang-1440x900-normal: activeWords 62>35",
+      "chromium-voortgang-1440x900-normal: font",
+      "chromium-voortgang-1440x900-normal: contrast",
+      "chromium-voortgang-1440x900-normal: filters",
+      "chromium-voortgang-1080x810-normal: activeWords 49>35",
+      "chromium-voortgang-1080x810-normal: font",
+      "chromium-voortgang-1080x810-normal: contrast",
+      "chromium-voortgang-1080x810-normal: filters",
+      "chromium-voortgang-810x1080-normal: activeWords 39>35",
+      "chromium-voortgang-810x1080-normal: font",
+      "chromium-voortgang-810x1080-normal: contrast",
+      "chromium-voortgang-390x844-normal: font",
+      "chromium-voortgang-390x844-normal: contrast"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "07",
+    "screens": [
+      "beloningen"
+    ],
+    "maxWords": 30,
+    "description": "Rewards ≤30 words, clear next step",
+    "status": "needs-work",
+    "failures": [
+      "chromium-beloningen-1440x900-normal: filters",
+      "chromium-beloningen-1080x810-normal: filters",
+      "chromium-beloningen-390x844-normal: font",
+      "chromium-beloningen-390x844-normal: filters",
+      "chromium-beloningen-810x1080-normal: filters"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "08",
+    "screens": [
+      "feedback",
+      "feedback-fout",
+      "toets-resultaat"
+    ],
+    "maxWords": 30,
+    "description": "Feedback ≤30 words, readable correction and next",
+    "status": "needs-work",
+    "failures": [
+      "chromium-feedback-1440x900-normal: activeWords 50>30",
+      "chromium-feedback-1440x900-normal: font",
+      "chromium-feedback-1440x900-normal: targets",
+      "chromium-feedback-1440x900-normal: contrast",
+      "chromium-feedback-810x1080-normal: activeWords 46>30",
+      "chromium-feedback-810x1080-normal: font",
+      "chromium-feedback-810x1080-normal: targets",
+      "chromium-feedback-810x1080-normal: contrast",
+      "chromium-feedback-1080x810-normal: activeWords 46>30",
+      "chromium-feedback-1080x810-normal: font",
+      "chromium-feedback-1080x810-normal: targets",
+      "chromium-feedback-1080x810-normal: contrast",
+      "chromium-feedback-390x844-normal: activeWords 47>30",
+      "chromium-feedback-390x844-normal: font",
+      "chromium-feedback-390x844-normal: targets",
+      "chromium-feedback-390x844-normal: contrast",
+      "chromium-feedback-fout-1440x900-normal: activeWords 53>30",
+      "chromium-feedback-fout-1440x900-normal: font",
+      "chromium-feedback-fout-1440x900-normal: targets",
+      "chromium-feedback-fout-1440x900-normal: contrast",
+      "chromium-feedback-fout-1080x810-normal: activeWords 49>30",
+      "chromium-feedback-fout-1080x810-normal: font",
+      "chromium-feedback-fout-1080x810-normal: targets",
+      "chromium-feedback-fout-1080x810-normal: contrast",
+      "chromium-feedback-fout-810x1080-normal: activeWords 49>30",
+      "chromium-feedback-fout-810x1080-normal: font",
+      "chromium-feedback-fout-810x1080-normal: targets",
+      "chromium-feedback-fout-810x1080-normal: contrast",
+      "chromium-feedback-fout-390x844-normal: activeWords 50>30",
+      "chromium-feedback-fout-390x844-normal: font",
+      "chromium-feedback-fout-390x844-normal: targets",
+      "chromium-feedback-fout-390x844-normal: contrast",
+      "chromium-toets-resultaat-1440x900-normal: font",
+      "chromium-toets-resultaat-1440x900-normal: contrast",
+      "chromium-toets-resultaat-1080x810-normal: font",
+      "chromium-toets-resultaat-1080x810-normal: contrast",
+      "chromium-toets-resultaat-810x1080-normal: font",
+      "chromium-toets-resultaat-810x1080-normal: contrast",
+      "chromium-toets-resultaat-390x844-normal: font",
+      "chromium-toets-resultaat-390x844-normal: contrast"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "09",
+    "screens": [
+      "oefenen"
+    ],
+    "maxWords": 40,
+    "description": "Practice targets ≥44px, labels ≥13px",
+    "status": "needs-work",
+    "failures": [
+      "chromium-oefenen-1440x900-normal: contrast",
+      "chromium-oefenen-1080x810-normal: font",
+      "chromium-oefenen-1080x810-normal: contrast",
+      "chromium-oefenen-390x844-normal: font",
+      "chromium-oefenen-810x1080-normal: font",
+      "chromium-oefenen-810x1080-normal: contrast"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  },
+  {
+    "id": "10",
+    "screens": [
+      "instellingen"
+    ],
+    "maxWords": 40,
+    "description": "Settings text AA, ≤4 visible backdrop filters",
+    "status": "needs-work",
+    "failures": [
+      "chromium-instellingen-1440x900-normal: activeWords 63>40",
+      "chromium-instellingen-1440x900-normal: filters",
+      "chromium-instellingen-1080x810-normal: activeWords 59>40",
+      "chromium-instellingen-1080x810-normal: filters",
+      "chromium-instellingen-390x844-normal: activeWords 59>40",
+      "chromium-instellingen-390x844-normal: font",
+      "chromium-instellingen-810x1080-normal: activeWords 66>40",
+      "chromium-instellingen-810x1080-normal: contrast",
+      "chromium-instellingen-810x1080-normal: filters"
+    ],
+    "manualChecks": [
+      "exactly one semantically primary action",
+      "geography and storage unchanged",
+      "child understands next step; real iPad test"
+    ]
+  }
+]

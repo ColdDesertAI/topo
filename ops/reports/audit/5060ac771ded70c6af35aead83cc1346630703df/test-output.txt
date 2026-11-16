@@ -1,0 +1,141 @@
+✖ text-size (2.182709ms)
+✖ contrast (0.234458ms)
+✖ tap-target (0.185625ms)
+✖ overflow (0.152917ms)
+✖ axe (0.601625ms)
+✖ backdrop-filter (0.1435ms)
+✔ heap-growth (0.159917ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 1
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 204.245834
+
+✖ failing tests:
+
+test at tests/audit/hard-rules.test.mjs:16:106
+✖ text-size (2.182709ms)
+  AssertionError [ERR_ASSERTION]: 740 current failures; examples [{"rule":"text-size","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":false,"element":"text.","value":11.799794679764261},{"rule":"text-size","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":false,"element":"text.","value":11.799794679764261},{"rule":"text-size","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":true,"element":"text.","value":11.799794679764261}]; full evidence hard-rule-failures.json
+
+  740 !== 0
+
+      at TestContext.<anonymous> (file:///Users/dennisariens/projects/topo-france-main/tests/audit/hard-rules.test.mjs:16:170)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 740,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/audit/hard-rules.test.mjs:16:106
+✖ contrast (0.234458ms)
+  AssertionError [ERR_ASSERTION]: 487 current failures; examples [{"rule":"contrast","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":false,"element":"text.","value":"2.91 < 4.5"},{"rule":"contrast","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":false,"element":"text.","value":"1.07 < 4.5"},{"rule":"contrast","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":true,"element":"text.","value":"2.92 < 4.5"}]; full evidence hard-rule-failures.json
+
+  487 !== 0
+
+      at TestContext.<anonymous> (file:///Users/dennisariens/projects/topo-france-main/tests/audit/hard-rules.test.mjs:16:170)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 487,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/audit/hard-rules.test.mjs:16:106
+✖ tap-target (0.185625ms)
+  AssertionError [ERR_ASSERTION]: 1971 current failures; examples [{"rule":"tap-target","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":false,"element":"button.v3Btn","value":"105.0×36.0"},{"rule":"tap-target","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":false,"element":"button.v3Btn","value":"63.5×36.0"},{"rule":"tap-target","screen":"reis-nieuw","viewport":"1440x900","engine":"chromium","reduced":true,"element":"button.v3Btn","value":"105.0×36.0"}]; full evidence hard-rule-failures.json
+
+  1971 !== 0
+
+      at TestContext.<anonymous> (file:///Users/dennisariens/projects/topo-france-main/tests/audit/hard-rules.test.mjs:16:170)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1971,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/audit/hard-rules.test.mjs:16:106
+✖ overflow (0.152917ms)
+  AssertionError [ERR_ASSERTION]: 302 current failures; examples [{"rule":"overflow","screen":"reis-nieuw","viewport":"1080x810","engine":"chromium","reduced":true,"element":"span.v3End","value":"22>20"},{"rule":"overflow","screen":"reis-nieuw","viewport":"1080x810","engine":"chromium","reduced":true,"element":"span.v3End","value":"22>20"},{"rule":"overflow","screen":"reis-nieuw","viewport":"1080x810","engine":"chromium","reduced":true,"element":"span.v3End","value":"22>20"}]; full evidence hard-rule-failures.json
+
+  302 !== 0
+
+      at TestContext.<anonymous> (file:///Users/dennisariens/projects/topo-france-main/tests/audit/hard-rules.test.mjs:16:170)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 302,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/audit/hard-rules.test.mjs:16:106
+✖ axe (0.601625ms)
+  AssertionError [ERR_ASSERTION]: 2441 current failures; examples [{"rule":"axe","screen":"ontdekken","viewport":"1440x900","engine":"chromium","reduced":true,"element":"path[aria-label=\"Middellandse Zee\"]","value":"serious: aria-prohibited-attr"},{"rule":"axe","screen":"ontdekken","viewport":"1440x900","engine":"chromium","reduced":true,"element":"path[aria-label=\"Adriatische Zee\"]","value":"serious: aria-prohibited-attr"},{"rule":"axe","screen":"ontdekken","viewport":"1440x900","engine":"chromium","reduced":true,"element":"path[aria-label=\"Ligurische Zee\"]","value":"serious: aria-prohibited-attr"}]; full evidence hard-rule-failures.json
+
+  2441 !== 0
+
+      at TestContext.<anonymous> (file:///Users/dennisariens/projects/topo-france-main/tests/audit/hard-rules.test.mjs:16:170)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2441,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/audit/hard-rules.test.mjs:16:106
+✖ backdrop-filter (0.1435ms)
+  AssertionError [ERR_ASSERTION]: 31 current failures; examples [{"rule":"backdrop-filter","screen":"kennismaking","viewport":"1440x900","engine":"chromium","reduced":false,"element":"nav.v3Side, nav.v3Side::after, section.v3List, div.v3Counts, div.v3Panel, dialog.ninoProfile.ninoFirstRun.v3, dialog.ninoProfile.ninoFirstRun.v3.v3Welkom::backdrop","value":7},{"rule":"backdrop-filter","screen":"kennismaking","viewport":"1080x810","engine":"chromium","reduced":false,"element":"nav.v3Side, nav.v3Side::after, section.v3List, div.v3Counts, div.v3Panel, dialog.ninoProfile.ninoFirstRun.v3, dialog.ninoProfile.ninoFirstRun.v3.v3Welkom::backdrop","value":7},{"rule":"backdrop-filter","screen":"kennismaking","viewport":"810x1080","engine":"chromium","reduced":false,"element":"nav.v3Side::after, #v3Rows, div.v3Counts, div.v3Panel, dialog.ninoProfile.ninoFirstRun.v3, dialog.ninoProfile.ninoFirstRun.v3.v3Welkom::backdrop","value":6}]; full evidence hard-rule-failures.json
+
+  31 !== 0
+
+      at TestContext.<anonymous> (file:///Users/dennisariens/projects/topo-france-main/tests/audit/hard-rules.test.mjs:16:170)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 31,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
