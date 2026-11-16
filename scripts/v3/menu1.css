@@ -1,4 +1,5 @@
-/* TOPO V3 menu1.css (BL-029): composition after render "Menu 1" (Dennis 16-11). Loaded after ui.css.
+/* r2 (Dennis 16-11): more transparency behind the list: workspace .72, fade 24% → 48% → 72%.
+   TOPO V3 menu1.css (BL-029): composition after render "Menu 1" (Dennis 16-11). Loaded after ui.css.
    Not loose glass panels but ONE workspace with a horizontal fade: dense behind the list on the left, fully clear on the
    right so the scene stays bright. Layers, back to front: scene (body) → workspace (.v3Reis::before) → sidebar
    (fixed, matte glass, fading at the bottom) → one card (the chapter list) → the map free in the fade → the active
@@ -13,8 +14,8 @@
   grid-template-columns:var(--zij) calc(var(--lijst) + 56px) minmax(0,1fr) var(--rechts);grid-template-rows:auto minmax(0,1fr);column-gap:0;row-gap:0}
  /* Workspace: one layer from the sidebar to the right edge. No border, no shadow. */
  .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:0;pointer-events:none;
-  background:rgba(252,250,246,.92);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 38%,rgba(0,0,0,.55) 58%,transparent 82%);mask-image:linear-gradient(to right,#000 0%,#000 38%,rgba(0,0,0,.55) 58%,transparent 82%)}
+  background:rgba(252,250,246,.72);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.5) 48%,transparent 72%);mask-image:linear-gradient(to right,#000 0%,#000 24%,rgba(0,0,0,.5) 48%,transparent 72%)}
  .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht]>*{position:relative;z-index:1}
 
  /* --- Sidebar: fixed left, full height, matte glass on a pseudo-element (so only the glass fades, not the gear),
@@ -124,8 +125,8 @@
  .v3Reis[data-menu="1"][data-reis-page=overzicht]>.v3Side::after{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
  .v3Reis[data-menu="1"][data-reis-page=overzicht] .v3Panel{background:#fff!important;padding:20px 24px!important;border-radius:20px}
 }
-/* Local lift for the free chapter block, only where the backdrop misses AA (measured 16-11: BG-03 kicker 4.41 < 4.5;
-   BG-01/BG-02 pass). A soft radial glow behind the text, not a panel. */
+/* Local lift for the free chapter block, only where the backdrop misses AA (r2, measured 16-11 without glow: BG-03 kicker
+   4.16 at 1440 and 4.22 at 1080 < 4.5; BG-01/BG-02 and 2560 pass). Temporary, until the new backgrounds arrive. A soft radial glow behind the text, not a panel. */
 @media (min-width:1024px){
  body[data-v3-background=bg03] .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Main>.v3Panel::before{content:"";position:absolute;z-index:-1;inset:-90px -70px -80px -90px;pointer-events:none;
   background:radial-gradient(closest-side,rgba(252,250,246,.9),rgba(252,250,246,.72) 50%,rgba(252,250,246,0) 100%)}
