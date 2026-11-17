@@ -1,6 +1,6 @@
 # TOPO Next Personal Edition — Design Constitution 1.0
 
-**Decision date:** 2026-11-15 · **Owner direction:** APPROVED as future design north star · **Implementation:** PARKED until Italy V3 + France V4 release acceptance, existing roadmap alignment, and explicit G0 start decision.
+**Decision date:** 2026-11-15 · **France-first direction approved:** 2026-11-17 · **Implementation:** PARKED until Italy V3 release acceptance, existing-roadmap reconciliation and explicit G0 start decision. France is the first planned Next experience.
 
 ## North star
 > **Effortless to use. Beautiful to explore. Effective to learn.**
@@ -12,7 +12,7 @@
 - **TOPO must feel like a beautifully crafted interactive atlas that makes learning effortless.** Build an independent visual identity rather than copying products.
 
 ## Mission and success
-**Personal-use first.** Initial user: founder's child in Dutch primary school, group 7 progressing to group 8. Success is enjoyable, effective, independent learning and a professional product-development experience for its owner. **Commercial market validation is optional**, not a prerequisite or KPI for building Personal Edition. Any later interest from classmates, teachers, families or schools should be voluntary, evidence-led and privacy-safe. Do not presume classroom or payments scope.
+**Personal-use first.** Initial user: founder's child in Dutch primary school, group 7 progressing to group 8. **France first, school-assignment compatibility non-negotiable.** Actual assigned worksheets determine school-mode scope (with explicit source review), not a generic fixed curriculum. Success is enjoyable, effective, independent learning and a professional product-development experience for its owner. **Commercial market validation is optional**, not a prerequisite or KPI for building Personal Edition. Any later interest from classmates, teachers, families or schools should be voluntary, evidence-led and privacy-safe. Do not presume classroom or payments scope.
 
 ## Principles (in priority order)
 1. **Learning first:** every view helps discover, understand, retrieve or remember geography.
@@ -23,8 +23,8 @@
 6. **Grow with the learner:** distinguish knowledge mastery, learning goal and presentation preference. Never equate age with ability or force a childish UI on a beginner adult. Start with primary-school scope; adaptability beyond this is a later research hypothesis, not immediate feature scope.
 
 ## Experience architecture: minimum coherent surfaces
-- **Portal:** enter, choose a country, resume with one clear action; no account requirement, no marketing gate. The portal and app share a design language. No future URL or domain migrations authorized.
-- **Learn:** chapter discovery, map-first lesson, pointing, name-writing, formative feedback and selective review. Quiz and gold modes stay reachable without clutter.
+- **Portal:** enter, choose a country, resume with one clear action; surface **Voor school** as primary when an assignment is active and **Ontdekken** as the alternate; no account requirement, no marketing gate. The portal and app share a design language. No future URL or domain migrations authorized.
+- **Learn:** one experience with worksheet-exact school preparation (pointing, name writing, the teacher's actual question forms, authentic overhoring and mistake review) and separate broader discovery; map-first lessons and formative feedback. Quiz and gold modes stay reachable without clutter.
 - **Atlas:** freely explore real map layers/labels; geographic relationships are understandable.
 - **My Book:** show earned progress, mistakes to revisit, meaningful Nino moments and durable rewards.
 - **Classroom:** research-only candidate for later; no teacher dashboard now.
@@ -40,10 +40,10 @@ Compare three **different product philosophies**, not colorways:
 
 Each must show **the same realistic scenario** on desktop, iPad and phone:
 - Portal landing / country selection / resume
-- Learner start / chapter selection
+- Learner start / current school-assignment selection (worksheet-exact; distinguish Atlas extras)
 - Atlas explore / map layers
 - Discover lesson
-- Point task + write task
+- Worksheet-scoped pointing + name-writing + school-style mixed overhoring (with source-aligned aliases)
 - Correct, incorrect, retry and constructive feedback
 - My Book / mastery / earned reward
 - Essential empty, offline, error, keyboard/focus and reduced-motion states
@@ -63,7 +63,7 @@ A beautiful render does not pass without a usable end-to-end flow.
 - Keep the existing V3/V4 source-of-truth, M0–M3 and G0–G4 harness until formally changed; do not modify currently shipping UI or production Vercel in this design study.
 
 ## Scope boundaries
-**Now:** this document and related preparation in draft PR only. No new agents, scheduled automation, live changes or implementation.
+**Now:** this document, [France First School Contract](FRANCE_FIRST_SCHOOL_CONTRACT.md) and other preparation in draft PR only. No new agents, scheduled automation, live changes or implementation.
 **Later after explicit G0:** research, full design study and verified prototype.
 **Only after G3/G4:** public releases.
 **Never presume:** monetization, class accounts, AI tutors or international market expansion. Personal success is sufficient.
