@@ -1,35 +1,38 @@
 # TOPO Next — Roadmap and launch gates
 
-**Status:** future plan; NOT ACTIVE. Sequence is conditional, not calendar-committed. Product prioritization: geography correctness > learning effectiveness > clarity > usability > consistency > engagement.
+**Status:** France-first product direction owner-approved 2026-11-17; detailed implementation NOT ACTIVE. Sequence is conditional, not calendar-committed. Product prioritization: geography correctness > learning effectiveness > clarity > usability > consistency > engagement.
 
 ## Preconditions / START LINE (all mandatory)
 - [ ] Italy V3 released with G3/Hermes and G4 owner acceptance; production URL, source tag/SHA, regression and physical iPad evidence recorded.
-- [ ] France V4 released, curriculum/geography verified, G3/G4 evidence recorded; production URL, source tag/SHA and learner acceptance recorded.
+- [ ] France first Next scope agreed after Italy V3 release, and the existing France school worksheet reconciled against the country draft. **France V4 is not a release prerequisite for Next anymore; it becomes the proposed first Next product.**
 - [ ] Shared learning engine / land packages characterized; known tests, save schema, offline assets, deployment and rollback documented, whether M1/M2 as expected or changed by later decisions.
-- [ ] Check M3 status and reprioritization with current ops/ROADMAP; no automatic displacement of the approved land-factory milestone.
+- [ ] Lead proposes explicit M1/M2/M3 rescheduling including school-compatible France fallback; existing ops/ROADMAP remains authoritative until approved change. No automatic displacement of M3.
 - [ ] Preserve a reproducible baseline, known limitations, and source/license registry; no direct editing of generated index.html.
 - [ ] Owner grants a one-page **G0 Next GO** including mission, scope, budget, timebox and explicit kill criteria.
 - [ ] Confirm a single active programme/lead and independent evaluator; close/archive the temporary preparation branch under GIT_RELEASE discipline.
+
+## France-first school-use invariant
+**School first; discovery always.** A current assigned worksheet must be digitally practicable, even if new France Next design is delayed. Treat school sets as exact, versioned selections over verified canonical geography; separate them from expanded Atlas content. Resolve current France data mismatch (nine neighbor countries omitted, five external cities added) before calling school-mode complete. See [FRANCE_FIRST_SCHOOL_CONTRACT.md](FRANCE_FIRST_SCHOOL_CONTRACT.md). If school timing demands it, propose a small backward-compatible France practice bridge using the tested runtime, subject to normal QA/owner releases.
 
 ## Stage N0 — Readiness (now, zero new product code)
 Outputs: vision/constitution, decision boundaries, research questions, design comparison rubric, technology hypotheses, phase contracts and initial evidence requirements. Reuse established harness and morning briefs. **Exit:** a reviewer can start N1 without asking what to research or breaking Italy/France capacity. No renders are accepted as geographic evidence.
 
 ## Stage N1 — Discover
-Work: evaluate current production flows and competitor products; interview/observe children aged about 10–11, parents and teachers with appropriate consent; review curriculum, accessibility, geography licensing, offline use, privacy, teacher workflows, B2C/B2B distribution. Compare existing TOPO with baseline alternatives using same tasks.
+Work: evaluate the Italy V3 baseline and actual France school worksheet; verify exact set, question forms, and timing; inspect existing France drafts and country-pack runtime; observe initial learner practice; review competitors, accessibility, map licensing, privacy and optional teacher workflows. Wider market research is optional for personal-use success. Compare existing TOPO with baseline alternatives using same tasks.
 Minimum evidence: dated competitor matrix with sources, task observation notes without personal identifiers, baseline task-success/friction, reliable source list and a prioritized opportunity map.
 Exit: one falsifiable core learning problem and three measurable outcome hypotheses. Kill/pivot if research fails to support value over existing Italy/France.
 
 ## Stage N2 — Design
-Produce three meaningfully distinct but equally complete concepts: Learning First, Living Atlas, Nino Journey. Each must show (1) Portal landing/select/resume, (2) student home, (3) atlas geography, (4) discover chapter, (5) point + write exercise, (6) feedback/error/retry, (7) Book/progress and small-screen states. Include keyboard/focus/reduced-motion cases and truthful empty/error states.
+Produce three meaningfully distinct but equally complete concepts: Learning First, Living Atlas, Nino Journey. **Each must prominently support Voor school/volgende overhoring and Vrij ontdekken**, without forcing separate apps. Show (1) Portal landing/select/resume, (2) school assignment/learner home, (3) atlas geography, (4) discover chapter, (5) actual worksheet-scoped point/write/mixed test, (6) feedback/error/retry, (7) Book/progress and small-screen states. Include keyboard/focus/reduced-motion cases and truthful empty/error states.
 Use the same actual, validated land geography and learning scenarios; illustration-only mockups are allowed for mood, never proof of coordinates.
 Exit: comparison on child task success, perceived clarity, map legibility, accessibility, DX/AX complexity and implementation risk; owner G1 approval of chosen direction.
 
 ## Stage N3 — Prove
-Create isolated non-production prototype preserving real learning behavior and offline/local-first assumptions; test key scenarios (San Marino/Vatican, Po, Apennines, school map, 45 objects, chapter/quiz progression, saves, resets, mobile/iPad). Evaluate architecture options against current runtime, not theoretical fashion. Document tradeoffs via ADRs.
+Create isolated non-production prototype preserving real learning behavior and offline/local-first assumptions; test France school worksheet completeness, neighboring countries, verified map locations, exercise types, plus Italian baseline cases (San Marino/Vatican, Po, Apennines, 45 objects), chapter/quiz progression, saves, resets, mobile/iPad. Evaluate architecture options against current runtime, not theoretical fashion. Document tradeoffs via ADRs.
 Exit: evaluator PASS against defined acceptance scenarios, representative device performance, save compatibility design, explicit go/no-go. No account/backend added by default.
 
 ## Stage N4 — Build
-Vertical slices: Portal-to-Learn flow; shared shell and map; learning practice & error feedback; Book & rewards; France package compatibility; optional teacher/share experiment only on evidence.
+Vertical slices: Portal-to-schoolset and Atlas pathways; shared shell and validated France map; practice & school-style overhoring + feedback; Book & rewards; existing Italy V3 engine compatibility; optional teacher/share experiment only on evidence. **Do not let design work interrupt a real school assignment.**
 Every slice includes specification, tests, preview, rollback and independent review; production remains unchanged until G3/G4.
 Exit: complete regression parity or approved deliberate change, learning measurements, accessibility and offline tests.
 
