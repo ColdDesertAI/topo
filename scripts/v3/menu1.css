@@ -380,3 +380,16 @@
  .ninoSettings .v3Saved.on{opacity:1}
  :is(.v3Reis,.v3ShellNav) .v3Side .v3NavItem[aria-current=page]{font-weight:700!important}
 }
+
+/* === BL-022 / BL-018 (Dennis iMac 15-11) === */
+/* The book art never stretches (cover on Beloningen, the pages in the Reisboekje). */
+.v3Rewards .v3CoverArt,#travelBook .folioPaper{object-fit:contain!important}
+/* The Reisboekje opens centred: header, book and footer together in the middle (on a tall screen the book sat at the
+   bottom, 295 px below its header: the header had a vertical auto margin). */
+#travelBook[open] :is(.bookHeader,.bookShell,.bookFooter){margin-top:0!important;margin-bottom:0!important} /* the header's auto margin pushed the book down */
+/* BL-018: the answer panel in a lesson (Les and Oefenen) at most 560 px wide; the lesson bar above it the same, both on
+   the right edge, so they stay one card (on 1920/2560 they grew to 894/1274 px). */
+@media (min-width:1024px){
+ body.v3Les:not([data-focus-shell=true]) aside.panel{max-width:560px;justify-self:end;width:100%}
+ body.v3Les:not([data-focus-shell=true]) .v3LesBar{max-width:560px;left:auto!important}
+}
