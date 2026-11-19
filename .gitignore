@@ -3,3 +3,6 @@ node_modules/
 .DS_Store
 output/html/TOPO-V3-Reis-Preview.html
 output/html/TOPO-V3-Italie.html
+
+# Tijdelijke git-worktrees van agents (Claude Code), nooit committen
+.claude/worktrees/

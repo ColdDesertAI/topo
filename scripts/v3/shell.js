@@ -62,7 +62,10 @@
   const backdrop=make('section','ninoSettingsGroup v3BackgroundChoices');backdrop.append(make('h3',null,'Achtergrond'));
   const options=[['bg03','Kust'],['bg01','Toscane'],['bg02','Meer'],['auto','Wisselen']];
   const mark=()=>backdrop.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.background===V.background.get())));
-  for(const [key,label] of options){const b=btn(label,()=>{V.background.set(key);mark();},'v3Btn');b.dataset.background=key;backdrop.append(b);}
+  // BL-017: a short confirmation after a choice ("✓ Bewaard" beside the heading, read by screen readers).
+  const saved=make('span','v3Saved');saved.setAttribute('role','status');saved.setAttribute('aria-live','polite');backdrop.querySelector('h3').append(saved);
+  let savedTimer=0;const confirm=()=>{saved.textContent='✓ Bewaard';saved.classList.add('on');clearTimeout(savedTimer);savedTimer=setTimeout(()=>{saved.classList.remove('on');saved.textContent='';},1800);};
+  for(const [key,label] of options){const b=btn(label,()=>{V.background.set(key);mark();confirm();},'v3Btn');b.dataset.background=key;backdrop.append(b);}
   mark();settings.querySelector('.ninoSettingsActions')?.prepend(profile,backdrop);
  }
  function openSettings(opener){settingsOrigin=opener||document.activeElement;$('.ninoSettingsButton')?.click();}
@@ -78,7 +81,7 @@
  function chip(label,on,fn,cls='v3Chip'){const b=btn(label,e=>{e.stopPropagation();fn();},'v3Btn '+cls);b.setAttribute('aria-pressed',String(!!on));return b;}
  function groupChips(selected,toggle,{multi=false,extra=[]}={}){
   const wrap=make('div','v3Chips');wrap.setAttribute('role','group');
-  for(const c of ROUTE_CHAPTERS){const b=chip('',selected(c.id),()=>toggle(c.id));b.append(V.range(c.title));b.dataset.group=c.id;wrap.append(b);}
+  for(const c of ROUTE_CHAPTERS){const b=chip('',selected(c.id),()=>toggle(c.id));b.append(V.range(c.title.replace(/^Extra steden/,'Steden')));if(/^Extra steden/.test(c.title))b.setAttribute('aria-label',c.title);b.dataset.group=c.id;wrap.append(b);}
   for(const [id,label,disabled] of extra){const b=chip(label,selected(id),()=>toggle(id));b.dataset.group=id;if(disabled)b.disabled=true;wrap.append(b);}
   return wrap;
  }

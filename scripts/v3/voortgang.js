@@ -59,6 +59,8 @@
   // (three segments, so the bar still reads the stage) and a status illustration: gold laurel (IC-gold) = goud, the
   // green check = klaar, the pizza slice (IC-slice) = open, the lock = nog dicht. All from TopoRoute.record.
   const list=make('ol','v3VgChapters'),M=V.model?.(),ART=V.art,SC=V.scenes||{};
+  // BL-034 (Menu 1): exactly the Reis list component (number, name, status), same size; a row opens that chapter on Reis.
+  const sameRows=V.menu==='1'&&V.chapterRows;
   ROUTE_CHAPTERS.forEach((c,i)=>{const r=TopoRoute.record(state.route,c.id),li=make('li'),open=M?.chapters[i]?.open??true;li.dataset.chapter=c.id;
    const st=r.goldAt>0?'gold':r.stage===3?'done':open?'open':'locked';li.dataset.status=st;
    const thumb=make('span','v3VgThumb');thumb.setAttribute('aria-hidden','true');if(SC[c.id]?.mini)thumb.append(V.pic(SC[c.id].mini,null,480,270));
@@ -68,8 +70,9 @@
    else if(st==='open'&&ART?.icons?.slice)status.append(V.pic(ART.icons.slice,null,96,96));
    else status.append(V.icon(st==='locked'?'v3lock':'v3checkmark'));
    li.setAttribute('aria-label',c.title+': '+r.stage+' van 3 lessen'+(r.goldAt>0?', goud':st==='locked'?', nog dicht':''));
-   const name=make('span','v3VgName');name.append(make('span','v3VgNum',(i+1)+'.'),document.createTextNode(' '+c.title));
+   const name=make('span','v3VgName');name.append(make('span','v3VgNum',(i+1)+'.'),document.createTextNode(' '+c.title.replace(/^Extra steden/,'Steden')));
    li.append(thumb,name,steps,status);list.append(li);});
+  if(sameRows){list.className='v3Rows v3VgRows';V.chapterRows(list,id=>{V.showChapter(id);V.go?.('reis');});}
 
   // Dagdoel (V2).
   try{renderDailyGoal();}catch{}
@@ -89,7 +92,27 @@
   for(const r of results){const li=make('li');li.append(make('span','v3VgDate',fmt(r.at)),make('span','v3VgOnderwerp',r.chapters.length===ROUTE_CHAPTERS.length?'Alles':r.chapters.map(id=>ROUTE_CHAPTERS.find(c=>c.id===id)?.title).join(', ')),make('strong',null,r.correct+' / '+r.total));rl.append(li);}
   const toetsen=results.length?rl:make('p','v3VgEmpty','Nog geen toetsen.');
 
-  const pass=make('div','v3VgPaspoort');if(mastery){pass.append(mastery);}
+  const pass=make('div','v3VgPaspoort');if(mastery){pass.append(mastery);
+   // BL-029: passport() opens it to read its table; on screen the paspoort starts closed (the child opens it).
+   mastery.open=false;}
+  // BL-034 (Menu 1): the paspoort per chapter — one row per chapter (whole row a button, chevron 20 px, aria-expanded)
+  // with "x van y beheerst"; it opens to the chapter's places with Vinden and Naam. Data: the V2 paspoort (pp).
+  // The V2 details element stays in the DOM (passport() reads it) but out of sight; Dennis could not find its toggle.
+  if(V.menu==='1'){
+   const acc=make('div','v3Pas');let k=0;
+   for(const c of ROUTE_CHAPTERS){const places=pp.filter(p=>c.itemIds.includes(p.item.id));if(!places.length)continue;k++;
+    const done=places.filter(p=>p.status==='beheerst').length,id='v3Pas-'+c.id;
+    const head=make('button','v3PasHead');head.type='button';head.setAttribute('aria-expanded','false');head.setAttribute('aria-controls',id);
+    const chev=make('span','v3PasChev');chev.setAttribute('aria-hidden','true');
+    head.append(make('span','v3PasName',c.title.replace(/^Extra steden/,'Steden')),make('span','v3PasCount',done+' van '+places.length+' beheerst'),chev);
+    const body=make('table','v3PasBody');body.id=id;body.hidden=true;
+    const hr=make('tr');hr.append(make('th',null,'Plek'),make('th',null,'Vinden'),make('th',null,'Naam'));const thead=make('thead');thead.append(hr);
+    const tb=make('tbody');for(const p of places){const tr=make('tr');tr.dataset.status=p.status;const th=make('th',null,p.item.name);th.scope='row';tr.append(th,make('td',null,p.find),make('td',null,p.name));tb.append(tr);}
+    body.append(thead,tb);
+    head.addEventListener('click',()=>{const open=head.getAttribute('aria-expanded')!=='true';head.setAttribute('aria-expanded',String(open));body.hidden=!open;});
+    const item=make('div','v3PasItem');item.append(head,body);acc.append(item);}
+   if(k){mastery&&(mastery.hidden=true);pass.prepend(acc);}
+  }
 
   // Raster (12 kolommen): titelbalk; kaartkaart 1–7 en hoofdstukken 8–12; Dagdoel, Pizza's en Vespa-ritten; Toetsen; paspoort.
   const side=make('div','v3VgSide');side.append(section('Hoofdstukken','v3VgHoofdstukken',list));

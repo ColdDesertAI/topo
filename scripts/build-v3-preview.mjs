@@ -78,7 +78,9 @@ for(const [id,e] of Object.entries(sceneManifest.chapters))scenes[id]={mini:uri(
 // V3 render assets (art/v3-render-assets @ 908b4a4, assets/v3/render/manifest.json): exports only, byte-checked.
 const render=JSON.parse(read('assets/v3/render/manifest.json')),A=Object.fromEntries(render.assets.map(a=>[a.id,a]));
 for(const id of ['SCENE-ROMA','SCENE-VENEZIA','SCENE-NAPOLI'])scenes[A[id].chapter]={mini:uri(A[id].export_mini,id),kop:uri(A[id].export_kop,id)};
-const v3art={bg:{bg01:uri(A['BG-01'].export,'BG-01'),bg02:uri(A['BG-02'].export,'BG-02'),bg03:uri(A['BG-03'].export,'BG-03')},portrait:uri(A['NINO-PORTRET'].export,'NINO-PORTRET'),poses:Object.fromEntries(render.assets.filter(a=>a.universalMaster && !['NINO-PASPOORT','VESPA-ZIJ','VESPA-ICOON','NINO-DENKT','NINO-WIJST-RECHTS'].includes(a.id)).map(a=>[a.id,{src:uri(a.export,a.id),size:a.export.size}])),vespa:uri(A['VESPA-ZIJ'].export,'VESPA-ZIJ'),
+// BL-034 P1.12: small thumbnails for the background picker (192x108, a few kB each; the full images stay out of the popover).
+const bgThumb=k=>'data:image/webp;base64,'+readFileSync(new URL('assets/v3/render/thumbs/BG-0'+k+'-thumb-192.webp',root)).toString('base64');
+const v3art={bgThumbs:{bg01:bgThumb(1),bg02:bgThumb(2),bg03:bgThumb(3)},bg:{bg01:uri(A['BG-01'].export,'BG-01'),bg02:uri(A['BG-02'].export,'BG-02'),bg03:uri(A['BG-03'].export,'BG-03')},portrait:uri(A['NINO-PORTRET'].export,'NINO-PORTRET'),poses:Object.fromEntries(render.assets.filter(a=>a.universalMaster && !['NINO-PASPOORT','VESPA-ZIJ','VESPA-ICOON','NINO-DENKT','NINO-WIJST-RECHTS'].includes(a.id)).map(a=>[a.id,{src:uri(a.export,a.id),size:a.export.size}])),vespa:uri(A['VESPA-ZIJ'].export,'VESPA-ZIJ'),
  icons:Object.fromEntries(['slice','pizza','vespa','gold','stamp','postcard'].map(k=>[k,k==='vespa'?uri(A['VESPA-ICOON'].export,'VESPA-ICOON'):uri(A['IC-'+k].exports['96'],'IC-'+k)]))};
 const landmarks=JSON.parse(read('assets/v3/landmarks/manifest.json'));
 const activeLandmarks=landmarks.items.filter(a=>a.ui&&!a.lifestyle);
@@ -103,7 +105,7 @@ v3art.landmarks={source:landmarks.source,basisSet:lmLocations.relevance.basisSet
 })};
 if(Object.keys(scenes).length!==11)throw Error('Expected 11 chapter scenes, found '+Object.keys(scenes).length);
 // Relief z8 render layers (v3/relief-z8 @ 2a7b0cf), checked against their provenance SHA256, embedded as data URIs.
-const prov=JSON.parse(read('assets/discovery/terrain-z8-render-provenance.json')),reliefFiles={terrain:JSON.parse(read('assets/v3/relief-r2-provenance.json')).output,...Object.fromEntries(prov.pipeline.decorative_layers.map(l=>[l.role,l]))},relief={};
+const prov=JSON.parse(read('assets/discovery/terrain-z8-render-provenance.json')),reliefFiles={terrain:JSON.parse(read('assets/v3/relief-r3-provenance.json')).output,...Object.fromEntries(prov.pipeline.decorative_layers.map(l=>[l.role,l]))},relief={};
 for(const [role,e] of Object.entries(reliefFiles)){const b=readFileSync(new URL(e.path,root));if(createHash('sha256').update(b).digest('hex')!==e.sha256)throw Error('Relief layer differs from provenance: '+e.path);relief[role]='data:image/webp;base64,'+b.toString('base64');}
 if(Object.keys(relief).sort().join()!=='coast,sea,shadow,terrain')throw Error('Relief layers incomplete');
 const sceneJs='window.TOPO_V3_SCENES='+JSON.stringify(scenes)+';window.TOPO_V3_RELIEF='+JSON.stringify(relief)+';window.TOPO_V3_ART='+JSON.stringify(v3art)+';';
@@ -112,7 +114,7 @@ const fontM=JSON.parse(read('assets/v3/font/manifest.json')),fontB=readFileSync(
 if(createHash('sha256').update(fontB).digest('hex')!==fontM.sha256)throw Error('UI font differs from manifest: '+fontM.path);
 const fontCss='@font-face{font-family:"Topo Rounded";src:url(data:font/woff2;base64,'+fontB.toString('base64')+') format("woff2");font-weight:200 1000;font-style:normal;font-display:swap}';
 const css=fontCss+read('scripts/v3/tokens.css')+read('scripts/v3/reis.css')+read('scripts/v3/les.css')+read('scripts/v3/shell.css')+read('scripts/v3/glas.css')+read('scripts/v3/stijl.css')+read('scripts/v3/reis-ijk.css')+read('scripts/v3/oefenen-ijk.css')+read('scripts/v3/les-ijk.css')+read('scripts/v3/toets-ijk.css')+read('scripts/v3/beloningen-ijk.css')+read('scripts/v3/voortgang-ijk.css')+read('scripts/v3/afwerking.css')+read('scripts/v3/ronde2.css')+read('scripts/v3/ronde3.css')+read('scripts/v3/ronde4.css')+read('scripts/v3/ronde5.css')+(RELEASE?'':barCss);
-const head='\n<style>html.v3Boot body{visibility:hidden}html.v3Ready body{animation:v3Ready .16s ease-out}@keyframes v3Ready{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){html.v3Ready body{animation:none}}</style><script>document.documentElement.classList.add("v3Boot");</script>\n<script>\n'+(RELEASE?'':states)+'\n'+sceneJs+'\n</script>\n<style>/* BEGIN TOPO V3 */'+css+read('scripts/v3/ronde5b.css')+'/* END TOPO V3 */</style>';
+const head='\n<style>html.v3Boot body{visibility:hidden}html.v3Ready body{animation:v3Ready .16s ease-out}@keyframes v3Ready{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){html.v3Ready body{animation:none}}</style><script>document.documentElement.classList.add("v3Boot");</script>\n<script>\n'+(RELEASE?'':states)+'\n'+sceneJs+'\n</script>\n<style>/* BEGIN TOPO V3 */'+css+read('scripts/v3/ronde5b.css')+read('scripts/v3/ui.css')+read('scripts/v3/menu1.css')+'/* END TOPO V3 */</style>';
 const last=html.lastIndexOf('</body>');if(last<0||html.indexOf('<head>')<0)throw Error('Unexpected index.html shape');
 // Insert after <meta charset>: the V3 head is megabytes (embedded font), and a charset declared later than
 // the first 1024 bytes is ignored by browsers (mojibake such as "Â·").

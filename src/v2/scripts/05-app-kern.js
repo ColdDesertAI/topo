@@ -109,7 +109,7 @@ function grade(ok,clicked,skipped=false){
  if(state.mode==='route'){routeGrade(ok,skipped,clicked);return}
  if(state.answered)return;state.answered=true;const i=state.current;TopoRoute.track(state.route,i.id,state.questionMode,ok);$('#next').textContent='Volgende →';
  if(state.mode==='exam'){state.examAnswered++;if(ok)state.examCorrect++;$('#testStatus').textContent='Vraag '+state.examAnswered+' / '+state.examTotal+' · '+state.examCorrect+' goed';if(state.examAnswered===state.examTotal)$('#next').textContent='Bekijk resultaat →'}
- if(ok){recordDailyCorrect();const reward=TopoLearning.award(state);state.streak++;state.mistakes=state.mistakes.filter(x=>x!==i.id);message(TopoNino.answer({ok:true,mode:state.mode==='exam'?'exam':state.questionMode,place:i.name,reward}),'good');if(reward.pizza)celebrateReward(reward)}
+ if(ok){recordDailyCorrect();const reward=state.mode==='exam'?{pizza:false,trip:false}:TopoLearning.award(state);state.streak++;state.mistakes=state.mistakes.filter(x=>x!==i.id);message(TopoNino.answer({ok:true,mode:state.mode==='exam'?'exam':state.questionMode,place:i.name,reward}),'good');if(reward.pizza)celebrateReward(reward)}
  else{state.streak=0;if(!state.mistakes.includes(i.id))state.mistakes.push(i.id);message(TopoNino.answer({ok:false,mode:state.mode==='exam'?'exam':state.questionMode,place:i.name,chosen:clicked?.name,skipped}),'bad')}
  updatePracticeArt(TopoArt.roleFor({phase:'answer',mode:state.mode,ok}));
  highlight(i);sync();$('#answer').disabled=true;$('#check').disabled=true

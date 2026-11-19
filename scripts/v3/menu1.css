@@ -1,0 +1,487 @@
+/* BL-034 (Dennis 19-11): workspace .60 with a smooth fade to the right (no knee) and lighter downwards; sidebar .55,
+   blur 20, fading from 30% to 85% of its height so the scene shows below the nav — never above the nav's bottom (560 px):
+   on short screens (768/800) the lower nav items otherwise sat in the fade and missed AA.
+   TOPO V3 menu1.css (BL-029): composition after render "Menu 1" (docs/v3/renders/Menu 1.png, Dennis 16-11). Loaded after ui.css.
+   Not loose glass panels but ONE workspace with a horizontal fade: dense on the left (behind the one card), clear on the
+   right so the scene stays bright. Layers, back to front: scene (body) → workspace (.v3Reis::before) → sidebar (fixed,
+   matte glass, fading at the bottom) → at most one card (what must be read or filled in) → map, titles, illustrations
+   and Nino free → counters as white pills. Blur: sidebar + workspace only (≤ 3 with a modal).
+   r2 (Dennis 16-11): more transparency behind the list: workspace .72, fade 24% → 48% → 72%.
+   Every screen uses the same columns: sidebar | card column | free middle (map) | free right.
+   Sections: 1 shell, 2 sidebar, 3 shared card/label, 4 Reis overview, 5 Reis chapter, 6 Oefenen, 7 Toets,
+   8 Beloningen, 9 Voortgang, 10 iPad, 11 reduced transparency, 12 local glow (AA). Menu 2 (fallback): TOPO_V3_MENU='2'. */
+
+@media (min-width:1024px){
+ /* === 1. Shell: full bleed under the preview bar; no frame margin, nothing floats. === */
+ .v3Reis[data-menu="1"]{
+  --zij:256px;--kol1:356px;--rechts:minmax(320px,27%);--m1-ink2:#5d5873;--m1-card:rgba(255,255,255,.94);--m1-card-shadow:0 10px 30px rgba(40,25,80,.08);--m1-top:76px;
+  position:relative;isolation:isolate;width:100%;height:calc(100dvh - var(--v3-bar,0px));margin:0;padding:0;
+  grid-template-columns:var(--zij) var(--kol1) minmax(0,1fr) var(--rechts);grid-template-rows:auto minmax(0,1fr);column-gap:0;row-gap:0;
+  background:none;box-shadow:none;border:0;border-radius:0}
+ .v3Reis[data-menu="1"]:not([data-view=reis]){grid-template-columns:var(--zij) minmax(0,1fr)}
+ /* Workspace: one layer from the sidebar to the right edge. No border, no shadow. */
+ .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:auto;width:max(calc((100% - var(--zij)) * .66),781px);pointer-events:none; /* never narrower than at 1440 (781 px): the same gentle slope on smaller screens */
+  background:rgba(252,250,246,.60);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);mask-composite:intersect}
+ .v3Reis[data-menu="1"]>*{position:relative;z-index:1}
+ /* No glass anywhere else: the old panel glass and blur step aside on every screen. */
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup,.v3Book,.v3Ride,.v3Tiles,.v3Tile,.v3VgTitleBar,.v3VgRow,.v3VgTile,.v3VgHead,.v3VgLegend,.v3Field.v3Card,.v3Top,.v3Panel,.v3Rows,.v3MapStage),
+ .v3Reis[data-menu="1"]>:is(.v3List,.v3View,.v3Rewards){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ .v3Reis[data-menu="1"]>:is(.v3View,.v3Rewards){background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0}
+
+ /* === 2. Sidebar: fixed left, full height, matte glass on a pseudo-element (only the glass fades, not the gear),
+        a hairline on the right, no shadow. === */
+ .v3Reis[data-menu="1"]>.v3Side{grid-column:1;grid-row:1/-1;z-index:2;margin:0;border-radius:0;padding:28px 20px 22px;height:auto;
+  background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"]>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
+  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px))}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand{align-items:center}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand b{font:800 36px/1 var(--v3-font);letter-spacing:.02em}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand .v3Flag{width:64px;height:6px}
+ /* Nino: one size on every screen (BL-029 criterion 3); BL-034: 140×152 (was 184×200). */
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Portrait{width:140px;height:152px;max-height:none;margin:16px auto 20px;flex:0 0 auto;border-radius:0;background:none;overflow:hidden;display:block}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 10%;margin:0}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavList{gap:6px;margin:0}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem{min-height:52px;padding:0 16px;gap:16px;border-radius:14px;font:500 18px/1.2 var(--v3-font);color:var(--v3-ink);background:transparent}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem .v3Icon{width:20px;height:20px;color:var(--v3-ink)}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft);color:var(--v3-ink);font-weight:700}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem[aria-current=page] .v3Icon{color:var(--v3-accent-press)}
+ /* The gear stands free at the bottom, on the scene where the sidebar glass has faded out. */
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Settings{margin-top:auto;width:48px;height:48px;min-height:48px;padding:0;justify-content:center;align-self:flex-start;border:0!important;border-radius:999px;
+  background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Settings span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+ /* === 3. Shared: the one card, the label above it, white pills. === */
+ .v3Reis[data-menu="1"] .m1Label,.v3Reis[data-menu="1"][data-view=reis] #v3ListTitle,
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup)>.v3ScreenTitle,.v3Reis[data-menu="1"] .v3Rewards>.v3ScreenTitle,
+ .v3Reis[data-menu="1"] .v3VgSide>.v3Card>h2,.v3Reis[data-menu="1"] .v3View-voortgang>.v3Card>h2{
+  margin:0 0 14px 4px;padding:0;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2);background:none}
+ .v3Reis[data-menu="1"] :is(.v3Counts .v3Count){display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 14px;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 6px 18px rgba(40,25,80,.10)}
+ .v3Reis[data-menu="1"] .v3Counts{gap:12px;padding:0;background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border-radius:0}
+ .v3Reis[data-menu="1"] .v3Counts .v3CountSep{display:none}
+ .v3Reis[data-menu="1"] .v3Counts .v3Count b{font:700 22px/1 var(--v3-font);color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3Btn.primary{min-height:56px;border-radius:999px;font:700 19px/1 var(--v3-font);box-shadow:0 10px 24px rgba(91,60,200,.28)}
+ /* Free titles (the active chapter, the screen titles on the right). */
+ .v3Reis[data-menu="1"] .m1Kicker,.v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3CardKicker{margin:0 0 12px!important;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--v3-accent-press)}
+
+ /* === 4. Reis overview === */
+ .v3Reis[data-menu="1"][data-view=reis]>.v3List{grid-column:2;grid-row:1/-1;align-self:start;max-height:calc(100% - 48px);margin:var(--m1-top) 32px 0 24px;padding:0;gap:0;
+  background:transparent!important;box-shadow:none!important;border-radius:0}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows{padding:8px!important;gap:0;border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows>li+li{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows>li:has(+li>.v3Row[aria-pressed=true]),.v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows>li:has(>.v3Row[aria-pressed=true]),
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows>li:has(>.v3Row[aria-pressed=true])+li{box-shadow:none}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row{grid-template-columns:28px minmax(0,1fr) 24px;gap:14px;min-height:52px;padding:0 12px;border-radius:12px;background:transparent}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Thumb,.v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3RowBar{display:none}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3RowNum{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#f1eff5;color:var(--m1-ink2);font:600 14px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Name{font:500 17px/1.25 var(--v3-font);color:var(--v3-ink)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true]{background:var(--v3-accent-soft)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3Name{font-weight:700}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3RowNum{background:#fff;color:var(--v3-ink)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3End{display:grid;place-items:center;width:24px;height:24px}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3End .v3Icon{width:18px;height:18px;color:#8a85a0}
+ .v3Reis[data-menu="1"] .v3OkDot{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#2f9e57}
+ .v3Reis[data-menu="1"] .v3OkDot .v3Icon{width:14px!important;height:14px!important;color:#fff!important}
+ /* Chevron only on the selected row. */
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Chev{display:none}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3Chev{display:block;width:9px;height:9px;margin-right:4px;border:solid var(--v3-ink);border-width:2.5px 2.5px 0 0;border-radius:1px;transform:rotate(45deg)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Chev .v3Icon{display:none}
+ /* The map lies free in the fade zone, running under the free block; the sea as a light blue glow. */
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Main>.v3MapStage{grid-column:3/5;grid-row:1/-1;margin:0;padding:0;
+  --v3-card-over:0;--v3-fit-top:24px;--v3-fit-right:0px;--v3-fit-bottom:24px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Main>.v3MapStage::before{content:"";position:absolute;inset:4% -6% 2% -10%;z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(150,205,240,.62),rgba(170,215,245,.32) 55%,rgba(190,225,250,0) 100%)}
+ .v3Reis[data-menu="1"][data-view=reis] .v3MapStage>svg{position:relative;z-index:1}
+ .v3Reis[data-menu="1"][data-view=reis] .v3MapStage>.v3MapTools{position:absolute;top:auto;bottom:24px;left:0;z-index:3;display:flex;gap:8px}
+ .v3Reis[data-menu="1"] .v3Switch{padding:0!important;align-items:stretch}
+ .v3Reis[data-menu="1"] .v3Switch .v3Btn{height:44px!important;min-height:44px!important;padding:0 14px;border-radius:999px}
+ .v3Reis[data-menu="1"] .v3MapTools>*{height:44px;min-height:44px;border-radius:999px;background:#fff!important;outline:1px solid rgba(42,36,64,.08);-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 4px 14px rgba(40,25,80,.12)}
+ .v3Map .v3Markers .v3Marker{cursor:pointer}
+ /* Active chapter: free on the clear part, no panel. */
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Main>.v3Panel{grid-column:4!important;grid-row:2!important;align-self:start!important;justify-self:stretch!important;
+  display:flex!important;flex-direction:column;align-items:flex-start;gap:0;margin:16vh 40px 0 8px!important;padding:0!important;width:auto!important;
+  background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0}
+ .v3Reis[data-menu="1"][data-reis-page=overzicht] .v3Panel>*{margin-left:0!important;margin-right:0!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3CardHead{display:flex;flex-direction:column;flex-wrap:nowrap;height:auto;align-items:flex-start;gap:18px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3CardTitle{font:800 52px/1.05 var(--v3-font);letter-spacing:-.01em;color:var(--v3-ink);margin:0;padding:0;text-wrap:balance}
+ /* Progress in segments (one per lesson). */
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar{display:flex;gap:6px;margin:0;padding:0;background:none;position:static!important;inset:auto!important;transform:none!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar::before,.v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar::after{display:none}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span{width:44px;height:8px;min-width:0;padding:0;margin:0;border:0;border-radius:4px;background:rgba(42,36,64,.20);box-shadow:none}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span::before,.v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span::after{display:none}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span.on{background:var(--v3-accent)}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span .v3Icon{display:none}
+ /* One primary button: the real next action (no [Verder]). */
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3BarGo{display:none!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3Actions{display:flex!important;margin:28px 0 0!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3Actions .v3Btn.primary{min-width:0;padding:0 26px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3Locked{margin:24px 0 0!important}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Panel :is(.v3CardScene,.v3StepList,.v3Again){display:none!important}
+ /* Counters: loose white pills top-right. */
+ .v3Reis[data-menu="1"][data-view=reis] .v3Main>.v3Top{grid-column:3/5;grid-row:1;justify-self:end;align-self:start;margin:24px 28px 0 0;padding:0;z-index:3;background:transparent!important;box-shadow:none!important}
+
+ /* === 5. Reis chapter page: the lessons are the one card (where the list was); the map zooms in the middle; the
+        artwork (16:9), title, progress and the one primary button stand free on the right. === */
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]{grid-template-columns:var(--zij) var(--kol1) minmax(0,1fr) var(--rechts);grid-template-rows:auto auto auto auto auto minmax(0,1fr);row-gap:0}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]>.v3List{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] :is(.v3Main>.v3Top,.v3Main>.v3Panel){display:contents!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft{grid-column:2;grid-row:1;display:flex;flex-wrap:wrap;gap:8px;align-self:start;margin:24px 24px 0;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{display:inline-flex;align-items:center;gap:8px;height:44px;min-height:44px;padding:0 16px 0 12px;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12);font:600 16px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3MapTools{position:static;display:flex;gap:8px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Counts{grid-column:3/5;grid-row:1;justify-self:end;align-self:start;margin:24px 28px 0 0;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:3/5;grid-row:1/-1;margin:0;padding:0;--v3-card-over:0;--v3-fit-top:24px;--v3-fit-right:0px;--v3-fit-bottom:24px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList{grid-column:2;grid-row:2/-1;z-index:1;align-self:start;position:relative;list-style:none;margin:62px 32px 0 24px!important;padding:8px;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);display:block!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList::before{content:"Lessen";position:absolute;left:4px;top:-30px;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li{margin:0;padding:0}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li+li{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:14px;width:100%;min-height:56px;padding:0 12px;border:0;border-radius:12px;background:transparent;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);text-align:left}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepRow{background:var(--v3-accent-soft);font-weight:700}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepDot{display:grid;place-items:center;width:28px;height:28px;border-radius:999px;border:2px solid rgba(42,36,64,.22);background:#fff;box-sizing:border-box}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot{border:0;background:#2f9e57}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot .v3Icon{width:14px;height:14px;color:#fff}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepDot{border-color:var(--v3-accent);box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 14px var(--v3-accent)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow>.v3Icon{width:18px;height:18px;color:#8a85a0}
+ /* The artwork under the lessons card (3 rows of 56 px + padding), in its own layer above the workspace. */
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene{grid-column:2;grid-row:2/-1;position:relative;z-index:1;align-self:start;justify-self:stretch;width:auto!important;max-width:none;margin:calc(62px + 3*56px + 16px + 24px) 32px 0 24px!important;aspect-ratio:16/9;border-radius:20px;overflow:hidden;box-shadow:0 14px 34px rgba(40,25,80,.22);display:block!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-column:4;grid-row:2;align-self:start;margin:16vh 40px 12px 8px!important;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{grid-column:4;grid-row:3;z-index:2;margin:0 40px 0 8px;position:relative;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;height:auto!important;align-items:flex-start!important;gap:18px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font-size:52px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions{grid-column:4;grid-row:4;z-index:2;margin:28px 40px 0 8px!important;align-self:start;justify-self:start;width:auto!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Locked{grid-column:4;grid-row:4;z-index:2;margin:24px 40px 0 8px!important;align-self:start}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Again{display:none!important}
+
+ /* === 6. Oefenen: the choices are the one card (left); the map lies free on the rest. === */
+ .v3Reis[data-menu="1"][data-view=oefenen]>.v3View-oefenen{display:grid!important;grid-column:2/-1;grid-row:1/-1;grid-template-columns:420px minmax(0,1fr);grid-template-rows:minmax(0,1fr);
+  gap:0;margin:0!important;padding:0!important;width:auto;height:100%;max-height:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3View-oefenen>.v3OefPanel{grid-column:1;grid-row:1;align-self:start;justify-self:stretch;position:relative;margin:var(--m1-top) 32px 0 24px!important;padding:16px!important;width:auto!important;max-height:calc(100% - var(--m1-top) - 24px);overflow:visible;
+  border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup)>.v3ScreenTitle{position:absolute;left:0;top:-30px;margin:0 0 0 4px}
+ .v3Reis[data-menu="1"] .v3OefPanel .v3Chips{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup) .v3Chip{min-width:0;white-space:nowrap;padding-left:12px!important;padding-right:12px!important}
+ .v3Reis[data-menu="1"] .v3View-oefenen>.v3OefStage{grid-column:2;grid-row:1;margin:0!important;padding:0;min-height:0;background:none!important;box-shadow:none!important;border:0!important}
+
+ /* === 7. Toets: the set-up is the one card; Nino stands free on the right. === */
+ .v3Reis[data-menu="1"][data-view=toets]>.v3View-toets{display:grid!important;grid-column:2/-1;grid-row:1/-1;grid-template-columns:600px minmax(0,1fr);grid-template-rows:minmax(0,1fr);
+  gap:0;margin:0!important;padding:0!important;width:auto;height:100%;max-height:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetup{grid-column:1;grid-row:1;align-self:start;position:relative;margin:var(--m1-top) 32px 0 24px!important;padding:16px 20px 20px!important;width:auto!important;max-height:none;overflow:visible;
+  border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetupNino{grid-column:2;grid-row:1;align-self:end;justify-self:center;margin:0 0 0 0;height:auto;max-height:calc(100% - 40px)}
+
+ /* === 8. Beloningen: the counts are the one card; the Reisboekje and the ride (pizzas, Vespa) stand free. === */
+ .v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{display:grid!important;grid-column:2/-1;grid-row:1/-1;grid-template-columns:340px minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);
+  gap:0;margin:0!important;padding:0!important;width:auto;height:100%;overflow:visible}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3ScreenTitle{grid-column:1;grid-row:1;align-self:end;margin:var(--m1-top) 0 14px 28px}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Tiles{grid-column:1;grid-row:2;align-self:start;display:flex!important;flex-direction:column;gap:0;margin:0 32px 0 24px!important;padding:8px!important;width:auto;height:auto;
+  border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile{display:grid!important;grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"icon label value";align-items:center;gap:14px;min-height:64px;height:auto;padding:0 12px!important;margin:0;
+  border:0!important;border-radius:12px;background:transparent!important;box-shadow:none!important;text-align:left}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile+.v3Tile{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)!important;border-radius:0}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile::before,.v3Reis[data-menu="1"] .v3Rewards .v3Tile::after{display:none!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile{grid-template-rows:auto!important;grid-auto-rows:0!important;row-gap:0!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile>*{grid-row:1!important;align-self:center!important;margin-top:0!important;margin-bottom:0!important;line-height:1.2}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile .v3TileIcon{grid-area:icon;width:44px;height:44px;margin:0;object-fit:contain}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile>span{grid-area:label;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);margin:0;text-align:left;justify-self:start}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile>b{grid-area:value;font:700 20px/1 var(--v3-font);color:var(--v3-ink);margin:0}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book{grid-column:2;grid-row:1/-1;align-self:center;justify-self:center;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto;height:auto}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover{display:flex;flex-direction:column;align-items:center;gap:20px;background:transparent!important;box-shadow:none!important;border:0!important;padding:0}
+ /* The book's action made visible (design-critic BL-029): a violet pill under the cover; the button keeps its aria-label. */
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover::after{content:"Open Reisboekje  →";display:inline-flex;align-items:center;min-height:56px;padding:0 26px;border-radius:999px;background:var(--v3-accent);color:#fff;font:700 19px/1 var(--v3-font);box-shadow:0 10px 24px rgba(91,60,200,.28);white-space:pre}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book,.v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover{max-width:100%;min-width:0}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3CoverArt{max-width:100%;width:min(400px,100%);height:auto;filter:drop-shadow(0 22px 30px rgba(40,25,80,.28))}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Ride{grid-column:1;grid-row:3;align-self:start;justify-self:start;position:relative;margin:28px 32px 0 28px!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto;height:auto;
+  display:grid!important;grid-template-columns:auto auto;grid-template-areas:"pz pz" "art num" "art lab" "art steps";column-gap:16px;row-gap:4px;align-items:center}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RidePizzas{grid-area:pz;display:flex;gap:12px;margin:0 0 18px}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RidePizza{flex:0 0 80px;width:80px!important;height:80px!important;min-width:0}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideArt{grid-area:art;width:150px;height:auto}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Ride>b{grid-area:num;font:800 52px/1 var(--v3-font);color:var(--v3-ink);align-self:end}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Ride>span{grid-area:lab;font:600 17px/1.2 var(--v3-font);color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps{grid-area:steps;width:108px;margin:6px 0 0}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps>i{background:rgba(42,36,64,.20)}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps>i.on{background:var(--v3-accent)}
+
+ /* === 9. Voortgang: the chapters are the one card; the map free in the middle; title, count and the day/pizza/ride
+        pills free on the right. Toetsen and the Kennis-paspoort (closed by default) follow below, in the card column. === */
+ .v3Reis[data-menu="1"][data-view=voortgang]>.v3View-voortgang{display:flex!important;flex-direction:column;grid-template-columns:none;grid-template-rows:none;grid-column:2/-1;grid-row:1/-1;margin:0!important;padding:0 0 32px!important;width:auto;height:100%;max-height:none;overflow-y:auto;overflow-x:hidden;gap:24px}
+ .v3Reis[data-menu="1"] .v3VgOverview{display:grid!important;grid-template-columns:var(--kol1) minmax(0,1fr) var(--rechts);grid-template-rows:auto auto minmax(0,1fr);
+  height:calc(100dvh - var(--v3-bar,0px));min-height:0;flex:0 0 auto;gap:0;margin:0;padding:0;overflow:visible;background:none!important;box-shadow:none!important}
+ .v3Reis[data-menu="1"] .v3VgOverview>.v3VgGrid{display:contents!important}
+ .v3Reis[data-menu="1"] .v3VgSide{grid-column:1;grid-row:1/-1;align-self:start;margin:var(--m1-top) 32px 0 24px;min-height:0;max-height:calc(100% - var(--m1-top) - 24px);display:flex;flex-direction:column}
+ .v3Reis[data-menu="1"] .v3VgSide>.v3Card{display:flex;flex-direction:column;min-height:0;margin:0;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0}
+ .v3Reis[data-menu="1"] .v3VgSide .v3VgChapters{margin:0;padding:8px;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);overflow:auto;min-height:0}
+ .v3Reis[data-menu="1"] .v3VgKaart{grid-column:2;grid-row:1/-1;position:relative;margin:0!important;padding:0!important;min-height:0;background:transparent!important;box-shadow:none!important;border:0!important;outline:0!important}
+ .v3Reis[data-menu="1"] .v3VgKaart::after{display:none}
+ .v3Reis[data-menu="1"] .v3VgKaart>.v3VgKaartTitle{display:none!important}
+ .v3Reis[data-menu="1"] .v3VgLegend{display:flex!important;flex-wrap:wrap;gap:8px;padding:0!important;margin:0;background:transparent!important;border-radius:0!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3VgLegend>li{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px 0 10px;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(40,25,80,.12);font:500 15px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"] .v3VgTitleBar{grid-column:3;grid-row:1;align-self:start;display:flex!important;flex-direction:column;align-items:flex-start;gap:14px;height:auto!important;margin:96px 40px 0 8px!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto;position:relative}
+ .v3Reis[data-menu="1"] .v3VgTitleBar>h1{font:800 52px/1.05 var(--v3-font);margin:0;color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3VgHead{flex:0 0 auto!important;height:auto!important;display:flex!important;flex-direction:column;align-items:flex-start;gap:10px;width:100%;padding:0!important;margin:0!important;background:transparent!important;box-shadow:none!important}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgBar{flex:0 0 auto;width:100%;max-width:320px;height:12px;min-height:0;margin:0}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgCount{margin:0;white-space:nowrap}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgCount span{color:var(--v3-ink);font:600 16px/1 var(--v3-font);margin-left:6px}
+ .v3Reis[data-menu="1"] .v3VgRow{grid-column:3;grid-row:2;align-self:start;display:flex!important;flex-direction:column;gap:10px;height:auto!important;overflow:visible!important;margin:28px 40px 0 8px!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto}
+ .v3Reis[data-menu="1"] .v3VgRow>.v3VgTile{display:flex!important;align-items:center;gap:12px;width:100%;max-width:320px;box-sizing:border-box;min-height:64px;padding:8px 20px 8px 10px!important;border-radius:999px!important;background:rgba(255,255,255,.9)!important;box-shadow:0 6px 18px rgba(40,25,80,.10)!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3VgRow>.v3VgTile::before,.v3Reis[data-menu="1"] .v3VgRow>.v3VgTile::after{display:none!important}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText{display:flex;align-items:baseline;gap:10px;flex:1 1 auto;white-space:nowrap;min-width:0}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText>*{width:auto;margin:0}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgDots{display:none}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText strong{font:700 22px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"] .v3View-voortgang>.v3Card{flex:0 0 auto;width:auto;max-width:calc(var(--kol1) - 56px);margin:0 0 0 24px!important;padding:16px 16px 12px!important;border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3View-voortgang>.v3Card>h2{margin:0 0 10px}
+}
+
+/* === Lesson shell (BL-029): the same sidebar as every screen (full height, fading glass, Nino 184×200) and the same
+   workspace fade behind the lesson. The lesson's own cards stay as they are (not part of BL-029's five screens). === */
+@media (min-width:1024px){
+ /* The lesson layout keeps its frame margin (its cards are placed with it); the side variable shrinks by that margin,
+    so the content starts just after the 256 px sidebar. */
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(256px - var(--v3-frame-m));--v3-side:calc(256px - var(--v3-frame-m))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .v3ShellNav{top:var(--v3-bar,0px)!important;left:0!important;bottom:0!important;width:256px!important;margin:0;border:0!important;border-radius:0!important;
+  background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important}
+ body.v3Les[data-v3-menu="1"] .v3ShellNav::after,body.v3Les[data-v3-menu="1"] .v3ShellNav::before{display:none!important}
+ /* Lesson panels as Menu 1 cards: white, no blur (sidebar + workspace are the only blurs). */
+ body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter,.finishScreen,.atlasZoom,.atlasZoom *){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter){background:rgba(255,255,255,.94)!important}
+ /* The result card starts below the lesson bar (it lay 112 px under it, also in Menu 2); on a short screen the page
+    scrolls, so on the result the lesson bar scrolls along instead of staying fixed over the card (evaluator r2, 768/800). */
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):has(.layout.finishLayout) .v3LesBar{position:absolute!important}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .layout.finishLayout #finishScreen{margin-top:calc(var(--v3-lesbar-h,136px) + var(--v3-gut,24px))}
+ /* No window frame around the lesson (glas.css body::after): one workspace, no frame. */
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::after{display:none!important}
+ body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side{position:relative;isolation:isolate;height:100%;width:100%;margin:0;border-radius:0;padding:28px 20px 22px;box-sizing:border-box;
+  background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
+ body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
+  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:auto;width:max(calc((100vw - 256px) * .66),781px);width:auto;pointer-events:none;
+  background:rgba(252,250,246,.60);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);mask-composite:intersect}
+}
+@media (min-width:1024px) and (max-width:1279px){
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(84px - var(--v3-frame-m));--v3-side:calc(84px - var(--v3-frame-m))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .v3ShellNav{width:84px!important}
+ body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side{padding:20px 10px 16px}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:84px;right:auto;width:max(calc((100vw - 84px) * .66),781px)}
+}
+
+/* === Lesson (BL-029 check 19-11): max. one card — the lesson bar and the question panel read as ONE card (the 24 px
+   seam filled, inner corners square); the lesson map lies free (no shadow, its edges fade into the workspace). === */
+@media (min-width:1024px){
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):not(:has(.layout.finishLayout)) .v3LesBar{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;box-shadow:none!important}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):not(:has(.layout.finishLayout)) .v3LesBar::after{content:"";position:absolute;left:0;right:0;top:100%;height:calc(var(--v3-gut,24px) + 1px);background:rgba(255,255,255,.94);pointer-events:none}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) aside.panel{border-top-left-radius:0!important;border-top-right-radius:0!important;box-shadow:0 10px 30px rgba(40,25,80,.08)!important}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .mapCard>.mapArea{box-shadow:none!important;background:transparent!important;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 18px,#000 calc(100% - 18px),transparent),linear-gradient(to bottom,transparent,#000 14px,#000 calc(100% - 14px),transparent);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent,#000 18px,#000 calc(100% - 18px),transparent),linear-gradient(to bottom,transparent,#000 14px,#000 calc(100% - 14px),transparent);mask-composite:intersect}
+}
+
+/* === Toets result (BL-029 check 19-11): no glass; the score and the actions stand free on the right (as the active chapter
+   on Reis), the result map lies free; Nino bottom right. === */
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"][data-view=toetsResult]>.v3View-toetsResult{display:grid!important;grid-column:2/-1;grid-row:1/-1;grid-template-columns:minmax(0,1fr) minmax(320px,30%);grid-template-rows:auto auto minmax(0,1fr);
+  gap:0;margin:0!important;padding:0!important;width:auto;height:100%;max-height:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3View-toetsResult :is(.v3ToetsHead,.v3ToetsBody){display:contents!important}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsKaart{grid-column:1;grid-row:1/-1;margin:0!important;padding:0!important;min-height:0;background:transparent!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsScoreCard{grid-column:2;grid-row:1;align-self:start;justify-self:start;position:relative;margin:16vh 40px 0 8px!important;padding:0!important;display:block!important;width:auto!important;height:auto!important;
+  background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important;border-radius:0}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsLabel{display:block;margin:0 0 12px;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--v3-accent-press)}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsScore{margin:0;font:800 52px/1.05 var(--v3-font);color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsTreat{position:absolute;left:100%;top:8px;width:56px;height:56px;margin-left:8px}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsSide{grid-column:2;grid-row:2;align-self:start;margin:28px 40px 0 8px!important;padding:0!important;width:auto!important;height:auto!important;
+  background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsActions{gap:12px}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsTiles>*{background:#fff!important;border:0!important;border-radius:16px!important;box-shadow:0 6px 18px rgba(40,25,80,.10)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino{grid-column:2;grid-row:3;align-self:stretch;justify-self:end;display:flex;align-items:flex-end;min-height:0;height:auto;margin:16px 24px 0 0;overflow:hidden}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino :is(figure,img){height:100%;max-height:100%;width:auto;min-height:0;object-fit:contain;object-position:50% 100%}
+}
+
+/* Narrow desktop (1280–1439): a slightly narrower sidebar and card column, so the map keeps its share
+   (design-critic BL-029 r3: map first). Nino keeps 184×200. */
+@media (min-width:1280px) and (max-width:1439px){
+ .v3Reis[data-menu="1"]{--zij:224px;--kol1:328px;--rechts:minmax(300px,26%)}
+ .v3Reis[data-menu="1"]>.v3Side{padding:24px 16px 20px}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(224px - var(--v3-frame-m));--v3-side:calc(224px - var(--v3-frame-m))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .v3ShellNav{width:224px!important}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:224px;right:auto;width:max(calc((100vw - 224px) * .66),781px)}
+}
+/* === 10. iPad landscape (1024–1279): the sidebar as an icon rail; same layers; narrower card column. === */
+@media (min-width:1024px) and (max-width:1279px){
+ .v3Reis[data-menu="1"]{--zij:84px;--kol1:330px;--rechts:minmax(260px,28%);--m1-top:64px}
+ .v3Reis[data-menu="1"]>.v3Side{padding:20px 10px 16px}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Portrait{width:60px;height:64px;margin:14px auto}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand b{font-size:20px}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand .v3Flag{width:40px}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem{justify-content:center;padding:0}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Settings{align-self:center}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3CardTitle{font-size:40px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font-size:40px}
+ .v3Reis[data-menu="1"][data-view=toets]>.v3View-toets{grid-template-columns:540px minmax(0,1fr)}
+ .v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{grid-template-columns:320px minmax(0,1fr)}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RidePizza{flex-basis:72px;width:72px!important;height:72px!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideArt{width:130px}
+ .v3Reis[data-menu="1"][data-view=oefenen]>.v3View-oefenen{grid-template-columns:400px minmax(0,1fr)}
+ .v3Reis[data-menu="1"] .v3OefPanel .v3Chip{font-size:14px}
+ .v3Reis[data-menu="1"] :is(.v3VgTitleBar>h1){font-size:40px}
+}
+/* === 11. Reduced transparency / more contrast: workspace and sidebar opaque, no blur, no fade. === */
+@media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
+ .v3Reis[data-menu="1"]::before{background:#fcfaf6;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
+ .v3Reis[data-menu="1"]>.v3Side::after{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
+}
+/* === 12. Local glow: none (BL-032, 19-11). With the new backgrounds every free text passes AA without a glow on all
+   3 backgrounds × 6 sizes × 7 screens (lowest 1.15× the requirement: BG-03 overview/chapter). Before, with the old
+   backgrounds, BG-03/BG-01/BG-02 needed a radial glow behind the free block. === */
+/* === Menu 2 (the fallback, TOPO_V3_MENU='2'): loose panels in milk glass, values from the BL-029 brief (render
+   "Menu 2"): white .55 with a 3% lavender tint, blur 32 saturate 1.3, inset top light .7, 1 px white .6 edge, radius 24.
+   Through the glass tokens, so every panel of the BL-016d model takes them. === */
+.v3Reis[data-menu="2"],body[data-v3-menu="2"],body[data-v3-menu="2"] .v3{--glas-boven:.55;--glas-onder:.55;
+ --glas-paneel:linear-gradient(rgba(253,252,255,.55),rgba(253,252,255,.55));--glas-blur:blur(32px) saturate(1.3);
+ --glas-rand:inset 0 0 0 1px rgba(255,255,255,.6),inset 0 1px 0 rgba(255,255,255,.7);--glas-radius:24px}
+/* Menu 2 under reduced transparency / more contrast: opaque, no blur (as ui.css section 12). */
+@media (min-width:768px) and (prefers-reduced-transparency:reduce),(min-width:768px) and (prefers-contrast:more){
+ .v3Reis[data-menu="2"],body[data-v3-menu="2"],body[data-v3-menu="2"] .v3{--glas-paneel:var(--v3-surface);--glas-blur:none;--v3-glass-strong:var(--v3-surface)}
+}
+
+/* === BL-029 A (Dennis iMac 15-11: "niet-transparante mistplaten"): no blur scrims, no card on a card. === */
+@media (min-width:1024px){
+ /* Modals: a plain dim behind, never a blurred veil; the sheet itself is an opaque card without blur. */
+ body[data-v3-menu="1"] dialog::backdrop{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(42,36,64,.32)!important}
+ body[data-v3-menu="1"] :is(.ninoSettings,#mapPicker){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ body[data-v3-menu="1"] .ninoSettings{background:#fff!important;box-shadow:0 24px 60px rgba(40,25,80,.22)!important}
+ /* Settings groups: sections of the one sheet (a hairline between), not cards inside the card. */
+ body[data-v3-menu="1"] .ninoSettings .ninoSettingsGroup{background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding-left:0!important;padding-right:0!important}
+ body[data-v3-menu="1"] .ninoSettings .ninoSettingsGroup+.ninoSettingsGroup{border-top:1px solid rgba(42,36,64,.08)!important}
+ /* Lesson: the pizza meter is part of the one lesson card (no card inside it). */
+ body.v3Les[data-v3-menu="1"] aside.panel #ninoMeter{background:transparent!important;box-shadow:none!important;border:0!important;border-top:1px solid rgba(42,36,64,.08)!important;border-radius:0!important}
+ body[data-v3-menu="1"] :is(#focusAnswerSheet,.v3RideSkip){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+}
+
+/* === BL-017 (Dennis iMac 15-11): settings buttons — a quiet hover tint (no jump), a short pressed state, and the
+   "✓ Bewaard" confirmation after a choice. Active nav item bold (700) on every screen. === */
+@media (min-width:768px){
+ .ninoSettings .v3Btn,.ninoSettings button{transition:background-color .15s ease,box-shadow .15s ease}
+ @media (hover:hover){.ninoSettings .v3Btn:not([aria-pressed=true]):hover,.ninoSettings button:not([aria-pressed=true]):not(.v3Saved):hover{background:rgba(91,69,224,.06)!important}}
+ .ninoSettings .v3Btn:active,.ninoSettings button:active{background:rgba(91,69,224,.12)!important;box-shadow:inset 0 1px 2px rgba(40,25,80,.12)!important;transform:none!important}
+ .ninoSettings .v3Saved{display:inline-block;margin-left:10px;font:600 13px/1 var(--v3-font);color:#2f7d4a;opacity:0;transition:opacity .2s ease}
+ .ninoSettings .v3Saved.on{opacity:1}
+ :is(.v3Reis,.v3ShellNav) .v3Side .v3NavItem[aria-current=page]{font-weight:700!important}
+}
+
+/* === BL-022 / BL-018 (Dennis iMac 15-11) === */
+/* The book art never stretches (cover on Beloningen, the pages in the Reisboekje). */
+.v3Rewards .v3CoverArt,#travelBook .folioPaper{object-fit:contain!important}
+/* The Reisboekje opens centred: header, book and footer together in the middle (on a tall screen the book sat at the
+   bottom, 295 px below its header: the header had a vertical auto margin). */
+#travelBook[open] :is(.bookHeader,.bookShell,.bookFooter){margin-top:0!important;margin-bottom:0!important} /* the header's auto margin pushed the book down */
+/* BL-018: the answer panel in a lesson (Les and Oefenen) at most 560 px wide; the lesson bar above it the same, both on
+   the right edge, so they stay one card (on 1920/2560 they grew to 894/1274 px). */
+@media (min-width:1024px){
+ body.v3Les:not([data-focus-shell=true]) aside.panel{max-width:560px;justify-self:end;width:100%}
+ body.v3Les:not([data-focus-shell=true]) .v3LesBar{max-width:560px;left:auto!important}
+}
+
+/* === BL-032: new backgrounds (19-11). The old BG-01 crop (ui.css: 150%, 100% 35%) was for the previous Tuscany image. === */
+/* Focal point per background (1080/1440/2560, cover): the calm middle of each image lies behind the map; the busy edges
+   (flowers bottom-left, lemons top-right) fall under the sidebar or at the edge. Measured: AA without glow everywhere. */
+body:is(.v3Home,.v3Les)[data-v3-background=bg01]{background-size:cover;background-position:50% 55%}
+body:is(.v3Home,.v3Les)[data-v3-background=bg02]{background-size:cover;background-position:50% 55%}
+body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;background-position:50% 55%}
+/* BL-034 P0.4: Voortgang shows exactly the Reis chapter list (same rows, same card, same width); no visible scrollbar. */
+.v3Reis[data-menu="1"] .v3Rows{scrollbar-width:none}
+.v3Reis[data-menu="1"] .v3Rows::-webkit-scrollbar{display:none}
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"] .v3VgSide .v3VgRows{display:grid;align-content:start;margin:0;list-style:none;overflow:auto;min-height:0;max-height:none}
+ .v3Reis[data-menu="1"] .v3VgSide .v3Card>h2{margin:0 0 14px 4px}
+}
+/* BL-034 P0.5: Kennis-paspoort per chapter — the whole row is the toggle, a 20 px chevron turns when open. */
+.v3Reis[data-menu="1"] .v3Pas{display:flex;flex-direction:column}
+.v3Reis[data-menu="1"] .v3PasItem+.v3PasItem{border-top:1px solid rgba(42,36,64,.08)}
+.v3Reis[data-menu="1"] .v3PasHead{display:grid;grid-template-columns:minmax(0,1fr) auto 20px;align-items:center;gap:12px;width:100%;min-height:52px;padding:0 8px;border:0;border-radius:12px;background:transparent;font:600 16px/1.25 var(--v3-font);color:var(--v3-ink);text-align:left;cursor:pointer}
+@media (hover:hover){.v3Reis[data-menu="1"] .v3PasHead:hover{background:rgba(91,69,224,.06)}}
+.v3Reis[data-menu="1"] .v3PasCount{font:500 14px/1 var(--v3-font);color:#5d5873;white-space:nowrap}
+.v3Reis[data-menu="1"] .v3PasChev{width:20px;height:20px;position:relative}
+.v3Reis[data-menu="1"] .v3PasChev::before{content:"";position:absolute;left:5px;top:3px;width:8px;height:8px;border:solid var(--v3-ink);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);transition:transform .15s ease}
+.v3Reis[data-menu="1"] .v3PasHead[aria-expanded=true] .v3PasChev::before{transform:translate(0,4px) rotate(-135deg)}
+.v3Reis[data-menu="1"] .v3PasBody{width:100%;border-collapse:collapse;margin:0 0 10px;font:500 14px/1.3 var(--v3-font);color:var(--v3-ink)}
+.v3Reis[data-menu="1"] .v3PasBody th,.v3Reis[data-menu="1"] .v3PasBody td{padding:6px 8px;text-align:left;border-top:1px solid rgba(42,36,64,.06)}
+.v3Reis[data-menu="1"] .v3PasBody thead th{font:600 13px/1 var(--v3-font);color:#5d5873;border-top:0}
+.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓ ";color:#2f7d4a}
+/* BL-034 P0.6: Nino on the test result is never cut. The figure and image take exactly the free height under the actions
+   (scaled, not clipped); with less than 160 px free (a long list of mistakes) Nino is left out instead of shown in half. */
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino{overflow:visible!important;container-type:size;min-height:0;justify-self:stretch!important;width:auto!important}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino figure{height:100%!important;width:100%!important;max-width:100%;aspect-ratio:auto!important;margin:0;overflow:visible!important;display:flex;align-items:flex-end;justify-content:flex-end}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino img{height:auto!important;max-height:100%!important;width:auto!important;max-width:100%!important;object-fit:contain}
+ @container (max-height:160px){.v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino figure{display:none!important}}
+}
+
+/* BL-034 P0.7: the welcome/profile dialog (V2 nino-profile.css) in the V3 palette instead of the dark pine green: chosen
+   pizza = lavender with a violet ring (was yellow + green), favourite, status and hint text, focus rings, submit. */
+.ninoProfile.v3 .profileChoice:has(:checked){background:var(--v3-accent-soft)!important;box-shadow:inset 0 0 0 3px var(--v3-accent)!important}
+.ninoProfile.v3 .profileChoice:has(:focus-visible),.ninoProfile.v3 :focus-visible{outline-color:var(--v3-accent)!important}
+.ninoProfile.v3 [data-profile-favorite]{color:var(--v3-accent-press)!important}
+.ninoProfile.v3 [data-profile-status]{color:var(--v3-accent-press)!important}
+.ninoProfile.v3 small{color:#5d5873!important}
+.ninoProfile.v3 .profileActions [type="submit"]{background:var(--v3-accent)!important;color:#fff!important}
+.ninoProfile.v3 .profileActions [type="submit"]{border-color:transparent!important;box-shadow:0 10px 24px rgba(91,60,200,.28)!important}
+body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+
+/* BL-034 P1.8 (BL-014 F5): chapter markers as numbered drop pins (tip on the place). Fill by mastery in 5 steps,
+   white → lavender → dark violet; white number from step 3 (AA ≥ 5.4). The active chapter has a violet ring. */
+.v3Map .v3Markers .v3Marker{cursor:pointer}
+.v3Map .v3Markers .v3Marker .v3MarkerPin{stroke:#fff;stroke-width:2;filter:drop-shadow(0 3px 5px rgba(40,25,80,.28));fill:#fff}
+.v3Map .v3Markers .v3Marker[data-step="1"] .v3MarkerPin{fill:#ebe7fd}
+.v3Map .v3Markers .v3Marker[data-step="2"] .v3MarkerPin{fill:#c9bff8}
+.v3Map .v3Markers .v3Marker[data-step="3"] .v3MarkerPin{fill:#6a52e0}
+.v3Map .v3Markers .v3Marker[data-step="4"] .v3MarkerPin{fill:#3f2aa8}
+.v3Map .v3Markers .v3Marker text{font:700 15px/1 var(--v3-font);fill:var(--v3-ink);pointer-events:none}
+.v3Map .v3Markers .v3Marker:is([data-step="3"],[data-step="4"]) text{fill:#fff}
+.v3Map .v3Markers .v3Marker .v3MarkerRing{fill:none;stroke:var(--v3-accent);stroke-width:3.5}
+.v3Map .v3Markers .v3Marker.sel .v3MarkerRing,.v3Map .v3Markers .v3Marker.sel .v3MarkerPin{stroke:var(--v3-accent);stroke-width:3}
+
+/* BL-034 P1.9 (BL-014 F6): chapter landmarks — one size, focusable, 1.15x + name in a white pill on hover/focus. */
+.v3Map .v3Landmarks .v3Lm{cursor:default;outline:none}
+.v3Map .v3Landmarks .v3Lm>image,.v3Map .v3Landmarks .v3Lm>.v3Badge{transform-box:fill-box;transform-origin:50% 100%;transition:transform .12s ease}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible)>image,.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible)>.v3Badge{transform:scale(1.15)}
+.v3Map .v3Landmarks .v3Lm:focus-visible>.v3Badge{stroke:var(--v3-accent);stroke-width:2.5}
+.v3Map .v3Landmarks .v3LmLabel{opacity:0;pointer-events:none;transition:opacity .12s ease}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible) .v3LmLabel{opacity:1}
+.v3Map .v3Landmarks .v3LmLabel rect{fill:#fff;filter:drop-shadow(0 2px 6px rgba(40,25,80,.22))}
+.v3Map .v3Landmarks .v3LmLabel text{font:600 13px/1 var(--v3-font);fill:var(--v3-ink)}
+.v3Map .v3Landmarks .v3Lm,.v3Map .v3Landmarks .v3Lm>image,.v3Map .v3Landmarks .v3Lm>.v3Badge{pointer-events:auto!important}
+
+/* BL-034 P1.10: Toets instellen — the chosen material on a free map, a violet "?" on every place that will be tested. */
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetupStage{grid-column:2;grid-row:1;position:relative;min-height:0;height:100%;margin:0}
+ .v3Reis[data-menu="1"] .v3ToetsSetupStage>svg{width:100%;height:100%;display:block}
+}
+.v3Map .v3Quiz .v3QuizMark circle{fill:var(--v3-accent);stroke:#fff;stroke-width:2.5;filter:drop-shadow(0 2px 4px rgba(40,25,80,.3))}
+.v3Map .v3Quiz .v3QuizMark text{font:800 15px/1 var(--v3-font);fill:#fff}
+
+/* BL-034 P1.11: Beloningen — Nino (NINO-GOLD) free on the scene to the right of the book, never cut. */
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{grid-template-columns:340px minmax(0,1fr) minmax(0,.7fr)}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino{grid-column:3;grid-row:1/-1;align-self:end;justify-self:center;display:flex;align-items:flex-end;height:min(62vh,560px);margin:0 24px 24px 0;min-width:0}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino{justify-self:stretch!important;justify-content:center}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino figure{height:100%!important;width:100%!important;display:flex;align-items:flex-end;justify-content:center;margin:0;background:none;box-shadow:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino img{max-height:100%!important;max-width:100%!important;width:auto!important;height:auto!important;object-fit:contain}
+}
+@media (min-width:1024px) and (max-width:1279px){.v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{grid-template-columns:320px minmax(0,1fr) minmax(0,.6fr)}}
+
+/* BL-034 P1.12: background picker — an image button beside the gear (both free at the bottom, on the scene) and a small
+   popover with 3 thumbnails (96x54), the active one with a violet ring. */
+.v3Side .v3SideFoot{margin-top:auto;display:flex;gap:8px;align-items:center}
+.v3Side .v3SideFoot .v3Settings{margin-top:0!important}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3BgBtn{width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3BgBtn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (min-width:1024px) and (max-width:1279px){.v3Side .v3SideFoot{flex-direction:column;align-self:center}}
+.v3BgPop{position:fixed;z-index:80;display:flex;gap:10px;padding:10px;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(40,25,80,.22)}
+.v3BgPop[hidden]{display:none}
+.v3BgPop .v3BgThumb{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px;border:0;border-radius:12px;background:transparent;font:600 13px/1 var(--v3-font);color:var(--v3-ink);cursor:pointer;min-height:44px}
+.v3BgPop .v3BgThumb img{display:block;width:96px;height:54px;border-radius:9px;object-fit:cover;box-shadow:0 0 0 1px rgba(42,36,64,.12)}
+.v3BgPop .v3BgThumb[aria-pressed=true] img{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--v3-accent)}
+@media (hover:hover){.v3BgPop .v3BgThumb:hover{background:rgba(91,69,224,.06)}}
+.v3BgPop .v3BgThumb:focus-visible{outline:3px solid var(--v3-accent);outline-offset:2px}

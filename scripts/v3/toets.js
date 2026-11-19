@@ -80,8 +80,29 @@
   panel.append(h,sh.field('Hoofdstukken',chapters,'v3ToetsHoofdstukken'),sh.field('Vorm',forms,'v3ToetsVorm'),
    sh.field('Lengte',choice(lens,v=>pick.length===v,v=>{pick.length=v;}),'v3ToetsLengte'),start);
   const nino=make('div','v3ToetsSetupNino');nino.setAttribute('aria-hidden','true');try{nino.append(V.pose?V.pose('NINO-SCHRIJFT','guide','exam-setup'):TopoArt.create(document,{role:'guide'},'exam-setup'));}catch{}
+  // BL-034 P1.10 (Menu 1): instead of Nino, a map of the chosen material with a violet "?" on every place that will be
+  // tested; it follows the selection. One map clone, built once and reused (a clone costs a long frame on iPad).
+  if(V.menu==='1'){const stage=make('div','v3ToetsSetupStage');stage.setAttribute('aria-hidden','true');view.replaceChildren(panel,stage);quizMap(stage,poolFor(ids));return;}
   view.replaceChildren(panel,nino);
  });
+ let setupMap=null;
+ function quizMap(stage,pool){
+  if(!setupMap){setupMap=V.cloneMap('v3ts-','v3Map');if(!setupMap)return;setupMap.classList.add('v3ToetsSetupMap');V.addIsland(setupMap,'v3ts-');setupMap.dataset.kaart='eiland';setupMap.dataset.relief='on';setupMap.dataset.frame='italy';}
+  stage.append(setupMap);
+  const NS='http://www.w3.org/2000/svg';
+  const draw=()=>{V.fit(setupMap);requestAnimationFrame(()=>{
+   const vb=setupMap.viewBox.baseVal,r=setupMap.getBoundingClientRect();if(!r.width||!vb?.width)return;const k=Math.max(vb.width/r.width,vb.height/r.height);
+   let g=setupMap.querySelector(':scope>.v3Quiz');if(!g){g=document.createElementNS(NS,'g');g.setAttribute('class','v3Quiz');g.setAttribute('pointer-events','none');setupMap.append(g);}
+   g.replaceChildren();
+   for(const it of pool){const n=setupMap.querySelector('[data-id="'+it.id+'"]');if(!n)continue;let x,y;
+    if(n.tagName==='circle'){x=+n.getAttribute('cx');y=+n.getAttribute('cy');}else{const b=n.getBBox();x=b.x+b.width/2;y=b.y+b.height/2;}
+    if(!isFinite(x)||!isFinite(y))continue;
+    const q=document.createElementNS(NS,'g');q.setAttribute('class','v3QuizMark');q.setAttribute('transform','translate('+x+' '+y+') scale('+k+')');
+    q.innerHTML='<circle r="12"/><text y="5" text-anchor="middle">?</text>';g.append(q);}
+  });};
+  requestAnimationFrame(draw);
+  if('ResizeObserver' in window&&!stage._ro){stage._ro=new ResizeObserver(draw);stage._ro.observe(stage);}
+ }
 
  /* The toets: V2 runs it. resetExam takes its pool from groupItems(); for this one call V3 hands it the chosen,
     shuffled and shortened pool. Grading, mistakes, skills and the daily goal stay V2. */

@@ -13,7 +13,8 @@
   v3test:'<rect x="7" y="5.5" width="18" height="23" rx="3"/><rect x="12" y="3.5" width="8" height="4" rx="1.5"/><path d="m11.5 17.5 3 3 6-6.5"/>',
   v3trophy:'<path d="M10 4.5h12V12a6 6 0 0 1-12 0z"/><path d="M10 7.5H5.5V9a4.5 4.5 0 0 0 4.5 4.5M22 7.5h4.5V9a4.5 4.5 0 0 1-4.5 4.5M16 18v4.5M11 27.5h10M12.5 27.5c0-2.8 1.6-5 3.5-5s3.5 2.2 3.5 5"/>',
   v3progress:'<path d="M4.5 27.5h23"/><rect x="6.5" y="17" width="4.5" height="10.5" rx="1"/><rect x="13.75" y="11" width="4.5" height="16.5" rx="1"/><rect x="21" y="5" width="4.5" height="22.5" rx="1"/>',
-  v3gear:'<circle cx="16" cy="16" r="4"/><path d="m16 3.5 2.1 3.1 3.6-1 1 3.6 3.1 2.1-1.6 3.4 1.6 3.4-3.1 2.1-1 3.6-3.6-1-2.1 3.1-2.1-3.1-3.6 1-1-3.6-3.1-2.1 1.6-3.4-1.6-3.4 3.1-2.1 1-3.6 3.6 1z"/>',
+  v3image:'<rect x="4" y="6.5" width="24" height="19" rx="3"/><circle cx="11" cy="12.5" r="2.3"/><path d="m5 23.5 7.5-7 5 4.5 4-3.5 6.5 6"/>', // BL-034: background picker
+  v3gear:'<circle cx="16" cy="16" r="3.8"/><path d="M13.57 6.92 L13.95 3.77 L18.05 3.77 L18.43 6.92 L20.70 7.86 L23.20 5.90 L26.10 8.80 L24.14 11.30 L25.08 13.57 L28.23 13.95 L28.23 18.05 L25.08 18.43 L24.14 20.70 L26.10 23.20 L23.20 26.10 L20.70 24.14 L18.43 25.08 L18.05 28.23 L13.95 28.23 L13.57 25.08 L11.30 24.14 L8.80 26.10 L5.90 23.20 L7.86 20.70 L6.92 18.43 L3.77 18.05 L3.77 13.95 L6.92 13.57 L7.86 11.30 L5.90 8.80 L8.80 5.90 L11.30 7.86z"/>', // BL-017: symmetric gear, 8 straight teeth (was a zigzag that read as crooked)
   // Forms (R-oefenen-ijk): Ontdekken = binoculars · Aanwijzen = crosshair · Namen schrijven = pencil · Slim rondje = shuffle.
   v3discover:'<circle cx="9" cy="21" r="5"/><circle cx="23" cy="21" r="5"/><path d="M14 20.5h4M4.5 19 8 8h3.5l1 8.5M27.5 19 24 8h-3.5l-1 8.5"/>',
   v3point:'<circle cx="16" cy="16" r="9"/><circle cx="16" cy="16" r="1.8"/><path d="M16 3.5V8M16 24v4.5M3.5 16H8M24 16h4.5"/>',
@@ -22,6 +23,7 @@
   // Actions and status.
   v3play:'<path d="M10.5 7v18l14-9z"/>',
   v3arrow:'<path d="M5 16h21M18.5 8.5 26 16l-7.5 7.5"/>',
+  v3back:'<path d="M27 16H6M13.5 8.5 6 16l7.5 7.5"/>',
   v3again:'<path d="M25.5 16a9.5 9.5 0 1 1-2.8-6.7M25.5 5.5v5h-5"/>',
   v3checkmark:'<path d="m9 16.5 4.6 4.6L23 11.5"/>',
   v3check:'<circle cx="16" cy="16" r="11.5"/><path d="m10.5 16.5 3.7 3.7 7.3-8"/>',

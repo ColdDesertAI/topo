@@ -1,5 +1,5 @@
 import{assertPreserved,restoreApprovedArea}from'./ipad-update-source.mjs';
-import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{execFileSync}from'node:child_process';import{JSDOM,VirtualConsole}from'jsdom';import{withoutFocus}from'./focus-source.mjs';
+import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{execFileSync}from'node:child_process';import{JSDOM,VirtualConsole}from'jsdom';import{withoutFocus}from'./focus-source.mjs';import{restoreExamReward}from'./map-hit-source.mjs';
 const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root)),base='fc8f5be4dc77c8b1adb71aae3931a1c134389cf5',html=read('index.html').toString();
 function boot(){const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));const dom=new JSDOM(html,{url:'https://focus.test/',runScripts:'dangerously',virtualConsole:vc,beforeParse(w){w.HTMLElement.prototype.scrollIntoView=()=>{};w.scrollTo=()=>{};w.confirm=()=>true;w.HTMLDialogElement.prototype.showModal=function(){this.open=true};w.HTMLDialogElement.prototype.close=function(){this.open=false}}});return{w:dom.window,d:dom.window.document,ev:s=>dom.window.eval(s),errors,close:()=>dom.window.close()};}
 const settle=()=>new Promise(r=>setTimeout(r,10));
@@ -17,7 +17,7 @@ test('P0 iPad hotfix preserves verified PR39 teaching, rewards and source outsid
  assert.equal(newHit.slice(0,newHit.indexOf('// Layout uses only')),oldHit.slice(0,oldHit.indexOf('function openMapPicker')));
  const handler="$('#map').addEventListener('click'";assert.equal(newHit.slice(newHit.indexOf(handler)),oldHit.slice(oldHit.indexOf(handler)));
  assert(html.includes(newHit),'exact reviewed chooser source embedded');
- let normalized=withoutFocus(html.replace(newHit,oldHit)).replaceAll(newArea,oldArea);
+ let normalized=withoutFocus(restoreExamReward(html).replace(newHit,oldHit)).replaceAll(newArea,oldArea);
  assert.ok(normalized.includes(newAtlas),'new Kaartstijl source is embedded');
  assert.ok(normalized.includes(newAtlasCss),'new Kaartstijl CSS is embedded');
  normalized=normalized.replace(newAtlas,oldAtlas).replace(newAtlasCss,oldAtlasCss);
