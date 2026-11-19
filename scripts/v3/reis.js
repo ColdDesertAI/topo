@@ -181,10 +181,18 @@
  }
  // BL-029 (Menu 1): on the overview each chapter is one numbered marker (white circle, 36 px; the selected one violet);
  // no pins or landmarks there. The chapter page keeps the real places with pins.
+ // BL-029: the free chapter block on the clear right (kicker, title with segments, the button) as screen rects, + 8 px.
+ let m1Wide=null; // chapter id whose pins needed the wide reserve on the chapter page
+ function freeBlock(){return ['.v3Panel .v3CardKicker','.v3Panel .v3CardHead','.v3Panel .v3Actions','.v3Panel .v3Locked'].map(q=>root.querySelector(q)).filter(e=>e&&e.getClientRects().length)
+  .map(e=>{const r=e.getBoundingClientRect();return [r.left-8,r.top-8,r.right+8,r.bottom+8];}).filter(r=>r[2]-r[0]>16&&r[3]-r[1]>16);}
  function decorate(svg,k){
   const g=svg.querySelector('.v3Markers');if(g)g.replaceChildren();
   if(svg===mapClone&&m1Overview()){drawMarkers(svg,k);svg.querySelector('.v3Pins')?.replaceChildren();window.TopoV3Landmarks?.(svg,k,true);return;}
   drawPins(svg,k);window.TopoV3Landmarks?.(svg,k);
+  // Chapter page: a pin under the free text cannot move; then this chapter (only) gets the wide reserve and refits.
+  if(svg===mapClone&&MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&m1Wide!==ui.selected){const ob=freeBlock();
+   const hit=[...svg.querySelectorAll('.v3Pins .v3Pin')].some(p=>{const r=p.getBoundingClientRect();return ob.some(o=>r.left<o[2]&&o[0]<r.right&&r.top<o[3]&&o[1]<r.bottom);});
+   if(hit){m1Wide=ui.selected;requestAnimationFrame(()=>{reserve();fit(svg);});}}
  }
  // One anchor per chapter, in map units: among the chapter's own places inside Italy's box, the one farthest from the
  // anchors already placed (so the city chapters do not stack), ties to the place nearest the chapter's centre.
@@ -214,8 +222,15 @@
   // apart along the line between them (a few px; each marker stays at its chapter's place).
   const pos={};for(const c of ROUTE_CHAPTERS)if(a[c.id])pos[c.id]=[...a[c.id]];
   const ids=Object.keys(pos),min=40*k;
+  const inv=svg.getScreenCTM?.()?.inverse(),toMap=(x,y)=>{const q=new DOMPoint(x,y).matrixTransform(inv);return [q.x,q.y];};
+  const obst=inv?freeBlock().map(r=>{const a=toMap(r[0],r[1]),b=toMap(r[2],r[3]);return [Math.min(a[0],b[0]),Math.min(a[1],b[1]),Math.max(a[0],b[0]),Math.max(a[1],b[1])];}):[];
+  const rad=20*k;
   for(let it=0;it<30;it++){let moved=false;for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++){const p=pos[ids[i]],q=pos[ids[j]];let dx=q[0]-p[0],dy=q[1]-p[1],d=Math.hypot(dx,dy);
-    if(d>=min)continue;if(d<1e-6){dx=1;dy=0;d=1;}const push=(min-d)/2+.01;p[0]-=dx/d*push;p[1]-=dy/d*push;q[0]+=dx/d*push;q[1]+=dy/d*push;moved=true;}if(!moved)break;}
+    if(d>=min)continue;if(d<1e-6){dx=1;dy=0;d=1;}const push=(min-d)/2+.01;p[0]-=dx/d*push;p[1]-=dy/d*push;q[0]+=dx/d*push;q[1]+=dy/d*push;moved=true;}
+    // out of the free text block: to the nearest point outside the rect (+ radius), mostly to its left
+    for(const id of ids){const p=pos[id];for(const o of obst){const cx=Math.max(o[0],Math.min(p[0],o[2])),cy=Math.max(o[1],Math.min(p[1],o[3]));let dx=p[0]-cx,dy=p[1]-cy,d=Math.hypot(dx,dy);
+     if(d>=rad)continue;if(d<1e-6){p[0]=o[0]-rad-.01;moved=true;continue;}p[0]+=dx/d*(rad-d+.01);p[1]+=dy/d*(rad-d+.01);moved=true;}}
+    if(!moved)break;}
   ROUTE_CHAPTERS.forEach((c,i)=>{const p=pos[c.id];if(!p)return;
    const m=document.createElementNS(SVGNS,'g');m.setAttribute('class','v3Marker');m.dataset.chapter=c.id;
    if(c.id===ui.selected)m.classList.add('on');
@@ -294,9 +309,9 @@
    Object.assign(probe.style,{position:'absolute',visibility:'hidden',pointerEvents:'none',left:'0',top:'0',width:panel.getBoundingClientRect().width+'px'});panel.after(probe);
    try{for(const c of m.chapters){renderPanel(m,c,probe);hMax=Math.max(hMax,probe.getBoundingClientRect().height);}}finally{probe.remove();}}
   // BL-029 Menu 1: the map runs under the free chapter block; Italy keeps clear of most of the block's width.
-  if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width+16)+'px');
+  if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width*.6)+'px');
   // Chapter page (Menu 1): the panel is display:contents; its free block is the head's column.
-  else if(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead');stage.style.setProperty('--v3-fit-right',Math.round((h?.getBoundingClientRect().width||360)+16)+'px');}
+  else if(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead'),w=h?.getBoundingClientRect().width||360;stage.style.setProperty('--v3-fit-right',Math.round(m1Wide===ui.selected?w+16:w*.6)+'px');}
   else stage.style.removeProperty('--v3-fit-right');
   stage.style.setProperty('--v3-fit-bottom',over?Math.round(Math.max(hMax,panel.getBoundingClientRect().height)+24)+'px':'0px');};
  if('ResizeObserver' in window){const ro=new ResizeObserver(()=>{reserve();if(mapClone)fit(mapClone);});ro.observe(stage);ro.observe(panel);}

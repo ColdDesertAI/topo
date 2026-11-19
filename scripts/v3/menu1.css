@@ -266,6 +266,15 @@
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:84px;right:calc((100vw - 84px) * .28)}
 }
 
+/* Narrow desktop (1280–1439): a slightly narrower sidebar and card column, so the map keeps its share
+   (design-critic BL-029 r3: map first). Nino keeps 184×200. */
+@media (min-width:1280px) and (max-width:1439px){
+ .v3Reis[data-menu="1"]{--zij:224px;--kol1:328px;--rechts:minmax(300px,26%)}
+ .v3Reis[data-menu="1"]>.v3Side{padding:24px 16px 20px}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(224px - var(--v3-frame-m));--v3-side:calc(224px - var(--v3-frame-m))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .v3ShellNav{width:224px!important}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:224px;right:calc((100vw - 224px) * .28)}
+}
 /* === 10. iPad landscape (1024–1279): the sidebar as an icon rail; same layers; narrower card column. === */
 @media (min-width:1024px) and (max-width:1279px){
  .v3Reis[data-menu="1"]{--zij:84px;--kol1:330px;--rechts:minmax(260px,28%);--m1-top:64px}

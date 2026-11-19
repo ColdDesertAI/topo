@@ -59,7 +59,9 @@ const probe=()=>{
   if(r)boxes.push({e,r,t:e.textContent.trim().slice(0,18)});}
  for(const e of buttons){const r=e.getBoundingClientRect();boxes.push({e,r,t:'['+e.textContent.trim().slice(0,14)+']',btn:true});}
  for(const c of scope.querySelectorAll('.v3Markers .v3Marker circle')){if(!vis(c))continue;boxes.push({e:c,r:c.getBoundingClientRect(),t:'marker '+(c.parentNode.textContent||'').trim()});}
+ for(const g of scope.querySelectorAll('.v3MapStage .v3Pins .v3Pin')){if(!vis(g))continue;boxes.push({e:g,r:g.getBoundingClientRect(),t:'pin',pin:true});}
  const over=[];for(let i=0;i<boxes.length;i++)for(let j=i+1;j<boxes.length;j++){const a=boxes[i],b=boxes[j];if(a.e.contains(b.e)||b.e.contains(a.e))continue;
+  if(a.pin&&b.pin)continue;
   const x=Math.min(a.r.right,b.r.right)-Math.max(a.r.left,b.r.left),y=Math.min(a.r.bottom,b.r.bottom)-Math.max(a.r.top,b.r.top);
   if(x>2&&y>2&&!(a.btn&&b.btn&&a.e.parentElement===b.e.parentElement&&false))over.push(a.t+' × '+b.t+' ('+Math.round(x)+'×'+Math.round(y)+')');}
  const wide=document.scrollingElement.scrollWidth>innerWidth+1;
@@ -68,7 +70,8 @@ const probe=()=>{
   if(ps&&(c.content==='none'||c.display==='none'))continue;const f=c.backdropFilter||c.webkitBackdropFilter;if(f&&f!=='none'){blur++;blurred.push((e.className||e.tagName)+(ps||''));}}}
  const portrait=[...document.querySelectorAll('.v3Reis .v3Side .v3Portrait,.v3ShellNav .v3Portrait')].find(vis);const pr=portrait?portrait.getBoundingClientRect():null;
  const pas=document.querySelector('.v3View-voortgang details.mastery');
- return {small,lowBtn,over,wide,blur,blurred,nino:pr?Math.round(pr.width)+'×'+Math.round(pr.height):null,paspoortOpen:pas?pas.open:null};
+ const it=document.querySelector('.v3MapStage .v3Map .italy');const ir=it&&vis(it)?it.getBoundingClientRect():null;const mapShare=ir?+(ir.width*ir.height/(innerWidth*innerHeight)).toFixed(3):null;
+ return {small,lowBtn,over,wide,blur,blurred,nino:pr?Math.round(pr.width)+'×'+Math.round(pr.height):null,paspoortOpen:pas?pas.open:null,mapShare};
 };
 // Contrast, two ways per text box:
 //   p5   backdrop: the text hidden, the pixels under it against the text colour (5th percentile);
@@ -153,8 +156,11 @@ for(const [W,H] of SIZES)for(const bg of BGS){
   if(r.blur>3)fail(where,'blur op '+r.blur+' elementen: '+r.blurred.join(', '));
   const wc=W<1280?'ipad':'desktop';(nino[wc]??=new Set()).add(r.nino);
   if(screen==='voortgang'&&r.paspoortOpen!==false)fail(where,'Kennis-paspoort niet ingeklapt');
+  // Map first (design-critic BL-029 r3): Italy's box ≥ 25% of the screen on the overview and the chapter page.
+  // (2560: the layout does not scale up yet — BL-032; reported, not a failure here.)
+  if((screen==='overzicht'||screen==='hoofdstuk')&&W<2400&&!(r.mapShare>=.25))fail(where,'kaart te klein: '+r.mapShare);
   const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}
-  table.push({where,blur:r.blur,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
+  table.push({where,map:r.mapShare,blur:r.blur,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
  }
  if(errors.length)fail(`${W}×${H} ${bg}`,'page errors: '+errors.join(' | '));
  await p.close();
@@ -165,6 +171,7 @@ let f=null;if(args.has('--fps'))f=await fps(b);
 await b.close();
 const blurPer={};for(const t of table){const s=t.where.split(' ').pop();blurPer[s]=Math.max(blurPer[s]||0,t.blur);}
 console.log('blur (max per scherm):',JSON.stringify(blurPer));
+console.log('kaartaandeel (overzicht):',table.filter(t=>t.where.endsWith('overzicht')).map(t=>t.where.split(' ').slice(0,2).join(' ')+' '+t.map).join(' · '));
 console.log('nino:',JSON.stringify(Object.fromEntries(Object.entries(nino).map(([k,v])=>[k,[...v]]))));
 console.log('AA (laagste p5/eis per scherm, ≥ 1 = ok):',table.filter(t=>t.aaMin!==null).map(t=>t.where+' '+t.aaMin).join(' · '));
 if(f)console.log('fps:',JSON.stringify(f));
