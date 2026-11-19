@@ -116,7 +116,7 @@ async function lessonResult(b,W,H){
  const where=`les-resultaat ${W}×${H}`;
  // Blur during a lesson question (≤ 3); Nino the same size as on the other screens.
  const q=await p.evaluate(probe);if(q.blur>3)fail(`les-vraag ${W}×${H}`,'blur op '+q.blur+': '+q.blurred.join(', '));
- if(q.nino!==(W<1280?'60×64':'184×200'))fail(`les-vraag ${W}×${H}`,'Nino '+q.nino);
+ if(q.nino!==(W<1280?'60×64':'140×152'))fail(`les-vraag ${W}×${H}`,'Nino '+q.nino);
  for(let i=0;i<80;i++){if(await p.locator('#finishScreen').count())break;
   await p.evaluate(()=>{try{grade(true);}catch{}try{next();}catch{}});await p.waitForTimeout(40);}
  await p.waitForTimeout(700);

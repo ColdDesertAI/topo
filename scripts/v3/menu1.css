@@ -1,4 +1,7 @@
-/* TOPO V3 menu1.css (BL-029): composition after render "Menu 1" (docs/v3/renders/Menu 1.png, Dennis 16-11). Loaded after ui.css.
+/* BL-034 (Dennis 19-11): workspace .60 with a smooth fade to the right (no knee) and lighter downwards; sidebar .55,
+   blur 20, fading from 30% to 85% of its height so the scene shows below the nav — never above the nav's bottom (560 px):
+   on short screens (768/800) the lower nav items otherwise sat in the fade and missed AA.
+   TOPO V3 menu1.css (BL-029): composition after render "Menu 1" (docs/v3/renders/Menu 1.png, Dennis 16-11). Loaded after ui.css.
    Not loose glass panels but ONE workspace with a horizontal fade: dense on the left (behind the one card), clear on the
    right so the scene stays bright. Layers, back to front: scene (body) → workspace (.v3Reis::before) → sidebar (fixed,
    matte glass, fading at the bottom) → at most one card (what must be read or filled in) → map, titles, illustrations
@@ -17,9 +20,9 @@
   background:none;box-shadow:none;border:0;border-radius:0}
  .v3Reis[data-menu="1"]:not([data-view=reis]){grid-template-columns:var(--zij) minmax(0,1fr)}
  /* Workspace: one layer from the sidebar to the right edge. No border, no shadow. */
- .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:calc((100% - var(--zij)) * .28);pointer-events:none;
-  background:rgba(252,250,246,.72);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%)}
+ .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:auto;width:max(calc((100% - var(--zij)) * .66),781px);pointer-events:none; /* never narrower than at 1440 (781 px): the same gentle slope on smaller screens */
+  background:rgba(252,250,246,.60);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);mask-composite:intersect}
  .v3Reis[data-menu="1"]>*{position:relative;z-index:1}
  /* No glass anywhere else: the old panel glass and blur step aside on every screen. */
  .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup,.v3Book,.v3Ride,.v3Tiles,.v3Tile,.v3VgTitleBar,.v3VgRow,.v3VgTile,.v3VgHead,.v3VgLegend,.v3Field.v3Card,.v3Top,.v3Panel,.v3Rows,.v3MapStage),
@@ -31,13 +34,13 @@
  .v3Reis[data-menu="1"]>.v3Side{grid-column:1;grid-row:1/-1;z-index:2;margin:0;border-radius:0;padding:28px 20px 22px;height:auto;
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  .v3Reis[data-menu="1"]>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
-  background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 80px),transparent calc(100% - 12px));mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 80px),transparent calc(100% - 12px))}
+  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px))}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand{align-items:center}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand b{font:800 36px/1 var(--v3-font);letter-spacing:.02em}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand .v3Flag{width:64px;height:6px}
- /* Nino: one size on every screen (BL-029 criterion 3). */
- :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Portrait{width:184px;height:200px;max-height:none;margin:18px auto 22px;flex:0 0 auto;border-radius:0;background:none;overflow:hidden;display:block}
+ /* Nino: one size on every screen (BL-029 criterion 3); BL-034: 140×152 (was 184×200). */
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Portrait{width:140px;height:152px;max-height:none;margin:16px auto 20px;flex:0 0 auto;border-radius:0;background:none;overflow:hidden;display:block}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 10%;margin:0}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavList{gap:6px;margin:0}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem{min-height:52px;padding:0 16px;gap:16px;border-radius:14px;font:500 18px/1.2 var(--v3-font);color:var(--v3-ink);background:transparent}
@@ -255,17 +258,17 @@
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side{position:relative;isolation:isolate;height:100%;width:100%;margin:0;border-radius:0;padding:28px 20px 22px;box-sizing:border-box;
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
-  background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 80px),transparent calc(100% - 12px));mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 80px),transparent calc(100% - 12px))}
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:calc((100vw - 256px) * .28);width:auto;pointer-events:none;
-  background:rgba(252,250,246,.72);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%)}
+  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:auto;width:max(calc((100vw - 256px) * .66),781px);width:auto;pointer-events:none;
+  background:rgba(252,250,246,.60);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
+  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);mask-composite:intersect}
 }
 @media (min-width:1024px) and (max-width:1279px){
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(84px - var(--v3-frame-m));--v3-side:calc(84px - var(--v3-frame-m))}
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .v3ShellNav{width:84px!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side{padding:20px 10px 16px}
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:84px;right:calc((100vw - 84px) * .28)}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:84px;right:auto;width:max(calc((100vw - 84px) * .66),781px)}
 }
 
 /* === Lesson (BL-029 check 19-11): max. one card — the lesson bar and the question panel read as ONE card (the 24 px
@@ -306,7 +309,7 @@
  .v3Reis[data-menu="1"]>.v3Side{padding:24px 16px 20px}
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(224px - var(--v3-frame-m));--v3-side:calc(224px - var(--v3-frame-m))}
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .v3ShellNav{width:224px!important}
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:224px;right:calc((100vw - 224px) * .28)}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{left:224px;right:auto;width:max(calc((100vw - 224px) * .66),781px)}
 }
 /* === 10. iPad landscape (1024–1279): the sidebar as an icon rail; same layers; narrower card column. === */
 @media (min-width:1024px) and (max-width:1279px){
