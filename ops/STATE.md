@@ -19,12 +19,11 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-**BL-029 Menu 1: G1-PAKKET KLAAR (19-11, HEAD op branch).** Eén werkruimte met verloop op alle schermen en in de les (`scripts/v3/menu1.css`, terugval `TOPO_V3_MENU='2'`). **Contactsheet: `ops/reports/BL-029-G1.webp`** (1440/2560/1080 × BG-01/02/03, overzicht + hoofdstuk naast `docs/v3/renders/Menu 1.png`, lesresultaat 1440/2560).
-- **Oordelen:** design-critic r5 **GO-voorstel** (`ops/reports/design-BL-029.md`); evaluator r3 PASS op crit. 2, 3, 5, 6 en Grenzen, **FAIL alleen crit. 4 (fps)** (`ops/reports/eval-BL-029.md`). QA `qa-v3-menu1.mjs` 0 fouten (6 maten incl. 1366×768 × 3 BG × 6 schermen, les, lesresultaat op 4 maten); `qa-v3-glas2` (Menu 2) groen; lint en test 0.
-- **Controle tegen opdracht (19-11, r8 `9110269`):** ontbrak/afwijkend en nu gebouwd: les met max. één kaart (lesbalk + vraag als één kaart, atlas vrij), toetsuitslag zonder glas (score/acties vrij rechts), Menu 2-terugval met de melkglaswaarden uit de brief (qa-v3-glas2 groen). Bewust afwijkend: zijbalkfade in px i.p.v. 62→92% (AA in de nav), titel 40 px op iPad-liggend, werkruimte eindigt op 72% (zelfde beeld). Na r8 geen nieuwe design/evaluator-ronde.
-- **Gemeten:** blur 2 per scherm, 1 in de les; Nino 184×200 overal (iPad 60×64); paspoort dicht; kaart Italië 30–32% van het scherm op 1080–1440 (1920 26%, 2560 15% = BL-033).
-- **Besluit Dennis nodig (G1):** (1) GO op Menu 1; (2) fps-criterium: schermwissel 32–52 fps bij CPU 4× (Menu 2: 17–50; zonder de ene lange frame 54–58), scrollen 59–60 → accepteren en oplossen in BL-031, of eerst BL-031.
-- **Daarna:** BL-032 zodra de nieuwe BG-bestanden op main staan (19-11: nog gelijk). Niet mergen naar main; G4 bij Dennis.
+**BL-029 Menu 1: G1-PAKKET KLAAR (19-11).** `ops/reports/BL-029-G1.webp` (Reis-overzicht + hoofdstuk, 1440/2560/1080 × BG-01/02/03 naast Menu 1, lesresultaat) en `ops/reports/BL-029-G1-schermen.webp` (Oefenen kiezen/les, Toets instellen/vraag, Beloningen, Reisboekje open, Voortgang, Instellingen; 1440/1080 × 3 BG). Design-critic r5 GO-voorstel; evaluator r3: alles PASS behalve fps.
+- **Indeling iMac-feedback 15-11:** A (geen mistplaten op alle schermen) klaar · B vóór G4 klaar: BL-017 `622e55b`, BL-022 + BL-018-deel `0b3c62c` · C = BL-014 F5–F8 (contract klaar, bouwen na G4) · D = BL-018-rest (route 3 pizza's + Vespa in mist, na G4).
+- **BL-032 klaar:** nieuwe BG-01/02/03 (main `64fc294`), brandpunt 50% 55%; zonder gloed haalt alles AA (laagste 1,15× de eis), dus de gloed is weg. BG-04–07 staan in de repo, niet geïntegreerd.
+- **QA:** `qa-v3-menu1.mjs` 0 fouten (6 maten × 3 BG × 7 schermen + les/lesresultaat), `qa-v3-glas2` (Menu 2) groen, lint 0. Blur 2 per scherm; Nino 184×200; paspoort dicht; kaart 30–32% op 1080–1440.
+- **Besluit Dennis (G1):** GO op Menu 1; fps schermwissel 32–52 bij CPU 4× → accepteren + BL-031, of eerst BL-031. Niet mergen naar main; G4 bij Dennis.
 - **BL-028 klaar (16-11, PASS):** een toets geeft geen pizzapunten/ritten/goud meer, het dagdoel telt wel. Gevolg voor BL-004b (night/2026-11-16): `IPAD_TEST.md` gaat ervan uit dat de Toets ritten geeft; ritten komen nu alleen uit Oefenen/Les.
 - **Nachtscript (op deze branch, `454c203`):** bij een limiet wachten tot reset + 2 min en hervatten tot 07:00; Codex-flags uit `codex exec --help`. Werkt pas na een PR naar `main` (akkoord Dennis). Nodig: uitvoer van `codex exec --help` op de Mac mini.
 
