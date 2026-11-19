@@ -452,3 +452,11 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
 .v3Map .v3Landmarks .v3LmLabel rect{fill:#fff;filter:drop-shadow(0 2px 6px rgba(40,25,80,.22))}
 .v3Map .v3Landmarks .v3LmLabel text{font:600 13px/1 var(--v3-font);fill:var(--v3-ink)}
 .v3Map .v3Landmarks .v3Lm,.v3Map .v3Landmarks .v3Lm>image,.v3Map .v3Landmarks .v3Lm>.v3Badge{pointer-events:auto!important}
+
+/* BL-034 P1.10: Toets instellen — the chosen material on a free map, a violet "?" on every place that will be tested. */
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetupStage{grid-column:2;grid-row:1;position:relative;min-height:0;height:100%;margin:0}
+ .v3Reis[data-menu="1"] .v3ToetsSetupStage>svg{width:100%;height:100%;display:block}
+}
+.v3Map .v3Quiz .v3QuizMark circle{fill:var(--v3-accent);stroke:#fff;stroke-width:2.5;filter:drop-shadow(0 2px 4px rgba(40,25,80,.3))}
+.v3Map .v3Quiz .v3QuizMark text{font:800 15px/1 var(--v3-font);fill:#fff}
