@@ -424,3 +424,14 @@ body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;backgroun
  .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino img{height:auto!important;max-height:100%!important;width:auto!important;max-width:100%!important;object-fit:contain}
  @container (max-height:160px){.v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino figure{display:none!important}}
 }
+
+/* BL-034 P0.7: the welcome/profile dialog (V2 nino-profile.css) in the V3 palette instead of the dark pine green: chosen
+   pizza = lavender with a violet ring (was yellow + green), favourite, status and hint text, focus rings, submit. */
+.ninoProfile.v3 .profileChoice:has(:checked){background:var(--v3-accent-soft)!important;box-shadow:inset 0 0 0 3px var(--v3-accent)!important}
+.ninoProfile.v3 .profileChoice:has(:focus-visible),.ninoProfile.v3 :focus-visible{outline-color:var(--v3-accent)!important}
+.ninoProfile.v3 [data-profile-favorite]{color:var(--v3-accent-press)!important}
+.ninoProfile.v3 [data-profile-status]{color:var(--v3-accent-press)!important}
+.ninoProfile.v3 small{color:#5d5873!important}
+.ninoProfile.v3 .profileActions [type="submit"]{background:var(--v3-accent)!important;color:#fff!important}
+.ninoProfile.v3 .profileActions [type="submit"]{border-color:transparent!important;box-shadow:0 10px 24px rgba(91,60,200,.28)!important}
+body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
