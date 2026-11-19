@@ -416,3 +416,11 @@ body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;backgroun
 .v3Reis[data-menu="1"] .v3PasBody th,.v3Reis[data-menu="1"] .v3PasBody td{padding:6px 8px;text-align:left;border-top:1px solid rgba(42,36,64,.06)}
 .v3Reis[data-menu="1"] .v3PasBody thead th{font:600 13px/1 var(--v3-font);color:#5d5873;border-top:0}
 .v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓ ";color:#2f7d4a}
+/* BL-034 P0.6: Nino on the test result is never cut. The figure and image take exactly the free height under the actions
+   (scaled, not clipped); with less than 160 px free (a long list of mistakes) Nino is left out instead of shown in half. */
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino{overflow:visible!important;container-type:size;min-height:0;justify-self:stretch!important;width:auto!important}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino figure{height:100%!important;width:100%!important;max-width:100%;aspect-ratio:auto!important;margin:0;overflow:visible!important;display:flex;align-items:flex-end;justify-content:flex-end}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino img{height:auto!important;max-height:100%!important;width:auto!important;max-width:100%!important;object-fit:contain}
+ @container (max-height:160px){.v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsNino figure{display:none!important}}
+}
