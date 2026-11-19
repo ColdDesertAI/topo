@@ -445,10 +445,10 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
 /* BL-034 P1.9 (BL-014 F6): chapter landmarks — one size, focusable, 1.15x + name in a white pill on hover/focus. */
 .v3Map .v3Landmarks .v3Lm{cursor:default;outline:none}
 .v3Map .v3Landmarks .v3Lm>image,.v3Map .v3Landmarks .v3Lm>.v3Badge{transform-box:fill-box;transform-origin:50% 100%;transition:transform .12s ease}
-.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible)>image,.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible)>.v3Badge{transform:scale(1.15)}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover)>image,.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover)>.v3Badge{transform:scale(1.15)}
 .v3Map .v3Landmarks .v3Lm:focus-visible>.v3Badge{stroke:var(--v3-accent);stroke-width:2.5}
 .v3Map .v3Landmarks .v3LmLabel{opacity:0;pointer-events:none;transition:opacity .12s ease}
-.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible) .v3LmLabel{opacity:1}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover) .v3LmLabel{opacity:1}
 .v3Map .v3Landmarks .v3LmLabel rect{fill:#fff;filter:drop-shadow(0 2px 6px rgba(40,25,80,.22))}
 .v3Map .v3Landmarks .v3LmLabel text{font:600 13px/1 var(--v3-font);fill:var(--v3-ink)}
 .v3Map .v3Landmarks .v3Lm,.v3Map .v3Landmarks .v3Lm>image,.v3Map .v3Landmarks .v3Lm>.v3Badge{pointer-events:auto!important}
@@ -538,3 +538,11 @@ body.v3On:not([data-focus-mode=true]) .focusCameraTools{display:none!important}
  .v3Reis[data-menu="1"] .v3VgOverview:has(.v3VgPas){height:auto;min-height:100%;align-content:start}
  .v3Reis[data-menu="1"] .v3VgSide:has(.v3VgPas),.v3Reis[data-menu="1"] .v3VgSide:has(.v3VgPas)>.v3Card{max-height:none;height:auto;align-self:start}
 }
+/* === BL-035.3 (live 19-11): chapter icons (config assets/v3/landmarks/chapter-icons.json) in a light lavender circle;
+   hover/focus light violet and 1.1× around the circle's centre; the name below in a white pill. === */
+.v3Map .v3Landmarks .v3Lm .v3LmIcon{transform-box:view-box;transform-origin:0 0;transition:transform .12s ease}
+.v3Map .v3Landmarks .v3Lm .v3LmIcon>.v3Badge{fill:#ebe7fd;stroke:#fff;stroke-width:1.5;filter:drop-shadow(0 2px 4px rgba(42,36,64,.22));transition:fill .12s ease}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover) .v3LmIcon{transform:translate(var(--cx),var(--cy)) scale(1.1) translate(calc(-1 * var(--cx)),calc(-1 * var(--cy)))}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover) .v3LmIcon>.v3Badge{fill:#c9bff8}
+.v3Map .v3Landmarks .v3Lm:focus-visible .v3LmIcon>.v3Badge{stroke:var(--v3-accent,#5b45e0);stroke-width:2.5}
+@media (prefers-reduced-motion:reduce){.v3Map .v3Landmarks .v3Lm .v3LmIcon{transition:none}}

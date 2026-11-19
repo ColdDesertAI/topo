@@ -1,0 +1,71 @@
+{
+  "about": "BL-035.3 (Dennis 19-11): which existing landmark/lifestyle icon (assets/v3/landmarks, TOPO_01–16) stands at which real place of each chapter, on the chapter page and in Oefenen. Edit freely: chapter id → list of {place: item id of that chapter, icon: TOPO_xx}. 4–5 per chapter; none for Landen and Zeeën. The same icon may return in several chapters; several icons may share a place (they are set apart automatically, the anchor stays on the place). The build checks every entry.",
+  "icons": {
+    "TOPO_01": "Colosseum", "TOPO_02": "Scheve toren", "TOPO_03": "Vesuvius", "TOPO_04": "Etna", "TOPO_05": "Gondel",
+    "TOPO_06": "Dom", "TOPO_07": "Dom", "TOPO_08": "Nuraghe", "TOPO_09": "Bergen", "TOPO_10": "Trulli",
+    "TOPO_11": "Ferrari", "TOPO_12": "Stadion", "TOPO_13": "IJsje", "TOPO_14": "Strand", "TOPO_15": "Pasta", "TOPO_16": "Fiat 500"
+  },
+  "chapters": {
+    "city1": [
+      {"place": "city-1", "icon": "TOPO_10"},
+      {"place": "city-2", "icon": "TOPO_15"},
+      {"place": "city-3", "icon": "TOPO_07"},
+      {"place": "city-5", "icon": "TOPO_06"},
+      {"place": "city-6", "icon": "TOPO_03"}
+    ],
+    "city2": [
+      {"place": "city-7", "icon": "TOPO_13"},
+      {"place": "city-8", "icon": "TOPO_02"},
+      {"place": "city-9", "icon": "TOPO_01"},
+      {"place": "city-10", "icon": "TOPO_16"},
+      {"place": "city-11", "icon": "TOPO_05"}
+    ],
+    "city3": [
+      {"place": "city-14", "icon": "TOPO_08"},
+      {"place": "city-15", "icon": "TOPO_04"},
+      {"place": "city-16", "icon": "TOPO_13"},
+      {"place": "city-17", "icon": "TOPO_10"},
+      {"place": "city-18", "icon": "TOPO_14"}
+    ],
+    "city4": [
+      {"place": "city-19", "icon": "TOPO_04"},
+      {"place": "city-20", "icon": "TOPO_11"},
+      {"place": "city-21", "icon": "TOPO_14"},
+      {"place": "city-22", "icon": "TOPO_09"},
+      {"place": "city-23", "icon": "TOPO_13"}
+    ],
+    "islands": [
+      {"place": "area-a", "icon": "TOPO_04"},
+      {"place": "area-a", "icon": "TOPO_13"},
+      {"place": "area-b", "icon": "TOPO_08"},
+      {"place": "area-b", "icon": "TOPO_14"}
+    ],
+    "mountains": [
+      {"place": "area-d", "icon": "TOPO_09"},
+      {"place": "area-d", "icon": "TOPO_13"},
+      {"place": "area-c", "icon": "TOPO_09"},
+      {"place": "area-c", "icon": "TOPO_15"}
+    ],
+    "volcanoes": [
+      {"place": "area-e", "icon": "TOPO_03"},
+      {"place": "area-e", "icon": "TOPO_15"},
+      {"place": "area-f", "icon": "TOPO_04"},
+      {"place": "area-f", "icon": "TOPO_13"}
+    ],
+    "regions": [
+      {"place": "area-g", "icon": "TOPO_06"},
+      {"place": "area-g", "icon": "TOPO_11"},
+      {"place": "area-g", "icon": "TOPO_15"},
+      {"place": "area-h", "icon": "TOPO_07"},
+      {"place": "area-h", "icon": "TOPO_02"}
+    ],
+    "rivers": [
+      {"place": "water-F", "icon": "TOPO_01"},
+      {"place": "water-F", "icon": "TOPO_13"},
+      {"place": "water-G", "icon": "TOPO_16"},
+      {"place": "water-G", "icon": "TOPO_15"}
+    ],
+    "countries": [],
+    "seas": []
+  }
+}

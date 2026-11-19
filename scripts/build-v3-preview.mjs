@@ -97,6 +97,14 @@ const LS=lmLocations.lifestyle,lsPlaces=Object.fromEntries(Object.entries(LS.pla
 for(const [cid,list] of Object.entries(LS.chapters))for(const [id,place] of list)if(!lifestyle.some(a=>a.id===id)||!lsPlaces[place])throw Error('Bad lifestyle entry '+cid+' '+id+' '+place);
 v3art.lifestyle={items:lifestyle.map(a=>({id:a.id,label:a.label,exports:Object.fromEntries(Object.entries(a.exports).map(([size,e])=>[size,{...e,src:uri(e,a.id+' '+size)}]))})),
  chapters:Object.fromEntries(Object.entries(LS.chapters).map(([cid,list])=>[cid,list.map(([id,place])=>({id,place,point:lsPlaces[place]}))]))};
+// BL-035.3: chapter icons — ONE config (chapter → place → icon), checked here: known chapter, a place of that
+// chapter, an existing icon (TOPO_01–16), 4–5 per chapter, none for Landen and Zeeën.
+const chapterIcons=JSON.parse(read('assets/v3/landmarks/chapter-icons.json')),iconIds=new Set([...activeLandmarks,...lifestyle].map(a=>a.id));
+for(const [cid,list] of Object.entries(chapterIcons.chapters)){const places=CHAPTER_ITEMS[cid];if(!places)throw Error('chapter-icons: unknown chapter '+cid);
+ const none=cid==='countries'||cid==='seas';if(none?list.length:(list.length<4||list.length>5))throw Error('chapter-icons: '+cid+' has '+list.length+' icons');
+ for(const e of list){if(!places.includes(e.place))throw Error('chapter-icons: '+e.place+' is not a place of '+cid);if(!iconIds.has(e.icon))throw Error('chapter-icons: unknown icon '+e.icon);}}
+for(const id of Object.keys(CHAPTER_ITEMS))if(!(id in chapterIcons.chapters))throw Error('chapter-icons: chapter missing '+id);
+v3art.chapterIcons={icons:chapterIcons.icons,chapters:chapterIcons.chapters};
 v3art.landmarks={source:landmarks.source,basisSet:lmLocations.relevance.basisSet,items:activeLandmarks.map(a=>{
  const item=a.location.canonicalItemId&&canonicalItems.find(i=>i.id===a.location.canonicalItemId);
  const coordinates=item?[item.lon,item.lat]:a.location.coordinates;
