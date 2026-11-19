@@ -355,3 +355,17 @@
 @media (min-width:768px) and (prefers-reduced-transparency:reduce),(min-width:768px) and (prefers-contrast:more){
  .v3Reis[data-menu="2"],body[data-v3-menu="2"],body[data-v3-menu="2"] .v3{--glas-paneel:var(--v3-surface);--glas-blur:none;--v3-glass-strong:var(--v3-surface)}
 }
+
+/* === BL-029 A (Dennis iMac 15-11: "niet-transparante mistplaten"): no blur scrims, no card on a card. === */
+@media (min-width:1024px){
+ /* Modals: a plain dim behind, never a blurred veil; the sheet itself is an opaque card without blur. */
+ body[data-v3-menu="1"] dialog::backdrop{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(42,36,64,.32)!important}
+ body[data-v3-menu="1"] :is(.ninoSettings,#mapPicker){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ body[data-v3-menu="1"] .ninoSettings{background:rgba(255,255,255,.97)!important;box-shadow:0 24px 60px rgba(40,25,80,.22)!important}
+ /* Settings groups: sections of the one sheet (a hairline between), not cards inside the card. */
+ body[data-v3-menu="1"] .ninoSettings .ninoSettingsGroup{background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding-left:0!important;padding-right:0!important}
+ body[data-v3-menu="1"] .ninoSettings .ninoSettingsGroup+.ninoSettingsGroup{border-top:1px solid rgba(42,36,64,.08)!important}
+ /* Lesson: the pizza meter is part of the one lesson card (no card inside it). */
+ body.v3Les[data-v3-menu="1"] aside.panel #ninoMeter{background:transparent!important;box-shadow:none!important;border:0!important;border-top:1px solid rgba(42,36,64,.08)!important;border-radius:0!important}
+ body[data-v3-menu="1"] :is(#focusAnswerSheet,.v3RideSkip){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+}
