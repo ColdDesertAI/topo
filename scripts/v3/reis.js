@@ -77,7 +77,7 @@
   if(bgPop&&!bgPop.hidden&&bgOpener===opener){closeBgPicker();return;}
   const T=V3ART?.bgThumbs;if(!T)return;
   if(!bgPop){bgPop=make('div','v3BgPop v3');bgPop.setAttribute('role','dialog');bgPop.setAttribute('aria-label','Kies een achtergrond');bgPop.hidden=true;document.body.append(bgPop);
-   for(const [k,label] of [['bg01','Toscane'],['bg02','Meer'],['bg03','Kust']]){const b=btn('',e=>{e.stopPropagation();window.TOPO_V3.background.set(k);mark();},'v3BgThumb');b.dataset.background=k;
+   for(const [k,label] of [['bg01','Toscane'],['bg02','Meer'],['bg03','Zee']]){const b=btn('',e=>{e.stopPropagation();window.TOPO_V3.background.set(k);mark();},'v3BgThumb');b.dataset.background=k;
     const im=make('img');im.src=T[k];im.alt='';im.width=96;im.height=54;b.append(im,make('span',null,label));b.setAttribute('aria-label','Achtergrond '+label);bgPop.append(b);}
    document.addEventListener('click',e=>{if(bgPop&&!bgPop.hidden&&!bgPop.contains(e.target)&&!e.target.closest?.('.v3BgBtn'))closeBgPicker();});
    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bgPop&&!bgPop.hidden){e.preventDefault();closeBgPicker(true);}});}

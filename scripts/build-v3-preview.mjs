@@ -62,7 +62,7 @@ const entries=new Map([['topo-italie-v3',JSON.stringify(chosen.progress)],...(ch
   for(const [id,s] of Object.entries(S)){const a=document.createElement('a');a.href='#'+id+tail;a.textContent=s.title;if(s===chosen)a.setAttribute('aria-current','page');bar.append(a);}
   for(const t of ['italia','viola']){const a=document.createElement('a');a.href='#'+(S[key]?key:'bezig')+(t==='italia'?'/italia':'')+(bgKey!=='bg03'?'/'+bgKey:'');a.textContent=t==='viola'?'Viola':'Italia';if(t===th)a.setAttribute('aria-current','page');a.className='v3Theme';bar.append(a);}
   // Background (render assets): BG-03 standard, BG-01 and BG-02 as alternatives.
-  for(const [k,label] of [['bg01','BG-01 Toscane'],['bg02','BG-02 Meer'],['bg03','BG-03 Kust']]){const a=document.createElement('a');a.href='#'+(S[key]?key:'bezig')+(th==='italia'?'/italia':'')+(k!=='bg03'?'/'+k:'');a.textContent=label;if(k===bgKey)a.setAttribute('aria-current','page');a.className='v3Bg';bar.append(a);}
+  for(const [k,label] of [['bg01','BG-01 Toscane'],['bg02','BG-02 Meer'],['bg03','BG-03 Zee']]){const a=document.createElement('a');a.href='#'+(S[key]?key:'bezig')+(th==='italia'?'/italia':'')+(k!=='bg03'?'/'+k:'');a.textContent=label;if(k===bgKey)a.setAttribute('aria-current','page');a.className='v3Bg';bar.append(a);}
   const side=document.createElement('a');side.href='#naast-'+(S[key]?key:'bezig')+tail;side.textContent='Naast elkaar: desktop + telefoon';bar.append(side);
   const pairA=document.createElement('a');pairA.href='#thema-'+(S[key]?key:'bezig');pairA.textContent='Italia + Viola';bar.append(pairA);
   if(window.top!==window)bar.hidden=true;
