@@ -106,3 +106,41 @@ Eigen run met `--fps`: exit 1 (alleen de 5 fps-fouten), verder "0 fouten". Het s
 ## Les
 
 Een AA-meting die tekst transparant maakt, ziet geen lagen die bóven de tekst liggen. Meet het gerenderde contrast (de screenshot met tekst tegen die zonder) op elk scherm waar een nieuwe vaste of `z-index`-laag bij komt. Meet ook de les en het resultaat, niet alleen de hoofdschermen.
+
+---
+
+# Ronde 2 (commit `b570854`, 19-11)
+
+Herbouwd (sha256 `9fd743cf…`). Alles hieronder is eigen meting, plus een controlerun van de QA-scripts.
+- Gemeten: 6 maten (1280×800, 1366×768, 1440, 1920, 2560, 1080) × 3 BG × 6 schermen. Daarnaast het lesresultaat op 1280, 1366, 1440, 2560 en 1080.
+- Ook: een marker/kaart-sweep over 11 maten en fps (2 runs per menu).
+
+VERDICT: **FAIL** (resten: fps, plus de lesbalk-overlap en AA op 1280/1366 bij een lage schermhoogte)
+
+| # | Criterium | Resultaat | Bewijs |
+|---|---|---|---|
+| 2 | Screenshots × 3 BG | **PASS** (bewijs; oordeel G1) | Kaart ≈ 31% op 1440 (568×697), 30–33% op 1280–1680, 25,7% op 1920, 14,5% op 2560 (BL-033). Markers: 0 overlap met het vrije blok, de tellers of de kaartknoppen, en geen marker op een marker, op alle 11 maten × BG-01/03, overzicht en hoofdstuk (ook 1280×720, 1280×800 en 1366×768) |
+| 3 | Lesresultaat 1440/2560, Nino, paspoort | **PASS** | De werkruimte ligt niet meer over de kaart: gerenderd contrast "6" 13,5 en "Volgende les" 5,86 (gelijk aan Menu 2). De lesbalk ligt boven de kaart (−14 px op 1440 en −24 px op 2560, dus geen overlap). Nino is 184×200 in les en resultaat (iPad 60×64). Paspoort dicht op 108/108 metingen |
+| 4 | FPS ≥ 50 en blur ≤ 3 | **FAIL** | Blur: 2 op alle schermen, 2 in de les (1 op iPad); OK. FPS bij een schermwissel, 1080×810 CPU 4×: hoofdstuk 47–49, Oefenen 34–36, Toets 51–52, Beloningen 48–50, Voortgang 35–38, Reis 32–33. Zonder de langste frame 54–58. Voortgang scrollen 59–60. Menu 2 haalt dezelfde orde. Eerlijk gerapporteerd, maar ≥ 50 is niet gehaald (BL-031 is een besluit voor Dennis, geen PASS) |
+| 5 | AA, ≥ 13 px, knoppen ≥ 44 | **FAIL** (klein) | Op 1440/1920/2560/1080 en 1280×800: 0 fouten op de 6 schermen en het resultaat. Restfouten op 1366×768: (a) in de les heeft het zijbalklabel "Voortgang" p5 3,37, omdat het in de vervaging onderaan valt (het mask begint 190 px boven de onderrand); (b) op BG-02 Voortgang heeft de titel "Voortgang" p5 2,34 (grote tekst, eis 3) en "plekken" 3,7 |
+| 6 | Lint en test | **PASS** | Lint 0. `npm test` exit 0 (66/66) |
+| G | Grenzen | **FAIL** | De lesbalk overlapt de resultaatkaart nog op 1280×800 (285×86 px) en 1366×768 (351×118 px). De `margin-top`-fix werkt alleen bij een schermhoogte ≥ ~900. Blur, tekstmaat, knoppen en breedte zijn OK |
+
+**QA-scripts:**
+- `qa-v3-menu1.mjs` geeft exit 0 (zonder `--fps`). `qa-v3-glas2.mjs` (Menu 2) geeft exit 0.
+- De uitsluiting van sr-only tekst (geclipt, of ≤ 2 px) is niet te ruim: ik vond geen zichtbare tekst die erdoor wegvalt.
+- Restgaten in het script:
+  - Het lesresultaat wordt alleen op 1440 en 2560 gemeten, dus het mist de overlap op 1280/1366.
+  - De overlapcheck kijkt niet naar kaart tegen kaart (lesbalk × resultaat).
+  - 1366×768 zit niet in de set.
+  - Het telt 1 blur in de les, waar ik er 2 tel (`v3Shell::before` + `v3Side::after`). Beide liggen ≤ 3, dus dat telt niet mee voor het oordeel.
+
+**Menu 2-terugval:** werkt (overzicht, hoofdstuk, les en resultaat, zonder errors).
+
+**Om op PASS te komen:**
+1. Laat de lesbalk de resultaatkaart ook op 1280×800 en 1366×768 vrijlaten.
+2. Zorg dat de zijbalknavigatie in de les bij een schermhoogte ≤ 768 op dicht glas blijft.
+3. Los de Voortgang-titel op BG-02 1366 op (gloed of positie).
+4. Voor criterium 4: halen, of Dennis besluit het criterium te wijzigen of te splitsen (BL-031).
+
+**Buiten scope (één regel):** het vergrendelde lesstap-label "Namen schrijven" (opacity .6, 4,0 op 1080) en de kaart-glyph "▲" bestonden al en staan ook zo in Menu 2.
