@@ -19,11 +19,11 @@
       },
       "export": {
         "path": "assets/v3/render/exports/BG-01-toscane-2880.webp",
-        "bytes": 433106,
-        "sha256": "c07c938d990250fdcd3a370b90f74c7cb8d9a422f4b720dbeb5e93850309b9c0",
+        "bytes": 274412,
+        "sha256": "ae3a225751c657519e21e5e93f78e6d5bf5a91ec4649f12d7e9a703f33ff90d4",
         "size": [
           2880,
-          1800
+          1620
         ],
         "alpha": false
       }
@@ -197,11 +197,11 @@
       },
       "export": {
         "path": "assets/v3/render/exports/BG-02-meer-2880.webp",
-        "bytes": 321346,
-        "sha256": "939934b56be3406fa5a48717b900acea521f6f45674cce82b09993ca3630c660",
+        "bytes": 277788,
+        "sha256": "9f78b4a106fcaecbaf5f1d1b1a441c297e664452abc3375d8edce008da29ecd0",
         "size": [
           2880,
-          1800
+          1620
         ],
         "alpha": false
       }
@@ -222,11 +222,11 @@
       },
       "export": {
         "path": "assets/v3/render/exports/BG-03-kust-2880.webp",
-        "bytes": 452702,
-        "sha256": "b4a423ef64fdb58773aa99659ec23b58283b1cf96763f591d41d09eb6619f20b",
+        "bytes": 286436,
+        "sha256": "8e35e0826bd4d4793a1bad6e177136004fdacaaac03f85942d2c942bf311ad9f",
         "size": [
           2880,
-          1800
+          1620
         ],
         "alpha": false
       }

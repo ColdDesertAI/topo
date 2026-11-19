@@ -18,8 +18,11 @@ const OUT=process.env.QA_OUT||tmpdir(); // screenshots of the lesson result land
 const {chromium}=createRequire(import.meta.url)('playwright');
 const HTML='file://'+fileURLToPath(new URL('../output/html/TOPO-V3-Reis-Preview.html',import.meta.url));
 const args=new Set(process.argv.slice(2));
-const SIZES=args.has('--quick')?[[1440,900],[1080,810]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810]];
-const BGS=args.has('--quick')?['bg03']:['bg01','bg02','bg03'];
+// Env overrides for focal-point/glow studies (BL-032): QA_SIZES=1080x810,1440x900 · QA_BGS=bg01,bg03 · QA_NOGLOW=1 ·
+// QA_BGPOS='bg01:40% 50%;bg02:…' (body background-position per background).
+const envList=v=>v?v.split(',').map(x=>x.trim()).filter(Boolean):null;
+const SIZES=envList(process.env.QA_SIZES)?.map(x=>x.split('x').map(Number))||(args.has('--quick')?[[1440,900],[1080,810]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810]]);
+const BGS=envList(process.env.QA_BGS)||(args.has('--quick')?['bg03']:['bg01','bg02','bg03']);
 const SCREENS=['overzicht','hoofdstuk','oefenen','toets','toetsresultaat','rewards','voortgang'];
 // Free text per screen (no card under it): measured against the backdrop.
 const FREE={overzicht:['#v3ListTitle','.v3Panel .v3CardKicker','.v3Panel .v3CardTitle'],
@@ -35,6 +38,9 @@ const fails=[];const fail=(where,what)=>{fails.push(where+': '+what);};
 
 async function open(b,W,H,bg){
  const p=await b.newPage({viewport:{width:W,height:H}});const errors=[];p.on('pageerror',e=>errors.push(e.message));
+ if(process.env.QA_NOGLOW||process.env.QA_BGPOS)await p.addInitScript(([noglow,pos])=>{const css=(noglow?'.v3Panel::before,.v3CardHead::before,.v3VgTitleBar::before,.v3ToetsScoreCard::before{display:none!important}':'')+
+  (pos||'').split(';').filter(Boolean).map(x=>{const [k,v]=x.split(':');return 'body[data-v3-background='+k+']{background-position:'+v+'!important;background-size:cover!important}';}).join('');
+  addEventListener('DOMContentLoaded',()=>{const st=document.createElement('style');st.textContent=css;document.head.append(st);});},[process.env.QA_NOGLOW||'',process.env.QA_BGPOS||'']);
  await p.goto(HTML+'#bezig/'+bg);await p.waitForTimeout(1300);return {p,errors};
 }
 async function show(p,screen){

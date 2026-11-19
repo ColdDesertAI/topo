@@ -393,3 +393,6 @@
  body.v3Les:not([data-focus-shell=true]) aside.panel{max-width:560px;justify-self:end;width:100%}
  body.v3Les:not([data-focus-shell=true]) .v3LesBar{max-width:560px;left:auto!important}
 }
+
+/* === BL-032: new backgrounds (19-11). The old BG-01 crop (ui.css: 150%, 100% 35%) was for the previous Tuscany image. === */
+body.v3Home[data-v3-background=bg01]{background-size:cover;background-position:center}
