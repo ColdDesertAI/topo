@@ -403,3 +403,16 @@ body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;backgroun
  .v3Reis[data-menu="1"] .v3VgSide .v3VgRows{display:grid;align-content:start;margin:0;list-style:none;overflow:auto;min-height:0;max-height:none}
  .v3Reis[data-menu="1"] .v3VgSide .v3Card>h2{margin:0 0 14px 4px}
 }
+/* BL-034 P0.5: Kennis-paspoort per chapter — the whole row is the toggle, a 20 px chevron turns when open. */
+.v3Reis[data-menu="1"] .v3Pas{display:flex;flex-direction:column}
+.v3Reis[data-menu="1"] .v3PasItem+.v3PasItem{border-top:1px solid rgba(42,36,64,.08)}
+.v3Reis[data-menu="1"] .v3PasHead{display:grid;grid-template-columns:minmax(0,1fr) auto 20px;align-items:center;gap:12px;width:100%;min-height:52px;padding:0 8px;border:0;border-radius:12px;background:transparent;font:600 16px/1.25 var(--v3-font);color:var(--v3-ink);text-align:left;cursor:pointer}
+@media (hover:hover){.v3Reis[data-menu="1"] .v3PasHead:hover{background:rgba(91,69,224,.06)}}
+.v3Reis[data-menu="1"] .v3PasCount{font:500 14px/1 var(--v3-font);color:#5d5873;white-space:nowrap}
+.v3Reis[data-menu="1"] .v3PasChev{width:20px;height:20px;position:relative}
+.v3Reis[data-menu="1"] .v3PasChev::before{content:"";position:absolute;left:5px;top:3px;width:8px;height:8px;border:solid var(--v3-ink);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);transition:transform .15s ease}
+.v3Reis[data-menu="1"] .v3PasHead[aria-expanded=true] .v3PasChev::before{transform:translate(0,4px) rotate(-135deg)}
+.v3Reis[data-menu="1"] .v3PasBody{width:100%;border-collapse:collapse;margin:0 0 10px;font:500 14px/1.3 var(--v3-font);color:var(--v3-ink)}
+.v3Reis[data-menu="1"] .v3PasBody th,.v3Reis[data-menu="1"] .v3PasBody td{padding:6px 8px;text-align:left;border-top:1px solid rgba(42,36,64,.06)}
+.v3Reis[data-menu="1"] .v3PasBody thead th{font:600 13px/1 var(--v3-font);color:#5d5873;border-top:0}
+.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓ ";color:#2f7d4a}

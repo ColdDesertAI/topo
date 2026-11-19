@@ -95,6 +95,24 @@
   const pass=make('div','v3VgPaspoort');if(mastery){pass.append(mastery);
    // BL-029: passport() opens it to read its table; on screen the paspoort starts closed (the child opens it).
    mastery.open=false;}
+  // BL-034 (Menu 1): the paspoort per chapter — one row per chapter (whole row a button, chevron 20 px, aria-expanded)
+  // with "x van y beheerst"; it opens to the chapter's places with Vinden and Naam. Data: the V2 paspoort (pp).
+  // The V2 details element stays in the DOM (passport() reads it) but out of sight; Dennis could not find its toggle.
+  if(V.menu==='1'){
+   const acc=make('div','v3Pas');let k=0;
+   for(const c of ROUTE_CHAPTERS){const places=pp.filter(p=>c.itemIds.includes(p.item.id));if(!places.length)continue;k++;
+    const done=places.filter(p=>p.status==='beheerst').length,id='v3Pas-'+c.id;
+    const head=make('button','v3PasHead');head.type='button';head.setAttribute('aria-expanded','false');head.setAttribute('aria-controls',id);
+    const chev=make('span','v3PasChev');chev.setAttribute('aria-hidden','true');
+    head.append(make('span','v3PasName',c.title.replace(/^Extra steden/,'Steden')),make('span','v3PasCount',done+' van '+places.length+' beheerst'),chev);
+    const body=make('table','v3PasBody');body.id=id;body.hidden=true;
+    const hr=make('tr');hr.append(make('th',null,'Plek'),make('th',null,'Vinden'),make('th',null,'Naam'));const thead=make('thead');thead.append(hr);
+    const tb=make('tbody');for(const p of places){const tr=make('tr');tr.dataset.status=p.status;const th=make('th',null,p.item.name);th.scope='row';tr.append(th,make('td',null,p.find),make('td',null,p.name));tb.append(tr);}
+    body.append(thead,tb);
+    head.addEventListener('click',()=>{const open=head.getAttribute('aria-expanded')!=='true';head.setAttribute('aria-expanded',String(open));body.hidden=!open;});
+    const item=make('div','v3PasItem');item.append(head,body);acc.append(item);}
+   if(k){mastery&&(mastery.hidden=true);pass.prepend(acc);}
+  }
 
   // Raster (12 kolommen): titelbalk; kaartkaart 1–7 en hoofdstukken 8–12; Dagdoel, Pizza's en Vespa-ritten; Toetsen; paspoort.
   const side=make('div','v3VgSide');side.append(section('Hoofdstukken','v3VgHoofdstukken',list));
