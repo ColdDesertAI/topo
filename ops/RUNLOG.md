@@ -45,3 +45,4 @@ Formaat:
 2026-11-19 | dennis | besluit | BL-029 | G1 GO | — | Menu 1 goedgekeurd; schermwissel-fps geaccepteerd, fix later (BL-031); Vercel-branchpreview gevraagd
 2026-11-19 | claude/opus | taak | BL-034 | klaar, wacht op test Dennis | hoog | P0 1-7 + P1 8-12; QA 0 fouten, fade <=2,7%, tests 0; preview nino-topo-portal-review-jkyg46pg7 (9b69b03, V3 op /italie/)
 2026-11-19 | dennis+claude/opus | release | G4 | live | hoog | PR #101 squash naar main (718658f), SITE_ITALIE=v3 productie + redeploy; tag v3.0.0 door Dennis (proxy weigert tag-push)
+2026-11-19 | claude/opus | livefix | BL-035 | live, wacht op evaluator | hoog | 8 blokken direct op main (a654507..75a7a85), per push lint+test+qa-v3-menu1+build:site groen, live gecontroleerd Chromium+WebKit; maskers werkten al (vermoedelijk macOS 'Verminder transparantie' bij Dennis)

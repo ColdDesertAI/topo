@@ -36,3 +36,8 @@ Dit is waar het systeem slimmer wordt. Elke FAIL, elke correctie van Dennis en e
 - 2026-11-15 · Per blok sturen op losse metingen (kaart-%, scène-%, rijen) leverde een build zonder samenhang op. Bij een visuele richting eerst één compositie laten goedkeuren (statisch, met de renders ernaast) en pas daarna meten en bouwen; designverkenning hoort in de Claude-app, niet in een build-loop.
 - 2026-11-16 · "Pixel-identiek" bij een refactor: vergelijk tegen een referentiebuild = basis + de tussentijdse functionele commits, en neem breakpoint-grenzen (1024/1279/1280), de les en gescrolde toestanden op. Een set zonder die toestanden miste drie regressies van weggehaalde `!important`.
 - 2026-11-19 (BL-029): een QA die tekst verbergt en de achtergrond meet, ziet geen laag ÓVER de tekst; meet ook de getekende pixels (zichtbaar vs verborgen). En test korte schermen (1366×768, 1280×800): daar scrollde de pagina en schoof een vaste balk over het lesresultaat. Een fix die één fout oplost (marker onder knop) mag de kern (kaart eerst) niet halveren: meet het kaartaandeel mee.
+
+## 2026-11-19 · BL-035 livefixes
+- Een klacht "werkt niet live" eerst meten in beide engines (computed style, live URL) voordat je herbouwt: hier pasten de maskers overal toe; het beeld van Dennis past bij de toegankelijkheidsterugval (`prefers-reduced-transparency`/`prefers-contrast`). Vraag naar OS-instellingen.
+- Doorzichtige tikvlakken (V2 `microHit`) liggen boven decoratielagen: `:hover` komt daar nooit aan. Hover dan uit de positie van de aanwijzer halen; de lagen niet omdraaien (tikken moet bij de plek blijven).
+- WebKit in de cloud: Playwright-WebKit downloaden wordt geblokkeerd; `apt install webkit2gtk-driver xvfb` + WebDriver (`scripts/qa-webkit.mjs`) werkt.
