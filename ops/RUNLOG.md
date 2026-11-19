@@ -40,3 +40,4 @@ Formaat:
 2026-11-15 22:30 | claude/opus | taak | nachtfix-main | klaar | laag | PR #106 (nightly.sh-fix + BL-001b/BL-002 op review) gesquasht naar main met akkoord Dennis
 2026-11-16 04:20 | builder/sonnet+evaluator/opus | taak | BL-016d/e, BL-023 | PASS | hoog | BL-016d/e r2 PASS; BL-023 r1 FAIL (les ≥1280, 1024/1280-kaart, hoofdstukpaneel: weggehaalde !important), r2 PASS (214/240 identiek, rest bedoeld)
 2026-11-16 09:00 | claude/opus+evaluator/opus | taak | BL-028, nightly | PASS | laag | Toets geeft geen pizzapunten meer (05-app-kern grade); 4 bevriezingstests via restoreExamReward; nightly.sh wacht na limiet en hervat, Codex-flags uit --help
+2026-11-19 | claude/opus+design-critic/opus+evaluator/opus | taak | BL-029 | G1-klaar (eval FAIL alleen fps) | hoog | Menu 1 op alle schermen; design r1–r4 NO-GO → r5 GO-voorstel; eval r1–r2 FAIL (o.a. werkruimte over lesresultaat) → r3 alleen fps; contactsheet ops/reports/BL-029-G1.webp

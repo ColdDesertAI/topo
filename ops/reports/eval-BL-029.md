@@ -144,3 +144,24 @@ VERDICT: **FAIL** (resten: fps, plus de lesbalk-overlap en AA op 1280/1366 bij e
 4. Voor criterium 4: halen, of Dennis besluit het criterium te wijzigen of te splitsen (BL-031).
 
 **Buiten scope (één regel):** het vergrendelde lesstap-label "Namen schrijven" (opacity .6, 4,0 op 1080) en de kaart-glyph "▲" bestonden al en staan ook zo in Menu 2.
+
+---
+
+# Ronde 3 (commit `d94cd7c`, 19-11, gericht)
+
+Getoetst: criteria 3, 5 en Grenzen op 1280×800 en 1366×768 (BG-01/02/03, 6 schermen, plus lesvraag en lesresultaat), met een steekproef op 1440×900 BG-02.
+- De preview is niet opnieuw gebouwd. Wel gecontroleerd dat hij bij de commit hoort: `menu1.css`, `reis.js`, `voortgang.js` en `shell.js` zitten er letterlijk in.
+- `npm test` heb ik niet zelf gedraaid (de hoofdsessie meldt de uitkomst). In ronde 2 was hij 66/66 groen; criterium 6 hangt af van die melding.
+
+VERDICT: **FAIL**, alleen nog op criterium 4 (fps). Alle andere getoetste punten zijn PASS.
+
+| # | Criterium | Resultaat | Bewijs |
+|---|---|---|---|
+| 2 | Screenshots | **PASS** (oordeel G1) | Ongewijzigd t.o.v. ronde 2 |
+| 3 | Lesresultaat, Nino, paspoort | **PASS** | De lesbalk ligt boven de resultaatkaart, 24 px vrij op 1280×800, 1366×768 en 1440×900 (alle BG). Nino is 184×200 in les en resultaat. Paspoort dicht (39/39) |
+| 4 | FPS ≥ 50 en blur ≤ 3 | **FAIL** | Niet opnieuw gemeten (niet gewijzigd). Ronde 2: wissels 32–52 fps, besluit bij Dennis (BL-031). Blur is 2 in alle 39 metingen en in de les |
+| 5 | AA, ≥ 13 px, knoppen ≥ 44 | **PASS** | 0 fouten op 1280×800 en 1366×768 × 3 BG × 6 schermen, en in lesvraag en lesresultaat (`Voortgang` in de les-zijbalk en de Voortgang-titel op BG-02 halen nu AA). Steekproef 1440 BG-02 (overzicht, hoofdstuk, Voortgang, les): 0 fouten |
+| 6 | Lint en test | **PASS** onder voorbehoud | Lint 0 in ronde 2; `npm test` volgt via de hoofdsessie |
+| G | Grenzen | **PASS** | Geen overlap, geen horizontale scroll, geen page errors |
+
+**Buiten scope (één regel):** in de les zijn de staplabels op 1280×800 afgekapt ("Ontdekk…", "Aanwijz…"), en op 1366×768 staat de lesbalk na het scrollen naar het resultaat half boven de rand. Geen overlap, maar wel een punt voor de iPad/G3-check (screenshots `lesres-1280-bg01.png` en `lesres-1366-bg02.png` in de scratchpad).
