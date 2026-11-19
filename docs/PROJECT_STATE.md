@@ -1,3 +1,15 @@
+# BL-019 — Italiaanse regiogeometrie (15 november 2026)
+
+Branch `t/BL-019-regios`, basis `ColdDesertAI/topo` main `8ad5002`. Twintig regio's in `assets/geo/regions/regions.json` (44.267 bytes), bron/licentie/revisie/hashes en acceptatiebeperkingen in [PROVENANCE](../assets/geo/regions/PROVENANCE.md). Data-only: geen integratie in V3 of wijziging aan index/V2. Bronextractie, gezamenlijke topologie, kustlijn en bytegelijke herbouw getest. **Geen 45/45-containmentclaim:** 32 Italiaanse ankers strikt binnen hun regio, Venetië als expliciete kustbronuitzondering, 12 niet-Italiaanse regio-items uitgesloten. Eigenaarbevestiging van die semantiek staat open. Actuele projectstatus blijft `ops/STATE.md`.
+
+---
+
+# FR-01 — conceptinhoud Frankrijk (15 november 2026)
+
+Branch `t/FR-01-items`, vanaf main `8ad5002`: alleen [conceptdata](../src/lands/fr/README.md), 40 items en 11 hoofdstukken. 35 items uit `land/fr-inhoud` `dc46b20`, vijf toetslijstgestaafde conceptsteden erbij; negen landen buiten de zes opgegeven types gehouden. Deze selectie en de route zijn concept, geen gewijzigde goedkeuring van het oorspronkelijke schoolblad. Geen geometrie/app-code/integratie/merge. Actuele projectstatus blijft `ops/STATE.md`.
+
+---
+
 # TOPO V3 — Ronde 2 voltooid voor Hermes-hertest (11 november 2026)
 
 Branch `codex/topo-v3`. Eén commit per punt: **1** `eb4fd31` BG-03 Kust standaard, **2** `58f4d4f` neutrale zijbalk, **3** `0aa4730` Voortgang in het eerste 1440×900-frame, **4** `441ac63` reliëfpalet uit hetzelfde DEM, **5** `64250c9` zichtbare 72px-iconen en 40/700-cijfers op desktop/iPad. **Punt 6** is de afzonderlijke bewijscommit met vernieuwde vergelijkingen, metingen en deze status. De volledige eindpin volgt in het afsluitende overdrachtsbericht.

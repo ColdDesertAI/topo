@@ -1,0 +1,126 @@
+{
+  "status": "draft",
+  "land": "fr",
+  "audience": "groep 7",
+  "itemsFile": "items.draft.json",
+  "note": "Alleen conceptvolgorde en itemverwijzingen. Geen eigen leer-, opslag-, belonings- of beoordelingslogica. Elk item staat precies eenmaal in de route.",
+  "chapters": [
+    {
+      "id": "steden-1",
+      "title": "Steden 1–5",
+      "itemIds": [
+        "bordeaux",
+        "calais",
+        "le-havre",
+        "lille",
+        "lyon"
+      ],
+      "origin": "land/fr-inhoud; behouden"
+    },
+    {
+      "id": "steden-2",
+      "title": "Steden 6–10",
+      "itemIds": [
+        "marseille",
+        "metz",
+        "montpellier",
+        "nancy",
+        "nantes"
+      ],
+      "origin": "land/fr-inhoud; behouden"
+    },
+    {
+      "id": "steden-3",
+      "title": "Steden 11–14",
+      "itemIds": [
+        "nice",
+        "parijs",
+        "straatsburg",
+        "toulouse"
+      ],
+      "origin": "land/fr-inhoud; behouden"
+    },
+    {
+      "id": "steden-aanvulling",
+      "title": "Extra steden — concept",
+      "itemIds": [
+        "amiens",
+        "dijon",
+        "grenoble",
+        "orleans",
+        "reims"
+      ],
+      "origin": "FR-01; vijf voorgestelde aanvullingen, niet op het oorspronkelijke schoolblad"
+    },
+    {
+      "id": "eiland-gebergten",
+      "title": "Eiland en gebergten",
+      "itemIds": [
+        "corsica",
+        "alpen",
+        "pyreneeen",
+        "vogezen"
+      ],
+      "origin": "land/fr-inhoud; behouden"
+    },
+    {
+      "id": "streken-west",
+      "title": "Streken — west",
+      "itemIds": [
+        "bretagne",
+        "normandie",
+        "dordogne"
+      ],
+      "origin": "FR-01; bestaande streken gesplitst voor elf compacte hoofdstukken"
+    },
+    {
+      "id": "streken-oost",
+      "title": "Streken — oost en zuid",
+      "itemIds": [
+        "elzas",
+        "provence"
+      ],
+      "origin": "FR-01; bestaande streken gesplitst voor elf compacte hoofdstukken"
+    },
+    {
+      "id": "zeeen-1",
+      "title": "Zeeën A–C",
+      "itemIds": [
+        "noordzee",
+        "atlantische-oceaan",
+        "middellandse-zee"
+      ],
+      "origin": "land/fr-inhoud; behouden"
+    },
+    {
+      "id": "zeeen-2",
+      "title": "Zeeën D–F",
+      "itemIds": [
+        "het-kanaal",
+        "nauw-van-calais",
+        "golf-van-biskaje"
+      ],
+      "origin": "land/fr-inhoud; behouden"
+    },
+    {
+      "id": "rivieren-1",
+      "title": "Rivieren G–I",
+      "itemIds": [
+        "garonne",
+        "loire",
+        "maas"
+      ],
+      "origin": "land/fr-inhoud; behouden"
+    },
+    {
+      "id": "rivieren-2",
+      "title": "Rivieren J–L",
+      "itemIds": [
+        "rhone",
+        "rijn",
+        "seine"
+      ],
+      "origin": "land/fr-inhoud; behouden"
+    }
+  ]
+}
