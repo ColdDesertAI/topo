@@ -32,7 +32,7 @@
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  .v3Reis[data-menu="1"]>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
   background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 190px),transparent calc(100% - 40px));mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 190px),transparent calc(100% - 40px))}
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 80px),transparent calc(100% - 12px));mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 80px),transparent calc(100% - 12px))}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand{align-items:center}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand b{font:800 36px/1 var(--v3-font);letter-spacing:.02em}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand .v3Flag{width:64px;height:6px}
@@ -246,7 +246,9 @@
  /* Lesson panels as Menu 1 cards: white, no blur (sidebar + workspace are the only blurs). */
  body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter,.finishScreen,.atlasZoom,.atlasZoom *){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
  body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter){background:rgba(255,255,255,.94)!important}
- /* The result card starts below the lesson bar (it lay 112 px under it, also in Menu 2). */
+ /* The result card starts below the lesson bar (it lay 112 px under it, also in Menu 2); on a short screen the page
+    scrolls, so on the result the lesson bar scrolls along instead of staying fixed over the card (evaluator r2, 768/800). */
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):has(.layout.finishLayout) .v3LesBar{position:absolute!important}
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .layout.finishLayout #finishScreen{margin-top:calc(var(--v3-lesbar-h,136px) + var(--v3-gut,24px))}
  /* No window frame around the lesson (glas.css body::after): one workspace, no frame. */
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::after{display:none!important}
@@ -254,7 +256,7 @@
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
   background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 190px),transparent calc(100% - 40px));mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 190px),transparent calc(100% - 40px))}
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 80px),transparent calc(100% - 12px));mask-image:linear-gradient(to bottom,#000 0,#000 calc(100% - 80px),transparent calc(100% - 12px))}
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:calc((100vw - 256px) * .28);width:auto;pointer-events:none;
   background:rgba(252,250,246,.72);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
   -webkit-mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 33.33%,rgba(0,0,0,.5) 66.67%,transparent 100%)}
@@ -300,13 +302,13 @@
  .v3Reis[data-menu="1"]::before{background:#fcfaf6;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
  .v3Reis[data-menu="1"]>.v3Side::after{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
 }
-/* === 12. Local lift for free text, only where the backdrop misses AA (r2, measured 16-11 without glow: BG-03 kicker
+/* === 12. Local lift for free text, only where the backdrop misses AA (r2/r7, measured without glow; r7: Voortgang title on BG-02 at 1366×768 2.34 < 3: BG-03 kicker
    4.16 at 1440 and 4.22 at 1080 < 4.5; chapter-page title on every background (BG-01 1.25–1.54, BG-02 2.87 at 1280, BG-03 kicker): always on there; the rest passes). Temporary, until the new backgrounds arrive.
    A soft radial glow behind the text, not a panel. === */
 @media (min-width:1024px){
  body[data-v3-background=bg03] .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Main>.v3Panel::before,
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead::before,
- body[data-v3-background=bg03] .v3Reis[data-menu="1"] .v3VgTitleBar::before{content:"";position:absolute;z-index:-1;inset:-90px -70px -80px -90px;pointer-events:none;
+ body:is([data-v3-background=bg03],[data-v3-background=bg02]) .v3Reis[data-menu="1"] .v3VgTitleBar::before{content:"";position:absolute;z-index:-1;inset:-90px -70px -80px -90px;pointer-events:none;
   background:radial-gradient(closest-side,rgba(252,250,246,.9),rgba(252,250,246,.72) 50%,rgba(252,250,246,0) 100%)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead::before{inset:-150px -70px -80px -90px}
 }

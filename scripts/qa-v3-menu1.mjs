@@ -18,7 +18,7 @@ const OUT=process.env.QA_OUT||tmpdir(); // screenshots of the lesson result land
 const {chromium}=createRequire(import.meta.url)('playwright');
 const HTML='file://'+fileURLToPath(new URL('../output/html/TOPO-V3-Reis-Preview.html',import.meta.url));
 const args=new Set(process.argv.slice(2));
-const SIZES=args.has('--quick')?[[1440,900],[1080,810]]:[[1280,800],[1440,900],[1920,1080],[2560,1440],[1080,810]];
+const SIZES=args.has('--quick')?[[1440,900],[1080,810]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810]];
 const BGS=args.has('--quick')?['bg03']:['bg01','bg02','bg03'];
 const SCREENS=['overzicht','hoofdstuk','oefenen','toets','rewards','voortgang'];
 // Free text per screen (no card under it): measured against the backdrop.
@@ -117,7 +117,9 @@ async function lessonResult(b,W,H){
  const has=await p.locator('#finishScreen').count();const r=has?await p.evaluate(probe):null;
  if(!has)fail(where,'lesresultaat niet bereikt');
  else{if(r.over.length)fail(where,'overlap: '+r.over.slice(0,4).join('; '));if(r.wide)fail(where,'breder dan het scherm');if(r.small.length)fail(where,'tekst < 13 px: '+r.small.slice(0,3).join('; '));}
- if(has){const aa=await contrast(p,RESULT);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}}
+ // The lesson bar never lies over the result card (evaluator BL-029 r2: it did on short screens).
+ if(has){const ov=await p.evaluate(()=>{const a=document.querySelector('.v3LesBar')?.getBoundingClientRect(),b=document.querySelector('#finishScreen')?.getBoundingClientRect();if(!a||!b||!a.width)return 0;const x=Math.min(a.right,b.right)-Math.max(a.left,b.left),y=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);return x>2&&y>2?Math.round(x)+'×'+Math.round(y):0;});if(ov)fail(where,'lesbalk over de resultaatkaart '+ov);}
+ if(has){const aa=await contrast(p,[...RESULT,...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}}
  if(errors.length)fail(where,'page errors: '+errors.join(' | '));
  if(has)await p.screenshot({path:join(OUT,`qa-menu1-lesresultaat-${W}.png`)}).catch(()=>{});
  console.log(where,has?JSON.stringify({over:r.over.length,blurVraag:q.blur,blurModal:m.blur,blur:r.blur,nino:r.nino,ninoVraag:q.nino}):'—');
@@ -166,7 +168,7 @@ for(const [W,H] of SIZES)for(const bg of BGS){
  await p.close();
 }
 for(const [wc,set] of Object.entries(nino))if(set.size!==1)fail('nino '+wc,'meerdere maten: '+[...set].join(', '));
-const les=[];for(const [W,H] of [[1440,900],[2560,1440]])les.push(await lessonResult(b,W,H));
+const les=[];for(const [W,H] of [[1280,800],[1366,768],[1440,900],[2560,1440]])les.push(await lessonResult(b,W,H));
 let f=null;if(args.has('--fps'))f=await fps(b);
 await b.close();
 const blurPer={};for(const t of table){const s=t.where.split(' ').pop();blurPer[s]=Math.max(blurPer[s]||0,t.blur);}
