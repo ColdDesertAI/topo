@@ -340,11 +340,12 @@
 
  // Chapter rows (R-reis-ijk): scene, name, status. Done = the earned stamp; gold = the illustrated laurel; in progress = a thin bar under
  // the name; locked = a lock only. The selected row is the selection style.
- function renderRows(m){
-  requestAnimationFrame(()=>{const a=rows.querySelector('.v3Row[aria-pressed=true]');if(a&&rows.scrollWidth>rows.clientWidth){const l=a.offsetLeft-rows.clientWidth/2+a.offsetWidth/2;rows.scrollLeft=Math.max(0,l);}});
-  rows.replaceChildren(...m.chapters.map(c=>{
+ // BL-034: one row component for Reis and Voortgang. `target` is the list, `pick` (Voortgang) replaces the Reis click.
+ function renderRows(m,target=rows,pick=null){
+  requestAnimationFrame(()=>{const a=target.querySelector('.v3Row[aria-pressed=true]');if(a&&target.scrollWidth>target.clientWidth){const l=a.offsetLeft-target.clientWidth/2+a.offsetWidth/2;target.scrollLeft=Math.max(0,l);}});
+  target.replaceChildren(...m.chapters.map(c=>{
    const st=stateOf(c,m),li=make('li'),b=make('button','v3Row');b.type='button';b.dataset.chapter=c.id;b.dataset.state=st;
-   b.setAttribute('aria-pressed',String(ui.selected===c.id));if(st==='now')b.setAttribute('aria-current','step');
+   b.setAttribute('aria-pressed',String(!pick&&ui.selected===c.id));if(st==='now')b.setAttribute('aria-current','step');
    // In the list, "Extra steden 13–18" reads as "Steden 13–18" (one line; the range stays visible); the full title
    // stays the row's tooltip and accessible name.
    const name=make('span','v3Name');name.append(range(c.title.replace(/^Extra steden/,'Steden')));b.setAttribute('aria-label',c.title);
@@ -361,7 +362,7 @@
    const num=make('span','v3RowNum',String(c.index+1));num.setAttribute('aria-hidden','true');b.title=c.title;
    if(MENU==='1'&&st!=='locked'&&st!=='done'&&st!=='gold'){const ch=make('span','v3Chev');ch.setAttribute('aria-hidden','true');ch.append(icon('v3back'));end.append(ch);}
    b.append(num,thumb,mid,end);
-   b.addEventListener('click',e=>{e.stopPropagation();if(WIDE.matches){openChapter(c.id);return;}ui.selected=c.id;render();
+   b.addEventListener('click',e=>{e.stopPropagation();if(pick){pick(c.id);return;}if(WIDE.matches){openChapter(c.id);return;}ui.selected=c.id;render();
     // Phone: the chosen chapter appears at the top: focus its title (keyboard position kept, read by screen readers)
     // and bring it into view; elsewhere keep focus on the list.
     if(matchMedia('(max-width:767px)').matches){$('#v3Title')?.focus({preventScroll:true});main.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});}
@@ -478,6 +479,6 @@
  const base=renderRouteHome;
  renderRouteHome=function(...a){const out=base.apply(this,a);try{render();chrome();}catch(e){console.error('V3 Reis',e);}return out;};
  document.body.classList.add('v3On');
- window.TOPO_V3={background:{refresh:background,get:()=>ui.background||window.TOPO_V3_BG||'bg03',set:key=>{if(!['bg01','bg02','bg03','auto'].includes(key))return;ui.background=key;try{localStorage.setItem(BGKEY,key);}catch{}background();}},render,model,ui,makeSide,markNav,addView,cloneMap,fit,addIsland,icon,make,btn,pic,img,press,v2Card,v2Nav,STAGE,KIND,range,scenes,art:V3ART,nino,root};
+ window.TOPO_V3={chapterRows:(target,pick)=>renderRows(model(),target,pick),showChapter:id=>{ui.selected=id;ui.page=WIDE.matches?'hoofdstuk':'overzicht';},menu:MENU,background:{refresh:background,get:()=>ui.background||window.TOPO_V3_BG||'bg03',set:key=>{if(!['bg01','bg02','bg03','auto'].includes(key))return;ui.background=key;try{localStorage.setItem(BGKEY,key);}catch{}background();}},render,model,ui,makeSide,markNav,addView,cloneMap,fit,addIsland,icon,make,btn,pic,img,press,v2Card,v2Nav,STAGE,KIND,range,scenes,art:V3ART,nino,root};
  if(!$('#journeyScreen')?.classList.contains('hidden')){render();chrome();}
 })();

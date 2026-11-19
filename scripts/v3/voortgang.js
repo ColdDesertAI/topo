@@ -59,6 +59,8 @@
   // (three segments, so the bar still reads the stage) and a status illustration: gold laurel (IC-gold) = goud, the
   // green check = klaar, the pizza slice (IC-slice) = open, the lock = nog dicht. All from TopoRoute.record.
   const list=make('ol','v3VgChapters'),M=V.model?.(),ART=V.art,SC=V.scenes||{};
+  // BL-034 (Menu 1): exactly the Reis list component (number, name, status), same size; a row opens that chapter on Reis.
+  const sameRows=V.menu==='1'&&V.chapterRows;
   ROUTE_CHAPTERS.forEach((c,i)=>{const r=TopoRoute.record(state.route,c.id),li=make('li'),open=M?.chapters[i]?.open??true;li.dataset.chapter=c.id;
    const st=r.goldAt>0?'gold':r.stage===3?'done':open?'open':'locked';li.dataset.status=st;
    const thumb=make('span','v3VgThumb');thumb.setAttribute('aria-hidden','true');if(SC[c.id]?.mini)thumb.append(V.pic(SC[c.id].mini,null,480,270));
@@ -70,6 +72,7 @@
    li.setAttribute('aria-label',c.title+': '+r.stage+' van 3 lessen'+(r.goldAt>0?', goud':st==='locked'?', nog dicht':''));
    const name=make('span','v3VgName');name.append(make('span','v3VgNum',(i+1)+'.'),document.createTextNode(' '+c.title.replace(/^Extra steden/,'Steden')));
    li.append(thumb,name,steps,status);list.append(li);});
+  if(sameRows){list.className='v3Rows v3VgRows';V.chapterRows(list,id=>{V.showChapter(id);V.go?.('reis');});}
 
   // Dagdoel (V2).
   try{renderDailyGoal();}catch{}
