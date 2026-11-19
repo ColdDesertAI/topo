@@ -20,9 +20,11 @@
   background:none;box-shadow:none;border:0;border-radius:0}
  .v3Reis[data-menu="1"]:not([data-view=reis]){grid-template-columns:var(--zij) minmax(0,1fr)}
  /* Workspace: one layer from the sidebar to the right edge. No border, no shadow. */
- .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:auto;width:max(calc((100% - var(--zij)) * .66),781px);pointer-events:none; /* never narrower than at 1440 (781 px): the same gentle slope on smaller screens */
-  background:rgba(252,250,246,.60);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);mask-composite:intersect}
+ /* BL-035 (live fixes 19-11): no mask-composite anywhere. The colour is a plain gradient (no mask); the blur sits on a
+    separate layer behind the list zone with ONE mask (prefixed and unprefixed), so a browser that drops a mask loses
+    only a soft blur edge, never the whole fade. */
+ .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:0;pointer-events:none;background:linear-gradient(to right,rgba(252,250,246,.82) 0%,rgba(252,250,246,.7) 15%,rgba(252,250,246,.5) 28%,rgba(252,250,246,.28) 40%,rgba(252,250,246,.1) 52%,transparent 62%)}
+ .v3Reis[data-menu="1"]::after{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);width:40%;pointer-events:none;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);-webkit-mask-image:linear-gradient(to right,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 55%,transparent 100%)}
  .v3Reis[data-menu="1"]>*{position:relative;z-index:1}
  /* No glass anywhere else: the old panel glass and blur step aside on every screen. */
  .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup,.v3Book,.v3Ride,.v3Tiles,.v3Tile,.v3VgTitleBar,.v3VgRow,.v3VgTile,.v3VgHead,.v3VgLegend,.v3Field.v3Card,.v3Top,.v3Panel,.v3Rows,.v3MapStage),
@@ -34,8 +36,8 @@
  .v3Reis[data-menu="1"]>.v3Side{grid-column:1;grid-row:1/-1;z-index:2;margin:0;border-radius:0;padding:28px 20px 22px;height:auto;
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  .v3Reis[data-menu="1"]>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
-  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px))}
+  background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px))}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand{align-items:center}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand b{font:800 36px/1 var(--v3-font);letter-spacing:.02em}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand .v3Flag{width:64px;height:6px}
@@ -249,15 +251,13 @@
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):has(.layout.finishLayout) .v3LesBar{position:absolute!important}
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .layout.finishLayout #finishScreen{margin-top:calc(var(--v3-lesbar-h,136px) + var(--v3-gut,24px))}
  /* No window frame around the lesson (glas.css body::after): one workspace, no frame. */
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::after{display:none!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side{position:relative;isolation:isolate;height:100%;width:100%;margin:0;border-radius:0;padding:28px 20px 22px;box-sizing:border-box;
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
-  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px))}
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:auto;width:max(calc((100vw - 256px) * .66),781px);width:auto;pointer-events:none;
-  background:rgba(252,250,246,.60);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);mask-composite:intersect}
+  background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:0;pointer-events:none;background:linear-gradient(to right,rgba(252,250,246,.82) 0%,rgba(252,250,246,.7) 15%,rgba(252,250,246,.5) 28%,rgba(252,250,246,.28) 40%,rgba(252,250,246,.1) 52%,transparent 62%)}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):not(#x)::after{display:block!important;content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;width:40vw;right:auto;pointer-events:none;border:0;border-radius:0;box-shadow:none;background:none;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);-webkit-mask-image:linear-gradient(to right,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 55%,transparent 100%)}
 }
 @media (min-width:1024px) and (max-width:1279px){
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(84px - var(--v3-frame-m));--v3-side:calc(84px - var(--v3-frame-m))}
@@ -328,7 +328,8 @@
 }
 /* === 11. Reduced transparency / more contrast: workspace and sidebar opaque, no blur, no fade. === */
 @media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
- .v3Reis[data-menu="1"]::before{background:#fcfaf6;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
+ .v3Reis[data-menu="1"]::before{background:linear-gradient(to right,#fcfaf6 0%,#fcfaf6 40%,rgba(252,250,246,.6) 52%,transparent 62%)}
+ .v3Reis[data-menu="1"]::after{display:none}
  .v3Reis[data-menu="1"]>.v3Side::after{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
 }
 /* === 12. Local glow: none (BL-032, 19-11). With the new backgrounds every free text passes AA without a glow on all
