@@ -64,8 +64,29 @@
   const navItem=(tab,label,glyph)=>{const b=btn('',tab==='reis'?e=>{ui.page='overzicht';go(tab)(e);render();}:go(tab),'v3Btn v3NavItem');b.append(icon(glyph),make('span',null,label));b.dataset.nav=tab;return b;};
   const nav=make('div','v3NavList');nav.append(...TABS.map(t=>navItem(...t)));
   const settings=navItem('instellingen','Instellingen','v3gear');settings.classList.add('v3Settings');
-  side.append(brand,portrait,nav,settings);markNav(side);return side;
+  // BL-034 P1.12: background picker beside the gear — an image button that opens a small popover with 3 thumbnails.
+  const bgBtn=btn('',e=>{e.stopPropagation();bgPicker(bgBtn);},'v3Btn v3NavItem v3BgBtn');bgBtn.append(icon('v3image'),make('span',null,'Achtergrond'));
+  bgBtn.setAttribute('aria-haspopup','true');bgBtn.setAttribute('aria-expanded','false');bgBtn.title='Achtergrond';
+  const foot=make('div','v3SideFoot');foot.append(settings,bgBtn);
+  side.append(brand,portrait,nav,foot);markNav(side);return side;
  }
+ // BL-034 P1.12: the background popover (one, shared by every sidebar copy). Choice saved through background.set
+ // (localStorage); the active thumbnail has a violet ring. Escape or a click outside closes it; focus returns.
+ let bgPop=null,bgOpener=null;
+ function bgPicker(opener){
+  if(bgPop&&!bgPop.hidden&&bgOpener===opener){closeBgPicker();return;}
+  const T=V3ART?.bgThumbs;if(!T)return;
+  if(!bgPop){bgPop=make('div','v3BgPop v3');bgPop.setAttribute('role','dialog');bgPop.setAttribute('aria-label','Kies een achtergrond');bgPop.hidden=true;document.body.append(bgPop);
+   for(const [k,label] of [['bg01','Toscane'],['bg02','Meer'],['bg03','Kust']]){const b=btn('',e=>{e.stopPropagation();window.TOPO_V3.background.set(k);mark();},'v3BgThumb');b.dataset.background=k;
+    const im=make('img');im.src=T[k];im.alt='';im.width=96;im.height=54;b.append(im,make('span',null,label));b.setAttribute('aria-label','Achtergrond '+label);bgPop.append(b);}
+   document.addEventListener('click',e=>{if(bgPop&&!bgPop.hidden&&!bgPop.contains(e.target)&&!e.target.closest?.('.v3BgBtn'))closeBgPicker();});
+   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bgPop&&!bgPop.hidden){e.preventDefault();closeBgPicker(true);}});}
+  const mark=()=>bgPop.querySelectorAll('.v3BgThumb').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.background===window.TOPO_V3.background.get())));
+  mark();bgOpener=opener;opener.setAttribute('aria-expanded','true');bgPop.hidden=false;
+  const r=opener.getBoundingClientRect();bgPop.style.left=Math.round(r.right+10)+'px';bgPop.style.bottom=Math.round(innerHeight-r.bottom)+'px';
+  (bgPop.querySelector('[aria-pressed=true]')||bgPop.querySelector('button'))?.focus();
+ }
+ function closeBgPicker(refocus){if(!bgPop)return;bgPop.hidden=true;bgOpener?.setAttribute('aria-expanded','false');if(refocus)bgOpener?.focus();}
  // aria-current on every sidebar copy (Reis window and lesson shell).
  function markNav(scope=document){const cur=window.TOPO_V3?.currentTab?.()||(ui.view==='rewards'?'rewards':'reis');scope.querySelectorAll('.v3Side [data-nav]').forEach(b=>{if(b.dataset.nav===cur)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});}
  const side=makeSide();

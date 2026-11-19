@@ -78,7 +78,9 @@ for(const [id,e] of Object.entries(sceneManifest.chapters))scenes[id]={mini:uri(
 // V3 render assets (art/v3-render-assets @ 908b4a4, assets/v3/render/manifest.json): exports only, byte-checked.
 const render=JSON.parse(read('assets/v3/render/manifest.json')),A=Object.fromEntries(render.assets.map(a=>[a.id,a]));
 for(const id of ['SCENE-ROMA','SCENE-VENEZIA','SCENE-NAPOLI'])scenes[A[id].chapter]={mini:uri(A[id].export_mini,id),kop:uri(A[id].export_kop,id)};
-const v3art={bg:{bg01:uri(A['BG-01'].export,'BG-01'),bg02:uri(A['BG-02'].export,'BG-02'),bg03:uri(A['BG-03'].export,'BG-03')},portrait:uri(A['NINO-PORTRET'].export,'NINO-PORTRET'),poses:Object.fromEntries(render.assets.filter(a=>a.universalMaster && !['NINO-PASPOORT','VESPA-ZIJ','VESPA-ICOON','NINO-DENKT','NINO-WIJST-RECHTS'].includes(a.id)).map(a=>[a.id,{src:uri(a.export,a.id),size:a.export.size}])),vespa:uri(A['VESPA-ZIJ'].export,'VESPA-ZIJ'),
+// BL-034 P1.12: small thumbnails for the background picker (192x108, a few kB each; the full images stay out of the popover).
+const bgThumb=k=>'data:image/webp;base64,'+readFileSync(new URL('assets/v3/render/thumbs/BG-0'+k+'-thumb-192.webp',root)).toString('base64');
+const v3art={bgThumbs:{bg01:bgThumb(1),bg02:bgThumb(2),bg03:bgThumb(3)},bg:{bg01:uri(A['BG-01'].export,'BG-01'),bg02:uri(A['BG-02'].export,'BG-02'),bg03:uri(A['BG-03'].export,'BG-03')},portrait:uri(A['NINO-PORTRET'].export,'NINO-PORTRET'),poses:Object.fromEntries(render.assets.filter(a=>a.universalMaster && !['NINO-PASPOORT','VESPA-ZIJ','VESPA-ICOON','NINO-DENKT','NINO-WIJST-RECHTS'].includes(a.id)).map(a=>[a.id,{src:uri(a.export,a.id),size:a.export.size}])),vespa:uri(A['VESPA-ZIJ'].export,'VESPA-ZIJ'),
  icons:Object.fromEntries(['slice','pizza','vespa','gold','stamp','postcard'].map(k=>[k,k==='vespa'?uri(A['VESPA-ICOON'].export,'VESPA-ICOON'):uri(A['IC-'+k].exports['96'],'IC-'+k)]))};
 const landmarks=JSON.parse(read('assets/v3/landmarks/manifest.json'));
 const activeLandmarks=landmarks.items.filter(a=>a.ui&&!a.lifestyle);
