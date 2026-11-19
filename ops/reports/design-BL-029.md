@@ -234,3 +234,27 @@ Alleen het punt uit ronde 3 getoetst: kaartmaat, markers en pins onder titel/kno
 Screenshots: `ch-1080-ch9.png`, `ch-1440-ch10.png` en `ch-1440-ch3.png` in de scratchpad van de sessie (`dc29r4`).
 
 **NO-GO.** Het overzicht en 9 van de 11 hoofdstukpagina's zijn G1-klaar. Na de fix voor het omgevingsframe (hoofdstuk 9 en 10) volgt een GO-voorstel zonder nieuwe ronde over de rest.
+
+---
+
+## Ronde 5 (commit `4245b63`, HEAD `d94cd7c`, hoofdboom)
+Alleen bevestigd:
+- de hoofdstukpagina's van Landen (9) en Zeeën (10) op 1080×810, 1280×800, 1366×768 en 1440×900;
+- één blik op de zijbalkfade.
+
+De preview is niet opnieuw gebouwd. Getoetst is met een geometrische check (`isPointInFill`, raster van 6 px plus 8 px marge rond kicker, titel en knop, tegen alle land-, zee- en Italiëvlakken), niet met bounding boxes.
+
+- **Landen en Zeeën:** op alle vier de maten **0 vlakken onder de tekst**. De rechterrand van Italië ligt telkens vóór de tekst:
+
+  | Maat | Italië (x) | Tekst vanaf (x) |
+  |---|---|---|
+  | 1080 | 582–743 | 786 |
+  | 1280 | 734–909 | 955 |
+  | 1366 | 764–967 | 1019 |
+  | 1440 | 815–1009 | 1059 |
+
+  Visueel bevestigd op 1080 (Zeeën) en 1440 (Landen): de leerstof is volledig vrij en de knop staat los op de scène.
+- **Zijbalk:** de fade valt alleen in de onderste ~80 px. Op desktop en op de iPad-rail staat de navigatie op schoon glas, zoals in Menu 1.
+- **Restpunt (geen blokker):** bij Zeeën op 1080 is de kaart klein (Italië ~160 px breed). Dat is de prijs van het omgevingsframe plus de volle reserve. Hij kan groter in BL-033 of bij de nieuwe achtergronden (BL-032).
+
+**GO-voorstel voor G1.** Alle must-fixes uit ronde 1–4 zijn bevestigd opgelost. De nice-to-haves uit eerdere rondes blijven backlog. Niet mergen naar main zonder GO van Dennis.
