@@ -536,6 +536,9 @@ body.v3On:not([data-focus-mode=true]) .focusCameraTools{display:none!important}
 @media (prefers-reduced-motion:reduce){.v3Reis[data-menu="1"] .v3VgPas .v3PasChev::before{transition:none}}
 @media (min-width:1024px){
  .v3Reis[data-menu="1"] .v3VgOverview:has(.v3VgPas){height:auto;min-height:100%;align-content:start}
+ /* evaluator BL-035: only the list grows. The map cell keeps its closed height (the view minus 32 px, as before) and
+    stays in view while the page scrolls, so Italy and the legend never move when rows open. */
+ .v3Reis[data-menu="1"] .v3VgOverview:has(.v3VgPas)>.v3VgGrid>.v3VgKaart,.v3Reis[data-menu="1"] .v3VgOverview:has(.v3VgPas)>.v3VgKaart{align-self:start;position:sticky;top:0;height:calc(100dvh - var(--v3-bar,0px) - 32px)}
  .v3Reis[data-menu="1"] .v3VgSide:has(.v3VgPas),.v3Reis[data-menu="1"] .v3VgSide:has(.v3VgPas)>.v3Card{max-height:none;height:auto;align-self:start}
 }
 /* === BL-035.3 (live 19-11): chapter icons (config assets/v3/landmarks/chapter-icons.json) in a light lavender circle;
