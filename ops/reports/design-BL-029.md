@@ -162,3 +162,45 @@ Getoetst met eigen screenshots op 1440×900 en 1080×810 (BG-01/BG-03) van alle 
 - De nice-to-haves uit ronde 1 blijven staan (losse vormen in de zee, de plek van marker 2, de zijbalkfade, één pizzanotatie, de les, BL-031/032).
 
 **NO-GO.** Punt 1 is een harde AA-fout. Punt 2 en 3 waren als opgelost gemeld, maar zijn het zichtbaar niet. Alle vier zijn kleine CSS-wijzigingen. Na reparatie en een check van de kicker op de gerenderde pixels verwacht ik een GO-voorstel.
+
+---
+
+## Ronde 3 (commit `52c9909`, hoofdboom)
+Getoetst op de gebouwde preview (niet opnieuw gebouwd) met eigen screenshots op 1440×900 en 1080×810 (BG-01/BG-03) van alle schermen en een les. Daarnaast gemeten:
+- de getekende kickerpixels op 1440, 1080 en 2560 met BG-01/02/03;
+- het kaartoppervlak op 1080, 1280, 1440 en 1920;
+- de grid van de Beloningen-tegels.
+
+**Oordeel: NO-GO, met één must-fix.** Alle vier de punten uit ronde 2 zijn opgelost. De fix "marker valt niet meer onder de knop" heeft echter de kaart op het overzicht gehalveerd, en daarmee het scherm dat Dennis met r2 goedkeurde.
+
+### Opgelost
+- **Kicker op de hoofdstukpagina:** getekend contrast 7,2–7,6 : 1 op alle BG's en maten (was 1,9–2,6). De QA meet nu ook de getekende pixels. Goed.
+- **Hoofdstukpagina gelijk aan het overzicht:** zelfde kaartframe, zelfde kaartbox (1440: 633–1062 × 225–751, identiek op beide pagina's) en kicker op dezelfde hoogte (y 276 op 1440, y 262 op 1080). Bij het openen springt niets meer en worden alleen de markers pins. Precies goed.
+- **Beloningen:** de tegels hebben één rij van 64 px, met label, getal en icoon in het midden.
+- **Voortgang:** "Steden 13–18 / 19–23"; namen nu overal gelijk.
+- **Nice-to-haves:**
+  - De kaartgereedschappen zijn wit met een rand en hebben een duidelijke linkerrand.
+  - De zijbalkfade begint onder de navigatie, zodat die op BG-03 op schoon glas staat zoals in Menu 1.
+  - De lespanelen zijn ondoorzichtig en het resultaat ligt boven de werkruimte.
+
+### Must-fix vóór G1
+1. **De kaart op het overzicht is gekrompen (regressie ten opzichte van de goedgekeurde r2).**
+   - Gemeten oppervlak van Italië:
+     | Maat | Nu | r2 / ronde 1 |
+     |---|---|---|
+     | 1280 | 12% | – |
+     | 1440 | 17% | 31% (568×700 px) |
+     | 1920 | 15% | – |
+     | 1080 | 18% | 31% |
+   - Menu 1 zit op ~36%. Italië is nu een eiland in het midden met een brede lege band naar het titelblok. De Menu 1-compositie, waarin de kaart onder het vrije blok doorloopt en het grootste element is, is weg.
+   - Oorzaak: in `reis.js` ging `--v3-fit-right` op het overzicht van `panel.width*.6` naar `panel.width+16`, en de hoofdstukpagina volgt nu dezelfde maat.
+   - Fix: zet `fit-right` terug op `.6 × panel` (de r2-stand) op beide pagina's. Los "marker onder de knop" op bij de markers, niet bij de kaart: neem de rechthoeken van het titelblok en de knop (plus 8 px) als obstakel mee in de bestaande marker-duw-lus, zodat een marker uit dat vlak wordt geduwd.
+   - Alleen als dat op 1280/1366 niet past: gebruik daar `panel.width+16`, en vanaf 1440 de r2-stand.
+   - Check: de kaartbox op 1440 is weer ~568×700 en geen marker snijdt het titelblok op 1280–2560.
+
+### Nice-to-have (nieuw)
+- **De Voortgang-legenda breekt op 1080 over twee regels** ("Nog niet · 33" valt eronder). Kortere gap of kleinere pills houden hem op één regel.
+- **In de les staat het Nino-portret nog ~13 px lager dan in Reis** (155 tegen 168), waardoor de zijbalk bij het binnengaan verspringt.
+- De overige nice-to-haves uit ronde 1 blijven staan (losse vormen in de zee, de plek van marker 2, één pizzanotatie, BL-031/032, de iPad-les).
+
+**NO-GO.** Na must-fix 1 (één regel in `reis.js` plus de obstakel-check bij de markers) en een vergelijkingsblad van het overzicht naast Menu 1 op 1280/1440/1080 verwacht ik een GO-voorstel. De rest is G1-waardig.
