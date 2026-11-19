@@ -17,7 +17,7 @@ const args=process.argv.slice(2),html=resolve(args[0]&&!args[0].startsWith('--')
 const VIEWS=['reis','reis-hoofdstuk','oefenen','toets','rewards','voortgang','les','les-antwoord'],BGS=['bg01','bg02','bg03'],SIZES=[[1440,900],[1080,810],[810,1080]];
 
 // BL-016d: ONE glass level = the token (white 60%, flat) on every panel (was a 66→44 fade in BL-016/016b).
-const GLAS=.60;
+const GLAS=.55; // Menu 2 milk glass (BL-029 brief); was .60 (BL-016d)
 const lum=([r,g,b])=>{const f=c=>{c/=255;return c<=.03928?c/12.92:((c+.055)/1.055)**2.4};return .2126*f(r)+.7152*f(g)+.0722*f(b)};
 const ratio=(a,b)=>{const [x,y]=[lum(a),lum(b)].sort((p,q)=>q-p);return (x+.05)/(y+.05)};
 const lab=([r,g,b])=>{const f=c=>{c/=255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4};const [R,G,B]=[f(r),f(g),f(b)];

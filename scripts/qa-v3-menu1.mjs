@@ -20,11 +20,12 @@ const HTML='file://'+fileURLToPath(new URL('../output/html/TOPO-V3-Reis-Preview.
 const args=new Set(process.argv.slice(2));
 const SIZES=args.has('--quick')?[[1440,900],[1080,810]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810]];
 const BGS=args.has('--quick')?['bg03']:['bg01','bg02','bg03'];
-const SCREENS=['overzicht','hoofdstuk','oefenen','toets','rewards','voortgang'];
+const SCREENS=['overzicht','hoofdstuk','oefenen','toets','toetsresultaat','rewards','voortgang'];
 // Free text per screen (no card under it): measured against the backdrop.
 const FREE={overzicht:['#v3ListTitle','.v3Panel .v3CardKicker','.v3Panel .v3CardTitle'],
  hoofdstuk:['.v3Panel .v3CardKicker','.v3Panel .v3CardTitle'],
  oefenen:['.v3OefPanel>.v3ScreenTitle'],toets:['.v3ToetsSetup>.v3ScreenTitle'],
+ toetsresultaat:['.v3ToetsLabel','.v3ToetsScore'],
  rewards:['.v3Rewards>.v3ScreenTitle','.v3Ride>b','.v3Ride>span'],
  voortgang:['.v3VgSide .v3Card>h2','.v3VgTitleBar>h1','.v3VgCount strong','.v3VgCount span']};
 // Measured on every screen as well: the sidebar labels and the counters.
@@ -39,6 +40,9 @@ async function open(b,W,H,bg){
 async function show(p,screen){
  if(screen==='overzicht')return;
  if(screen==='hoofdstuk')await p.locator('.v3Rows .v3Row[aria-pressed=true]').first().click();
+ else if(screen==='toetsresultaat'){await p.locator('.v3Side [data-nav=toets]').filter({visible:true}).first().click();await p.waitForTimeout(700);
+  await p.locator('.v3ToetsSetup .v3Start').click();await p.waitForTimeout(800);
+  for(let i=0;i<60;i++){if(await p.evaluate(()=>document.querySelector('.v3Reis')?.dataset.view==='toetsResult'))break;await p.evaluate(()=>{try{grade(true)}catch{}try{next()}catch{}});await p.waitForTimeout(50);}}
  else await p.locator(`.v3Side [data-nav=${screen}]`).filter({visible:true}).first().click();
  await p.waitForTimeout(900);
 }
