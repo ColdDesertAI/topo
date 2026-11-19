@@ -311,7 +311,8 @@
   // BL-029 Menu 1: the map runs under the free chapter block; Italy keeps clear of most of the block's width.
   if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width*.6)+'px');
   // Chapter page (Menu 1): the panel is display:contents; its free block is the head's column.
-  else if(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead'),w=h?.getBoundingClientRect().width||360;stage.style.setProperty('--v3-fit-right',Math.round(m1Wide===ui.selected?w+16:w*.6)+'px');}
+  else if(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead'),w=h?.getBoundingClientRect().width||360;// Landen/Zeeën (OMGEVING) use the wider frame: always the full reserve (design-critic BL-029 r4: their areas lay under the button).
+   stage.style.setProperty('--v3-fit-right',Math.round(OMGEVING.includes(ui.selected)?w+48:m1Wide===ui.selected?w+16:w*.6)+'px');}
   else stage.style.removeProperty('--v3-fit-right');
   stage.style.setProperty('--v3-fit-bottom',over?Math.round(Math.max(hMax,panel.getBoundingClientRect().height)+24)+'px':'0px');};
  if('ResizeObserver' in window){const ro=new ResizeObserver(()=>{reserve();if(mapClone)fit(mapClone);});ro.observe(stage);ro.observe(panel);}
