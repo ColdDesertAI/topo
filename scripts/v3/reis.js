@@ -442,6 +442,8 @@
   const tiles=make('div','v3Tiles');
   tiles.append(tile('v3TilePizza',V3ART?.icons.pizza,S+' / 8','Pizza',S+' van 8 stukjes van pizza '+(P+1)),tile('v3TileStamp',V3ART?.icons.stamp,m.done+' / 11','Stempels',m.done+' van 11 stempels'),tile('v3TileGold',V3ART?.icons.gold,gold+' / 11','Goud',gold+' van 11 goudzegels'),tile('v3TilePostcard',V3ART?.icons.postcard,cards+' / 4','Postkaarten',cards+' van 4 postkaarten'));
   rewardsView.replaceChildren(h,book,ride,tiles);
+  // BL-034 P1.11 (Menu 1): Nino (masterset NINO-GOLD) free on the scene beside the book and the counts.
+  if(MENU==='1'&&window.TOPO_V3?.pose){try{const n=make('div','v3RewardsNino');n.setAttribute('aria-hidden','true');n.append(window.TOPO_V3.pose('NINO-GOLD','success','rewards'));rewardsView.append(n);}catch{}}
  }
  function renderSwitch(){
   let sw=tools.querySelector('.v3Switch');

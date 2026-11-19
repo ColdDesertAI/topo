@@ -460,3 +460,13 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
 }
 .v3Map .v3Quiz .v3QuizMark circle{fill:var(--v3-accent);stroke:#fff;stroke-width:2.5;filter:drop-shadow(0 2px 4px rgba(40,25,80,.3))}
 .v3Map .v3Quiz .v3QuizMark text{font:800 15px/1 var(--v3-font);fill:#fff}
+
+/* BL-034 P1.11: Beloningen — Nino (NINO-GOLD) free on the scene to the right of the book, never cut. */
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{grid-template-columns:340px minmax(0,1fr) minmax(0,.7fr)}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino{grid-column:3;grid-row:1/-1;align-self:end;justify-self:center;display:flex;align-items:flex-end;height:min(62vh,560px);margin:0 24px 24px 0;min-width:0}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino{justify-self:stretch!important;justify-content:center}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino figure{height:100%!important;width:100%!important;display:flex;align-items:flex-end;justify-content:center;margin:0;background:none;box-shadow:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino img{max-height:100%!important;max-width:100%!important;width:auto!important;height:auto!important;object-fit:contain}
+}
+@media (min-width:1024px) and (max-width:1279px){.v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{grid-template-columns:320px minmax(0,1fr) minmax(0,.6fr)}}
