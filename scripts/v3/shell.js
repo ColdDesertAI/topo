@@ -62,7 +62,10 @@
   const backdrop=make('section','ninoSettingsGroup v3BackgroundChoices');backdrop.append(make('h3',null,'Achtergrond'));
   const options=[['bg03','Kust'],['bg01','Toscane'],['bg02','Meer'],['auto','Wisselen']];
   const mark=()=>backdrop.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.background===V.background.get())));
-  for(const [key,label] of options){const b=btn(label,()=>{V.background.set(key);mark();},'v3Btn');b.dataset.background=key;backdrop.append(b);}
+  // BL-017: a short confirmation after a choice ("✓ Bewaard" beside the heading, read by screen readers).
+  const saved=make('span','v3Saved');saved.setAttribute('role','status');saved.setAttribute('aria-live','polite');backdrop.querySelector('h3').append(saved);
+  let savedTimer=0;const confirm=()=>{saved.textContent='✓ Bewaard';saved.classList.add('on');clearTimeout(savedTimer);savedTimer=setTimeout(()=>{saved.classList.remove('on');saved.textContent='';},1800);};
+  for(const [key,label] of options){const b=btn(label,()=>{V.background.set(key);mark();confirm();},'v3Btn');b.dataset.background=key;backdrop.append(b);}
   mark();settings.querySelector('.ninoSettingsActions')?.prepend(profile,backdrop);
  }
  function openSettings(opener){settingsOrigin=opener||document.activeElement;$('.ninoSettingsButton')?.click();}

@@ -361,11 +361,22 @@
  /* Modals: a plain dim behind, never a blurred veil; the sheet itself is an opaque card without blur. */
  body[data-v3-menu="1"] dialog::backdrop{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(42,36,64,.32)!important}
  body[data-v3-menu="1"] :is(.ninoSettings,#mapPicker){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
- body[data-v3-menu="1"] .ninoSettings{background:rgba(255,255,255,.97)!important;box-shadow:0 24px 60px rgba(40,25,80,.22)!important}
+ body[data-v3-menu="1"] .ninoSettings{background:#fff!important;box-shadow:0 24px 60px rgba(40,25,80,.22)!important}
  /* Settings groups: sections of the one sheet (a hairline between), not cards inside the card. */
  body[data-v3-menu="1"] .ninoSettings .ninoSettingsGroup{background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding-left:0!important;padding-right:0!important}
  body[data-v3-menu="1"] .ninoSettings .ninoSettingsGroup+.ninoSettingsGroup{border-top:1px solid rgba(42,36,64,.08)!important}
  /* Lesson: the pizza meter is part of the one lesson card (no card inside it). */
  body.v3Les[data-v3-menu="1"] aside.panel #ninoMeter{background:transparent!important;box-shadow:none!important;border:0!important;border-top:1px solid rgba(42,36,64,.08)!important;border-radius:0!important}
  body[data-v3-menu="1"] :is(#focusAnswerSheet,.v3RideSkip){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+}
+
+/* === BL-017 (Dennis iMac 15-11): settings buttons — a quiet hover tint (no jump), a short pressed state, and the
+   "✓ Bewaard" confirmation after a choice. Active nav item bold (700) on every screen. === */
+@media (min-width:768px){
+ .ninoSettings .v3Btn,.ninoSettings button{transition:background-color .15s ease,box-shadow .15s ease}
+ @media (hover:hover){.ninoSettings .v3Btn:not([aria-pressed=true]):hover,.ninoSettings button:not([aria-pressed=true]):not(.v3Saved):hover{background:rgba(91,69,224,.06)!important}}
+ .ninoSettings .v3Btn:active,.ninoSettings button:active{background:rgba(91,69,224,.12)!important;box-shadow:inset 0 1px 2px rgba(40,25,80,.12)!important;transform:none!important}
+ .ninoSettings .v3Saved{display:inline-block;margin-left:10px;font:600 13px/1 var(--v3-font);color:#2f7d4a;opacity:0;transition:opacity .2s ease}
+ .ninoSettings .v3Saved.on{opacity:1}
+ :is(.v3Reis,.v3ShellNav) .v3Side .v3NavItem[aria-current=page]{font-weight:700!important}
 }
