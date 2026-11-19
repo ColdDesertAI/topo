@@ -255,8 +255,10 @@
   ROUTE_CHAPTERS.forEach((c,i)=>{const p=pos[c.id];if(!p)return;const ch=m.chapters[i];
    const el=document.createElementNS(SVGNS,'g');el.setAttribute('class','v3Marker');el.dataset.chapter=c.id;
    el.dataset.step=String(ch?.gold?4:Math.min(3,ch?.r?.stage||0));
+   // BL-035.2: the overview's pins are the chapter page's violet drop pins; a locked chapter light lavender.
+   el.dataset.lock=ch&&stateOf(ch,m)==='locked'?'1':'0';
    if(c.id===cur?.id)el.classList.add('on');else if(c.id===ui.selected)el.classList.add('sel');el.dataset.state=c.id===cur?.id?'actief':c.id===ui.selected?'gekozen':'';
-   el.setAttribute('transform','translate('+p[0]+' '+p[1]+') scale('+k+')');
+   el.setAttribute('transform','translate('+p[0]+' '+p[1]+') scale('+(c.id===cur?.id?k*1.25:k)+')'); // the active chapter 1.25× larger
    const ring=c.id===cur?.id?'<circle class="v3MarkerRing" cx="0" cy="-'+PINHEAD+'" r="'+(PINR+4.5)+'"/>':'';
    el.innerHTML=ring+'<path class="v3MarkerPin" d="M0 0C-3.2-6.5-'+PINR+'-12.5-'+PINR+'-'+PINHEAD+'a'+PINR+' '+PINR+' 0 1 1 '+(2*PINR)+' 0C'+PINR+'-12.5 3.2-6.5 0 0z"/>'
     +'<text y="-'+(PINHEAD-5.5)+'" text-anchor="middle">'+(i+1)+'</text>';

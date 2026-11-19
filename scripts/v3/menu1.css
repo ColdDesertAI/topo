@@ -433,15 +433,14 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
 /* BL-034 P1.8 (BL-014 F5): chapter markers as numbered drop pins (tip on the place). Fill by mastery in 5 steps,
    white → lavender → dark violet; white number from step 3 (AA ≥ 5.4). The active chapter has a violet ring. */
 .v3Map .v3Markers .v3Marker{cursor:pointer}
-.v3Map .v3Markers .v3Marker .v3MarkerPin{stroke:#fff;stroke-width:2;filter:drop-shadow(0 3px 5px rgba(40,25,80,.28));fill:#fff}
-.v3Map .v3Markers .v3Marker[data-step="1"] .v3MarkerPin{fill:#ebe7fd}
-.v3Map .v3Markers .v3Marker[data-step="2"] .v3MarkerPin{fill:#c9bff8}
-.v3Map .v3Markers .v3Marker[data-step="3"] .v3MarkerPin{fill:#6a52e0}
-.v3Map .v3Markers .v3Marker[data-step="4"] .v3MarkerPin{fill:#3f2aa8}
-.v3Map .v3Markers .v3Marker text{font:700 15px/1 var(--v3-font);fill:var(--v3-ink);pointer-events:none}
-.v3Map .v3Markers .v3Marker:is([data-step="3"],[data-step="4"]) text{fill:#fff}
-.v3Map .v3Markers .v3Marker .v3MarkerRing{fill:none;stroke:var(--v3-accent);stroke-width:3.5}
-.v3Map .v3Markers .v3Marker.sel .v3MarkerRing,.v3Map .v3Markers .v3Marker.sel .v3MarkerPin{stroke:var(--v3-accent);stroke-width:3}
+.v3Map .v3Markers .v3Marker .v3MarkerPin{fill:var(--v3-accent,#5b45e0);stroke:#fff;stroke-width:2;filter:drop-shadow(0 3px 5px rgba(40,25,80,.28))}
+.v3Map .v3Markers .v3Marker text{font:700 15px/1 var(--v3-font);fill:#fff;pointer-events:none}
+/* BL-035.2: one look with the chapter page's pins; locked = light lavender with a violet number; the active chapter
+   larger (JS) with a white ring; a chosen chapter a dark violet edge. Mastery stays in the list (the row's state). */
+.v3Map .v3Markers .v3Marker[data-lock="1"] .v3MarkerPin{fill:#e4defc}
+.v3Map .v3Markers .v3Marker[data-lock="1"] text{fill:#4834c4}
+.v3Map .v3Markers .v3Marker .v3MarkerRing{fill:none;stroke:#fff;stroke-width:3.5;filter:drop-shadow(0 1px 3px rgba(40,25,80,.35))}
+.v3Map .v3Markers .v3Marker.sel .v3MarkerPin{stroke:#3f2aa8;stroke-width:3}
 
 /* BL-034 P1.9 (BL-014 F6): chapter landmarks — one size, focusable, 1.15x + name in a white pill on hover/focus. */
 .v3Map .v3Landmarks .v3Lm{cursor:default;outline:none}
