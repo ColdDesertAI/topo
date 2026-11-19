@@ -19,11 +19,11 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-**BL-029 Menu 1 (r4, 16-11):** één werkruimte met verloop op alle schermen en in de les (`scripts/v3/menu1.css`, terugval `TOPO_V3_MENU='2'`). Ronde 1: design NO-GO + evaluator FAIL; r3/r4 lossen alle must-fixes op (o.a. werkruimte lag óver het lesresultaat). QA `node scripts/qa-v3-menu1.mjs`: 0 fouten (5 maten × 3 BG × 6 schermen + les en lesresultaat; AA ook op de getekende pixels). `qa-v3-glas2.mjs` toetst nu Menu 2 (groen).
+**BL-029 Menu 1 (r5, 19-11):** één werkruimte met verloop op alle schermen en in de les (`scripts/v3/menu1.css`, terugval `TOPO_V3_MENU='2'`). Design r1–r3 NO-GO, alle must-fixes verwerkt (r3: kaart weer ~31% van het scherm, markers wijken voor titel/knop). QA `node scripts/qa-v3-menu1.mjs`: 0 fouten. **G1-contactsheet: `ops/reports/BL-029-G1.webp`** (1440/2560/1080 × BG-01/02/03, overzicht + hoofdstuk naast Menu 1, lesresultaat 1440/2560).
 - **Backdrop-filters zichtbaar:** 2 op de zes schermen (zijbalk + werkruimte), 1–2 in de les (vraag, modal, resultaat). Nino 184×200 overal, ook in de les (iPad-rail 60×64). Kennis-paspoort standaard dicht.
 - **FPS 1080×810, CPU 4×:** Voortgang scrollen 59 (de hoofdstuklijst scrollt op 1080 niet: alle 11 rijen passen). Schermwissel 30–49 fps (Menu 2: 17–50); zonder de ene lange frame (kaartkopie, 0,2–1,2 s) 51–56. Haalt ≥ 50 niet → BL-031.
 - **Gloed (tijdelijk, tot nieuwe achtergronden):** BG-03 overzicht en Voortgang-titel; hoofdstukpagina altijd (titel faalde zonder gloed op alle BG's).
-- **Volgende:** design-critic ronde 3 en evaluator ronde 2 → G1 Dennis. Niet mergen naar main.
+- **Volgende:** design-critic r4 + evaluator r2 (lopen) → G1 Dennis. BL-032 (nieuwe BG's) wacht: op main nog dezelfde bestanden (19-11). Niet mergen naar main; G4 bij Dennis.
 - **BL-028 klaar (16-11, PASS):** een toets geeft geen pizzapunten/ritten/goud meer, het dagdoel telt wel. Gevolg voor BL-004b (night/2026-11-16): `IPAD_TEST.md` gaat ervan uit dat de Toets ritten geeft; ritten komen nu alleen uit Oefenen/Les.
 - **Nachtscript (op deze branch, `454c203`):** bij een limiet wachten tot reset + 2 min en hervatten tot 07:00; Codex-flags uit `codex exec --help`. Werkt pas na een PR naar `main` (akkoord Dennis). Nodig: uitvoer van `codex exec --help` op de Mac mini.
 
