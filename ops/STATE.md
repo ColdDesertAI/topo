@@ -19,11 +19,11 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-**BL-029 Menu 1: G1-PAKKET KLAAR (19-11).** `ops/reports/BL-029-G1.webp` (Reis-overzicht + hoofdstuk, 1440/2560/1080 × BG-01/02/03 naast Menu 1, lesresultaat) en `ops/reports/BL-029-G1-schermen.webp` (Oefenen kiezen/les, Toets instellen/vraag, Beloningen, Reisboekje open, Voortgang, Instellingen; 1440/1080 × 3 BG). Design-critic r5 GO-voorstel; evaluator r3: alles PASS behalve fps.
+**BL-029 Menu 1: KLAAR — G1 GO Dennis (19-11).** `ops/reports/BL-029-G1.webp` (Reis-overzicht + hoofdstuk, 1440/2560/1080 × BG-01/02/03 naast Menu 1, lesresultaat) en `ops/reports/BL-029-G1-schermen.webp` (Oefenen kiezen/les, Toets instellen/vraag, Beloningen, Reisboekje open, Voortgang, Instellingen; 1440/1080 × 3 BG). Design-critic r5 GO-voorstel; evaluator r3: alles PASS behalve fps.
 - **Indeling iMac-feedback 15-11:** A (geen mistplaten op alle schermen) klaar · B vóór G4 klaar: BL-017 `622e55b`, BL-022 + BL-018-deel `0b3c62c` · C = BL-014 F5–F8 (contract klaar, bouwen na G4) · D = BL-018-rest (route 3 pizza's + Vespa in mist, na G4).
 - **BL-032 klaar:** nieuwe BG-01/02/03 (main `64fc294`), brandpunt 50% 55%; zonder gloed haalt alles AA (laagste 1,15× de eis), dus de gloed is weg. BG-04–07 staan in de repo, niet geïntegreerd.
 - **QA:** `qa-v3-menu1.mjs` 0 fouten (6 maten × 3 BG × 7 schermen + les/lesresultaat), `qa-v3-glas2` (Menu 2) groen, lint 0. Blur 2 per scherm; Nino 184×200; paspoort dicht; kaart 30–32% op 1080–1440.
-- **Besluit Dennis (G1):** GO op Menu 1; fps schermwissel 32–52 bij CPU 4× → accepteren + BL-031, of eerst BL-031. Niet mergen naar main; G4 bij Dennis.
+- **Besluit Dennis 19-11:** GO op Menu 1; fps schermwissel (32–52 bij CPU 4×) geaccepteerd, fix later in BL-031. Volgende: Vercel-preview van deze branch voor Dennis (toegang aangevraagd), daarna G4 (Dennis). Niet mergen naar main zonder G4.
 - **BL-028 klaar (16-11, PASS):** een toets geeft geen pizzapunten/ritten/goud meer, het dagdoel telt wel. Gevolg voor BL-004b (night/2026-11-16): `IPAD_TEST.md` gaat ervan uit dat de Toets ritten geeft; ritten komen nu alleen uit Oefenen/Les.
 - **Nachtscript (op deze branch, `454c203`):** bij een limiet wachten tot reset + 2 min en hervatten tot 07:00; Codex-flags uit `codex exec --help`. Werkt pas na een PR naar `main` (akkoord Dennis). Nodig: uitvoer van `codex exec --help` op de Mac mini.
 
