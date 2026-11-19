@@ -168,6 +168,9 @@ for(const [W,H] of SIZES)for(const bg of BGS){
   if(r.blur>3)fail(where,'blur op '+r.blur+' elementen: '+r.blurred.join(', '));
   const wc=W<1280?'ipad':'desktop';(nino[wc]??=new Set()).add(r.nino);
   if(screen==='voortgang'&&r.paspoortOpen!==false)fail(where,'Kennis-paspoort niet ingeklapt');
+  // BL-034 bug: the filled marker is the active chapter = the list's current row, always.
+  if(screen==='overzicht'){const mk=await p.evaluate(()=>({on:[...document.querySelectorAll('.v3Markers .v3Marker.on')].map(m=>m.dataset.chapter),cur:document.querySelector('.v3Rows .v3Row[aria-current=step]')?.dataset.chapter||null}));
+   if(mk.on.length!==1||(mk.cur&&mk.on[0]!==mk.cur))fail(where,`actieve marker ${mk.on} ≠ actief hoofdstuk ${mk.cur}`);}
   // Map first (design-critic BL-029 r3): Italy's box ≥ 25% of the screen on the overview and the chapter page.
   // (2560: the layout does not scale up yet — BL-033; reported, not a failure here.)
   if((screen==='overzicht'||screen==='hoofdstuk')&&W<2400&&!(r.mapShare>=.25))fail(where,'kaart te klein: '+r.mapShare);
@@ -178,6 +181,13 @@ for(const [W,H] of SIZES)for(const bg of BGS){
  await p.close();
 }
 for(const [wc,set] of Object.entries(nino))if(set.size!==1)fail('nino '+wc,'meerdere maten: '+[...set].join(', '));
+// BL-034 bug scenario: a lesson in progress in another chapter than the next one (a replay of chapter 1 while chapter 2
+// is next) -> the filled marker is the chapter of the lesson in progress, exactly one marker is filled.
+{const p=await b.newPage({viewport:{width:1440,height:900}});await p.goto(HTML+'#bezig/bg03');await p.waitForTimeout(1300);
+ const r=await p.evaluate(()=>{state.route.active={chapterId:'city1',kind:'discover',stage:0,done:false,queue:[],index:0,correct:0,wrong:0};renderRouteHome();
+  return {on:[...document.querySelectorAll('.v3Markers .v3Marker.on')].map(m=>m.dataset.chapter)};});
+ if(r.on.length!==1||r.on[0]!=='city1')fail('actief hoofdstuk (lopende les in 1, volgende is 2)',`gevulde marker ${r.on} (verwacht city1)`);
+ console.log('actief hoofdstuk bij lopende les:',JSON.stringify(r));await p.close();}
 const les=[];for(const [W,H] of [[1280,800],[1366,768],[1440,900],[2560,1440]])les.push(await lessonResult(b,W,H));
 let f=null;if(args.has('--fps'))f=await fps(b);
 await b.close();

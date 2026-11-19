@@ -42,9 +42,12 @@
   const chapters=ROUTE_CHAPTERS.map((c,index)=>{const r=TopoRoute.record(state.route,c.id);return {...c,index,r,open:TopoRoute.unlocked(state.route,ROUTE_CHAPTERS,c.id),done:r.stage===3,gold:r.goldAt>0};});
   const next=chapters.find(c=>c.r.stage<3)||null,active=state.route.active&&!state.route.active.done?state.route.active:null;
   const due=TopoRoute.due(state.route,ROUTE_CHAPTERS);
-  return {chapters,next,active,due,done:chapters.filter(c=>c.done).length};
+  // BL-034: ONE active chapter for the list ('now'), the marker and the first selection: the lesson in progress, else the
+  // next chapter to do, else the last one (all done). Before, the list used `next` and the selection `active`.
+  const current=(active&&chapters.find(c=>c.id===active.chapterId))||next||chapters.at(-1);
+  return {chapters,next,active,current,due,done:chapters.filter(c=>c.done).length};
  }
- const stateOf=(c,m)=>!c.open?'locked':c.gold?'gold':c.done?'done':c===m.next?'now':'open';
+ const stateOf=(c,m)=>!c.open?'locked':c.gold?'gold':c.done?'done':c===m.current?'now':'open';
 
  /* Shell (built once) */
  const root=make('div','v3 v3Reis');root.dataset.v3='reis';
@@ -233,7 +236,7 @@
     if(!moved)break;}
   ROUTE_CHAPTERS.forEach((c,i)=>{const p=pos[c.id];if(!p)return;
    const m=document.createElementNS(SVGNS,'g');m.setAttribute('class','v3Marker');m.dataset.chapter=c.id;
-   if(c.id===ui.selected)m.classList.add('on');
+   const cur=model().current;if(c.id===cur?.id)m.classList.add('on');else if(c.id===ui.selected)m.classList.add('sel');m.dataset.state=c.id===cur?.id?'actief':c.id===ui.selected?'gekozen':'';
    m.setAttribute('transform','translate('+p[0]+' '+p[1]+') scale('+k+')');
    m.innerHTML='<circle r="18"/><text y="5.5" text-anchor="middle">'+(i+1)+'</text>';
    // A pointer shortcut only (the list is the accessible route): the marker selects its chapter.
@@ -459,7 +462,7 @@
   if(root.parentNode!==home)home.prepend(root);
   root.dataset.theme=window.TOPO_V3_THEME||'viola';
   const m=model();
-  if(!ui.selected||!m.chapters.some(c=>c.id===ui.selected))ui.selected=(m.active&&m.chapters.find(c=>c.id===m.active.chapterId)||m.next||m.chapters.at(-1)).id;
+  if(!ui.selected||!m.chapters.some(c=>c.id===ui.selected))ui.selected=m.current.id;
   const c=m.chapters.find(x=>x.id===ui.selected);
   // Backdrop: BG-03 (BG-01/BG-02 in the preview), full-bleed behind the window; the V2 panorama only as fallback.
   const pano=V3ART?.bg?.[window.TOPO_V3_BG||'bg03']||V3ART?.bg?.bg03||$('.routeScene img')?.currentSrc||$('.routeScene img')?.src;

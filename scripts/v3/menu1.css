@@ -394,3 +394,5 @@
 body:is(.v3Home,.v3Les)[data-v3-background=bg01]{background-size:cover;background-position:50% 55%}
 body:is(.v3Home,.v3Les)[data-v3-background=bg02]{background-size:cover;background-position:50% 55%}
 body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;background-position:50% 55%}
+/* BL-034: the filled marker is always the active chapter; another selected chapter gets a violet ring. */
+.v3Map .v3Markers .v3Marker.sel circle{fill:#fff;stroke:var(--v3-accent);stroke-width:3.5}
