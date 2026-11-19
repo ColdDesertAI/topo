@@ -1,8 +1,11 @@
 /* Geographic presentation: data anchors and raster height are never moved or rewritten. */
-window.TopoV3Landmarks=function(svg,k){
+window.TopoV3Landmarks=function(svg,k,opts){
  'use strict';
  const art=window.TOPO_V3_ART?.landmarks;
- if(!art||!svg.matches('.v3MapStage .v3Map,.v3ToetsMap'))return;
+ if(!art||!svg.matches('.v3MapStage .v3Map,.v3ToetsMap,.v3OefStage svg'))return;
+ // BL-034 P1.9 (BL-014 F6), Menu 1 on the chapter page and in Oefenen: ALL landmarks of the own chapter, max. 1 per
+ // place, one size (32 px from 1280, 28 below), focusable; hover/focus 1.15x with the name below in a white pill.
+ const all=!!opts?.all;
  const NS='http://www.w3.org/2000/svg',make=(tag,attrs)=>{const n=document.createElementNS(NS,tag);for(const [key,value] of Object.entries(attrs))n.setAttribute(key,String(value));return n;};
  svg.classList.add('v3LandmarkMap');
  // Ronde 5 punt 8: the relief look lives in reliefDepth (reis.js) for every map; no separate warm/desaturated copy here.
@@ -35,14 +38,17 @@ window.TopoV3Landmarks=function(svg,k){
  // BL-016c: on Reis only ONE landmark, at the active pin (the chapter's first place still to learn, else its first), as a
  // small badge: the illustration on a white pill with a soft shadow. No loose icons, no circles.
  const onReis=!!svg.closest('.v3MapStage');
- if(onReis&&svg.dataset.focus!=='points')shown=[]; // a badge only where there is an active pin (not on rivers/areas)
- if(onReis&&shown.length){const hits=[...svg.querySelectorAll('circle.v3Hit')].map(c=>c.getAttribute('data-id'));
+ if(!all&&onReis&&svg.dataset.focus!=='points')shown=[]; // a badge only where there is an active pin (not on rivers/areas)
+ if(all){const seen=new Set(),ids=chapter?new Set(chapter.itemIds):new Set([...svg.querySelectorAll('.v3Hit[data-id]')].map(n=>n.getAttribute('data-id'))); // Oefenen: the places being practised
+  if(!chapter)shown=art.items.filter(i=>i.relevantItems.some(x=>ids.has(x)));shown=shown.filter(i=>{const place=i.relevantItems.find(x=>!ids||ids.has(x));if(!place||seen.has(place))return false;seen.add(place);return true;});svg.dataset.landmarkSet='hoofdstuk';}
+ else if(onReis&&shown.length){const hits=[...svg.querySelectorAll('circle.v3Hit')].map(c=>c.getAttribute('data-id'));
   const pick=shown.find(i=>i.relevantItems.some(id=>hits.includes(id)))||shown[0];shown=[pick];svg.dataset.landmarkSet='badge';}
  for(const item of shown){
   const asset=item.exports[size];
   const [left,top,right,bottom]=asset.paintBounds;
   // Anchor the painted bottom centre, not the padded square, at the real geographic point.
-  const units=item.paintSize*grow/Math.max(right-left,bottom-top),width=asset.size[0]*units,pw=(right-left)*units,ph=(bottom-top)*units;
+  const one=matchMedia('(max-width:1279px)').matches?28:32;
+  const units=(all?one:item.paintSize*grow)/Math.max(right-left,bottom-top),width=asset.size[0]*units,pw=(right-left)*units,ph=(bottom-top)*units;
   const at=(dx,dy)=>[item.point[0]+(dx-pw/2)*k,item.point[1]+(dy-ph)*k,item.point[0]+(dx+pw/2)*k,item.point[1]+dy*k];
   let dx=0,dy=0;
   if(hits(at(0,0)))search:for(let d=4;d<=96;d+=4)for(const [sx,sy] of STEPS){const r=at(sx*d,sy*d);if(!hits(r)){dx=sx*d;dy=sy*d;break search;}}
@@ -50,8 +56,15 @@ window.TopoV3Landmarks=function(svg,k){
   const node=make('g',{'data-landmark':item.id,'data-longitude':item.coordinates[0],'data-latitude':item.coordinates[1],transform:'translate('+item.point[0]+' '+item.point[1]+') scale('+k+')'});
   if(dx||dy){node.dataset.shift=dx+' '+dy;}
   // BL-016b D: never loose on the relief — each landmark sits on a white badge (circle + shadow, CSS .v3Badge).
-  if(onReis){const pad=6,bwid=pw+2*pad,bht=ph+2*pad;node.append(make('rect',{class:'v3Badge',x:dx-bwid/2,y:dy-ph-pad,width:bwid,height:bht,rx:bht/2}));}
-  node.append(make('image',{href:asset.src,x:-(left+right)/2*units+dx,y:-bottom*units+dy,width,height:width,'data-export-size':size}));g.append(node);
+  if(onReis||all){const pad=6,bwid=pw+2*pad,bht=ph+2*pad;node.append(make('rect',{class:'v3Badge',x:dx-bwid/2,y:dy-ph-pad,width:bwid,height:bht,rx:bht/2}));}
+  node.append(make('image',{href:asset.src,x:-(left+right)/2*units+dx,y:-bottom*units+dy,width,height:width,'data-export-size':size}));
+  if(all){node.setAttribute('class','v3Lm');node.setAttribute('tabindex','0');node.setAttribute('pointer-events','auto');
+   // the label: a white pill under the icon, shown on hover/focus (scaled 1.15x around the icon's centre by CSS)
+   const NL={TOPO_01:'Colosseum, Rome',TOPO_02:'Scheve Toren van Pisa',TOPO_03:'Vesuvius bij Napels',TOPO_04:'Etna, Sicilië',TOPO_05:'Gondel in Venetië',TOPO_06:'Dom van Milaan',TOPO_07:'Dom van Florence',TOPO_08:'Nuraghe, Sardinië',TOPO_09:'Dolomieten',TOPO_10:'Trulli, Alberobello'};
+   const name=(NL[item.id]||item.label||'').trim(),lw=Math.max(40,name.length*7.4+20),lab=make('g',{class:'v3LmLabel'});
+   lab.append(make('rect',{x:dx-lw/2,y:dy+8,width:lw,height:24,rx:12}));const t=make('text',{x:dx,y:dy+24.5,'text-anchor':'middle'});t.textContent=name;lab.append(t);node.append(lab);
+   node.style.setProperty('--lm-oy',(dy-ph/2)+'px');}
+  g.append(node);
  }
  // Ronde 5 punt 7: the chapter's lifestyle icons (a fixed list per chapter, locations.json), Reis only, smaller than the
  // landmarks (painted 32 px desktop / 28 px iPad), in their own layer above the landmarks and below every pin and mark;
