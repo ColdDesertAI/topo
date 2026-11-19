@@ -157,7 +157,7 @@ for(const [W,H] of SIZES)for(const bg of BGS){
   const wc=W<1280?'ipad':'desktop';(nino[wc]??=new Set()).add(r.nino);
   if(screen==='voortgang'&&r.paspoortOpen!==false)fail(where,'Kennis-paspoort niet ingeklapt');
   // Map first (design-critic BL-029 r3): Italy's box ≥ 25% of the screen on the overview and the chapter page.
-  // (2560: the layout does not scale up yet — BL-032; reported, not a failure here.)
+  // (2560: the layout does not scale up yet — BL-033; reported, not a failure here.)
   if((screen==='overzicht'||screen==='hoofdstuk')&&W<2400&&!(r.mapShare>=.25))fail(where,'kaart te klein: '+r.mapShare);
   const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}
   table.push({where,map:r.mapShare,blur:r.blur,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
