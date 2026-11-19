@@ -519,3 +519,22 @@ body.v3On .ninoProfile:not(.v3Welkom) :focus-visible{outline-color:var(--v3-acce
    iPad layout, data-focus-mode=true); on desktop they did nothing visible (measured: no camera change, no pressed
    state at 1440×900). There they are removed; in focus mode they stay, because they work. === */
 body.v3On:not([data-focus-mode=true]) .focusCameraTools{display:none!important}
+/* === BL-035.5 (live 19-11): Kennis-paspoort = the Voortgang chapter list. Rows are the Reis rows; each opens in place to
+   its places (Vinden, Naam). The list grows with the page (the page scrolls, never the list). === */
+@media (min-width:1024px){.v3Reis[data-menu="1"] .v3VgSide .v3VgRows.v3VgPas{overflow:visible;max-height:none}}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row{grid-template-columns:28px minmax(0,1fr) auto!important;cursor:pointer}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row .v3End{display:flex;align-items:center;gap:10px;width:auto}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row .v3RowBar{display:none}
+.v3Reis[data-menu="1"] .v3VgPas .v3PasCount{font:600 14px/1 var(--v3-font);color:#5d5873;white-space:nowrap;font-variant-numeric:tabular-nums}
+.v3Reis[data-menu="1"] .v3VgPas .v3PasChev{width:20px;height:20px;position:relative;flex:0 0 20px}
+.v3Reis[data-menu="1"] .v3VgPas .v3PasChev::before{content:"";position:absolute;left:5px;top:3px;width:8px;height:8px;border:solid var(--v3-ink);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);transition:transform .15s ease}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row[aria-expanded=true]{background:var(--v3-accent-soft,#ebe7fd)}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row[aria-expanded=true] .v3Name{font-weight:700}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row[aria-expanded=true] .v3PasChev::before{transform:translate(0,4px) rotate(-135deg)}
+@media (hover:hover){.v3Reis[data-menu="1"] .v3VgPas .v3Row:not([aria-expanded=true]):hover{background:#f5f3fe}}
+.v3Reis[data-menu="1"] .v3VgPas>li>.v3PasBody{width:calc(100% - 42px);margin:4px 0 12px 42px}
+@media (prefers-reduced-motion:reduce){.v3Reis[data-menu="1"] .v3VgPas .v3PasChev::before{transition:none}}
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"] .v3VgOverview:has(.v3VgPas){height:auto;min-height:100%;align-content:start}
+ .v3Reis[data-menu="1"] .v3VgSide:has(.v3VgPas),.v3Reis[data-menu="1"] .v3VgSide:has(.v3VgPas)>.v3Card{max-height:none;height:auto;align-self:start}
+}

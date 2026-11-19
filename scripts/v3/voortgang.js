@@ -72,7 +72,24 @@
    li.setAttribute('aria-label',c.title+': '+r.stage+' van 3 lessen'+(r.goldAt>0?', goud':st==='locked'?', nog dicht':''));
    const name=make('span','v3VgName');name.append(make('span','v3VgNum',(i+1)+'.'),document.createTextNode(' '+c.title.replace(/^Extra steden/,'Steden')));
    li.append(thumb,name,steps,status);list.append(li);});
-  if(sameRows){list.className='v3Rows v3VgRows';V.chapterRows(list,id=>{V.showChapter(id);V.go?.('reis');});}
+  // BL-035.5 (live 19-11): the Kennis-paspoort IS this list — no separate panel. Each of the 11 rows (the Reis row
+  // component, same size) opens in place (whole row the toggle, chevron, aria-expanded) to its places with their mastery
+  // (Vinden, Naam). The list grows with the page: no inner scrollbar.
+  const passTable=c=>{const places=pp.filter(p=>c.itemIds.includes(p.item.id));const t=make('table','v3PasBody');
+   const hr=make('tr');hr.append(make('th',null,'Plek'),make('th',null,'Vinden'),make('th',null,'Naam'));const thead=make('thead');thead.append(hr);
+   const tb=make('tbody');for(const p of places){const tr=make('tr');tr.dataset.status=p.status;const th=make('th',null,p.item.name);th.scope='row';tr.append(th,make('td',null,p.find),make('td',null,p.name));tb.append(tr);}
+   t.append(thead,tb);return {t,done:places.filter(p=>p.status==='beheerst').length,n:places.length};};
+  if(sameRows){list.className='v3Rows v3VgRows v3VgPas';V.chapterRows(list,()=>{});
+   for(const li of list.children){const b=li.querySelector('.v3Row'),c=ROUTE_CHAPTERS.find(x=>x.id===b?.dataset.chapter);if(!c)continue;
+    const {t,done,n}=passTable(c),id='v3Pas-'+c.id;t.id=id;t.hidden=true;
+    b.removeAttribute('aria-pressed');b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls',id);
+    b.setAttribute('aria-label',c.title+': '+done+' van '+n+' plekken beheerst');
+    const end=b.querySelector('.v3End');end?.querySelector('.v3Chev')?.remove();end?.removeAttribute('aria-label');
+    const cnt=make('span','v3PasCount',done+' / '+n);cnt.setAttribute('aria-hidden','true');const chev=make('span','v3PasChev');chev.setAttribute('aria-hidden','true');
+    end?.append(cnt,chev);
+    b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));t.hidden=!open;li.classList.toggle('v3Open',open);});
+    li.append(t);}
+  }
 
   // Dagdoel (V2).
   try{renderDailyGoal();}catch{}
@@ -98,7 +115,7 @@
   // BL-034 (Menu 1): the paspoort per chapter — one row per chapter (whole row a button, chevron 20 px, aria-expanded)
   // with "x van y beheerst"; it opens to the chapter's places with Vinden and Naam. Data: the V2 paspoort (pp).
   // The V2 details element stays in the DOM (passport() reads it) but out of sight; Dennis could not find its toggle.
-  if(V.menu==='1'){
+  if(V.menu==='1'&&!sameRows){
    const acc=make('div','v3Pas');let k=0;
    for(const c of ROUTE_CHAPTERS){const places=pp.filter(p=>c.itemIds.includes(p.item.id));if(!places.length)continue;k++;
     const done=places.filter(p=>p.status==='beheerst').length,id='v3Pas-'+c.id;
@@ -115,11 +132,13 @@
   }
 
   // Raster (12 kolommen): titelbalk; kaartkaart 1–7 en hoofdstukken 8–12; Dagdoel, Pizza's en Vespa-ritten; Toetsen; paspoort.
-  const side=make('div','v3VgSide');side.append(section('Hoofdstukken','v3VgHoofdstukken',list));
+  const side=make('div','v3VgSide');side.append(section(sameRows?'Kennis-paspoort':'Hoofdstukken','v3VgHoofdstukken',list));
   const grid2=make('div','v3VgGrid');grid2.append(fig,side);
   const row=make('div','v3VgRow');row.append(dagdoel,pizzas,rides);
   const overview=make('div','v3VgOverview');overview.append(titleBar,grid2,row);
-  view.replaceChildren(overview,section('Toetsen','v3VgToetsTitel',toetsen),section('Kennis-paspoort','v3VgPaspoortTitel',pass));
+  // Menu 1: the paspoort lives in the chapter list above (the V2 details stays in the DOM for passport(), out of sight).
+  if(sameRows){if(mastery){mastery.hidden=true;pass.hidden=true;}view.replaceChildren(overview,section('Toetsen','v3VgToetsTitel',toetsen),pass);}
+  else view.replaceChildren(overview,section('Toetsen','v3VgToetsTitel',toetsen),section('Kennis-paspoort','v3VgPaspoortTitel',pass));
  });
  V.voortgang={passport};
 })();
