@@ -204,3 +204,33 @@ Getoetst op de gebouwde preview (niet opnieuw gebouwd) met eigen screenshots op 
 - De overige nice-to-haves uit ronde 1 blijven staan (losse vormen in de zee, de plek van marker 2, één pizzanotatie, BL-031/032, de iPad-les).
 
 **NO-GO.** Na must-fix 1 (één regel in `reis.js` plus de obstakel-check bij de markers) en een vergelijkingsblad van het overzicht naast Menu 1 op 1280/1440/1080 verwacht ik een GO-voorstel. De rest is G1-waardig.
+
+---
+
+## Ronde 4 (commit `3bfe899`, HEAD `b570854`, hoofdboom)
+Alleen het punt uit ronde 3 getoetst: kaartmaat, markers en pins onder titel/knop, en verspringen bij het openen.
+- Maten: 1280×800, 1366×768, 1440×900 en 1080×810, op BG-03.
+- Alle 11 hoofdstukken via `#alles` (de preview is niet opnieuw gebouwd).
+- Per hoofdstuk het overzicht en de hoofdstukpagina: kaartbox, kickerhoogte en overlap (+8 px) van markers, pins en gemarkeerde vlakken met kicker, titel en knop.
+
+**Oordeel: NO-GO, met één must-fix.**
+
+### Opgelost
+- **Overzicht:** Italië beslaat weer 30,6–31,9% van het scherm op alle vier de maten (1280: 30,8 · 1366: 31,9 · 1440: 30,6 · 1080: 30,6). De compositie is gelijk aan de goedgekeurde r2. **0 van de 11 markers** valt onder kicker, titel of knop, op elke maat en voor elk geselecteerd hoofdstuk.
+- **Hoofdstukpagina, stedenhoofdstukken en natuur (1–8, 11):**
+  - 0 pins onder de tekst.
+  - De kicker staat op elke maat op dezelfde hoogte als op het overzicht.
+  - Bij 2, 4–8 en 11 blijft de kaartbox identiek, dus niets springt.
+  - Bij 1 en 3 (op 1280/1366/1080; op 1440 alleen 3) krimpt de kaart naar 18–23%, omdat een pin anders onder de tekst valt. Dat is een bewuste en verdedigbare uitzondering.
+
+### Must-fix vóór G1
+1. **Bij Landen (9) en Zeeën (10) ligt de leerstof onder de titel en de knop.**
+   - Op de hoofdstukpagina schuift de kaart met het omgevingsframe naar rechts. De kaartbox van Italië gaat van 437–904 naar 651–878 (1080) en van 640–1208 naar 900–1176 (1440).
+   - Gevolg: Italië, de buurlanden en de gemarkeerde zeeën lopen onder "HOOFDSTUK 9/10", de titel en de violette knop "Goud nog eens". Bij Zeeën valt een violet zeevlak onder de violette knop.
+   - Dat gebeurt op alle vier de maten, dus ook op de iPad 9. Precies de plekken die het kind moet leren, zijn hier bedekt. Links tussen de lessenkolom en de kaart staat intussen een lege band.
+   - Fix: geef het `omgeving`-frame op de hoofdstukpagina dezelfde reserve als de uitzondering voor stedenhoofdstukken: `--v3-fit-right` = breedte van het vrije blok + 16, en lijn de kaart links uit tegen de kaartkolom in plaats van rechts. Of neem de gemarkeerde vlakken mee in dezelfde check "valt onder de tekst → brede reserve".
+   - Check: op 1080, 1280, 1366 en 1440 valt bij hoofdstuk 9 en 10 geen land- of zeevlak onder kicker, titel of knop.
+
+Screenshots: `ch-1080-ch9.png`, `ch-1440-ch10.png` en `ch-1440-ch3.png` in de scratchpad van de sessie (`dc29r4`).
+
+**NO-GO.** Het overzicht en 9 van de 11 hoofdstukpagina's zijn G1-klaar. Na de fix voor het omgevingsframe (hoofdstuk 9 en 10) volgt een GO-voorstel zonder nieuwe ronde over de rest.
