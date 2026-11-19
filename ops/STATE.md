@@ -7,7 +7,7 @@
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 
 ## Productie
-- `main` @ `7e38160` (28-09), oude stand. Wat er op Vercel staat moet nog geverifieerd worden (BL-006).
+- `main` @ `718658f` (19-11, G4): V3 Menu 1 live op /italie/ via `SITE_ITALIE=v3`.
 
 ## Actieve werkstromen (moeten samenkomen)
 | Branch | Wat | Laatst |
@@ -19,6 +19,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
+**G4 (19-11, akkoord Dennis): V3 Menu 1 naar main.** PR #101 squash-gemerged (`718658f`). Productie: `SITE_ITALIE=v3` gezet (Vercel production env), redeploy van `718658f` → V3 op www.ninotopo.nl/italie/, V2 op /italie/v2/. Rollback: `SITE_ITALIE=v2` + redeploy, of Promote van de vorige productiedeploy (`dpl_oaw4…`, 64fc294). Tag `v3.0.0` lokaal gemaakt, push geweigerd door de git-proxy van deze sessie → Dennis zet hem (`git tag -a v3.0.0 718658f && git push origin v3.0.0`). Open uit G3: Hermes-hertest, speeltest ≥ 2 kinderen, fps schermwissel (BL-031).
 **BL-034 (testfeedback 19-11) KLAAR — wacht op test Dennis, dan G4 (vr 20-11).** P0 1–7 en P1 8–12 gebouwd, kleine commits (`417d7bb`…`b91a503`). Acceptatie: `ops/reports/BL-034-acceptatie.webp` (Reis, hoofdstuk, Oefenen, Toets instellen/resultaat, Beloningen, Voortgang met paspoort open, kennismaking, BG-kiezer; 1440/1080 × 3 BG). QA `qa-v3-menu1` 0 fouten (6 maten × 3 BG × 7 schermen + les), `qa-v3-fade` sprong ≤ 2,7% (zijbalkrand = paneelrand, apart gerapporteerd). Branchpreview: zie RUNLOG.
 **BL-029 Menu 1: KLAAR — G1 GO Dennis (19-11).** `ops/reports/BL-029-G1.webp` (Reis-overzicht + hoofdstuk, 1440/2560/1080 × BG-01/02/03 naast Menu 1, lesresultaat) en `ops/reports/BL-029-G1-schermen.webp` (Oefenen kiezen/les, Toets instellen/vraag, Beloningen, Reisboekje open, Voortgang, Instellingen; 1440/1080 × 3 BG). Design-critic r5 GO-voorstel; evaluator r3: alles PASS behalve fps.
 - **Indeling iMac-feedback 15-11:** A (geen mistplaten op alle schermen) klaar · B vóór G4 klaar: BL-017 `622e55b`, BL-022 + BL-018-deel `0b3c62c` · C = BL-014 F5–F8 (contract klaar, bouwen na G4) · D = BL-018-rest (route 3 pizza's + Vespa in mist, na G4).
