@@ -24,15 +24,13 @@
       {"place": "city-14", "icon": "TOPO_08"},
       {"place": "city-15", "icon": "TOPO_04"},
       {"place": "city-16", "icon": "TOPO_13"},
-      {"place": "city-17", "icon": "TOPO_10"},
-      {"place": "city-18", "icon": "TOPO_14"}
+            {"place": "city-18", "icon": "TOPO_14"}
     ],
     "city4": [
-      {"place": "city-19", "icon": "TOPO_04"},
+      {"place": "city-19", "icon": "TOPO_13"},
       {"place": "city-20", "icon": "TOPO_11"},
       {"place": "city-21", "icon": "TOPO_14"},
-      {"place": "city-22", "icon": "TOPO_09"},
-      {"place": "city-23", "icon": "TOPO_13"}
+      {"place": "city-22", "icon": "TOPO_09"}
     ],
     "islands": [
       {"place": "area-a", "icon": "TOPO_04"},
