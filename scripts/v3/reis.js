@@ -197,51 +197,49 @@
    const hit=[...svg.querySelectorAll('.v3Pins .v3Pin')].some(p=>{const r=p.getBoundingClientRect();return ob.some(o=>r.left<o[2]&&o[0]<r.right&&r.top<o[3]&&o[1]<r.bottom);});
    if(hit){m1Wide=ui.selected;requestAnimationFrame(()=>{reserve();fit(svg);});}}
  }
- // One anchor per chapter, in map units: among the chapter's own places inside Italy's box, the one farthest from the
- // anchors already placed (so the city chapters do not stack), ties to the place nearest the chapter's centre.
+ // BL-034 P1.8 (BL-014 F5): chapter markers are numbered drop pins whose tip sits EXACTLY on one of the chapter's own
+ // places. Candidates per chapter (places on Italy's land first, nearest the chapter's centre first), computed once.
  let anchors=null;
  function chapterAnchors(svg){
   if(anchors)return anchors;anchors={};
   let i0=Infinity,j0=Infinity,i1=-Infinity,j1=-Infinity;for(const n of svg.querySelectorAll('.italy,.v3Isle')){const b=n.getBBox();i0=Math.min(i0,b.x);j0=Math.min(j0,b.y);i1=Math.max(i1,b.x+b.width);j1=Math.max(j1,b.y+b.height);}
-  const placed=[];
+  const land=[...svg.querySelectorAll('.italy,.v3Isle')],onLand=p=>land.some(n=>{try{return n.isPointInFill(new DOMPoint(p[0],p[1]));}catch{return false;}});
   for(const c of ROUTE_CHAPTERS){
-   const pts=[];for(const id of c.itemIds){const n=svg.querySelector('[data-id="'+id+'"]');if(!n)continue;let x,y;
+   let pts=[];for(const id of c.itemIds){const n=svg.querySelector('[data-id="'+id+'"]');if(!n)continue;let x,y;
     if(n.tagName==='circle'){x=+n.getAttribute('cx');y=+n.getAttribute('cy');}else{const b=n.getBBox();x=b.x+b.width/2;y=b.y+b.height/2;}
     if(isFinite(x)&&isFinite(y)&&x>=i0&&x<=i1&&y>=j0&&y<=j1)pts.push([x,y]);}
    if(!pts.length)continue;
+   const inside=pts.filter(onLand);if(inside.length)pts=inside;
    const mx=pts.reduce((a,p)=>a+p[0],0)/pts.length,my=pts.reduce((a,p)=>a+p[1],0)/pts.length;
-   // Places on Italy's own land first (Landen: San Marino, Vaticaanstad), so no marker floats beside the coast.
-   const land=[...svg.querySelectorAll('.italy,.v3Isle')],onLand=p=>land.some(n=>{try{return n.isPointInFill(new DOMPoint(p[0],p[1]));}catch{return false;}});
-   const inside=pts.filter(onLand);if(inside.length)pts.splice(0,pts.length,...inside);
-   const score=p=>(placed.length?Math.min(...placed.map(q=>Math.hypot(p[0]-q[0],p[1]-q[1]))):0)-.15*Math.hypot(p[0]-mx,p[1]-my);
-   const best=pts.reduce((a,p)=>score(p)>score(a)?p:a);anchors[c.id]=best;placed.push(best);
+   anchors[c.id]=pts.sort((a,b)=>Math.hypot(a[0]-mx,a[1]-my)-Math.hypot(b[0]-mx,b[1]-my));
   }
   return anchors;
  }
+ // Mastery in 5 steps (0–3 lessons done, 4 = gold) → the pin's fill, white → lavender → dark violet (CSS, data-step).
+ const PINHEAD=25,PINR=15;
  function drawMarkers(svg,k){
   let g=svg.querySelector('.v3Markers');if(!g){g=document.createElementNS(SVGNS,'g');g.setAttribute('class','v3Markers');g.setAttribute('aria-hidden','true');svg.append(g);}
-  const a=chapterAnchors(svg);
-  // Markers keep 40 screen px between centres (36 px circle + 4 px gap): pairs that come closer at this scale are pushed
-  // apart along the line between them (a few px; each marker stays at its chapter's place).
-  const pos={};for(const c of ROUTE_CHAPTERS)if(a[c.id])pos[c.id]=[...a[c.id]];
-  const ids=Object.keys(pos),min=40*k;
+  const cand=chapterAnchors(svg),m=model(),cur=m.current;
   const inv=svg.getScreenCTM?.()?.inverse(),toMap=(x,y)=>{const q=new DOMPoint(x,y).matrixTransform(inv);return [q.x,q.y];};
   const obst=inv?freeBlock().map(r=>{const a=toMap(r[0],r[1]),b=toMap(r[2],r[3]);return [Math.min(a[0],b[0]),Math.min(a[1],b[1]),Math.max(a[0],b[0]),Math.max(a[1],b[1])];}):[];
-  const rad=20*k;
-  for(let it=0;it<30;it++){let moved=false;for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++){const p=pos[ids[i]],q=pos[ids[j]];let dx=q[0]-p[0],dy=q[1]-p[1],d=Math.hypot(dx,dy);
-    if(d>=min)continue;if(d<1e-6){dx=1;dy=0;d=1;}const push=(min-d)/2+.01;p[0]-=dx/d*push;p[1]-=dy/d*push;q[0]+=dx/d*push;q[1]+=dy/d*push;moved=true;}
-    // out of the free text block: to the nearest point outside the rect (+ radius), mostly to its left
-    for(const id of ids){const p=pos[id];for(const o of obst){const cx=Math.max(o[0],Math.min(p[0],o[2])),cy=Math.max(o[1],Math.min(p[1],o[3]));let dx=p[0]-cx,dy=p[1]-cy,d=Math.hypot(dx,dy);
-     if(d>=rad)continue;if(d<1e-6){p[0]=o[0]-rad-.01;moved=true;continue;}p[0]+=dx/d*(rad-d+.01);p[1]+=dy/d*(rad-d+.01);moved=true;}}
-    if(!moved)break;}
-  ROUTE_CHAPTERS.forEach((c,i)=>{const p=pos[c.id];if(!p)return;
-   const m=document.createElementNS(SVGNS,'g');m.setAttribute('class','v3Marker');m.dataset.chapter=c.id;
-   const cur=model().current;if(c.id===cur?.id)m.classList.add('on');else if(c.id===ui.selected)m.classList.add('sel');m.dataset.state=c.id===cur?.id?'actief':c.id===ui.selected?'gekozen':'';
-   m.setAttribute('transform','translate('+p[0]+' '+p[1]+') scale('+k+')');
-   m.innerHTML='<circle r="18"/><text y="5.5" text-anchor="middle">'+(i+1)+'</text>';
+  // The tip never moves: per chapter choose the candidate place whose pin head stays clear of the heads already placed
+  // (34 px between head centres) and of the free text block; the active chapter chooses first.
+  const head=p=>[p[0],p[1]-PINHEAD*k],R=(PINR+2)*k,gap=34*k,placed=[];
+  const clear=p=>{const h=head(p);let d=Infinity;for(const q of placed)d=Math.min(d,Math.hypot(h[0]-q[0],h[1]-q[1])-gap);
+   for(const o of obst){const cx=Math.max(o[0],Math.min(h[0],o[2])),cy=Math.max(o[1],Math.min(h[1],o[3]));d=Math.min(d,Math.hypot(h[0]-cx,h[1]-cy)-R);}return d;};
+  const order=[...ROUTE_CHAPTERS].sort((a,b)=>(b.id===cur?.id)-(a.id===cur?.id)),pos={};
+  for(const c of order){const ps=cand[c.id];if(!ps)continue;const ok=ps.find(p=>clear(p)>=0);const best=ok||ps.reduce((a,p)=>clear(p)>clear(a)?p:a);pos[c.id]=best;placed.push(head(best));}
+  ROUTE_CHAPTERS.forEach((c,i)=>{const p=pos[c.id];if(!p)return;const ch=m.chapters[i];
+   const el=document.createElementNS(SVGNS,'g');el.setAttribute('class','v3Marker');el.dataset.chapter=c.id;
+   el.dataset.step=String(ch?.gold?4:Math.min(3,ch?.r?.stage||0));
+   if(c.id===cur?.id)el.classList.add('on');else if(c.id===ui.selected)el.classList.add('sel');el.dataset.state=c.id===cur?.id?'actief':c.id===ui.selected?'gekozen':'';
+   el.setAttribute('transform','translate('+p[0]+' '+p[1]+') scale('+k+')');
+   const ring=c.id===cur?.id?'<circle class="v3MarkerRing" cx="0" cy="-'+PINHEAD+'" r="'+(PINR+4.5)+'"/>':'';
+   el.innerHTML=ring+'<path class="v3MarkerPin" d="M0 0C-3.2-6.5-'+PINR+'-12.5-'+PINR+'-'+PINHEAD+'a'+PINR+' '+PINR+' 0 1 1 '+(2*PINR)+' 0C'+PINR+'-12.5 3.2-6.5 0 0z"/>'
+    +'<text y="-'+(PINHEAD-5.5)+'" text-anchor="middle">'+(i+1)+'</text>';
    // A pointer shortcut only (the list is the accessible route): the marker selects its chapter.
-   m.addEventListener('click',e=>{e.stopPropagation();ui.selected=c.id;render();});
-   g.append(m);});
+   el.addEventListener('click',e=>{e.stopPropagation();ui.selected=c.id;render();});
+   g.append(el);});
  }
  // Frame Italy and the chapter's places with a generous margin, then widen the frame to the stage's shape
  // inside the map canvas (890×1235), so neighbouring countries, seas and islands stay visible as reference.

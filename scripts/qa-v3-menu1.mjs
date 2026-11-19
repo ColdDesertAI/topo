@@ -68,7 +68,7 @@ const probe=()=>{
   r=r?{left:Math.min(r.left,q.left),top:Math.min(r.top,q.top),right:Math.max(r.right,q.right),bottom:Math.max(r.bottom,q.bottom)}:{left:q.left,top:q.top,right:q.right,bottom:q.bottom};}
   if(r)boxes.push({e,r,t:e.textContent.trim().slice(0,18)});}
  for(const e of buttons){const r=e.getBoundingClientRect();boxes.push({e,r,t:'['+e.textContent.trim().slice(0,14)+']',btn:true});}
- for(const c of scope.querySelectorAll('.v3Markers .v3Marker circle')){if(!vis(c))continue;boxes.push({e:c,r:c.getBoundingClientRect(),t:'marker '+(c.parentNode.textContent||'').trim()});}
+ for(const c of scope.querySelectorAll('.v3Markers .v3Marker .v3MarkerPin')){if(!vis(c))continue;boxes.push({e:c,r:c.getBoundingClientRect(),t:'marker '+(c.parentNode.textContent||'').trim()});}
  for(const g of scope.querySelectorAll('.v3MapStage .v3Pins .v3Pin')){if(!vis(g))continue;boxes.push({e:g,r:g.getBoundingClientRect(),t:'pin',pin:true});}
  const over=[];for(let i=0;i<boxes.length;i++)for(let j=i+1;j<boxes.length;j++){const a=boxes[i],b=boxes[j];if(a.e.contains(b.e)||b.e.contains(a.e))continue;
   if(a.pin&&b.pin)continue;

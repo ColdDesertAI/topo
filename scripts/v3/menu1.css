@@ -97,12 +97,7 @@
  .v3Reis[data-menu="1"] .v3Switch{padding:0!important;align-items:stretch}
  .v3Reis[data-menu="1"] .v3Switch .v3Btn{height:44px!important;min-height:44px!important;padding:0 14px;border-radius:999px}
  .v3Reis[data-menu="1"] .v3MapTools>*{height:44px;min-height:44px;border-radius:999px;background:#fff!important;outline:1px solid rgba(42,36,64,.08);-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:0 4px 14px rgba(40,25,80,.12)}
- /* Chapter markers: white circle 36 px with the number, the selected one filled violet. */
  .v3Map .v3Markers .v3Marker{cursor:pointer}
- .v3Map .v3Markers .v3Marker circle{fill:#fff;stroke:rgba(42,36,64,.10);stroke-width:1;filter:drop-shadow(0 3px 6px rgba(40,25,80,.22))}
- .v3Map .v3Markers .v3Marker text{font:700 16px/1 var(--v3-font);fill:var(--v3-ink);pointer-events:none}
- .v3Map .v3Markers .v3Marker.on circle{fill:var(--v3-accent);stroke:#fff;stroke-width:3}
- .v3Map .v3Markers .v3Marker.on text{fill:#fff}
  /* Active chapter: free on the clear part, no panel. */
  .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Main>.v3Panel{grid-column:4!important;grid-row:2!important;align-self:start!important;justify-self:stretch!important;
   display:flex!important;flex-direction:column;align-items:flex-start;gap:0;margin:16vh 40px 0 8px!important;padding:0!important;width:auto!important;
@@ -394,8 +389,6 @@
 body:is(.v3Home,.v3Les)[data-v3-background=bg01]{background-size:cover;background-position:50% 55%}
 body:is(.v3Home,.v3Les)[data-v3-background=bg02]{background-size:cover;background-position:50% 55%}
 body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;background-position:50% 55%}
-/* BL-034: the filled marker is always the active chapter; another selected chapter gets a violet ring. */
-.v3Map .v3Markers .v3Marker.sel circle{fill:#fff;stroke:var(--v3-accent);stroke-width:3.5}
 /* BL-034 P0.4: Voortgang shows exactly the Reis chapter list (same rows, same card, same width); no visible scrollbar. */
 .v3Reis[data-menu="1"] .v3Rows{scrollbar-width:none}
 .v3Reis[data-menu="1"] .v3Rows::-webkit-scrollbar{display:none}
@@ -435,3 +428,16 @@ body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;backgroun
 .ninoProfile.v3 .profileActions [type="submit"]{background:var(--v3-accent)!important;color:#fff!important}
 .ninoProfile.v3 .profileActions [type="submit"]{border-color:transparent!important;box-shadow:0 10px 24px rgba(91,60,200,.28)!important}
 body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+
+/* BL-034 P1.8 (BL-014 F5): chapter markers as numbered drop pins (tip on the place). Fill by mastery in 5 steps,
+   white → lavender → dark violet; white number from step 3 (AA ≥ 5.4). The active chapter has a violet ring. */
+.v3Map .v3Markers .v3Marker{cursor:pointer}
+.v3Map .v3Markers .v3Marker .v3MarkerPin{stroke:#fff;stroke-width:2;filter:drop-shadow(0 3px 5px rgba(40,25,80,.28));fill:#fff}
+.v3Map .v3Markers .v3Marker[data-step="1"] .v3MarkerPin{fill:#ebe7fd}
+.v3Map .v3Markers .v3Marker[data-step="2"] .v3MarkerPin{fill:#c9bff8}
+.v3Map .v3Markers .v3Marker[data-step="3"] .v3MarkerPin{fill:#6a52e0}
+.v3Map .v3Markers .v3Marker[data-step="4"] .v3MarkerPin{fill:#3f2aa8}
+.v3Map .v3Markers .v3Marker text{font:700 15px/1 var(--v3-font);fill:var(--v3-ink);pointer-events:none}
+.v3Map .v3Markers .v3Marker:is([data-step="3"],[data-step="4"]) text{fill:#fff}
+.v3Map .v3Markers .v3Marker .v3MarkerRing{fill:none;stroke:var(--v3-accent);stroke-width:3.5}
+.v3Map .v3Markers .v3Marker.sel .v3MarkerRing,.v3Map .v3Markers .v3Marker.sel .v3MarkerPin{stroke:var(--v3-accent);stroke-width:3}
