@@ -804,3 +804,45 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps>i{background:rgba(42,36,64,.20)}
  .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps>i.on{background:var(--v3-accent)}
 }
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P6. Voortgang: one column that scrolls (the page, not the list): title + count, the map with its legend, the Kennis-paspoort
+    (the Reis rows, full width, opens in place), then the three tiles. */
+ .v3Reis[data-menu="1"][data-view=voortgang]>.v3View-voortgang{display:flex!important;flex-direction:column;grid-template-columns:none;grid-template-rows:none;grid-column:2;grid-row:1/-1;margin:0!important;padding:16px 16px 28px!important;width:auto;height:100%;max-height:none;overflow-y:auto;overflow-x:hidden;gap:16px}
+ .v3Reis[data-menu="1"] .v3VgOverview{display:flex!important;flex-direction:column;gap:16px;height:auto;min-height:0;flex:0 0 auto;margin:0;padding:0;overflow:visible;background:none!important;box-shadow:none!important}
+ .v3Reis[data-menu="1"] .v3VgOverview>.v3VgGrid{display:flex!important;flex-direction:column;gap:16px;margin:0;padding:0}
+ .v3Reis[data-menu="1"] .v3VgTitleBar{display:flex!important;flex-direction:row;align-items:center;justify-content:space-between;gap:16px;height:auto!important;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto;position:relative}
+ .v3Reis[data-menu="1"] .v3VgTitleBar>h1{font:800 40px/1.05 var(--v3-font);margin:0;color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3VgHead{flex:1 1 auto!important;height:auto!important;display:flex!important;flex-direction:column;align-items:flex-start;gap:8px;width:auto;max-width:320px;padding:0!important;margin:0!important;background:transparent!important;box-shadow:none!important}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgBar{flex:0 0 auto;width:100%;height:12px;min-height:0;margin:0}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgCount{margin:0;white-space:nowrap}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgCount span{color:var(--v3-ink);font:600 16px/1 var(--v3-font);margin-left:6px}
+ .v3Reis[data-menu="1"] .v3VgKaart{position:relative;display:block;margin:0!important;padding:0!important;min-height:0;background:transparent!important;box-shadow:none!important;border:0!important;outline:0!important}
+ .v3Reis[data-menu="1"] .v3VgKaart::after{display:none}
+ .v3Reis[data-menu="1"] .v3VgKaart>.v3VgKaartTitle{display:none!important}
+ .v3Reis[data-menu="1"] .v3VgKaart .v3VgMap{display:block;margin:0 auto;height:min(46dvh,500px);max-width:100%}
+ .v3Reis[data-menu="1"] .v3VgLegend{position:absolute;left:0;bottom:0;display:flex!important;flex-direction:column;gap:8px;padding:0!important;margin:0;background:transparent!important;border-radius:0!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3VgLegend>li{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px 0 10px;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(40,25,80,.12);font:500 15px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"] .v3VgSide{position:relative;margin:0;min-height:0;display:flex;flex-direction:column}
+ .v3Reis[data-menu="1"] .v3VgSide>.v3Card{position:static;display:flex;flex-direction:column;min-height:0;height:auto;max-height:none;margin:0;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0;overflow:visible}
+ .v3Reis[data-menu="1"] .v3VgSide .v3VgChapters,.v3Reis[data-menu="1"] .v3VgSide .v3VgRows{display:grid;align-content:start;margin:0;padding:4px;list-style:none;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);overflow:visible;max-height:none;min-height:0}
+ .v3Reis[data-menu="1"] .v3VgSide .v3VgRows.v3VgPas{overflow:visible;max-height:none}
+ .v3Reis[data-menu="1"] .v3VgPas .v3Row{height:auto;min-height:44px}
+ .v3Reis[data-menu="1"] .v3VgRow{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;height:auto!important;overflow:visible!important;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto}
+ .v3Reis[data-menu="1"] .v3VgRow>.v3VgTile{display:flex!important;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;width:100%;max-width:none;box-sizing:border-box;min-height:80px;padding:12px 16px!important;border-radius:20px!important;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3VgRow>.v3VgTile::before,.v3Reis[data-menu="1"] .v3VgRow>.v3VgTile::after{display:none!important}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText{display:flex;align-items:baseline;gap:8px;flex:1 1 auto;white-space:nowrap;min-width:0;flex-wrap:wrap}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText>*{width:auto;margin:0}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgDots{display:none}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText strong{font:700 22px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"] .v3View-voortgang>.v3Card{flex:0 0 auto;width:auto;max-width:none;margin:0!important;padding:14px 18px!important;border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ .v3Reis[data-menu="1"] :is(.v3VgOverview,.v3VgOverview>.v3VgGrid,.v3VgTitleBar,.v3VgKaart,.v3VgSide,.v3VgSide>.v3Card,.v3VgRow,.v3View-voortgang>.v3Card){width:100%;box-sizing:border-box;align-self:stretch}
+ .v3Reis[data-menu="1"] .v3VgSide :is(.v3VgChapters,.v3VgRows){width:100%;box-sizing:border-box}
+ .v3Reis[data-menu="1"] .v3VgKaart .v3VgMap{margin:0 auto 0 auto}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ .v3Reis[data-menu="1"][data-view=voortgang] .v3VgSide .v3VgPas .v3Row{height:auto;min-height:44px}
+ .v3Reis[data-menu="1"][data-view=voortgang] .v3VgSide .v3VgPas .v3Row .v3End{display:flex;align-items:center;gap:10px;width:auto;height:auto}
+}
