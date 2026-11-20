@@ -308,8 +308,9 @@
     // over the map's bottom (Reis, afwerking 10-11) reserves --v3-fit-bottom px: Italy fits in the box above it.
     const r=svg.getBoundingClientRect(),fr=svg.querySelector('.v3FadeRect'),mk=fr?.parentNode,res=Math.min(r.height*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-bottom'))||0),
      resR=Math.min(r.width*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-right'))||0), // BL-016b: a card over the map's right side
-     resT=Math.min(r.height*.3,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-top'))||0); // BL-016d: tools over the map's top
-    if(r.width&&r.height){const w=x1-x0,h=y1-y0,k=Math.max(w/(r.width-resR),h/(r.height-res-resT)),bw=r.width*k,bh=r.height*k,bx=x0-((r.width-resR)*k-w)/2,by=y0-resT*k-((r.height-res-resT)*k-h)/2;
+     resT=Math.min(r.height*.3,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-top'))||0), // BL-016d: tools over the map's top
+     resL=Math.min(r.width*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-left'))||0); // BL-038: counters over the map's left (iPad portrait); 0 elsewhere
+    if(r.width&&r.height){const w=x1-x0,h=y1-y0,k=Math.max(w/(r.width-resR-resL),h/(r.height-res-resT)),bw=r.width*k,bh=r.height*k,bx=x0-resL*k-((r.width-resR-resL)*k-w)/2,by=y0-resT*k-((r.height-res-resT)*k-h)/2;
      const box=v=>{svg._v3Shown=v;svg.setAttribute('viewBox',v.map(n=>Math.round(n*10)/10).join(' '));if(fr)for(const n of [fr,mk])['x','y','width','height'].forEach((a,i)=>n.setAttribute(a,v[i]));};
      const settle=()=>{box([bx,by,bw,bh]);
       // The land's drop shadow in screen px (afwerking 10-11: 0 18px 24px rgba(42,36,64,.28)), in map units.
@@ -351,9 +352,9 @@
    Object.assign(probe.style,{position:'absolute',visibility:'hidden',pointerEvents:'none',left:'0',top:'0',width:panel.getBoundingClientRect().width+'px'});panel.after(probe);
    try{for(const c of m.chapters){renderPanel(m,c,probe);hMax=Math.max(hMax,probe.getBoundingClientRect().height);}}finally{probe.remove();}}
   // BL-029 Menu 1: the map runs under the free chapter block; Italy keeps clear of most of the block's width.
-  if(m1Overview())stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width*.6)+'px');
+  if(m1Overview()&&!PORTRAIT.matches)stage.style.setProperty('--v3-fit-right',Math.round(panel.getBoundingClientRect().width*.6)+'px');
   // Chapter page (Menu 1): the panel is display:contents; its free block is the head's column.
-  else if(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead'),w=h?.getBoundingClientRect().width||360;// Landen/Zeeën (OMGEVING) use the wider frame: always the full reserve (design-critic BL-029 r4: their areas lay under the button).
+  else if(MENU==='1'&&WIDE.matches&&!PORTRAIT.matches&&ui.page==='hoofdstuk'&&ui.view==='reis'){const h=panel.querySelector('.v3CardHead'),w=h?.getBoundingClientRect().width||360;// Landen/Zeeën (OMGEVING) use the wider frame: always the full reserve (design-critic BL-029 r4: their areas lay under the button).
    stage.style.setProperty('--v3-fit-right',Math.round(OMGEVING.includes(ui.selected)?w+48:m1Wide===ui.selected?w+16:w*.6)+'px');}
   else stage.style.removeProperty('--v3-fit-right');
   stage.style.setProperty('--v3-fit-bottom',over?Math.round(Math.max(hMax,panel.getBoundingClientRect().height)+24)+'px':'0px');};
@@ -375,7 +376,9 @@
   else if(WIDE.matches&&ui.page==='hoofdstuk'){const l=make('div','v3TopLeft');l.append(back,tools);top.replaceChildren(l,counts);}
   else if(WIDE.matches){top.replaceChildren(back,counts);if(tools.parentNode!==stage)stage.append(tools);}else top.replaceChildren(tools,counts);
  }
- const WIDE=matchMedia('(min-width:1024px)');WIDE.addEventListener?.('change',()=>render());
+ // BL-038: iPad portrait (700–1023 px) takes the same Menu 1 behaviour (chapter pins, Nino on the Vespa, chapter page, list
+ // clicks); CSS gives it its own one-column layout (map on top). PORTRAIT is that band only; >= 1024 px is unchanged.
+ const WIDE=matchMedia('(min-width:1024px), (orientation:portrait) and (min-width:700px) and (max-width:1023px)'),PORTRAIT=matchMedia('(orientation:portrait) and (min-width:700px) and (max-width:1023px)');WIDE.addEventListener?.('change',()=>render());
 
  // Chapter rows (R-reis-ijk): scene, name, status. Done = the earned stamp; gold = the illustrated laurel; in progress = a thin bar under
  // the name; locked = a lock only. The selected row is the selection style.
@@ -435,7 +438,7 @@
    if(done&&c.open){const b=btn('',press(()=>v2Card(c.id)?.querySelectorAll('.routeStep')[n]),'v3StepRow');b.setAttribute('aria-label',STAGE[s]+' opnieuw');b.append(dot,lab,icon('v3again'));li.append(b);}
    else{const d=make('div','v3StepRow');d.append(dot,lab);if(now)d.setAttribute('aria-current','step');li.append(d);}
    steps.append(li);});
-  if(WIDE.matches)panel.append(steps); // the window/chapter layouts only (≥ 1024); iPad portrait and phone keep the dots row
+  if(WIDE.matches)panel.append(steps); // the window/chapter layouts only (>= 1024 and iPad portrait, BL-038); the phone keeps the dots row
   const actions=make('div','v3Actions');
   const isActive=m.active&&m.active.chapterId===c.id;
   if(!c.open){const l=make('p','v3Locked');l.append(icon('v3lock'),make('span',null,'Opent na '+m.chapters[c.index-1].title));panel.append(l);return;}
