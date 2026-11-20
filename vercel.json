@@ -1,6 +1,12 @@
 {
   "buildCommand": "npm run build && npm run build:site",
   "outputDirectory": "dist",
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "*": false
+    }
+  },
   "redirects": [
     {
       "source": "/print.html",
