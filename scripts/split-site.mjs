@@ -113,7 +113,8 @@ const paint=p=>{shownP=Math.max(shownP,p);target=shownP;if(reduce){drawn=target;
 const real=()=>{let a=0,b=0;for(const f of files){a+=f.l;b+=f.w;}return b?a/b:1;};
 const up=()=>{if(!over)paint(ready?real():Math.min(real(),.95));};
 const leave=()=>{if(go)return;go=true;over=true;paint(1);const wait=Math.max(150,MIN-RIDE-(performance.now()-t0)); // the ride-out ends at 1.2 s (BL-035.9: warm stays fast)
- setTimeout(()=>{if(reduce||!L){finish();return;}L.classList.add("go");let n=0;const end=()=>{if(n++)return;finish();};L.querySelector("img").addEventListener("transitionend",e=>{if(e.propertyName==="transform")end();});setTimeout(end,RIDE+200);},wait);};
+ setTimeout(()=>{if(raf){cancelAnimationFrame(raf);raf=0;}drawn=target=1;L&&L.style.setProperty("--p","1"); // evaluator BL-037 r2: the bar is full before the ride-out, also when few frames are drawn (slow CPU, WebKit)
+ if(reduce||!L){requestAnimationFrame(()=>finish());return;}requestAnimationFrame(()=>requestAnimationFrame(()=>L.classList.add("go")));let n=0;const end=()=>{if(n++)return;finish();};L.querySelector("img").addEventListener("transitionend",e=>{if(e.propertyName==="transform")end();});setTimeout(end,RIDE+200);},wait);};
 const check=()=>{if(ready&&real()>=1)leave();};
 const get=(u,w)=>{const f={w:w||1e5,l:0};files.push(f);const end=()=>{f.l=f.w;up();check();};
  try{fetch(u).then(async r=>{const rd=r.body&&r.body.getReader();if(!rd){await r.arrayBuffer();return;}let n=0;for(;;){const x=await rd.read();if(x.done)break;n+=x.value.length;f.l=Math.min(f.w*.98,n);up();}}).catch(()=>{}).then(end);}catch(e){end();}};
