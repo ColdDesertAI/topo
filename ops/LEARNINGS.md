@@ -47,3 +47,7 @@ Dit is waar het systeem slimmer wordt. Elke FAIL, elke correctie van Dennis en e
 - Een gate-commando dat `grep` op testuitvoer doet, stopt niet op een rode test (de pijp slaagt). Altijd de exitcode van de test zelf gebruiken vóór commit/push (gebeurd: 1 test rood gepusht, alleen testcode, direct hersteld).
 - Lazy images helpen niet voor V2-markup die tijdens het parsen even zichtbaar is: verberg tijdens het opstarten precies wat V3 daarna toch verbergt (`html.v3Boot …{display:none}`).
 - Jsdom-testbestanden parallel draaien slaat het geheugen dicht; één bestand tegelijk (`--test-concurrency=1`).
+
+## 2026-11-20 · BL-039
+- Vercel `git.deploymentEnabled` gebruikt minimatch: `"*"` matcht geen `/`, dus `claude/…` deployde gewoon. Gebruik `"*/**": false` naast `"*": false`. En controleer een "geen deployment" pas na minuten én via de GitHub-commitstatus, niet direct in de Vercel-lijst (te vroeg gekeken = vals PASS).
+- "Warm" bepalen via een tijdslimiet faalt op trage CPU's; vraag de HTTP-cache direct (`fetch(u,{cache:'only-if-cached',mode:'same-origin'})`).
