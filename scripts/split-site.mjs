@@ -79,10 +79,10 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
   const vespaUrl = 'assets/' + vespaName;
   const css = '<style>html{background:#f4f1fd}#v3Loader{--p:0;position:fixed;inset:0;z-index:2147483647;display:grid;place-content:center;justify-items:center;gap:30px;background:#f4f1fd;visibility:visible;overflow:hidden;transition:opacity .25s ease;font:800 40px/1 ui-rounded,"SF Pro Rounded",system-ui,sans-serif;letter-spacing:.04em;color:#2a2440}'
     + '#v3Loader .v3Track{position:relative;width:min(260px,70vw);height:6px;margin-top:56px}'
-    + '#v3Loader i{display:block;position:absolute;inset:0;border-radius:3px;background:#e2dcfb;overflow:hidden}#v3Loader i::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--p)*100%);border-radius:3px;background:#6a52e0;transition:width .25s linear}'
-    + '#v3Loader img{position:absolute;bottom:4px;left:calc(var(--p)*(100% - 84px));width:84px;height:56px;max-width:none;pointer-events:none;transition:left .25s linear,transform .4s cubic-bezier(.55,0,.85,.45)}'
+    + '#v3Loader i{display:block;position:absolute;inset:0;border-radius:3px;background:#e2dcfb;overflow:hidden}#v3Loader i::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--p)*100%);border-radius:3px;background:#6a52e0}'
+    + '#v3Loader img{position:absolute;bottom:4px;left:calc(var(--p)*(100% - 84px));width:84px;height:56px;max-width:none;pointer-events:none;transition:transform .4s cubic-bezier(.55,0,.85,.45)}'
     + '#v3Loader.go img{transform:translateX(100vw)}'
-    + '@media(prefers-reduced-motion:reduce){#v3Loader img{display:none}#v3Loader i::after{transition:none}}'
+    + '@media(prefers-reduced-motion:reduce){#v3Loader img{display:none}}'
     + 'html.v3Shown #v3Loader{opacity:0;pointer-events:none}'
     // While booting, the V2 surfaces that V3 hides anyway (reis.css: the V2 header, everything in #routeHome but the
     // V3 root, the pizza meters, the Vespa toast) are display:none from the first layout, so their pictures are never
@@ -106,7 +106,10 @@ const h=document.documentElement,L=document.getElementById("v3Loader"),t0=perfor
 const MIN=1200,MAX=6000,RIDE=400,files=[];let ready=false,over=false,shownP=0,go=false;
 const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 const finish=()=>{if(h.classList.contains("v3Shown"))return;h.classList.add("v3Shown");setTimeout(()=>document.getElementById("v3Loader")?.remove(),400);};
-const paint=p=>{shownP=Math.max(shownP,p);L&&L.style.setProperty("--p",shownP.toFixed(4));};
+// Evaluator BL-037: setting --p on every data chunk restarted a CSS transition that never ran (the bar stood still,
+// then jumped). Now the target moves with the data and the drawn value follows it once per frame (no CSS transition).
+let target=0,drawn=0,raf=0;const tick=()=>{raf=0;drawn+=Math.max(.004,(target-drawn)*.18);if(drawn>target)drawn=target;L&&L.style.setProperty("--p",drawn.toFixed(4));if(drawn<target)raf=requestAnimationFrame(tick);};
+const paint=p=>{shownP=Math.max(shownP,p);target=shownP;if(reduce){drawn=target;L&&L.style.setProperty("--p",drawn.toFixed(4));return;}if(!raf)raf=requestAnimationFrame(tick);};
 const real=()=>{let a=0,b=0;for(const f of files){a+=f.l;b+=f.w;}return b?a/b:1;};
 const up=()=>{if(!over)paint(ready?real():Math.min(real(),.95));};
 const leave=()=>{if(go)return;go=true;over=true;paint(1);const wait=Math.max(150,MIN-RIDE-(performance.now()-t0)); // the ride-out ends at 1.2 s (BL-035.9: warm stays fast)
