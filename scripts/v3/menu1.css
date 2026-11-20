@@ -599,3 +599,24 @@ dialog.v3Uitleg .v3UitlegSec p:last-child{margin-bottom:0}
 dialog.v3Uitleg .v3UitlegClose{position:absolute;top:12px;right:12px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;border:0;border-radius:999px;background:rgba(255,255,255,.7);color:var(--v3-ink,#2a2440);font:400 28px/1 system-ui,sans-serif;cursor:pointer;touch-action:manipulation}
 dialog.v3Uitleg .v3UitlegClose:is(:hover,:focus-visible){background:var(--v3-accent-soft,#ebe7fd)}
 dialog.v3Uitleg :focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+
+/* BL-036.8: the Vespa-rit overlay on the Reis map. Not modal: no focus trap, the scrim only catches a tap to skip. */
+.v3Rit{position:fixed;inset:0;z-index:70;font-family:var(--v3-font,Inter,system-ui,sans-serif);color:var(--v3-ink,#2a2440)}
+.v3Rit .v3RitScrim{position:absolute;inset:0;background:rgba(42,36,64,.32);animation:v3RitIn .2s ease-out}
+.v3Rit .v3RitSvg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.v3Rit .v3RitNino{position:absolute;left:0;top:0;width:56px;height:56px;pointer-events:none;transform-origin:50% 50%;filter:drop-shadow(0 3px 4px rgba(42,36,64,.3))}
+.v3Rit .v3RitCard{position:absolute;left:50%;bottom:max(32px,6vh);transform:translateX(-50%);display:flex;align-items:center;gap:18px;box-sizing:border-box;width:min(520px,calc(100vw - 32px));padding:18px 22px;border:1px solid rgba(255,255,255,.7);border-radius:28px;background:rgba(255,255,255,.96);box-shadow:0 18px 48px rgba(42,36,64,.28);animation:v3RitCard .24s ease-out}
+.v3Rit .v3RitCard[hidden]{display:none}
+.v3Rit .v3RitPost{flex:none;width:132px;height:auto;border-radius:6px;box-shadow:0 3px 10px rgba(42,36,64,.25);transform:rotate(-3deg)}
+.v3Rit .v3RitCopy{flex:1;min-width:0}
+.v3Rit h2{margin:0 0 4px;font-weight:700;font-size:24px;line-height:30px}
+.v3Rit p{margin:0 0 12px;font-weight:500;font-size:16px;line-height:22px}
+.v3Rit .v3RitActions{display:flex;flex-wrap:wrap;gap:10px}
+.v3Rit .v3RitActions .v3Btn{min-height:44px;padding:0 18px;border:0;border-radius:999px;font-weight:600;font-size:16px;font-family:inherit;cursor:pointer;background:#ece8fb;color:#2a2440}
+.v3Rit .v3RitActions .v3Btn.primary{background:var(--v3-accent,#5b45e0);color:#fff}
+.v3Rit button:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
+@media(max-width:560px){.v3Rit .v3RitCard{flex-direction:column;align-items:flex-start}.v3Rit .v3RitPost{width:104px}}
+@keyframes v3RitIn{from{opacity:0}to{opacity:1}}
+@keyframes v3RitCard{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.v3Rit .v3RitScrim{animation:none}.v3Rit .v3RitCard{animation:v3RitFade .16s ease-out}.v3Rit .v3RitPost{transform:none}@keyframes v3RitFade{from{opacity:0}to{opacity:1}}}

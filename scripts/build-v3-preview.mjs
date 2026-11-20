@@ -29,6 +29,7 @@ const states=`(function(){
   'nieuw':make('Nieuw profiel',[],{}),
   'bezig':make('Halte bezig',[{stage:3},{stage:1}],{good:14,pizzas:1,slices:6}),
   'afgerond':make('Haltes afgerond',[{stage:3,gold:1,due:1},{stage:3,gold:1},{stage:3},{stage:3}],{good:61,pizzas:7,slices:3,trips:2}),
+  'rit':make('Vespa-rit nr. 3',[{stage:3},{stage:3},{stage:1}],{good:73,pizzas:9,slices:1,trips:3}),
   'alles':make('Alles af',IDS.map(()=>({stage:3,gold:1})),{good:168,pizzas:21,trips:7})
  };
  const [raw0,...opts]=location.hash.slice(1).split('/'),theme=opts.includes('italia')?'italia':'viola',bgKey=opts.find(o=>/^bg0[123]$/.test(o))||'bg03',raw1=raw0||'',pair=/^thema-(ipad-)?/.exec(raw1),raw=pair?raw1.slice(pair[0].length):raw1,side=raw.startsWith('naast-'),key=side?raw.slice(6):raw,chosen=S[key]||S.bezig,th=theme==='viola'?'viola':'italia';
@@ -131,7 +132,7 @@ const last=html.lastIndexOf('</body>');if(last<0||html.indexOf('<head>')<0)throw
 const CHARSET='<meta charset="utf-8">';if(!html.includes('<head>'+CHARSET))throw Error('index.html must start its head with '+CHARSET);
 let out=html.replace('<head>'+CHARSET,()=>'<head>'+CHARSET+head);
 const end=out.lastIndexOf('</body>');
-out=out.slice(0,end)+'<script>\n// BEGIN TOPO V3\n'+read('scripts/v3/iconen.js')+'\n'+read('scripts/v3/landmarks.js')+'\n'+read('scripts/v3/reis.js')+'\n'+read('scripts/v3/master-assets.js')+'\n'+read('scripts/v3/les.js')+'\n'+read('scripts/v3/shell.js')+'\n'+read('scripts/v3/schoolblad.js')+'\n'+read('scripts/v3/toets.js')+'\n'+read('scripts/v3/voortgang.js')+'\n'+read('scripts/v3/boek.js')+'\n'+read('scripts/v3/post.js')+'\n'+read('scripts/v3/kennismaking.js')+'\n'+read('scripts/v3/keuze.js')+'\n'+read('scripts/v3/uitleg.js')+'\nrequestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");});\n// END TOPO V3\n</script>\n'+out.slice(end);
+out=out.slice(0,end)+'<script>\n// BEGIN TOPO V3\n'+read('scripts/v3/iconen.js')+'\n'+read('scripts/v3/landmarks.js')+'\n'+read('scripts/v3/reis.js')+'\n'+read('scripts/v3/master-assets.js')+'\n'+read('scripts/v3/les.js')+'\n'+read('scripts/v3/shell.js')+'\n'+read('scripts/v3/schoolblad.js')+'\n'+read('scripts/v3/toets.js')+'\n'+read('scripts/v3/voortgang.js')+'\n'+read('scripts/v3/boek.js')+'\n'+read('scripts/v3/post.js')+'\n'+read('scripts/v3/kennismaking.js')+'\n'+read('scripts/v3/keuze.js')+'\n'+read('scripts/v3/uitleg.js')+'\n'+read('scripts/v3/rit.js')+'\nrequestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");});\n// END TOPO V3\n</script>\n'+out.slice(end);
 if(!RELEASE)out=out.replace(/<title>([^<]*)<\/title>/,(m,t)=>'<title>V3-preview Reis · '+t+'</title>');
 // Assetdieet (docs/v3/ASSETDIEET.md): replace images in this output only, by the source bytes' sha256, from
 // assets/v3/dieet/manifest.json (made by scripts/v3-assets-export.py). index.html and the masters stay unchanged.
