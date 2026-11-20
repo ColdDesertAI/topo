@@ -49,3 +49,4 @@ Formaat:
 2026-11-20 | claude/opus | eval | BL-035 | PASS | hoog | evaluator r1 FAIL (Etna bij Messina; Voortgang-kaart groeide mee), fix b4770e8, r2 PASS; live gecontroleerd Chromium+WebKit
 2026-11-20 | claude/opus + builder/sonnet | taak | BL-036 | PASS | hoog | 11 punten in 3 bundels (verificatie in drie lagen), laadtijd live 23 s → 2,3 s koud / 0,8 s warm; evaluator r1 FAIL (7, 8) → fix 4deb5ab → r2 PASS; BL-038 iPad-portret aangemaakt
 2026-11-20 | claude/opus + builder/sonnet | taak | BL-038 | PASS | hoog | iPad-portret op Menu 1-niveau (kaart boven, lijst eronder), design-critic GO met kanttekeningen → 5 P1's gefixt (o.a. pin 2/9 samen in #afgerond/#alles, ook liggend), matrix incl. portret groen, evaluator PASS
+2026-11-20 | claude/opus + builder/sonnet | taak | BL-037 | 9/10 PASS | hoog | 3 bundels live; evaluator FAIL op 2 (laadbalk bevroor; Nino reed weg bij halve balk op trage CPU/WebKit) → 2 fixes → PASS; punt 8 (55% liggend) wacht op Dennis
