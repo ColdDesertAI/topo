@@ -102,7 +102,7 @@ v3art.lifestyle={items:lifestyle.map(a=>({id:a.id,label:a.label,exports:Object.f
 const chapterIcons=JSON.parse(read('assets/v3/landmarks/chapter-icons.json')),iconIds=new Set([...activeLandmarks,...lifestyle].map(a=>a.id));
 for(const [cid,list] of Object.entries(chapterIcons.chapters)){const places=CHAPTER_ITEMS[cid];if(!places)throw Error('chapter-icons: unknown chapter '+cid);
  const none=cid==='countries'||cid==='seas';if(none?list.length:(list.length<4||list.length>5))throw Error('chapter-icons: '+cid+' has '+list.length+' icons');
- for(const e of list){if(!places.includes(e.place))throw Error('chapter-icons: '+e.place+' is not a place of '+cid);if(!iconIds.has(e.icon))throw Error('chapter-icons: unknown icon '+e.icon);}}
+ for(const e of list){if(!places.includes(e.place))throw Error('chapter-icons: '+e.place+' is not a place of '+cid);if(!iconIds.has(e.icon))throw Error('chapter-icons: unknown icon '+e.icon);if(typeof e.related!=='boolean')throw Error('chapter-icons: '+e.place+'/'+e.icon+' misses related:true|false (BL-036.3)');}}
 for(const id of Object.keys(CHAPTER_ITEMS))if(!(id in chapterIcons.chapters))throw Error('chapter-icons: chapter missing '+id);
 v3art.chapterIcons={icons:chapterIcons.icons,chapters:chapterIcons.chapters};
 v3art.landmarks={source:landmarks.source,basisSet:lmLocations.relevance.basisSet,items:activeLandmarks.map(a=>{

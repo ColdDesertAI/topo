@@ -70,7 +70,7 @@ window.TopoV3Landmarks=function(svg,k,opts){
    for(const e of list){const key=e.place+'|'+e.icon;if(seenPair.has(key))continue;seenPair.add(key);
     const asset=assets.get(e.icon);if(!asset)continue;const taken=used.get(e.place)||[];const pt=placePoint(e.place,taken);if(!pt)continue;taken.push(pt);used.set(e.place,taken);
     const place=names.find(x=>x.id===e.place)?.name||'';
-    shown.push({...asset,point:pt,place:e.place,label:(n=>!place||n===place?place||n:n+', '+place)(plan.icons?.[e.icon]||asset.label)});}}
+    shown.push({...asset,point:pt,place:e.place,related:e.related!==false,iconName:plan.icons?.[e.icon]||asset.label,label:(n=>!place||n===place?place||n:n+', '+place)(plan.icons?.[e.icon]||asset.label)});}}
   svg.dataset.landmarkSet='hoofdstuk';}
  else if(onReis&&shown.length){const hits=[...svg.querySelectorAll('circle.v3Hit')].map(c=>c.getAttribute('data-id'));
   const pick=shown.find(i=>i.relevantItems.some(id=>hits.includes(id)))||shown[0];shown=[pick];svg.dataset.landmarkSet='badge';}
@@ -94,8 +94,9 @@ window.TopoV3Landmarks=function(svg,k,opts){
   if(all){node.setAttribute('class','v3Lm');node.setAttribute('tabindex','0');node.setAttribute('pointer-events','auto');
    // the label: a white pill under the icon, shown on hover/focus (scaled 1.15x around the icon's centre by CSS)
    const NL={TOPO_01:'Colosseum, Rome',TOPO_02:'Scheve Toren van Pisa',TOPO_03:'Vesuvius bij Napels',TOPO_04:'Etna, Sicilië',TOPO_05:'Gondel in Venetië',TOPO_06:'Dom van Milaan',TOPO_07:'Dom van Florence',TOPO_08:'Nuraghe, Sardinië',TOPO_09:'Dolomieten',TOPO_10:'Trulli, Alberobello'};
-   const name=(item.place?item.label:(NL[item.id]||item.label)||'').trim(),lw=Math.max(40,name.length*7.4+20),lab=make('g',{class:'v3LmLabel'});
-   lab.append(make('rect',{x:dx-lw/2,y:dy+8,width:lw,height:24,rx:12}));const t=make('text',{x:dx,y:dy+24.5,'text-anchor':'middle'});t.textContent=name;lab.append(t);node.append(lab);
+   // BL-036.3: related:false → the icon's own name ("Fiat 500") is always visible, as a small pill (13 px text, 20 px high)
+   const always=item.place&&item.related===false,name=(always?item.iconName:item.place?item.label:(NL[item.id]||item.label)||'').trim(),lw=Math.max(40,name.length*7.4+20),lab=make('g',{class:always?'v3LmLabel v3LmLabelAlways':'v3LmLabel'});
+   lab.append(make('rect',{x:dx-lw/2,y:dy+(always?6:8),width:lw,height:always?20:24,rx:always?10:12}));const t=make('text',{x:dx,y:dy+(always?20.5:24.5),'text-anchor':'middle'});t.textContent=name;lab.append(t);node.append(lab);
    node.style.setProperty('--lm-oy',(dy-ph/2)+'px');}
   g.append(node);
  }

@@ -449,6 +449,7 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
 .v3Map .v3Landmarks .v3Lm:focus-visible>.v3Badge{stroke:var(--v3-accent);stroke-width:2.5}
 .v3Map .v3Landmarks .v3LmLabel{opacity:0;pointer-events:none;transition:opacity .12s ease}
 .v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover) .v3LmLabel{opacity:1}
+.v3Map .v3Landmarks .v3LmLabelAlways{opacity:1}
 .v3Map .v3Landmarks .v3LmLabel rect{fill:#fff;filter:drop-shadow(0 2px 6px rgba(40,25,80,.22))}
 .v3Map .v3Landmarks .v3LmLabel text{font:600 13px/1 var(--v3-font);fill:var(--v3-ink)}
 .v3Map .v3Landmarks .v3Lm,.v3Map .v3Landmarks .v3Lm>image,.v3Map .v3Landmarks .v3Lm>.v3Badge{pointer-events:auto!important}
