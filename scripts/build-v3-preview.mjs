@@ -102,12 +102,27 @@ const LS=lmLocations.lifestyle,lsPlaces=Object.fromEntries(Object.entries(LS.pla
 for(const [cid,list] of Object.entries(LS.chapters))for(const [id,place] of list)if(!lifestyle.some(a=>a.id===id)||!lsPlaces[place])throw Error('Bad lifestyle entry '+cid+' '+id+' '+place);
 v3art.lifestyle={items:lifestyle.map(a=>({id:a.id,label:a.label,exports:Object.fromEntries(Object.entries(a.exports).map(([size,e])=>[size,{...e,src:uri(e,a.id+' '+size)}]))})),
  chapters:Object.fromEntries(Object.entries(LS.chapters).map(([cid,list])=>[cid,list.map(([id,place])=>({id,place,point:lsPlaces[place]}))]))};
-// BL-035.3: chapter icons — ONE config (chapter → place → icon), checked here: known chapter, a place of that
-// chapter, an existing icon (TOPO_01–16), 4–5 per chapter, none for Landen and Zeeën.
+// BL-037.9: chapter icons — ONE config (chapter → entries), checked here. RELATED {icon, place, related:true}: a place of
+// the chapter, and the pair must be in "fits" (the icon really belongs there). LOOSE {icon, at:[lon,lat], where, related:false}:
+// real coordinates inside Italy, never a place, projected like the landmarks; at least 45 map units from a city goal here
+// (the exact 40 screen px, the shapes and the labels are measured in the browser: scripts/qa-v3-icons.mjs). 4–5 per chapter,
+// none for Landen and Zeeën.
 const chapterIcons=JSON.parse(read('assets/v3/landmarks/chapter-icons.json')),iconIds=new Set([...activeLandmarks,...lifestyle].map(a=>a.id));
 for(const [cid,list] of Object.entries(chapterIcons.chapters)){const places=CHAPTER_ITEMS[cid];if(!places)throw Error('chapter-icons: unknown chapter '+cid);
  const none=cid==='countries'||cid==='seas';if(none?list.length:(list.length<4||list.length>5))throw Error('chapter-icons: '+cid+' has '+list.length+' icons');
- for(const e of list){if(!places.includes(e.place))throw Error('chapter-icons: '+e.place+' is not a place of '+cid);if(!iconIds.has(e.icon))throw Error('chapter-icons: unknown icon '+e.icon);if(typeof e.related!=='boolean')throw Error('chapter-icons: '+e.place+'/'+e.icon+' misses related:true|false (BL-036.3)');}}
+ const seen=new Set();
+ for(const e of list){const tag=cid+'/'+e.icon+'/'+(e.place||e.where);if(!iconIds.has(e.icon)||!(e.icon in chapterIcons.icons))throw Error('chapter-icons: unknown icon '+tag);
+  if(typeof e.related!=='boolean')throw Error('chapter-icons: '+tag+' misses related:true|false');
+  if(seen.has(e.icon+'|'+(e.place||e.at)))throw Error('chapter-icons: double entry '+tag);seen.add(e.icon+'|'+(e.place||e.at));
+  if(e.related){if(!e.place||e.at)throw Error('chapter-icons: related without a place, or with coordinates: '+tag);
+   if(!places.includes(e.place))throw Error('chapter-icons: '+e.place+' is not a place of '+cid);
+   if(!(chapterIcons.fits[e.icon]||[]).includes(e.place))throw Error('chapter-icons: '+e.icon+' does not belong to '+e.place+' (not in fits): '+tag);}
+  else{if(e.place||!Array.isArray(e.at)||e.at.length!==2||!e.at.every(Number.isFinite))throw Error('chapter-icons: loose icon needs at:[lon,lat] and no place: '+tag);
+   if(typeof e.where!=='string'||!e.where)throw Error('chapter-icons: loose icon needs where: '+tag);
+   if(e.at[0]<6.5||e.at[0]>18.6||e.at[1]<36.5||e.at[1]>47.1)throw Error('chapter-icons: loose point outside Italy: '+tag);
+   e.point=project(e.at);
+   for(const id of places){const i=canonicalItems.find(x=>x.id===id);if(!i||!id.startsWith('city'))continue;const q=Number.isFinite(i.lon)?project([i.lon,i.lat]):[i.px,i.py];
+    if(Math.hypot(q[0]-e.point[0],q[1]-e.point[1])<45)throw Error('chapter-icons: loose icon '+tag+' lies within 45 units of goal '+id);}}}}
 for(const id of Object.keys(CHAPTER_ITEMS))if(!(id in chapterIcons.chapters))throw Error('chapter-icons: chapter missing '+id);
 // BL-036.5/BL-037.7: Nino on the Vespa (side view, to the right) beside the active pin on the Reis overview and in the ride (120x80, 240x160 for 2x), embedded as data URIs so the offline file works.
 v3art.vespaRijdend=Object.fromEntries([120,240].map(n=>['x'+n,'data:image/webp;base64,'+readFileSync(new URL('assets/v3/render/exports/vespa-rijdend-v3-'+n+'.webp',root)).toString('base64')]));

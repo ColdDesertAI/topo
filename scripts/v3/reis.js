@@ -228,7 +228,9 @@
   if(svg===mapClone&&m1Overview()){drawMarkers(svg,k);svg.querySelector('.v3Pins')?.replaceChildren();window.TopoV3Landmarks?.(svg,k,true);return;}
   // BL-034 P1.9: the chapter page and Oefenen show all landmarks of the own chapter (Menu 1).
   const lmAll=MENU==='1'&&(!!svg.closest?.('.v3OefStage')||(svg===mapClone&&WIDE.matches&&ui.page==='hoofdstuk'));
-  drawPins(svg,k);window.TopoV3Landmarks?.(svg,k,{all:lmAll});
+  // BL-037.9 (d): in Oefenen the icons show only in the form Ontdekken (Aanwijzen and Namen schrijven would give the answer away).
+  const hideLm=!!svg.closest?.('.v3OefStage')&&svg.dataset.practice!=='learn';
+  drawPins(svg,k);window.TopoV3Landmarks?.(svg,k,{all:lmAll,hide:hideLm});
   // Chapter page: a pin under the free text cannot move; then this chapter (only) gets the wide reserve and refits.
   if(svg===mapClone&&MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&m1Wide!==ui.selected){const ob=freeBlock();
    const hit=[...svg.querySelectorAll('.v3Pins .v3Pin')].some(p=>{const r=p.getBoundingClientRect();return ob.some(o=>r.left<o[2]&&o[0]<r.right&&r.top<o[3]&&o[1]<r.bottom);});

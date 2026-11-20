@@ -17,7 +17,10 @@ window.TopoV3Landmarks=function(svg,k,opts){
  // Ronde 4: landmarks below every pin and mark layer; the pin stays on top.
  let g=svg.querySelector('.v3Landmarks');if(!g)g=make('g',{class:'v3Landmarks','aria-hidden':'true','pointer-events':'none'});
  svg.insertBefore(g,svg.querySelector(':scope>.v3Pins,:scope>.v3Marks'));
- g.replaceChildren();
+ g.replaceChildren();delete svg.dataset.landmarkDropped;
+ // BL-037.9 (d): no icon during Aanwijzen, Namen schrijven and Toets (they give the answer away): reis.js passes hide for
+ // Oefenen unless the form is Ontdekken; the Toets map never shows one. Chapter page, Ontdekken and Reis keep them.
+ if(opts?.hide||svg.matches('.v3ToetsMap')){svg.dataset.landmarkSet='verborgen';svg.querySelector(':scope>.v3Lifestyle')?.remove();return;}
  // Ronde 4 size: the median painted height is 40 screen px on desktop and 34 on iPad (≤ 1279 px); the relative sizes
  // between landmarks (paintSize) are kept.
  const size=window.devicePixelRatio>1?256:128,target=matchMedia('(max-width:1279px)').matches?34:40;
@@ -33,6 +36,21 @@ window.TopoV3Landmarks=function(svg,k,opts){
  for(const n of svg.querySelectorAll(':scope>.v3Pins .v3Pin,:scope>.v3Marks .v3Mark>circle,:scope>.v3Marks .v3MarkName')){const b=boxOf(n);if(b)obstacles.push(b);}
  const hits=(r)=>obstacles.some(o=>r[0]<o[2]+GAP*k&&o[0]<r[2]+GAP*k&&r[1]<o[3]+GAP*k&&o[1]<r[3]+GAP*k);
  const STEPS=[[0,-1],[1,0],[-1,0],[1,-1],[-1,-1],[0,1],[1,1],[-1,1]];
+ // BL-037.9: the goals of the chapter as measurable shapes (screen px = units / k). A city is a point; an area or a river is
+ // its visible path, sampled along its outline (never the tap tolerance). inFill: for a filled shape the inside counts as 0.
+ const goals=[];
+ if(all)for(const n of svg.querySelectorAll('.v3Hit[data-id]')){
+  if(n.tagName==='circle'){goals.push({id:n.getAttribute('data-id'),pt:[+n.getAttribute('cx'),+n.getAttribute('cy')]});continue;}
+  if(typeof n.getTotalLength!=='function')continue;
+  try{const L=n.getTotalLength(),step=Math.max(2.5*k,L/700),pts=[];for(let f=0;f<=L;f+=step){const q=n.getPointAtLength(f);pts.push([q.x,q.y]);}
+   const cs=getComputedStyle(n),line=cs.fill==='none',sw=parseFloat(cs.strokeWidth)||0,half=(cs.vectorEffect==='non-scaling-stroke'?sw*k:sw)/2;
+   goals.push({id:n.getAttribute('data-id'),el:n,pts,line,half});}catch{}}
+ const distGoal=(g,x,y)=>{if(g.pt)return Math.hypot(g.pt[0]-x,g.pt[1]-y);
+  if(!g.line){try{if(g.el.isPointInFill(new DOMPoint(x,y)))return 0;}catch{}}
+  let m=Infinity;for(const q of g.pts){const d=Math.hypot(q[0]-x,q[1]-y);if(d<m)m=d;}return Math.max(0,m-g.half);};
+ // distance (units) from a point to the nearest goal shape or line (cities excluded: their pin is an obstacle already)
+ const shapeDist=(x,y)=>{let m=Infinity;for(const g of goals){if(g.pt)continue;const d=distGoal(g,x,y);if(d<m)m=d;}return m;};
+ const goalDist=(x,y)=>{let m=Infinity;for(const g of goals){const d=distGoal(g,x,y);if(d<m)m=d;}return m;};
  // A point of a place on the map, never loose: a city's own point; for an area a point inside it (the one nearest its
  // middle, then the inside point farthest from the ones already taken); for a river a point on its line.
  function placePoint(id,taken){
@@ -64,13 +82,18 @@ window.TopoV3Landmarks=function(svg,k,opts){
  // different points of that place. Oefenen: the entries whose place is being practised.
  if(all){const plan=window.TOPO_V3_ART?.chapterIcons;shown=[];
   if(plan){const assets=new Map([...art.items,...(window.TOPO_V3_ART.lifestyle?.items||[])].map(i=>[i.id,i]));
-   const practised=chapter?null:new Set([...svg.querySelectorAll('.v3Hit[data-id]')].map(n=>n.getAttribute('data-id')));
-   const list=chapter?(plan.chapters[chapter.id]||[]):Object.values(plan.chapters).flat().filter(e=>practised.has(e.place));
+   // Oefenen: the chosen group is the chapter (loose icons need a chapter); 'Alles'/'Mijn fouten' show only related icons.
+   const cid=chapter?.id||(plan.chapters[svg.dataset.group]?svg.dataset.group:null);
+   const practised=cid?null:new Set([...svg.querySelectorAll('.v3Hit[data-id]')].map(n=>n.getAttribute('data-id')));
+   const list=cid?(plan.chapters[cid]||[]):Object.values(plan.chapters).flat().filter(e=>e.related&&practised.has(e.place));
    const used=new Map(),seenPair=new Set(),names=typeof ITEMS!=='undefined'?ITEMS:[];
-   for(const e of list){const key=e.place+'|'+e.icon;if(seenPair.has(key))continue;seenPair.add(key);
-    const asset=assets.get(e.icon);if(!asset)continue;const taken=used.get(e.place)||[];const pt=placePoint(e.place,taken);if(!pt)continue;taken.push(pt);used.set(e.place,taken);
-    const place=names.find(x=>x.id===e.place)?.name||'';
-    shown.push({...asset,point:pt,place:e.place,related:e.related!==false,iconName:plan.icons?.[e.icon]||asset.label,label:(n=>!place||n===place?place||n:n+', '+place)(plan.icons?.[e.icon]||asset.label)});}}
+   for(const e of list){const key=(e.place||e.at.join(','))+'|'+e.icon;if(seenPair.has(key))continue;seenPair.add(key);
+    const asset=assets.get(e.icon);if(!asset)continue;const iconName=plan.icons?.[e.icon]||asset.label;
+    // RELATED: at its goal; label "Colosseum, Rome" on hover. LOOSE: at its own real point, no goal, label = the icon's name only.
+    if(e.related){const taken=used.get(e.place)||[];const pt=placePoint(e.place,taken);if(!pt)continue;taken.push(pt);used.set(e.place,taken);
+     const place=names.find(x=>x.id===e.place)?.name||'';
+     shown.push({...asset,point:pt,place:e.place,related:true,iconName,label:!place||iconName===place?place||iconName:iconName+', '+place});}
+    else shown.push({...asset,point:e.point,loose:true,where:e.where,related:false,iconName,label:iconName});}}
   svg.dataset.landmarkSet='hoofdstuk';}
  else if(onReis&&shown.length){const hits=[...svg.querySelectorAll('circle.v3Hit')].map(c=>c.getAttribute('data-id'));
   const pick=shown.find(i=>i.relevantItems.some(id=>hits.includes(id)))||shown[0];shown=[pick];svg.dataset.landmarkSet='badge';}
@@ -82,13 +105,25 @@ window.TopoV3Landmarks=function(svg,k,opts){
   const units=(all?one:item.paintSize*grow)/Math.max(right-left,bottom-top),width=asset.size[0]*units,pw=(right-left)*units,ph=(bottom-top)*units;
   // BL-036.3: an always-visible name pill (related:false) belongs to the icon's box in the collision search, so two
   // icons at one place never put a label over the other icon.
-  const alw=all&&item.place&&item.related===false,half=alw?Math.max(pw/2,Math.max(40,(item.iconName||'').length*7.4+20)/2):pw/2;
+  const alw=all&&item.loose,half=alw?Math.max(pw/2,Math.max(40,(item.iconName||'').length*7.4+20)/2):pw/2;
   // In 'all' mode the box is the lavender circle (6 px around the icon), plus the pill below when it is always shown.
   const at=(dx,dy)=>all?[item.point[0]+(dx-half-6)*k,item.point[1]+(dy-ph-6)*k,item.point[0]+(dx+half+6)*k,item.point[1]+(dy+(alw?26:6))*k]:[item.point[0]+(dx-pw/2)*k,item.point[1]+(dy-ph)*k,item.point[0]+(dx+pw/2)*k,item.point[1]+dy*k];
   let dx=0,dy=0;
-  if(hits(at(0,0)))search:for(let d=4;d<=96;d+=4)for(const [sx,sy] of STEPS){const r=at(sx*d,sy*d);if(!hits(r)){dx=sx*d;dy=sy*d;break search;}}
+  if(all){
+   // BL-037.9 (b)(c): the lavender circle (icon + 6 px) never touches a goal shape or line; a LOOSE icon also keeps 40 screen
+   // px (circle centre) from every goal of the chapter and moves at most 28 px from its real point. A related icon at an
+   // area or a river steps outside the shape, as near as possible (up to 300 px); one at a city up to 96 px.
+   const cr=Math.max(pw,ph)/2+6,ctr=(x,y)=>[item.point[0]+x*k,item.point[1]+(y-ph/2)*k];
+   const bad=(x,y)=>{if(hits(at(x,y)))return true;const [cx,cy]=ctr(x,y);
+    if(shapeDist(cx,cy)<(cr+1.5)*k)return true;
+    return !!item.loose&&goalDist(cx,cy)<40*k;};
+   const reach=item.loose?28:(goals.find(q=>q.id===item.place)?.pt?96:300);
+   let ok=!bad(0,0);
+   if(!ok)search:for(let d=4;d<=reach;d+=d<48?4:6)for(let a=0;a<16;a++){const sx=Math.sin(a*Math.PI/8),sy=-Math.cos(a*Math.PI/8),x=Math.round(sx*d),y=Math.round(sy*d);if(!bad(x,y)){dx=x;dy=y;ok=true;break search;}}
+   if(!ok){svg.dataset.landmarkDropped=(svg.dataset.landmarkDropped?svg.dataset.landmarkDropped+',':'')+item.id+(item.place?'@'+item.place:'@'+item.where);continue;}}
+  else if(hits(at(0,0)))search:for(let d=4;d<=96;d+=4)for(const [sx,sy] of STEPS){const r=at(sx*d,sy*d);if(!hits(r)){dx=sx*d;dy=sy*d;break search;}}
   const box=at(dx,dy);obstacles.push(box);
-  const node=make('g',{'data-landmark':item.id,...(item.place?{'data-place':item.place}:{'data-longitude':item.coordinates[0],'data-latitude':item.coordinates[1]}),transform:'translate('+item.point[0]+' '+item.point[1]+') scale('+k+')'});
+  const node=make('g',{'data-landmark':item.id,...(all?{'data-kind':item.loose?'loose':'related','data-icon-name':item.iconName}:{}),...(item.place?{'data-place':item.place}:item.loose?{'data-where':item.where}:{'data-longitude':item.coordinates[0],'data-latitude':item.coordinates[1]}),transform:'translate('+item.point[0]+' '+item.point[1]+') scale('+k+')'});
   if(dx||dy){node.dataset.shift=dx+' '+dy;}
   // BL-016b D: never loose on the relief — each landmark sits on a white badge (circle + shadow, CSS .v3Badge).
   const pic=make('image',{href:asset.src,x:-(left+right)/2*units+dx,y:-bottom*units+dy,width,height:width,'data-export-size':size});
@@ -99,7 +134,7 @@ window.TopoV3Landmarks=function(svg,k,opts){
    // the label: a white pill under the icon, shown on hover/focus (scaled 1.15x around the icon's centre by CSS)
    const NL={TOPO_01:'Colosseum, Rome',TOPO_02:'Scheve Toren van Pisa',TOPO_03:'Vesuvius bij Napels',TOPO_04:'Etna, Sicilië',TOPO_05:'Gondel in Venetië',TOPO_06:'Dom van Milaan',TOPO_07:'Dom van Florence',TOPO_08:'Nuraghe, Sardinië',TOPO_09:'Dolomieten',TOPO_10:'Trulli, Alberobello'};
    // BL-036.3: related:false → the icon's own name ("Fiat 500") is always visible, as a small pill (13 px text, 20 px high)
-   const always=item.place&&item.related===false,name=(always?item.iconName:item.place?item.label:(NL[item.id]||item.label)||'').trim(),lw=Math.max(40,name.length*7.4+20),lab=make('g',{class:always?'v3LmLabel v3LmLabelAlways':'v3LmLabel'});
+   const always=item.loose,name=(always?item.iconName:item.place?item.label:(NL[item.id]||item.label)||'').trim(),lw=Math.max(40,name.length*7.4+20),lab=make('g',{class:always?'v3LmLabel v3LmLabelAlways':'v3LmLabel'});
    lab.append(make('rect',{x:dx-lw/2,y:dy+(always?6:8),width:lw,height:always?20:24,rx:always?10:12}));const t=make('text',{x:dx,y:dy+(always?20.5:24.5),'text-anchor':'middle'});t.textContent=name;lab.append(t);node.append(lab);
    node.style.setProperty('--lm-oy',(dy-ph/2)+'px');}
   g.append(node);

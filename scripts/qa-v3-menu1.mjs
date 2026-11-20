@@ -13,6 +13,7 @@
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {tmpdir} from 'node:os';
+import {iconChecks} from './qa-v3-icons-lib.mjs';
 import {join} from 'node:path';
 const OUT=process.env.QA_OUT||tmpdir(); // screenshots of the lesson result land here, never in the repo
 const {chromium}=createRequire(import.meta.url)('playwright');
@@ -222,6 +223,8 @@ for(const [wc,set] of Object.entries(nino))if(set.size!==1)fail('nino '+wc,'meer
   return {on:[...document.querySelectorAll('.v3Markers .v3Marker.on')].map(m=>m.dataset.chapter)};});
  if(r.on.length!==1||r.on[0]!=='city1')fail('actief hoofdstuk (lopende les in 1, volgende is 2)',`gevulde marker ${r.on} (verwacht city1)`);
  console.log('actief hoofdstuk bij lopende les:',JSON.stringify(r));await p.close();}
+// BL-037.9: the icon rules, measured on every chapter page, in Oefenen (every form) and in Toets (see qa-v3-icons-lib.mjs).
+for(const [W,H] of SIZES){const rows=await iconChecks(b,HTML,W,H,fail,{bg:BGS[0]});const mins=rows.filter(r=>r.minLoose!=null).map(r=>r.minLoose);console.log(`iconen ${W}×${H}: ${rows.filter(r=>r.where.includes('hoofdstuk')).reduce((a,r)=>a+r.n,0)} op de hoofdstukpagina, kleinste afstand los icoon–doel ${mins.length?Math.min(...mins):'-'} px`);}
 const les=[];for(const [W,H] of [[1280,800],[1366,768],[1440,900],[2560,1440],[810,1080],[768,1024]])les.push(await lessonResult(b,W,H));
 let f=null;if(args.has('--fps'))f=await fps(b);
 await b.close();
