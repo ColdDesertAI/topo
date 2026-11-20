@@ -564,3 +564,16 @@ body.v3On dialog.mapPicker{border-color:var(--v3-accent-soft,#ebe7fd)}
 
 /* BL-036.4: focusring overal violet, 2 px + 2 px offset (geen blauwe browserring); alleen bij toetsenbord/:focus-visible. */
 body.v3On :is(a,button,input,select,textarea,summary,[tabindex],[role=button]):focus-visible,body.v3On svg [tabindex]:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+
+/* BL-036.6: Instellingen › "Begin helemaal opnieuw": themakleur (donker violet-grijs) + klein waarschuwingsicoon, geen terracotta/rood. */
+dialog.ninoSettings.v3SettingsSheet .ninoResetDanger{color:var(--v3-ink,#2a2440);border-color:transparent;display:flex;align-items:center;gap:8px;font-weight:600}
+dialog.ninoSettings.v3SettingsSheet .ninoResetDanger::before{content:"";flex:none;width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 21h20L12 3zm1 14h-2v-2h2v2zm0-4h-2V9h2v4z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 21h20L12 3zm1 14h-2v-2h2v2zm0-4h-2V9h2v4z'/%3E%3C/svg%3E") center/contain no-repeat}
+/* Bevestiging: glas in V3-stijl, wisknop AA (wit op #9b233d = 7,9:1), Annuleren is de rustige hoofdknop. */
+body.v3On dialog.ninoResetConfirm{border:1px solid rgba(255,255,255,.7);border-radius:var(--v3-radius-glass,28px);background:rgba(255,255,255,.98);color:var(--v3-ink,#2a2440);font-family:var(--v3-font,Inter,system-ui,sans-serif);box-shadow:0 18px 50px rgba(42,36,64,.28)}
+body.v3On dialog.ninoResetConfirm::backdrop{background:rgba(42,36,64,.4)}
+body.v3On dialog.ninoResetConfirm h2{font-weight:700;font-size:24px;line-height:30px;color:var(--v3-ink,#2a2440)}
+body.v3On dialog.ninoResetConfirm :is(p,li){font-weight:500;font-size:16px;line-height:22px;color:var(--v3-ink,#2a2440)}
+body.v3On dialog.ninoResetConfirm button{border:0;border-radius:999px;padding:0 22px;font-family:inherit;font-weight:600;font-size:16px}
+body.v3On dialog.ninoResetConfirm .ninoResetCancel{background:var(--v3-accent,#5b45e0);color:#fff}
+body.v3On dialog.ninoResetConfirm .ninoResetYes{background:#9b233d;color:#fff}
+body.v3On dialog.ninoResetConfirm button:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}

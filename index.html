@@ -635,6 +635,12 @@ body.ninoGoldRound #focusLessonStatus{display:none!important}
 .ninoSettings #backupFile,.backupTools:has(> strong:only-child){display:none}
 .ninoSettings .ninoResetDanger{color:#8f3020;border-color:#ad624e}
 .ninoSettingsNote:empty{display:none}
+/* BL-036.6: bevestiging "Begin helemaal opnieuw" */
+.ninoResetConfirm{box-sizing:border-box;width:min(460px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;border:1px solid #ded0b5;border-radius:24px;padding:22px;background:#fffdf6;color:#1d3038}
+.ninoResetConfirm::backdrop{background:#153d34b5}
+.ninoResetConfirm h2{margin:0 0 10px;font-size:24px}.ninoResetConfirm p,.ninoResetConfirm li{font-size:16px;line-height:1.4}.ninoResetConfirm p{margin:8px 0}.ninoResetConfirm ul{margin:6px 0;padding-left:22px}
+.ninoResetConfirmActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:16px}.ninoResetConfirm button{min-height:48px;min-width:120px;font-size:16px}
+.ninoResetConfirm .ninoResetYes{background:#9b233d;color:#fff;border-color:#9b233d}
 .ninoProfile{box-sizing:border-box;width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 16px);overflow:auto;border:0;border-radius:24px;background:#fff8e8;color:#183b3a;padding:0;box-shadow:0 24px 90px #132f3a66}.ninoProfile::backdrop{background:#123c3fa6}.ninoProfile form{margin:0;padding:18px 22px 20px}.ninoProfile h2{font-size:24px;line-height:1.15;letter-spacing:-.02em;margin:0}.ninoProfile p{line-height:1.45;margin:6px 0 0}
 .profileBubble{position:relative;background:#fffdf6;border-radius:18px;padding:12px 16px;box-shadow:0 4px 16px #33291a33}
 .ninoFirstRun form{padding:0 0 18px}.ninoFirstRun form>*:not(.profileScene){margin-left:22px;margin-right:22px}
@@ -2813,8 +2819,21 @@ const NINO_V2_ART={"cover":{"path":"assets/nino/travel-passport/book/exports/pas
  const resets=make('section','ninoSettingsGroup');resets.append(make('h3',null,'Opnieuw beginnen'));
  const reset=document.getElementById('resetAll');reset.textContent='Wis voortgang';reset.className='button';reset.type='button';
  resets.append(reset,make('p',null,'Wist lessen, punten, pizza’s, ritten en stempels. Je profiel blijft staan.'));
- const clean=action('Begin helemaal opnieuw',()=>{
-  if(!confirm('Wis je voortgang en je Reisboekje-profiel? Daarna begint de kennismaking opnieuw.'))return;
+ // BL-036.6: a real confirmation (not the browser's confirm()): says what is erased, "Annuleren" has the focus by default.
+ const resetConfirm=make('dialog','ninoResetConfirm');resetConfirm.setAttribute('aria-labelledby','ninoResetConfirmTitle');resetConfirm.setAttribute('aria-describedby','ninoResetConfirmText');
+ const resetTitle=make('h2',null,'Alles wissen?');resetTitle.id='ninoResetConfirmTitle';
+ const resetText=make('div','ninoResetConfirmText');resetText.id='ninoResetConfirmText';
+ resetText.append(make('p',null,'Dit wist op dit apparaat:'));
+ const resetList=make('ul');for(const t of ['je voortgang: lessen, punten, pizza’s, ritten, stempels en ansichtkaarten','je toetsuitslagen','je naam en je favoriete pizza (je Reisboekje-profiel)'])resetList.append(make('li',null,t));
+ resetText.append(resetList,make('p',null,'Daarna begint de kennismaking opnieuw. Dit kan niet ongedaan worden gemaakt. Wil je iets bewaren? Maak eerst een reservekopie.'));
+ const resetCancel=make('button','button ninoResetCancel','Annuleren');resetCancel.type='button';resetCancel.autofocus=true;resetCancel.onclick=()=>resetConfirm.close();
+ const resetYes=make('button','button ninoResetYes','Ja, alles wissen');resetYes.type='button';
+ const resetButtons=make('div','ninoResetConfirmActions');resetButtons.append(resetCancel,resetYes);
+ resetConfirm.append(resetTitle,resetText,resetButtons);document.body.append(resetConfirm);
+ resetConfirm.addEventListener('click',e=>{if(e.target!==resetConfirm)return;const r=resetConfirm.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)resetConfirm.close();});
+ const clean=action('Begin helemaal opnieuw',()=>{resetConfirm.showModal();resetCancel.focus({preventScroll:true});},'button ninoResetDanger');
+ resetYes.onclick=()=>{
+  resetConfirm.close();
   let previousIntro;
   try{
    previousIntro=localStorage.getItem(INTRO_KEY);
@@ -2827,7 +2846,7 @@ const NINO_V2_ART={"cover":{"path":"assets/nino/travel-passport/book/exports/pas
    return;
   }
   location.reload();
- },'button ninoResetDanger');
+ };
  resets.append(clean,make('p',null,'Wist ook je naam en favoriete pizza en start de kennismaking opnieuw.'));
  const partial=make('details','ninoSettingsGroup');
  partial.append(make('summary',null,'Alleen een onderdeel wissen'));

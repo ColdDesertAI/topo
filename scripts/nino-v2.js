@@ -218,8 +218,21 @@
  const resets=make('section','ninoSettingsGroup');resets.append(make('h3',null,'Opnieuw beginnen'));
  const reset=document.getElementById('resetAll');reset.textContent='Wis voortgang';reset.className='button';reset.type='button';
  resets.append(reset,make('p',null,'Wist lessen, punten, pizza’s, ritten en stempels. Je profiel blijft staan.'));
- const clean=action('Begin helemaal opnieuw',()=>{
-  if(!confirm('Wis je voortgang en je Reisboekje-profiel? Daarna begint de kennismaking opnieuw.'))return;
+ // BL-036.6: a real confirmation (not the browser's confirm()): says what is erased, "Annuleren" has the focus by default.
+ const resetConfirm=make('dialog','ninoResetConfirm');resetConfirm.setAttribute('aria-labelledby','ninoResetConfirmTitle');resetConfirm.setAttribute('aria-describedby','ninoResetConfirmText');
+ const resetTitle=make('h2',null,'Alles wissen?');resetTitle.id='ninoResetConfirmTitle';
+ const resetText=make('div','ninoResetConfirmText');resetText.id='ninoResetConfirmText';
+ resetText.append(make('p',null,'Dit wist op dit apparaat:'));
+ const resetList=make('ul');for(const t of ['je voortgang: lessen, punten, pizza’s, ritten, stempels en ansichtkaarten','je toetsuitslagen','je naam en je favoriete pizza (je Reisboekje-profiel)'])resetList.append(make('li',null,t));
+ resetText.append(resetList,make('p',null,'Daarna begint de kennismaking opnieuw. Dit kan niet ongedaan worden gemaakt. Wil je iets bewaren? Maak eerst een reservekopie.'));
+ const resetCancel=make('button','button ninoResetCancel','Annuleren');resetCancel.type='button';resetCancel.autofocus=true;resetCancel.onclick=()=>resetConfirm.close();
+ const resetYes=make('button','button ninoResetYes','Ja, alles wissen');resetYes.type='button';
+ const resetButtons=make('div','ninoResetConfirmActions');resetButtons.append(resetCancel,resetYes);
+ resetConfirm.append(resetTitle,resetText,resetButtons);document.body.append(resetConfirm);
+ resetConfirm.addEventListener('click',e=>{if(e.target!==resetConfirm)return;const r=resetConfirm.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)resetConfirm.close();});
+ const clean=action('Begin helemaal opnieuw',()=>{resetConfirm.showModal();resetCancel.focus({preventScroll:true});},'button ninoResetDanger');
+ resetYes.onclick=()=>{
+  resetConfirm.close();
   let previousIntro;
   try{
    previousIntro=localStorage.getItem(INTRO_KEY);
@@ -232,7 +245,7 @@
    return;
   }
   location.reload();
- },'button ninoResetDanger');
+ };
  resets.append(clean,make('p',null,'Wist ook je naam en favoriete pizza en start de kennismaking opnieuw.'));
  const partial=make('details','ninoSettingsGroup');
  partial.append(make('summary',null,'Alleen een onderdeel wissen'));
