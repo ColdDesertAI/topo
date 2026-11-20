@@ -163,6 +163,7 @@
   // whose items lie beyond Italy (OMGEVING: Landen, Zeeën) zoom out to "Italië en omgeving".
   mapClone.dataset.frame=m1Overview()||(MENU==='1'&&WIDE.matches&&ui.page==='hoofdstuk'&&!(c&&OMGEVING.includes(c.id)))?'italy':c&&OMGEVING.includes(c.id)?'omgeving':ui.page==='hoofdstuk'&&WIDE.matches&&c?'hoofdstuk':'italy';
   if(c)mapClone.dataset.chapter=c.id;else delete mapClone.dataset.chapter;
+  if(!(c&&OMGEVING.includes(c.id)&&mapClone.dataset.frame==='omgeving')){panel.style.removeProperty('--v3-free-dy');delete panel.dataset.freeShift;}
   reserve();fit(mapClone);
  }
  /* Variant (a) Eiland: decoration layers on the Reis clone only (aria-hidden, no pointer events, no data-id; the
@@ -308,7 +309,9 @@
    const fr0=svg.dataset.frame;let parts=[...svg.querySelectorAll(fr0==='italy'||fr0==='omgeving'?'.italy,.v3Isle':fr0==='hoofdstuk'?'.v3Hit':'.italy,.v3Hit')];
    if(fr0==='hoofdstuk'&&!parts.length)parts=[...svg.querySelectorAll('.italy,.v3Isle')];if(!parts.length)return;
    // "Italië en omgeving": Italy plus every item of the OMGEVING chapters (neighbouring countries and seas), whichever is selected.
-   if(fr0==='omgeving')for(const id of ROUTE_CHAPTERS.filter(c=>OMGEVING.includes(c.id)).flatMap(c=>c.itemIds))svg.querySelectorAll('[data-id="'+id+'"]').forEach(n=>parts.push(n));
+   // BL-037.8: only the selected chapter's items (its seas or neighbouring countries), so the map can zoom in on them.
+   if(fr0==='omgeving'){const oc=ROUTE_CHAPTERS.find(c=>c.id===svg.dataset.chapter&&OMGEVING.includes(c.id));
+    for(const id of (oc?[oc]:ROUTE_CHAPTERS.filter(c=>OMGEVING.includes(c.id))).flatMap(c=>c.itemIds))svg.querySelectorAll('[data-id="'+id+'"]').forEach(n=>parts.push(n));}
    let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
    for(const p of parts){const b=p.getBBox();if(!b.width&&!b.height&&p.tagName!=='circle')continue;x0=Math.min(x0,b.x);y0=Math.min(y0,b.y);x1=Math.max(x1,b.x+b.width);y1=Math.max(y1,b.y+b.height);}
    if(!isFinite(x0))return;
@@ -319,7 +322,7 @@
     // Places spread over most of Italy: show Italy whole (a zoom would cut the land off at the panel).
     let i0=Infinity,j0=Infinity,i1=-Infinity,j1=-Infinity;for(const n of svg.querySelectorAll('.italy,.v3Isle')){const b=n.getBBox();i0=Math.min(i0,b.x);j0=Math.min(j0,b.y);i1=Math.max(i1,b.x+b.width);j1=Math.max(j1,b.y+b.height);}
     if(isFinite(i0)&&((x1-x0)>.85*(i1-i0)||(y1-y0)>.85*(j1-j0))){x0=i0;y0=j0;x1=i1;y1=j1;}}
-   if(svg.dataset.kaart==='eiland'){const p=Math.max(x1-x0,y1-y0)*.04;x0-=p;y0-=p;x1+=p;y1+=p;svg.style.width=svg.style.height='';
+   if(svg.dataset.kaart==='eiland'){const p=Math.max(x1-x0,y1-y0)*(fr0==='omgeving'?.015:.04);x0-=p;y0-=p;x1+=p;y1+=p;svg.style.width=svg.style.height='';
     svg.setAttribute('viewBox',[x0,y0,x1-x0,y1-y0].map(v=>Math.round(v)).join(' '));
     // The viewBox, the fade and the mask region are the element's whole visible box in map units (the neighbours draw
     // beyond the data): the fade reaches zero at that box's edges, so nothing ends in a straight cut. A panel laid
@@ -328,7 +331,8 @@
      resR=Math.min(r.width*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-right'))||0), // BL-016b: a card over the map's right side
      resT=Math.min(r.height*.3,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-top'))||0), // BL-016d: tools over the map's top
      resL=Math.min(r.width*.5,parseFloat(getComputedStyle(svg).getPropertyValue('--v3-fit-left'))||0); // BL-038: counters over the map's left (iPad portrait); 0 elsewhere
-    if(r.width&&r.height){const w=x1-x0,h=y1-y0,k=Math.max(w/(r.width-resR-resL),h/(r.height-res-resT)),bw=r.width*k,bh=r.height*k,bx=x0-resL*k-((r.width-resR-resL)*k-w)/2,by=y0-resT*k-((r.height-res-resT)*k-h)/2;
+    if(r.width&&r.height){const w=x1-x0,h=y1-y0,om=fr0==='omgeving'?fitOmgeving(svg,parts,[x0,y0,x1,y1],r,[resL,resT,r.width,r.height-res]):null,
+      k=om?1/om.s:Math.max(w/(r.width-resR-resL),h/(r.height-res-resT)),bw=r.width*k,bh=r.height*k,bx=om?x0-om.ox*k:x0-resL*k-((r.width-resR-resL)*k-w)/2,by=om?y0-om.oy*k:y0-resT*k-((r.height-res-resT)*k-h)/2;
      const box=v=>{svg._v3Shown=v;svg.setAttribute('viewBox',v.map(n=>Math.round(n*10)/10).join(' '));if(fr)for(const n of [fr,mk])['x','y','width','height'].forEach((a,i)=>n.setAttribute(a,v[i]));};
      const settle=()=>{box([bx,by,bw,bh]);
       // The land's drop shadow in screen px (afwerking 10-11: 0 18px 24px rgba(42,36,64,.28)), in map units.
@@ -360,6 +364,40 @@
    const fr=svg.querySelector('.v3FadeRect');if(fr){fr.setAttribute('x',x0);fr.setAttribute('y',y0);fr.setAttribute('width',x1-x0);fr.setAttribute('height',y1-y0);}
    const r2=svg.getBoundingClientRect();if(r2.width&&r2.height){const k=Math.max((x1-x0)/r2.width,(y1-y0)/r2.height);decorate(svg,k);}
   }catch{}
+ }
+ // BL-037.8: Landen and Zeeën. The content box (Italy plus this chapter's items, small margin) is scaled as large as the
+ // stage allows. The free title block of these two chapters may slide up along the right of the stage (CSS var
+ // --v3-free-dy on the panel); we take the largest scale, and at it the block position and map position where no outline
+ // of Italy or of the items lies under the block, the counters or the map tools (tested on the real outlines with
+ // isPointInFill), preferring the block's own place and the map nearest the centre of the free area.
+ // Result {s: px per map unit, ox, oy: the box's top left in px inside the svg, dy}; cached per layout.
+ const setDy=d=>{panel.style.setProperty('--v3-free-dy',d+'px');panel.dataset.freeShift=d<-1?'up':'';};
+ function fitOmgeving(svg,parts,box,r,area){
+  const [x0,y0,x1,y1]=box,w=x1-x0,h=y1-y0,[aL,aT,aR,aB]=area,aw=aR-aL,ah=aB-aT;
+  const dy0=parseFloat(panel.style.getPropertyValue('--v3-free-dy'))||0,rel=q=>[q[0]-r.left,q[1]-r.top,q[2]-r.left,q[3]-r.top];
+  const free=freeBlock().map(q=>rel([q[0]-6,q[1]-6-dy0,q[2]+6,q[3]+6-dy0])); // the block at its own place (shift removed)
+  const fixed=[...document.querySelectorAll('.v3Reis .v3Counts .v3Count,.v3MapStage>.v3MapTools')].filter(e=>e.getClientRects().length).map(e=>{const q=e.getBoundingClientRect();return rel([q.left-10,q.top-10,q.right+10,q.bottom+10]);});
+  const key=[svg.dataset.chapter,Math.round(r.width),Math.round(r.height),aL,aT,aB,free.concat(fixed).map(o=>o.map(Math.round)).join()].join('|');
+  if(svg._v3Om&&svg._v3Om.key===key){setDy(svg._v3Om.val.dy);return svg._v3Om.val;}
+  const root=svg.getScreenCTM?.()?.inverse();if(!root)return null;
+  const shapes=[];for(const n of parts){if(!n.isPointInFill)continue;try{const m=root.multiply(n.getScreenCTM()),inv=m.inverse(),b=n.getBBox();
+   const c=[[b.x,b.y],[b.x+b.width,b.y],[b.x,b.y+b.height],[b.x+b.width,b.y+b.height]].map(([a,d])=>new DOMPoint(a,d).matrixTransform(m));
+   shapes.push({n,inv,bb:[Math.min(...c.map(q=>q.x)),Math.min(...c.map(q=>q.y)),Math.max(...c.map(q=>q.x)),Math.max(...c.map(q=>q.y))]});}catch{}}
+  const sample=o=>{const out=[],nx=Math.max(2,Math.ceil((o[2]-o[0])/16)),ny=Math.max(2,Math.ceil((o[3]-o[1])/16));for(let i=0;i<=nx;i++)for(let j=0;j<=ny;j++)out.push([o[0]+(o[2]-o[0])*i/nx,o[1]+(o[3]-o[1])*j/ny]);return out;};
+  const fixedPts=fixed.flatMap(sample);
+  // The block slides only where it lies over the stage (landscape); at the iPad's portrait layout it stands below the map.
+  const bt=Math.min(...free.map(o=>o[1])),bb=Math.max(...free.map(o=>o[3])),over=free.length&&free.some(o=>o[2]>0&&o[0]<r.width&&o[3]>aT&&o[1]<aB);
+  const cTop=fixed.reduce((m,o)=>o[2]>free[0][0]&&o[0]<free[0][2]?Math.max(m,o[3]):m,aT);
+  const dys=[0];if(over){const lo=cTop+6-bt;for(let i=1;i<=8;i++)if(lo<0)dys.push(lo*i/8);} // upward only: lower down the block would stand on the busy landscape (AA)
+  const ptsFor=new Map(dys.map(d=>[d,free.flatMap(o=>sample([o[0],o[1]+d,o[2],o[3]+d]))]));
+  const blocked=(s,ox,oy,d)=>{for(const [px,py] of fixedPts.concat(ptsFor.get(d))){const ux=x0+(px-ox)/s,uy=y0+(py-oy)/s;if(ux<x0||ux>x1||uy<y0||uy>y1)continue;
+    for(const sh of shapes){if(ux<sh.bb[0]||ux>sh.bb[2]||uy<sh.bb[1]||uy>sh.bb[3])continue;try{if(sh.n.isPointInFill(new DOMPoint(ux,uy).matrixTransform(sh.inv)))return true;}catch{}}}return false;};
+  const sMax=Math.min(aw/w,ah/h),N=9;let val=null;
+  for(let f=1;f>=.3&&!val;f-=.02){const s=sMax*f,bw=w*s,bh=h*s,cx=aL+(aw-bw)/2,cy=aT+(ah-bh)/2,tries=[];
+   for(const d of dys)for(let i=0;i<N;i++)for(let j=0;j<N;j++){const ox=aL+(aw-bw)*(i/(N-1)),oy=aT+(ah-bh)*(j/(N-1));tries.push([ox,oy,d,Math.hypot(ox-cx,oy-cy)+Math.abs(d)*.6]);}
+   tries.sort((p,q)=>p[3]-q[3]);const hit=tries.find(t=>!blocked(s,t[0],t[1],t[2]));if(hit)val={s,ox:hit[0],oy:hit[1],dy:hit[2]};}
+  if(!val){const s=sMax*.3;val={s,ox:aL+(aw-w*s)/2,oy:aT+(ah-h*s)/2,dy:0};}
+  svg._v3Om={key,val};setDy(val.dy);return val;
  }
  // The stage size changes with the layout (rotation, sidebar width): refit on resize.
  // The chapter card lies over the map's bottom where the CSS says so (--v3-card-over: 1): the map keeps it free.

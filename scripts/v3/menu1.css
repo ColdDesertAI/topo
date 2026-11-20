@@ -911,3 +911,6 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
 .v3Reis[data-menu="1"] .v3PasBody .v3PasPizza{width:22px;height:22px;display:inline-block;vertical-align:middle}
 .v3Reis[data-menu="1"] .v3PasBody .v3PasLegend{caption-side:top;text-align:left;padding:2px 4px 8px;font:500 13px/22px var(--v3-font);color:#5d5873}
 .v3Reis[data-menu="1"] .v3PasBody .v3PasLegend .v3PasPizza{margin:0 2px}
+
+/* BL-037.8: Landen and Zeeën — the free title block may slide up along the stage (reis.js fitOmgeving sets --v3-free-dy) so the map can fill the stage. */
+.v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel :is(.v3CardKicker,.v3CardHead,.v3Actions,.v3Locked){transform:translateY(var(--v3-free-dy,0px))}
