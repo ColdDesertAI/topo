@@ -19,8 +19,8 @@ must('favicon.ico'); must('italie/index.html'); must('italie/print.html'); must(
 assert(/<title>[^<]*Italië/.test(readFileSync(join(dist, 'italie/index.html'), 'utf8')), 'dist/italie/index.html is niet de Italië-app');
 const italieHtml = readFileSync(join(dist, 'italie/index.html'), 'utf8');
 assert(!italieHtml.includes('TOPO_V3_PREVIEW') && !italieHtml.includes('niets wordt bewaard'), 'Demo-build op /italie/: voortgang zou niet bewaard worden');
-// BL-036.7: the portal links to the explanation page of the app; the app answers #uitleg.
-assert(html.includes('<a class="parents" href="./italie/#uitleg">Voor ouders en leraren</a>'), 'Portal mist de link "Voor ouders en leraren" naar ./italie/#uitleg');
+// BL-037.3: the portal has no parents link anymore; the app still answers #uitleg.
+assert(!html.includes('Voor ouders en leraren') && !html.includes('class="parents"'), 'Portal bevat nog de link "Voor ouders en leraren" (BL-037.3)');
 if (italieHtml.includes('BEGIN TOPO V3')) assert(italieHtml.includes('setupV3Uitleg') && italieHtml.includes('Hoe werkt TOPO?'), '/italie/ (V3) mist de uitlegpagina');
 // BL-036.9: /italie/ uses exactly the portal's favicon set, manifest and theme-color.
 const head = h => h.slice(0, h.indexOf('</head>'));

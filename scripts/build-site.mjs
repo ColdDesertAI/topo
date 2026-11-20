@@ -49,7 +49,7 @@ console.log('Italië op /italie/: ' + which.toUpperCase());
 // 2. Portal naar de root, met paden voor de site-indeling
 let html = readFileSync(join(root, 'portal/index.html'), 'utf8');
 const before = html;
-html = html.replaceAll('../assets/nino-topo/', './assets/nino-topo/').replace("italy:'../index.html'", "italy:'./italie/'").replace('href="../index.html#uitleg"', 'href="./italie/#uitleg"');
+html = html.replaceAll('../assets/nino-topo/', './assets/nino-topo/').replace("italy:'../index.html'", "italy:'./italie/'");
 if (html === before || html.includes('../')) throw new Error('Portal-paden niet volledig omgezet.');
 // BL-035.9: the portal warms /italie/ — on hover/focus/touch of the Italy card at once, otherwise when the browser is
 // idle (not with Save-Data). Prefetch only fills the HTTP cache; nothing runs.
