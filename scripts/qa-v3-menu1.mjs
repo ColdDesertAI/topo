@@ -22,8 +22,9 @@ const args=new Set(process.argv.slice(2));
 // Env overrides for focal-point/glow studies (BL-032): QA_SIZES=1080x810,1440x900 · QA_BGS=bg01,bg03 · QA_NOGLOW=1 ·
 // QA_BGPOS='bg01:40% 50%;bg02:…' (body background-position per background).
 const envList=v=>v?v.split(',').map(x=>x.trim()).filter(Boolean):null;
-const SIZES=envList(process.env.QA_SIZES)?.map(x=>x.split('x').map(Number))||(args.has('--quick')?[[1440,900],[1080,810]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810]]);
-const BGS=envList(process.env.QA_BGS)||(args.has('--quick')?['bg03']:['bg01','bg02','bg03']);
+// --smoke (laag 2 van de verificatie, OPERATING_MODEL §3b): 1440×900 + 1080×810, alleen BG-01, Chromium.
+const SIZES=envList(process.env.QA_SIZES)?.map(x=>x.split('x').map(Number))||(args.has('--quick')||args.has('--smoke')?[[1440,900],[1080,810]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810]]);
+const BGS=envList(process.env.QA_BGS)||(args.has('--smoke')?['bg01']:args.has('--quick')?['bg03']:['bg01','bg02','bg03']);
 const SCREENS=['overzicht','hoofdstuk','oefenen','toets','toetsresultaat','rewards','voortgang'];
 // Free text per screen (no card under it): measured against the backdrop.
 const FREE={overzicht:['#v3ListTitle','.v3Panel .v3CardKicker','.v3Panel .v3CardTitle'],
