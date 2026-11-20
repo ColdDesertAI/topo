@@ -476,8 +476,8 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
    popover with 3 thumbnails (96x54), the active one with a violet ring. */
 .v3Side .v3SideFoot{margin-top:auto;display:flex;gap:8px;align-items:center}
 .v3Side .v3SideFoot .v3Settings{margin-top:0!important}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3BgBtn{width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3BgBtn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn){width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn) span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (min-width:1024px) and (max-width:1279px){.v3Side .v3SideFoot{flex-direction:column;align-self:center}}
 .v3BgPop{position:fixed;z-index:80;display:flex;gap:10px;padding:10px;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(40,25,80,.22)}
 .v3BgPop[hidden]{display:none}
@@ -510,12 +510,12 @@ body.v3On .ninoProfile:not(.v3Welkom) :focus-visible{outline-color:var(--v3-acce
    and the background button a subtle lavender tint on hover and a pressed state (also while the picker is open). === */
 @media (hover:hover){
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem:not([aria-current=page]):hover{background:#f5f3fe}
- :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn):hover{background:#f3f0fe!important;box-shadow:0 4px 14px rgba(40,25,80,.14),inset 0 0 0 1px rgba(91,69,224,.18)!important}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn):hover{background:#f3f0fe!important;box-shadow:0 4px 14px rgba(40,25,80,.14),inset 0 0 0 1px rgba(91,69,224,.18)!important}
 }
 :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem{transition:background-color .15s ease}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn){transition:background-color .15s ease,box-shadow .15s ease,transform .1s ease}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn):is(:active,[aria-expanded=true]){background:#e6e0fc!important;box-shadow:inset 0 0 0 1px rgba(91,69,224,.3)!important;transform:scale(.96)}
-@media (prefers-reduced-motion:reduce){:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn):is(:active,[aria-expanded=true]){transform:none}}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn){transition:background-color .15s ease,box-shadow .15s ease,transform .1s ease}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn):is(:active,[aria-expanded=true]){background:#e6e0fc!important;box-shadow:inset 0 0 0 1px rgba(91,69,224,.3)!important;transform:scale(.96)}
+@media (prefers-reduced-motion:reduce){:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn):is(:active,[aria-expanded=true]){transform:none}}
 /* === BL-035.4 (live 19-11): the V2 camera buttons "Heel Italië" / "Zoom op hoofdstuk" only act in focus mode (the
    iPad layout, data-focus-mode=true); on desktop they did nothing visible (measured: no camera change, no pressed
    state at 1440×900). There they are removed; in focus mode they stay, because they work. === */
@@ -585,3 +585,17 @@ body.v3On dialog.ninoResetConfirm button:focus-visible{outline:2px solid var(--v
 .v3Map .v3Markers .v3MarkerNino{pointer-events:none;image-rendering:auto;animation:v3NinoBob 2s ease-in-out infinite}
 @keyframes v3NinoBob{0%,100%{transform:translateY(0)}50%{transform:translateY(calc(-1 * var(--bob,2.5px)))}}
 @media (prefers-reduced-motion:reduce){.v3Map .v3Markers .v3MarkerNino{animation:none}}
+
+/* BL-036.7: "Hoe werkt TOPO?" — one calm glass dialog (like the other V3 dialogs); x 44 px; text ≥ 16 px, headings 20 px. */
+dialog.v3Uitleg{box-sizing:border-box;width:min(640px,calc(100vw - 32px));max-height:min(88dvh,820px);overflow:auto;padding:28px 28px 24px;border:1px solid #ffffffb3;border-radius:28px;background:var(--v3-plate,rgba(251,250,254,.92));color:var(--v3-ink,#2a2440);font:400 16px/1.5 var(--v3-font);box-shadow:var(--v3-glass-shadow);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
+dialog.v3Uitleg::backdrop{background:rgba(42,36,64,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+dialog.v3Uitleg h1{margin:0 56px 8px 0;font:700 28px/1.2 var(--v3-font);letter-spacing:0}
+dialog.v3Uitleg h1:focus{outline:0}
+dialog.v3Uitleg .v3UitlegIntro{margin:0 0 8px;color:var(--v3-ink2,#4a4466)}
+dialog.v3Uitleg .v3UitlegSec{margin-top:16px;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.72)}
+dialog.v3Uitleg h2{margin:0 0 6px;font:700 20px/1.3 var(--v3-font);color:var(--v3-accent-press,#4834c4)}
+dialog.v3Uitleg p{margin:0 0 8px;font:400 16px/1.5 var(--v3-font)}
+dialog.v3Uitleg .v3UitlegSec p:last-child{margin-bottom:0}
+dialog.v3Uitleg .v3UitlegClose{position:absolute;top:12px;right:12px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;border:0;border-radius:999px;background:rgba(255,255,255,.7);color:var(--v3-ink,#2a2440);font:400 28px/1 system-ui,sans-serif;cursor:pointer;touch-action:manipulation}
+dialog.v3Uitleg .v3UitlegClose:is(:hover,:focus-visible){background:var(--v3-accent-soft,#ebe7fd)}
+dialog.v3Uitleg :focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}

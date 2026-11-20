@@ -67,7 +67,10 @@
   // BL-034 P1.12: background picker beside the gear — an image button that opens a small popover with 3 thumbnails.
   const bgBtn=btn('',e=>{e.stopPropagation();bgPicker(bgBtn);},'v3Btn v3NavItem v3BgBtn');bgBtn.append(icon('v3image'),make('span',null,'Achtergrond'));
   bgBtn.setAttribute('aria-haspopup','true');bgBtn.setAttribute('aria-expanded','false');bgBtn.title='Achtergrond';
-  const foot=make('div','v3SideFoot');foot.append(settings,bgBtn);
+  // BL-036.7: the ?-button opens "Hoe werkt TOPO?" (uitleg.js), same look as the gear and the background button.
+  const helpBtn=btn('',e=>{e.stopPropagation();window.TOPO_V3_UITLEG?.open(helpBtn);},'v3Btn v3NavItem v3HelpBtn');helpBtn.append(icon('v3help'),make('span',null,'Hoe werkt TOPO?'));
+  helpBtn.setAttribute('aria-label','Hoe werkt TOPO?');helpBtn.title='Hoe werkt TOPO?';helpBtn.setAttribute('aria-haspopup','dialog');
+  const foot=make('div','v3SideFoot');foot.append(settings,bgBtn,helpBtn);
   side.append(brand,portrait,nav,foot);markNav(side);return side;
  }
  // BL-034 P1.12: the background popover (one, shared by every sidebar copy). Choice saved through background.set
