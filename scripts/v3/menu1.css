@@ -476,8 +476,8 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
    popover with 3 thumbnails (96x54), the active one with a violet ring. */
 .v3Side .v3SideFoot{margin-top:auto;display:flex;gap:8px;align-items:center}
 .v3Side .v3SideFoot .v3Settings{margin-top:0!important}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn){width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn) span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn,.v3ExitBtn){width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn,.v3ExitBtn) span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 /* Evaluator BL-036: in every narrow rail (iPad landscape and portrait) the foot is a column, so gear, background and
    ? button all stay inside the rail and clickable. */
 @media (min-width:700px) and (max-width:1279px){.v3Side .v3SideFoot{flex-direction:column;align-self:center}}
@@ -512,12 +512,12 @@ body.v3On .ninoProfile:not(.v3Welkom) :focus-visible{outline-color:var(--v3-acce
    and the background button a subtle lavender tint on hover and a pressed state (also while the picker is open). === */
 @media (hover:hover){
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem:not([aria-current=page]):hover{background:#f5f3fe}
- :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn):hover{background:#f3f0fe!important;box-shadow:0 4px 14px rgba(40,25,80,.14),inset 0 0 0 1px rgba(91,69,224,.18)!important}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn,.v3ExitBtn):hover{background:#f3f0fe!important;box-shadow:0 4px 14px rgba(40,25,80,.14),inset 0 0 0 1px rgba(91,69,224,.18)!important}
 }
 :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem{transition:background-color .15s ease}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn){transition:background-color .15s ease,box-shadow .15s ease,transform .1s ease}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn):is(:active,[aria-expanded=true]){background:#e6e0fc!important;box-shadow:inset 0 0 0 1px rgba(91,69,224,.3)!important;transform:scale(.96)}
-@media (prefers-reduced-motion:reduce){:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn):is(:active,[aria-expanded=true]){transform:none}}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn,.v3ExitBtn){transition:background-color .15s ease,box-shadow .15s ease,transform .1s ease}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn,.v3ExitBtn):is(:active,[aria-expanded=true]){background:#e6e0fc!important;box-shadow:inset 0 0 0 1px rgba(91,69,224,.3)!important;transform:scale(.96)}
+@media (prefers-reduced-motion:reduce){:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn,.v3ExitBtn):is(:active,[aria-expanded=true]){transform:none}}
 /* === BL-035.4 (live 19-11): the V2 camera buttons "Heel Italië" / "Zoom op hoofdstuk" only act in focus mode (the
    iPad layout, data-focus-mode=true); on desktop they did nothing visible (measured: no camera change, no pressed
    state at 1440×900). There they are removed; in focus mode they stay, because they work. === */
@@ -902,3 +902,6 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  /* BL-038 r2: the answer sheet floats inside the map card (16 px inset on the card's left, right and bottom), centred. */
  body.v3Les[data-v3-menu="1"][data-focus-shell=true] :is(#focusAnswerSheet,#focusLearnBar){left:148px!important;right:72px!important;top:auto!important;bottom:60px!important;width:auto!important;max-width:none!important;margin:0!important;transform:none!important}
 }
+/* BL-037.5: four foot buttons (gear, background, ?, Alle landen) must fit in the 224 px rail of narrow desktop widths:
+   44 px circles with a 4 px gap (4 x 44 + 3 x 4 = 188 px). */
+@media (min-width:1280px) and (max-width:1439px){.v3Side .v3SideFoot:has(.v3ExitBtn){gap:4px}.v3Side .v3SideFoot:has(.v3ExitBtn)>button{flex:0 0 44px!important;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important}}

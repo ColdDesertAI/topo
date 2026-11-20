@@ -74,7 +74,13 @@
   // BL-036.7: the ?-button opens "Hoe werkt TOPO?" (uitleg.js), same look as the gear and the background button.
   const helpBtn=btn('',e=>{e.stopPropagation();window.TOPO_V3_UITLEG?.open(helpBtn);},'v3Btn v3NavItem v3HelpBtn');helpBtn.append(icon('v3help'),make('span',null,'Hoe werkt TOPO?'));
   helpBtn.setAttribute('aria-label','Hoe werkt TOPO?');helpBtn.title='Hoe werkt TOPO?';helpBtn.setAttribute('aria-haspopup','dialog');
+  // BL-037.5: "Alle landen" (door with arrow) leads to the portal (/). Only where a portal exists: the web copy over http(s),
+  // not the offline file (file://) and not the demo preview (its flag is read without writing the literal name).
   const foot=make('div','v3SideFoot');foot.append(settings,bgBtn,helpBtn);
+  if(/^https?:$/.test(location.protocol)&&!window['TOPO_V3_'+'PREVIEW']){
+   const exitBtn=btn('',e=>{e.stopPropagation();location.assign('/');},'v3Btn v3NavItem v3ExitBtn');exitBtn.append(icon('v3exit'),make('span',null,'Alle landen'));
+   exitBtn.setAttribute('aria-label','Alle landen');exitBtn.title='Alle landen';foot.append(exitBtn);
+  }
   side.append(brand,portrait,nav,foot);markNav(side);return side;
  }
  // BL-034 P1.12: the background popover (one, shared by every sidebar copy). Choice saved through background.set
