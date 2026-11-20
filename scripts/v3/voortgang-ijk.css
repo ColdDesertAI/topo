@@ -60,7 +60,7 @@
 .v3View-voortgang .v3VgSteps i.on:has(+i:not(.on)),.v3View-voortgang .v3VgSteps i.on:last-child{border-radius:0 6px 6px 0}
 .v3VgStatus{display:grid;place-items:center;width:32px;height:32px}
 .v3VgStatus img{width:32px;height:32px;object-fit:contain}
-[data-status=done]>.v3VgStatus{border-radius:50%;background:#2f9e58;color:#fff}
+[data-status=done]>.v3VgStatus{border-radius:50%;background:var(--v3-accent,#5b45e0);color:#fff}
 .v3 [data-status=done]>.v3VgStatus .v3Icon{width:22px;height:22px;stroke-width:3;color:#fff}
 [data-status=locked]>.v3VgStatus{color:var(--v3-ink2)}
 .v3 [data-status=locked]>.v3VgStatus .v3Icon{width:24px;height:24px;color:var(--v3-ink2)}

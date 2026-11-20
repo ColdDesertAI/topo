@@ -47,7 +47,7 @@ body.v3Home #journeyScreen,body.v3Home #journeyScreen>#routeHome{background:none
 .nw{white-space:nowrap}
 .v3End{display:flex;align-items:center;color:var(--v3-locked)}
 .v3End .v3Icon{width:20px;height:20px}
-.v3Check{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;background:var(--v3-done);color:#fff;font:700 14px/1 var(--v3-font)}
+.v3Check{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;background:var(--v3-accent,#5b45e0);color:#fff;font:700 14px/1 var(--v3-font)}
 .v3Seal{width:26px;height:26px}
 .v3Segs{display:flex;gap:3px}.v3Segs i{width:12px;height:5px;border-radius:3px;background:var(--v3-line)}.v3Segs i.on{background:var(--v3-accent)}
 

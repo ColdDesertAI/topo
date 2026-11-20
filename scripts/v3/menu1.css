@@ -83,7 +83,7 @@
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3RowNum{background:#fff;color:var(--v3-ink)}
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3End{display:grid;place-items:center;width:24px;height:24px}
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3End .v3Icon{width:18px;height:18px;color:#8a85a0}
- .v3Reis[data-menu="1"] .v3OkDot{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#2f9e57}
+ .v3Reis[data-menu="1"] .v3OkDot{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:var(--v3-accent,#5b45e0)}
  .v3Reis[data-menu="1"] .v3OkDot .v3Icon{width:14px!important;height:14px!important;color:#fff!important}
  /* Chevron only on the selected row. */
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Chev{display:none}
@@ -140,7 +140,7 @@
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:14px;width:100%;min-height:56px;padding:0 12px;border:0;border-radius:12px;background:transparent;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);text-align:left}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepRow{background:var(--v3-accent-soft);font-weight:700}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepDot{display:grid;place-items:center;width:28px;height:28px;border-radius:999px;border:2px solid rgba(42,36,64,.22);background:#fff;box-sizing:border-box}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot{border:0;background:#2f9e57}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot{border:0;background:var(--v3-accent,#5b45e0)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot .v3Icon{width:14px;height:14px;color:#fff}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepDot{border-color:var(--v3-accent);box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 14px var(--v3-accent)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow>.v3Icon{width:18px;height:18px;color:#8a85a0}
@@ -366,7 +366,7 @@
  .ninoSettings .v3Btn,.ninoSettings button{transition:background-color .15s ease,box-shadow .15s ease}
  @media (hover:hover){.ninoSettings .v3Btn:not([aria-pressed=true]):hover,.ninoSettings button:not([aria-pressed=true]):not(.v3Saved):hover{background:rgba(91,69,224,.06)!important}}
  .ninoSettings .v3Btn:active,.ninoSettings button:active{background:rgba(91,69,224,.12)!important;box-shadow:inset 0 1px 2px rgba(40,25,80,.12)!important;transform:none!important}
- .ninoSettings .v3Saved{display:inline-block;margin-left:10px;font:600 13px/1 var(--v3-font);color:#2f7d4a;opacity:0;transition:opacity .2s ease}
+ .ninoSettings .v3Saved{display:inline-block;margin-left:10px;font:600 13px/1 var(--v3-font);color:var(--v3-accent-press,#4834c4);opacity:0;transition:opacity .2s ease}
  .ninoSettings .v3Saved.on{opacity:1}
  :is(.v3Reis,.v3ShellNav) .v3Side .v3NavItem[aria-current=page]{font-weight:700!important}
 }
@@ -409,7 +409,7 @@ body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;backgroun
 .v3Reis[data-menu="1"] .v3PasBody{width:100%;border-collapse:collapse;margin:0 0 10px;font:500 14px/1.3 var(--v3-font);color:var(--v3-ink)}
 .v3Reis[data-menu="1"] .v3PasBody th,.v3Reis[data-menu="1"] .v3PasBody td{padding:6px 8px;text-align:left;border-top:1px solid rgba(42,36,64,.06)}
 .v3Reis[data-menu="1"] .v3PasBody thead th{font:600 13px/1 var(--v3-font);color:#5d5873;border-top:0}
-.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓ ";color:#2f7d4a}
+.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓ ";color:var(--v3-accent-press,#4834c4)}
 /* BL-034 P0.6: Nino on the test result is never cut. The figure and image take exactly the free height under the actions
    (scaled, not clipped); with less than 160 px free (a long list of mistakes) Nino is left out instead of shown in half. */
 @media (min-width:1024px){

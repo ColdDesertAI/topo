@@ -14,7 +14,7 @@ body.v3Les[data-focus-shell=true] :is(.v3LesGroup,.v3LesEnd){display:contents}
 
 /* Steps: one segmented pill; each segment as wide as its label. */
 .v3 .v3LesMark .v3Icon{width:18px;height:18px;color:inherit}
-.v3 .v3LesStep[data-state=done] .v3LesMark{background:var(--v3-done);color:#fff}
+.v3 .v3LesStep[data-state=done] .v3LesMark{background:var(--v3-accent,#5b45e0);color:#fff}
 .v3 .v3LesStep[data-state=done] .v3LesMark .v3Icon{width:16px;height:16px;stroke-width:2.6}
 .v3 .v3LesStep:not([data-state=done]) .v3LesMark{background:none;color:inherit}
 .v3 .v3LesStep[data-state=now] .v3LesMark{background:none;color:var(--v3-select-ink)}

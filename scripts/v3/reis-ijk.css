@@ -24,7 +24,7 @@
 .v3RowBar::before{content:"";display:block;height:100%;width:calc(var(--v3-on,0) * 100%);min-width:0;border-radius:2px;background:var(--v3-accent)}
 .v3Reis .v3End{justify-content:center;color:var(--v3-ink3)}
 .v3Reis .v3End .v3Icon{width:24px;height:24px;color:var(--v3-ink3)}
-.v3Reis .v3EndDone .v3Icon{color:var(--v3-done);stroke-width:1.9}
+.v3Reis .v3EndDone .v3Icon{color:var(--v3-accent,#5b45e0);stroke-width:1.9}
 .v3Reis .v3EndGold .v3Icon{color:#a8780a;stroke-width:1.9}
 
 /* Counters and tools (top of the map column). */

@@ -22,7 +22,7 @@ body.v3Les:not([data-v3-q=discover]) .layout .panel #quiz>#help{display:none!imp
 .v3 .v3LesStep[data-state=now]{background:var(--v3-accent-soft);color:var(--v3-ink);font-weight:700;box-shadow:inset 0 0 0 2px var(--v3-accent);cursor:default}
 .v3LesStep[data-state=now] .v3LesMark{background:var(--v3-accent);color:var(--v3-accent-ink)}
 .v3 .v3LesStep[data-state=done]{color:var(--v3-ink)}
-.v3LesStep[data-state=done] .v3LesMark{background:var(--v3-done);color:#fff}
+.v3LesStep[data-state=done] .v3LesMark{background:var(--v3-accent,#5b45e0);color:#fff}
 .v3 .v3LesStep[data-state=later]{opacity:.6;cursor:default}
 .v3 .v3LesStep[data-state=done]:hover{background:var(--v3-line)}
 .v3LesGold:empty{display:none}
