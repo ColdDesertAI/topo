@@ -82,14 +82,14 @@
  function setProgress(f){
   const g=el._geo;if(!g)return;
   const p=g.curve.pointAt(f),nino=el.querySelector('.v3RitNino');
-  nino.style.transform='translate('+(p[0]-g.size/2)+'px,'+(p[1]-g.size+10)+'px)'+(g.flip?' scaleX(-1)':'');
+  nino.style.transform='translate('+(p[0]-g.size/2)+'px,'+(p[1]-g.hgt+6)+'px)'+(g.flip?' scaleX(-1)':'');
   el.querySelector('.v3RitReveal').setAttribute('stroke-dasharray',f+' 1');
  }
 
  function show(){
   const n=trips(),key=POST[n],geo=wide()?plan(key):null,reduce=still();
   shown=n;
-  const art=window.TOPO_V3_ART?.ninoScooter,src=art?((window.devicePixelRatio||1)>=1.5?art.x64:art.x48):null;
+  const art=window.TOPO_V3_ART?.vespaRijdend,src=art?((window.devicePixelRatio||1)>=1.5?art.x240:art.x120):null;
   el=make('div','v3Rit');el.setAttribute('role','dialog');el.setAttribute('aria-label','Vespa-rit nummer '+n);el.dataset.ride=String(n);
   const scrim=make('div','v3RitScrim');el.append(scrim);
   // The ride: only when there is a pin to ride from and a pin to ride to.
@@ -101,8 +101,8 @@
    svg.innerHTML='<defs><mask id="v3RitMask" maskUnits="userSpaceOnUse" x="0" y="0" width="'+W+'" height="'+H+'"><path class="v3RitReveal" d="'+d+'" pathLength="1" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 1"/></mask></defs>'
     +'<path class="v3RitLine" d="'+d+'" fill="none" stroke="#5b45e0" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 11" mask="url(#v3RitMask)"/>';
    el.append(svg);
-   const size=56,nino=make('img','v3RitNino');nino.src=src;nino.alt='';nino.width=size;nino.height=size;nino.setAttribute('aria-hidden','true');el.append(nino);
-   el._geo={curve:cv,size,flip:geo.b[0]<geo.a[0]};
+   const size=66,hgt=44,nino=make('img','v3RitNino');nino.src=src;nino.alt='';nino.width=size;nino.height=hgt;nino.setAttribute('aria-hidden','true');el.append(nino);
+   el._geo={curve:cv,size,hgt,flip:geo.b[0]<geo.a[0]};
   }
   // The card (end picture).
   const card=make('div','v3RitCard');card.hidden=true;
