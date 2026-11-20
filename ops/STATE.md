@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-20 · door: Claude (BL-037 live, 9/10 PASS; punt 8 bij Dennis)
+> Bijgewerkt: 2026-11-20 · door: Claude (BL-037 klaar; BL-039 bezig)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,7 +19,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-**BL-037 laatste feedback Italië: alle 3 bundels live** (`8bc8c66`…`fcc7bba`); evaluator 9/10 PASS (`ops/reports/eval-BL-037.md`, laadscherm na 2 fixes PASS). **Open voor Dennis:** (1) punt 8 Zeeën/Landen liggend 0,31–0,33 / 0,25–0,26 i.p.v. ≥ 55% — norm verruimen? (2) 40-px-regel losse iconen vanaf midden of rand? (3) laadscherm warm zonder 1,2 s minimum (warm nu 1,5 s; BL-035.9 vroeg < 1 s)? (4) 'Wisselen' ook Sicilië? Ferrari/Stadion/Strand staan nergens (40-px-regel).
+**BL-037: KLAAR** (alle 3 bundels live; evaluator 9/10 PASS, punt 8 PASS na besluit Dennis 20-11: 55%-norm vervalt voor Zeeën/Landen). **Nu: BL-039** (laatste punten Italië, 3 bundels, `ops/contracts/BL-039.md`). Besluiten Dennis 20-11: losse iconen rand-rand ≥ 12 px · laadscherm alleen bij koude cache · Wisselen met Sicilië · Vercel alleen main, previews op verzoek.
 **BL-038 iPad-portret: KLAAR** (evaluator PASS 20-11, `ops/reports/eval-BL-038.md`; design GO met kanttekeningen, P1's opgelost; liggend pixel-identiek). Live sinds `abb6a93`. P2's → BL-039. 
 **BL-036 testfeedback 20-11: KLAAR, alles live** (bundels A–C + fix `4deb5ab`). Evaluator: FAIL op 7 (tandwiel onbereikbaar in iPad-portret) en 8 (lesknop 'Start de Vespa-rit' deed niets) → gefixt → hertoets PASS (`ops/reports/eval-BL-036.md`). Laag 3: volledige matrix Chromium OK, fade Chromium + WebKit OK. Nieuw: **BL-038 iPad-portret** (P0, blokkeert G3). Open voor Dennis: Vespa-icoon is een vierkante app-badge; oordelen related in `ops/reports/BL-036-iconen.md`; antwoordfeedback 'goed' is in V3 al violet (niet groen) — zo laten?
 **Laadtijd (punt 11) live sinds bundel A.** Live gemeten (Fast 4G 9 Mbit/s, 165 ms RTT, Playwright Chromium): vóór 21,9 MB, eerste scherm ≈ 23 s koud én warm. Na: index.html 1,03 MB + 133 immutable assets; eerste scherm 1,6 MB, **koud 2,3 s desktop / 1,9 s iPad, warm 0,77 / 0,82 s** (0 MB), via portal-prefetch 1,5 s; TTFB 0,1–0,3 s. Doel (< 3 s koud, < 1 s warm) gehaald.
