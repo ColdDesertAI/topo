@@ -80,7 +80,11 @@ window.TopoV3Landmarks=function(svg,k,opts){
   // Anchor the painted bottom centre, not the padded square, at the real geographic point.
   const one=matchMedia('(max-width:1279px)').matches?28:32;
   const units=(all?one:item.paintSize*grow)/Math.max(right-left,bottom-top),width=asset.size[0]*units,pw=(right-left)*units,ph=(bottom-top)*units;
-  const at=(dx,dy)=>[item.point[0]+(dx-pw/2)*k,item.point[1]+(dy-ph)*k,item.point[0]+(dx+pw/2)*k,item.point[1]+dy*k];
+  // BL-036.3: an always-visible name pill (related:false) belongs to the icon's box in the collision search, so two
+  // icons at one place never put a label over the other icon.
+  const alw=all&&item.place&&item.related===false,half=alw?Math.max(pw/2,Math.max(40,(item.iconName||'').length*7.4+20)/2):pw/2;
+  // In 'all' mode the box is the lavender circle (6 px around the icon), plus the pill below when it is always shown.
+  const at=(dx,dy)=>all?[item.point[0]+(dx-half-6)*k,item.point[1]+(dy-ph-6)*k,item.point[0]+(dx+half+6)*k,item.point[1]+(dy+(alw?26:6))*k]:[item.point[0]+(dx-pw/2)*k,item.point[1]+(dy-ph)*k,item.point[0]+(dx+pw/2)*k,item.point[1]+dy*k];
   let dx=0,dy=0;
   if(hits(at(0,0)))search:for(let d=4;d<=96;d+=4)for(const [sx,sy] of STEPS){const r=at(sx*d,sy*d);if(!hits(r)){dx=sx*d;dy=sy*d;break search;}}
   const box=at(dx,dy);obstacles.push(box);
