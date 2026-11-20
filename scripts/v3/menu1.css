@@ -753,3 +753,21 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions .v3Btn.primary{width:auto;min-width:0;padding:0 24px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Locked{grid-column:3;grid-row:4;z-index:2;margin:20px 16px 0 8px!important;align-self:start}
 }
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P4. Oefenen and Toets: the map on top (at least 40 %), the choices as one white card under it over the full width. */
+ .v3Reis[data-menu="1"][data-view=oefenen]>.v3View-oefenen,.v3Reis[data-menu="1"][data-view=toets]>.v3View-toets{display:grid!important;grid-column:2;grid-row:1/-1;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;
+  gap:0;margin:0!important;padding:0!important;width:auto;height:100%;max-height:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3View-oefenen>.v3OefStage{grid-column:1;grid-row:1;position:relative;margin:0!important;padding:0;min-height:0;background:none!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetupStage{grid-column:1;grid-row:1;position:relative;min-height:0;height:100%;margin:0}
+ .v3Reis[data-menu="1"] .v3ToetsSetupStage>svg{width:100%;height:100%;display:block}
+ .v3Reis[data-menu="1"] .v3View-oefenen>.v3OefPanel,.v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetup{grid-column:1;grid-row:2;align-self:end;position:relative;margin:0 16px 12px 16px!important;width:auto!important;max-height:none;overflow:visible;
+  padding:14px 18px 16px!important;border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important;gap:8px}
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup)>.v3ScreenTitle{font:800 26px/1.1 var(--v3-font);margin:0}
+ .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetupNino{display:none}
+ .v3Reis[data-menu="1"] .v3OefPanel .v3Chips{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ .v3Reis[data-menu="1"] .v3ToetsSetup .v3Chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup) .v3Chip{min-width:0;white-space:nowrap;padding-left:8px!important;padding-right:8px!important;font-size:15px}
+ .v3Reis[data-menu="1"] .v3OefPanel .v3FormBtn{min-height:76px}
+ .v3Reis[data-menu="1"] .v3ToetsSetup .v3Field+.v3Field{padding-top:4px}
+}
