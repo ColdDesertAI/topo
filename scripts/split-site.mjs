@@ -11,7 +11,9 @@
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
+const vespaSrc = fileURLToPath(new URL('../assets/v3/render/exports/vespa-rijdend-v3-168.webp', import.meta.url));
 const EXT = { 'image/webp': 'webp', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/svg+xml': 'svg', 'font/woff2': 'woff2', 'font/woff': 'woff' };
 
 // The portal's head set (portal/index.html, paths made absolute): same icons, manifest and theme-color on /italie/.
@@ -66,10 +68,21 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
   html = html.replace(/<img (?![^>]*\bloading=)/g, '<img loading="lazy" ');
   const lazy = '<script>(()=>{const d=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:d.enumerable,get:d.get,set(v){if(!this.hasAttribute("loading"))this.loading="lazy";d.set.call(this,v);}});})();</script>';
   patch('<head><meta charset="utf-8">', '<head><meta charset="utf-8">' + lazy, 'lazy-img', true);
-  // Loading state: lavender page with TOPO and a moving bar; it fades when html.v3Ready is set.
-  const css = '<style>html{background:#f4f1fd}#v3Loader{position:fixed;inset:0;z-index:2147483647;display:grid;place-content:center;justify-items:center;gap:18px;background:#f4f1fd;visibility:visible;transition:opacity .25s ease;font:800 40px/1 ui-rounded,"SF Pro Rounded",system-ui,sans-serif;letter-spacing:.04em;color:#2a2440}'
-    + '#v3Loader i{display:block;width:160px;height:6px;border-radius:3px;background:#e2dcfb;overflow:hidden;position:relative}#v3Loader i::after{content:"";position:absolute;inset:0 auto 0 0;width:40%;border-radius:3px;background:#6a52e0;animation:v3Load 1.1s ease-in-out infinite}'
-    + '@keyframes v3Load{from{transform:translateX(-100%)}to{transform:translateX(250%)}}@media(prefers-reduced-motion:reduce){#v3Loader i::after{animation:none;width:100%;opacity:.5}}'
+  // Loading state (BL-037.2): lavender page with TOPO, a bar that follows the real load progress of the first screen's
+  // files (background, relief layers, Nino's portrait, the font; = `first`, weighted by bytes) and Nino on the Vespa
+  // riding along on the bar. The bar always runs to 100%, the loader stays at least 1.2 s, at 100% the Vespa rides out
+  // to the right, then the loader fades and leaves the tree. At most 6 s (fallback: the loader never hangs).
+  // prefers-reduced-motion: no Vespa, no ride, only bar and fade.
+  const vespaBuf = readFileSync(vespaSrc);
+  const vespaName = createHash('sha256').update(vespaBuf).digest('hex').slice(0, 16) + '.webp';
+  if (!written.has(vespaName)) { writeFileSync(join(out, vespaName), vespaBuf); written.set(vespaName, vespaBuf.length); bytes += vespaBuf.length; }
+  const vespaUrl = 'assets/' + vespaName;
+  const css = '<style>html{background:#f4f1fd}#v3Loader{--p:0;position:fixed;inset:0;z-index:2147483647;display:grid;place-content:center;justify-items:center;gap:30px;background:#f4f1fd;visibility:visible;overflow:hidden;transition:opacity .25s ease;font:800 40px/1 ui-rounded,"SF Pro Rounded",system-ui,sans-serif;letter-spacing:.04em;color:#2a2440}'
+    + '#v3Loader .v3Track{position:relative;width:min(260px,70vw);height:6px;margin-top:56px}'
+    + '#v3Loader i{display:block;position:absolute;inset:0;border-radius:3px;background:#e2dcfb;overflow:hidden}#v3Loader i::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--p)*100%);border-radius:3px;background:#6a52e0;transition:width .25s linear}'
+    + '#v3Loader img{position:absolute;bottom:4px;left:calc(var(--p)*(100% - 84px));width:84px;height:56px;max-width:none;pointer-events:none;transition:left .25s linear,transform .8s cubic-bezier(.55,0,.85,.45)}'
+    + '#v3Loader.go img{transform:translateX(100vw)}'
+    + '@media(prefers-reduced-motion:reduce){#v3Loader img{display:none}#v3Loader i::after{transition:none}}'
     + 'html.v3Shown #v3Loader{opacity:0;pointer-events:none}'
     // While booting, the V2 surfaces that V3 hides anyway (reis.css: the V2 header, everything in #routeHome but the
     // V3 root, the pizza meters, the Vespa toast) are display:none from the first layout, so their pictures are never
@@ -77,17 +90,8 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
     + 'html.v3Boot body>header,html.v3Boot #routeHome>:not(.v3Reis),html.v3Boot #ninoMeter,html.v3Boot #vespaTripToast,html.v3Boot #lessonReward{display:none!important}</style>';
   patch('<head><meta charset="utf-8">', '<head><meta charset="utf-8">' + css, 'head', true);
   patch('<head><meta charset="utf-8">', '<head><meta charset="utf-8">' + FAVICON_HEAD, 'favicon-set', true);
-  patch('<body>\n', '<body>\n<div id="v3Loader" role="status" aria-label="TOPO laadt"><span aria-hidden="true">TOPO</span><i aria-hidden="true"></i></div>\n', 'body', true);
-  // The loader stays until the first screen's pictures are in (background, relief layers, Nino), at most 3 s, so the
-  // screen does not appear half-painted; then it fades and leaves the tree (screen readers, focus).
-  const shown = '(()=>{const h=document.documentElement,done=()=>{if(h.classList.contains("v3Shown"))return;h.classList.add("v3Shown");setTimeout(()=>document.getElementById("v3Loader")?.remove(),400);};'
-    + 'const u=[],bg=getComputedStyle(document.body).backgroundImage.match(/url\\("?([^")]+)/);if(bg)u.push(bg[1]);'
-    + 'document.querySelectorAll(".v3MapStage image,.v3Side .v3Portrait img").forEach(n=>{const x=n.getAttribute("href")||n.getAttribute("src");if(x)u.push(x);});'
-    + 'Promise.all(u.map(x=>new Promise(r=>{const i=new Image();i.loading="eager";i.onload=i.onerror=r;i.src=x;}))).then(done);setTimeout(done,3000);})();';
-  patch('requestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");});',
-    'requestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");' + shown + '});', 'klaar');
-  // First-screen files for the portal's prefetch: the relief layers, the UI font, Nino's portrait and the default
-  // background (bg03; the largest of its matches is the full picture, not the thumbnail).
+  // First-screen files for the loader and the portal's prefetch: the relief layers, the UI font, Nino's portrait and the
+  // default background (bg03; the largest of its matches is the full picture, not the thumbnail).
   const sizeOf = n => written.get(n.replace('assets/', '')) || 0;
   const relief = JSON.parse(html.match(/window\.TOPO_V3_RELIEF=(\{[^}]*\})/)?.[1] || '{}');
   const first = new Set([
@@ -96,6 +100,31 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
     ...[...html.matchAll(/"portrait":"(assets\/[0-9a-f]{16}\.webp)"/g)].map(m => m[1]),
     [...html.matchAll(/"bg03":"(assets\/[0-9a-f]{16}\.webp)"/g)].map(m => m[1]).sort((x, y) => sizeOf(y) - sizeOf(x))[0]
   ].filter(Boolean));
+  const list = [...first].map(u => [u, sizeOf(u)]);
+  const loaderJs = String.raw`<script>(()=>{
+const h=document.documentElement,L=document.getElementById("v3Loader"),t0=performance.now(),F=__LIST__;
+const MIN=1200,MAX=6000,files=[];let ready=false,over=false,shownP=0,go=false;
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const finish=()=>{if(h.classList.contains("v3Shown"))return;h.classList.add("v3Shown");setTimeout(()=>document.getElementById("v3Loader")?.remove(),400);};
+const paint=p=>{shownP=Math.max(shownP,p);L&&L.style.setProperty("--p",shownP.toFixed(4));};
+const real=()=>{let a=0,b=0;for(const f of files){a+=f.l;b+=f.w;}return b?a/b:1;};
+const up=()=>{if(!over)paint(ready?real():Math.min(real(),.95));};
+const leave=()=>{if(go)return;go=true;over=true;paint(1);const wait=Math.max(300,MIN-(performance.now()-t0));
+ setTimeout(()=>{if(reduce||!L){finish();return;}L.classList.add("go");let n=0;const end=()=>{if(n++)return;finish();};L.querySelector("img").addEventListener("transitionend",e=>{if(e.propertyName==="transform")end();});setTimeout(end,1100);},wait);};
+const check=()=>{if(ready&&real()>=1)leave();};
+const get=(u,w)=>{const f={w:w||1e5,l:0};files.push(f);const end=()=>{f.l=f.w;up();check();};
+ try{fetch(u).then(async r=>{const rd=r.body&&r.body.getReader();if(!rd){await r.arrayBuffer();return;}let n=0;for(;;){const x=await rd.read();if(x.done)break;n+=x.value.length;f.l=Math.min(f.w*.98,n);up();}}).catch(()=>{}).then(end);}catch(e){end();}};
+try{for(const x of F)get(x[0],x[1]);}catch(e){}
+window.v3LoaderReady=()=>{try{const u=[],bg=getComputedStyle(document.body).backgroundImage.match(/url\("?([^")]+)/);if(bg)u.push(bg[1]);
+ document.querySelectorAll(".v3MapStage image,.v3Side .v3Portrait img").forEach(n=>{const x=n.getAttribute("href")||n.getAttribute("src");if(x)u.push(x);});
+ const have=new Set(F.map(x=>new URL(x[0],location.href).href));for(const x of u){const a=new URL(x,location.href).href;if(!have.has(a)){have.add(a);get(x,0);}}}catch(e){}
+ ready=true;up();check();};
+setTimeout(leave,MAX);
+})();</script>`.replace('__LIST__', JSON.stringify(list));
+  patch('<body>\n', '<body>\n<div id="v3Loader" role="status" aria-label="TOPO laadt"><span aria-hidden="true">TOPO</span><div class="v3Track" aria-hidden="true"><i></i><img src="' + vespaUrl + '" alt="" width="84" height="56" loading="eager" decoding="async"></div></div>\n' + loaderJs, 'body', true);
+  // The app calls this when V3 has booted; the loader leaves once the first screen's files are in (or after 6 s).
+  patch('requestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");});',
+    'requestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");window.v3LoaderReady&&window.v3LoaderReady();});', 'klaar');
   if (html.length > maxHtml) throw new Error(`split-site: index.html is ${html.length} B, doel < ${maxHtml}`);
   writeFileSync(file, html);
   return { html: html.length, files: written.size, bytes, names: [...written.keys()], first: [...first] };
