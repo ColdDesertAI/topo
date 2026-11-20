@@ -478,7 +478,9 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
 .v3Side .v3SideFoot .v3Settings{margin-top:0!important}
 :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn){width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
 :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn) span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media (min-width:1024px) and (max-width:1279px){.v3Side .v3SideFoot{flex-direction:column;align-self:center}}
+/* Evaluator BL-036: in every narrow rail (iPad landscape and portrait) the foot is a column, so gear, background and
+   ? button all stay inside the rail and clickable. */
+@media (min-width:700px) and (max-width:1279px){.v3Side .v3SideFoot{flex-direction:column;align-self:center}}
 .v3BgPop{position:fixed;z-index:80;display:flex;gap:10px;padding:10px;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(40,25,80,.22)}
 .v3BgPop[hidden]{display:none}
 .v3BgPop .v3BgThumb{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px;border:0;border-radius:12px;background:transparent;font:600 13px/1 var(--v3-font);color:var(--v3-ink);cursor:pointer;min-height:44px}

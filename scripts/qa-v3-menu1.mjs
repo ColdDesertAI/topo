@@ -171,6 +171,10 @@ for(const [W,H] of SIZES)for(const bg of BGS){
    const imgs=[...document.querySelectorAll('img')].filter(vis);for(let t=0;t<40&&imgs.some(i=>!i.complete);t++)await new Promise(r=>setTimeout(r,100));
    return imgs.filter(i=>!i.complete||!i.naturalWidth).map(i=>(i.className||i.alt||'img')+' '+(i.currentSrc||i.src).split('/').pop().slice(0,40));});
   if(broken.length)fail(where,'kapotte afbeelding: '+broken.slice(0,3).join('; '));
+  // Evaluator BL-036: every sidebar button (nav, gear, background, ?) lies on screen and its centre reaches it.
+  const unreach=await p.evaluate(()=>[...document.querySelectorAll('.v3Reis>.v3Side :is(button,a)')].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').filter(e=>{const q=e.getBoundingClientRect();if(q.width<2||q.height<2)return false;
+   const x=q.left+q.width/2,y=q.top+q.height/2;if(x<0||y<0||x>innerWidth||y>innerHeight)return true;const t=document.elementFromPoint(x,y);return !(t&&(e===t||e.contains(t)));}).map(e=>(e.getAttribute('aria-label')||e.textContent||e.className).trim().slice(0,24)));
+  if(unreach.length)fail(where,'knop niet bereikbaar: '+unreach.join('; '));
   if(r.over.length)fail(where,'overlap: '+r.over.slice(0,4).join('; '));
   if(r.wide)fail(where,'breder dan het scherm');
   if(r.small.length)fail(where,'tekst < 13 px: '+r.small.slice(0,3).join('; '));

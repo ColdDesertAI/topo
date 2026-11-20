@@ -22,7 +22,10 @@
  const DURATION=2500;
 
  // V2's ride dialog and toast give way to this moment.
- celebrateTrip=function(){};
+ // Evaluator BL-036: V2's "Start de Vespa-rit" (pizza celebration in a lesson) calls celebrateTrip. On the Reis
+ // overview the ride plays at once; elsewhere (a lesson: no map pins) the end card shows at once, and the ride counts
+ // as shown, so it does not play again later on Reis.
+ celebrateTrip=function(){if(el||shown>=trips())return;if(overview()&&!busy()){tick(true);return;}show();};
 
  const wide=()=>!!window.matchMedia?.('(min-width:1024px)').matches;
  const overview=()=>body.classList.contains('v3Home')&&document.querySelector('.v3Reis[data-view=reis]')?.checkVisibility?.()!==false;
@@ -34,11 +37,14 @@
  }
  // Centre of a pin's head (the number inside it), in viewport pixels.
  function head(m){const t=m.querySelector('text')||m,r=t.getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2];}
- function plan(){
+ function plan(key){
   const ms=markers(),on=ms.find(n=>n.classList.contains('on'));
   if(!on)return null;
   const i=ms.indexOf(on),next=ms[i+1]||null;
-  if(!next)return {a:head(on),b:null};
+  // No next chapter: ride to the postcard's city on the map (Venetië = city-11, Napels = city-6), if it is drawn.
+  if(!next){const id={venezia:'city-11',napoli:'city-6'}[key],pt=id&&document.querySelector('.v3Map [data-id="'+id+'"]');
+   if(pt){const r=pt.getBoundingClientRect();if(r.width||r.height)return {a:head(on),b:[r.left+r.width/2,r.top+r.height/2]};}
+   return {a:head(on),b:null};}
   return {a:head(on),b:head(next)};
  }
  // Quadratic curve with a gentle bend; lengths sampled so progress follows the distance travelled.
@@ -80,7 +86,7 @@
  }
 
  function show(){
-  const n=trips(),key=POST[n],geo=wide()?plan():null,reduce=still();
+  const n=trips(),key=POST[n],geo=wide()?plan(key):null,reduce=still();
   shown=n;
   const art=window.TOPO_V3_ART?.ninoScooter,src=art?((window.devicePixelRatio||1)>=1.5?art.x64:art.x48):null;
   el=make('div','v3Rit');el.setAttribute('role','dialog');el.setAttribute('aria-label','Vespa-rit nummer '+n);el.dataset.ride=String(n);
