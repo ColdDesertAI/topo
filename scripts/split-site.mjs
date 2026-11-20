@@ -70,8 +70,8 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
   patch('<head><meta charset="utf-8">', '<head><meta charset="utf-8">' + lazy, 'lazy-img', true);
   // Loading state (BL-037.2): lavender page with TOPO, a bar that follows the real load progress of the first screen's
   // files (background, relief layers, Nino's portrait, the font; = `first`, weighted by bytes) and Nino on the Vespa
-  // riding along on the bar. The bar always runs to 100%, the loader stays at least 1.2 s, at 100% the Vespa rides out
-  // to the right, then the loader fades and leaves the tree. At most 6 s (fallback: the loader never hangs).
+  // riding along on the bar. The bar always runs to 100%, the loader stays at least 1.2 s (the 0.4 s ride-out included,
+  // so a warm start stays ≈ 1.2 s), at 100% the Vespa rides out to the right, then the loader fades and leaves the tree. At most 6 s (fallback: the loader never hangs).
   // prefers-reduced-motion: no Vespa, no ride, only bar and fade.
   const vespaBuf = readFileSync(vespaSrc);
   const vespaName = createHash('sha256').update(vespaBuf).digest('hex').slice(0, 16) + '.webp';
@@ -80,7 +80,7 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
   const css = '<style>html{background:#f4f1fd}#v3Loader{--p:0;position:fixed;inset:0;z-index:2147483647;display:grid;place-content:center;justify-items:center;gap:30px;background:#f4f1fd;visibility:visible;overflow:hidden;transition:opacity .25s ease;font:800 40px/1 ui-rounded,"SF Pro Rounded",system-ui,sans-serif;letter-spacing:.04em;color:#2a2440}'
     + '#v3Loader .v3Track{position:relative;width:min(260px,70vw);height:6px;margin-top:56px}'
     + '#v3Loader i{display:block;position:absolute;inset:0;border-radius:3px;background:#e2dcfb;overflow:hidden}#v3Loader i::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--p)*100%);border-radius:3px;background:#6a52e0;transition:width .25s linear}'
-    + '#v3Loader img{position:absolute;bottom:4px;left:calc(var(--p)*(100% - 84px));width:84px;height:56px;max-width:none;pointer-events:none;transition:left .25s linear,transform .8s cubic-bezier(.55,0,.85,.45)}'
+    + '#v3Loader img{position:absolute;bottom:4px;left:calc(var(--p)*(100% - 84px));width:84px;height:56px;max-width:none;pointer-events:none;transition:left .25s linear,transform .4s cubic-bezier(.55,0,.85,.45)}'
     + '#v3Loader.go img{transform:translateX(100vw)}'
     + '@media(prefers-reduced-motion:reduce){#v3Loader img{display:none}#v3Loader i::after{transition:none}}'
     + 'html.v3Shown #v3Loader{opacity:0;pointer-events:none}'
@@ -103,14 +103,14 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
   const list = [...first].map(u => [u, sizeOf(u)]);
   const loaderJs = String.raw`<script>(()=>{
 const h=document.documentElement,L=document.getElementById("v3Loader"),t0=performance.now(),F=__LIST__;
-const MIN=1200,MAX=6000,files=[];let ready=false,over=false,shownP=0,go=false;
+const MIN=1200,MAX=6000,RIDE=400,files=[];let ready=false,over=false,shownP=0,go=false;
 const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 const finish=()=>{if(h.classList.contains("v3Shown"))return;h.classList.add("v3Shown");setTimeout(()=>document.getElementById("v3Loader")?.remove(),400);};
 const paint=p=>{shownP=Math.max(shownP,p);L&&L.style.setProperty("--p",shownP.toFixed(4));};
 const real=()=>{let a=0,b=0;for(const f of files){a+=f.l;b+=f.w;}return b?a/b:1;};
 const up=()=>{if(!over)paint(ready?real():Math.min(real(),.95));};
-const leave=()=>{if(go)return;go=true;over=true;paint(1);const wait=Math.max(300,MIN-(performance.now()-t0));
- setTimeout(()=>{if(reduce||!L){finish();return;}L.classList.add("go");let n=0;const end=()=>{if(n++)return;finish();};L.querySelector("img").addEventListener("transitionend",e=>{if(e.propertyName==="transform")end();});setTimeout(end,1100);},wait);};
+const leave=()=>{if(go)return;go=true;over=true;paint(1);const wait=Math.max(150,MIN-RIDE-(performance.now()-t0)); // the ride-out ends at 1.2 s (BL-035.9: warm stays fast)
+ setTimeout(()=>{if(reduce||!L){finish();return;}L.classList.add("go");let n=0;const end=()=>{if(n++)return;finish();};L.querySelector("img").addEventListener("transitionend",e=>{if(e.propertyName==="transform")end();});setTimeout(end,RIDE+200);},wait);};
 const check=()=>{if(ready&&real()>=1)leave();};
 const get=(u,w)=>{const f={w:w||1e5,l:0};files.push(f);const end=()=>{f.l=f.w;up();check();};
  try{fetch(u).then(async r=>{const rd=r.body&&r.body.getReader();if(!rd){await r.arrayBuffer();return;}let n=0;for(;;){const x=await rd.read();if(x.done)break;n+=x.value.length;f.l=Math.min(f.w*.98,n);up();}}).catch(()=>{}).then(end);}catch(e){end();}};
