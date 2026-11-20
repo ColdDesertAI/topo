@@ -672,7 +672,7 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht]{grid-template-rows:minmax(0,1fr) auto;grid-template-columns:var(--zij) minmax(0,1fr) minmax(0,1fr)}
  .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht]>.v3Side{grid-row:1/-1}
  .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Main>.v3MapStage{grid-column:2/4;grid-row:1;margin:0;padding:0;position:relative;display:block;
-  --v3-card-over:0;--v3-fit-top:8px;--v3-fit-left:190px;--v3-fit-right:16px;--v3-fit-bottom:0px}
+  --v3-card-over:0;--v3-fit-top:8px;--v3-fit-left:0px;--v3-fit-right:0px;--v3-fit-bottom:0px}
  .v3Reis[data-menu="1"][data-view=reis] .v3Main>.v3MapStage::before{content:"";position:absolute;inset:4% -6% 2% -10%;z-index:0;pointer-events:none;
   background:radial-gradient(closest-side,rgba(150,205,240,.62),rgba(170,215,245,.32) 55%,rgba(190,225,250,0) 100%)}
  .v3Reis[data-menu="1"][data-view=reis] .v3MapStage>svg{position:absolute;z-index:1}
@@ -723,7 +723,7 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]>.v3List{display:none}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] :is(.v3Main>.v3Top,.v3Main>.v3Panel){display:contents!important}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:2/4;grid-row:1;margin:0;padding:0;position:relative;display:block;
-  --v3-card-over:0;--v3-fit-top:8px;--v3-fit-left:190px;--v3-fit-right:16px;--v3-fit-bottom:0px}
+  --v3-card-over:0;--v3-fit-top:8px;--v3-fit-left:0px;--v3-fit-right:0px;--v3-fit-bottom:0px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Counts{grid-column:2/4;grid-row:1;justify-self:start;align-self:start;margin:16px 0 0 16px;position:relative;z-index:3}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft{grid-column:2;grid-row:4;display:flex;align-self:start;margin:12px 8px 12px 16px;position:relative;z-index:3}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{display:inline-flex;align-items:center;gap:8px;height:44px;min-height:44px;padding:0 18px 0 12px;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12);font:600 16px/1 var(--v3-font)}
@@ -869,4 +869,25 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  /* The step name in the lesson bar stays whole (it was cut to "A…" at 768): Schoolblad is an icon button here. */
  body.v3Les[data-v3-menu="1"] .v3LesBar .v3LesSchool span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
  body.v3Les[data-v3-menu="1"] .v3LesBar .v3LesSchool{width:44px;min-width:44px;padding:0;justify-content:center}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* BL-038 r2 (design-critic): one bottom line (content ends at H - 20), counters top right, the map tools in the free block,
+    the chapter page's free block hangs from the top of the lessons card (same bar-to-button distance as the overview). */
+ .v3Reis[data-menu="1"]{box-sizing:border-box;padding-bottom:20px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Main>.v3Top{justify-self:end;margin:16px 20px 0 0}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Counts{justify-self:end;margin:16px 20px 0 0}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3List{margin-bottom:0}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Panel{margin-bottom:0!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel>.v3MapTools{position:static;display:flex;gap:8px;margin:24px 0 0;z-index:3}
+ /* Chapter page */
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk]{grid-template-rows:minmax(0,1fr) auto auto auto auto}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList{grid-row:2/5;margin-bottom:0!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-row:2;align-self:start;margin:30px 16px 8px 8px!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{grid-row:3;align-self:start}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions{grid-row:4;margin:24px 16px 0 8px!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Locked{grid-row:4;margin:24px 16px 0 8px!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel>.v3MapTools{grid-column:3;grid-row:5;align-self:start;justify-self:start;margin:24px 16px 0 8px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft{grid-row:5;align-self:start;margin:24px 8px 0 16px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{min-height:44px;height:44px}
 }
