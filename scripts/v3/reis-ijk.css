@@ -10,7 +10,7 @@
      the sea transparent on the wash. */
 .v3 .v3SrOnly{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .v3ScreenTitle{font:var(--v3-display);letter-spacing:-.01em;color:var(--v3-ink);margin:0}
-.v3ScreenTitle:focus{outline:0}.v3ScreenTitle:focus-visible{outline:3px solid var(--v3-focus);outline-offset:4px;border-radius:8px}
+.v3ScreenTitle:focus{outline:0}.v3ScreenTitle:focus-visible{outline:2px solid var(--v3-focus);outline-offset:2px;border-radius:8px}
 .v3Reis:not([data-view=reis]) .v3List .v3ScreenTitle{display:none}
 
 /* Rows. */
@@ -24,7 +24,7 @@
 .v3RowBar::before{content:"";display:block;height:100%;width:calc(var(--v3-on,0) * 100%);min-width:0;border-radius:2px;background:var(--v3-accent)}
 .v3Reis .v3End{justify-content:center;color:var(--v3-ink3)}
 .v3Reis .v3End .v3Icon{width:24px;height:24px;color:var(--v3-ink3)}
-.v3Reis .v3EndDone .v3Icon{color:var(--v3-done);stroke-width:1.9}
+.v3Reis .v3EndDone .v3Icon{color:var(--v3-accent,#5b45e0);stroke-width:1.9}
 .v3Reis .v3EndGold .v3Icon{color:#a8780a;stroke-width:1.9}
 
 /* Counters and tools (top of the map column). */
@@ -40,7 +40,7 @@
 .v3Reis .v3Panel{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:var(--v3-s5);row-gap:var(--v3-s3)}
 .v3CardHead{display:flex;align-items:center;gap:var(--v3-s5);min-width:0;flex-wrap:wrap}
 .v3CardTitle{font:600 26px/32px var(--v3-font);letter-spacing:-.01em;color:var(--v3-ink);margin:0;text-wrap:balance}
-.v3CardTitle:focus{outline:0}.v3CardTitle:focus-visible{outline:3px solid var(--v3-focus);outline-offset:4px;border-radius:8px}
+.v3CardTitle:focus{outline:0}.v3CardTitle:focus-visible{outline:2px solid var(--v3-focus);outline-offset:2px;border-radius:8px}
 .v3Reis .v3StageBar{position:relative;display:flex;align-items:center;gap:22px;flex:none}
 .v3Reis .v3StageBar::before{content:"";position:absolute;left:12px;right:12px;top:50%;height:2px;margin-top:-1px;background:rgba(42,36,64,.14)}
 .v3Reis .v3StageBar span{position:relative;flex:none;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px rgba(42,36,64,.18);display:grid;place-items:center}

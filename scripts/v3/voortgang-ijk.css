@@ -13,7 +13,7 @@
 /* Titelbalk. */
 .v3VgTitleBar{display:flex;flex-wrap:wrap;align-items:center;column-gap:var(--v3-s6);row-gap:var(--v3-s2)}
 .v3VgTitleBar h1{margin:0;font:var(--v3-display);color:var(--v3-ink)}
-.v3VgTitleBar h1:focus{outline:0}.v3VgTitleBar h1:focus-visible{outline:3px solid var(--v3-focus,#1d6fd8);outline-offset:4px;border-radius:8px}
+.v3VgTitleBar h1:focus{outline:0}.v3VgTitleBar h1:focus-visible{outline:2px solid var(--v3-focus,#5b45e0);outline-offset:2px;border-radius:8px}
 .v3View-voortgang .v3VgHead{flex:1 1 320px;display:flex;align-items:center;gap:var(--v3-s6);max-width:none}
 .v3View-voortgang .v3VgCount{flex:none;margin:0;font:600 15px/20px var(--v3-font);color:var(--v3-ink2)}
 .v3View-voortgang .v3VgCount strong{font:var(--v3-display);color:var(--v3-ink);font-variant-numeric:tabular-nums}
@@ -60,7 +60,7 @@
 .v3View-voortgang .v3VgSteps i.on:has(+i:not(.on)),.v3View-voortgang .v3VgSteps i.on:last-child{border-radius:0 6px 6px 0}
 .v3VgStatus{display:grid;place-items:center;width:32px;height:32px}
 .v3VgStatus img{width:32px;height:32px;object-fit:contain}
-[data-status=done]>.v3VgStatus{border-radius:50%;background:#2f9e58;color:#fff}
+[data-status=done]>.v3VgStatus{border-radius:50%;background:var(--v3-accent,#5b45e0);color:#fff}
 .v3 [data-status=done]>.v3VgStatus .v3Icon{width:22px;height:22px;stroke-width:3;color:#fff}
 [data-status=locked]>.v3VgStatus{color:var(--v3-ink2)}
 .v3 [data-status=locked]>.v3VgStatus .v3Icon{width:24px;height:24px;color:var(--v3-ink2)}

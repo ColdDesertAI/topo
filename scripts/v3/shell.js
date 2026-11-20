@@ -60,7 +60,7 @@
   settings.classList.add('v3','v3SettingsSheet');
   const profile=make('section','ninoSettingsGroup');profile.append(make('h3',null,'Profiel'),btn('Naam en favoriete pizza',()=>window.TopoProfile?.open(), 'v3Btn'));
   const backdrop=make('section','ninoSettingsGroup v3BackgroundChoices');backdrop.append(make('h3',null,'Achtergrond'));
-  const options=[['bg03','Kust'],['bg01','Toscane'],['bg02','Meer'],['auto','Wisselen']];
+  const options=[['bg03','Zee'],['bg01','Toscane'],['bg02','Meer'],['bg04','Sicilië'],['auto','Wisselen']];
   const mark=()=>backdrop.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.background===V.background.get())));
   // BL-017: a short confirmation after a choice ("✓ Bewaard" beside the heading, read by screen readers).
   const saved=make('span','v3Saved');saved.setAttribute('role','status');saved.setAttribute('aria-live','polite');backdrop.querySelector('h3').append(saved);
@@ -101,7 +101,7 @@
  function groupIds(g){if(g==='mistakes')return state.mistakes||[];if(g==='all')return [];return ROUTE_CHAPTERS.find(c=>c.id===g)?.itemIds||[];}
  function paintOef(){
   if(!oefMap){oefMap=V.cloneMap('v3o-','v3Map');if(!oefMap)return;oefMap.classList.add('v3OefMap');oefStage.append(oefMap);V.addIsland(oefMap,'v3o-');}
-  oefMap.dataset.relief='on';oefMap.dataset.kaart=V.ui.kaart||'eiland';
+  oefMap.dataset.relief='on';oefMap.dataset.kaart=V.ui.kaart||'eiland';oefMap.dataset.practice=pick.form;oefMap.dataset.group=pick.group; // BL-037.9: the icons need the form (only Ontdekken shows them) and the chapter
   const ids=pick.form==='smart'?[]:groupIds(pick.group),set=new Set(ids);
   oefMap.querySelectorAll('[data-id]').forEach(n=>n.classList.toggle('v3Hit',set.has(n.getAttribute('data-id'))));
   oefMap.dataset.focus=ids.length?(ids.every(id=>id.startsWith('city'))?'points':'areas'):'';

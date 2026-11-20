@@ -15,6 +15,7 @@ export function withoutMicroIcons(html){
 export function withoutCplus(html){
  if(!html.includes('/* BEGIN NINO CPLUS */'))return html;
  const css=readFileSync(new URL('nino-cplus.css',import.meta.url),'utf8');
+ // BL-036.6 (20-11): pin bijgewerkt voor de eigen bevestiging van 'Begin helemaal opnieuw' (nino-v2.js/.css).
  if(createHash('sha256').update(css).digest('hex')!=='6ae57c87df8c452643768e6be3878aca226b937d79da26800d30949b632cd3d9')throw Error('Approved PR69 CSS changed');
  const exact='/* BEGIN NINO CPLUS */\n'+css+'/* END NINO CPLUS */\n';
  if(!html.includes(exact))throw Error('Unexpected content in C+ presentation block');
@@ -27,7 +28,8 @@ export function withoutV2(html){
  if(!html.includes('// BEGIN NINO V2\n'))return html;
  const css=['nino-v2.css','nino-profile.css','nino-moments.css','nino-exam-result.css'].map(f=>readFileSync(new URL(f,import.meta.url),'utf8')).join(''),js=['nino-profile.js','nino-v2.js','nino-moments.js','nino-exam-result.js'].map(f=>readFileSync(new URL(f,import.meta.url),'utf8')).join('');
  const style='<style>/* BEGIN NINO V2 CSS */'+css+'/* END NINO V2 CSS */</style>';
- if(createHash('sha256').update(css).digest('hex')!=='2588673891eeae83bd13e953474bb462badb9453224e13acb4cd1882092a0c35'||createHash('sha256').update(js).digest('hex')!=='b0d633cff4271bbe491c8c8e012a85b89aac480689be111d580b4a38403e8a51')throw Error('Reviewed V2 component source changed');
+ // BL-036.6 (20-11): pin bijgewerkt voor de eigen bevestiging van 'Begin helemaal opnieuw' (nino-v2.js/.css).
+ if(createHash('sha256').update(css).digest('hex')!=='30b1746e7c1b06b1cf4993e358db7772fda29235cc26a5ca2f5f904784e25d57'||createHash('sha256').update(js).digest('hex')!=='fc99562aaf036c05026295e1b216f5f1a785dbd35385f92d69f6db6669977e59')throw Error('Reviewed V2 component source changed');
  if(!html.includes(style))throw Error('V2 CSS differs from reviewed component');
  const match=html.match(/\/\/ BEGIN NINO V2\nconst NINO_V2_ART=(\{[^\n]+\});\n/);if(!match)throw Error('Missing V2 art data');
  const data=JSON.parse(match[1]);

@@ -35,6 +35,16 @@
 
 G0, G1 en G4 zijn jouw momenten. Al het andere loopt zonder jou.
 
+## 3b. Verificatie in drie lagen (besluit Dennis 20-11, credits sparen) — vaste regel
+| Laag | Wanneer | Wat | Niet |
+|---|---|---|---|
+| **1. Per wijziging** | Elke commit | Lint op de gewijzigde bestanden (`npx eslint <bestanden>`, of `node --check` voor losse scripts) + de gerichte test(s) voor die wijziging (`node --test <bestand>`) | Geen volledige `npm test`, geen QA-matrix, geen push |
+| **2. Per bundel** (3–4 punten) | Eén keer per bundel | Volledige `npm test` · `node scripts/qa-v3-menu1.mjs --smoke` (1440×900 + 1080×810, alleen BG-01, Chromium) · `npm run build && SITE_ITALIE=v3 npm run build:site` · één push · één live-check in Chrome (één screenshot per geraakt scherm) | Geen WebKit, geen volledige matrix |
+| **3. Per BL-item** (einde) | Eén keer | Volledige QA-matrix: `qa-v3-menu1.mjs` (alle maten, BG-01/02/03) + `qa-v3-fade.mjs` (Chromium + WebKit) · evaluator. Design-critic alleen bij visuele P0-wijzigingen | — |
+
+Bij FAIL: fixen en alleen de gefaalde checks opnieuw draaien, niet de hele laag.
+**Modelrouting:** bouwen met Sonnet (`builder`), toetsen en design-review met Opus (`evaluator`, `design-critic`). De hoofdsessie plant en beslist.
+
 ## 4. Ritme met Dennis
 | Wanneer | Wat | Tijd voor Dennis |
 |---|---|---|

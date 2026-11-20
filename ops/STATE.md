@@ -1,13 +1,13 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-16 · door: Claude (BL-029 Menu 1 gebouwd, wacht op design-critic en G1)
+> Bijgewerkt: 2026-11-20 · door: Claude (BL-037 klaar; BL-039 bezig)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 
 ## Productie
-- `main` @ `718658f` (19-11, G4): V3 Menu 1 live op /italie/ via `SITE_ITALIE=v3`.
+- `main` (19-11): V3 Menu 1 live op /italie/ via `SITE_ITALIE=v3` (G4 `718658f`) + BL-035 livefixes.
 
 ## Actieve werkstromen (moeten samenkomen)
 | Branch | Wat | Laatst |
@@ -19,17 +19,16 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
-**G4 (19-11, akkoord Dennis): V3 Menu 1 naar main.** PR #101 squash-gemerged (`718658f`). Productie: `SITE_ITALIE=v3` gezet (Vercel production env), redeploy van `718658f` → V3 op www.ninotopo.nl/italie/, V2 op /italie/v2/. Rollback: `SITE_ITALIE=v2` + redeploy, of Promote van de vorige productiedeploy (`dpl_oaw4…`, 64fc294). Tag `v3.0.0` lokaal gemaakt, push geweigerd door de git-proxy van deze sessie → Dennis zet hem (`git tag -a v3.0.0 718658f && git push origin v3.0.0`). Open uit G3: Hermes-hertest, speeltest ≥ 2 kinderen, fps schermwissel (BL-031).
-**BL-034 (testfeedback 19-11) KLAAR — wacht op test Dennis, dan G4 (vr 20-11).** P0 1–7 en P1 8–12 gebouwd, kleine commits (`417d7bb`…`b91a503`). Acceptatie: `ops/reports/BL-034-acceptatie.webp` (Reis, hoofdstuk, Oefenen, Toets instellen/resultaat, Beloningen, Voortgang met paspoort open, kennismaking, BG-kiezer; 1440/1080 × 3 BG). QA `qa-v3-menu1` 0 fouten (6 maten × 3 BG × 7 schermen + les), `qa-v3-fade` sprong ≤ 2,7% (zijbalkrand = paneelrand, apart gerapporteerd). Branchpreview: zie RUNLOG.
-**BL-029 Menu 1: KLAAR — G1 GO Dennis (19-11).** `ops/reports/BL-029-G1.webp` (Reis-overzicht + hoofdstuk, 1440/2560/1080 × BG-01/02/03 naast Menu 1, lesresultaat) en `ops/reports/BL-029-G1-schermen.webp` (Oefenen kiezen/les, Toets instellen/vraag, Beloningen, Reisboekje open, Voortgang, Instellingen; 1440/1080 × 3 BG). Design-critic r5 GO-voorstel; evaluator r3: alles PASS behalve fps.
-- **Indeling iMac-feedback 15-11:** A (geen mistplaten op alle schermen) klaar · B vóór G4 klaar: BL-017 `622e55b`, BL-022 + BL-018-deel `0b3c62c` · C = BL-014 F5–F8 (contract klaar, bouwen na G4) · D = BL-018-rest (route 3 pizza's + Vespa in mist, na G4).
-- **BL-032 klaar:** nieuwe BG-01/02/03 (main `64fc294`), brandpunt 50% 55%; zonder gloed haalt alles AA (laagste 1,15× de eis), dus de gloed is weg. BG-04–07 staan in de repo, niet geïntegreerd.
-- **QA:** `qa-v3-menu1.mjs` 0 fouten (6 maten × 3 BG × 7 schermen + les/lesresultaat), `qa-v3-glas2` (Menu 2) groen, lint 0. Blur 2 per scherm; Nino 184×200; paspoort dicht; kaart 30–32% op 1080–1440.
-- **Besluit Dennis 19-11:** GO op Menu 1; fps schermwissel (32–52 bij CPU 4×) geaccepteerd, fix later in BL-031. **Preview voor Dennis:** Vercel-branchpreview van `nino-topo-portal-review` met `SITE_ITALIE=v3` alleen voor deze branch (preview-env, productie blijft v2). **Main/BG-namen:** op main staan BG-02-meer/BG-03-kust nog als de oude beelden (nieuwe onder omgewisselde namen); dat wordt rechtgezet door de G4-merge van deze branch (die bevat de renames), geen losse wijziging op main. Niet mergen naar main zonder G4.
-- **BL-028 klaar (16-11, PASS):** een toets geeft geen pizzapunten/ritten/goud meer, het dagdoel telt wel. Gevolg voor BL-004b (night/2026-11-16): `IPAD_TEST.md` gaat ervan uit dat de Toets ritten geeft; ritten komen nu alleen uit Oefenen/Les.
-- **Nachtscript (op deze branch, `454c203`):** bij een limiet wachten tot reset + 2 min en hervatten tot 07:00; Codex-flags uit `codex exec --help`. Werkt pas na een PR naar `main` (akkoord Dennis). Nodig: uitvoer van `codex exec --help` op de Mac mini.
+**BL-037: KLAAR** (alle 3 bundels live; evaluator 9/10 PASS, punt 8 PASS na besluit Dennis 20-11: 55%-norm vervalt voor Zeeën/Landen). **Nu: BL-039** (laatste punten Italië, 3 bundels, `ops/contracts/BL-039.md`). Besluiten Dennis 20-11: losse iconen rand-rand ≥ 12 px · laadscherm alleen bij koude cache · Wisselen met Sicilië · Vercel alleen main, previews op verzoek.
+**BL-038 iPad-portret: KLAAR** (evaluator PASS 20-11, `ops/reports/eval-BL-038.md`; design GO met kanttekeningen, P1's opgelost; liggend pixel-identiek). Live sinds `abb6a93`. P2's → BL-039. 
+**BL-036 testfeedback 20-11: KLAAR, alles live** (bundels A–C + fix `4deb5ab`). Evaluator: FAIL op 7 (tandwiel onbereikbaar in iPad-portret) en 8 (lesknop 'Start de Vespa-rit' deed niets) → gefixt → hertoets PASS (`ops/reports/eval-BL-036.md`). Laag 3: volledige matrix Chromium OK, fade Chromium + WebKit OK. Nieuw: **BL-038 iPad-portret** (P0, blokkeert G3). Open voor Dennis: Vespa-icoon is een vierkante app-badge; oordelen related in `ops/reports/BL-036-iconen.md`; antwoordfeedback 'goed' is in V3 al violet (niet groen) — zo laten?
+**Laadtijd (punt 11) live sinds bundel A.** Live gemeten (Fast 4G 9 Mbit/s, 165 ms RTT, Playwright Chromium): vóór 21,9 MB, eerste scherm ≈ 23 s koud én warm. Na: index.html 1,03 MB + 133 immutable assets; eerste scherm 1,6 MB, **koud 2,3 s desktop / 1,9 s iPad, warm 0,77 / 0,82 s** (0 MB), via portal-prefetch 1,5 s; TTFB 0,1–0,3 s. Doel (< 3 s koud, < 1 s warm) gehaald.
+**BL-035 livefixes 19-11: alle 8 blokken live op main** (volgorde 1→7→6→8→2→4→5→3, kleine commits `a654507`…, per push lint+test+`qa-v3-menu1`+`build:site` groen, daarna live gecontroleerd op www.ninotopo.nl/italie/ in Chromium én WebKit). **Evaluator: PASS** na hertoets (`ops/reports/eval-BL-035.md`; eerste ronde FAIL op Etna bij Messina en meegroeiende kaart op Voortgang, beide gefixt in `b4770e8`). Volgende: check Dennis op zijn iMac (Safari + Chrome). Open, buiten scope: mask-composite op 3 kaartranden (`menu1.css`, `ui.css`), paspoorttabel loopt over 2 regels, `npm test` heeft `--max-old-space-size=8192` nodig (nino-art).
+- **G4 (19-11):** main `718658f`, `SITE_ITALIE=v3` in productie. Rollback: `SITE_ITALIE=v2` + redeploy, of Promote `dpl_oaw4…` (64fc294). Tag `v3.0.0`: zet Dennis (`git tag -a v3.0.0 718658f && git push origin v3.0.0`).
+- **Open uit G3:** Hermes-hertest, speeltest ≥ 2 kinderen, fps schermwissel (BL-031). C = BL-014 F5–F8 en D = BL-018-rest na G4.
+- **Omgeving:** cloud-omgeving `topo` (persoonlijk) laat www.ninotopo.nl toe voor de livecheck.
 
-## Besloten 13-11
+3-11
 - Roadmap M0–M3: GO
 - B2C én B2B · hoofddoel: leren op een leuke manier · testkinderen groep 7 (10–11)
 - FR-code gepauzeerd tot M1. FR-data, research en art mogen parallel op Codex (OPERATING_MODEL §5, 🟡)

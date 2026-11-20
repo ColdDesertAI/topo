@@ -41,7 +41,7 @@
   if(body.classList.contains('v3Les')&&body.dataset.v3Q!=='result')return true;
   if(state.mode==='exam'&&!state.examEnded)return true;
   if(state.route?.active?.kind==='gold'&&!state.route.active.done&&body.classList.contains('v3Les'))return true;
-  if(document.querySelector('dialog[open]')||ride?.open)return true;
+  if(document.querySelector('dialog[open],.v3Rit')||ride?.open)return true;
   if([...document.querySelectorAll('.earnedMoment')].some(n=>n.checkVisibility?.()??n.offsetParent))return true;
   return typeof pizzaCelebrations!=='undefined'&&!!pizzaCelebrations.busy;
  }
@@ -72,7 +72,8 @@
  }
  function watch(){
   const now=new Set(earned());
-  for(const k of now)if(!known.has(k)&&!pending.includes(k))pending.push(k);
+  // The Vespa-ride moment (rit.js) shows the Venetië/Napels postcard itself: no second card (the dot stays until it is seen).
+  for(const k of now)if(!known.has(k)&&!pending.includes(k)&&!(V.rit&&(k==='venezia'||k==='napoli')))pending.push(k);
   // Progress that goes back (reset of a chapter or trips): forget it, so earning it again counts as new.
   for(const k of [...seen])if(!now.has(k))seen.delete(k);
   known=now;save();dot();if(pending.length)setTimeout(show,0);

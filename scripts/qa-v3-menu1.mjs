@@ -13,16 +13,19 @@
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {tmpdir} from 'node:os';
+import {iconChecks} from './qa-v3-icons-lib.mjs';
 import {join} from 'node:path';
 const OUT=process.env.QA_OUT||tmpdir(); // screenshots of the lesson result land here, never in the repo
 const {chromium}=createRequire(import.meta.url)('playwright');
-const HTML='file://'+fileURLToPath(new URL('../output/html/TOPO-V3-Reis-Preview.html',import.meta.url));
+// QA_HTML=http://…/index.html runs the same checks on the web copy (images as separate files, BL-035.9).
+const HTML=process.env.QA_HTML||'file://'+fileURLToPath(new URL('../output/html/TOPO-V3-Reis-Preview.html',import.meta.url));
 const args=new Set(process.argv.slice(2));
 // Env overrides for focal-point/glow studies (BL-032): QA_SIZES=1080x810,1440x900 · QA_BGS=bg01,bg03 · QA_NOGLOW=1 ·
 // QA_BGPOS='bg01:40% 50%;bg02:…' (body background-position per background).
 const envList=v=>v?v.split(',').map(x=>x.trim()).filter(Boolean):null;
-const SIZES=envList(process.env.QA_SIZES)?.map(x=>x.split('x').map(Number))||(args.has('--quick')?[[1440,900],[1080,810]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810]]);
-const BGS=envList(process.env.QA_BGS)||(args.has('--quick')?['bg03']:['bg01','bg02','bg03']);
+// --smoke (laag 2 van de verificatie, OPERATING_MODEL §3b): 1440×900 + 1080×810 + 810×1080 (iPad-portret, BL-038), alleen BG-01, Chromium.
+const SIZES=envList(process.env.QA_SIZES)?.map(x=>x.split('x').map(Number))||(args.has('--quick')||args.has('--smoke')?[[1440,900],[1080,810],[810,1080]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810],[810,1080],[768,1024]]);
+const BGS=envList(process.env.QA_BGS)||(args.has('--smoke')?['bg01']:args.has('--quick')?['bg03']:['bg01','bg02','bg03','bg04']);
 const SCREENS=['overzicht','hoofdstuk','oefenen','toets','toetsresultaat','rewards','voortgang'];
 // Free text per screen (no card under it): measured against the backdrop.
 const FREE={overzicht:['#v3ListTitle','.v3Panel .v3CardKicker','.v3Panel .v3CardTitle'],
@@ -38,6 +41,9 @@ const fails=[];const fail=(where,what)=>{fails.push(where+': '+what);};
 
 async function open(b,W,H,bg){
  const p=await b.newPage({viewport:{width:W,height:H}});const errors=[];p.on('pageerror',e=>errors.push(e.message));
+ // BL-035.9: no broken pictures — every failed request or 4xx/5xx counts as an error.
+ p.on('requestfailed',r=>{if(!/ERR_ABORTED/.test(r.failure()?.errorText||''))errors.push('laden mislukt: '+r.url().split('/').pop()+' '+r.failure()?.errorText);});
+ p.on('response',r=>{if(r.status()>=400)errors.push('HTTP '+r.status()+': '+r.url().split('/').pop());});
  if(process.env.QA_NOGLOW||process.env.QA_BGPOS)await p.addInitScript(([noglow,pos])=>{const css=(noglow?'.v3Panel::before,.v3CardHead::before,.v3VgTitleBar::before,.v3ToetsScoreCard::before{display:none!important}':'')+
   (pos||'').split(';').filter(Boolean).map(x=>{const [k,v]=x.split(':');return 'body[data-v3-background='+k+']{background-position:'+v+'!important;background-size:cover!important}';}).join('');
   addEventListener('DOMContentLoaded',()=>{const st=document.createElement('style');st.textContent=css;document.head.append(st);});},[process.env.QA_NOGLOW||'',process.env.QA_BGPOS||'']);
@@ -117,6 +123,8 @@ async function lessonResult(b,W,H){
  // Blur during a lesson question (≤ 3); Nino the same size as on the other screens.
  const q=await p.evaluate(probe);if(q.blur>3)fail(`les-vraag ${W}×${H}`,'blur op '+q.blur+': '+q.blurred.join(', '));
  if(q.nino!==(W<1280?'60×64':'140×152'))fail(`les-vraag ${W}×${H}`,'Nino '+q.nino);
+ // BL-038: the lesson bar never lies over the sidebar/rail (iPad portrait: it did).
+ {const ov=await p.evaluate(()=>{const a=document.querySelector('.v3LesBar')?.getBoundingClientRect(),n=[...document.querySelectorAll('.v3ShellNav,.v3ShellNav .v3Side')].map(e=>e.getBoundingClientRect()).filter(r=>r.width>2);if(!a||!a.width)return 0;let m=0;for(const b of n){const x=Math.min(a.right,b.right)-Math.max(a.left,b.left),y=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);if(x>2&&y>2)m=Math.max(m,Math.round(x));}return m;});if(ov)fail(`les-vraag ${W}×${H}`,'lesbalk over de zijbalk ('+ov+' px)');}
  for(let i=0;i<80;i++){if(await p.locator('#finishScreen').count())break;
   await p.evaluate(()=>{try{grade(true);}catch{}try{next();}catch{}});await p.waitForTimeout(40);}
  await p.waitForTimeout(700);
@@ -161,6 +169,15 @@ for(const [W,H] of SIZES)for(const bg of BGS){
  for(const screen of SCREENS){
   if(screen!=='overzicht'){await p.goto(HTML+'#bezig/'+bg);await p.waitForTimeout(1100);await show(p,screen);}
   const where=`${W}×${H} ${bg} ${screen}`;const r=await p.evaluate(probe);
+  // BL-035.9: every visible picture has arrived (lazy ones in view included) and none is broken.
+  const broken=await p.evaluate(async()=>{const vis=e=>{const q=e.getBoundingClientRect();return q.width>1&&q.height>1&&q.bottom>0&&q.top<innerHeight&&q.right>0&&q.left<innerWidth&&getComputedStyle(e).visibility!=='hidden';};
+   const imgs=[...document.querySelectorAll('img')].filter(vis);for(let t=0;t<40&&imgs.some(i=>!i.complete);t++)await new Promise(r=>setTimeout(r,100));
+   return imgs.filter(i=>!i.complete||!i.naturalWidth).map(i=>(i.className||i.alt||'img')+' '+(i.currentSrc||i.src).split('/').pop().slice(0,40));});
+  if(broken.length)fail(where,'kapotte afbeelding: '+broken.slice(0,3).join('; '));
+  // Evaluator BL-036: every sidebar button (nav, gear, background, ?) lies on screen and its centre reaches it.
+  const unreach=await p.evaluate(()=>[...document.querySelectorAll('.v3Reis>.v3Side :is(button,a)')].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').filter(e=>{const q=e.getBoundingClientRect();if(q.width<2||q.height<2)return false;
+   const x=q.left+q.width/2,y=q.top+q.height/2;if(x<0||y<0||x>innerWidth||y>innerHeight)return true;const t=document.elementFromPoint(x,y);return !(t&&(e===t||e.contains(t)));}).map(e=>(e.getAttribute('aria-label')||e.textContent||e.className).trim().slice(0,24)));
+  if(unreach.length)fail(where,'knop niet bereikbaar: '+unreach.join('; '));
   if(r.over.length)fail(where,'overlap: '+r.over.slice(0,4).join('; '));
   if(r.wide)fail(where,'breder dan het scherm');
   if(r.small.length)fail(where,'tekst < 13 px: '+r.small.slice(0,3).join('; '));
@@ -174,12 +191,30 @@ for(const [W,H] of SIZES)for(const bg of BGS){
   // Map first (design-critic BL-029 r3): Italy's box ≥ 25% of the screen on the overview and the chapter page.
   // (2560: the layout does not scale up yet — BL-033; reported, not a failure here.)
   if((screen==='overzicht'||screen==='hoofdstuk')&&W<2400&&!(r.mapShare>=.25))fail(where,'kaart te klein: '+r.mapShare);
+  // BL-038 (iPad portrait): the map plane >= 45% of the screen on Reis (overview, chapter), >= 40% of the height on Oefenen/Toets;
+  // the start buttons and the Toets chapter chips lie inside the screen.
+  if(W<1024&&H>W){const g=await p.evaluate(()=>{const R=s=>{const e=document.querySelector(s);if(!e||!e.getClientRects().length)return null;const r=e.getBoundingClientRect();return r;};
+    const st=R('.v3Reis[data-view=reis] .v3MapStage')||R('.v3OefStage')||R('.v3ToetsSetupStage');
+    const inside=[...document.querySelectorAll('.v3OefPanel .v3Start,.v3ToetsSetup .v3Start,.v3ToetsSetup .v3Chip')].filter(e=>e.getClientRects().length).filter(e=>{const r=e.getBoundingClientRect();return r.top<0||r.bottom>innerHeight||r.left<0||r.right>innerWidth;}).length;
+    return {area:st?st.width*st.height/(innerWidth*innerHeight):null,hh:st?st.height/innerHeight:null,out:inside};});
+   if((screen==='overzicht'||screen==='hoofdstuk')&&!(g.area>=.45))fail(where,'kaartvlak < 45%: '+(g.area&&g.area.toFixed(3)));
+   if((screen==='oefenen'||screen==='toets')&&!(g.hh>=.40))fail(where,'kaart < 40% van de hoogte: '+(g.hh&&g.hh.toFixed(3)));
+   if(g.out)fail(where,'startknop of chips buiten beeld: '+g.out);
+   if(g.area!==null)(globalThis.kv??=[]).push(where+' '+(g.area!==null&&(screen==='overzicht'||screen==='hoofdstuk')?g.area.toFixed(3):'h '+(g.hh??0).toFixed(2)));}
   const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}
   table.push({where,map:r.mapShare,blur:r.blur,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
  }
  if(errors.length)fail(`${W}×${H} ${bg}`,'page errors: '+errors.join(' | '));
  await p.close();
 }
+// BL-038: on the Reis overview no two pin heads closer than 30 px, in every demo state (#bezig, #afgerond, #alles) at every size
+// (Pin 2 and 9 used to lie on one spot in #afgerond/#alles: Vaticaanstad lies in Rome).
+for(const [W,H] of SIZES)for(const st of ['bezig','afgerond','alles']){
+ const p=await b.newPage({viewport:{width:W,height:H}});await p.goto(HTML+'#'+st+'/'+BGS[0]);await p.waitForTimeout(1300);
+ const m=await p.evaluate(()=>{const a=[...document.querySelectorAll('.v3Markers .v3Marker')].filter(e=>e.getClientRects().length).map(e=>{const t=e.querySelector('text').getBoundingClientRect();return {c:e.dataset.chapter,x:t.x+t.width/2,y:t.y+t.height/2};});
+  const close=[];for(let i=0;i<a.length;i++)for(let j=i+1;j<a.length;j++){const d=Math.hypot(a[i].x-a[j].x,a[i].y-a[j].y);if(d<30)close.push(a[i].c+'~'+a[j].c+' '+Math.round(d)+' px');}return {n:a.length,close};});
+ if(m.n&&m.close.length)fail(`${W}×${H} #${st} overzicht`,'pinkoppen te dicht: '+m.close.join('; '));
+ await p.close();}
 for(const [wc,set] of Object.entries(nino))if(set.size!==1)fail('nino '+wc,'meerdere maten: '+[...set].join(', '));
 // BL-034 bug scenario: a lesson in progress in another chapter than the next one (a replay of chapter 1 while chapter 2
 // is next) -> the filled marker is the chapter of the lesson in progress, exactly one marker is filled.
@@ -188,12 +223,15 @@ for(const [wc,set] of Object.entries(nino))if(set.size!==1)fail('nino '+wc,'meer
   return {on:[...document.querySelectorAll('.v3Markers .v3Marker.on')].map(m=>m.dataset.chapter)};});
  if(r.on.length!==1||r.on[0]!=='city1')fail('actief hoofdstuk (lopende les in 1, volgende is 2)',`gevulde marker ${r.on} (verwacht city1)`);
  console.log('actief hoofdstuk bij lopende les:',JSON.stringify(r));await p.close();}
-const les=[];for(const [W,H] of [[1280,800],[1366,768],[1440,900],[2560,1440]])les.push(await lessonResult(b,W,H));
+// BL-037.9: the icon rules, measured on every chapter page, in Oefenen (every form) and in Toets (see qa-v3-icons-lib.mjs).
+for(const [W,H] of SIZES){const rows=await iconChecks(b,HTML,W,H,fail,{bg:BGS[0]});const mins=rows.filter(r=>r.minLoose!=null).map(r=>r.minLoose);console.log(`iconen ${W}×${H}: ${rows.filter(r=>r.where.includes('hoofdstuk')).reduce((a,r)=>a+r.n,0)} op de hoofdstukpagina, kleinste afstand los icoon–doel ${mins.length?Math.min(...mins):'-'} px`);}
+const les=[];for(const [W,H] of [[1280,800],[1366,768],[1440,900],[2560,1440],[810,1080],[768,1024]])les.push(await lessonResult(b,W,H));
 let f=null;if(args.has('--fps'))f=await fps(b);
 await b.close();
 const blurPer={};for(const t of table){const s=t.where.split(' ').pop();blurPer[s]=Math.max(blurPer[s]||0,t.blur);}
 console.log('blur (max per scherm):',JSON.stringify(blurPer));
 console.log('kaartaandeel (overzicht):',table.filter(t=>t.where.endsWith('overzicht')).map(t=>t.where.split(' ').slice(0,2).join(' ')+' '+t.map).join(' · '));
+if(globalThis.kv)console.log('portret kaartvlak (Reis ≥ .45, Oefenen/Toets hoogte ≥ .40):',globalThis.kv.join(' · '));
 console.log('nino:',JSON.stringify(Object.fromEntries(Object.entries(nino).map(([k,v])=>[k,[...v]]))));
 console.log('AA (laagste p5/eis per scherm, ≥ 1 = ok):',table.filter(t=>t.aaMin!==null).map(t=>t.where+' '+t.aaMin).join(' · '));
 if(f)console.log('fps:',JSON.stringify(f));

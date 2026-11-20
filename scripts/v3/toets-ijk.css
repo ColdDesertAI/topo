@@ -38,7 +38,7 @@
 .v3ToetsScoreCard{display:grid;gap:2px;padding:18px 28px 20px;border-radius:var(--v3-radius-glass);background:var(--v3-glass);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter);box-shadow:var(--v3-glass-shadow)}
 .v3ToetsLabel{font:600 18px/24px var(--v3-font);color:var(--v3-ink2)}
 .v3Reis .v3View-toetsResult .v3ToetsScore{font:700 64px/1 var(--v3-font);letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--v3-ink);margin:0}
-.v3ToetsScore:focus{outline:0}.v3ToetsScore:focus-visible{outline:3px solid var(--v3-focus);outline-offset:4px;border-radius:8px}
+.v3ToetsScore:focus{outline:0}.v3ToetsScore:focus-visible{outline:2px solid var(--v3-focus);outline-offset:2px;border-radius:8px}
 .v3ToetsSide .v3Field h2{font:600 22px/28px var(--v3-font);color:var(--v3-ink)}
 .v3ToetsSide .v3ToetsFouten{gap:6px}
 .v3ToetsSide .v3ToetsFouten li{align-items:center;justify-content:flex-start;gap:12px;min-height:48px;padding:0 16px;border-radius:16px;background:rgba(255,255,255,.6);box-shadow:none;font:500 17px/1.2 var(--v3-font);color:var(--v3-ink)}

@@ -42,13 +42,17 @@ test('cancelled pizza, progress and full resets preserve every persisted key and
  for(const selector of ['#resetPizza','#resetAll','.ninoResetDanger']){
   a.q(selector).click();await a.flush();assert.deepEqual(a.json('progressSnapshot()'),before,selector);assert.deepEqual(a.storage(),store,selector);
  }
+ // BL-036.6: the confirmation names what is erased, Annuleren has the focus and cancelling changes nothing.
+ const dlg=a.q('.ninoResetConfirm');assert(dlg.open);assert.equal(a.w.document.activeElement,a.q('.ninoResetCancel'));
+ assert.match(dlg.textContent,/voortgang/);assert.match(dlg.textContent,/Ja, alles wissen/);
+ a.q('.ninoResetCancel').click();await a.flush();assert(!dlg.open);assert.deepEqual(a.json('progressSnapshot()'),before);assert.deepEqual(a.storage(),store);
 });
 
 test('observed reset scope: unrelated storage and legacy v2 key survive; zeroed v3 save takes precedence',async t=>{
  const a=await boot(t,{storage:{'unrelated-app':'keep','topo-italie-v2':{good:10,pizzas:1,pizzaSteps:0,mistakes:[]}}});
  const legacy=a.w.localStorage.getItem('topo-italie-v2');
  a.q('#resetAll').click();await a.flush();assert.equal(a.w.localStorage.getItem('unrelated-app'),'keep');
- a.expectReload();a.q('.ninoResetDanger').click();await a.flush();
+ a.expectReload();a.q('.ninoResetDanger').click();await a.flush();a.q('.ninoResetYes').click();await a.flush();
  assert.equal(a.w.localStorage.getItem('unrelated-app'),'keep');assert.equal(a.w.localStorage.getItem('topo-italie-v2'),legacy,'observed behavior: the legacy key is not removed');
  for(const key of ['topo-nino-profile-v1','topo-nino-intro-v1','topo-v3-toetsen-v1'])assert.equal(a.w.localStorage.getItem(key),null,key);
  assert.equal(a.reloads(),1);

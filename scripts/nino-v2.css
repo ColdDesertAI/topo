@@ -110,3 +110,9 @@ body.ninoGoldRound #focusLessonStatus{display:none!important}
 .ninoSettings #backupFile,.backupTools:has(> strong:only-child){display:none}
 .ninoSettings .ninoResetDanger{color:#8f3020;border-color:#ad624e}
 .ninoSettingsNote:empty{display:none}
+/* BL-036.6: bevestiging "Begin helemaal opnieuw" */
+.ninoResetConfirm{box-sizing:border-box;width:min(460px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;border:1px solid #ded0b5;border-radius:24px;padding:22px;background:#fffdf6;color:#1d3038}
+.ninoResetConfirm::backdrop{background:#153d34b5}
+.ninoResetConfirm h2{margin:0 0 10px;font-size:24px}.ninoResetConfirm p,.ninoResetConfirm li{font-size:16px;line-height:1.4}.ninoResetConfirm p{margin:8px 0}.ninoResetConfirm ul{margin:6px 0;padding-left:22px}
+.ninoResetConfirmActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:16px}.ninoResetConfirm button{min-height:48px;min-width:120px;font-size:16px}
+.ninoResetConfirm .ninoResetYes{background:#9b233d;color:#fff;border-color:#9b233d}

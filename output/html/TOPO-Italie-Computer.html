@@ -635,6 +635,12 @@ body.ninoGoldRound #focusLessonStatus{display:none!important}
 .ninoSettings #backupFile,.backupTools:has(> strong:only-child){display:none}
 .ninoSettings .ninoResetDanger{color:#8f3020;border-color:#ad624e}
 .ninoSettingsNote:empty{display:none}
+/* BL-036.6: bevestiging "Begin helemaal opnieuw" */
+.ninoResetConfirm{box-sizing:border-box;width:min(460px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;border:1px solid #ded0b5;border-radius:24px;padding:22px;background:#fffdf6;color:#1d3038}
+.ninoResetConfirm::backdrop{background:#153d34b5}
+.ninoResetConfirm h2{margin:0 0 10px;font-size:24px}.ninoResetConfirm p,.ninoResetConfirm li{font-size:16px;line-height:1.4}.ninoResetConfirm p{margin:8px 0}.ninoResetConfirm ul{margin:6px 0;padding-left:22px}
+.ninoResetConfirmActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:16px}.ninoResetConfirm button{min-height:48px;min-width:120px;font-size:16px}
+.ninoResetConfirm .ninoResetYes{background:#9b233d;color:#fff;border-color:#9b233d}
 .ninoProfile{box-sizing:border-box;width:min(560px,calc(100vw - 24px));max-height:calc(100dvh - 16px);overflow:auto;border:0;border-radius:24px;background:#fff8e8;color:#183b3a;padding:0;box-shadow:0 24px 90px #132f3a66}.ninoProfile::backdrop{background:#123c3fa6}.ninoProfile form{margin:0;padding:18px 22px 20px}.ninoProfile h2{font-size:24px;line-height:1.15;letter-spacing:-.02em;margin:0}.ninoProfile p{line-height:1.45;margin:6px 0 0}
 .profileBubble{position:relative;background:#fffdf6;border-radius:18px;padding:12px 16px;box-shadow:0 4px 16px #33291a33}
 .ninoFirstRun form{padding:0 0 18px}.ninoFirstRun form>*:not(.profileScene){margin-left:22px;margin-right:22px}
@@ -1993,18 +1999,27 @@ const approvedLearnSketch=lens.querySelector('.lensSketch');
 approvedLearnSketch.replaceChildren(mapPickerApprovedRomeArtwork(new Map([['city-9',1],['area-o',2]])));
 approvedLearnSketch.classList.add('approvedRomeSketch');
 if(window.ResizeObserver)new ResizeObserver(entries=>{for(const entry of entries)if(entry.contentRect.width>0)mapPickerFitApprovedNumbers(entry.target,entry.contentRect.width)}).observe(approvedLearnSketch.querySelector('svg'));
+// Way out without an answer: x button, Escape (already in the core), tap outside. None of these grades or advances.
+const lensClose=document.createElement('button');lensClose.type='button';lensClose.className='lensClose';lensClose.setAttribute('aria-label','Sluiten, terug naar de kaart');lensClose.textContent='\u00d7';
+lensClose.addEventListener('click',e=>{e.stopPropagation();romeHit.focus({preventScroll:true});hideLens()});lens.append(lensClose);
+document.addEventListener('pointerdown',e=>{if(!lens.classList.contains('hidden')&&!lens.contains(e.target)&&e.target!==romeHit)hideLens()},true);
 for(const button of lens.querySelectorAll('[data-choice]'))button.textContent=(button.dataset.choice==='city-9'?'1 · ':'2 · ')+button.textContent;
 const pickerStyle=document.createElement('style');pickerStyle.textContent=`
+.pickerClose,.lensClose{position:absolute;top:6px;right:6px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;border:0;border-radius:999px;background:transparent;color:inherit;font:400 28px/1 system-ui,sans-serif;cursor:pointer}.pickerClose:hover,.lensClose:hover{background:#0000000f}.romeLens{padding-right:48px}
 .lensSketch.approvedRomeSketch{height:auto;background:#f0d4a0}.lensSketch.approvedRomeSketch::before,.lensSketch.approvedRomeSketch::after{content:none}.approvedRomeSketch>svg{display:block;width:100%;height:auto}
 .mapPicker{box-sizing:border-box;width:min(620px,96vw);max-height:96dvh;padding:12px;overflow:hidden}.mapPicker[open]{display:flex;flex-direction:column;gap:8px}.mapPicker>h2{font-size:20px;line-height:1.15;margin:0}.mapPicker>p{font-size:14px;line-height:1.25;margin:0}.mapPicker .pickerViewport{flex:none;min-height:0;overflow:hidden;display:grid;gap:6px;justify-items:center}.mapPicker .pickerMap{display:block;flex:none;max-height:none;margin:0;border:1px solid #9eafa2;border-radius:8px;background:#d7eaf0;box-sizing:border-box}.mapPicker .pickerMap .pickerLocator{border-radius:0}.mapPicker figure{margin:0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px}.mapPicker figcaption{font-weight:750;font-size:13px}.mapPicker .pickerActions{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:6px;flex:none;margin:0}.mapPicker .pickerActions button,.mapPicker .pickerCancel{min-height:44px;min-width:44px;padding:6px;font-size:15px;margin:0}.mapPicker .pickerCancel{width:100%;flex:none}.mapPicker .pickerNote{font-size:12px;line-height:1.25;margin:0;color:#365b52;flex:none}.mapPicker button:focus-visible{outline:3px solid #087887;outline-offset:2px}
 `;document.head.append(pickerStyle);
 let mapPickerReturnFocus=null,mapPickerMaskSerial=0;
+// Cancelling (x, Escape, tap on the backdrop) only closes the dialog: chooseMapPlace is never called, so no answer, mistake or point.
+pick.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();pick.close()}});
+pick.addEventListener('click',e=>{if(e.target!==pick)return;const r=pick.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)pick.close()});
 pick.addEventListener('close',()=>{const n=mapPickerReturnFocus;mapPickerReturnFocus=null;if(n?.isConnected&&n!==document.body)n.focus({preventScroll:true});else{$('#map').setAttribute('tabindex','-1');$('#map').focus({preventScroll:true})}});
 function openMapPicker(hits){
  const candidates=neutralMapOrder(hits),classes=new Set(candidates.map(mapFeatureClass));
  const pointOnly=classes.size===1&&classes.has('point');
  const noun=pointOnly?'Stip':classes.size===1&&classes.has('river')?'Rivier':classes.size===1?'Gebied':'Plek';
  mapPickerReturnFocus=document.activeElement;
+ hideLens();// BL-036.2: the Rome lens and this picker never stand over each other
  pick.replaceChildren();const title=document.createElement('h2');title.id='mapPickerTitle';title.textContent=pointOnly?'Welke plek bedoel je?':noun==='Rivier'?'Welke rivier bedoel je?':noun==='Gebied'?'Welk gebied bedoel je?':'Welke plek bedoel je?';pick.append(title);
  const hint=document.createElement('p');hint.textContent=pointOnly?'Volg de lijn van het nummer naar de plek.':'Vergelijk de omlijnde vormen op dezelfde schaal.';pick.append(hint);
  const content=document.createElement('div');content.className='pickerViewport';pick.append(content);
@@ -2013,7 +2028,8 @@ function openMapPicker(hits){
  pick.append(note);
  const choices=document.createElement('div');choices.className='pickerActions';
  candidates.forEach((i,n)=>{const button=routeButton(noun+' '+(n+1),()=>chooseMapPlace(i));button.dataset.mapChoice=i.id;choices.append(button)});
- const cancel=routeButton('Terug naar de kaart',()=>pick.close(),'button pickerCancel');cancel.autofocus=true;pick.append(choices,cancel);pick.showModal();cancel.focus({preventScroll:true});
+ const cancel=routeButton('Terug naar de kaart',()=>pick.close(),'button pickerCancel');cancel.autofocus=true;pick.append(choices,cancel);
+ const x=document.createElement('button');x.type='button';x.className='pickerClose';x.setAttribute('aria-label','Sluiten, terug naar de kaart');x.textContent='\u00d7';x.addEventListener('click',()=>pick.close());pick.append(x);pick.showModal();cancel.focus({preventScroll:true});
  const render=()=>{
   content.replaceChildren();
   // Measure the non-map chrome first; fit ALL maps and controls on first opening.
@@ -2804,8 +2820,21 @@ const NINO_V2_ART={"cover":{"path":"assets/nino/travel-passport/book/exports/pas
  const resets=make('section','ninoSettingsGroup');resets.append(make('h3',null,'Opnieuw beginnen'));
  const reset=document.getElementById('resetAll');reset.textContent='Wis voortgang';reset.className='button';reset.type='button';
  resets.append(reset,make('p',null,'Wist lessen, punten, pizza’s, ritten en stempels. Je profiel blijft staan.'));
- const clean=action('Begin helemaal opnieuw',()=>{
-  if(!confirm('Wis je voortgang en je Reisboekje-profiel? Daarna begint de kennismaking opnieuw.'))return;
+ // BL-036.6: a real confirmation (not the browser's confirm()): says what is erased, "Annuleren" has the focus by default.
+ const resetConfirm=make('dialog','ninoResetConfirm');resetConfirm.setAttribute('aria-labelledby','ninoResetConfirmTitle');resetConfirm.setAttribute('aria-describedby','ninoResetConfirmText');
+ const resetTitle=make('h2',null,'Alles wissen?');resetTitle.id='ninoResetConfirmTitle';
+ const resetText=make('div','ninoResetConfirmText');resetText.id='ninoResetConfirmText';
+ resetText.append(make('p',null,'Dit wist op dit apparaat:'));
+ const resetList=make('ul');for(const t of ['je voortgang: lessen, punten, pizza’s, ritten, stempels en ansichtkaarten','je toetsuitslagen','je naam en je favoriete pizza (je Reisboekje-profiel)'])resetList.append(make('li',null,t));
+ resetText.append(resetList,make('p',null,'Daarna begint de kennismaking opnieuw. Dit kan niet ongedaan worden gemaakt. Wil je iets bewaren? Maak eerst een reservekopie.'));
+ const resetCancel=make('button','button ninoResetCancel','Annuleren');resetCancel.type='button';resetCancel.autofocus=true;resetCancel.onclick=()=>resetConfirm.close();
+ const resetYes=make('button','button ninoResetYes','Ja, alles wissen');resetYes.type='button';
+ const resetButtons=make('div','ninoResetConfirmActions');resetButtons.append(resetCancel,resetYes);
+ resetConfirm.append(resetTitle,resetText,resetButtons);document.body.append(resetConfirm);
+ resetConfirm.addEventListener('click',e=>{if(e.target!==resetConfirm)return;const r=resetConfirm.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)resetConfirm.close();});
+ const clean=action('Begin helemaal opnieuw',()=>{resetConfirm.showModal();resetCancel.focus({preventScroll:true});},'button ninoResetDanger');
+ resetYes.onclick=()=>{
+  resetConfirm.close();
   let previousIntro;
   try{
    previousIntro=localStorage.getItem(INTRO_KEY);
@@ -2818,7 +2847,7 @@ const NINO_V2_ART={"cover":{"path":"assets/nino/travel-passport/book/exports/pas
    return;
   }
   location.reload();
- },'button ninoResetDanger');
+ };
  resets.append(clean,make('p',null,'Wist ook je naam en favoriete pizza en start de kennismaking opnieuw.'));
  const partial=make('details','ninoSettingsGroup');
  partial.append(make('summary',null,'Alleen een onderdeel wissen'));

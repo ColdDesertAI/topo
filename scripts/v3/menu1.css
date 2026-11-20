@@ -20,9 +20,11 @@
   background:none;box-shadow:none;border:0;border-radius:0}
  .v3Reis[data-menu="1"]:not([data-view=reis]){grid-template-columns:var(--zij) minmax(0,1fr)}
  /* Workspace: one layer from the sidebar to the right edge. No border, no shadow. */
- .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:auto;width:max(calc((100% - var(--zij)) * .66),781px);pointer-events:none; /* never narrower than at 1440 (781 px): the same gentle slope on smaller screens */
-  background:rgba(252,250,246,.60);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);mask-composite:intersect}
+ /* BL-035 (live fixes 19-11): no mask-composite anywhere. The colour is a plain gradient (no mask); the blur sits on a
+    separate layer behind the list zone with ONE mask (prefixed and unprefixed), so a browser that drops a mask loses
+    only a soft blur edge, never the whole fade. */
+ .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:0;pointer-events:none;background:linear-gradient(to right,rgba(252,250,246,.82) 0%,rgba(252,250,246,.7) 15%,rgba(252,250,246,.5) 28%,rgba(252,250,246,.28) 40%,rgba(252,250,246,.1) 52%,transparent 62%)}
+ .v3Reis[data-menu="1"]::after{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);width:40%;pointer-events:none;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);-webkit-mask-image:linear-gradient(to right,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 55%,transparent 100%)}
  .v3Reis[data-menu="1"]>*{position:relative;z-index:1}
  /* No glass anywhere else: the old panel glass and blur step aside on every screen. */
  .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup,.v3Book,.v3Ride,.v3Tiles,.v3Tile,.v3VgTitleBar,.v3VgRow,.v3VgTile,.v3VgHead,.v3VgLegend,.v3Field.v3Card,.v3Top,.v3Panel,.v3Rows,.v3MapStage),
@@ -34,8 +36,8 @@
  .v3Reis[data-menu="1"]>.v3Side{grid-column:1;grid-row:1/-1;z-index:2;margin:0;border-radius:0;padding:28px 20px 22px;height:auto;
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  .v3Reis[data-menu="1"]>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
-  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px))}
+  background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px))}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand{align-items:center}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand b{font:800 36px/1 var(--v3-font);letter-spacing:.02em}
  :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3Brand .v3Flag{width:64px;height:6px}
@@ -81,7 +83,7 @@
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3RowNum{background:#fff;color:var(--v3-ink)}
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3End{display:grid;place-items:center;width:24px;height:24px}
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3End .v3Icon{width:18px;height:18px;color:#8a85a0}
- .v3Reis[data-menu="1"] .v3OkDot{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:#2f9e57}
+ .v3Reis[data-menu="1"] .v3OkDot{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:var(--v3-accent,#5b45e0)}
  .v3Reis[data-menu="1"] .v3OkDot .v3Icon{width:14px!important;height:14px!important;color:#fff!important}
  /* Chevron only on the selected row. */
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Chev{display:none}
@@ -138,7 +140,7 @@
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:14px;width:100%;min-height:56px;padding:0 12px;border:0;border-radius:12px;background:transparent;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);text-align:left}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepRow{background:var(--v3-accent-soft);font-weight:700}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepDot{display:grid;place-items:center;width:28px;height:28px;border-radius:999px;border:2px solid rgba(42,36,64,.22);background:#fff;box-sizing:border-box}
- .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot{border:0;background:#2f9e57}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot{border:0;background:var(--v3-accent,#5b45e0)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot .v3Icon{width:14px;height:14px;color:#fff}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepDot{border-color:var(--v3-accent);box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 14px var(--v3-accent)}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow>.v3Icon{width:18px;height:18px;color:#8a85a0}
@@ -249,15 +251,13 @@
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):has(.layout.finishLayout) .v3LesBar{position:absolute!important}
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .layout.finishLayout #finishScreen{margin-top:calc(var(--v3-lesbar-h,136px) + var(--v3-gut,24px))}
  /* No window frame around the lesson (glas.css body::after): one workspace, no frame. */
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::after{display:none!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side{position:relative;isolation:isolate;height:100%;width:100%;margin:0;border-radius:0;padding:28px 20px 22px;box-sizing:border-box;
   background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
  body.v3Les[data-v3-menu="1"] .v3ShellNav>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
-  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(30%,560px),rgba(0,0,0,.6) max(55%,630px),transparent max(85%,700px))}
- body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:auto;width:max(calc((100vw - 256px) * .66),781px);width:auto;pointer-events:none;
-  background:rgba(252,250,246,.60);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4);
-  -webkit-mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,rgba(0,0,0,1) 0.0%,rgba(0,0,0,0.9) 18.18%,rgba(0,0,0,0.7) 36.36%,rgba(0,0,0,0.45) 54.55%,rgba(0,0,0,0.22) 72.73%,rgba(0,0,0,0.08) 87.88%,rgba(0,0,0,0) 100.0%),linear-gradient(to bottom,#000 0%,#000 45%,rgba(0,0,0,.4) 100%);mask-composite:intersect}
+  background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px))}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true])::before{content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;right:0;pointer-events:none;background:linear-gradient(to right,rgba(252,250,246,.82) 0%,rgba(252,250,246,.7) 15%,rgba(252,250,246,.5) 28%,rgba(252,250,246,.28) 40%,rgba(252,250,246,.1) 52%,transparent 62%)}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):not(#x)::after{display:block!important;content:"";position:fixed;z-index:-1;top:var(--v3-bar,0px);bottom:0;left:256px;width:40vw;right:auto;pointer-events:none;border:0;border-radius:0;box-shadow:none;background:none;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);-webkit-mask-image:linear-gradient(to right,#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 55%,transparent 100%)}
 }
 @media (min-width:1024px) and (max-width:1279px){
  body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]){--v3-side-w:calc(84px - var(--v3-frame-m));--v3-side:calc(84px - var(--v3-frame-m))}
@@ -328,7 +328,8 @@
 }
 /* === 11. Reduced transparency / more contrast: workspace and sidebar opaque, no blur, no fade. === */
 @media (min-width:1024px) and (prefers-reduced-transparency:reduce),(min-width:1024px) and (prefers-contrast:more){
- .v3Reis[data-menu="1"]::before{background:#fcfaf6;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
+ .v3Reis[data-menu="1"]::before{background:linear-gradient(to right,#fcfaf6 0%,#fcfaf6 40%,rgba(252,250,246,.6) 52%,transparent 62%)}
+ .v3Reis[data-menu="1"]::after{display:none}
  .v3Reis[data-menu="1"]>.v3Side::after{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;-webkit-mask-image:none;mask-image:none}
 }
 /* === 12. Local glow: none (BL-032, 19-11). With the new backgrounds every free text passes AA without a glow on all
@@ -365,7 +366,7 @@
  .ninoSettings .v3Btn,.ninoSettings button{transition:background-color .15s ease,box-shadow .15s ease}
  @media (hover:hover){.ninoSettings .v3Btn:not([aria-pressed=true]):hover,.ninoSettings button:not([aria-pressed=true]):not(.v3Saved):hover{background:rgba(91,69,224,.06)!important}}
  .ninoSettings .v3Btn:active,.ninoSettings button:active{background:rgba(91,69,224,.12)!important;box-shadow:inset 0 1px 2px rgba(40,25,80,.12)!important;transform:none!important}
- .ninoSettings .v3Saved{display:inline-block;margin-left:10px;font:600 13px/1 var(--v3-font);color:#2f7d4a;opacity:0;transition:opacity .2s ease}
+ .ninoSettings .v3Saved{display:inline-block;margin-left:10px;font:600 13px/1 var(--v3-font);color:var(--v3-accent-press,#4834c4);opacity:0;transition:opacity .2s ease}
  .ninoSettings .v3Saved.on{opacity:1}
  :is(.v3Reis,.v3ShellNav) .v3Side .v3NavItem[aria-current=page]{font-weight:700!important}
 }
@@ -389,6 +390,14 @@
 body:is(.v3Home,.v3Les)[data-v3-background=bg01]{background-size:cover;background-position:50% 55%}
 body:is(.v3Home,.v3Les)[data-v3-background=bg02]{background-size:cover;background-position:50% 55%}
 body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;background-position:50% 55%}
+/* BL-037.10 Sicilië (BG-06): the image is enlarged to 1.2x the screen height and anchored top left, so the calm bay lies behind the
+   lower map, the sky behind the title block and the button, and Etna low on the right (1080, 1440, 2560); the busy lemon tree,
+   bougainvillea and cactus fall under the sidebar or off screen. iPad portrait: anchored at 60% so the bougainvillea stays off the map. */
+/* The local glow (BL-037.10, only for this background): a soft milk wash over the left part, where the free titles stand on
+   the pink sky and the bougainvillea (the wash is part of the background layer, so it needs no element and is lazy with it). */
+body:is(.v3Home,.v3Les)[data-v3-background=bg04]{background-image:linear-gradient(90deg,rgba(252,250,246,.5),rgba(252,250,246,.34) 32%,rgba(252,250,246,0) 62%),var(--v3-pano,none);
+ background-size:100% 100%,max(213.33vh,100vw) auto;background-position:0 0,0% 0%;background-repeat:no-repeat,no-repeat}
+@media (orientation:portrait){body:is(.v3Home,.v3Les)[data-v3-background=bg04]{background-image:linear-gradient(180deg,rgba(252,250,246,.38),rgba(252,250,246,.38) 50%,rgba(252,250,246,.68) 72%,rgba(252,250,246,.68)),var(--v3-pano,none);background-position:0 0,60% 0%}}
 /* BL-034 P0.4: Voortgang shows exactly the Reis chapter list (same rows, same card, same width); no visible scrollbar. */
 .v3Reis[data-menu="1"] .v3Rows{scrollbar-width:none}
 .v3Reis[data-menu="1"] .v3Rows::-webkit-scrollbar{display:none}
@@ -408,7 +417,7 @@ body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;backgroun
 .v3Reis[data-menu="1"] .v3PasBody{width:100%;border-collapse:collapse;margin:0 0 10px;font:500 14px/1.3 var(--v3-font);color:var(--v3-ink)}
 .v3Reis[data-menu="1"] .v3PasBody th,.v3Reis[data-menu="1"] .v3PasBody td{padding:6px 8px;text-align:left;border-top:1px solid rgba(42,36,64,.06)}
 .v3Reis[data-menu="1"] .v3PasBody thead th{font:600 13px/1 var(--v3-font);color:#5d5873;border-top:0}
-.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓ ";color:#2f7d4a}
+.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓ ";color:var(--v3-accent-press,#4834c4)}
 /* BL-034 P0.6: Nino on the test result is never cut. The figure and image take exactly the free height under the actions
    (scaled, not clipped); with less than 160 px free (a long list of mistakes) Nino is left out instead of shown in half. */
 @media (min-width:1024px){
@@ -432,23 +441,23 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
 /* BL-034 P1.8 (BL-014 F5): chapter markers as numbered drop pins (tip on the place). Fill by mastery in 5 steps,
    white → lavender → dark violet; white number from step 3 (AA ≥ 5.4). The active chapter has a violet ring. */
 .v3Map .v3Markers .v3Marker{cursor:pointer}
-.v3Map .v3Markers .v3Marker .v3MarkerPin{stroke:#fff;stroke-width:2;filter:drop-shadow(0 3px 5px rgba(40,25,80,.28));fill:#fff}
-.v3Map .v3Markers .v3Marker[data-step="1"] .v3MarkerPin{fill:#ebe7fd}
-.v3Map .v3Markers .v3Marker[data-step="2"] .v3MarkerPin{fill:#c9bff8}
-.v3Map .v3Markers .v3Marker[data-step="3"] .v3MarkerPin{fill:#6a52e0}
-.v3Map .v3Markers .v3Marker[data-step="4"] .v3MarkerPin{fill:#3f2aa8}
-.v3Map .v3Markers .v3Marker text{font:700 15px/1 var(--v3-font);fill:var(--v3-ink);pointer-events:none}
-.v3Map .v3Markers .v3Marker:is([data-step="3"],[data-step="4"]) text{fill:#fff}
-.v3Map .v3Markers .v3Marker .v3MarkerRing{fill:none;stroke:var(--v3-accent);stroke-width:3.5}
-.v3Map .v3Markers .v3Marker.sel .v3MarkerRing,.v3Map .v3Markers .v3Marker.sel .v3MarkerPin{stroke:var(--v3-accent);stroke-width:3}
+.v3Map .v3Markers .v3Marker .v3MarkerPin{fill:var(--v3-accent,#5b45e0);stroke:#fff;stroke-width:2;filter:drop-shadow(0 3px 5px rgba(40,25,80,.28))}
+.v3Map .v3Markers .v3Marker text{font:700 15px/1 var(--v3-font);fill:#fff;pointer-events:none}
+/* BL-035.2: one look with the chapter page's pins; locked = light lavender with a violet number; the active chapter
+   larger (JS) with a white ring; a chosen chapter a dark violet edge. Mastery stays in the list (the row's state). */
+.v3Map .v3Markers .v3Marker[data-lock="1"] .v3MarkerPin{fill:#e4defc}
+.v3Map .v3Markers .v3Marker[data-lock="1"] text{fill:#4834c4}
+.v3Map .v3Markers .v3Marker .v3MarkerRing{fill:none;stroke:#fff;stroke-width:3.5;filter:drop-shadow(0 1px 3px rgba(40,25,80,.35))}
+.v3Map .v3Markers .v3Marker.sel .v3MarkerPin{stroke:#3f2aa8;stroke-width:3}
 
 /* BL-034 P1.9 (BL-014 F6): chapter landmarks — one size, focusable, 1.15x + name in a white pill on hover/focus. */
 .v3Map .v3Landmarks .v3Lm{cursor:default;outline:none}
 .v3Map .v3Landmarks .v3Lm>image,.v3Map .v3Landmarks .v3Lm>.v3Badge{transform-box:fill-box;transform-origin:50% 100%;transition:transform .12s ease}
-.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible)>image,.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible)>.v3Badge{transform:scale(1.15)}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover)>image,.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover)>.v3Badge{transform:scale(1.15)}
 .v3Map .v3Landmarks .v3Lm:focus-visible>.v3Badge{stroke:var(--v3-accent);stroke-width:2.5}
 .v3Map .v3Landmarks .v3LmLabel{opacity:0;pointer-events:none;transition:opacity .12s ease}
-.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible) .v3LmLabel{opacity:1}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover) .v3LmLabel{opacity:1}
+.v3Map .v3Landmarks .v3LmLabelAlways{opacity:1}
 .v3Map .v3Landmarks .v3LmLabel rect{fill:#fff;filter:drop-shadow(0 2px 6px rgba(40,25,80,.22))}
 .v3Map .v3Landmarks .v3LmLabel text{font:600 13px/1 var(--v3-font);fill:var(--v3-ink)}
 .v3Map .v3Landmarks .v3Lm,.v3Map .v3Landmarks .v3Lm>image,.v3Map .v3Landmarks .v3Lm>.v3Badge{pointer-events:auto!important}
@@ -475,13 +484,441 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
    popover with 3 thumbnails (96x54), the active one with a violet ring. */
 .v3Side .v3SideFoot{margin-top:auto;display:flex;gap:8px;align-items:center}
 .v3Side .v3SideFoot .v3Settings{margin-top:0!important}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3BgBtn{width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
-:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3BgBtn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media (min-width:1024px) and (max-width:1279px){.v3Side .v3SideFoot{flex-direction:column;align-self:center}}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn,.v3ExitBtn){width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3BgBtn,.v3HelpBtn,.v3ExitBtn) span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+/* Evaluator BL-036: in every narrow rail (iPad landscape and portrait) the foot is a column, so gear, background and
+   ? button all stay inside the rail and clickable. */
+@media (min-width:700px) and (max-width:1279px){.v3Side .v3SideFoot{flex-direction:column;align-self:center}}
 .v3BgPop{position:fixed;z-index:80;display:flex;gap:10px;padding:10px;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(40,25,80,.22)}
 .v3BgPop[hidden]{display:none}
 .v3BgPop .v3BgThumb{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px;border:0;border-radius:12px;background:transparent;font:600 13px/1 var(--v3-font);color:var(--v3-ink);cursor:pointer;min-height:44px}
 .v3BgPop .v3BgThumb img{display:block;width:96px;height:54px;border-radius:9px;object-fit:cover;box-shadow:0 0 0 1px rgba(42,36,64,.12)}
 .v3BgPop .v3BgThumb[aria-pressed=true] img{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--v3-accent)}
 @media (hover:hover){.v3BgPop .v3BgThumb:hover{background:rgba(91,69,224,.06)}}
-.v3BgPop .v3BgThumb:focus-visible{outline:3px solid var(--v3-accent);outline-offset:2px}
+.v3BgPop .v3BgThumb:focus-visible{outline:2px solid var(--v3-accent);outline-offset:2px}
+/* === BL-035.7 (live 19-11): Instellingen › "Naam en favoriete pizza" opens the V2 profile dialog WITHOUT the .v3 class
+   (only the kennismaking adds it), so it showed V2's cream and pine green. Same tokens as the kennismaking: an opaque
+   white dialog, a head card in the glass style of the rest, the chosen pizza lavender with a violet ring, a violet
+   primary button. === */
+body.v3On .ninoProfile:not(.v3Welkom){background:#fff!important;color:var(--v3-ink,#2a2440);border:0!important;border-radius:24px;box-shadow:0 30px 90px rgba(40,25,80,.28)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+body.v3On .ninoProfile:not(.v3Welkom) .profileScene{background:none!important}
+body.v3On .ninoProfile:not(.v3Welkom) .profileBubble{background:rgba(255,255,255,.55)!important;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:0!important;border-radius:18px;
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),0 10px 30px rgba(40,25,80,.08)!important;background-image:linear-gradient(rgba(235,231,253,.55),rgba(235,231,253,.55))!important}
+body.v3On .ninoProfile:not(.v3Welkom) .profileBubble h2{color:var(--v3-ink,#2a2440)}
+body.v3On .ninoProfile:not(.v3Welkom) .profileName input{background:#fff!important;border:1px solid rgba(42,36,64,.16)!important;border-radius:14px}
+body.v3On .ninoProfile:not(.v3Welkom) .profileName input:focus{outline:0;border-color:var(--v3-accent,#5b45e0)!important;box-shadow:0 0 0 3px var(--v3-accent-soft,#ebe7fd)!important}
+body.v3On .ninoProfile:not(.v3Welkom) .profileChoice{background:#f7f5fd!important;border:0!important;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(42,36,64,.1)!important;color:var(--v3-ink,#2a2440)}
+body.v3On .ninoProfile:not(.v3Welkom) .profileChoice:hover{background:#f0ecfd!important}
+body.v3On .ninoProfile:not(.v3Welkom) .profileChoice:has(:checked){background:var(--v3-accent-soft,#ebe7fd)!important;box-shadow:inset 0 0 0 3px var(--v3-accent,#5b45e0)!important;outline:0!important}
+body.v3On .ninoProfile:not(.v3Welkom) .profileChoice:has(:focus-visible){outline:2px solid var(--v3-accent,#5b45e0)!important;outline-offset:2px}
+body.v3On .ninoProfile:not(.v3Welkom) .profileActions [type=submit]{background:var(--v3-accent,#5b45e0)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 10px 24px rgba(91,60,200,.28)!important}
+body.v3On .ninoProfile:not(.v3Welkom) .profileActions [type=submit]:hover{background:var(--v3-accent-press,#4834c4)!important}
+body.v3On .ninoProfile:not(.v3Welkom) .profileActions [data-profile-cancel]{background:#fff!important;color:var(--v3-accent-press,#4834c4)!important;border:1px solid rgba(42,36,64,.16)!important}
+body.v3On .ninoProfile:not(.v3Welkom) :is(small,[data-profile-status]){color:#5d5873!important}
+body.v3On .ninoProfile:not(.v3Welkom) :focus-visible{outline-color:var(--v3-accent,#5b45e0)!important}
+/* === BL-035.8 (live 19-11): hover. A nav item gets a light lavender floor (lighter than the active #ebe7fd); the gear
+   and the background button a subtle lavender tint on hover and a pressed state (also while the picker is open). === */
+@media (hover:hover){
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem:not([aria-current=page]):hover{background:#f5f3fe}
+ :is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn,.v3ExitBtn):hover{background:#f3f0fe!important;box-shadow:0 4px 14px rgba(40,25,80,.14),inset 0 0 0 1px rgba(91,69,224,.18)!important}
+}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side .v3NavItem{transition:background-color .15s ease}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn,.v3ExitBtn){transition:background-color .15s ease,box-shadow .15s ease,transform .1s ease}
+:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn,.v3ExitBtn):is(:active,[aria-expanded=true]){background:#e6e0fc!important;box-shadow:inset 0 0 0 1px rgba(91,69,224,.3)!important;transform:scale(.96)}
+@media (prefers-reduced-motion:reduce){:is(.v3Reis[data-menu="1"],body[data-v3-menu="1"].v3Les .v3ShellNav) .v3Side :is(.v3Settings,.v3BgBtn,.v3HelpBtn,.v3ExitBtn):is(:active,[aria-expanded=true]){transform:none}}
+/* === BL-035.4 (live 19-11): the V2 camera buttons "Heel Italië" / "Zoom op hoofdstuk" only act in focus mode (the
+   iPad layout, data-focus-mode=true); on desktop they did nothing visible (measured: no camera change, no pressed
+   state at 1440×900). There they are removed; in focus mode they stay, because they work. === */
+body.v3On:not([data-focus-mode=true]) .focusCameraTools{display:none!important}
+/* === BL-035.5 (live 19-11): Kennis-paspoort = the Voortgang chapter list. Rows are the Reis rows; each opens in place to
+   its places (Vinden, Naam). The list grows with the page (the page scrolls, never the list). === */
+@media (min-width:1024px){.v3Reis[data-menu="1"] .v3VgSide .v3VgRows.v3VgPas{overflow:visible;max-height:none}}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row{grid-template-columns:28px minmax(0,1fr) auto!important;cursor:pointer}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row .v3End{display:flex;align-items:center;gap:10px;width:auto}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row .v3RowBar{display:none}
+.v3Reis[data-menu="1"] .v3VgPas .v3PasCount{font:600 14px/1 var(--v3-font);color:#5d5873;white-space:nowrap;font-variant-numeric:tabular-nums}
+.v3Reis[data-menu="1"] .v3VgPas .v3PasChev{width:20px;height:20px;position:relative;flex:0 0 20px}
+.v3Reis[data-menu="1"] .v3VgPas .v3PasChev::before{content:"";position:absolute;left:5px;top:3px;width:8px;height:8px;border:solid var(--v3-ink);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);transition:transform .15s ease}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row[aria-expanded=true]{background:var(--v3-accent-soft,#ebe7fd)}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row[aria-expanded=true] .v3Name{font-weight:700}
+.v3Reis[data-menu="1"] .v3VgPas .v3Row[aria-expanded=true] .v3PasChev::before{transform:translate(0,4px) rotate(-135deg)}
+@media (hover:hover){.v3Reis[data-menu="1"] .v3VgPas .v3Row:not([aria-expanded=true]):hover{background:#f5f3fe}}
+.v3Reis[data-menu="1"] .v3VgPas>li>.v3PasBody{width:calc(100% - 42px);margin:4px 0 12px 42px}
+@media (prefers-reduced-motion:reduce){.v3Reis[data-menu="1"] .v3VgPas .v3PasChev::before{transition:none}}
+@media (min-width:1024px){
+ .v3Reis[data-menu="1"] .v3VgOverview:has(.v3VgPas){height:auto;min-height:100%;align-content:start}
+ /* evaluator BL-035: only the list grows. The map cell keeps its closed height (the view minus 32 px, as before) and
+    stays in view while the page scrolls, so Italy and the legend never move when rows open. */
+ .v3Reis[data-menu="1"] .v3VgOverview:has(.v3VgPas)>.v3VgGrid>.v3VgKaart,.v3Reis[data-menu="1"] .v3VgOverview:has(.v3VgPas)>.v3VgKaart{align-self:start;position:sticky;top:0;height:calc(100dvh - var(--v3-bar,0px) - 32px)}
+ .v3Reis[data-menu="1"] .v3VgSide:has(.v3VgPas),.v3Reis[data-menu="1"] .v3VgSide:has(.v3VgPas)>.v3Card{max-height:none;height:auto;align-self:start}
+}
+/* === BL-035.3 (live 19-11): chapter icons (config assets/v3/landmarks/chapter-icons.json) in a light lavender circle;
+   hover/focus light violet and 1.1× around the circle's centre; the name below in a white pill. === */
+.v3Map .v3Landmarks .v3Lm .v3LmIcon{transform-box:view-box;transform-origin:0 0;transition:transform .12s ease}
+.v3Map .v3Landmarks .v3Lm .v3LmIcon>.v3Badge{fill:#ebe7fd;stroke:#fff;stroke-width:1.5;filter:drop-shadow(0 2px 4px rgba(42,36,64,.22));transition:fill .12s ease}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover) .v3LmIcon{transform:translate(var(--cx),var(--cy)) scale(1.1) translate(calc(-1 * var(--cx)),calc(-1 * var(--cy)))}
+.v3Map .v3Landmarks .v3Lm:is(:hover,:focus-visible,.is-hover) .v3LmIcon>.v3Badge{fill:#c9bff8}
+.v3Map .v3Landmarks .v3Lm:focus-visible .v3LmIcon>.v3Badge{stroke:var(--v3-accent,#5b45e0);stroke-width:2.5}
+@media (prefers-reduced-motion:reduce){.v3Map .v3Landmarks .v3Lm .v3LmIcon{transition:none}}
+
+/* BL-036.2: verduidelijkingspopups (Rome-lens en keuzevenster "Welke plek bedoel je?") in violet/lavendel, × 44 px rechtsboven. */
+body.v3On .romeLens{background:#fbfaff;border:2px solid var(--v3-accent,#5b45e0);color:var(--v3-ink,#2a2440);box-shadow:0 12px 30px rgba(42,36,64,.22)}
+body.v3On .romeLens .lensSketch{background:var(--v3-accent-soft,#ebe7fd)}
+body.v3On .romeLens .lensSketch:before,body.v3On .romeLens .lensSketch:after{color:var(--v3-ink,#2a2440)}
+body.v3On .romeLens .lensRome,body.v3On .romeLens .lensVatican{background:var(--v3-accent,#5b45e0)}
+body.v3On .romeLens :is([data-picker-badge],[data-picker-endpoint]){fill:var(--v3-accent,#5b45e0);stroke:#fff}
+body.v3On .romeLens [data-picker-leader]{stroke:var(--v3-accent,#5b45e0)}
+body.v3On .romeLens .lensActions button{border:1px solid var(--v3-accent,#5b45e0);background:#fff;color:var(--v3-ink,#2a2440)}
+body.v3On .romeLens .lensActions button:is(:hover,:focus-visible){background:var(--v3-accent-soft,#ebe7fd);outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+body.v3On :is(.romeLens .lensClose,.mapPicker .pickerClose){color:var(--v3-ink,#2a2440);background:rgba(255,255,255,.7)}
+body.v3On :is(.romeLens .lensClose,.mapPicker .pickerClose):is(:hover,:focus-visible){background:var(--v3-accent-soft,#ebe7fd)}
+body.v3On :is(.romeLens .lensClose,.mapPicker .pickerClose):focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+body.v3On dialog.mapPicker{border-color:var(--v3-accent-soft,#ebe7fd)}
+
+/* BL-036.4: focusring overal violet, 2 px + 2 px offset (geen blauwe browserring); alleen bij toetsenbord/:focus-visible. */
+body.v3On :is(a,button,input,select,textarea,summary,[tabindex],[role=button]):focus-visible,body.v3On svg [tabindex]:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+
+/* BL-036.6: Instellingen › "Begin helemaal opnieuw": themakleur (donker violet-grijs) + klein waarschuwingsicoon, geen terracotta/rood. */
+dialog.ninoSettings.v3SettingsSheet .ninoResetDanger{color:var(--v3-ink,#2a2440);border-color:transparent;display:flex;align-items:center;gap:8px;font-weight:600}
+dialog.ninoSettings.v3SettingsSheet .ninoResetDanger::before{content:"";flex:none;width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 21h20L12 3zm1 14h-2v-2h2v2zm0-4h-2V9h2v4z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 21h20L12 3zm1 14h-2v-2h2v2zm0-4h-2V9h2v4z'/%3E%3C/svg%3E") center/contain no-repeat}
+/* Bevestiging: glas in V3-stijl, wisknop AA (wit op #9b233d = 7,9:1), Annuleren is de rustige hoofdknop. */
+body.v3On dialog.ninoResetConfirm{border:1px solid rgba(255,255,255,.7);border-radius:var(--v3-radius-glass,28px);background:rgba(255,255,255,.98);color:var(--v3-ink,#2a2440);font-family:var(--v3-font,Inter,system-ui,sans-serif);box-shadow:0 18px 50px rgba(42,36,64,.28)}
+body.v3On dialog.ninoResetConfirm::backdrop{background:rgba(42,36,64,.4)}
+body.v3On dialog.ninoResetConfirm h2{font-weight:700;font-size:24px;line-height:30px;color:var(--v3-ink,#2a2440)}
+body.v3On dialog.ninoResetConfirm :is(p,li){font-weight:500;font-size:16px;line-height:22px;color:var(--v3-ink,#2a2440)}
+body.v3On dialog.ninoResetConfirm button{border:0;border-radius:999px;padding:0 22px;font-family:inherit;font-weight:600;font-size:16px}
+body.v3On dialog.ninoResetConfirm .ninoResetCancel{background:var(--v3-accent,#5b45e0);color:#fff}
+body.v3On dialog.ninoResetConfirm .ninoResetYes{background:#9b233d;color:#fff}
+body.v3On dialog.ninoResetConfirm button:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+
+/* BL-036.5: Nino on the Vespa beside the active pin (Reis overview): a soft 2 s bob; none with reduced motion. Decorative. */
+.v3Map .v3Markers .v3MarkerNino{pointer-events:none;image-rendering:auto;animation:v3NinoBob 2s ease-in-out infinite}
+@keyframes v3NinoBob{0%,100%{transform:translateY(0)}50%{transform:translateY(calc(-1 * var(--bob,2.5px)))}}
+@media (prefers-reduced-motion:reduce){.v3Map .v3Markers .v3MarkerNino{animation:none}}
+
+/* BL-036.7: "Hoe werkt TOPO?" — one calm glass dialog (like the other V3 dialogs); x 44 px; text ≥ 16 px, headings 20 px. */
+dialog.v3Uitleg{box-sizing:border-box;width:min(640px,calc(100vw - 32px));max-height:min(88dvh,820px);overflow:auto;padding:28px 28px 24px;border:1px solid #ffffffb3;border-radius:28px;background:var(--v3-plate,rgba(251,250,254,.92));color:var(--v3-ink,#2a2440);font:400 16px/1.5 var(--v3-font);box-shadow:var(--v3-glass-shadow);-webkit-backdrop-filter:var(--v3-glass-filter);backdrop-filter:var(--v3-glass-filter)}
+dialog.v3Uitleg::backdrop{background:rgba(42,36,64,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+dialog.v3Uitleg h1{margin:0 56px 8px 0;font:700 28px/1.2 var(--v3-font);letter-spacing:0}
+dialog.v3Uitleg h1:focus{outline:0}
+dialog.v3Uitleg .v3UitlegIntro{margin:0 0 8px;color:var(--v3-ink2,#4a4466)}
+dialog.v3Uitleg .v3UitlegSec{margin-top:16px;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.72)}
+dialog.v3Uitleg h2{margin:0 0 6px;font:700 20px/1.3 var(--v3-font);color:var(--v3-accent-press,#4834c4)}
+dialog.v3Uitleg p{margin:0 0 8px;font:400 16px/1.5 var(--v3-font)}
+dialog.v3Uitleg .v3UitlegSec p:last-child{margin-bottom:0}
+dialog.v3Uitleg .v3UitlegClose{position:absolute;top:12px;right:12px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;border:0;border-radius:999px;background:rgba(255,255,255,.7);color:var(--v3-ink,#2a2440);font:400 28px/1 system-ui,sans-serif;cursor:pointer;touch-action:manipulation}
+dialog.v3Uitleg .v3UitlegClose:is(:hover,:focus-visible){background:var(--v3-accent-soft,#ebe7fd)}
+dialog.v3Uitleg :focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+
+/* BL-036.8: the Vespa-rit overlay on the Reis map. Not modal: no focus trap, the scrim only catches a tap to skip. */
+.v3Rit{position:fixed;inset:0;z-index:70;font-family:var(--v3-font,Inter,system-ui,sans-serif);color:var(--v3-ink,#2a2440)}
+.v3Rit .v3RitScrim{position:absolute;inset:0;background:rgba(42,36,64,.32);animation:v3RitIn .2s ease-out}
+.v3Rit .v3RitSvg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.v3Rit .v3RitNino{position:absolute;left:0;top:0;width:66px;height:44px;pointer-events:none;transform-origin:50% 50%;filter:drop-shadow(0 3px 4px rgba(42,36,64,.3))}
+.v3Rit .v3RitCard{position:absolute;left:50%;bottom:max(32px,6vh);transform:translateX(-50%);display:flex;align-items:center;gap:18px;box-sizing:border-box;width:min(520px,calc(100vw - 32px));padding:18px 22px;border:1px solid rgba(255,255,255,.7);border-radius:28px;background:rgba(255,255,255,.96);box-shadow:0 18px 48px rgba(42,36,64,.28);animation:v3RitCard .24s ease-out}
+.v3Rit .v3RitCard[hidden]{display:none}
+.v3Rit .v3RitPost{flex:none;width:132px;height:auto;border-radius:6px;box-shadow:0 3px 10px rgba(42,36,64,.25);transform:rotate(-3deg)}
+.v3Rit .v3RitCopy{flex:1;min-width:0}
+.v3Rit h2{margin:0 0 4px;font-weight:700;font-size:24px;line-height:30px}
+.v3Rit p{margin:0 0 12px;font-weight:500;font-size:16px;line-height:22px}
+.v3Rit .v3RitActions{display:flex;flex-wrap:wrap;gap:10px}
+.v3Rit .v3RitActions .v3Btn{min-height:44px;padding:0 18px;border:0;border-radius:999px;font-weight:600;font-size:16px;font-family:inherit;cursor:pointer;background:#ece8fb;color:#2a2440}
+.v3Rit .v3RitActions .v3Btn.primary{background:var(--v3-accent,#5b45e0);color:#fff}
+.v3Rit button:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
+@media(max-width:560px){.v3Rit .v3RitCard{flex-direction:column;align-items:flex-start}.v3Rit .v3RitPost{width:104px}}
+@keyframes v3RitIn{from{opacity:0}to{opacity:1}}
+@keyframes v3RitCard{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.v3Rit .v3RitScrim{animation:none}.v3Rit .v3RitCard{animation:v3RitFade .16s ease-out}.v3Rit .v3RitPost{transform:none}@keyframes v3RitFade{from{opacity:0}to{opacity:1}}}
+
+/* === BL-038: iPad portrait (700–1023 px, orientation portrait) at Menu 1 level. One column next to the 76 px rail:
+   the map on top (full content width), the content under it. Everything behind this one media query; landscape and
+   desktop are untouched. Sections: P1 shell + rail, P2 Reis overview, P3 chapter page, P4 Oefenen/Toets,
+   P5 Beloningen, P6 Voortgang, P7 Les. === */
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P1. Shell: full bleed under the preview bar, rail 76 px, no frame. */
+ .v3Reis[data-menu="1"]{--zij:76px;--m1-ink2:#5d5873;--m1-card:rgba(255,255,255,.94);--m1-card-shadow:0 10px 30px rgba(40,25,80,.08);
+  position:relative;isolation:isolate;width:100%;height:calc(100dvh - var(--v3-bar,0px));margin:0;padding:0;overflow:hidden;
+  grid-template-columns:var(--zij) minmax(0,1fr);grid-template-rows:none;column-gap:0;row-gap:0;background:none;box-shadow:none;border:0;border-radius:0}
+ .v3Reis[data-menu="1"]>*{position:relative;z-index:1}
+ .v3Reis[data-menu="1"]>.v3Side{grid-column:1;grid-row:1/-1;z-index:2;margin:0;border-radius:0;height:auto;padding:20px 10px 16px;
+  background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"]>.v3Side::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
+  background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:inset -1px 0 0 rgba(42,36,64,.06);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px));mask-image:linear-gradient(to bottom,#000 0%,#000 max(40%,560px),transparent max(88%,700px))}
+ .v3Reis[data-menu="1"] .v3Side .v3Portrait{width:60px;height:64px;margin:14px auto;flex:0 0 auto;border-radius:0;background:none;overflow:hidden;display:block}
+ .v3Reis[data-menu="1"] .v3Side .v3Portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 10%;margin:0}
+ .v3Reis[data-menu="1"] .v3Side .v3Brand{align-items:center}
+ .v3Reis[data-menu="1"] .v3Side .v3Brand b{font:800 20px/1 var(--v3-font);letter-spacing:.02em}
+ .v3Reis[data-menu="1"] .v3Side .v3Brand .v3Flag{width:40px;height:6px}
+ .v3Reis[data-menu="1"] .v3Side .v3NavList{gap:6px;margin:0}
+ .v3Reis[data-menu="1"] .v3Side .v3NavItem{min-height:52px;justify-content:center;padding:0;border-radius:14px;color:var(--v3-ink);background:transparent}
+ .v3Reis[data-menu="1"] .v3Side .v3NavItem .v3Icon{width:22px;height:22px;color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3Side .v3NavItem[aria-current=page]{background:var(--v3-accent-soft);font-weight:700}
+ .v3Reis[data-menu="1"] .v3Side .v3NavItem[aria-current=page] .v3Icon{color:var(--v3-accent-press)}
+ .v3Reis[data-menu="1"] .v3Side .v3NavItem span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .v3Reis[data-menu="1"] .v3Side .v3SideFoot .v3Settings{width:48px;height:48px;min-height:48px;padding:0;justify-content:center;border:0!important;border-radius:999px;
+  background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12)!important}
+ /* The workspace fade is a light wash over the whole width (the content is one column). */
+ .v3Reis[data-menu="1"]::before{content:"";position:absolute;z-index:0;top:0;bottom:0;left:var(--zij);right:0;pointer-events:none;background:linear-gradient(to bottom,rgba(252,250,246,.0) 0%,rgba(252,250,246,.0) 40%,rgba(252,250,246,.55) 100%)}
+ .v3Reis[data-menu="1"]::after{display:none}
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup,.v3Book,.v3Ride,.v3Tiles,.v3Tile,.v3VgTitleBar,.v3VgRow,.v3VgTile,.v3VgHead,.v3VgLegend,.v3Field.v3Card,.v3Top,.v3Panel,.v3Rows,.v3MapStage),
+ .v3Reis[data-menu="1"]>:is(.v3List,.v3View,.v3Rewards){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ .v3Reis[data-menu="1"]>:is(.v3View,.v3Rewards){background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0}
+ .v3Reis[data-menu="1"] .v3Counts{gap:10px;padding:0;background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border-radius:0}
+ .v3Reis[data-menu="1"] .v3Counts .v3CountSep{display:none}
+ .v3Reis[data-menu="1"] .v3Counts .v3Count{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 16px 0 10px;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 6px 18px rgba(40,25,80,.10)}
+ .v3Reis[data-menu="1"] .v3Counts .v3Count b{font:700 20px/1 var(--v3-font);color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3Btn.primary{min-height:52px;border-radius:999px;font:700 18px/1 var(--v3-font);box-shadow:0 10px 24px rgba(91,60,200,.28)}
+ .v3Reis[data-menu="1"] .v3Switch{padding:0!important;align-items:stretch}
+ .v3Reis[data-menu="1"] .v3Switch .v3Btn{height:44px!important;min-height:44px!important;padding:0 14px;border-radius:999px}
+ .v3Reis[data-menu="1"] .v3MapTools>*{height:44px;min-height:44px;border-radius:999px;background:#fff!important;outline:1px solid rgba(42,36,64,.08);box-shadow:0 4px 14px rgba(40,25,80,.12)}
+ .v3Reis[data-menu="1"] .m1Label,.v3Reis[data-menu="1"][data-view=reis] #v3ListTitle{margin:0 0 10px 4px;padding:0;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2)}
+
+ /* P2. Reis overview: row 1 the map (full width), row 2 the chapter list (left) and the free block (right). */
+ .v3Reis[data-menu="1"][data-view=reis]>:is(.v3List,.v3Main){display:contents}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht]{grid-template-rows:minmax(0,1fr) auto;grid-template-columns:var(--zij) minmax(0,1fr) minmax(0,1fr)}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht]>.v3Side{grid-row:1/-1}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Main>.v3MapStage{grid-column:2/4;grid-row:1;margin:0;padding:0;position:relative;display:block;
+  --v3-card-over:0;--v3-fit-top:8px;--v3-fit-left:0px;--v3-fit-right:0px;--v3-fit-bottom:0px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Main>.v3MapStage::before{content:"";position:absolute;inset:4% -6% 2% -10%;z-index:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(150,205,240,.62),rgba(170,215,245,.32) 55%,rgba(190,225,250,0) 100%)}
+ .v3Reis[data-menu="1"][data-view=reis] .v3MapStage>svg{position:absolute;z-index:1}
+ .v3Reis[data-menu="1"][data-view=reis] .v3MapStage>.v3MapTools{position:absolute;top:72px;bottom:auto;left:16px;right:auto;z-index:3;display:flex;gap:8px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Main>.v3Top{grid-column:2/4;grid-row:1;justify-self:start;align-self:start;margin:16px 0 0 16px;padding:0;z-index:3;background:transparent!important;box-shadow:none!important;display:flex}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht]>.v3List,.v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3List{display:block}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3List{grid-column:2;grid-row:2;align-self:end;margin:-84px 8px 12px 16px;padding:0;position:relative;z-index:2;background:transparent!important;box-shadow:none!important}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Panel{grid-column:3!important;grid-row:2!important;align-self:start!important;justify-self:stretch!important;display:flex!important;flex-direction:column;align-items:flex-start;gap:0;margin:12px 16px 12px 8px!important;padding:0!important;width:auto!important;
+  background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0;z-index:2}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Panel>*{margin-left:0!important;margin-right:0!important}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Panel :is(.v3CardScene,.v3StepList,.v3Again){display:none!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3CardKicker{margin:0 0 8px!important;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--v3-accent-press)}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3CardHead{display:flex;flex-direction:column;flex-wrap:nowrap;height:auto;align-items:flex-start;gap:14px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3CardTitle{font:800 38px/1.05 var(--v3-font);letter-spacing:-.01em;color:var(--v3-ink);margin:0;padding:0;text-wrap:balance}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar{display:flex;gap:6px;margin:0;padding:0;background:none;position:static!important;inset:auto!important;transform:none!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar::before,.v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar::after{display:none}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span{width:44px;height:8px;min-width:0;padding:0;margin:0;border:0;border-radius:4px;background:rgba(42,36,64,.20);box-shadow:none}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span::before,.v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span::after{display:none}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span.on{background:var(--v3-accent)}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3StageBar>span .v3Icon{display:none}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3BarGo{display:none!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3Actions{display:flex!important;margin:20px 0 0!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3Actions .v3Btn.primary{width:auto;min-width:0;padding:0 24px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel .v3Locked{margin:20px 0 0!important}
+ /* The chapter list: the Reis rows in one white card, 11 rows of at least 44 px, no inner scrollbar. */
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows{display:block;padding:4px!important;gap:0;margin:0!important;border-radius:20px;overflow:visible;max-height:none;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows>li+li{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row{grid-template-columns:28px minmax(0,1fr) 24px;gap:12px;width:100%;min-height:44px;height:44px;padding:0 10px;border-radius:12px;background:transparent;box-shadow:none}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Thumb,.v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3RowBar{display:none}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3RowNum{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#f1eff5;color:var(--m1-ink2);font:600 14px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Name{display:block;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true]{background:var(--v3-accent-soft)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3Name{font-weight:700}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3RowNum{background:#fff;color:var(--v3-ink)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3End{display:grid;place-items:center;width:24px;height:24px}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3End .v3Icon{width:18px;height:18px;color:#8a85a0}
+ .v3Reis[data-menu="1"] .v3OkDot{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;background:var(--v3-accent,#5b45e0)}
+ .v3Reis[data-menu="1"] .v3OkDot .v3Icon{width:14px!important;height:14px!important;color:#fff!important}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Chev{display:none}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3Chev{display:block;width:9px;height:9px;margin-right:4px;border:solid var(--v3-ink);border-width:2.5px 2.5px 0 0;border-radius:1px;transform:rotate(45deg)}
+ .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Chev .v3Icon{display:none}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P3. Reis chapter page: same map on top; under it the lessons (+ back) left, the free block right. */
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]{grid-template-columns:var(--zij) minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto auto}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]>.v3Side{grid-row:1/-1}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]>.v3List{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] :is(.v3Main>.v3Top,.v3Main>.v3Panel){display:contents!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:2/4;grid-row:1;margin:0;padding:0;position:relative;display:block;
+  --v3-card-over:0;--v3-fit-top:8px;--v3-fit-left:0px;--v3-fit-right:0px;--v3-fit-bottom:0px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Counts{grid-column:2/4;grid-row:1;justify-self:start;align-self:start;margin:16px 0 0 16px;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft{grid-column:2;grid-row:4;display:flex;align-self:start;margin:12px 8px 12px 16px;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{display:inline-flex;align-items:center;gap:8px;height:44px;min-height:44px;padding:0 18px 0 12px;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12);font:600 16px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene,.v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Again{display:none!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList{grid-column:2;grid-row:2/4;z-index:1;align-self:start;position:relative;list-style:none;margin:30px 8px 0 16px!important;padding:4px;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);display:block!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList::before{content:"Lessen";position:absolute;left:4px;top:-26px;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li{margin:0;padding:0}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li+li{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:12px;width:100%;min-height:56px;padding:0 12px;border:0;border-radius:12px;background:transparent;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);text-align:left}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepRow{background:var(--v3-accent-soft);font-weight:700}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepDot{display:grid;place-items:center;width:28px;height:28px;border-radius:999px;border:2px solid rgba(42,36,64,.22);background:#fff;box-sizing:border-box}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot{border:0;background:var(--v3-accent,#5b45e0)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot .v3Icon{width:14px;height:14px;color:#fff}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepDot{border-color:var(--v3-accent);box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 14px var(--v3-accent)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow>.v3Icon{width:18px;height:18px;color:#8a85a0}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-column:3;grid-row:2;align-self:end;margin:30px 16px 8px 8px!important;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{grid-column:3;grid-row:3;z-index:2;margin:0 16px 0 8px;position:relative;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;height:auto!important;align-items:flex-start!important;gap:14px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font:800 38px/1.05 var(--v3-font);letter-spacing:-.01em;color:var(--v3-ink);margin:0;text-wrap:balance}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar{display:flex;gap:6px;margin:0;padding:0;background:none;position:static!important;inset:auto!important;transform:none!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar::before,.v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar::after{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span{width:44px;height:8px;min-width:0;padding:0;margin:0;border:0;border-radius:4px;background:rgba(42,36,64,.20);box-shadow:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span::before,.v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span::after{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span.on{background:var(--v3-accent)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span .v3Icon{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3BarGo{display:none!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions{grid-column:3;grid-row:4;z-index:2;display:flex!important;margin:20px 16px 12px 8px!important;align-self:start;justify-self:start;width:auto!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions .v3Btn.primary{width:auto;min-width:0;padding:0 24px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Locked{grid-column:3;grid-row:4;z-index:2;margin:20px 16px 0 8px!important;align-self:start}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P4. Oefenen and Toets: the map on top (at least 40 %), the choices as one white card under it over the full width. */
+ .v3Reis[data-menu="1"][data-view=oefenen]>.v3View-oefenen,.v3Reis[data-menu="1"][data-view=toets]>.v3View-toets{display:grid!important;grid-column:2;grid-row:1/-1;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;
+  gap:0;margin:0!important;padding:0!important;width:auto;height:100%;max-height:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3View-oefenen>.v3OefStage{grid-column:1;grid-row:1;position:relative;margin:0!important;padding:0;min-height:0;background:none!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetupStage{grid-column:1;grid-row:1;position:relative;min-height:0;height:100%;margin:0}
+ .v3Reis[data-menu="1"] .v3ToetsSetupStage>svg{width:100%;height:100%;display:block}
+ .v3Reis[data-menu="1"] .v3View-oefenen>.v3OefPanel,.v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetup{grid-column:1;grid-row:2;align-self:end;position:relative;margin:0 16px 12px 16px!important;width:auto!important;max-height:none;overflow:visible;
+  padding:14px 18px 16px!important;border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important;gap:8px}
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup)>.v3ScreenTitle{font:800 26px/1.1 var(--v3-font);margin:0}
+ .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetupNino{display:none}
+ .v3Reis[data-menu="1"] .v3OefPanel .v3Chips{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ .v3Reis[data-menu="1"] .v3ToetsSetup .v3Chips{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+ .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup) .v3Chip{min-width:0;white-space:nowrap;padding-left:8px!important;padding-right:8px!important;font-size:15px}
+ .v3Reis[data-menu="1"] .v3OefPanel .v3FormBtn{min-height:76px}
+ .v3Reis[data-menu="1"] .v3ToetsSetup .v3Field+.v3Field{padding-top:4px}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P5. Beloningen: two columns on one page (the Reisboekje left; counts and the Vespa ride right), nothing cut. */
+ .v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{display:grid!important;grid-column:2;grid-row:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);column-gap:16px;
+  margin:0!important;padding:0 16px 20px!important;width:auto;height:100%;overflow-x:hidden;overflow-y:auto}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3ScreenTitle{grid-column:1/-1;grid-row:1;align-self:end;margin:20px 0 12px 4px;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2)}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Tiles{grid-column:2;grid-row:2;align-self:start;display:flex!important;flex-direction:column;gap:0;margin:0!important;padding:8px!important;width:auto;height:auto;
+  border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile{display:grid!important;grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"icon label value";align-items:center;gap:12px;min-height:64px;height:auto;padding:0 12px!important;margin:0;
+  border:0!important;border-radius:12px;background:transparent!important;box-shadow:none!important;text-align:left}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile+.v3Tile{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)!important;border-radius:0}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile::before,.v3Reis[data-menu="1"] .v3Rewards .v3Tile::after{display:none!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile{grid-template-rows:auto!important;grid-auto-rows:0!important;row-gap:0!important}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile>*{grid-row:1!important;align-self:center!important;margin-top:0!important;margin-bottom:0!important;line-height:1.2}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile .v3TileIcon{grid-area:icon;width:44px;height:44px;margin:0;object-fit:contain}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile>span{grid-area:label;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);margin:0;text-align:left;justify-self:start}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Tile>b{grid-area:value;font:700 20px/1 var(--v3-font);color:var(--v3-ink);margin:0}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book{grid-column:1;grid-row:2/4;align-self:start;justify-self:center;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:100%;height:auto;max-width:100%}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover{display:flex;flex-direction:column;align-items:center;gap:16px;background:transparent!important;box-shadow:none!important;border:0!important;padding:0;max-width:100%;min-width:0;height:auto}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3BookCover::after{content:"Open Reisboekje  →";display:inline-flex;align-items:center;min-height:52px;padding:0 22px;border-radius:999px;background:var(--v3-accent);color:#fff;font:700 18px/1 var(--v3-font);box-shadow:0 10px 24px rgba(91,60,200,.28);white-space:pre}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Book .v3CoverArt{max-width:100%;width:min(350px,100%);max-height:none;height:auto;filter:drop-shadow(0 18px 24px rgba(40,25,80,.28))}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3Ride{grid-column:2;grid-row:3;align-self:start;position:relative;margin:16px 0 0!important;padding:18px 16px!important;border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important;width:auto;height:auto;
+  display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"pz pz" "art num" "art lab" "art steps";column-gap:14px;row-gap:4px;align-items:center}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RidePizzas{grid-area:pz;display:flex;gap:10px;margin:0 0 12px}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RidePizza{flex:0 0 84px;width:84px!important;height:84px!important;min-width:0}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideArt{grid-area:art;width:140px;height:auto}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Ride>b{grid-area:num;font:800 52px/1 var(--v3-font);color:var(--v3-ink);align-self:end}
+ .v3Reis[data-menu="1"] .v3Rewards .v3Ride>span{grid-area:lab;font:600 16px/1.2 var(--v3-font);color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps{grid-area:steps;width:100%;max-width:120px;margin:6px 0 0}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps>i{background:rgba(42,36,64,.20)}
+ .v3Reis[data-menu="1"] .v3Rewards .v3RideSteps>i.on{background:var(--v3-accent)}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P6. Voortgang: one column that scrolls (the page, not the list): title + count, the map with its legend, the Kennis-paspoort
+    (the Reis rows, full width, opens in place), then the three tiles. */
+ .v3Reis[data-menu="1"][data-view=voortgang]>.v3View-voortgang{display:flex!important;flex-direction:column;grid-template-columns:none;grid-template-rows:none;grid-column:2;grid-row:1/-1;margin:0!important;padding:16px 16px 28px!important;width:auto;height:100%;max-height:none;overflow-y:auto;overflow-x:hidden;gap:16px}
+ .v3Reis[data-menu="1"] .v3VgOverview{display:flex!important;flex-direction:column;gap:16px;height:auto;min-height:0;flex:0 0 auto;margin:0;padding:0;overflow:visible;background:none!important;box-shadow:none!important}
+ .v3Reis[data-menu="1"] .v3VgOverview>.v3VgGrid{display:flex!important;flex-direction:column;gap:16px;margin:0;padding:0}
+ .v3Reis[data-menu="1"] .v3VgTitleBar{display:flex!important;flex-direction:row;align-items:center;justify-content:space-between;gap:16px;height:auto!important;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto;position:relative}
+ .v3Reis[data-menu="1"] .v3VgTitleBar>h1{font:800 40px/1.05 var(--v3-font);margin:0;color:var(--v3-ink)}
+ .v3Reis[data-menu="1"] .v3VgHead{flex:1 1 auto!important;height:auto!important;display:flex!important;flex-direction:column;align-items:flex-start;gap:8px;width:auto;max-width:320px;padding:0!important;margin:0!important;background:transparent!important;box-shadow:none!important}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgBar{flex:0 0 auto;width:100%;height:12px;min-height:0;margin:0}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgCount{margin:0;white-space:nowrap}
+ .v3Reis[data-menu="1"] .v3VgHead .v3VgCount span{color:var(--v3-ink);font:600 16px/1 var(--v3-font);margin-left:6px}
+ .v3Reis[data-menu="1"] .v3VgKaart{position:relative;display:block;margin:0!important;padding:0!important;min-height:0;background:transparent!important;box-shadow:none!important;border:0!important;outline:0!important}
+ .v3Reis[data-menu="1"] .v3VgKaart::after{display:none}
+ .v3Reis[data-menu="1"] .v3VgKaart>.v3VgKaartTitle{display:none!important}
+ .v3Reis[data-menu="1"] .v3VgKaart .v3VgMap{display:block;margin:0 auto;height:min(46dvh,500px);max-width:100%}
+ .v3Reis[data-menu="1"] .v3VgLegend{position:absolute;left:0;bottom:0;display:flex!important;flex-direction:column;gap:8px;padding:0!important;margin:0;background:transparent!important;border-radius:0!important;box-shadow:none!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3VgLegend>li{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px 0 10px;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(40,25,80,.12);font:500 15px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"] .v3VgSide{position:relative;margin:0;min-height:0;display:flex;flex-direction:column}
+ .v3Reis[data-menu="1"] .v3VgSide>.v3Card{position:static;display:flex;flex-direction:column;min-height:0;height:auto;max-height:none;margin:0;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0;overflow:visible}
+ .v3Reis[data-menu="1"] .v3VgSide .v3VgChapters,.v3Reis[data-menu="1"] .v3VgSide .v3VgRows{display:grid;align-content:start;margin:0;padding:4px;list-style:none;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);overflow:visible;max-height:none;min-height:0}
+ .v3Reis[data-menu="1"] .v3VgSide .v3VgRows.v3VgPas{overflow:visible;max-height:none}
+ .v3Reis[data-menu="1"] .v3VgPas .v3Row{height:auto;min-height:44px}
+ .v3Reis[data-menu="1"] .v3VgRow{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;height:auto!important;overflow:visible!important;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;width:auto}
+ .v3Reis[data-menu="1"] .v3VgRow>.v3VgTile{display:flex!important;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;width:100%;max-width:none;box-sizing:border-box;min-height:80px;padding:12px 16px!important;border-radius:20px!important;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+ .v3Reis[data-menu="1"] .v3VgRow>.v3VgTile::before,.v3Reis[data-menu="1"] .v3VgRow>.v3VgTile::after{display:none!important}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText{display:flex;align-items:baseline;gap:8px;flex:1 1 auto;white-space:nowrap;min-width:0;flex-wrap:wrap}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText>*{width:auto;margin:0}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgDots{display:none}
+ .v3Reis[data-menu="1"] .v3VgRow .v3VgTileText strong{font:700 22px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"] .v3View-voortgang>.v3Card{flex:0 0 auto;width:auto;max-width:none;margin:0!important;padding:14px 18px!important;border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ .v3Reis[data-menu="1"] :is(.v3VgOverview,.v3VgOverview>.v3VgGrid,.v3VgTitleBar,.v3VgKaart,.v3VgSide,.v3VgSide>.v3Card,.v3VgRow,.v3View-voortgang>.v3Card){width:100%;box-sizing:border-box;align-self:stretch}
+ .v3Reis[data-menu="1"] .v3VgSide :is(.v3VgChapters,.v3VgRows){width:100%;box-sizing:border-box}
+ .v3Reis[data-menu="1"] .v3VgKaart .v3VgMap{margin:0 auto 0 auto}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ .v3Reis[data-menu="1"][data-view=voortgang] .v3VgSide .v3VgPas .v3Row{height:auto;min-height:44px}
+ .v3Reis[data-menu="1"][data-view=voortgang] .v3VgSide .v3VgPas .v3Row .v3End{display:flex;align-items:center;gap:10px;width:auto;height:auto}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* Toets result: the label sits clear above the score (it touched it by 7 px). */
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsLabel{display:block;margin:0 0 10px;line-height:16px}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsScore{margin:0;line-height:1.05}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P7. Lesson: the lesson panels as Menu 1 cards (white, no blur: the rail is the one blur), Nino in the rail the same size as
+    on Reis, and on the result the lesson bar scrolls along instead of lying over the result card. */
+ body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter,.finishScreen,.atlasZoom,.atlasZoom *){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter){background:rgba(255,255,255,.94)!important}
+ body.v3Les[data-v3-menu="1"] .v3ShellNav .v3Side .v3Portrait{width:60px;height:64px;max-height:none;margin:14px auto;flex:0 0 auto;border-radius:0;background:none;overflow:hidden;display:block}
+ body.v3Les[data-v3-menu="1"] .v3ShellNav .v3Side .v3Portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 10%;margin:0}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):has(.layout.finishLayout) .v3LesBar{position:absolute!important}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .layout.finishLayout #finishScreen{margin-top:calc(var(--v3-lesbar-h,136px) + var(--v3-gut,24px))}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true] .layout.finishLayout #finishScreen{margin-top:44px}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* The step name in the lesson bar stays whole (it was cut to "A…" at 768): Schoolblad is an icon button here. */
+ body.v3Les[data-v3-menu="1"] .v3LesBar .v3LesSchool span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ body.v3Les[data-v3-menu="1"] .v3LesBar .v3LesSchool{width:44px;min-width:44px;padding:0;justify-content:center}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* BL-038 r2 (design-critic): one bottom line (content ends at H - 20), counters top right, the map tools in the free block,
+    the chapter page's free block hangs from the top of the lessons card (same bar-to-button distance as the overview). */
+ .v3Reis[data-menu="1"]{box-sizing:border-box;padding-bottom:20px}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Main>.v3Top{justify-self:end;margin:16px 20px 0 0}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Counts{justify-self:end;margin:16px 20px 0 0}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3List{margin-bottom:0}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=overzicht] .v3Panel{margin-bottom:0!important}
+ .v3Reis[data-menu="1"][data-view=reis] .v3Panel>.v3MapTools{position:static;display:flex;gap:8px;margin:24px 0 0;z-index:3}
+ /* Chapter page */
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk]{grid-template-rows:minmax(0,1fr) auto auto auto auto}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList{grid-row:2/5;margin-bottom:0!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-row:2;align-self:start;margin:30px 16px 8px 8px!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{grid-row:3;align-self:start}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions{grid-row:4;margin:24px 16px 0 8px!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Locked{grid-row:4;margin:24px 16px 0 8px!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel>.v3MapTools{grid-column:3;grid-row:5;align-self:start;justify-self:start;margin:24px 16px 0 8px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft{grid-row:5;align-self:start;margin:24px 8px 0 16px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{min-height:44px;height:44px}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* BL-038 r2: Nino (the pose of the landscape Beloningen) stands under the Reisboekje, about 260 px high. */
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino{display:flex;grid-column:1;grid-row:4;align-self:end;justify-self:center;align-items:flex-end;justify-content:center;height:260px;margin:12px 0 0;min-width:0}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino figure{height:100%!important;width:100%!important;display:flex;align-items:flex-end;justify-content:center;margin:0;background:none;box-shadow:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino img{max-height:100%!important;max-width:100%!important;width:auto!important;height:auto!important;object-fit:contain}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* BL-038 r2: the answer sheet floats inside the map card (16 px inset on the card's left, right and bottom), centred. */
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true] :is(#focusAnswerSheet,#focusLearnBar){left:148px!important;right:72px!important;top:auto!important;bottom:60px!important;width:auto!important;max-width:none!important;margin:0!important;transform:none!important}
+}
+/* BL-037.5: four foot buttons (gear, background, ?, Alle landen) must fit in the 224 px rail of narrow desktop widths:
+   44 px circles with a 4 px gap (4 x 44 + 3 x 4 = 188 px). */
+@media (min-width:1280px) and (max-width:1439px){.v3Side .v3SideFoot:has(.v3ExitBtn){gap:4px}.v3Side .v3SideFoot:has(.v3ExitBtn)>button{flex:0 0 44px!important;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important}}
+
+/* BL-037.6: Kennispaspoort — pizza icons for Vinden and Naam (22 px) and the one-line legend above the table. */
+.v3Reis[data-menu="1"] .v3PasBody .v3PasIcon{width:64px}
+.v3Reis[data-menu="1"] .v3PasBody .v3PasPizza{width:22px;height:22px;display:inline-block;vertical-align:middle}
+.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend{caption-side:top;text-align:left;padding:2px 4px 8px;font:500 13px/22px var(--v3-font);color:#5d5873}
+.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend .v3PasPizza{margin:0 2px}
+
+/* BL-037.8: Landen and Zeeën — the free title block may slide up along the stage (reis.js fitOmgeving sets --v3-free-dy) so the map can fill the stage. */
+.v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel :is(.v3CardKicker,.v3CardHead,.v3Actions,.v3Locked){transform:translateY(var(--v3-free-dy,0px))}

@@ -29,9 +29,10 @@ const states=`(function(){
   'nieuw':make('Nieuw profiel',[],{}),
   'bezig':make('Halte bezig',[{stage:3},{stage:1}],{good:14,pizzas:1,slices:6}),
   'afgerond':make('Haltes afgerond',[{stage:3,gold:1,due:1},{stage:3,gold:1},{stage:3},{stage:3}],{good:61,pizzas:7,slices:3,trips:2}),
+  'rit':make('Vespa-rit nr. 3',[{stage:3},{stage:3},{stage:1}],{good:73,pizzas:9,slices:1,trips:3}),
   'alles':make('Alles af',IDS.map(()=>({stage:3,gold:1})),{good:168,pizzas:21,trips:7})
  };
- const [raw0,...opts]=location.hash.slice(1).split('/'),theme=opts.includes('italia')?'italia':'viola',bgKey=opts.find(o=>/^bg0[123]$/.test(o))||'bg03',raw1=raw0||'',pair=/^thema-(ipad-)?/.exec(raw1),raw=pair?raw1.slice(pair[0].length):raw1,side=raw.startsWith('naast-'),key=side?raw.slice(6):raw,chosen=S[key]||S.bezig,th=theme==='viola'?'viola':'italia';
+ const [raw0,...opts]=location.hash.slice(1).split('/'),theme=opts.includes('italia')?'italia':'viola',bgKey=opts.find(o=>/^bg0[1234]$/.test(o))||'bg03',raw1=raw0||'',pair=/^thema-(ipad-)?/.exec(raw1),raw=pair?raw1.slice(pair[0].length):raw1,side=raw.startsWith('naast-'),key=side?raw.slice(6):raw,chosen=S[key]||S.bezig,th=theme==='viola'?'viola':'italia';
  window.TOPO_V3_THEME=th;window.TOPO_V3_BG=bgKey;const tail=(th==='italia'?'/italia':'')+(bgKey!=='bg03'?'/'+bgKey:'');
  // Theme pair (stijlbeeld): Italia and Viola side by side, desktop 1440×900 or iPad landscape 1180×820, two live frames.
  if(pair){
@@ -55,6 +56,8 @@ const entries=new Map([['topo-italie-v3',JSON.stringify(chosen.progress)],...(ch
  const memory={get length(){return entries.size},key:i=>[...entries.keys()][i]??null,getItem:k=>entries.has(String(k))?entries.get(String(k)):null,setItem:(k,v)=>{entries.set(String(k),String(v))},removeItem:k=>{entries.delete(String(k))},clear:()=>entries.clear()};
  Object.defineProperty(window,'localStorage',{configurable:true,value:memory});
  window.TOPO_V3_PREVIEW={state:S[key]?key:'bezig',storage:entries};
+ // BL-036.8: the #rit demo starts one ride short, so the ride plays on opening (rit.js reads only this flag).
+ if(key==='rit')window.TOPO_V3_RIT_DEMO=1;
  addEventListener('hashchange',()=>location.reload());
  addEventListener('DOMContentLoaded',()=>{
   const bar=document.createElement('nav');bar.className='v3PreviewBar';bar.setAttribute('aria-label','Demostanden');
@@ -62,7 +65,7 @@ const entries=new Map([['topo-italie-v3',JSON.stringify(chosen.progress)],...(ch
   for(const [id,s] of Object.entries(S)){const a=document.createElement('a');a.href='#'+id+tail;a.textContent=s.title;if(s===chosen)a.setAttribute('aria-current','page');bar.append(a);}
   for(const t of ['italia','viola']){const a=document.createElement('a');a.href='#'+(S[key]?key:'bezig')+(t==='italia'?'/italia':'')+(bgKey!=='bg03'?'/'+bgKey:'');a.textContent=t==='viola'?'Viola':'Italia';if(t===th)a.setAttribute('aria-current','page');a.className='v3Theme';bar.append(a);}
   // Background (render assets): BG-03 standard, BG-01 and BG-02 as alternatives.
-  for(const [k,label] of [['bg01','BG-01 Toscane'],['bg02','BG-02 Meer'],['bg03','BG-03 Kust']]){const a=document.createElement('a');a.href='#'+(S[key]?key:'bezig')+(th==='italia'?'/italia':'')+(k!=='bg03'?'/'+k:'');a.textContent=label;if(k===bgKey)a.setAttribute('aria-current','page');a.className='v3Bg';bar.append(a);}
+  for(const [k,label] of [['bg01','BG-01 Toscane'],['bg02','BG-02 Meer'],['bg03','BG-03 Zee'],['bg04','BG-06 Sicilië']]){const a=document.createElement('a');a.href='#'+(S[key]?key:'bezig')+(th==='italia'?'/italia':'')+(k!=='bg03'?'/'+k:'');a.textContent=label;if(k===bgKey)a.setAttribute('aria-current','page');a.className='v3Bg';bar.append(a);}
   const side=document.createElement('a');side.href='#naast-'+(S[key]?key:'bezig')+tail;side.textContent='Naast elkaar: desktop + telefoon';bar.append(side);
   const pairA=document.createElement('a');pairA.href='#thema-'+(S[key]?key:'bezig');pairA.textContent='Italia + Viola';bar.append(pairA);
   if(window.top!==window)bar.hidden=true;
@@ -80,7 +83,9 @@ const render=JSON.parse(read('assets/v3/render/manifest.json')),A=Object.fromEnt
 for(const id of ['SCENE-ROMA','SCENE-VENEZIA','SCENE-NAPOLI'])scenes[A[id].chapter]={mini:uri(A[id].export_mini,id),kop:uri(A[id].export_kop,id)};
 // BL-034 P1.12: small thumbnails for the background picker (192x108, a few kB each; the full images stay out of the popover).
 const bgThumb=k=>'data:image/webp;base64,'+readFileSync(new URL('assets/v3/render/thumbs/BG-0'+k+'-thumb-192.webp',root)).toString('base64');
-const v3art={bgThumbs:{bg01:bgThumb(1),bg02:bgThumb(2),bg03:bgThumb(3)},bg:{bg01:uri(A['BG-01'].export,'BG-01'),bg02:uri(A['BG-02'].export,'BG-02'),bg03:uri(A['BG-03'].export,'BG-03')},portrait:uri(A['NINO-PORTRET'].export,'NINO-PORTRET'),poses:Object.fromEntries(render.assets.filter(a=>a.universalMaster && !['NINO-PASPOORT','VESPA-ZIJ','VESPA-ICOON','NINO-DENKT','NINO-WIJST-RECHTS'].includes(a.id)).map(a=>[a.id,{src:uri(a.export,a.id),size:a.export.size}])),vespa:uri(A['VESPA-ZIJ'].export,'VESPA-ZIJ'),
+// BL-037.10: the fourth background, Sicilië (BG-06; not in the render manifest, so read directly).
+const bgSicilie='data:image/webp;base64,'+readFileSync(new URL('assets/v3/render/exports/BG-06-sicilie-2880.webp',root)).toString('base64');
+const v3art={bgThumbs:{bg01:bgThumb(1),bg02:bgThumb(2),bg03:bgThumb(3),bg04:bgThumb(6)},bg:{bg01:uri(A['BG-01'].export,'BG-01'),bg02:uri(A['BG-02'].export,'BG-02'),bg03:uri(A['BG-03'].export,'BG-03'),bg04:bgSicilie},portrait:uri(A['NINO-PORTRET'].export,'NINO-PORTRET'),poses:Object.fromEntries(render.assets.filter(a=>a.universalMaster && !['NINO-PASPOORT','VESPA-ZIJ','VESPA-ICOON','NINO-DENKT','NINO-WIJST-RECHTS'].includes(a.id)).map(a=>[a.id,{src:uri(a.export,a.id),size:a.export.size}])),vespa:uri(A['VESPA-ZIJ'].export,'VESPA-ZIJ'),
  icons:Object.fromEntries(['slice','pizza','vespa','gold','stamp','postcard'].map(k=>[k,k==='vespa'?uri(A['VESPA-ICOON'].export,'VESPA-ICOON'):uri(A['IC-'+k].exports['96'],'IC-'+k)]))};
 const landmarks=JSON.parse(read('assets/v3/landmarks/manifest.json'));
 const activeLandmarks=landmarks.items.filter(a=>a.ui&&!a.lifestyle);
@@ -97,6 +102,32 @@ const LS=lmLocations.lifestyle,lsPlaces=Object.fromEntries(Object.entries(LS.pla
 for(const [cid,list] of Object.entries(LS.chapters))for(const [id,place] of list)if(!lifestyle.some(a=>a.id===id)||!lsPlaces[place])throw Error('Bad lifestyle entry '+cid+' '+id+' '+place);
 v3art.lifestyle={items:lifestyle.map(a=>({id:a.id,label:a.label,exports:Object.fromEntries(Object.entries(a.exports).map(([size,e])=>[size,{...e,src:uri(e,a.id+' '+size)}]))})),
  chapters:Object.fromEntries(Object.entries(LS.chapters).map(([cid,list])=>[cid,list.map(([id,place])=>({id,place,point:lsPlaces[place]}))]))};
+// BL-037.9: chapter icons — ONE config (chapter → entries), checked here. RELATED {icon, place, related:true}: a place of
+// the chapter, and the pair must be in "fits" (the icon really belongs there). LOOSE {icon, at:[lon,lat], where, related:false}:
+// real coordinates inside Italy, never a place, projected like the landmarks; at least 45 map units from a city goal here
+// (the exact 40 screen px, the shapes and the labels are measured in the browser: scripts/qa-v3-icons.mjs). 4–5 per chapter,
+// none for Landen and Zeeën.
+const chapterIcons=JSON.parse(read('assets/v3/landmarks/chapter-icons.json')),iconIds=new Set([...activeLandmarks,...lifestyle].map(a=>a.id));
+for(const [cid,list] of Object.entries(chapterIcons.chapters)){const places=CHAPTER_ITEMS[cid];if(!places)throw Error('chapter-icons: unknown chapter '+cid);
+ const none=cid==='countries'||cid==='seas';if(none?list.length:(list.length<4||list.length>5))throw Error('chapter-icons: '+cid+' has '+list.length+' icons');
+ const seen=new Set();
+ for(const e of list){const tag=cid+'/'+e.icon+'/'+(e.place||e.where);if(!iconIds.has(e.icon)||!(e.icon in chapterIcons.icons))throw Error('chapter-icons: unknown icon '+tag);
+  if(typeof e.related!=='boolean')throw Error('chapter-icons: '+tag+' misses related:true|false');
+  if(seen.has(e.icon+'|'+(e.place||e.at)))throw Error('chapter-icons: double entry '+tag);seen.add(e.icon+'|'+(e.place||e.at));
+  if(e.related){if(!e.place||e.at)throw Error('chapter-icons: related without a place, or with coordinates: '+tag);
+   if(!places.includes(e.place))throw Error('chapter-icons: '+e.place+' is not a place of '+cid);
+   if(!(chapterIcons.fits[e.icon]||[]).includes(e.place))throw Error('chapter-icons: '+e.icon+' does not belong to '+e.place+' (not in fits): '+tag);}
+  else{if(e.place||!Array.isArray(e.at)||e.at.length!==2||!e.at.every(Number.isFinite))throw Error('chapter-icons: loose icon needs at:[lon,lat] and no place: '+tag);
+   if(typeof e.where!=='string'||!e.where)throw Error('chapter-icons: loose icon needs where: '+tag);
+   if(e.at[0]<6.5||e.at[0]>18.6||e.at[1]<36.5||e.at[1]>47.1)throw Error('chapter-icons: loose point outside Italy: '+tag);
+   e.point=project(e.at);
+   for(const id of places){const i=canonicalItems.find(x=>x.id===id);if(!i||!id.startsWith('city'))continue;const q=Number.isFinite(i.lon)?project([i.lon,i.lat]):[i.px,i.py];
+    if(Math.hypot(q[0]-e.point[0],q[1]-e.point[1])<45)throw Error('chapter-icons: loose icon '+tag+' lies within 45 units of goal '+id);}}}}
+for(const id of Object.keys(CHAPTER_ITEMS))if(!(id in chapterIcons.chapters))throw Error('chapter-icons: chapter missing '+id);
+// BL-036.5/BL-037.7: Nino on the Vespa (side view, to the right) beside the active pin on the Reis overview and in the ride (120x80, 240x160 for 2x), embedded as data URIs so the offline file works.
+v3art.vespaRijdend=Object.fromEntries([120,240].map(n=>['x'+n,'data:image/webp;base64,'+readFileSync(new URL('assets/v3/render/exports/vespa-rijdend-v3-'+n+'.webp',root)).toString('base64')]));
+v3art.pizzaMini=Object.fromEntries([['slice','pizza-icon-slice-44'],['whole','pizza-icon-whole-44']].map(([k,f])=>[k,'data:image/webp;base64,'+readFileSync(new URL('assets/nino/rewards/pizza/exports/'+f+'.webp',root)).toString('base64')]));
+v3art.chapterIcons={icons:chapterIcons.icons,chapters:chapterIcons.chapters};
 v3art.landmarks={source:landmarks.source,basisSet:lmLocations.relevance.basisSet,items:activeLandmarks.map(a=>{
  const item=a.location.canonicalItemId&&canonicalItems.find(i=>i.id===a.location.canonicalItemId);
  const coordinates=item?[item.lon,item.lat]:a.location.coordinates;
@@ -121,7 +152,7 @@ const last=html.lastIndexOf('</body>');if(last<0||html.indexOf('<head>')<0)throw
 const CHARSET='<meta charset="utf-8">';if(!html.includes('<head>'+CHARSET))throw Error('index.html must start its head with '+CHARSET);
 let out=html.replace('<head>'+CHARSET,()=>'<head>'+CHARSET+head);
 const end=out.lastIndexOf('</body>');
-out=out.slice(0,end)+'<script>\n// BEGIN TOPO V3\n'+read('scripts/v3/iconen.js')+'\n'+read('scripts/v3/landmarks.js')+'\n'+read('scripts/v3/reis.js')+'\n'+read('scripts/v3/master-assets.js')+'\n'+read('scripts/v3/les.js')+'\n'+read('scripts/v3/shell.js')+'\n'+read('scripts/v3/schoolblad.js')+'\n'+read('scripts/v3/toets.js')+'\n'+read('scripts/v3/voortgang.js')+'\n'+read('scripts/v3/boek.js')+'\n'+read('scripts/v3/post.js')+'\n'+read('scripts/v3/kennismaking.js')+'\n'+read('scripts/v3/keuze.js')+'\nrequestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");});\n// END TOPO V3\n</script>\n'+out.slice(end);
+out=out.slice(0,end)+'<script>\n// BEGIN TOPO V3\n'+read('scripts/v3/iconen.js')+'\n'+read('scripts/v3/landmarks.js')+'\n'+read('scripts/v3/reis.js')+'\n'+read('scripts/v3/master-assets.js')+'\n'+read('scripts/v3/les.js')+'\n'+read('scripts/v3/shell.js')+'\n'+read('scripts/v3/schoolblad.js')+'\n'+read('scripts/v3/toets.js')+'\n'+read('scripts/v3/voortgang.js')+'\n'+read('scripts/v3/boek.js')+'\n'+read('scripts/v3/post.js')+'\n'+read('scripts/v3/kennismaking.js')+'\n'+read('scripts/v3/keuze.js')+'\n'+read('scripts/v3/uitleg.js')+'\n'+read('scripts/v3/rit.js')+'\nrequestAnimationFrame(()=>{document.documentElement.classList.replace("v3Boot","v3Ready");});\n// END TOPO V3\n</script>\n'+out.slice(end);
 if(!RELEASE)out=out.replace(/<title>([^<]*)<\/title>/,(m,t)=>'<title>V3-preview Reis · '+t+'</title>');
 // Assetdieet (docs/v3/ASSETDIEET.md): replace images in this output only, by the source bytes' sha256, from
 // assets/v3/dieet/manifest.json (made by scripts/v3-assets-export.py). index.html and the masters stay unchanged.

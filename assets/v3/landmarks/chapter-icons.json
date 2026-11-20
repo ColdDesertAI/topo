@@ -1,0 +1,87 @@
+{
+  "about": "BL-037.9 (Dennis 20-11): which icon stands where on the chapter page and in Oefenen (Ontdekken). Chapter id → list of entries. Two kinds only. RELATED {icon, place, related:true}: the icon really belongs to that goal (place = item id of the chapter; the pair must be listed in 'fits'); label on hover/focus: 'Colosseum, Rome'. LOOSE {icon, at:[lon,lat], where, related:false}: never tied to a goal; real coordinates of a logical place (where = its name, for the report); label = the icon's own name only; at least 40 screen px from every goal of the chapter (measured at runtime, scripts/qa-v3-icons.mjs). Icons are never drawn on or over a goal shape or line, and are hidden during Aanwijzen, Namen schrijven and Toets. 4–5 per chapter; none for Landen and Zeeën. The build checks every entry. Report: ops/reports/BL-037-iconen.md.",
+  "icons": {
+    "TOPO_01": "Colosseum", "TOPO_02": "Scheve toren", "TOPO_03": "Vesuvius", "TOPO_04": "Etna", "TOPO_05": "Gondel",
+    "TOPO_06": "Dom", "TOPO_07": "Dom", "TOPO_08": "Nuraghe", "TOPO_09": "Bergen", "TOPO_10": "Trulli",
+    "TOPO_11": "Ferrari", "TOPO_12": "Stadion", "TOPO_13": "IJsje", "TOPO_14": "Strand", "TOPO_15": "Pasta", "TOPO_16": "Fiat 500"
+  },
+  "fits": {
+    "TOPO_01": ["city-9"],
+    "TOPO_02": ["city-8", "area-h"],
+    "TOPO_03": ["city-6", "area-e"],
+    "TOPO_04": ["city-15", "area-f", "area-a"],
+    "TOPO_05": ["city-11"],
+    "TOPO_06": ["city-5"],
+    "TOPO_07": ["city-3", "area-h"],
+    "TOPO_08": ["area-b"],
+    "TOPO_09": ["city-22", "area-d", "area-c"],
+    "TOPO_10": ["city-1"]
+  },
+  "chapters": {
+    "city1": [
+      {"icon": "TOPO_10", "place": "city-1", "related": true},
+      {"icon": "TOPO_07", "place": "city-3", "related": true},
+      {"icon": "TOPO_06", "place": "city-5", "related": true},
+      {"icon": "TOPO_03", "place": "city-6", "related": true},
+      {"icon": "TOPO_16", "at": [7.6647, 45.0316], "where": "Turijn", "related": false}
+    ],
+    "city2": [
+      {"icon": "TOPO_02", "place": "city-8", "related": true},
+      {"icon": "TOPO_01", "place": "city-9", "related": true},
+      {"icon": "TOPO_05", "place": "city-11", "related": true},
+      {"icon": "TOPO_10", "at": [17.2386, 40.7855], "where": "Alberobello", "related": false},
+      {"icon": "TOPO_04", "at": [14.9934, 37.751], "where": "Etna, Sicilië", "related": false}
+    ],
+    "city3": [
+      {"icon": "TOPO_04", "place": "city-15", "related": true},
+      {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
+      {"icon": "TOPO_15", "at": [11.3426, 44.4949], "where": "Bologna", "related": false},
+      {"icon": "TOPO_10", "at": [17.2386, 40.7855], "where": "Alberobello", "related": false},
+      {"icon": "TOPO_16", "at": [7.6647, 45.0316], "where": "Turijn", "related": false}
+    ],
+    "city4": [
+      {"icon": "TOPO_09", "place": "city-22", "related": true},
+      {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
+      {"icon": "TOPO_16", "at": [7.6647, 45.0316], "where": "Turijn", "related": false},
+      {"icon": "TOPO_02", "at": [10.3966, 43.723], "where": "Pisa", "related": false},
+      {"icon": "TOPO_03", "at": [14.426, 40.821], "where": "Vesuvius, Napels", "related": false}
+    ],
+    "islands": [
+      {"icon": "TOPO_04", "place": "area-a", "related": true},
+      {"icon": "TOPO_08", "place": "area-b", "related": true},
+      {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
+      {"icon": "TOPO_15", "at": [11.3426, 44.4949], "where": "Bologna", "related": false},
+      {"icon": "TOPO_05", "at": [12.335, 45.4387], "where": "Venetië", "related": false}
+    ],
+    "mountains": [
+      {"icon": "TOPO_09", "place": "area-d", "related": true},
+      {"icon": "TOPO_09", "place": "area-c", "related": true},
+      {"icon": "TOPO_16", "at": [7.6647, 45.0316], "where": "Turijn", "related": false},
+      {"icon": "TOPO_13", "at": [13.3615, 38.1157], "where": "Palermo", "related": false},
+      {"icon": "TOPO_08", "at": [8.9929, 39.7062], "where": "Barumini, Sardinië", "related": false}
+    ],
+    "volcanoes": [
+      {"icon": "TOPO_03", "place": "area-e", "related": true},
+      {"icon": "TOPO_04", "place": "area-f", "related": true},
+      {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
+      {"icon": "TOPO_15", "at": [11.3426, 44.4949], "where": "Bologna", "related": false},
+      {"icon": "TOPO_05", "at": [12.335, 45.4387], "where": "Venetië", "related": false}
+    ],
+    "regions": [
+      {"icon": "TOPO_02", "place": "area-h", "related": true},
+      {"icon": "TOPO_07", "place": "area-h", "related": true},
+      {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
+      {"icon": "TOPO_10", "at": [17.2386, 40.7855], "where": "Alberobello", "related": false},
+      {"icon": "TOPO_03", "at": [14.426, 40.821], "where": "Vesuvius, Napels", "related": false}
+    ],
+    "rivers": [
+      {"icon": "TOPO_04", "at": [14.9934, 37.751], "where": "Etna, Sicilië", "related": false},
+      {"icon": "TOPO_03", "at": [14.426, 40.821], "where": "Vesuvius, Napels", "related": false},
+      {"icon": "TOPO_10", "at": [17.2386, 40.7855], "where": "Alberobello", "related": false},
+      {"icon": "TOPO_08", "at": [8.9929, 39.7062], "where": "Barumini, Sardinië", "related": false},
+      {"icon": "TOPO_13", "at": [13.3615, 38.1157], "where": "Palermo", "related": false}
+    ],
+    "countries": [],
+    "seas": []
+  }
+}

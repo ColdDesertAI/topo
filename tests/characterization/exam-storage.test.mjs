@@ -93,7 +93,7 @@ test('Wis voortgang clears progress/results but retains profile; full reset also
  assert.deepEqual(a.json('state.mistakes'),[]);assert.deepEqual(a.json('state.route.rewardTokens'),[]);assert.deepEqual(a.json('state.route.items'),{});
  assert.equal(a.w.localStorage.getItem('topo-nino-profile-v1'),profile);assert.equal(a.w.localStorage.getItem(KEY),null,'main reset policy clears related exam history');
  assert.equal(a.w.localStorage.getItem('topo-nino-intro-v1'),'done');
- a.expectReload();a.q('.ninoResetDanger').click();await a.flush();
+ a.expectReload();a.q('.ninoResetDanger').click();await a.flush();a.q('.ninoResetYes').click();await a.flush();
  assert.equal(a.w.localStorage.getItem(KEY),null);assert.equal(a.w.localStorage.getItem('topo-nino-profile-v1'),null);assert.equal(a.w.localStorage.getItem('topo-nino-intro-v1'),null);
  assert.equal(a.reloads(),1);
  const reload=await boot(t,{storage:{...a.storage(),'topo-nino-profile-v1':null,'topo-nino-intro-v1':null}});

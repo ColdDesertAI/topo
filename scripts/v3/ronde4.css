@@ -7,8 +7,8 @@ dialog.v3Welkom::backdrop{background:rgba(42,36,64,.22);-webkit-backdrop-filter:
 .v3Welkom .profileBubble{background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
 .v3Welkom .profileName input,.v3Welkom .profileChoice,.v3Welkom .profileActions [data-profile-cancel]{background:rgba(255,255,255,.55);box-shadow:inset 0 0 0 1px rgba(42,36,64,.12)}
 .v3Welkom .profileChoice:has(input:checked){background:var(--v3-accent-soft);box-shadow:inset 0 0 0 2px var(--v3-accent)}
-.v3Welkom :focus-visible,.v3Welkom .profileName input:focus{outline:3px solid var(--v3-accent);outline-offset:2px}
-.v3Welkom .profileChoice:has(:focus-visible){outline:3px solid var(--v3-accent);outline-offset:2px}
+.v3Welkom :focus-visible,.v3Welkom .profileName input:focus{outline:2px solid var(--v3-accent);outline-offset:2px}
+.v3Welkom .profileChoice:has(:focus-visible){outline:2px solid var(--v3-accent);outline-offset:2px}
 .v3Welkom .profileChoice :focus-visible{outline:0}
 /* Nino larger: ~210 px visible figure (the pose's figure is 96.6% of the image height). */
 .v3Welkom.ninoFirstRun .profileScene{min-height:0}
@@ -33,4 +33,4 @@ dialog.mapPicker.v3Keuze .pickerActions button{min-height:48px;padding:0 20px;bo
 dialog.mapPicker.v3Keuze .pickerActions button:hover{background:var(--v3-accent-soft);box-shadow:inset 0 0 0 1.5px var(--v3-accent)}
 dialog.mapPicker.v3Keuze .pickerCancel{align-self:center;min-height:48px;width:auto;padding:0 28px;border:0;border-radius:999px;background:rgba(255,255,255,.45);box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),0 2px 8px rgba(42,36,64,.08);color:var(--v3-accent);font:600 17px/22px var(--v3-font)}
 dialog.mapPicker.v3Keuze .pickerCancel:hover{background:rgba(255,255,255,.7)}
-dialog.mapPicker.v3Keuze :focus-visible,dialog.mapPicker.v3Keuze .pickerCancel:focus{outline:3px solid var(--v3-accent);outline-offset:2px}
+dialog.mapPicker.v3Keuze :focus-visible,dialog.mapPicker.v3Keuze .pickerCancel:focus{outline:2px solid var(--v3-accent);outline-offset:2px}

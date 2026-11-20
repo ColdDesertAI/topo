@@ -4,6 +4,10 @@
 
 **V3-werk:** lees eerst `docs/v3/SPEC.md` (één pagina, de huidige waarheid) en `docs/v3/OVERDRACHT.md`. Lees `index.html` en `docs/DECISIONS.md` nooit volledig; zoek er gericht in.
 
+**Verificatie in drie lagen (vaste regel, besluit Dennis 20-11):** per wijziging alleen lint op de gewijzigde bestanden + de gerichte test (`node --test <bestand>`); per bundel van 3–4 punten één keer `npm test`, `qa-v3-menu1.mjs --smoke`, `build:site`, één push en één live-check; per BL-item één keer de volledige QA-matrix (Chromium + WebKit) en de evaluator. Bij FAIL alleen de gefaalde checks opnieuw. Bouwen met Sonnet, toetsen met Opus. Details: `ops/OPERATING_MODEL.md` §3b. Dit gaat voor punt 6 hieronder.
+
+**Vercel:** Vercel deployt alleen `main`; previews alleen op verzoek van Dennis (handmatig).
+
 # Instructions for coding agents
 
 1. Read `docs/PROJECT_STATE.md` first; read `docs/MAP_SYSTEM.md` before map or geography changes and `docs/DECISIONS.md` before product decisions.
