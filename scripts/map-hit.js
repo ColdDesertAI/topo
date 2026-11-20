@@ -195,12 +195,20 @@ const approvedLearnSketch=lens.querySelector('.lensSketch');
 approvedLearnSketch.replaceChildren(mapPickerApprovedRomeArtwork(new Map([['city-9',1],['area-o',2]])));
 approvedLearnSketch.classList.add('approvedRomeSketch');
 if(window.ResizeObserver)new ResizeObserver(entries=>{for(const entry of entries)if(entry.contentRect.width>0)mapPickerFitApprovedNumbers(entry.target,entry.contentRect.width)}).observe(approvedLearnSketch.querySelector('svg'));
+// Way out without an answer: x button, Escape (already in the core), tap outside. None of these grades or advances.
+const lensClose=document.createElement('button');lensClose.type='button';lensClose.className='lensClose';lensClose.setAttribute('aria-label','Sluiten, terug naar de kaart');lensClose.textContent='\u00d7';
+lensClose.addEventListener('click',e=>{e.stopPropagation();romeHit.focus({preventScroll:true});hideLens()});lens.append(lensClose);
+document.addEventListener('pointerdown',e=>{if(!lens.classList.contains('hidden')&&!lens.contains(e.target)&&e.target!==romeHit)hideLens()},true);
 for(const button of lens.querySelectorAll('[data-choice]'))button.textContent=(button.dataset.choice==='city-9'?'1 · ':'2 · ')+button.textContent;
 const pickerStyle=document.createElement('style');pickerStyle.textContent=`
+.pickerClose,.lensClose{position:absolute;top:6px;right:6px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;border:0;border-radius:999px;background:transparent;color:inherit;font:400 28px/1 system-ui,sans-serif;cursor:pointer}.pickerClose:hover,.lensClose:hover{background:#0000000f}.romeLens{padding-right:48px}
 .lensSketch.approvedRomeSketch{height:auto;background:#f0d4a0}.lensSketch.approvedRomeSketch::before,.lensSketch.approvedRomeSketch::after{content:none}.approvedRomeSketch>svg{display:block;width:100%;height:auto}
 .mapPicker{box-sizing:border-box;width:min(620px,96vw);max-height:96dvh;padding:12px;overflow:hidden}.mapPicker[open]{display:flex;flex-direction:column;gap:8px}.mapPicker>h2{font-size:20px;line-height:1.15;margin:0}.mapPicker>p{font-size:14px;line-height:1.25;margin:0}.mapPicker .pickerViewport{flex:none;min-height:0;overflow:hidden;display:grid;gap:6px;justify-items:center}.mapPicker .pickerMap{display:block;flex:none;max-height:none;margin:0;border:1px solid #9eafa2;border-radius:8px;background:#d7eaf0;box-sizing:border-box}.mapPicker .pickerMap .pickerLocator{border-radius:0}.mapPicker figure{margin:0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px}.mapPicker figcaption{font-weight:750;font-size:13px}.mapPicker .pickerActions{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:6px;flex:none;margin:0}.mapPicker .pickerActions button,.mapPicker .pickerCancel{min-height:44px;min-width:44px;padding:6px;font-size:15px;margin:0}.mapPicker .pickerCancel{width:100%;flex:none}.mapPicker .pickerNote{font-size:12px;line-height:1.25;margin:0;color:#365b52;flex:none}.mapPicker button:focus-visible{outline:3px solid #087887;outline-offset:2px}
 `;document.head.append(pickerStyle);
 let mapPickerReturnFocus=null,mapPickerMaskSerial=0;
+// Cancelling (x, Escape, tap on the backdrop) only closes the dialog: chooseMapPlace is never called, so no answer, mistake or point.
+pick.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();pick.close()}});
+pick.addEventListener('click',e=>{if(e.target!==pick)return;const r=pick.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)pick.close()});
 pick.addEventListener('close',()=>{const n=mapPickerReturnFocus;mapPickerReturnFocus=null;if(n?.isConnected&&n!==document.body)n.focus({preventScroll:true});else{$('#map').setAttribute('tabindex','-1');$('#map').focus({preventScroll:true})}});
 function openMapPicker(hits){
  const candidates=neutralMapOrder(hits),classes=new Set(candidates.map(mapFeatureClass));
@@ -215,7 +223,8 @@ function openMapPicker(hits){
  pick.append(note);
  const choices=document.createElement('div');choices.className='pickerActions';
  candidates.forEach((i,n)=>{const button=routeButton(noun+' '+(n+1),()=>chooseMapPlace(i));button.dataset.mapChoice=i.id;choices.append(button)});
- const cancel=routeButton('Terug naar de kaart',()=>pick.close(),'button pickerCancel');cancel.autofocus=true;pick.append(choices,cancel);pick.showModal();cancel.focus({preventScroll:true});
+ const cancel=routeButton('Terug naar de kaart',()=>pick.close(),'button pickerCancel');cancel.autofocus=true;pick.append(choices,cancel);
+ const x=document.createElement('button');x.type='button';x.className='pickerClose';x.setAttribute('aria-label','Sluiten, terug naar de kaart');x.textContent='\u00d7';x.addEventListener('click',()=>pick.close());pick.append(x);pick.showModal();cancel.focus({preventScroll:true});
  const render=()=>{
   content.replaceChildren();
   // Measure the non-map chrome first; fit ALL maps and controls on first opening.
