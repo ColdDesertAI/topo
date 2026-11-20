@@ -22,6 +22,16 @@
    const status=find==='Goed onthouden'&&name==='Goed onthouden'?'beheerst':find!=='Nog oefenen'||name!=='Nog oefenen'?'bezig':'nog';
    return {item,find,name,status};});
  }
+ // BL-037.6: Vinden/Naam per place as an icon (V2 texts: Nog oefenen, Herhalen = pizza slice, still to practise;
+ // Opfrissen, Op weg, Goed onthouden = whole pizza, on the way or done); the text stays as aria-label and title.
+ const PRACTISE=new Set(['Nog oefenen','Herhalen']);
+ const pizzaCell=text=>{const td=make('td','v3PasIcon'),a=V.art?.pizzaMini,src=a&&(PRACTISE.has(text)?a.slice:a.whole);
+  if(!src){td.textContent=text;return td;}
+  const i=V.pic(src,'v3PasPizza',22,22);i.setAttribute('role','img');i.alt=text;i.setAttribute('aria-label',text);i.title=text;td.append(i);return td;};
+ const pizzaLegend=()=>{const cap=make('caption','v3PasLegend'),a=V.art?.pizzaMini;cap.title='Pizzapunt = nog oefenen · hele pizza = op weg of klaar';
+  const ic=(src)=>{const i=V.pic(src,'v3PasPizza',22,22);i.setAttribute('aria-hidden','true');return i;};
+  if(!a){cap.textContent='Pizzapunt =\u00a0nog oefenen · hele pizza = op weg of klaar';return cap;}
+  cap.append(ic(a.slice),document.createTextNode('\u00a0oefenen · '),ic(a.whole),document.createTextNode('\u00a0op weg of klaar'));return cap;};
  const bar=(value,max,cls)=>{const b=make('div','v3Bar '+(cls||''));b.setAttribute('role','progressbar');b.setAttribute('aria-valuemin','0');b.setAttribute('aria-valuemax',String(max));b.setAttribute('aria-valuenow',String(value));const f=make('i');f.style.width=(max?value/max*100:0)+'%';b.append(f);return b;};
  const section=(title,id,...content)=>{const s=make('section','v3Field v3Card');const h=make('h2',null,title);h.id=id;s.setAttribute('aria-labelledby',id);s.append(h,...content);return s;};
  const fmt=at=>new Date(at).toLocaleDateString('nl-NL',{day:'numeric',month:'short'});
@@ -77,8 +87,8 @@
   // (Vinden, Naam). The list grows with the page: no inner scrollbar.
   const passTable=c=>{const places=pp.filter(p=>c.itemIds.includes(p.item.id));const t=make('table','v3PasBody');
    const hr=make('tr');hr.append(make('th',null,'Plek'),make('th',null,'Vinden'),make('th',null,'Naam'));const thead=make('thead');thead.append(hr);
-   const tb=make('tbody');for(const p of places){const tr=make('tr');tr.dataset.status=p.status;const th=make('th',null,p.item.name);th.scope='row';tr.append(th,make('td',null,p.find),make('td',null,p.name));tb.append(tr);}
-   t.append(thead,tb);return {t,done:places.filter(p=>p.status==='beheerst').length,n:places.length};};
+   const tb=make('tbody');for(const p of places){const tr=make('tr');tr.dataset.status=p.status;const th=make('th',null,p.item.name);th.scope='row';tr.append(th,pizzaCell(p.find),pizzaCell(p.name));tb.append(tr);}
+   t.append(pizzaLegend(),thead,tb);return {t,done:places.filter(p=>p.status==='beheerst').length,n:places.length};};
   if(sameRows){list.className='v3Rows v3VgRows v3VgPas';V.chapterRows(list,()=>{});
    for(const li of list.children){const b=li.querySelector('.v3Row'),c=ROUTE_CHAPTERS.find(x=>x.id===b?.dataset.chapter);if(!c)continue;
     const {t,done,n}=passTable(c),id='v3Pas-'+c.id;t.id=id;t.hidden=true;
@@ -124,8 +134,8 @@
     head.append(make('span','v3PasName',c.title.replace(/^Extra steden/,'Steden')),make('span','v3PasCount',done+' van '+places.length+' beheerst'),chev);
     const body=make('table','v3PasBody');body.id=id;body.hidden=true;
     const hr=make('tr');hr.append(make('th',null,'Plek'),make('th',null,'Vinden'),make('th',null,'Naam'));const thead=make('thead');thead.append(hr);
-    const tb=make('tbody');for(const p of places){const tr=make('tr');tr.dataset.status=p.status;const th=make('th',null,p.item.name);th.scope='row';tr.append(th,make('td',null,p.find),make('td',null,p.name));tb.append(tr);}
-    body.append(thead,tb);
+    const tb=make('tbody');for(const p of places){const tr=make('tr');tr.dataset.status=p.status;const th=make('th',null,p.item.name);th.scope='row';tr.append(th,pizzaCell(p.find),pizzaCell(p.name));tb.append(tr);}
+    body.append(pizzaLegend(),thead,tb);
     head.addEventListener('click',()=>{const open=head.getAttribute('aria-expanded')!=='true';head.setAttribute('aria-expanded',String(open));body.hidden=!open;});
     const item=make('div','v3PasItem');item.append(head,body);acc.append(item);}
    if(k){mastery&&(mastery.hidden=true);pass.prepend(acc);}
