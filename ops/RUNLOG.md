@@ -47,3 +47,4 @@ Formaat:
 2026-11-19 | dennis+claude/opus | release | G4 | live | hoog | PR #101 squash naar main (718658f), SITE_ITALIE=v3 productie + redeploy; tag v3.0.0 door Dennis (proxy weigert tag-push)
 2026-11-19 | claude/opus | livefix | BL-035 | live, wacht op evaluator | hoog | 8 blokken direct op main (a654507..75a7a85), per push lint+test+qa-v3-menu1+build:site groen, live gecontroleerd Chromium+WebKit; maskers werkten al (vermoedelijk macOS 'Verminder transparantie' bij Dennis)
 2026-11-20 | claude/opus | eval | BL-035 | PASS | hoog | evaluator r1 FAIL (Etna bij Messina; Voortgang-kaart groeide mee), fix b4770e8, r2 PASS; live gecontroleerd Chromium+WebKit
+2026-11-20 | claude/opus + builder/sonnet | taak | BL-036 | PASS | hoog | 11 punten in 3 bundels (verificatie in drie lagen), laadtijd live 23 s → 2,3 s koud / 0,8 s warm; evaluator r1 FAIL (7, 8) → fix 4deb5ab → r2 PASS; BL-038 iPad-portret aangemaakt
