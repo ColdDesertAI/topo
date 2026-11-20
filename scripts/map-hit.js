@@ -215,6 +215,7 @@ function openMapPicker(hits){
  const pointOnly=classes.size===1&&classes.has('point');
  const noun=pointOnly?'Stip':classes.size===1&&classes.has('river')?'Rivier':classes.size===1?'Gebied':'Plek';
  mapPickerReturnFocus=document.activeElement;
+ hideLens();// BL-036.2: the Rome lens and this picker never stand over each other
  pick.replaceChildren();const title=document.createElement('h2');title.id='mapPickerTitle';title.textContent=pointOnly?'Welke plek bedoel je?':noun==='Rivier'?'Welke rivier bedoel je?':noun==='Gebied'?'Welk gebied bedoel je?':'Welke plek bedoel je?';pick.append(title);
  const hint=document.createElement('p');hint.textContent=pointOnly?'Volg de lijn van het nummer naar de plek.':'Vergelijk de omlijnde vormen op dezelfde schaal.';pick.append(hint);
  const content=document.createElement('div');content.className='pickerViewport';pick.append(content);

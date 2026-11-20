@@ -56,4 +56,11 @@ for(const[label,setup]of[['Ontdekken',a=>a.ev(`mode('learn')`)],['Leerroute-ontd
   }finally{}});
 }
 
+// BL-036.2 rest: picker open => Rome lens closed (never over each other).
+test('Romelens sluit zodra het keuzevenster opengaat',()=>{
+ const a=boot1();try{a.ev(`mode('learn')`);a.ev(`romeHit.dispatchEvent(new MouseEvent('click',{bubbles:true}))`);const l=a.d.querySelector('#romeLens');assert(!l.classList.contains('hidden'));
+  a.ev(`openMapPicker([byId['city-9'],byId['area-o']])`);assert(a.d.querySelector('#mapPicker').open);assert(l.classList.contains('hidden'),'lens dicht');assert.equal(a.ev(`romeHit.getAttribute('aria-expanded')`),'false');
+  a.d.querySelector('#mapPicker .pickerClose').click();assert(l.classList.contains('hidden'));assert.deepEqual(a.errors,[]);
+ }finally{}});
+
 test.after(()=>shared&&shared.close());
