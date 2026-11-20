@@ -27,7 +27,8 @@
  // as shown, so it does not play again later on Reis.
  celebrateTrip=function(){if(el||shown>=trips())return;if(overview()&&!busy()){tick(true);return;}show();};
 
- const wide=()=>!!window.matchMedia?.('(min-width:1024px)').matches;
+ // BL-038: the map with chapter pins also exists in iPad portrait (700–1023 px), as in reis.js WIDE.
+ const wide=()=>!!window.matchMedia?.('(min-width:1024px), (orientation:portrait) and (min-width:700px) and (max-width:1023px)').matches;
  const overview=()=>body.classList.contains('v3Home')&&document.querySelector('.v3Reis[data-view=reis]')?.checkVisibility?.()!==false;
  function markers(){return [...document.querySelectorAll('.v3Map .v3Markers .v3Marker')].filter(n=>n.getClientRects().length);}
  function busy(){
