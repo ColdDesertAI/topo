@@ -16,7 +16,7 @@ function boot({trips=0,reduced=false,wide=true,onReis=true,previewDemo=false}={}
  w.eval(`var state={trips:${trips}};var celebrateTrip=function(){window.__v2=(window.__v2||0)+1};var clearRewardCelebrations=function(){};var pizzaCelebrations={busy:false};
   var NINO_V2_ART={venezia:{src:'data:,v',width:10,height:10},napoli:{src:'data:,n',width:10,height:10}};
   window.TOPO_V3_ART={ninoScooter:{x48:'data:,s48',x64:'data:,s64'}};window.TOPO_V3={book:{openPage(o,l){window.__page=l}},post:{cards:[['venezia','Venetië, je derde Vespa-rit'],['napoli','Napels, je zesde Vespa-rit']]}};
-  window.TopoBook={open(o,t){window.__book=t}};${previewDemo?"window.TOPO_V3_PREVIEW={state:'rit'};":''}`);
+  window.TopoBook={open(o,t){window.__book=t}};${previewDemo?"window.TOPO_V3_RIT_DEMO=1;":''}`);
  w.eval(src);
  return{w,d:w.document,set:n=>w.eval(`state.trips=${n}`),tick:()=>w.TOPO_V3.rit.tick(true),all:()=>w.document.querySelectorAll('.v3Rit'),esc:()=>w.document.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true})),log};
 }
