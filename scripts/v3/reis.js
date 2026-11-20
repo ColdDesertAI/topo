@@ -26,7 +26,7 @@
  // Reis map (fase B; chosen in the afwerking 10-11): "eiland" = Italy floating as land, neighbours as soft silhouettes,
  // the sea transparent on the wash. Variant (b), the map in a glass card, is gone.
  ui.kaart='eiland';
- const BGKEY='topo-v3-background-v1',BACKDROPS={city1:'bg01',city2:'bg03',city3:'bg01',city4:'bg03',islands:'bg03',mountains:'bg02',volcanoes:'bg03',regions:'bg01',countries:'bg02',seas:'bg03',rivers:'bg02'};
+ const BGKEY='topo-v3-background-v1',BACKDROPS={city1:'bg01',city2:'bg03',city3:'bg01',city4:'bg03',islands:'bg04',mountains:'bg02',volcanoes:'bg03',regions:'bg01',countries:'bg02',seas:'bg03',rivers:'bg02'};
  try{ui.background=localStorage.getItem(BGKEY);}catch{}
  const background=()=>{const chapter=$('#journeyScreen')?.classList.contains('hidden')?state.route?.active?.chapterId:ui.selected;
   const key=ui.background==='auto'?(BACKDROPS[chapter]||'bg03'):ui.background||window.TOPO_V3_BG||'bg03';
