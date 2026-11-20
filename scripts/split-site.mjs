@@ -84,6 +84,8 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
     + '#v3Loader.go img{transform:translateX(100vw)}'
     + '@media(prefers-reduced-motion:reduce){#v3Loader img{display:none}}'
     + 'html.v3Shown #v3Loader{opacity:0;pointer-events:none}'
+    // BL-039.3: the loader only appears when the app is not ready after 0.3 s (cold cache); until then (v3Pre) the page is invisible on the lavender background, so a warm visit never flashes a loader or a half-loaded app.
+    + 'html.v3Pre body>*{visibility:hidden!important}'
     // While booting, the V2 surfaces that V3 hides anyway (reis.css: the V2 header, everything in #routeHome but the
     // V3 root, the pizza meters, the Vespa toast) are display:none from the first layout, so their pictures are never
     // fetched. V3's own root is not touched; after boot V3's own rules take over.
@@ -103,16 +105,19 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
   const list = [...first].map(u => [u, sizeOf(u)]);
   const loaderJs = String.raw`<script>(()=>{
 const h=document.documentElement,L=document.getElementById("v3Loader"),t0=performance.now(),F=__LIST__;
-const MIN=1200,MAX=6000,RIDE=400,files=[];let ready=false,over=false,shownP=0,go=false;
+const MIN=1200,MAX=6000,RIDE=400,SHOW=300,files=[];let ready=false,over=false,shownP=0,go=false,seen=0,painted=false,want=false;h.classList.add("v3Pre");
 const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
-const finish=()=>{if(h.classList.contains("v3Shown"))return;h.classList.add("v3Shown");setTimeout(()=>document.getElementById("v3Loader")?.remove(),400);};
+const finish=()=>{if(h.classList.contains("v3Shown"))return;if(!seen&&L)L.style.display="none";h.classList.add("v3Shown");h.classList.remove("v3Pre");setTimeout(()=>document.getElementById("v3Loader")?.remove(),400);};
+// BL-039.3: show the loader only when the app is not done after SHOW ms; the minimum of 1.2 s counts from that moment.
+setTimeout(()=>{if(go||h.classList.contains("v3Shown"))return;seen=performance.now();h.classList.remove("v3Pre");requestAnimationFrame(()=>requestAnimationFrame(()=>{seen=performance.now();painted=true;if(want)run();}));},SHOW); // the 1.2 s starts at the first painted frame (a busy main thread can delay it)
 // Evaluator BL-037: setting --p on every data chunk restarted a CSS transition that never ran (the bar stood still,
 // then jumped). Now the target moves with the data and the drawn value follows it once per frame (no CSS transition).
 let target=0,drawn=0,raf=0;const tick=()=>{raf=0;drawn+=Math.max(.004,(target-drawn)*.18);if(drawn>target)drawn=target;L&&L.style.setProperty("--p",drawn.toFixed(4));if(drawn<target)raf=requestAnimationFrame(tick);};
 const paint=p=>{shownP=Math.max(shownP,p);target=shownP;if(reduce){drawn=target;L&&L.style.setProperty("--p",drawn.toFixed(4));return;}if(!raf)raf=requestAnimationFrame(tick);};
 const real=()=>{let a=0,b=0;for(const f of files){a+=f.l;b+=f.w;}return b?a/b:1;};
 const up=()=>{if(!over)paint(ready?real():Math.min(real(),.95));};
-const leave=()=>{if(go)return;go=true;over=true;paint(1);const wait=Math.max(150,MIN-RIDE-(performance.now()-t0)); // the ride-out ends at 1.2 s (BL-035.9: warm stays fast)
+const leave=()=>{if(go)return;go=true;over=true;if(!seen){finish();return;}if(!painted){want=true;return;}run();};
+const run=()=>{paint(1);const wait=Math.max(150,MIN-RIDE-(performance.now()-seen)); // the ride-out ends at 1.2 s (BL-035.9: warm stays fast)
  setTimeout(()=>{if(raf){cancelAnimationFrame(raf);raf=0;}drawn=target=1;L&&L.style.setProperty("--p","1"); // evaluator BL-037 r2: the bar is full before the ride-out, also when few frames are drawn (slow CPU, WebKit)
  if(reduce||!L){requestAnimationFrame(()=>finish());return;}requestAnimationFrame(()=>requestAnimationFrame(()=>L.classList.add("go")));let n=0;const end=()=>{if(n++)return;finish();};L.querySelector("img").addEventListener("transitionend",e=>{if(e.propertyName==="transform")end();});setTimeout(end,RIDE+200);},wait);};
 const check=()=>{if(ready&&real()>=1)leave();};
