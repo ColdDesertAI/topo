@@ -33,7 +33,9 @@ const probe=(sel)=>{
 };
 export function judge(where,r,fail,expect){
  if(r.error){fail(where,r.error);return null;}
- if(r.dropped)fail(where,'icoon weggelaten (geen vrije plek): '+r.dropped);
+ // A dropped icon fails on the chapter page (4–5 icons per chapter, contract BL-037/039). In Oefenen (a smaller map in
+ // iPad portrait) dropping is the rule's own fallback — never on or near a target — so it is reported, not failed.
+ if(r.dropped){if(/oefenen/.test(where))console.log('  info '+where+': icoon weggelaten (geen vrije plek): '+r.dropped);else fail(where,'icoon weggelaten (geen vrije plek): '+r.dropped);}
  if(expect!=null&&r.icons.length!==expect)fail(where,r.icons.length+' iconen, verwacht '+expect);
  for(const i of r.icons){const t=`${where} ${i.name}@${i.place}`;
   if(i.over)fail(t,'(2) icoon op doelvorm/-lijn '+i.over);
