@@ -5,16 +5,32 @@
 //     files are cached as immutable (vercel.json). Images then load only when a screen uses them.
 //  2. Three code spots that only accepted data: URIs, or warmed all book art at idle, are adjusted for the web copy;
 //     each must be found exactly once, or the build fails.
-//  3. A light loading state (TOPO + a lavender bar) instead of a white screen until the app is ready (html.v3Ready).
+//  3. (BL-036.9) The embedded favicon links are replaced by exactly the portal's icon set, manifest and theme-color
+//     (absolute paths, so /italie/ and /italie/v2/ both use the files in the site root).
+//  4. A light loading state (TOPO + a lavender bar) instead of a white screen until the app is ready (html.v3Ready).
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const EXT = { 'image/webp': 'webp', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/svg+xml': 'svg', 'font/woff2': 'woff2', 'font/woff': 'woff' };
 
+// The portal's head set (portal/index.html, paths made absolute): same icons, manifest and theme-color on /italie/.
+const ICONS = '/assets/nino-topo/v3-r3/brand/icons/';
+export const FAVICON_HEAD = '<meta name="theme-color" content="#FAFAF9">'
+  + `<link rel="icon" href="${ICONS}favicon.ico" sizes="any">`
+  + `<link rel="icon" type="image/png" sizes="32x32" href="${ICONS}favicon-32.png">`
+  + `<link rel="icon" type="image/png" sizes="16x16" href="${ICONS}favicon-16.png">`
+  + `<link rel="icon" type="image/png" sizes="48x48" href="${ICONS}favicon-48.png">`
+  + `<link rel="apple-touch-icon" href="${ICONS}apple-touch-icon-180.png">`
+  + '<link rel="manifest" href="/site.webmanifest">';
+
 export function splitSite(dir, { maxHtml = 2e6 } = {}) {
   const file = join(dir, 'index.html');
   let html = readFileSync(file, 'utf8');
+  // BL-036.9: drop the embedded favicon links (before the data: URIs are split off) and use the portal's set.
+  const embedded = html.match(/<link rel="(?:icon|apple-touch-icon|shortcut icon)"[^>]*>/g) || [];
+  if (!embedded.length) throw new Error('split-site: geen ingebedde favicon-links gevonden');
+  html = html.replace(/<link rel="(?:icon|apple-touch-icon|shortcut icon)"[^>]*>/g, '');
   const out = join(dir, 'assets');
   mkdirSync(out, { recursive: true });
   const written = new Map();
@@ -60,6 +76,7 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
     // fetched. V3's own root is not touched; after boot V3's own rules take over.
     + 'html.v3Boot body>header,html.v3Boot #routeHome>:not(.v3Reis),html.v3Boot #ninoMeter,html.v3Boot #vespaTripToast,html.v3Boot #lessonReward{display:none!important}</style>';
   patch('<head><meta charset="utf-8">', '<head><meta charset="utf-8">' + css, 'head', true);
+  patch('<head><meta charset="utf-8">', '<head><meta charset="utf-8">' + FAVICON_HEAD, 'favicon-set', true);
   patch('<body>\n', '<body>\n<div id="v3Loader" role="status" aria-label="TOPO laadt"><span aria-hidden="true">TOPO</span><i aria-hidden="true"></i></div>\n', 'body', true);
   // The loader stays until the first screen's pictures are in (background, relief layers, Nino), at most 3 s, so the
   // screen does not appear half-painted; then it fades and leaves the tree (screen readers, focus).

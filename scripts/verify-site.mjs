@@ -19,6 +19,16 @@ must('favicon.ico'); must('italie/index.html'); must('italie/print.html'); must(
 assert(/<title>[^<]*Italië/.test(readFileSync(join(dist, 'italie/index.html'), 'utf8')), 'dist/italie/index.html is niet de Italië-app');
 const italieHtml = readFileSync(join(dist, 'italie/index.html'), 'utf8');
 assert(!italieHtml.includes('TOPO_V3_PREVIEW') && !italieHtml.includes('niets wordt bewaard'), 'Demo-build op /italie/: voortgang zou niet bewaard worden');
+// BL-036.9: /italie/ uses exactly the portal's favicon set, manifest and theme-color.
+const head = h => h.slice(0, h.indexOf('</head>'));
+const iconTags = h => [...head(h).matchAll(/<link rel="(?:icon|apple-touch-icon|manifest)"[^>]*>/g)].map(m => m[0]).sort();
+const portalIcons = iconTags(html).map(t => t.replace(/href="\.\//, 'href="/')), italieIcons = iconTags(italieHtml);
+assert.deepEqual(italieIcons, portalIcons, '/italie/ heeft niet dezelfde favicon-set als het portal');
+assert(portalIcons.some(t => t.includes('favicon-48.png')) && portalIcons.some(t => t.includes('apple-touch-icon-180.png')) && portalIcons.some(t => t.includes('/site.webmanifest')), 'Favicon-set incompleet');
+const theme = h => head(h).match(/<meta name="theme-color" content="([^"]+)"/)?.[1];
+assert(theme(italieHtml) && theme(italieHtml) === theme(html), '/italie/ theme-color wijkt af van het portal');
+for (const t of italieIcons) must(t.match(/href="\/([^"]+)"/)[1]);
+for (const f of ['favicon-16', 'favicon-32', 'favicon-48', 'apple-touch-icon-180', 'app-icon-192', 'app-icon-512']) must(`assets/nino-topo/v3-r3/brand/icons/${f}.png`);
 if (italieHtml.includes('BEGIN TOPO V3')) must('italie/v2/index.html');
 assert(html.includes('favicon-32.png') && html.includes('nino-welcome-r3.webp') && html.includes('logo-01-primary-r3-1.svg'), 'R3-merkassets niet aangesloten');
 assert(html.includes('prefers-reduced-motion'), 'Reduced-motion ontbreekt');
