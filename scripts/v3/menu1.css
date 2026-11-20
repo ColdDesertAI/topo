@@ -846,3 +846,8 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"][data-view=voortgang] .v3VgSide .v3VgPas .v3Row{height:auto;min-height:44px}
  .v3Reis[data-menu="1"][data-view=voortgang] .v3VgSide .v3VgPas .v3Row .v3End{display:flex;align-items:center;gap:10px;width:auto;height:auto}
 }
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* Toets result: the label sits clear above the score (it touched it by 7 px). */
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsLabel{display:block;margin:0 0 10px;line-height:16px}
+ .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsScore{margin:0;line-height:1.05}
+}
