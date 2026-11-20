@@ -206,6 +206,14 @@ for(const [W,H] of SIZES)for(const bg of BGS){
  if(errors.length)fail(`${W}×${H} ${bg}`,'page errors: '+errors.join(' | '));
  await p.close();
 }
+// BL-038: on the Reis overview no two pin heads closer than 30 px, in every demo state (#bezig, #afgerond, #alles) at every size
+// (Pin 2 and 9 used to lie on one spot in #afgerond/#alles: Vaticaanstad lies in Rome).
+for(const [W,H] of SIZES)for(const st of ['bezig','afgerond','alles']){
+ const p=await b.newPage({viewport:{width:W,height:H}});await p.goto(HTML+'#'+st+'/'+BGS[0]);await p.waitForTimeout(1300);
+ const m=await p.evaluate(()=>{const a=[...document.querySelectorAll('.v3Markers .v3Marker')].filter(e=>e.getClientRects().length).map(e=>{const t=e.querySelector('text').getBoundingClientRect();return {c:e.dataset.chapter,x:t.x+t.width/2,y:t.y+t.height/2};});
+  const close=[];for(let i=0;i<a.length;i++)for(let j=i+1;j<a.length;j++){const d=Math.hypot(a[i].x-a[j].x,a[i].y-a[j].y);if(d<30)close.push(a[i].c+'~'+a[j].c+' '+Math.round(d)+' px');}return {n:a.length,close};});
+ if(m.n&&m.close.length)fail(`${W}×${H} #${st} overzicht`,'pinkoppen te dicht: '+m.close.join('; '));
+ await p.close();}
 for(const [wc,set] of Object.entries(nino))if(set.size!==1)fail('nino '+wc,'meerdere maten: '+[...set].join(', '));
 // BL-034 bug scenario: a lesson in progress in another chapter than the next one (a replay of chapter 1 while chapter 2
 // is next) -> the filled marker is the chapter of the lesson in progress, exactly one marker is filled.

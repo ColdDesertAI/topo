@@ -235,9 +235,12 @@
     if(n.tagName==='circle'){x=+n.getAttribute('cx');y=+n.getAttribute('cy');}else{const b=n.getBBox();x=b.x+b.width/2;y=b.y+b.height/2;}
     if(isFinite(x)&&isFinite(y)&&x>=i0&&x<=i1&&y>=j0&&y<=j1)pts.push([x,y]);}
    if(!pts.length)continue;
-   const inside=pts.filter(onLand);if(inside.length)pts=inside;
+   const all=pts.slice(),inside=pts.filter(onLand);if(inside.length)pts=inside;
    const mx=pts.reduce((a,p)=>a+p[0],0)/pts.length,my=pts.reduce((a,p)=>a+p[1],0)/pts.length;
    anchors[c.id]=pts.sort((a,b)=>Math.hypot(a[0]-mx,a[1]-my)-Math.hypot(b[0]-mx,b[1]-my));
+   // BL-038: every place of the chapter inside Italy's frame (also off the land, e.g. a neighbouring country), the last resort
+   // when the land places all lie too close to another pin.
+   anchors[c.id].all=all.sort((a,b)=>Math.hypot(a[0]-mx,a[1]-my)-Math.hypot(b[0]-mx,b[1]-my));
   }
   return anchors;
  }
@@ -255,7 +258,12 @@
   const clear=p=>{const h=head(p);let d=Infinity;for(const q of placed)d=Math.min(d,Math.hypot(h[0]-q[0],h[1]-q[1])-gap);
    for(const o of obst){const cx=Math.max(o[0],Math.min(h[0],o[2])),cy=Math.max(o[1],Math.min(h[1],o[3]));d=Math.min(d,Math.hypot(h[0]-cx,h[1]-cy)-R);}return d;};
   const order=[...ROUTE_CHAPTERS].sort((a,b)=>(b.id===cur?.id)-(a.id===cur?.id)),pos={};
-  for(const c of order){const ps=cand[c.id];if(!ps)continue;const ok=ps.find(p=>clear(p)>=0);const best=ok||ps.reduce((a,p)=>clear(p)>clear(a)?p:a);pos[c.id]=best;placed.push(head(best));}
+  // BL-038: when no candidate is wholly clear, two pin heads still never come closer than 30 px (Vaticaanstad lies in Rome: the
+  // countries chapter used to take the very spot of chapter 2 in #afgerond/#alles); only then the free text block may be touched.
+  const pinGap=p=>{const h=head(p);let d=Infinity;for(const q of placed)d=Math.min(d,Math.hypot(h[0]-q[0],h[1]-q[1])-30*k);return d;};
+  for(const c of order){const ps=cand[c.id];if(!ps)continue;const ok=ps.find(p=>clear(p)>=0);
+   const pool=ps.filter(p=>pinGap(p)>=0),wide=(ps.all||ps).filter(p=>pinGap(p)>=0),
+    best=ok||(pool.length?pool.reduce((a,p)=>clear(p)>clear(a)?p:a):wide.length?wide.reduce((a,p)=>clear(p)>clear(a)?p:a):ps.reduce((a,p)=>pinGap(p)>pinGap(a)?p:a));pos[c.id]=best;placed.push(head(best));}
   // BL-036.5: Nino on the Vespa beside the active pin (decorative). 32 px, bottom right of the pin; moves left / below when it
   // would touch another pin's head or the free text block.
   const NS=32*k,sp=cur&&pos[cur.id],art=V3NINO();
