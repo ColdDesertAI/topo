@@ -774,10 +774,9 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
 
 @media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
  /* P5. Beloningen: two columns on one page (the Reisboekje left; counts and the Vespa ride right), nothing cut. */
- .v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{display:grid!important;grid-column:2;grid-row:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);column-gap:16px;
-  margin:0!important;padding:0 16px 16px!important;width:auto;height:100%;overflow-x:hidden;overflow-y:auto}
+ .v3Reis[data-menu="1"][data-view=rewards]>.v3Rewards{display:grid!important;grid-column:2;grid-row:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);column-gap:16px;
+  margin:0!important;padding:0 16px 20px!important;width:auto;height:100%;overflow-x:hidden;overflow-y:auto}
  .v3Reis[data-menu="1"] .v3Rewards>.v3ScreenTitle{grid-column:1/-1;grid-row:1;align-self:end;margin:20px 0 12px 4px;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2)}
- .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino{display:none}
  .v3Reis[data-menu="1"] .v3Rewards>.v3Tiles{grid-column:2;grid-row:2;align-self:start;display:flex!important;flex-direction:column;gap:0;margin:0!important;padding:8px!important;width:auto;height:auto;
   border-radius:20px;background:var(--m1-card)!important;box-shadow:var(--m1-card-shadow)!important;border:0!important}
  .v3Reis[data-menu="1"] .v3Rewards .v3Tile{display:grid!important;grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"icon label value";align-items:center;gap:12px;min-height:64px;height:auto;padding:0 12px!important;margin:0;
@@ -890,4 +889,11 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel>.v3MapTools{grid-column:3;grid-row:5;align-self:start;justify-self:start;margin:24px 16px 0 8px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft{grid-row:5;align-self:start;margin:24px 8px 0 16px}
  .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{min-height:44px;height:44px}
+}
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* BL-038 r2: Nino (the pose of the landscape Beloningen) stands under the Reisboekje, about 260 px high. */
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino{display:flex;grid-column:1;grid-row:4;align-self:end;justify-self:center;align-items:flex-end;justify-content:center;height:260px;margin:12px 0 0;min-width:0}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino figure{height:100%!important;width:100%!important;display:flex;align-items:flex-end;justify-content:center;margin:0;background:none;box-shadow:none;overflow:visible}
+ .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino img{max-height:100%!important;max-width:100%!important;width:auto!important;height:auto!important;object-fit:contain}
 }
