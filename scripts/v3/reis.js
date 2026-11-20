@@ -471,6 +471,43 @@
   }));
  }
 
+
+ // BL-039.7: the chapter picture large. FLIP: the overlay image starts as the scene's own box (transform) and grows to the middle
+ // (max 80vw x 80vh, ratio kept) in 300 ms; a soft lavender blur behind; a violet round x (44 px) top right; Esc or a click on the
+ // backdrop closes (FLIP back); focus goes to the x and returns to the picture's button; Tab stays inside. Reduced motion: fade only.
+ let zoomOpen=false;
+ function openSceneZoom(opener,thumb,src){
+  if(zoomOpen)return;zoomOpen=true;
+  const calm=matchMedia('(prefers-reduced-motion: reduce)').matches,ratio=thumb.naturalWidth>0?thumb.naturalWidth/thumb.naturalHeight:1672/941;
+  const ov=make('div','v3ZoomOverlay');ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Afbeelding groot');
+  const big=pic(src,'v3ZoomImg');big.style.setProperty('--ratio',ratio);big.alt='';
+  const x=btn('',()=>close(),'v3ZoomClose');x.setAttribute('aria-label','Sluiten');
+  x.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
+  ov.append(big,x);document.body.append(ov);
+  const D=300,EASE='cubic-bezier(.2,.8,.2,1)';
+  const flip=(from,to,fade)=>{ // transform of the big image from the thumbnail's box to its own box (or back)
+   if(calm)return [{opacity:fade?1:0},{opacity:fade?0:1}];
+   const sc=from.width/to.width,dx=from.left+from.width/2-(to.left+to.width/2),dy=from.top+from.height/2-(to.top+to.height/2);
+   const a={transform:'translate('+dx+'px,'+dy+'px) scale('+sc+')'},b={transform:'none'};return fade?[b,a]:[a,b];};
+  const target=big.getBoundingClientRect();
+  thumb.style.visibility='hidden';
+  ov.animate([{opacity:0},{opacity:1}],{duration:calm?200:D,easing:'ease-out'});
+  big.animate(flip(thumb.getBoundingClientRect(),target,false),{duration:calm?200:D,easing:EASE});
+  x.focus({preventScroll:true});
+  let closing=false;
+  function close(){
+   if(closing)return;closing=true;
+   const from=big.getBoundingClientRect(),to=thumb.getBoundingClientRect();
+   ov.animate([{opacity:1},{opacity:0}],{duration:calm?200:D,easing:'ease-in',fill:'forwards'});
+   const an=big.animate(flip(to,from,true),{duration:calm?200:D,easing:EASE,fill:'forwards'});
+   const done=()=>{document.removeEventListener('keydown',key,true);ov.remove();thumb.style.visibility='';zoomOpen=false;(opener.isConnected?opener:$('.v3SceneZoom'))?.focus({preventScroll:true});};
+   an.onfinish=done;an.oncancel=done;}
+  function key(e){
+   if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close();}
+   else if(e.key==='Tab'){e.preventDefault();x.focus({preventScroll:true});}}
+  document.addEventListener('keydown',key,true);
+  ov.addEventListener('click',e=>{if(e.target===ov)close();});
+ }
  // The chapter card (R-reis-ijk): title, three step dots, one pill; replays quietly below.
  // BL-016b B: the chapter scene with Nino (scenes[id].kop, already embedded) large at the top, then "HOOFDSTUK n",
  // the title, the steps and the pill. A locked chapter shows the same scene, muted, with "Opent na …".
@@ -478,7 +515,12 @@
   panel.replaceChildren();if(!c)return;
   panel.classList.toggle('v3PanelLocked',!c.open);
   const kop=scenes[c.id]?.kop;
-  if(kop){const f=make('figure','v3CardScene');f.setAttribute('aria-hidden','true');f.append(pic(kop,null,1672,941));panel.append(f);}
+  if(kop){const f=make('figure','v3CardScene'),im=pic(kop,null,1672,941);
+   // BL-039.7: an unlocked chapter's scene is a button that opens the picture large (the biggest embedded source: kop or mini);
+   // a locked one stays a muted, hidden picture, no button.
+   if(c.open){const zb=btn('',()=>openSceneZoom(zb,im,[scenes[c.id].kop,scenes[c.id].mini].reduce((a,b)=>(b&&b.length>a.length)?b:a,kop)),'v3SceneZoom');zb.setAttribute('aria-label','Bekijk de afbeelding groot');zb.append(im);f.append(zb);}
+   else{f.setAttribute('aria-hidden','true');f.append(im);}
+   panel.append(f);}
   panel.append(make('p','v3CardKicker','Hoofdstuk '+(c.index+1)));
   // tabindex -1: on phone, focus moves here after choosing a chapter (Hermes V3-03).
   const h=make('h2','v3CardTitle');if(panel===livePanel)h.id='v3Title';h.tabIndex=-1;

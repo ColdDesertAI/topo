@@ -1,5 +1,6 @@
 // BL-037.9: measured icon rules (Dennis 20-11) on the real map shapes, shared by qa-v3-icons.mjs and qa-v3-menu1.mjs.
-//  (1) a LOOSE icon (no goal) lies >= 40 screen px from every goal of the chapter (point, shape outline or line)
+//  (1) a LOOSE icon (no goal) lies >= 12 screen px EDGE TO EDGE (BL-039.5, Dennis 20-11): from the circle (icon + 6 px) to the edge of
+//      every goal of the chapter (the visible dot/pin of a city, the outline of a shape, the edge of a river line)
 //  (2) no icon (badge circle) on or over a goal shape or line
 //  (3) the label of a LOOSE icon is only the icon's name (no goal name, no comma); a related label starts with the icon's name
 //  (4) 0 icons during Aanwijzen, Namen schrijven and Slim rondje (Oefenen) and in Toets (setup, exam, result); Ontdekken shows them
@@ -9,38 +10,42 @@ const probe=(sel)=>{
  const svg=document.querySelector(sel);if(!svg)return {error:'geen kaart '+sel};
  const goals=[];
  for(const n of svg.querySelectorAll('.v3Hit[data-id]')){const id=n.getAttribute('data-id'),m=n.getScreenCTM();if(!m)continue;
-  if(n.tagName==='circle'){const q=new DOMPoint(+n.getAttribute('cx'),+n.getAttribute('cy')).matrixTransform(m);goals.push({id,pt:[q.x,q.y]});continue;}
+  if(n.tagName==='circle'){const q=new DOMPoint(+n.getAttribute('cx'),+n.getAttribute('cy')).matrixTransform(m);
+   let rect=null;for(const pin of svg.querySelectorAll(':scope>.v3Pins .v3Pin')){const r=pin.getBoundingClientRect();if(Math.abs(r.bottom-q.y)<3&&Math.abs(r.x+r.width/2-q.x)<3){rect=[r.left,r.top,r.right,r.bottom];break;}}
+   const cr=n.getBoundingClientRect();goals.push({id,pt:[q.x,q.y],rect,rad:rect?0:cr.width/2+(parseFloat(getComputedStyle(n).strokeWidth)||0)/2});continue;}
   if(typeof n.getTotalLength!=='function')continue;
   const sc=Math.hypot(m.a,m.b),L=n.getTotalLength(),step=1.5/sc,pts=[];for(let f=0;f<=L;f+=step){const q=n.getPointAtLength(f).matrixTransform(m);pts.push([q.x,q.y]);}
   const cs=getComputedStyle(n),sw=parseFloat(cs.strokeWidth)||0;
   goals.push({id,el:n,m,pts,line:cs.fill==='none',half:(cs.vectorEffect==='non-scaling-stroke'?sw:sw*sc)/2});}
- const dist=(g,x,y)=>{if(g.pt)return Math.hypot(g.pt[0]-x,g.pt[1]-y);
+ const dist=(g,x,y)=>{if(g.pt){if(g.rect)return Math.hypot(Math.max(g.rect[0]-x,0,x-g.rect[2]),Math.max(g.rect[1]-y,0,y-g.rect[3]));return Math.max(0,Math.hypot(g.pt[0]-x,g.pt[1]-y)-g.rad);}
   if(!g.line){try{const q=new DOMPoint(x,y).matrixTransform(g.m.inverse());if(g.el.isPointInFill(q))return 0;}catch{}}
   let best=Infinity;for(const q of g.pts){const d=Math.hypot(q[0]-x,q[1]-y);if(d<best)best=d;}return Math.max(0,best-g.half);};
  const names=Object.fromEntries((typeof ITEMS!=='undefined'?ITEMS:[]).map(i=>[i.id,i.name]));
  const out={goals:goals.length,icons:[],dropped:svg.dataset.landmarkDropped||'',set:svg.dataset.landmarkSet||''};
  for(const n of svg.querySelectorAll('.v3Landmarks .v3Lm')){
-  const b=n.querySelector('.v3Badge').getBoundingClientRect(),cx=b.x+b.width/2,cy=b.y+b.height/2,r=b.width/2-1;
+  const b=n.querySelector('.v3Badge').getBoundingClientRect(),cx=b.x+b.width/2,cy=b.y+b.height/2,r=b.width/2;
   const kind=n.dataset.kind,txt=(n.querySelector('.v3LmLabel text')?.textContent||'').trim();
   let toGoal=Infinity,over=null;
-  for(const g of goals){const d=dist(g,cx,cy);toGoal=Math.min(toGoal,d);if(!g.pt&&d<r){over=g.id+' ('+d.toFixed(1)+' < '+r.toFixed(1)+')';}}
-  out.icons.push({icon:n.dataset.landmark,name:n.dataset.iconName,kind,place:n.dataset.place||n.dataset.where,txt,toGoal:+toGoal.toFixed(1),over,
+  for(const g of goals){const d=dist(g,cx,cy);toGoal=Math.min(toGoal,d);if(!g.pt&&d<r-1){over=g.id+' ('+d.toFixed(1)+' < '+r.toFixed(1)+')';}}
+  out.icons.push({icon:n.dataset.landmark,name:n.dataset.iconName,kind,place:n.dataset.place||n.dataset.where,txt,toGoal:+toGoal.toFixed(1),r:+r.toFixed(1),gap:+(toGoal-r).toFixed(1),over,
    goalNamesIn:goals.map(g=>names[g.id]).filter(nm=>nm&&txt.includes(nm))});}
  return out;
 };
 export function judge(where,r,fail,expect){
  if(r.error){fail(where,r.error);return null;}
- if(r.dropped)fail(where,'icoon weggelaten (geen vrije plek): '+r.dropped);
+ // A dropped icon fails on the chapter page (4–5 icons per chapter, contract BL-037/039). In Oefenen (a smaller map in
+ // iPad portrait) dropping is the rule's own fallback — never on or near a target — so it is reported, not failed.
+ if(r.dropped){if(/oefenen/.test(where))console.log('  info '+where+': icoon weggelaten (geen vrije plek): '+r.dropped);else fail(where,'icoon weggelaten (geen vrije plek): '+r.dropped);}
  if(expect!=null&&r.icons.length!==expect)fail(where,r.icons.length+' iconen, verwacht '+expect);
  for(const i of r.icons){const t=`${where} ${i.name}@${i.place}`;
   if(i.over)fail(t,'(2) icoon op doelvorm/-lijn '+i.over);
   if(i.kind==='loose'){
-   if(!(i.toGoal>=39.5))fail(t,'(1) los icoon '+i.toGoal+' px van een doel (< 40)');
+   if(!(i.gap>=11.5))fail(t,'(1) los icoon: rand-rand '+i.gap+' px van een doel (< 12; midden '+i.toGoal+', straal '+i.r+')');
    if(i.txt!==i.name||/,/.test(i.txt)||i.goalNamesIn.length)fail(t,'(3) label "'+i.txt+'" koppelt het losse icoon ('+i.goalNamesIn+')');}
   else if(i.kind==='related'){if(!i.txt.startsWith(i.name))fail(t,'(3) label "'+i.txt+'" begint niet met "'+i.name+'"');}
   else fail(t,'icoon zonder soort');}
  const loose=r.icons.filter(i=>i.kind==='loose');
- return {n:r.icons.length,loose:loose.length,minLoose:loose.length?Math.min(...loose.map(i=>i.toGoal)):null};
+ return {n:r.icons.length,loose:loose.length,minLoose:loose.length?Math.min(...loose.map(i=>i.gap)):null,items:r.icons.map(i=>({icon:i.name,kind:i.kind,place:i.place,gap:i.kind==='loose'?i.gap:null,anyGap:i.gap}))};
 }
 export async function iconChecks(b,HTML,W,H,fail,{bg='bg01',expected={}}={}){
  const p=await b.newPage({viewport:{width:W,height:H}});const errors=[];p.on('pageerror',e=>errors.push(e.message));

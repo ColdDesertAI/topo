@@ -104,8 +104,10 @@ v3art.lifestyle={items:lifestyle.map(a=>({id:a.id,label:a.label,exports:Object.f
  chapters:Object.fromEntries(Object.entries(LS.chapters).map(([cid,list])=>[cid,list.map(([id,place])=>({id,place,point:lsPlaces[place]}))]))};
 // BL-037.9: chapter icons — ONE config (chapter → entries), checked here. RELATED {icon, place, related:true}: a place of
 // the chapter, and the pair must be in "fits" (the icon really belongs there). LOOSE {icon, at:[lon,lat], where, related:false}:
-// real coordinates inside Italy, never a place, projected like the landmarks; at least 45 map units from a city goal here
-// (the exact 40 screen px, the shapes and the labels are measured in the browser: scripts/qa-v3-icons.mjs). 4–5 per chapter,
+// real coordinates inside Italy, never a place, projected like the landmarks; at least 38 map units (circle radius 22 px + 12 px,
+// BL-039.5) from a city goal here (the exact 12 px edge to edge, the shapes, pins and labels are measured in the browser:
+// scripts/qa-v3-icons.mjs). A RELATED entry may carry near:[lon,lat] (stand as near as possible to that real point, for an area)
+// and avoid:[area ids] (stand nearer to its own area than to those). 4–5 per chapter,
 // none for Landen and Zeeën.
 const chapterIcons=JSON.parse(read('assets/v3/landmarks/chapter-icons.json')),iconIds=new Set([...activeLandmarks,...lifestyle].map(a=>a.id));
 for(const [cid,list] of Object.entries(chapterIcons.chapters)){const places=CHAPTER_ITEMS[cid];if(!places)throw Error('chapter-icons: unknown chapter '+cid);
@@ -116,17 +118,18 @@ for(const [cid,list] of Object.entries(chapterIcons.chapters)){const places=CHAP
   if(seen.has(e.icon+'|'+(e.place||e.at)))throw Error('chapter-icons: double entry '+tag);seen.add(e.icon+'|'+(e.place||e.at));
   if(e.related){if(!e.place||e.at)throw Error('chapter-icons: related without a place, or with coordinates: '+tag);
    if(!places.includes(e.place))throw Error('chapter-icons: '+e.place+' is not a place of '+cid);
+   if(e.near){if(!Array.isArray(e.near)||e.near.length!==2||!e.near.every(Number.isFinite))throw Error('chapter-icons: near needs [lon,lat]: '+tag);e.nearPoint=project(e.near);}
+   if(e.avoid&&!(Array.isArray(e.avoid)&&e.avoid.every(a=>places.includes(a))))throw Error('chapter-icons: avoid must list places of the chapter: '+tag);
    if(!(chapterIcons.fits[e.icon]||[]).includes(e.place))throw Error('chapter-icons: '+e.icon+' does not belong to '+e.place+' (not in fits): '+tag);}
   else{if(e.place||!Array.isArray(e.at)||e.at.length!==2||!e.at.every(Number.isFinite))throw Error('chapter-icons: loose icon needs at:[lon,lat] and no place: '+tag);
    if(typeof e.where!=='string'||!e.where)throw Error('chapter-icons: loose icon needs where: '+tag);
    if(e.at[0]<6.5||e.at[0]>18.6||e.at[1]<36.5||e.at[1]>47.1)throw Error('chapter-icons: loose point outside Italy: '+tag);
    e.point=project(e.at);
    for(const id of places){const i=canonicalItems.find(x=>x.id===id);if(!i||!id.startsWith('city'))continue;const q=Number.isFinite(i.lon)?project([i.lon,i.lat]):[i.px,i.py];
-    if(Math.hypot(q[0]-e.point[0],q[1]-e.point[1])<45)throw Error('chapter-icons: loose icon '+tag+' lies within 45 units of goal '+id);}}}}
+    if(Math.hypot(q[0]-e.point[0],q[1]-e.point[1])<38)throw Error('chapter-icons: loose icon '+tag+' lies within 38 units of goal '+id);}}}}
 for(const id of Object.keys(CHAPTER_ITEMS))if(!(id in chapterIcons.chapters))throw Error('chapter-icons: chapter missing '+id);
 // BL-036.5/BL-037.7: Nino on the Vespa (side view, to the right) beside the active pin on the Reis overview and in the ride (120x80, 240x160 for 2x), embedded as data URIs so the offline file works.
 v3art.vespaRijdend=Object.fromEntries([120,240].map(n=>['x'+n,'data:image/webp;base64,'+readFileSync(new URL('assets/v3/render/exports/vespa-rijdend-v3-'+n+'.webp',root)).toString('base64')]));
-v3art.pizzaMini=Object.fromEntries([['slice','pizza-icon-slice-44'],['whole','pizza-icon-whole-44']].map(([k,f])=>[k,'data:image/webp;base64,'+readFileSync(new URL('assets/nino/rewards/pizza/exports/'+f+'.webp',root)).toString('base64')]));
 v3art.chapterIcons={icons:chapterIcons.icons,chapters:chapterIcons.chapters};
 v3art.landmarks={source:landmarks.source,basisSet:lmLocations.relevance.basisSet,items:activeLandmarks.map(a=>{
  const item=a.location.canonicalItemId&&canonicalItems.find(i=>i.id===a.location.canonicalItemId);

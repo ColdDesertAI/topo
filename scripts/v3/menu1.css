@@ -914,11 +914,23 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
    44 px circles with a 4 px gap (4 x 44 + 3 x 4 = 188 px). */
 @media (min-width:1280px) and (max-width:1439px){.v3Side .v3SideFoot:has(.v3ExitBtn){gap:4px}.v3Side .v3SideFoot:has(.v3ExitBtn)>button{flex:0 0 44px!important;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important}}
 
-/* BL-037.6: Kennispaspoort — pizza icons for Vinden and Naam (22 px) and the one-line legend above the table. */
+/* BL-039.8: Kennispaspoort — filling pizza (32 px) for Vinden and Naam; the one-line legend of five steps above the table. */
 .v3Reis[data-menu="1"] .v3PasBody .v3PasIcon{width:64px}
-.v3Reis[data-menu="1"] .v3PasBody .v3PasPizza{width:22px;height:22px;display:inline-block;vertical-align:middle}
-.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend{caption-side:top;text-align:left;padding:2px 4px 8px;font:500 13px/22px var(--v3-font);color:#5d5873}
-.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend .v3PasPizza{margin:0 2px}
+.v3PasFill{position:relative;display:inline-block;vertical-align:middle}
+.v3PasFill img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.v3PasFill .v3PasBase{filter:grayscale(1);opacity:.3}
+.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend{caption-side:top;text-align:left;padding:2px 4px 8px;font:500 13px/22px var(--v3-font);color:#5d5873;white-space:nowrap}
+.v3PasLegend .v3PasLegendItem{display:inline-flex;align-items:center;gap:3px;margin-right:12px}
+.v3PasLegend .v3PasLegendItem:last-child{margin-right:0}
 
 /* BL-037.8: Landen and Zeeën — the free title block may slide up along the stage (reis.js fitOmgeving sets --v3-free-dy) so the map can fill the stage. */
 .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel :is(.v3CardKicker,.v3CardHead,.v3Actions,.v3Locked){transform:translateY(var(--v3-free-dy,0px))}
+
+/* BL-039.7: the chapter picture opens large (overlay, FLIP in reis.js); the picture of an unlocked chapter is a button */
+.v3CardScene .v3SceneZoom{display:block;width:100%;height:100%;padding:0;margin:0;border:0;background:none;cursor:zoom-in;border-radius:inherit;overflow:hidden;font:inherit;color:inherit}
+.v3CardScene .v3SceneZoom:focus-visible{outline:3px solid #5b45e0;outline-offset:-3px}
+.v3ZoomOverlay{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;background:rgba(214,203,246,.42);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.v3ZoomOverlay .v3ZoomImg{display:block;width:min(80vw,calc(80vh*var(--ratio,1.78)));height:auto;aspect-ratio:var(--ratio,1.78);max-width:80vw;max-height:80vh;object-fit:cover;border-radius:20px;box-shadow:0 24px 60px rgba(42,28,96,.35);will-change:transform}
+.v3ZoomOverlay .v3ZoomClose{position:absolute;top:16px;right:16px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;border-radius:50%;background:#5b45e0;color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(42,28,96,.3)}
+.v3ZoomOverlay .v3ZoomClose:hover{background:#4a37b8}
+.v3ZoomOverlay .v3ZoomClose:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #5b45e0}

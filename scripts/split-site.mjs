@@ -109,7 +109,10 @@ const MIN=1200,MAX=6000,RIDE=400,SHOW=300,files=[];let ready=false,over=false,sh
 const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 const finish=()=>{if(h.classList.contains("v3Shown"))return;if(!seen&&L)L.style.display="none";h.classList.add("v3Shown");h.classList.remove("v3Pre");setTimeout(()=>document.getElementById("v3Loader")?.remove(),400);};
 // BL-039.3: show the loader only when the app is not done after SHOW ms; the minimum of 1.2 s counts from that moment.
-setTimeout(()=>{if(go||h.classList.contains("v3Shown"))return;seen=performance.now();h.classList.remove("v3Pre");requestAnimationFrame(()=>requestAnimationFrame(()=>{seen=performance.now();painted=true;if(want)run();}));},SHOW); // the 1.2 s starts at the first painted frame (a busy main thread can delay it)
+// Evaluator BL-039: warm = the first-screen files are already in the HTTP cache (asked directly, only-if-cached); then the
+// loader never appears, even when a slow CPU (iPad 9) needs longer to boot: the lavender page stays until the app is ready.
+const warmP=(()=>{try{return Promise.all(F.slice(0,2).map(x=>fetch(x[0],{cache:"only-if-cached",mode:"same-origin"}).then(r=>r.ok).catch(()=>false))).then(a=>a.length>0&&a.every(Boolean));}catch(e){return Promise.resolve(false);}})();
+setTimeout(()=>warmP.then(warm=>{if(warm||go||h.classList.contains("v3Shown"))return;seen=performance.now();h.classList.remove("v3Pre");requestAnimationFrame(()=>requestAnimationFrame(()=>{seen=performance.now();painted=true;if(want)run();}));}),SHOW); // the 1.2 s starts at the first painted frame (a busy main thread can delay it)
 // Evaluator BL-037: setting --p on every data chunk restarted a CSS transition that never ran (the bar stood still,
 // then jumped). Now the target moves with the data and the drawn value follows it once per frame (no CSS transition).
 let target=0,drawn=0,raf=0;const tick=()=>{raf=0;drawn+=Math.max(.004,(target-drawn)*.18);if(drawn>target)drawn=target;L&&L.style.setProperty("--p",drawn.toFixed(4));if(drawn<target)raf=requestAnimationFrame(tick);};
