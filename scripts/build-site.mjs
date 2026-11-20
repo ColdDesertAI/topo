@@ -6,6 +6,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeF
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { splitSite } from './split-site.mjs';
+import { execFileSync } from 'node:child_process';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -28,6 +29,9 @@ const which = (process.env.SITE_ITALIE || 'v2').toLowerCase();
 if (!['v2', 'v3'].includes(which)) throw new Error('SITE_ITALIE moet v2 of v3 zijn, niet: ' + which);
 let firstScreen = null;
 if (which === 'v3') {
+  // The V3 release is built here (not as a separate npm step), so a failing release build stops the site build
+  // instead of silently shipping an older output/html/TOPO-V3-Italie.html.
+  execFileSync(process.execPath, [join(root, 'scripts/build-v3-preview.mjs')], { cwd: root, stdio: 'inherit', env: { ...process.env, TOPO_V3_RELEASE: '1' } });
   const v3 = join(root, 'output/html/TOPO-V3-Italie.html');
   if (!existsSync(v3)) throw new Error('SITE_ITALIE=v3 maar de V3-release ontbreekt: draai TOPO_V3_RELEASE=1 node scripts/build-v3-preview.mjs');
   const v3html = readFileSync(v3, 'utf8');

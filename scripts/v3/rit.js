@@ -17,7 +17,7 @@
  const still=()=>!!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
  const trips=()=>state.trips|0;
  // The preview demo "#rit" starts one ride short, so the ride shows once on opening.
- let shown=Math.max(0,trips()-(window.TOPO_V3_PREVIEW?.state==='rit'?1:0)),el=null,raf=0,ready=0,timer=0;
+ let shown=Math.max(0,trips()-(window.TOPO_V3_RIT_DEMO?1:0)),el=null,raf=0,ready=0,timer=0;
  const POST={3:'venezia',6:'napoli'},PLACE={venezia:'Venetië',napoli:'Napels'};
  const DURATION=2500;
 

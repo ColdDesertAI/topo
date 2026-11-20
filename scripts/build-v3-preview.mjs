@@ -56,6 +56,8 @@ const entries=new Map([['topo-italie-v3',JSON.stringify(chosen.progress)],...(ch
  const memory={get length(){return entries.size},key:i=>[...entries.keys()][i]??null,getItem:k=>entries.has(String(k))?entries.get(String(k)):null,setItem:(k,v)=>{entries.set(String(k),String(v))},removeItem:k=>{entries.delete(String(k))},clear:()=>entries.clear()};
  Object.defineProperty(window,'localStorage',{configurable:true,value:memory});
  window.TOPO_V3_PREVIEW={state:S[key]?key:'bezig',storage:entries};
+ // BL-036.8: the #rit demo starts one ride short, so the ride plays on opening (rit.js reads only this flag).
+ if(key==='rit')window.TOPO_V3_RIT_DEMO=1;
  addEventListener('hashchange',()=>location.reload());
  addEventListener('DOMContentLoaded',()=>{
   const bar=document.createElement('nav');bar.className='v3PreviewBar';bar.setAttribute('aria-label','Demostanden');
