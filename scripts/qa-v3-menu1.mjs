@@ -24,7 +24,7 @@ const args=new Set(process.argv.slice(2));
 const envList=v=>v?v.split(',').map(x=>x.trim()).filter(Boolean):null;
 // --smoke (laag 2 van de verificatie, OPERATING_MODEL §3b): 1440×900 + 1080×810 + 810×1080 (iPad-portret, BL-038), alleen BG-01, Chromium.
 const SIZES=envList(process.env.QA_SIZES)?.map(x=>x.split('x').map(Number))||(args.has('--quick')||args.has('--smoke')?[[1440,900],[1080,810],[810,1080]]:[[1280,800],[1366,768],[1440,900],[1920,1080],[2560,1440],[1080,810],[810,1080],[768,1024]]);
-const BGS=envList(process.env.QA_BGS)||(args.has('--smoke')?['bg01']:args.has('--quick')?['bg03']:['bg01','bg02','bg03']);
+const BGS=envList(process.env.QA_BGS)||(args.has('--smoke')?['bg01']:args.has('--quick')?['bg03']:['bg01','bg02','bg03','bg04']);
 const SCREENS=['overzicht','hoofdstuk','oefenen','toets','toetsresultaat','rewards','voortgang'];
 // Free text per screen (no card under it): measured against the backdrop.
 const FREE={overzicht:['#v3ListTitle','.v3Panel .v3CardKicker','.v3Panel .v3CardTitle'],

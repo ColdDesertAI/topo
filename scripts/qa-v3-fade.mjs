@@ -14,7 +14,7 @@ import {fileURLToPath} from 'node:url';
 import {webkit,webkitAvailable} from './qa-webkit.mjs';
 const {chromium}=createRequire(import.meta.url)('playwright');
 const HTML='file://'+fileURLToPath(new URL('../output/html/TOPO-V3-Reis-Preview.html',import.meta.url));
-const SCREENS=['reis','oefenen','toets','rewards','voortgang'],SIZES=[[1440,900],[1080,810]],SCENES=['bg01','bg02','bg03','grijs'];
+const SCREENS=['reis','oefenen','toets','rewards','voortgang'],SIZES=[[1440,900],[1080,810]],SCENES=['bg01','bg02','bg03','bg04','grijs'];
 const HIDE='.v3PreviewBar{visibility:hidden!important}.v3Reis>*:not(.v3Side),.v3Side>*{visibility:hidden!important}';
 const NOLAYER='.v3Reis::before,.v3Reis::after,.v3Side::after{display:none!important}';
 const engines=(process.env.QA_ENGINES||'chromium,webkit').split(',').filter(e=>e!=='webkit'||webkitAvailable());

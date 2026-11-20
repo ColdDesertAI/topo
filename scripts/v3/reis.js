@@ -68,7 +68,7 @@
   const navItem=(tab,label,glyph)=>{const b=btn('',tab==='reis'?toReis:go(tab),'v3Btn v3NavItem');b.append(icon(glyph),make('span',null,label));b.dataset.nav=tab;return b;};
   const nav=make('div','v3NavList');nav.append(...TABS.map(t=>navItem(...t)));
   const settings=navItem('instellingen','Instellingen','v3gear');settings.classList.add('v3Settings');
-  // BL-034 P1.12: background picker beside the gear — an image button that opens a small popover with 3 thumbnails.
+  // BL-034 P1.12: background picker beside the gear — an image button that opens a small popover with 4 thumbnails.
   const bgBtn=btn('',e=>{e.stopPropagation();bgPicker(bgBtn);},'v3Btn v3NavItem v3BgBtn');bgBtn.append(icon('v3image'),make('span',null,'Achtergrond'));
   bgBtn.setAttribute('aria-haspopup','true');bgBtn.setAttribute('aria-expanded','false');bgBtn.title='Achtergrond';
   // BL-036.7: the ?-button opens "Hoe werkt TOPO?" (uitleg.js), same look as the gear and the background button.
@@ -90,7 +90,7 @@
   if(bgPop&&!bgPop.hidden&&bgOpener===opener){closeBgPicker();return;}
   const T=V3ART?.bgThumbs;if(!T)return;
   if(!bgPop){bgPop=make('div','v3BgPop v3');bgPop.setAttribute('role','dialog');bgPop.setAttribute('aria-label','Kies een achtergrond');bgPop.hidden=true;document.body.append(bgPop);
-   for(const [k,label] of [['bg01','Toscane'],['bg02','Meer'],['bg03','Zee']]){const b=btn('',e=>{e.stopPropagation();window.TOPO_V3.background.set(k);mark();},'v3BgThumb');b.dataset.background=k;
+   for(const [k,label] of [['bg01','Toscane'],['bg02','Meer'],['bg03','Zee'],['bg04','Sicilië']]){const b=btn('',e=>{e.stopPropagation();window.TOPO_V3.background.set(k);mark();},'v3BgThumb');b.dataset.background=k;
     const im=make('img');im.src=T[k];im.alt='';im.width=96;im.height=54;b.append(im,make('span',null,label));b.setAttribute('aria-label','Achtergrond '+label);bgPop.append(b);}
    document.addEventListener('click',e=>{if(bgPop&&!bgPop.hidden&&!bgPop.contains(e.target)&&!e.target.closest?.('.v3BgBtn'))closeBgPicker();});
    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&bgPop&&!bgPop.hidden){e.preventDefault();closeBgPicker(true);}});}
@@ -580,6 +580,6 @@
  const base=renderRouteHome;
  renderRouteHome=function(...a){const out=base.apply(this,a);try{render();chrome();}catch(e){console.error('V3 Reis',e);}return out;};
  document.body.classList.add('v3On');
- window.TOPO_V3={chapterRows:(target,pick)=>renderRows(model(),target,pick),showChapter:id=>{ui.selected=id;ui.page=WIDE.matches?'hoofdstuk':'overzicht';},menu:MENU,background:{refresh:background,get:()=>ui.background||window.TOPO_V3_BG||'bg03',set:key=>{if(!['bg01','bg02','bg03','auto'].includes(key))return;ui.background=key;try{localStorage.setItem(BGKEY,key);}catch{}background();}},render,model,ui,makeSide,markNav,addView,cloneMap,fit,addIsland,icon,make,btn,pic,img,press,v2Card,v2Nav,STAGE,KIND,range,scenes,art:V3ART,nino,root};
+ window.TOPO_V3={chapterRows:(target,pick)=>renderRows(model(),target,pick),showChapter:id=>{ui.selected=id;ui.page=WIDE.matches?'hoofdstuk':'overzicht';},menu:MENU,background:{refresh:background,get:()=>ui.background||window.TOPO_V3_BG||'bg03',set:key=>{if(!['bg01','bg02','bg03','bg04','auto'].includes(key))return;ui.background=key;try{localStorage.setItem(BGKEY,key);}catch{}background();}},render,model,ui,makeSide,markNav,addView,cloneMap,fit,addIsland,icon,make,btn,pic,img,press,v2Card,v2Nav,STAGE,KIND,range,scenes,art:V3ART,nino,root};
  if(!$('#journeyScreen')?.classList.contains('hidden')){render();chrome();}
 })();

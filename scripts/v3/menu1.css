@@ -390,6 +390,14 @@
 body:is(.v3Home,.v3Les)[data-v3-background=bg01]{background-size:cover;background-position:50% 55%}
 body:is(.v3Home,.v3Les)[data-v3-background=bg02]{background-size:cover;background-position:50% 55%}
 body:is(.v3Home,.v3Les)[data-v3-background=bg03]{background-size:cover;background-position:50% 55%}
+/* BL-037.10 Sicilië (BG-06): the image is enlarged to 1.2x the screen height and anchored top left, so the calm bay lies behind the
+   lower map, the sky behind the title block and the button, and Etna low on the right (1080, 1440, 2560); the busy lemon tree,
+   bougainvillea and cactus fall under the sidebar or off screen. iPad portrait: anchored at 60% so the bougainvillea stays off the map. */
+/* The local glow (BL-037.10, only for this background): a soft milk wash over the left part, where the free titles stand on
+   the pink sky and the bougainvillea (the wash is part of the background layer, so it needs no element and is lazy with it). */
+body:is(.v3Home,.v3Les)[data-v3-background=bg04]{background-image:linear-gradient(90deg,rgba(252,250,246,.5),rgba(252,250,246,.34) 32%,rgba(252,250,246,0) 62%),var(--v3-pano,none);
+ background-size:100% 100%,max(213.33vh,100vw) auto;background-position:0 0,0% 0%;background-repeat:no-repeat,no-repeat}
+@media (orientation:portrait){body:is(.v3Home,.v3Les)[data-v3-background=bg04]{background-image:linear-gradient(180deg,rgba(252,250,246,.38),rgba(252,250,246,.38) 50%,rgba(252,250,246,.68) 72%,rgba(252,250,246,.68)),var(--v3-pano,none);background-position:0 0,60% 0%}}
 /* BL-034 P0.4: Voortgang shows exactly the Reis chapter list (same rows, same card, same width); no visible scrollbar. */
 .v3Reis[data-menu="1"] .v3Rows{scrollbar-width:none}
 .v3Reis[data-menu="1"] .v3Rows::-webkit-scrollbar{display:none}
