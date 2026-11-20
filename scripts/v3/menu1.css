@@ -897,3 +897,8 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino figure{height:100%!important;width:100%!important;display:flex;align-items:flex-end;justify-content:center;margin:0;background:none;box-shadow:none;overflow:visible}
  .v3Reis[data-menu="1"] .v3Rewards>.v3RewardsNino img{max-height:100%!important;max-width:100%!important;width:auto!important;height:auto!important;object-fit:contain}
 }
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* BL-038 r2: the answer sheet floats inside the map card (16 px inset on the card's left, right and bottom), centred. */
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true] :is(#focusAnswerSheet,#focusLearnBar){left:148px!important;right:72px!important;top:auto!important;bottom:60px!important;width:auto!important;max-width:none!important;margin:0!important;transform:none!important}
+}
