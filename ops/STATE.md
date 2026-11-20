@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-20 · door: Claude (BL-035 livefixes klaar: evaluator PASS)
+> Bijgewerkt: 2026-11-20 · door: Claude (BL-036 gestart; laadtijd gebouwd, nog niet live)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,6 +19,8 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende t## Volgende taak
+**BL-036 testfeedback 20-11 (bezig):** 11 punten in 3 bundels, contract `ops/contracts/BL-036.md`. Bundel A (2, 1, 4, 9, 10, 6) bij de builder. Werkwijze vanaf nu: **verificatie in drie lagen** (`ops/OPERATING_MODEL.md` §3b, besluit Dennis 20-11).
+**Laadtijd (BL-035.9 = BL-036 punt 11): gebouwd, lokaal `b56f8bc`, nog niet live.** Gemeten live vóór (Fast 4G, 9 Mbit/s, 165 ms): 21,9 MB, eerste scherm ≈ 23 s koud én warm (HTML telkens opnieuw). Na (lokaal, zelfde throttling + brotli): index.html 29,8 → 1,0 MB, eerste scherm 1,56 MB / koud 1,9 s / warm 0,66 s (0 MB), via portal-prefetch 1,1 s. Live-meting volgt na de push (bundel A).
 **BL-035 livefixes 19-11: alle 8 blokken live op main** (volgorde 1→7→6→8→2→4→5→3, kleine commits `a654507`…, per push lint+test+`qa-v3-menu1`+`build:site` groen, daarna live gecontroleerd op www.ninotopo.nl/italie/ in Chromium én WebKit). **Evaluator: PASS** na hertoets (`ops/reports/eval-BL-035.md`; eerste ronde FAIL op Etna bij Messina en meegroeiende kaart op Voortgang, beide gefixt in `b4770e8`). Volgende: check Dennis op zijn iMac (Safari + Chrome). Open, buiten scope: mask-composite op 3 kaartranden (`menu1.css`, `ui.css`), paspoorttabel loopt over 2 regels, `npm test` heeft `--max-old-space-size=8192` nodig (nino-art).
 - **1 Transparantie:** gemeten: lokaal én live werkten de maskers in Chromium en WebKit. Vermoedelijke oorzaak van het dichte crème/witte vlak bij Dennis: "Verminder transparantie" of "Verhoog contrast" in macOS → onze ondoorzichtige terugval (`prefers-reduced-transparency`/`prefers-contrast`). **Dennis: check Systeeminstellingen › Toegankelijkheid › Weergave.** Nieuwe opbouw zonder mask-composite: werkruimte = verloop (.82→0 op 62%), blur-laag 40% met één masker, zijbalk .5 met masker naar onder (vloer 560 px voor nav-AA op 768 hoog). `qa-v3-fade` meet nu in Chromium + WebKit (WebKitGTK, `scripts/qa-webkit.mjs`): sprong ≤ 1,4%, scène zichtbaar vanaf 25%, zijbalk onderin toont de scène. Vergelijking: `ops/reports/BL-035-1-transparantie.webp`.
 - **4 Cameraknoppen:** werken alleen in de focusmodus (iPad-indeling); op desktop weg, op iPad blijven ze.
