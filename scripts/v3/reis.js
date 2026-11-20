@@ -56,12 +56,16 @@
  // the current tab follows the route the learner chose (DECISIONS 7-11).
  const TABS=[['reis','Reis','v3map'],['oefenen','Oefenen','v3cap'],['toets','Toets','v3test'],['rewards','Beloningen','v3trophy'],['voortgang','Voortgang','v3progress']];
  const go=tab=>e=>{e?.stopPropagation?.();window.TOPO_V3?.go?.(tab,e?.currentTarget);};
+ const toReis=e=>{ui.page='overzicht';go('reis')(e);render();};
  function makeSide(){
   const side=make('nav','v3Side');side.setAttribute('aria-label','Hoofdnavigatie');
   const brand=make('div','v3Brand');brand.append(make('b',null,'Topo'),make('i','v3Flag'));
   // Nino portrait (render asset NINO-PORTRET); the guide cut-out only when the portrait is missing.
-  const portrait=make('div','v3Portrait');if(V3ART?.portrait){portrait.classList.add('v3PortraitArt');portrait.append(pic(V3ART.portrait,null,512,512));}else if(nino.guide)portrait.append(img(nino.guide));
-  const navItem=(tab,label,glyph)=>{const b=btn('',tab==='reis'?e=>{ui.page='overzicht';go(tab)(e);render();}:go(tab),'v3Btn v3NavItem');b.append(icon(glyph),make('span',null,label));b.dataset.nav=tab;return b;};
+  // BL-037.4: the portrait is a button to the Reis overview (same path as the "Reis" tab: a running lesson is parked by
+  // shell.toHome and resumes through Reis → Ga verder).
+  const portrait=make('button','v3Portrait v3PortraitBtn');portrait.type='button';portrait.setAttribute('aria-label','Naar mijn reis');portrait.title='Naar mijn reis';
+  portrait.addEventListener('click',toReis);if(V3ART?.portrait){portrait.classList.add('v3PortraitArt');portrait.append(pic(V3ART.portrait,null,512,512));}else if(nino.guide)portrait.append(img(nino.guide));
+  const navItem=(tab,label,glyph)=>{const b=btn('',tab==='reis'?toReis:go(tab),'v3Btn v3NavItem');b.append(icon(glyph),make('span',null,label));b.dataset.nav=tab;return b;};
   const nav=make('div','v3NavList');nav.append(...TABS.map(t=>navItem(...t)));
   const settings=navItem('instellingen','Instellingen','v3gear');settings.classList.add('v3Settings');
   // BL-034 P1.12: background picker beside the gear — an image button that opens a small popover with 3 thumbnails.
