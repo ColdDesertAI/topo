@@ -29,6 +29,7 @@ window.TopoV3Landmarks=function(svg,k,opts){
  // Collision check (screen px around each landmark's anchor): never under or over a pin, a ✓/× mark or a mistake
  // label. A landmark that would touch one moves to the nearest free spot at the edge of its place; its anchor
  // (translate) stays on the real geographic point.
+ const LOOSE_GAP=12.3;
  const toMap=svg.getScreenCTM?.()?.inverse(),obstacles=[],GAP=3;
  const boxOf=n=>{try{const b=n.getBBox(),m=toMap&&n.getScreenCTM()&&toMap.multiply(n.getScreenCTM());if(!m||(!b.width&&!b.height))return null;
   const xs=[],ys=[];for(const [x,y] of [[b.x,b.y],[b.x+b.width,b.y],[b.x,b.y+b.height],[b.x+b.width,b.y+b.height]]){xs.push(m.a*x+m.c*y+m.e);ys.push(m.b*x+m.d*y+m.f);}
@@ -40,12 +41,16 @@ window.TopoV3Landmarks=function(svg,k,opts){
  // its visible path, sampled along its outline (never the tap tolerance). inFill: for a filled shape the inside counts as 0.
  const goals=[];
  if(all)for(const n of svg.querySelectorAll('.v3Hit[data-id]')){
-  if(n.tagName==='circle'){goals.push({id:n.getAttribute('data-id'),pt:[+n.getAttribute('cx'),+n.getAttribute('cy')]});continue;}
+  if(n.tagName==='circle'){const cx=+n.getAttribute('cx'),cy=+n.getAttribute('cy'),id=n.getAttribute('data-id');
+   // BL-039.5: a city goal is its visible dot: the pin's box when the pin is drawn (tip on the point), else the circle's own radius.
+   let rect=null;for(const q of svg.querySelectorAll(':scope>.v3Pins .v3Pin')){const b=boxOf(q);if(b&&Math.abs(b[3]-cy)<3*k&&Math.abs((b[0]+b[2])/2-cx)<3*k){rect=b;break;}}
+   let rad=0;if(!rect){try{const r=n.getBoundingClientRect();rad=(r.width/2+(parseFloat(getComputedStyle(n).strokeWidth)||0)/2)*k;}catch{}}
+   goals.push({id,pt:[cx,cy],rect,rad});continue;}
   if(typeof n.getTotalLength!=='function')continue;
-  try{const L=n.getTotalLength(),step=Math.max(2.5*k,L/700),pts=[];for(let f=0;f<=L;f+=step){const q=n.getPointAtLength(f);pts.push([q.x,q.y]);}
+  try{const L=n.getTotalLength(),step=Math.max(1.2*k,L/4000),pts=[];for(let f=0;f<=L;f+=step){const q=n.getPointAtLength(f);pts.push([q.x,q.y]);}
    const cs=getComputedStyle(n),line=cs.fill==='none',sw=parseFloat(cs.strokeWidth)||0,half=(cs.vectorEffect==='non-scaling-stroke'?sw*k:sw)/2;
    goals.push({id:n.getAttribute('data-id'),el:n,pts,line,half});}catch{}}
- const distGoal=(g,x,y)=>{if(g.pt)return Math.hypot(g.pt[0]-x,g.pt[1]-y);
+ const distGoal=(g,x,y)=>{if(g.pt){if(g.rect)return Math.hypot(Math.max(g.rect[0]-x,0,x-g.rect[2]),Math.max(g.rect[1]-y,0,y-g.rect[3]));return Math.max(0,Math.hypot(g.pt[0]-x,g.pt[1]-y)-g.rad);}
   if(!g.line){try{if(g.el.isPointInFill(new DOMPoint(x,y)))return 0;}catch{}}
   let m=Infinity;for(const q of g.pts){const d=Math.hypot(q[0]-x,q[1]-y);if(d<m)m=d;}return Math.max(0,m-g.half);};
  // distance (units) from a point to the nearest goal shape or line (cities excluded: their pin is an obstacle already)
@@ -53,7 +58,7 @@ window.TopoV3Landmarks=function(svg,k,opts){
  const goalDist=(x,y)=>{let m=Infinity;for(const g of goals){const d=distGoal(g,x,y);if(d<m)m=d;}return m;};
  // A point of a place on the map, never loose: a city's own point; for an area a point inside it (the one nearest its
  // middle, then the inside point farthest from the ones already taken); for a river a point on its line.
- function placePoint(id,taken){
+ function placePoint(id,taken,near){
   const els=[...svg.querySelectorAll('[data-id="'+id+'"]')];if(!els.length)return null;
   const c=els.find(n=>n.tagName==='circle');if(c)return [+c.getAttribute('cx'),+c.getAttribute('cy')];
   const shapes=els.filter(n=>typeof n.getBBox==='function');let el=null,area=-1;for(const n of shapes){try{const b=n.getBBox(),a=b.width*b.height;if(a>area){area=a;el=n;}}catch{}}
@@ -62,6 +67,7 @@ window.TopoV3Landmarks=function(svg,k,opts){
   if(!pts.length&&typeof el.getTotalLength==='function'){const L=el.getTotalLength();for(const f of [.5,.3,.7,.4,.6]){const q=el.getPointAtLength(L*f);pts.push([q.x,q.y]);}return pts.find(p=>!taken.some(t=>Math.hypot(t[0]-p[0],t[1]-p[1])<1))||pts[0];}
   if(!pts.length)return [b.x+b.width/2,b.y+b.height/2];
   const mx=pts.reduce((a,p)=>a+p[0],0)/pts.length,my=pts.reduce((a,p)=>a+p[1],0)/pts.length;pts.sort((p,q)=>Math.hypot(p[0]-mx,p[1]-my)-Math.hypot(q[0]-mx,q[1]-my));
+  if(near)return pts.reduce((a,p)=>Math.hypot(p[0]-near[0],p[1]-near[1])<Math.hypot(a[0]-near[0],a[1]-near[1])?p:a,pts[0]);
   if(!taken.length)return pts[0];const inner=pts.slice(0,Math.max(1,Math.ceil(pts.length*.6)));
   return inner.reduce((best,p)=>{const d=Math.min(...taken.map(t=>Math.hypot(t[0]-p[0],t[1]-p[1])));return d>best[1]?[p,d]:best;},[inner[0],-1])[0];
  }
@@ -90,9 +96,9 @@ window.TopoV3Landmarks=function(svg,k,opts){
    for(const e of list){const key=(e.place||e.at.join(','))+'|'+e.icon;if(seenPair.has(key))continue;seenPair.add(key);
     const asset=assets.get(e.icon);if(!asset)continue;const iconName=plan.icons?.[e.icon]||asset.label;
     // RELATED: at its goal; label "Colosseum, Rome" on hover. LOOSE: at its own real point, no goal, label = the icon's name only.
-    if(e.related){const taken=used.get(e.place)||[];const pt=placePoint(e.place,taken);if(!pt)continue;taken.push(pt);used.set(e.place,taken);
+    if(e.related){const taken=used.get(e.place)||[];const pt=placePoint(e.place,taken,e.nearPoint);if(!pt)continue;taken.push(pt);used.set(e.place,taken);
      const place=names.find(x=>x.id===e.place)?.name||'';
-     shown.push({...asset,point:pt,place:e.place,related:true,iconName,label:!place||iconName===place?place||iconName:iconName+', '+place});}
+     shown.push({...asset,point:pt,place:e.place,avoid:e.avoid,related:true,iconName,label:!place||iconName===place?place||iconName:iconName+', '+place});}
     else shown.push({...asset,point:e.point,loose:true,where:e.where,related:false,iconName,label:iconName});}}
   svg.dataset.landmarkSet='hoofdstuk';}
  else if(onReis&&shown.length){const hits=[...svg.querySelectorAll('circle.v3Hit')].map(c=>c.getAttribute('data-id'));
@@ -110,13 +116,16 @@ window.TopoV3Landmarks=function(svg,k,opts){
   const at=(dx,dy)=>all?[item.point[0]+(dx-half-6)*k,item.point[1]+(dy-ph-6)*k,item.point[0]+(dx+half+6)*k,item.point[1]+(dy+(alw?26:6))*k]:[item.point[0]+(dx-pw/2)*k,item.point[1]+(dy-ph)*k,item.point[0]+(dx+pw/2)*k,item.point[1]+dy*k];
   let dx=0,dy=0;
   if(all){
-   // BL-037.9 (b)(c): the lavender circle (icon + 6 px) never touches a goal shape or line; a LOOSE icon also keeps 40 screen
-   // px (circle centre) from every goal of the chapter and moves at most 28 px from its real point. A related icon at an
+   // BL-037.9 (b)(c): the lavender circle (icon + 6 px) never touches a goal shape or line; a LOOSE icon also keeps 12 screen
+   // px edge to edge (BL-039.5, Dennis 20-11: circle edge to the edge of the goal's shape, line or dot) from every goal of the chapter and moves at most 28 px from its real point. A related icon at an
    // area or a river steps outside the shape, as near as possible (up to 300 px); one at a city up to 96 px.
    const cr=Math.max(pw,ph)/2+6,ctr=(x,y)=>[item.point[0]+x*k,item.point[1]+(y-ph/2)*k];
    const bad=(x,y)=>{if(hits(at(x,y)))return true;const [cx,cy]=ctr(x,y);
     if(shapeDist(cx,cy)<(cr+1.5)*k)return true;
-    return !!item.loose&&goalDist(cx,cy)<40*k;};
+    if(item.loose&&goalDist(cx,cy)<(cr+LOOSE_GAP)*k)return true;
+    // BL-039.5: an optional 'avoid' (related area icon): the spot must lie nearer to its own place than to the avoided goal
+    for(const av of item.avoid||[]){const own=goals.find(q=>q.id===item.place),oth=goals.find(q=>q.id===av);if(own&&oth&&distGoal(own,cx,cy)>distGoal(oth,cx,cy))return true;}
+    return false;};
    const reach=item.loose?28:(goals.find(q=>q.id===item.place)?.pt?96:300);
    let ok=!bad(0,0);
    if(!ok)search:for(let d=4;d<=reach;d+=d<48?4:6)for(let a=0;a<16;a++){const sx=Math.sin(a*Math.PI/8),sy=-Math.cos(a*Math.PI/8),x=Math.round(sx*d),y=Math.round(sy*d);if(!bad(x,y)){dx=x;dy=y;ok=true;break search;}}

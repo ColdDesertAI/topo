@@ -1,9 +1,10 @@
 {
-  "about": "BL-037.9 (Dennis 20-11): which icon stands where on the chapter page and in Oefenen (Ontdekken). Chapter id → list of entries. Two kinds only. RELATED {icon, place, related:true}: the icon really belongs to that goal (place = item id of the chapter; the pair must be listed in 'fits'); label on hover/focus: 'Colosseum, Rome'. LOOSE {icon, at:[lon,lat], where, related:false}: never tied to a goal; real coordinates of a logical place (where = its name, for the report); label = the icon's own name only; at least 40 screen px from every goal of the chapter (measured at runtime, scripts/qa-v3-icons.mjs). Icons are never drawn on or over a goal shape or line, and are hidden during Aanwijzen, Namen schrijven and Toets. 4–5 per chapter; none for Landen and Zeeën. The build checks every entry. Report: ops/reports/BL-037-iconen.md.",
+  "about": "BL-037.9 (Dennis 20-11): which icon stands where on the chapter page and in Oefenen (Ontdekken). Chapter id → list of entries. Two kinds only. RELATED {icon, place, related:true}: the icon really belongs to that goal (place = item id of the chapter; the pair must be listed in 'fits'); label on hover/focus: 'Colosseum, Rome'. LOOSE {icon, at:[lon,lat], where, related:false}: never tied to a goal; real coordinates of a logical place (where = its name, for the report); label = the icon's own name only; at least 12 screen px EDGE TO EDGE (BL-039.5: from the lavender circle to the edge of every goal's shape, line or dot) from every goal of the chapter (measured at runtime, scripts/qa-v3-icons.mjs); the same loose icon may return in several chapters. A RELATED area entry may carry near:[lon,lat] (stand as near as possible to that real point) and avoid:[area ids] (stand nearer to its own area than to those). Icons are never drawn on or over a goal shape or line, and are hidden during Aanwijzen, Namen schrijven and Toets. 4–5 per chapter; none for Landen and Zeeën. The build checks every entry. Reports: ops/reports/BL-037-iconen.md, ops/reports/BL-039-iconen.md.",
   "icons": {
     "TOPO_01": "Colosseum", "TOPO_02": "Scheve toren", "TOPO_03": "Vesuvius", "TOPO_04": "Etna", "TOPO_05": "Gondel",
     "TOPO_06": "Dom", "TOPO_07": "Dom", "TOPO_08": "Nuraghe", "TOPO_09": "Bergen", "TOPO_10": "Trulli",
-    "TOPO_11": "Ferrari", "TOPO_12": "Stadion", "TOPO_13": "IJsje", "TOPO_14": "Strand", "TOPO_15": "Pasta", "TOPO_16": "Fiat 500"
+    "TOPO_11": "Ferrari", "TOPO_12": "Stadion", "TOPO_13": "IJsje", "TOPO_14": "Strand", "TOPO_15": "Pasta",
+    "TOPO_16": "Fiat 500"
   },
   "fits": {
     "TOPO_01": ["city-9"],
@@ -30,53 +31,53 @@
       {"icon": "TOPO_01", "place": "city-9", "related": true},
       {"icon": "TOPO_05", "place": "city-11", "related": true},
       {"icon": "TOPO_10", "at": [17.2386, 40.7855], "where": "Alberobello", "related": false},
-      {"icon": "TOPO_04", "at": [14.9934, 37.751], "where": "Etna, Sicilië", "related": false}
+      {"icon": "TOPO_14", "at": [14.2167, 42.4618], "where": "Pescara", "related": false}
     ],
     "city3": [
       {"icon": "TOPO_04", "place": "city-15", "related": true},
-      {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
-      {"icon": "TOPO_15", "at": [11.3426, 44.4949], "where": "Bologna", "related": false},
-      {"icon": "TOPO_10", "at": [17.2386, 40.7855], "where": "Alberobello", "related": false},
-      {"icon": "TOPO_16", "at": [7.6647, 45.0316], "where": "Turijn", "related": false}
+      {"icon": "TOPO_12", "at": [12.4547, 41.934], "where": "Stadio Olimpico, Rome", "related": false},
+      {"icon": "TOPO_14", "at": [17.9925, 40.0553], "where": "Gallipoli", "related": false},
+      {"icon": "TOPO_16", "at": [7.6647, 45.0316], "where": "Turijn", "related": false},
+      {"icon": "TOPO_15", "at": [11.3426, 44.4949], "where": "Bologna", "related": false}
     ],
     "city4": [
       {"icon": "TOPO_09", "place": "city-22", "related": true},
-      {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
       {"icon": "TOPO_16", "at": [7.6647, 45.0316], "where": "Turijn", "related": false},
       {"icon": "TOPO_02", "at": [10.3966, 43.723], "where": "Pisa", "related": false},
-      {"icon": "TOPO_03", "at": [14.426, 40.821], "where": "Vesuvius, Napels", "related": false}
+      {"icon": "TOPO_14", "at": [17.9925, 40.0553], "where": "Gallipoli", "related": false},
+      {"icon": "TOPO_12", "at": [12.4547, 41.934], "where": "Stadio Olimpico, Rome", "related": false}
     ],
     "islands": [
       {"icon": "TOPO_04", "place": "area-a", "related": true},
       {"icon": "TOPO_08", "place": "area-b", "related": true},
       {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
-      {"icon": "TOPO_15", "at": [11.3426, 44.4949], "where": "Bologna", "related": false},
-      {"icon": "TOPO_05", "at": [12.335, 45.4387], "where": "Venetië", "related": false}
+      {"icon": "TOPO_11", "at": [10.8656, 44.529], "where": "Maranello", "related": false},
+      {"icon": "TOPO_14", "at": [12.5683, 44.0678], "where": "Rimini", "related": false}
     ],
     "mountains": [
       {"icon": "TOPO_09", "place": "area-d", "related": true},
       {"icon": "TOPO_09", "place": "area-c", "related": true},
       {"icon": "TOPO_16", "at": [7.6647, 45.0316], "where": "Turijn", "related": false},
       {"icon": "TOPO_13", "at": [13.3615, 38.1157], "where": "Palermo", "related": false},
-      {"icon": "TOPO_08", "at": [8.9929, 39.7062], "where": "Barumini, Sardinië", "related": false}
+      {"icon": "TOPO_14", "at": [12.5683, 44.0678], "where": "Rimini", "related": false}
     ],
     "volcanoes": [
       {"icon": "TOPO_03", "place": "area-e", "related": true},
       {"icon": "TOPO_04", "place": "area-f", "related": true},
       {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
-      {"icon": "TOPO_15", "at": [11.3426, 44.4949], "where": "Bologna", "related": false},
-      {"icon": "TOPO_05", "at": [12.335, 45.4387], "where": "Venetië", "related": false}
+      {"icon": "TOPO_05", "at": [12.335, 45.4387], "where": "Venetië", "related": false},
+      {"icon": "TOPO_11", "at": [10.8656, 44.529], "where": "Maranello", "related": false}
     ],
     "regions": [
-      {"icon": "TOPO_02", "place": "area-h", "related": true},
-      {"icon": "TOPO_07", "place": "area-h", "related": true},
-      {"icon": "TOPO_01", "at": [12.4922, 41.8903], "where": "Rome", "related": false},
+      {"icon": "TOPO_02", "place": "area-h", "related": true, "near": [10.3966, 43.723]},
+      {"icon": "TOPO_07", "place": "area-h", "related": true, "near": [11.33, 43.2], "avoid": ["area-g"]},
+      {"icon": "TOPO_12", "at": [12.4547, 41.934], "where": "Stadio Olimpico, Rome", "related": false},
       {"icon": "TOPO_10", "at": [17.2386, 40.7855], "where": "Alberobello", "related": false},
       {"icon": "TOPO_03", "at": [14.426, 40.821], "where": "Vesuvius, Napels", "related": false}
     ],
     "rivers": [
-      {"icon": "TOPO_04", "at": [14.9934, 37.751], "where": "Etna, Sicilië", "related": false},
-      {"icon": "TOPO_03", "at": [14.426, 40.821], "where": "Vesuvius, Napels", "related": false},
+      {"icon": "TOPO_11", "at": [10.8656, 44.529], "where": "Maranello", "related": false},
+      {"icon": "TOPO_14", "at": [17.9925, 40.0553], "where": "Gallipoli", "related": false},
       {"icon": "TOPO_10", "at": [17.2386, 40.7855], "where": "Alberobello", "related": false},
       {"icon": "TOPO_08", "at": [8.9929, 39.7062], "where": "Barumini, Sardinië", "related": false},
       {"icon": "TOPO_13", "at": [13.3615, 38.1157], "where": "Palermo", "related": false}
