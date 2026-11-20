@@ -122,6 +122,8 @@ async function lessonResult(b,W,H){
  // Blur during a lesson question (≤ 3); Nino the same size as on the other screens.
  const q=await p.evaluate(probe);if(q.blur>3)fail(`les-vraag ${W}×${H}`,'blur op '+q.blur+': '+q.blurred.join(', '));
  if(q.nino!==(W<1280?'60×64':'140×152'))fail(`les-vraag ${W}×${H}`,'Nino '+q.nino);
+ // BL-038: the lesson bar never lies over the sidebar/rail (iPad portrait: it did).
+ {const ov=await p.evaluate(()=>{const a=document.querySelector('.v3LesBar')?.getBoundingClientRect(),n=[...document.querySelectorAll('.v3ShellNav,.v3ShellNav .v3Side')].map(e=>e.getBoundingClientRect()).filter(r=>r.width>2);if(!a||!a.width)return 0;let m=0;for(const b of n){const x=Math.min(a.right,b.right)-Math.max(a.left,b.left),y=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);if(x>2&&y>2)m=Math.max(m,Math.round(x));}return m;});if(ov)fail(`les-vraag ${W}×${H}`,'lesbalk over de zijbalk ('+ov+' px)');}
  for(let i=0;i<80;i++){if(await p.locator('#finishScreen').count())break;
   await p.evaluate(()=>{try{grade(true);}catch{}try{next();}catch{}});await p.waitForTimeout(40);}
  await p.waitForTimeout(700);
@@ -202,7 +204,7 @@ for(const [wc,set] of Object.entries(nino))if(set.size!==1)fail('nino '+wc,'meer
   return {on:[...document.querySelectorAll('.v3Markers .v3Marker.on')].map(m=>m.dataset.chapter)};});
  if(r.on.length!==1||r.on[0]!=='city1')fail('actief hoofdstuk (lopende les in 1, volgende is 2)',`gevulde marker ${r.on} (verwacht city1)`);
  console.log('actief hoofdstuk bij lopende les:',JSON.stringify(r));await p.close();}
-const les=[];for(const [W,H] of [[1280,800],[1366,768],[1440,900],[2560,1440]])les.push(await lessonResult(b,W,H));
+const les=[];for(const [W,H] of [[1280,800],[1366,768],[1440,900],[2560,1440],[810,1080],[768,1024]])les.push(await lessonResult(b,W,H));
 let f=null;if(args.has('--fps'))f=await fps(b);
 await b.close();
 const blurPer={};for(const t of table){const s=t.where.split(' ').pop();blurPer[s]=Math.max(blurPer[s]||0,t.blur);}

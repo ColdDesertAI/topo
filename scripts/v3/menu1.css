@@ -851,3 +851,22 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsLabel{display:block;margin:0 0 10px;line-height:16px}
  .v3Reis[data-menu="1"] .v3View-toetsResult .v3ToetsScore{margin:0;line-height:1.05}
 }
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P7. Lesson: the lesson panels as Menu 1 cards (white, no blur: the rail is the one blur), Nino in the rail the same size as
+    on Reis, and on the result the lesson bar scrolls along instead of lying over the result card. */
+ body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter,.finishScreen,.atlasZoom,.atlasZoom *){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ body.v3Les[data-v3-menu="1"] :is(.v3LesBar,aside.panel,#focusAnswerSheet,#focusLearnBar,#ninoMeter){background:rgba(255,255,255,.94)!important}
+ body.v3Les[data-v3-menu="1"] .v3ShellNav .v3Side .v3Portrait{width:60px;height:64px;max-height:none;margin:14px auto;flex:0 0 auto;border-radius:0;background:none;overflow:hidden;display:block}
+ body.v3Les[data-v3-menu="1"] .v3ShellNav .v3Side .v3Portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 10%;margin:0}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]):has(.layout.finishLayout) .v3LesBar{position:absolute!important}
+ body.v3Les[data-v3-menu="1"]:not([data-focus-shell=true]) .layout.finishLayout #finishScreen{margin-top:calc(var(--v3-lesbar-h,136px) + var(--v3-gut,24px))}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true] .layout.finishLayout #finishScreen{margin-top:44px}
+}
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* The step name in the lesson bar stays whole (it was cut to "A…" at 768): Schoolblad is an icon button here. */
+ body.v3Les[data-v3-menu="1"] .v3LesBar .v3LesSchool span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ body.v3Les[data-v3-menu="1"] .v3LesBar .v3LesSchool{width:44px;min-width:44px;padding:0;justify-content:center}
+}
