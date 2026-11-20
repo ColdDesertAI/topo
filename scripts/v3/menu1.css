@@ -914,11 +914,14 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
    44 px circles with a 4 px gap (4 x 44 + 3 x 4 = 188 px). */
 @media (min-width:1280px) and (max-width:1439px){.v3Side .v3SideFoot:has(.v3ExitBtn){gap:4px}.v3Side .v3SideFoot:has(.v3ExitBtn)>button{flex:0 0 44px!important;width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important}}
 
-/* BL-037.6: Kennispaspoort — pizza icons for Vinden and Naam (22 px) and the one-line legend above the table. */
+/* BL-039.8: Kennispaspoort — filling pizza (32 px) for Vinden and Naam; the one-line legend of five steps above the table. */
 .v3Reis[data-menu="1"] .v3PasBody .v3PasIcon{width:64px}
-.v3Reis[data-menu="1"] .v3PasBody .v3PasPizza{width:22px;height:22px;display:inline-block;vertical-align:middle}
-.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend{caption-side:top;text-align:left;padding:2px 4px 8px;font:500 13px/22px var(--v3-font);color:#5d5873}
-.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend .v3PasPizza{margin:0 2px}
+.v3PasFill{position:relative;display:inline-block;vertical-align:middle}
+.v3PasFill img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.v3PasFill .v3PasBase{filter:grayscale(1);opacity:.3}
+.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend{caption-side:top;text-align:left;padding:2px 4px 8px;font:500 13px/22px var(--v3-font);color:#5d5873;white-space:nowrap}
+.v3PasLegend .v3PasLegendItem{display:inline-flex;align-items:center;gap:3px;margin-right:12px}
+.v3PasLegend .v3PasLegendItem:last-child{margin-right:0}
 
 /* BL-037.8: Landen and Zeeën — the free title block may slide up along the stage (reis.js fitOmgeving sets --v3-free-dy) so the map can fill the stage. */
 .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel :is(.v3CardKicker,.v3CardHead,.v3Actions,.v3Locked){transform:translateY(var(--v3-free-dy,0px))}

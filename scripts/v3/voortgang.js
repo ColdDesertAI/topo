@@ -22,16 +22,23 @@
    const status=find==='Goed onthouden'&&name==='Goed onthouden'?'beheerst':find!=='Nog oefenen'||name!=='Nog oefenen'?'bezig':'nog';
    return {item,find,name,status};});
  }
- // BL-037.6: Vinden/Naam per place as an icon (V2 texts: Nog oefenen, Herhalen = pizza slice, still to practise;
- // Opfrissen, Op weg, Goed onthouden = whole pizza, on the way or done); the text stays as aria-label and title.
- const PRACTISE=new Set(['Nog oefenen','Herhalen']);
- const pizzaCell=text=>{const td=make('td','v3PasIcon'),a=V.art?.pizzaMini,src=a&&(PRACTISE.has(text)?a.slice:a.whole);
-  if(!src){td.textContent=text;return td;}
-  const i=V.pic(src,'v3PasPizza',22,22);i.setAttribute('role','img');i.alt=text;i.setAttribute('aria-label',text);i.title=text;td.append(i);return td;};
- const pizzaLegend=()=>{const cap=make('caption','v3PasLegend'),a=V.art?.pizzaMini;cap.title='Pizzapunt = nog oefenen · hele pizza = op weg of klaar';
-  const ic=(src)=>{const i=V.pic(src,'v3PasPizza',22,22);i.setAttribute('aria-hidden','true');return i;};
-  if(!a){cap.textContent='Pizzapunt =\u00a0nog oefenen · hele pizza = op weg of klaar';return cap;}
-  cap.append(ic(a.slice),document.createTextNode('\u00a0oefenen · '),ic(a.whole),document.createTextNode('\u00a0op weg of klaar'));return cap;};
+ // BL-039.8: Vinden/Naam per place as a filling pizza (the Beloningen icon IC-pizza-96): grey base + the coloured icon on top,
+ // revealed by a conic mask from 12 o'clock around the pizza's centre (measured on the 96 px export: 49.8% 50.4%).
+ // The V2 status texts map to the levels: Nog oefenen 0 · Herhalen 25 · Opfrissen 50 · Op weg 75 · Goed onthouden 100 %.
+ const LEVELS=[['Nog oefenen',0],['Herhalen',25],['Opfrissen',50],['Op weg',75],['Goed onthouden',100]];
+ const LEVEL=new Map(LEVELS);
+ const fill=(pct,size,label)=>{const src=V.art?.icons?.pizza,w=make('span','v3PasFill');if(!src)return null;
+  w.style.width=w.style.height=size+'px';
+  const base=V.pic(src,'v3PasBase',size,size),top=V.pic(src,'v3PasTop',size,size);
+  const m='conic-gradient(from 0deg at 49.8% 50.4%,#000 0 '+pct+'%,transparent '+pct+'% 100%)';top.style.maskImage=m;top.style.webkitMaskImage=m;
+  base.setAttribute('aria-hidden','true');top.setAttribute('aria-hidden','true');w.append(base,top);
+  if(label){w.setAttribute('role','img');w.setAttribute('aria-label',label);w.title=label;}else w.setAttribute('aria-hidden','true');
+  w.dataset.fill=String(pct);return w;};
+ const pizzaCell=text=>{const td=make('td','v3PasIcon'),pct=LEVEL.get(text),f=pct==null?null:fill(pct,32,text);
+  if(!f){td.textContent=text;return td;}td.append(f);return td;};
+ const pizzaLegend=()=>{const cap=make('caption','v3PasLegend');cap.setAttribute('aria-label','Niveaus: '+LEVELS.map(l=>l[0]).join(', '));
+  for(const [name,pct] of LEVELS){const it=make('span','v3PasLegendItem'),f=fill(pct,22,null);if(f)it.append(f);it.append(document.createTextNode(name));cap.append(it);}
+  return cap;};
  const bar=(value,max,cls)=>{const b=make('div','v3Bar '+(cls||''));b.setAttribute('role','progressbar');b.setAttribute('aria-valuemin','0');b.setAttribute('aria-valuemax',String(max));b.setAttribute('aria-valuenow',String(value));const f=make('i');f.style.width=(max?value/max*100:0)+'%';b.append(f);return b;};
  const section=(title,id,...content)=>{const s=make('section','v3Field v3Card');const h=make('h2',null,title);h.id=id;s.setAttribute('aria-labelledby',id);s.append(h,...content);return s;};
  const fmt=at=>new Date(at).toLocaleDateString('nl-NL',{day:'numeric',month:'short'});

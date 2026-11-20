@@ -130,7 +130,6 @@ for(const [cid,list] of Object.entries(chapterIcons.chapters)){const places=CHAP
 for(const id of Object.keys(CHAPTER_ITEMS))if(!(id in chapterIcons.chapters))throw Error('chapter-icons: chapter missing '+id);
 // BL-036.5/BL-037.7: Nino on the Vespa (side view, to the right) beside the active pin on the Reis overview and in the ride (120x80, 240x160 for 2x), embedded as data URIs so the offline file works.
 v3art.vespaRijdend=Object.fromEntries([120,240].map(n=>['x'+n,'data:image/webp;base64,'+readFileSync(new URL('assets/v3/render/exports/vespa-rijdend-v3-'+n+'.webp',root)).toString('base64')]));
-v3art.pizzaMini=Object.fromEntries([['slice','pizza-icon-slice-44'],['whole','pizza-icon-whole-44']].map(([k,f])=>[k,'data:image/webp;base64,'+readFileSync(new URL('assets/nino/rewards/pizza/exports/'+f+'.webp',root)).toString('base64')]));
 v3art.chapterIcons={icons:chapterIcons.icons,chapters:chapterIcons.chapters};
 v3art.landmarks={source:landmarks.source,basisSet:lmLocations.relevance.basisSet,items:activeLandmarks.map(a=>{
  const item=a.location.canonicalItemId&&canonicalItems.find(i=>i.id===a.location.canonicalItemId);
