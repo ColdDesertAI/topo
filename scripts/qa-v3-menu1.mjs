@@ -16,7 +16,8 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 const OUT=process.env.QA_OUT||tmpdir(); // screenshots of the lesson result land here, never in the repo
 const {chromium}=createRequire(import.meta.url)('playwright');
-const HTML='file://'+fileURLToPath(new URL('../output/html/TOPO-V3-Reis-Preview.html',import.meta.url));
+// QA_HTML=http://…/index.html runs the same checks on the web copy (images as separate files, BL-035.9).
+const HTML=process.env.QA_HTML||'file://'+fileURLToPath(new URL('../output/html/TOPO-V3-Reis-Preview.html',import.meta.url));
 const args=new Set(process.argv.slice(2));
 // Env overrides for focal-point/glow studies (BL-032): QA_SIZES=1080x810,1440x900 · QA_BGS=bg01,bg03 · QA_NOGLOW=1 ·
 // QA_BGPOS='bg01:40% 50%;bg02:…' (body background-position per background).
@@ -38,6 +39,9 @@ const fails=[];const fail=(where,what)=>{fails.push(where+': '+what);};
 
 async function open(b,W,H,bg){
  const p=await b.newPage({viewport:{width:W,height:H}});const errors=[];p.on('pageerror',e=>errors.push(e.message));
+ // BL-035.9: no broken pictures — every failed request or 4xx/5xx counts as an error.
+ p.on('requestfailed',r=>{if(!/ERR_ABORTED/.test(r.failure()?.errorText||''))errors.push('laden mislukt: '+r.url().split('/').pop()+' '+r.failure()?.errorText);});
+ p.on('response',r=>{if(r.status()>=400)errors.push('HTTP '+r.status()+': '+r.url().split('/').pop());});
  if(process.env.QA_NOGLOW||process.env.QA_BGPOS)await p.addInitScript(([noglow,pos])=>{const css=(noglow?'.v3Panel::before,.v3CardHead::before,.v3VgTitleBar::before,.v3ToetsScoreCard::before{display:none!important}':'')+
   (pos||'').split(';').filter(Boolean).map(x=>{const [k,v]=x.split(':');return 'body[data-v3-background='+k+']{background-position:'+v+'!important;background-size:cover!important}';}).join('');
   addEventListener('DOMContentLoaded',()=>{const st=document.createElement('style');st.textContent=css;document.head.append(st);});},[process.env.QA_NOGLOW||'',process.env.QA_BGPOS||'']);
@@ -161,6 +165,11 @@ for(const [W,H] of SIZES)for(const bg of BGS){
  for(const screen of SCREENS){
   if(screen!=='overzicht'){await p.goto(HTML+'#bezig/'+bg);await p.waitForTimeout(1100);await show(p,screen);}
   const where=`${W}×${H} ${bg} ${screen}`;const r=await p.evaluate(probe);
+  // BL-035.9: every visible picture has arrived (lazy ones in view included) and none is broken.
+  const broken=await p.evaluate(async()=>{const vis=e=>{const q=e.getBoundingClientRect();return q.width>1&&q.height>1&&q.bottom>0&&q.top<innerHeight&&q.right>0&&q.left<innerWidth&&getComputedStyle(e).visibility!=='hidden';};
+   const imgs=[...document.querySelectorAll('img')].filter(vis);for(let t=0;t<40&&imgs.some(i=>!i.complete);t++)await new Promise(r=>setTimeout(r,100));
+   return imgs.filter(i=>!i.complete||!i.naturalWidth).map(i=>(i.className||i.alt||'img')+' '+(i.currentSrc||i.src).split('/').pop().slice(0,40));});
+  if(broken.length)fail(where,'kapotte afbeelding: '+broken.slice(0,3).join('; '));
   if(r.over.length)fail(where,'overlap: '+r.over.slice(0,4).join('; '));
   if(r.wide)fail(where,'breder dan het scherm');
   if(r.small.length)fail(where,'tekst < 13 px: '+r.small.slice(0,3).join('; '));

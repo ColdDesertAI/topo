@@ -5,6 +5,7 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { splitSite } from './split-site.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -25,6 +26,7 @@ for (const name of readdirSync(dist)) {
 //     Live zetten of terugdraaien = alleen deze variabele wijzigen en opnieuw deployen.
 const which = (process.env.SITE_ITALIE || 'v2').toLowerCase();
 if (!['v2', 'v3'].includes(which)) throw new Error('SITE_ITALIE moet v2 of v3 zijn, niet: ' + which);
+let firstScreen = null;
 if (which === 'v3') {
   const v3 = join(root, 'output/html/TOPO-V3-Italie.html');
   if (!existsSync(v3)) throw new Error('SITE_ITALIE=v3 maar de V3-release ontbreekt: draai TOPO_V3_RELEASE=1 node scripts/build-v3-preview.mjs');
@@ -33,6 +35,10 @@ if (which === 'v3') {
   mkdirSync(join(italie, 'v2'), { recursive: true });
   renameSync(join(italie, 'index.html'), join(italie, 'v2', 'index.html'));
   writeFileSync(join(italie, 'index.html'), v3html);
+  // BL-035.9: the web copy loads its images as separate, immutable-cached files (the offline file stays one file).
+  const split = splitSite(italie);
+  firstScreen = split.first;
+  console.log(`Italië web: index.html ${(split.html / 1e6).toFixed(2)} MB, ${split.files} assets (${(split.bytes / 1e6).toFixed(1)} MB) in /italie/assets/`);
 }
 console.log('Italië op /italie/: ' + which.toUpperCase());
 
@@ -41,6 +47,16 @@ let html = readFileSync(join(root, 'portal/index.html'), 'utf8');
 const before = html;
 html = html.replaceAll('../assets/nino-topo/', './assets/nino-topo/').replace("italy:'../index.html'", "italy:'./italie/'");
 if (html === before || html.includes('../')) throw new Error('Portal-paden niet volledig omgezet.');
+// BL-035.9: the portal warms /italie/ — on hover/focus/touch of the Italy card at once, otherwise when the browser is
+// idle (not with Save-Data). Prefetch only fills the HTTP cache; nothing runs.
+if (firstScreen) {
+  const urls = ['./italie/', ...firstScreen.map(u => './italie/' + u)];
+  const js = `<script>(()=>{const U=${JSON.stringify(urls)};let done=false;const go=()=>{if(done)return;done=true;for(const u of U){const l=document.createElement('link');l.rel='prefetch';l.href=u;if(u.endsWith('.woff2')){l.as='font';l.crossOrigin='anonymous';}document.head.append(l);}};`
+    + `addEventListener('pointerover',e=>{if(e.target.closest?.('a[href="./italie/"],[data-country="italy"],.country.active'))go();},{passive:true});addEventListener('focusin',e=>{if(e.target.closest?.('a[href="./italie/"],.country.active'))go();});addEventListener('touchstart',e=>{if(e.target.closest?.('.country.active'))go();},{passive:true});`
+    + `if(!navigator.connection?.saveData)addEventListener('load',()=>(window.requestIdleCallback||(f=>setTimeout(f,2000)))(go,{timeout:4000}));})();</script>`;
+  if (!html.includes('</body>')) throw new Error('Portal zonder </body>');
+  html = html.replace('</body>', js + '</body>');
+}
 writeFileSync(join(dist, 'index.html'), html);
 cpSync(join(root, 'portal/site.webmanifest'), join(dist, 'site.webmanifest'));
 
