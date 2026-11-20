@@ -657,7 +657,7 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup,.v3Book,.v3Ride,.v3Tiles,.v3Tile,.v3VgTitleBar,.v3VgRow,.v3VgTile,.v3VgHead,.v3VgLegend,.v3Field.v3Card,.v3Top,.v3Panel,.v3Rows,.v3MapStage),
  .v3Reis[data-menu="1"]>:is(.v3List,.v3View,.v3Rewards){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
  .v3Reis[data-menu="1"]>:is(.v3View,.v3Rewards){background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0}
- .v3Reis[data-menu="1"] .v3Counts{gap:10px;padding:0;background:transparent!important;box-shadow:none!important;border-radius:0}
+ .v3Reis[data-menu="1"] .v3Counts{gap:10px;padding:0;background:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border-radius:0}
  .v3Reis[data-menu="1"] .v3Counts .v3CountSep{display:none}
  .v3Reis[data-menu="1"] .v3Counts .v3Count{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 16px 0 10px;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 6px 18px rgba(40,25,80,.10)}
  .v3Reis[data-menu="1"] .v3Counts .v3Count b{font:700 20px/1 var(--v3-font);color:var(--v3-ink)}
