@@ -65,7 +65,7 @@ body.v3Les #quiz>#message{order:4}
 body.v3Les #quiz>.buttons{order:5}
 body.v3Les #quiz>#ninoMeter{order:9}
 body.v3Les #answer{min-height:52px;border-radius:var(--v3-radius-btn);border:1px solid var(--v3-line);box-shadow:inset 0 0 0 1px var(--v3-line);font:400 19px/1.2 var(--v3-font);padding:0 var(--v3-s4);background:var(--v3-surface)}
-body.v3Les #answer:focus{outline:3px solid var(--v3-focus);outline-offset:2px}
+body.v3Les #answer:focus{outline:2px solid var(--v3-focus);outline-offset:2px}
 
 /* Beat 6 — feedback: the V2 sentence, green with ✓ when right, calm red when not; the map shows the right place. */
 body.v3Les #message{margin:0;padding:var(--v3-s3) var(--v3-s4);border-radius:var(--v3-radius-btn);background:var(--v3-surface2);border:0;font:600 17px/24px var(--v3-font);color:var(--v3-ink2)}

@@ -484,7 +484,7 @@ body[data-v3-menu="1"] .ninoProfile.v3{background:#fff!important;-webkit-backdro
 .v3BgPop .v3BgThumb img{display:block;width:96px;height:54px;border-radius:9px;object-fit:cover;box-shadow:0 0 0 1px rgba(42,36,64,.12)}
 .v3BgPop .v3BgThumb[aria-pressed=true] img{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--v3-accent)}
 @media (hover:hover){.v3BgPop .v3BgThumb:hover{background:rgba(91,69,224,.06)}}
-.v3BgPop .v3BgThumb:focus-visible{outline:3px solid var(--v3-accent);outline-offset:2px}
+.v3BgPop .v3BgThumb:focus-visible{outline:2px solid var(--v3-accent);outline-offset:2px}
 /* === BL-035.7 (live 19-11): Instellingen › "Naam en favoriete pizza" opens the V2 profile dialog WITHOUT the .v3 class
    (only the kennismaking adds it), so it showed V2's cream and pine green. Same tokens as the kennismaking: an opaque
    white dialog, a head card in the glass style of the rest, the chosen pizza lavender with a violet ring, a violet
@@ -499,7 +499,7 @@ body.v3On .ninoProfile:not(.v3Welkom) .profileName input:focus{outline:0;border-
 body.v3On .ninoProfile:not(.v3Welkom) .profileChoice{background:#f7f5fd!important;border:0!important;border-radius:16px;box-shadow:inset 0 0 0 1px rgba(42,36,64,.1)!important;color:var(--v3-ink,#2a2440)}
 body.v3On .ninoProfile:not(.v3Welkom) .profileChoice:hover{background:#f0ecfd!important}
 body.v3On .ninoProfile:not(.v3Welkom) .profileChoice:has(:checked){background:var(--v3-accent-soft,#ebe7fd)!important;box-shadow:inset 0 0 0 3px var(--v3-accent,#5b45e0)!important;outline:0!important}
-body.v3On .ninoProfile:not(.v3Welkom) .profileChoice:has(:focus-visible){outline:3px solid var(--v3-accent,#5b45e0)!important;outline-offset:2px}
+body.v3On .ninoProfile:not(.v3Welkom) .profileChoice:has(:focus-visible){outline:2px solid var(--v3-accent,#5b45e0)!important;outline-offset:2px}
 body.v3On .ninoProfile:not(.v3Welkom) .profileActions [type=submit]{background:var(--v3-accent,#5b45e0)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 10px 24px rgba(91,60,200,.28)!important}
 body.v3On .ninoProfile:not(.v3Welkom) .profileActions [type=submit]:hover{background:var(--v3-accent-press,#4834c4)!important}
 body.v3On .ninoProfile:not(.v3Welkom) .profileActions [data-profile-cancel]{background:#fff!important;color:var(--v3-accent-press,#4834c4)!important;border:1px solid rgba(42,36,64,.16)!important}
@@ -561,3 +561,6 @@ body.v3On :is(.romeLens .lensClose,.mapPicker .pickerClose){color:var(--v3-ink,#
 body.v3On :is(.romeLens .lensClose,.mapPicker .pickerClose):is(:hover,:focus-visible){background:var(--v3-accent-soft,#ebe7fd)}
 body.v3On :is(.romeLens .lensClose,.mapPicker .pickerClose):focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
 body.v3On dialog.mapPicker{border-color:var(--v3-accent-soft,#ebe7fd)}
+
+/* BL-036.4: focusring overal violet, 2 px + 2 px offset (geen blauwe browserring); alleen bij toetsenbord/:focus-visible. */
+body.v3On :is(a,button,input,select,textarea,summary,[tabindex],[role=button]):focus-visible,body.v3On svg [tabindex]:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}

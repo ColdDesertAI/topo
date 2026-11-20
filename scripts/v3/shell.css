@@ -14,7 +14,7 @@ body.v3Les[data-v3-kind=gold] .schoolbladButton{display:none!important}
 .v3Reis:not([data-view=reis])>:is(.v3List,.v3Main){display:none}
 .v3Reis[data-view=oefenen]>.v3View-oefenen,.v3Reis[data-view=toets]>.v3View-toets,.v3Reis[data-view=toetsResult]>.v3View-toetsResult,.v3Reis[data-view=voortgang]>.v3View-voortgang{grid-column:2/-1;display:flex;flex-direction:column;gap:var(--v3-s5);min-height:0;overflow:auto;padding:var(--v3-s6) var(--v3-s8);background:color-mix(in srgb,var(--v3-surface) 55%,transparent)}
 .v3View h1{font:var(--v3-large);letter-spacing:-.015em;margin:0}
-.v3View h1:focus{outline:0}.v3View h1:focus-visible{outline:3px solid var(--v3-focus,#1d6fd8);outline-offset:4px;border-radius:8px}
+.v3View h1:focus{outline:0}.v3View h1:focus-visible{outline:2px solid var(--v3-focus,#5b45e0);outline-offset:2px;border-radius:8px}
 .v3Field{display:grid;gap:var(--v3-s3)}
 .v3Field h2{font:var(--v3-headline);font-weight:700;color:var(--v3-ink2);margin:0}
 .v3Field[hidden]{display:none}

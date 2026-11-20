@@ -57,7 +57,7 @@ body.v3Les #map .activeTarget.lineTarget{stroke:#7655eb!important}
 body.v3Les :is(#quiz,#focusAnswerSheet) #message.good{background:#eee8ff;color:#4d32a5}
 body.v3Les :is(#quiz,#focusAnswerSheet) #message.bad{background:#fae8f1;color:#902345}
 body.v3Les #answer{border-color:#c7b6ee;color:var(--v3-ink);background:#ffffffd9}
-body.v3Les #answer:focus-visible{outline:3px solid #9675f5;outline-offset:2px}
+body.v3Les #answer:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
 
 .v3Counts .v3CountArt{width:40px;height:40px;object-fit:contain;flex:none}
 
@@ -68,7 +68,7 @@ body.v3Les .v3LesBack .v3LesBackText{display:none}
 body.v3Les .v3LesGroup{min-width:0}
 
 .v3Tiles button.v3Tile{color:var(--v3-ink);font:inherit;text-align:center;border:0;cursor:pointer;min-height:44px;touch-action:manipulation}
-.v3Tiles button.v3Tile:focus-visible{outline:3px solid var(--v3-accent);outline-offset:3px}
+.v3Tiles button.v3Tile:focus-visible{outline:2px solid var(--v3-accent);outline-offset:2px}
 
 /* Paper world: one serif for headings, one reading face, generous live paper margins. */
 .travelBook .folioWriting{font-family:"Topo Rounded",system-ui,sans-serif;color:#443326}
