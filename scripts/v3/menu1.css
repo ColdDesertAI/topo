@@ -766,7 +766,7 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup)>.v3ScreenTitle{font:800 26px/1.1 var(--v3-font);margin:0}
  .v3Reis[data-menu="1"] .v3View-toets>.v3ToetsSetupNino{display:none}
  .v3Reis[data-menu="1"] .v3OefPanel .v3Chips{grid-template-columns:repeat(4,minmax(0,1fr))!important}
- .v3Reis[data-menu="1"] .v3ToetsSetup .v3Chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+ .v3Reis[data-menu="1"] .v3ToetsSetup .v3Chips{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
  .v3Reis[data-menu="1"] :is(.v3OefPanel,.v3ToetsSetup) .v3Chip{min-width:0;white-space:nowrap;padding-left:8px!important;padding-right:8px!important;font-size:15px}
  .v3Reis[data-menu="1"] .v3OefPanel .v3FormBtn{min-height:76px}
  .v3Reis[data-menu="1"] .v3ToetsSetup .v3Field+.v3Field{padding-top:4px}

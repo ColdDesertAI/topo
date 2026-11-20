@@ -190,6 +190,16 @@ for(const [W,H] of SIZES)for(const bg of BGS){
   // Map first (design-critic BL-029 r3): Italy's box ≥ 25% of the screen on the overview and the chapter page.
   // (2560: the layout does not scale up yet — BL-033; reported, not a failure here.)
   if((screen==='overzicht'||screen==='hoofdstuk')&&W<2400&&!(r.mapShare>=.25))fail(where,'kaart te klein: '+r.mapShare);
+  // BL-038 (iPad portrait): the map plane >= 45% of the screen on Reis (overview, chapter), >= 40% of the height on Oefenen/Toets;
+  // the start buttons and the Toets chapter chips lie inside the screen.
+  if(W<1024&&H>W){const g=await p.evaluate(()=>{const R=s=>{const e=document.querySelector(s);if(!e||!e.getClientRects().length)return null;const r=e.getBoundingClientRect();return r;};
+    const st=R('.v3Reis[data-view=reis] .v3MapStage')||R('.v3OefStage')||R('.v3ToetsSetupStage');
+    const inside=[...document.querySelectorAll('.v3OefPanel .v3Start,.v3ToetsSetup .v3Start,.v3ToetsSetup .v3Chip')].filter(e=>e.getClientRects().length).filter(e=>{const r=e.getBoundingClientRect();return r.top<0||r.bottom>innerHeight||r.left<0||r.right>innerWidth;}).length;
+    return {area:st?st.width*st.height/(innerWidth*innerHeight):null,hh:st?st.height/innerHeight:null,out:inside};});
+   if((screen==='overzicht'||screen==='hoofdstuk')&&!(g.area>=.45))fail(where,'kaartvlak < 45%: '+(g.area&&g.area.toFixed(3)));
+   if((screen==='oefenen'||screen==='toets')&&!(g.hh>=.40))fail(where,'kaart < 40% van de hoogte: '+(g.hh&&g.hh.toFixed(3)));
+   if(g.out)fail(where,'startknop of chips buiten beeld: '+g.out);
+   if(g.area!==null)(globalThis.kv??=[]).push(where+' '+(g.area!==null&&(screen==='overzicht'||screen==='hoofdstuk')?g.area.toFixed(3):'h '+(g.hh??0).toFixed(2)));}
   const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}
   table.push({where,map:r.mapShare,blur:r.blur,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
  }
@@ -210,6 +220,7 @@ await b.close();
 const blurPer={};for(const t of table){const s=t.where.split(' ').pop();blurPer[s]=Math.max(blurPer[s]||0,t.blur);}
 console.log('blur (max per scherm):',JSON.stringify(blurPer));
 console.log('kaartaandeel (overzicht):',table.filter(t=>t.where.endsWith('overzicht')).map(t=>t.where.split(' ').slice(0,2).join(' ')+' '+t.map).join(' · '));
+if(globalThis.kv)console.log('portret kaartvlak (Reis ≥ .45, Oefenen/Toets hoogte ≥ .40):',globalThis.kv.join(' · '));
 console.log('nino:',JSON.stringify(Object.fromEntries(Object.entries(nino).map(([k,v])=>[k,[...v]]))));
 console.log('AA (laagste p5/eis per scherm, ≥ 1 = ok):',table.filter(t=>t.aaMin!==null).map(t=>t.where+' '+t.aaMin).join(' · '));
 if(f)console.log('fps:',JSON.stringify(f));
