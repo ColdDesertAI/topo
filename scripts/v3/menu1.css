@@ -715,3 +715,41 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Row[aria-pressed=true] .v3Chev{display:block;width:9px;height:9px;margin-right:4px;border:solid var(--v3-ink);border-width:2.5px 2.5px 0 0;border-radius:1px;transform:rotate(45deg)}
  .v3Reis[data-menu="1"]:is([data-view=reis],[data-view=voortgang]) .v3Rows .v3Chev .v3Icon{display:none}
 }
+
+@media (orientation:portrait) and (min-width:700px) and (max-width:1023px){
+ /* P3. Reis chapter page: same map on top; under it the lessons (+ back) left, the free block right. */
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]{grid-template-columns:var(--zij) minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto auto}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]>.v3Side{grid-row:1/-1}
+ .v3Reis[data-menu="1"][data-view=reis][data-reis-page=hoofdstuk]>.v3List{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] :is(.v3Main>.v3Top,.v3Main>.v3Panel){display:contents!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Main>.v3MapStage{grid-column:2/4;grid-row:1;margin:0;padding:0;position:relative;display:block;
+  --v3-card-over:0;--v3-fit-top:8px;--v3-fit-left:190px;--v3-fit-right:16px;--v3-fit-bottom:0px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Counts{grid-column:2/4;grid-row:1;justify-self:start;align-self:start;margin:16px 0 0 16px;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft{grid-column:2;grid-row:4;display:flex;align-self:start;margin:12px 8px 12px 16px;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3TopLeft .v3Back{display:inline-flex;align-items:center;gap:8px;height:44px;min-height:44px;padding:0 18px 0 12px;border-radius:999px;background:rgba(255,255,255,.9)!important;box-shadow:0 4px 14px rgba(40,25,80,.12);font:600 16px/1 var(--v3-font)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardScene,.v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Again{display:none!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList{grid-column:2;grid-row:2/4;z-index:1;align-self:start;position:relative;list-style:none;margin:30px 8px 0 16px!important;padding:4px;border-radius:20px;background:var(--m1-card);box-shadow:var(--m1-card-shadow);display:block!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StepList::before{content:"Lessen";position:absolute;left:4px;top:-26px;font:600 13px/16px var(--v3-font);letter-spacing:.08em;text-transform:uppercase;color:var(--m1-ink2)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li{margin:0;padding:0}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList>li+li{box-shadow:inset 0 1px 0 rgba(42,36,64,.07)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:12px;width:100%;min-height:56px;padding:0 12px;border:0;border-radius:12px;background:transparent;font:500 17px/1.25 var(--v3-font);color:var(--v3-ink);text-align:left}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepRow{background:var(--v3-accent-soft);font-weight:700}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepDot{display:grid;place-items:center;width:28px;height:28px;border-radius:999px;border:2px solid rgba(42,36,64,.22);background:#fff;box-sizing:border-box}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot{border:0;background:var(--v3-accent,#5b45e0)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.on .v3StepDot .v3Icon{width:14px;height:14px;color:#fff}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList li.now .v3StepDot{border-color:var(--v3-accent);box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 14px var(--v3-accent)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3StepList .v3StepRow>.v3Icon{width:18px;height:18px;color:#8a85a0}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardKicker{grid-column:3;grid-row:2;align-self:end;margin:30px 16px 8px 8px!important;position:relative;z-index:3}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardHead{grid-column:3;grid-row:3;z-index:2;margin:0 16px 0 8px;position:relative;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;height:auto!important;align-items:flex-start!important;gap:14px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3CardTitle{font:800 38px/1.05 var(--v3-font);letter-spacing:-.01em;color:var(--v3-ink);margin:0;text-wrap:balance}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar{display:flex;gap:6px;margin:0;padding:0;background:none;position:static!important;inset:auto!important;transform:none!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar::before,.v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar::after{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span{width:44px;height:8px;min-width:0;padding:0;margin:0;border:0;border-radius:4px;background:rgba(42,36,64,.20);box-shadow:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span::before,.v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span::after{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span.on{background:var(--v3-accent)}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3StageBar>span .v3Icon{display:none}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3BarGo{display:none!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions{grid-column:3;grid-row:4;z-index:2;display:flex!important;margin:20px 16px 12px 8px!important;align-self:start;justify-self:start;width:auto!important}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Actions .v3Btn.primary{width:auto;min-width:0;padding:0 24px}
+ .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel .v3Locked{grid-column:3;grid-row:4;z-index:2;margin:20px 16px 0 8px!important;align-self:start}
+}
