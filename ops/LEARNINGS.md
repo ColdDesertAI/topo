@@ -41,3 +41,9 @@ Dit is waar het systeem slimmer wordt. Elke FAIL, elke correctie van Dennis en e
 - Een klacht "werkt niet live" eerst meten in beide engines (computed style, live URL) voordat je herbouwt: hier pasten de maskers overal toe; het beeld van Dennis past bij de toegankelijkheidsterugval (`prefers-reduced-transparency`/`prefers-contrast`). Vraag naar OS-instellingen.
 - Doorzichtige tikvlakken (V2 `microHit`) liggen boven decoratielagen: `:hover` komt daar nooit aan. Hover dan uit de positie van de aanwijzer halen; de lagen niet omdraaien (tikken moet bij de plek blijven).
 - WebKit in de cloud: Playwright-WebKit downloaden wordt geblokkeerd; `apt install webkit2gtk-driver xvfb` + WebDriver (`scripts/qa-webkit.mjs`) werkt.
+
+## 2026-11-20 · BL-036 / laadtijd
+- `build:site` had `;` na de V3-release-build: faalde die build (bv. "Release build contains demo code"), dan ging de site door met het oude `output/html/TOPO-V3-Italie.html` en meldde "Site-check: OK". Nu bouwt `build-site.mjs` de release zelf en faalt hard. Een stap die een artefact maakt, moet de keten stoppen.
+- Een gate-commando dat `grep` op testuitvoer doet, stopt niet op een rode test (de pijp slaagt). Altijd de exitcode van de test zelf gebruiken vóór commit/push (gebeurd: 1 test rood gepusht, alleen testcode, direct hersteld).
+- Lazy images helpen niet voor V2-markup die tijdens het parsen even zichtbaar is: verberg tijdens het opstarten precies wat V3 daarna toch verbergt (`html.v3Boot …{display:none}`).
+- Jsdom-testbestanden parallel draaien slaat het geheugen dicht; één bestand tegelijk (`--test-concurrency=1`).
