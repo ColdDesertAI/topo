@@ -240,6 +240,7 @@
  }
  // Mastery in 5 steps (0–3 lessons done, 4 = gold) → the pin's fill, white → lavender → dark violet (CSS, data-step).
  const PINHEAD=25,PINR=15;
+ const V3NINO=()=>{const a=window.TOPO_V3_ART?.ninoScooter;return a?((window.devicePixelRatio||1)>=1.5?a.x64:a.x48):null;};
  function drawMarkers(svg,k){
   let g=svg.querySelector('.v3Markers');if(!g){g=document.createElementNS(SVGNS,'g');g.setAttribute('class','v3Markers');g.setAttribute('aria-hidden','true');svg.append(g);}
   const cand=chapterAnchors(svg),m=model(),cur=m.current;
@@ -252,6 +253,18 @@
    for(const o of obst){const cx=Math.max(o[0],Math.min(h[0],o[2])),cy=Math.max(o[1],Math.min(h[1],o[3]));d=Math.min(d,Math.hypot(h[0]-cx,h[1]-cy)-R);}return d;};
   const order=[...ROUTE_CHAPTERS].sort((a,b)=>(b.id===cur?.id)-(a.id===cur?.id)),pos={};
   for(const c of order){const ps=cand[c.id];if(!ps)continue;const ok=ps.find(p=>clear(p)>=0);const best=ok||ps.reduce((a,p)=>clear(p)>clear(a)?p:a);pos[c.id]=best;placed.push(head(best));}
+  // BL-036.5: Nino on the Vespa beside the active pin (decorative). 32 px, bottom right of the pin; moves left / below when it
+  // would touch another pin's head or the free text block.
+  const NS=32*k,sp=cur&&pos[cur.id],art=V3NINO();
+  if(sp&&art){
+   const others=ROUTE_CHAPTERS.filter(c=>c.id!==cur.id&&pos[c.id]).map(c=>head(pos[c.id])),oR=(PINR+2)*k;
+   const rectGap=(a,b)=>Math.max(b[0]-a[2],a[0]-b[2],b[1]-a[3],a[1]-b[3]);
+   const cands=[[20,-30],[-20-32,-30],[-16,6],[20,-62],[-52,-62]].map(([dx,dy])=>[sp[0]+dx*k,sp[1]+dy*k,sp[0]+(dx+32)*k,sp[1]+(dy+32)*k]);
+   const score=r=>{let d=Infinity;for(const q of others){const cx=Math.max(r[0],Math.min(q[0],r[2])),cy=Math.max(r[1],Math.min(q[1],r[3]));d=Math.min(d,Math.hypot(q[0]-cx,q[1]-cy)-oR);}
+    for(const o of obst)d=Math.min(d,rectGap(r,o));return d;};
+   const best=cands.find(r=>score(r)>=2*k)||cands.reduce((a,r)=>score(r)>score(a)?r:a);
+   const img=document.createElementNS(SVGNS,'image');img.setAttribute('class','v3MarkerNino');img.setAttribute('aria-hidden','true');img.setAttribute('href',art);
+   img.setAttribute('x',best[0]);img.setAttribute('y',best[1]);img.setAttribute('width',NS);img.setAttribute('height',NS);img.style.setProperty('--bob',(2.5*k)+'px');g.append(img);}
   ROUTE_CHAPTERS.forEach((c,i)=>{const p=pos[c.id];if(!p)return;const ch=m.chapters[i];
    const el=document.createElementNS(SVGNS,'g');el.setAttribute('class','v3Marker');el.dataset.chapter=c.id;
    el.dataset.step=String(ch?.gold?4:Math.min(3,ch?.r?.stage||0));

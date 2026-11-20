@@ -580,3 +580,8 @@ body.v3On dialog.ninoResetConfirm button{border:0;border-radius:999px;padding:0 
 body.v3On dialog.ninoResetConfirm .ninoResetCancel{background:var(--v3-accent,#5b45e0);color:#fff}
 body.v3On dialog.ninoResetConfirm .ninoResetYes{background:#9b233d;color:#fff}
 body.v3On dialog.ninoResetConfirm button:focus-visible{outline:2px solid var(--v3-accent,#5b45e0);outline-offset:2px}
+
+/* BL-036.5: Nino on the Vespa beside the active pin (Reis overview): a soft 2 s bob; none with reduced motion. Decorative. */
+.v3Map .v3Markers .v3MarkerNino{pointer-events:none;image-rendering:auto;animation:v3NinoBob 2s ease-in-out infinite}
+@keyframes v3NinoBob{0%,100%{transform:translateY(0)}50%{transform:translateY(calc(-1 * var(--bob,2.5px)))}}
+@media (prefers-reduced-motion:reduce){.v3Map .v3Markers .v3MarkerNino{animation:none}}
