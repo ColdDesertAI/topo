@@ -52,3 +52,4 @@ Formaat:
 2026-11-20 | claude/opus + builder/sonnet | taak | BL-037 | 9/10 PASS | hoog | 3 bundels live; evaluator FAIL op 2 (laadbalk bevroor; Nino reed weg bij halve balk op trage CPU/WebKit) → 2 fixes → PASS; punt 8 (55% liggend) wacht op Dennis
 2026-11-20 | dennis | besluit | BL-037/039 | — | — | Zeeën/Landen: 55%-norm vervalt (BL-037 klaar); losse iconen rand-rand ≥ 12 px; laadscherm alleen koud; Wisselen met Sicilië; Vercel alleen main
 2026-11-20 | claude/opus + builder/sonnet | taak | BL-039 | PASS | hoog | 3 bundels live; evaluator FAIL op 1 (Vercel deployde branches met /: * matcht geen /) en 3 (laadscherm warm op trage CPU) → fixes 10d49a9 → hertoets PASS
+2026-11-21 | claude/opus + builder/sonnet | taak | BL-042 | PASS | hoog | vier fixes (namen, Kennispaspoort smal + Esc/×, portal-hover inactief, scherpe zoom); evaluator FAIL op Esc-regressie (pakte Esc af van Instellingen/kiezer) → fix 76350a5 → PASS

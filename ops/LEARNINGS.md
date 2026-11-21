@@ -51,3 +51,7 @@ Dit is waar het systeem slimmer wordt. Elke FAIL, elke correctie van Dennis en e
 ## 2026-11-20 · BL-039
 - Vercel `git.deploymentEnabled` gebruikt minimatch: `"*"` matcht geen `/`, dus `claude/…` deployde gewoon. Gebruik `"*/**": false` naast `"*": false`. En controleer een "geen deployment" pas na minuten én via de GitHub-commitstatus, niet direct in de Vercel-lijst (te vroeg gekeken = vals PASS).
 - "Warm" bepalen via een tijdslimiet faalt op trage CPU's; vraag de HTTP-cache direct (`fetch(u,{cache:'only-if-cached',mode:'same-origin'})`).
+
+## 2026-11-21 · BL-042
+- Een Esc-handler op `document` voor een onderdeel in de pagina moet eerst `e.defaultPrevented` en open lagen (dialog[open], popovers, overlays) checken; anders steelt hij Esc van wat erboven ligt. QA test Esc ook mét een laag erboven.
+- Een legenda op één regel (`white-space:nowrap`) kan een hele kolom verbreden; meet de kolombreedte vóór en na.
