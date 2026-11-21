@@ -113,10 +113,15 @@
      if(open)for(const o of list.querySelectorAll('.v3Row[aria-expanded=true]'))if(o!==b)o.click();
      setOpen(open);});
     x.addEventListener('click',()=>{setOpen(false);b.focus();});
-    const onEsc=e=>{if(!li.isConnected){document.removeEventListener('keydown',onEsc);return;}
-     if(e.key==='Escape'&&b.getAttribute('aria-expanded')==='true'){e.preventDefault();setOpen(false);b.focus();}};
-    document.addEventListener('keydown',onEsc);
     li.append(tools,t);}
+   // Esc closes the open chapter — one listener per list (removed once the list leaves the page), and only when no layer
+   // above it is open and nothing handled the key yet (evaluator BL-042: Instellingen, the background picker, the zoom).
+   const above=()=>document.querySelector('dialog[open],.v3ZoomOverlay,.v3Rit')||[...document.querySelectorAll('.v3BgPop')].some(p=>!p.hidden);
+   const onEsc=e=>{if(!list.isConnected){document.removeEventListener('keydown',onEsc);return;}
+    if(e.key!=='Escape'||e.defaultPrevented||above())return;
+    const open=list.querySelector('.v3Row[aria-expanded=true]');if(!open)return;
+    e.preventDefault();open.closest('li')?.querySelector('.v3PasClose')?.click();};
+   document.addEventListener('keydown',onEsc);
   }
 
   // Dagdoel (V2).

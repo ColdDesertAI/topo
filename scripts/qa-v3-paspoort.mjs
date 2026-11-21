@@ -60,6 +60,15 @@ for(const [W,H] of sizes)for(const state of states){
  await rows.nth(2).click();await p.locator('.v3VgPas .v3Row[aria-expanded=true]').locator('xpath=..').locator('.v3PasClose').click();await p.waitForTimeout(80);
  e1=await p.evaluate(()=>({open:document.querySelectorAll('.v3VgPas .v3Row[aria-expanded=true]').length,focus:document.activeElement?.classList.contains('v3Row')}));
  if(e1.open!==0||!e1.focus)fail(w,'×: '+JSON.stringify(e1));
+ // Evaluator BL-042: with a layer above (Instellingen, the background picker), Esc closes that layer only; the chapter stays open.
+ const cnt=()=>p.evaluate(()=>({open:document.querySelectorAll('.v3VgPas .v3Row[aria-expanded=true]').length,dlg:!!document.querySelector('dialog[open]'),pop:[...document.querySelectorAll('.v3BgPop')].some(x=>!x.hidden)}));
+ await rows.nth(1).click();await p.locator('.v3Reis>.v3Side .v3Settings').filter({visible:true}).first().click();await p.waitForTimeout(300);
+ await p.keyboard.press('Escape');await p.waitForTimeout(150);let l1=await cnt();
+ if(l1.dlg||l1.open!==1)fail(w,'Esc met Instellingen open: '+JSON.stringify(l1));
+ await p.locator('.v3Reis>.v3Side .v3BgBtn').filter({visible:true}).first().click();await p.waitForTimeout(200);
+ await p.keyboard.press('Escape');await p.waitForTimeout(150);l1=await cnt();
+ if(l1.pop||l1.open!==1)fail(w,'Esc met achtergrondkiezer open: '+JSON.stringify(l1));
+ await p.keyboard.press('Escape');await p.waitForTimeout(100);if((await cnt()).open!==0)fail(w,'tweede Esc sluit het hoofdstuk niet');
  await rows.nth(0).click();await rows.nth(1).click();
  if((await side()).open!==1)fail(w,'twee hoofdstukken tegelijk open');
  await rows.nth(0).click();
