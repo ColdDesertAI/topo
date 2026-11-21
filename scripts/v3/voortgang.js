@@ -43,6 +43,13 @@
  const section=(title,id,...content)=>{const s=make('section','v3Field v3Card');const h=make('h2',null,title);h.id=id;s.setAttribute('aria-labelledby',id);s.append(h,...content);return s;};
  const fmt=at=>new Date(at).toLocaleDateString('nl-NL',{day:'numeric',month:'short'});
 
+ let vgMap=null,vgNodes=null,vgPainted=[];const vgRO='ResizeObserver' in window?new ResizeObserver(()=>{if(vgMap&&vgMap.isConnected)V.fit(vgMap);}):null;
+ function ensureVg(){
+  if(vgMap)return;const s=V.cloneMap('v3v-','v3VgMap');
+  if(s){s.classList.add('v3Map');s.dataset.relief='on';s.dataset.kaart='eiland';s.dataset.frame='italy';V.addIsland(s,'v3v-'); // Ronde 5 punt 4: relief on; the mastery colour lies over it as a tint (ronde5.css).
+   vgMap=s;vgNodes=new Map();s.querySelectorAll('[data-id]').forEach(n=>{const k=n.getAttribute('data-id');(vgNodes.get(k)||vgNodes.set(k,[]).get(k)).push(n);});}
+ }
+ V.prebuildVoortgang=ensureVg;
  V.addView('voortgang','Voortgang',view=>{
   const h=make('h1',null,'Voortgang');h.id='v3VoortgangTitle';h.tabIndex=-1;
   const pp=passport()||[],count=pp.filter(p=>p.status==='beheerst').length;
@@ -54,11 +61,14 @@
 
   // Kaart: each place coloured by its status; legend.
   const fig=make('figure','v3VgKaart');
-  const svg=V.cloneMap('v3v-','v3VgMap');
-  // Ronde 5 punt 4: relief on; the mastery colour lies over it as a tint (ronde5.css).
-  if(svg){svg.classList.add('v3Map');svg.dataset.relief='on';svg.dataset.kaart='eiland';svg.dataset.frame='italy';V.addIsland(svg,'v3v-');fig.append(svg);
+  // BL-031: the map copy is built once and kept (like oefMap in shell.js); each render only moves it into the new figure
+  // and rewrites the status classes (the previous ones are removed first).
+  ensureVg();
+  const svg=vgMap;
+  if(svg){for(const n of vgPainted)n.classList.remove('v3Hit','v3St-beheerst','v3St-bezig','v3St-nog','v3StLine');vgPainted=[];
+   fig.append(svg);if(vgRO){vgRO.disconnect();vgRO.observe(fig);}
    const sea=svg.querySelector('.sea');
-   for(const p of pp)svg.querySelectorAll('[data-id="'+p.item.id+'"]').forEach(n=>{n.classList.add('v3Hit','v3St-'+p.status);if(p.item.kind==='river')n.classList.add('v3StLine');});
+   for(const p of pp)for(const n of vgNodes.get(p.item.id)||[]){n.classList.add('v3Hit','v3St-'+p.status);if(p.item.kind==='river')n.classList.add('v3StLine');vgPainted.push(n);}
    requestAnimationFrame(()=>{if(sea)svg.style.setProperty('--v3-sea-school',getComputedStyle(sea).fill);V.fit(svg);});}
   const legend=make('ul','v3VgLegend');for(const [k,label] of Object.entries(STATUS)){const li=make('li','v3St-'+k);li.append(make('i'),make('span',null,label+' · '+pp.filter(p=>p.status===k).length));legend.append(li);}
   // The card's caption (R-voortgang-doel): the map's subject; the count stays in the title bar.
