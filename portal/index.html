@@ -36,6 +36,8 @@ header{display:flex;align-items:center;justify-content:space-between;height:92px
 .action[href]::after{content:"";position:absolute;inset:0;cursor:pointer;border-radius:18px}
 .action[href]:focus-visible{outline:none}.action[href]:focus-visible::after{outline:3px solid var(--ring);outline-offset:-5px}
 .country.go{cursor:pointer}
+/* BL-042.3: niet-actieve kaarten: knop blijft grijs, geen link; de foto krijgt weer de crossfade naar het hover-beeld + lichte zoom (reduced motion: alleen crossfade) */
+.country:not(.go):hover .visual img.base{opacity:0}.country:not(.go):hover .visual img.alt{opacity:1}.country.future:hover .visual img.alt{opacity:.73}.country:not(.go):hover .visual img{transform:scale(1.03)}
 /* BL-037.1: niet-actieve knoppen grijs, zonder hover of pointer */
 .pending{background:#EEEEF1;border:1px solid #DCDCE2;color:#60606A;padding:12px 15px;cursor:default}
 .soon{border:1px solid #DCDCE2;background:#EEEEF1;color:#60606A;padding:8px 12px;cursor:default}
