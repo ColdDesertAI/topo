@@ -53,3 +53,4 @@ Formaat:
 2026-11-20 | dennis | besluit | BL-037/039 | — | — | Zeeën/Landen: 55%-norm vervalt (BL-037 klaar); losse iconen rand-rand ≥ 12 px; laadscherm alleen koud; Wisselen met Sicilië; Vercel alleen main
 2026-11-20 | claude/opus + builder/sonnet | taak | BL-039 | PASS | hoog | 3 bundels live; evaluator FAIL op 1 (Vercel deployde branches met /: * matcht geen /) en 3 (laadscherm warm op trage CPU) → fixes 10d49a9 → hertoets PASS
 2026-11-21 | claude/opus + builder/sonnet | taak | BL-042 | PASS | hoog | vier fixes (namen, Kennispaspoort smal + Esc/×, portal-hover inactief, scherpe zoom); evaluator FAIL op Esc-regressie (pakte Esc af van Instellingen/kiezer) → fix 76350a5 → PASS
+2026-11-21 | dennis | besluit | BL-042 | — | — | offline-zoom max 740 px is akkoord
