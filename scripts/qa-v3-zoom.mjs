@@ -33,11 +33,13 @@ for(const [W,H] of sizes){
     await p.waitForTimeout(520);
     const ov=p.locator('.v3ZoomOverlay');ok(t,await ov.count()===1,'overlay niet geopend');
     const r=await p.evaluate(()=>{const i=document.querySelector('.v3ZoomImg'),r=i.getBoundingClientRect(),x=document.querySelector('.v3ZoomClose').getBoundingClientRect(),cs=getComputedStyle(document.querySelector('.v3ZoomOverlay'));
-     return {w:r.width,h:r.height,cx:r.x+r.width/2,cy:r.y+r.height/2,vw:innerWidth,vh:innerHeight,ratio:i.naturalWidth/i.naturalHeight,xw:x.width,xh:x.height,xr:x.right,xt:x.top,blur:cs.backdropFilter||cs.webkitBackdropFilter,bg:cs.backgroundColor,focus:document.activeElement?.className,radius:getComputedStyle(document.querySelector('.v3ZoomClose')).borderRadius,xbg:getComputedStyle(document.querySelector('.v3ZoomClose')).backgroundColor};});
-    ok(t,r.w<=r.vw*.8+1&&r.h<=r.vh*.8+1,`afmeting ${r.w.toFixed(0)}×${r.h.toFixed(0)} > 80vw×80vh (${(r.vw*.8).toFixed(0)}×${(r.vh*.8).toFixed(0)})`);
+     return {w:r.width,h:r.height,cx:r.x+r.width/2,cy:r.y+r.height/2,vw:innerWidth,vh:innerHeight,ratio:i.naturalWidth/i.naturalHeight,nat:i.naturalWidth,xw:x.width,xh:x.height,xr:x.right,xt:x.top,blur:cs.backdropFilter||cs.webkitBackdropFilter,bg:cs.backgroundColor,focus:document.activeElement?.className,radius:getComputedStyle(document.querySelector('.v3ZoomClose')).borderRadius,xbg:getComputedStyle(document.querySelector('.v3ZoomClose')).backgroundColor};});
+    // BL-042.4: at most 70vw x 80vh and never wider than the natural width of the source.
+    ok(t,r.w<=r.vw*.7+1&&r.h<=r.vh*.8+1,`afmeting ${r.w.toFixed(0)}×${r.h.toFixed(0)} > 70vw×80vh (${(r.vw*.7).toFixed(0)}×${(r.vh*.8).toFixed(0)})`);
+    ok(t,r.w<=r.nat+1,`breder (${r.w.toFixed(0)}) dan de natuurlijke breedte van de bron (${r.nat})`);
     ok(t,Math.abs(r.w/r.h-r.ratio)<.02,`verhouding ${(r.w/r.h).toFixed(3)} ≠ ${r.ratio.toFixed(3)}`);
     ok(t,Math.abs(r.cx-r.vw/2)<2&&Math.abs(r.cy-r.vh/2)<2,'niet in het midden');
-    ok(t,Math.abs(r.w-Math.min(r.vw*.8,r.vh*.8*r.ratio))<2,'niet zo groot mogelijk binnen 80vw×80vh');
+    ok(t,Math.abs(r.w-Math.min(r.vw*.7,r.vh*.8*r.ratio,r.nat))<2,'niet zo groot mogelijk binnen 70vw×80vh en de bronbreedte');
     ok(t,r.xw===44&&r.xh===44&&r.radius.includes('50%'),`× ${r.xw}×${r.xh} ${r.radius}`);
     ok(t,r.xr>r.vw-40&&r.xt<40,'× niet rechtsboven');
     ok(t,/blur/.test(r.blur||''),'geen blur achter de overlay');

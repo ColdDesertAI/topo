@@ -58,6 +58,23 @@ export function splitSite(dir, { maxHtml = 2e6 } = {}) {
   // Profile images (favourite pizza): same, png/webp/jpg.
   patch('/^data:image\\/(?:png|webp|jpeg);base64,/.test(src)',
     '/^(?:data:image\\/(?:png|webp|jpeg);base64,|assets\\/[0-9a-f]{16}\\.(?:png|webp|jpg)$)/.test(src)', 'profielafbeelding');
+  // BL-042.4: sharp zoom of the chapter picture. The offline file only has the small (dieted) scene; the web copy also ships the
+  // originals (assets/v3/scenes/*.webp 1672x941; Roma/Venezia/Napoli: render export_kop 1672) as separate files, named by hash,
+  // and tells the app where they are (window.TOPO_V3_FULL = {chapter: {src, w}}). reis.js only loads one when its picture is zoomed.
+  {
+    const rd = f => JSON.parse(readFileSync(fileURLToPath(new URL('../' + f, import.meta.url)), 'utf8'));
+    const full = {};
+    const put = (id, path, w) => {
+      const buf = readFileSync(fileURLToPath(new URL('../' + path, import.meta.url)));
+      const name = createHash('sha256').update(buf).digest('hex').slice(0, 16) + '.webp';
+      if (!written.has(name)) { writeFileSync(join(out, name), buf); written.set(name, buf.length); bytes += buf.length; }
+      full[id] = { src: 'assets/' + name, w };
+    };
+    for (const [id, e] of Object.entries(rd('assets/v3/scenes/manifest.json').chapters)) put(id, e.scene.path, e.scene.width);
+    for (const a of rd('assets/v3/render/manifest.json').assets) if (['SCENE-ROMA', 'SCENE-VENEZIA', 'SCENE-NAPOLI'].includes(a.id)) put(a.chapter, a.export_kop.path, a.export_kop.size[0]);
+    if (Object.keys(full).length !== 11) throw new Error('split-site: verwacht 11 volledige hoofdstukafbeeldingen, gevonden ' + Object.keys(full).length);
+    patch('<head><meta charset="utf-8">', '<head><meta charset="utf-8"><script>window.TOPO_V3_FULL=' + JSON.stringify(full) + ';</script>', 'volledige-scenes', true);
+  }
   // Book art: no idle warm-up of every page on the web (it would download several MB in the background); the pages
   // load when the book opens, and are cached from then on.
   patch('(window.requestIdleCallback||((fn)=>setTimeout(fn,1500)))(warm,{timeout:4000});',

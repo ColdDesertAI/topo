@@ -935,7 +935,7 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
 .v3CardScene .v3SceneZoom{display:block;width:100%;height:100%;padding:0;margin:0;border:0;background:none;cursor:zoom-in;border-radius:inherit;overflow:hidden;font:inherit;color:inherit}
 .v3CardScene .v3SceneZoom:focus-visible{outline:3px solid #5b45e0;outline-offset:-3px}
 .v3ZoomOverlay{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;background:rgba(214,203,246,.42);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.v3ZoomOverlay .v3ZoomImg{display:block;width:min(80vw,calc(80vh*var(--ratio,1.78)));height:auto;aspect-ratio:var(--ratio,1.78);max-width:80vw;max-height:80vh;object-fit:cover;border-radius:20px;box-shadow:0 24px 60px rgba(42,28,96,.35);will-change:transform}
+.v3ZoomOverlay .v3ZoomImg{display:block;width:min(70vw,calc(80vh*var(--ratio,1.78)),var(--nat,9999px));height:auto;aspect-ratio:var(--ratio,1.78);max-width:70vw;max-height:80vh;object-fit:cover;border-radius:20px;box-shadow:0 24px 60px rgba(42,28,96,.35);will-change:transform}
 .v3ZoomOverlay .v3ZoomClose{position:absolute;top:16px;right:16px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;border-radius:50%;background:#5b45e0;color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(42,28,96,.3)}
 .v3ZoomOverlay .v3ZoomClose:hover{background:#4a37b8}
 .v3ZoomOverlay .v3ZoomClose:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #5b45e0}

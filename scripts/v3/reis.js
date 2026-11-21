@@ -476,11 +476,15 @@
  // (max 80vw x 80vh, ratio kept) in 300 ms; a soft lavender blur behind; a violet round x (44 px) top right; Esc or a click on the
  // backdrop closes (FLIP back); focus goes to the x and returns to the picture's button; Tab stays inside. Reduced motion: fade only.
  let zoomOpen=false;
- function openSceneZoom(opener,thumb,src){
+ function openSceneZoom(opener,thumb,src,full){
   if(zoomOpen)return;zoomOpen=true;
   const calm=matchMedia('(prefers-reduced-motion: reduce)').matches,ratio=thumb.naturalWidth>0?thumb.naturalWidth/thumb.naturalHeight:1672/941;
   const ov=make('div','v3ZoomOverlay');ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Afbeelding groot');
   const big=pic(src,'v3ZoomImg');big.style.setProperty('--ratio',ratio);big.alt='';
+  // BL-042.4: size = min(70vw, 80vh x ratio, natural width of the source). Web copy: `full` (the original, from window.TOPO_V3_FULL,
+  // only set by split-site) loads on this click; the small picture shows first and the original replaces it once it has loaded.
+  big.style.setProperty('--nat',(full?full.w:thumb.naturalWidth||1672)+'px');
+  if(full){const im=new Image();im.decoding='async';im.loading='eager';im.onload=()=>{if(ov.isConnected)big.src=full.src;};im.src=full.src;}
   const x=btn('',()=>close(),'v3ZoomClose');x.setAttribute('aria-label','Sluiten');
   x.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>';
   ov.append(big,x);document.body.append(ov);
@@ -518,7 +522,7 @@
   if(kop){const f=make('figure','v3CardScene'),im=pic(kop,null,1672,941);
    // BL-039.7: an unlocked chapter's scene is a button that opens the picture large (the biggest embedded source: kop or mini);
    // a locked one stays a muted, hidden picture, no button.
-   if(c.open){const zb=btn('',()=>openSceneZoom(zb,im,[scenes[c.id].kop,scenes[c.id].mini].reduce((a,b)=>(b&&b.length>a.length)?b:a,kop)),'v3SceneZoom');zb.setAttribute('aria-label','Bekijk de afbeelding groot');zb.append(im);f.append(zb);}
+   if(c.open){const zb=btn('',()=>openSceneZoom(zb,im,[scenes[c.id].kop,scenes[c.id].mini].reduce((a,b)=>(b&&b.length>a.length)?b:a,kop),(window.TOPO_V3_FULL||{})[c.id]),'v3SceneZoom');zb.setAttribute('aria-label','Bekijk de afbeelding groot');zb.append(im);f.append(zb);}
    else{f.setAttribute('aria-hidden','true');f.append(im);}
    panel.append(f);}
   panel.append(make('p','v3CardKicker','Hoofdstuk '+(c.index+1)));
