@@ -99,12 +99,8 @@
     a decorative clone in variant (a) Eiland, like Reis (DECISIONS 10-11, fase B stap 2), until the owner chooses. */
  let oefMap=null;const oefStage=make('div','v3OefStage');oefStage.setAttribute('aria-hidden','true');
  function groupIds(g){if(g==='mistakes')return state.mistakes||[];if(g==='all')return [];return ROUTE_CHAPTERS.find(c=>c.id===g)?.itemIds||[];}
- function ensureOef(){if(!oefMap){oefMap=V.cloneMap('v3o-','v3Map');if(!oefMap)return;oefMap.classList.add('v3OefMap');oefStage.append(oefMap);V.addIsland(oefMap,'v3o-');}}
- // BL-031: build the copy while idle after the first screen is drawn, so the first switch to Oefenen does not pay for it.
- const idle=window.requestIdleCallback?f=>requestIdleCallback(f,{timeout:3000}):f=>setTimeout(f,0);
- requestAnimationFrame(()=>requestAnimationFrame(()=>idle(()=>{ensureOef();V.prebuildVoortgang?.();})));
  function paintOef(){
-  ensureOef();if(!oefMap)return;
+  if(!oefMap){oefMap=V.cloneMap('v3o-','v3Map');if(!oefMap)return;oefMap.classList.add('v3OefMap');oefStage.append(oefMap);V.addIsland(oefMap,'v3o-');}
   oefMap.dataset.relief='on';oefMap.dataset.kaart=V.ui.kaart||'eiland';oefMap.dataset.practice=pick.form;oefMap.dataset.group=pick.group; // BL-037.9: the icons need the form (only Ontdekken shows them) and the chapter
   const ids=pick.form==='smart'?[]:groupIds(pick.group),set=new Set(ids);
   oefMap.querySelectorAll('[data-id]').forEach(n=>n.classList.toggle('v3Hit',set.has(n.getAttribute('data-id'))));
