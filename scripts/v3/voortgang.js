@@ -36,8 +36,10 @@
   w.dataset.fill=String(pct);return w;};
  const pizzaCell=text=>{const td=make('td','v3PasIcon'),pct=LEVEL.get(text),f=pct==null?null:fill(pct,32,text);
   if(!f){td.textContent=text;return td;}td.append(f);return td;};
- const pizzaLegend=()=>{const cap=make('caption','v3PasLegend');cap.setAttribute('aria-label','Niveaus: '+LEVELS.map(l=>l[0]).join(', '));
-  for(const [name,pct] of LEVELS){const it=make('span','v3PasLegendItem'),f=fill(pct,22,null);if(f)it.append(f);it.append(document.createTextNode(name));cap.append(it);}
+ // BL-042.2: compact legend: five 20 px pizzas (level name as title/aria-label) + "0 → 100%"; never wider than the list.
+ const pizzaLegend=()=>{const cap=make('div','v3PasLegend');cap.setAttribute('role','group');cap.setAttribute('aria-label','Niveaus: '+LEVELS.map(l=>l[0]).join(', '));
+  for(const [name,pct] of LEVELS){const it=make('span','v3PasLegendItem'),f=fill(pct,20,name);if(f)it.append(f);else it.textContent=name;cap.append(it);}
+  const rng=make('span','v3PasLegendRange','0 → 100%');rng.setAttribute('aria-hidden','true');cap.append(rng);
   return cap;};
  const bar=(value,max,cls)=>{const b=make('div','v3Bar '+(cls||''));b.setAttribute('role','progressbar');b.setAttribute('aria-valuemin','0');b.setAttribute('aria-valuemax',String(max));b.setAttribute('aria-valuenow',String(value));const f=make('i');f.style.width=(max?value/max*100:0)+'%';b.append(f);return b;};
  const section=(title,id,...content)=>{const s=make('section','v3Field v3Card');const h=make('h2',null,title);h.id=id;s.setAttribute('aria-labelledby',id);s.append(h,...content);return s;};
@@ -95,7 +97,7 @@
   const passTable=c=>{const places=pp.filter(p=>c.itemIds.includes(p.item.id));const t=make('table','v3PasBody');
    const hr=make('tr');hr.append(make('th',null,'Plek'),make('th',null,'Vinden'),make('th',null,'Naam'));const thead=make('thead');thead.append(hr);
    const tb=make('tbody');for(const p of places){const tr=make('tr');tr.dataset.status=p.status;const th=make('th',null,p.item.name);th.scope='row';tr.append(th,pizzaCell(p.find),pizzaCell(p.name));tb.append(tr);}
-   t.append(pizzaLegend(),thead,tb);return {t,done:places.filter(p=>p.status==='beheerst').length,n:places.length};};
+   t.append(thead,tb);return {t,done:places.filter(p=>p.status==='beheerst').length,n:places.length};};
   if(sameRows){list.className='v3Rows v3VgRows v3VgPas';V.chapterRows(list,()=>{});
    for(const li of list.children){const b=li.querySelector('.v3Row'),c=ROUTE_CHAPTERS.find(x=>x.id===b?.dataset.chapter);if(!c)continue;
     const {t,done,n}=passTable(c),id='v3Pas-'+c.id;t.id=id;t.hidden=true;
@@ -104,8 +106,17 @@
     const end=b.querySelector('.v3End');end?.querySelector('.v3Chev')?.remove();end?.removeAttribute('aria-label');
     const cnt=make('span','v3PasCount',done+' / '+n);cnt.setAttribute('aria-hidden','true');const chev=make('span','v3PasChev');chev.setAttribute('aria-hidden','true');
     end?.append(cnt,chev);
-    b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));t.hidden=!open;li.classList.toggle('v3Open',open);});
-    li.append(t);}
+    const tools=make('div','v3PasTools'),x=make('button','v3PasClose','×');x.type='button';x.setAttribute('aria-label','Sluiten');
+    tools.hidden=true;tools.append(pizzaLegend(),x);
+    const setOpen=open=>{b.setAttribute('aria-expanded',String(open));t.hidden=!open;tools.hidden=!open;li.classList.toggle('v3Open',open);};
+    b.addEventListener('click',()=>{const open=b.getAttribute('aria-expanded')!=='true';
+     if(open)for(const o of list.querySelectorAll('.v3Row[aria-expanded=true]'))if(o!==b)o.click();
+     setOpen(open);});
+    x.addEventListener('click',()=>{setOpen(false);b.focus();});
+    const onEsc=e=>{if(!li.isConnected){document.removeEventListener('keydown',onEsc);return;}
+     if(e.key==='Escape'&&b.getAttribute('aria-expanded')==='true'){e.preventDefault();setOpen(false);b.focus();}};
+    document.addEventListener('keydown',onEsc);
+    li.append(tools,t);}
   }
 
   // Dagdoel (V2).

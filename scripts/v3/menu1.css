@@ -919,9 +919,14 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
 .v3PasFill{position:relative;display:inline-block;vertical-align:middle}
 .v3PasFill img{position:absolute;inset:0;width:100%;height:100%;display:block}
 .v3PasFill .v3PasBase{filter:grayscale(1);opacity:.3}
-.v3Reis[data-menu="1"] .v3PasBody .v3PasLegend{caption-side:top;text-align:left;padding:2px 4px 8px;font:500 13px/22px var(--v3-font);color:#5d5873;white-space:nowrap}
-.v3PasLegend .v3PasLegendItem{display:inline-flex;align-items:center;gap:3px;margin-right:12px}
-.v3PasLegend .v3PasLegendItem:last-child{margin-right:0}
+.v3PasTools{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;padding:0 0 0 4px}
+.v3PasTools[hidden]{display:none}
+.v3PasLegend{display:flex;align-items:center;gap:4px;min-width:0;font:500 13px/20px var(--v3-font);color:#5d5873}
+.v3PasLegend .v3PasLegendItem{display:inline-flex;align-items:center}
+.v3PasLegend .v3PasLegendRange{margin-left:4px;white-space:nowrap}
+.v3PasClose{flex:0 0 44px;width:44px;height:44px;min-width:44px;border:0;border-radius:50%;background:transparent;color:var(--v3-ink);font:600 26px/1 var(--v3-font);cursor:pointer}
+.v3PasClose:focus-visible{outline:2px solid var(--v3-accent);outline-offset:2px}
+@media (hover:hover){.v3PasClose:hover{background:rgba(91,69,224,.08)}}
 
 /* BL-037.8: Landen and Zeeën — the free title block may slide up along the stage (reis.js fitOmgeving sets --v3-free-dy) so the map can fill the stage. */
 .v3Reis[data-menu="1"][data-reis-page=hoofdstuk] .v3Panel :is(.v3CardKicker,.v3CardHead,.v3Actions,.v3Locked){transform:translateY(var(--v3-free-dy,0px))}
