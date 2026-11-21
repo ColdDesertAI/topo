@@ -51,3 +51,8 @@ Dit is waar het systeem slimmer wordt. Elke FAIL, elke correctie van Dennis en e
 ## 2026-11-20 · BL-039
 - Vercel `git.deploymentEnabled` gebruikt minimatch: `"*"` matcht geen `/`, dus `claude/…` deployde gewoon. Gebruik `"*/**": false` naast `"*": false`. En controleer een "geen deployment" pas na minuten én via de GitHub-commitstatus, niet direct in de Vercel-lijst (te vroeg gekeken = vals PASS).
 - "Warm" bepalen via een tijdslimiet faalt op trage CPU's; vraag de HTTP-cache direct (`fetch(u,{cache:'only-if-cached',mode:'same-origin'})`).
+
+## 2026-11-21 · BL-031 (nacht)
+- Valideer eerst de meter, dan de hypothese: headless Chromium haalt hier ook op een lege pagina maar ~16 fps, dus een eis "≥ 50 fps" is onhaalbaar en zegt niets. Laat een fps-meting altijd een lege referentiepagina meten, of eis lange-frameduur/INP.
+- Een contract op een vermoedelijke oorzaak (kaartkopie) zonder profiel kostte een hele bouwronde (70 min). Bij performance: eerst een trace/diagnosetaak, dan pas een bouwcontract.
+- Check `df` aan het begin van elke nachtrun; onder ~2 GB geen builds/screenshots starten.

@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-20 · door: Claude (BL-039 klaar, evaluator PASS)
+> Bijgewerkt: 2026-11-21 · door: Claude (nachtrun: BL-031 FAIL → idee, schijf vol)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -54,6 +54,6 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 
 ## Bekende risico's
 - Artwork-goedkeuring is de bottleneck voor elk land
-- M0-deadline dreigt te schuiven: na BL-005 volgen nog BL-004 (M), BL-005b (M, na G3), BL-006 (S) en de iPad-test van Dennis, in 6 dagen tot vr 20 nov. Niets geschoven (beslissing 4)
+- **M0-deadline (vr 20 nov) is verstreken** (planner, nacht 21-11). Exit-criteria productie-URL en nachtrun gehaald; open: BL-004, BL-005b/c/e, BL-006, BL-008/010. Voorstel, kies: (a) M0 sluiten op de exit (URL + main groen + nachtrun) en de open taken naar M1 · (b) deadline M0 naar vr 27 nov · **Aanbeveling (a)**. Ook: BL-003 staat op `ready` maar is al gedaan (STATE is gevuld) → sluiten. Nacht 21-11: BL-031 (fps) FAIL → `idee`, code teruggedraaid, eerst meting/trace (BL-042)
 - `index.html` van 41 MB en een preview van 50 MB: geheugen op iPad 9
-- Schijf Mac mini: Dennis heeft 14-11 ruimte gemaakt (ongeveer 12 GB vrij). BL-005b/e hebben ≥ 3 GB nodig; check `df` vóór de start, de schijf liep tijdens BL-005 vol
+- **Schijf Mac mini vol (21-11 02:48: 213 MB vrij)**: nachtrun daarom na BL-031 gestopt. Ruimte maken vóór de volgende run (o.a. `/tmp/ev031/` ~60 MB, `/tmp/pw`). BL-005b/e hebben ≥ 3 GB nodig
