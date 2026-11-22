@@ -5,6 +5,7 @@ set -euo pipefail
 RUN=${1:-}
 git fetch --prune origin
 BRANCHES=(
+  "night/2026-11-22"
   "night/2026-11-21"
   "night/2026-11-20"
   "night/2026-11-19"

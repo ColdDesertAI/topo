@@ -24,15 +24,19 @@ assert(!html.includes('Voor ouders en leraren') && !html.includes('class="parent
 if (italieHtml.includes('BEGIN TOPO V3')) assert(italieHtml.includes('setupV3Uitleg') && italieHtml.includes('Hoe werkt TOPO?'), '/italie/ (V3) mist de uitlegpagina');
 // BL-036.9: /italie/ uses exactly the portal's favicon set, manifest and theme-color.
 const head = h => h.slice(0, h.indexOf('</head>'));
+// Only for the V3 web copy (split-site); the V2.0.2 rollback (SITE_ITALIE=v2) keeps its embedded favicon.
+const isV3 = italieHtml.includes('BEGIN TOPO V3');
 const iconTags = h => [...head(h).matchAll(/<link rel="(?:icon|apple-touch-icon|manifest)"[^>]*>/g)].map(m => m[0]).sort();
 const portalIcons = iconTags(html).map(t => t.replace(/href="\.\//, 'href="/')), italieIcons = iconTags(italieHtml);
-assert.deepEqual(italieIcons, portalIcons, '/italie/ heeft niet dezelfde favicon-set als het portal');
 assert(portalIcons.some(t => t.includes('favicon-48.png')) && portalIcons.some(t => t.includes('apple-touch-icon-180.png')) && portalIcons.some(t => t.includes('/site.webmanifest')), 'Favicon-set incompleet');
-const theme = h => head(h).match(/<meta name="theme-color" content="([^"]+)"/)?.[1];
-assert(theme(italieHtml) && theme(italieHtml) === theme(html), '/italie/ theme-color wijkt af van het portal');
-for (const t of italieIcons) must(t.match(/href="\/([^"]+)"/)[1]);
+if (isV3) {
+  assert.deepEqual(italieIcons, portalIcons, '/italie/ heeft niet dezelfde favicon-set als het portal');
+  const theme = h => head(h).match(/<meta name="theme-color" content="([^"]+)"/)?.[1];
+  assert(theme(italieHtml) && theme(italieHtml) === theme(html), '/italie/ theme-color wijkt af van het portal');
+  for (const t of italieIcons) must(t.match(/href="\/([^"]+)"/)[1]);
+}
 for (const f of ['favicon-16', 'favicon-32', 'favicon-48', 'apple-touch-icon-180', 'app-icon-192', 'app-icon-512']) must(`assets/nino-topo/v3-r3/brand/icons/${f}.png`);
-if (italieHtml.includes('BEGIN TOPO V3')) must('italie/v2/index.html');
+if (isV3) must('italie/v2/index.html');
 assert(html.includes('favicon-32.png') && html.includes('nino-welcome-r3.webp') && html.includes('logo-01-primary-r3-1.svg'), 'R3-merkassets niet aangesloten');
 assert(html.includes('prefers-reduced-motion'), 'Reduced-motion ontbreekt');
 const contrast = (a, b) => { const L = x => [1, 3, 5].map(i => parseInt(x.slice(i, i + 2), 16) / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4).reduce((s, v, i) => s + v * [.2126, .7152, .0722][i], 0); const [x, y] = [L(a), L(b)]; return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
