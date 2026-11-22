@@ -65,7 +65,10 @@ assert.equal(state.examAnswered, 0, 'restart resets finite score');
 
 node('#testFormat').value='point';E.resetExam();
 assert.equal(state.questionMode,'point');
+const dailyBefore=daily;
 E.grade(true,state.current);assert.equal(state.examCorrect,1);
+assert.equal(daily,dailyBefore+1,'a correct point answer counts +1 for the daily goal');
+assert.deepEqual([state.good,state.slices,state.pizzas,state.trips],[0,0,0,0],'a point answer gives no reward in a test');
 node('#testFormat').value = 'both';
 E.resetExam();
 const directions = new Set();
