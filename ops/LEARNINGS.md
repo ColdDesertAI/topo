@@ -55,3 +55,4 @@ Dit is waar het systeem slimmer wordt. Elke FAIL, elke correctie van Dennis en e
 ## 2026-11-21 · BL-042
 - Een Esc-handler op `document` voor een onderdeel in de pagina moet eerst `e.defaultPrevented` en open lagen (dialog[open], popovers, overlays) checken; anders steelt hij Esc van wat erboven ligt. QA test Esc ook mét een laag erboven.
 - Een legenda op één regel (`white-space:nowrap`) kan een hele kolom verbreden; meet de kolombreedte vóór en na.
+2026-11-22 | verspilling | Builder en evaluator verloren tijd aan `npm run build:site` exit 1 en aan Playwright vinden | build:site gebruikt standaard V2 en de favicon-check eist V3; Playwright staat niet in de repo (NODE_PATH naar ander project) | Noem in elk contract het exacte buildcommando `npm run build && SITE_ITALIE=v3 npm run build:site` en hoe Playwright geladen wordt | open
