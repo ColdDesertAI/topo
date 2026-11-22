@@ -120,7 +120,7 @@
   if(state.mode!=='exam'||state.examTotal!==pool.length)run=null;
  }
  // V2 grade() gives no reward in a toets since BL-028; this wrapper stays as a second safeguard (decision BL-030).
- // To undo: remove the three lines below; exam-flow.test.mjs must stay green.
+ // To undo: remove the two lines below; exam-flow.test.mjs must stay green.
  const award=TopoLearning.award;
  TopoLearning.award=function(progress){if(state.mode==='exam')return {pizza:false,trip:false,...TopoLearning.journey((progress?.trips|0)+1)};return award.apply(this,arguments);};
  // Record what V2 graded, per question.
