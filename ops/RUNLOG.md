@@ -56,3 +56,4 @@ Formaat:
 2026-11-21 | dennis | besluit | BL-042 | — | — | offline-zoom max 740 px is akkoord
 2026-11-22 | claude/opus + builder/sonnet | nacht | BL-041a | PASS | hoog | portal-hover alleen @media(hover:hover), reduced-motion fade, ✓ hangende inspringing paspoort, Esc-listener Voortgang opgeruimd; build:site-fout bestaat al op origin/main (V2 zonder SITE_ITALIE=v3)
 2026-11-22 | claude/opus + builder/sonnet | nacht | BL-031a | FAIL | laag | kaartkopie Voortgang gecachet zonder regressie, maar geen fps-winst: lange frame is PrePaint (~400 ms), kaartkopie 1–9 ms; na 1 FAIL gestopt (herstel binnen scope niet realistisch) → idee
+2026-11-22 | claude/opus + builder/sonnet | nacht | BL-030 | PASS | hoog | restoreExamReward strikt (precies 1 treffer), exam-flow-assert voor aanwijzen + mutatietoets; commentaarfix na evaluator; afwijking: contract zei 'niets committen', hoofdsessie liet toch committen (nachtrun-regel één commit per taak gaat voor)

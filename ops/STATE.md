@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-22 · door: Claude (nachtrun: BL-041a review PASS, BL-031a FAIL → idee; M0-deadline verstreken, zie risico's)
+> Bijgewerkt: 2026-11-22 · door: Claude (nachtrun: BL-041a review PASS, BL-031a FAIL → idee, BL-030 review PASS; M0-deadline verstreken, zie risico's)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,6 +19,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
+**BL-030: REVIEW** (nachtrun 22-11, `5013e6ca`+`92b61780`, evaluator PASS `ops/reports/eval-BL-030.md`): `restoreExamReward` eist precies één treffer, exam-flow toetst ook aanwijzen (mutatietoets vangt lek), dubbele toets-beveiliging blijft (besluit nachtrun, omkeerbaar — Dennis mag anders kiezen). Bekend: `audit-release-1-2.mjs` faalt al op dist-pariteit (dist = V3).
 **BL-031a: FAIL → idee** (nachtrun 22-11, `9525f900`, `ops/reports/eval-BL-031a.md`): Voortgang-kaart één keer bouwen werkt zonder regressie, maar wint geen fps. De tijd zit in PrePaint van het Voortgang-scherm (≈ 400 ms bij CPU 4×), niet in de kaartkopie (1–9 ms). BL-031 moet vanuit PrePaint opnieuw beginnen en eerste én herhaalbezoek meten. Dennis: code houden (veilig, iets sneller bij herhaalbezoek) of reverten.
 **BL-041a: REVIEW** (nachtrun 22-11, `night/2026-11-22` `f4089fb6`, evaluator PASS `ops/reports/eval-BL-041a.md`): portal-hover alleen met muis (iPad-tik blijft niet hangen), reduced motion zachte fade, ✓ in Kennispaspoort breekt niet los van de naam, Esc-listener Voortgang direct opgeruimd. Let op: `npm run build:site` faalt al op origin/main zonder `SITE_ITALIE=v3` (favicon-check vs V2); met `SITE_ITALIE=v3` exit 0. **Schijf Mac mini 22-11 01:50: 556 MB vrij** — builds/worktrees falen; ruimte maken = Dennis.
 **BL-042: KLAAR** (vragen Dennis 21-11, evaluator PASS na hertoets, `ops/reports/eval-BL-042.md`): achtergronden Toscane · Gardameer · Middellandse Zee · Sicilië (start Middellandse Zee) · Kennispaspoort weer smal (300 px), één open, Esc/× (Esc alleen als er geen laag boven open is) · portal: foto-hover terug bij niet-actieve landen · zoom laadt scherp origineel (web), offline max 740 px (akkoord Dennis 21-11).
