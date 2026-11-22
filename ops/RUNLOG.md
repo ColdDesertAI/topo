@@ -54,3 +54,4 @@ Formaat:
 2026-11-20 | claude/opus + builder/sonnet | taak | BL-039 | PASS | hoog | 3 bundels live; evaluator FAIL op 1 (Vercel deployde branches met /: * matcht geen /) en 3 (laadscherm warm op trage CPU) → fixes 10d49a9 → hertoets PASS
 2026-11-21 | claude/opus + builder/sonnet | taak | BL-042 | PASS | hoog | vier fixes (namen, Kennispaspoort smal + Esc/×, portal-hover inactief, scherpe zoom); evaluator FAIL op Esc-regressie (pakte Esc af van Instellingen/kiezer) → fix 76350a5 → PASS
 2026-11-21 | dennis | besluit | BL-042 | — | — | offline-zoom max 740 px is akkoord
+2026-11-22 | dennis (codex) | release | G4 | tag | — | v3.0.0 (annotated, 4c20d5f) → 718658f op GitHub; geverifieerd
