@@ -42,9 +42,6 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 2. BL-014/016 kaart en glas: compositie eerst (Claude-app), dan bouw en G1
 3. iPad-test Dennis (15-11) + Hermes-hertest → G4 → `SITE_ITALIE=v3`
 
-## Live (14-11)
-- **www.ninotopo.nl** = portal; `/italie/` = Italië-app. Repo verhuisd naar **ColdDesertAI/topo**; Vercel-project `nino-topo-portal-review` bouwt vanaf `main`.
-
 ## Portal (besluit 14-11: optie A)
 - BL-013 in review: portal op `/`, Italië op `/italie/`. Daarna G1 (visuele GO op de preview) en G4 (live + DNS bij Namecheap, BL-009).
 - ROADMAP M0 zei "portal naar één preview-URL"; dat wordt nu: portal live met de huidige Italië-versie, V3 volgt via BL-005.
