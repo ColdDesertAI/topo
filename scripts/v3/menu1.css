@@ -417,7 +417,10 @@ body:is(.v3Home,.v3Les)[data-v3-background=bg04]{background-image:linear-gradien
 .v3Reis[data-menu="1"] .v3PasBody{width:100%;border-collapse:collapse;margin:0 0 10px;font:500 14px/1.3 var(--v3-font);color:var(--v3-ink)}
 .v3Reis[data-menu="1"] .v3PasBody th,.v3Reis[data-menu="1"] .v3PasBody td{padding:6px 8px;text-align:left;border-top:1px solid rgba(42,36,64,.06)}
 .v3Reis[data-menu="1"] .v3PasBody thead th{font:600 13px/1 var(--v3-font);color:#5d5873;border-top:0}
-.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓ ";color:var(--v3-accent-press,#4834c4)}
+/* BL-041a: names break at spaces only; a mastered place hangs its ✓ in the left padding (inline-block of the width of the indent, text-indent pulls the first line back), so a long name wraps under the text, not under the ✓. */
+.v3Reis[data-menu="1"] .v3PasBody tbody th{word-break:normal;overflow-wrap:normal;hyphens:manual}
+.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th{padding:6px 0 6px calc(4px + 1em);text-indent:-1em}
+.v3Reis[data-menu="1"] .v3PasBody tr[data-status=beheerst] th::before{content:"✓";display:inline-block;width:1em;text-indent:0;color:var(--v3-accent-press,#4834c4)}
 /* BL-034 P0.6: Nino on the test result is never cut. The figure and image take exactly the free height under the actions
    (scaled, not clipped); with less than 160 px free (a long list of mistakes) Nino is left out instead of shown in half. */
 @media (min-width:1024px){

@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-21 · door: Claude (BL-042 klaar, evaluator PASS)
+> Bijgewerkt: 2026-11-22 · door: planner (nachtrun: BL-041a bezig, `ops/contracts/BL-041a.md`; M0-deadline verstreken, zie risico's)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -54,6 +54,6 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 
 ## Bekende risico's
 - Artwork-goedkeuring is de bottleneck voor elk land
-- M0-deadline dreigt te schuiven: na BL-005 volgen nog BL-004 (M), BL-005b (M, na G3), BL-006 (S) en de iPad-test van Dennis, in 6 dagen tot vr 20 nov. Niets geschoven (beslissing 4)
+- **M0-deadline (vr 20 nov) is verstreken (planner 22-11).** Exit feitelijk gehaald (productie-URL werkt, `main` groen, nachtruns gelogd); open zijn nog branches ≤ 10 (besluit 2), BL-005b/c/d/e en de docs-verplaatsing. Voorstel: (a) M0 afsluiten op de exit, de open M0-taken naar M1 (deadline M1 blijft 11 dec) · (b) M0 een week verlengen tot vr 27 nov. **Aanbeveling: (a).** Nog niets verschoven; nachtrun 22-11 werkt aan BL-041a (M1, P2)
 - `index.html` van 41 MB en een preview van 50 MB: geheugen op iPad 9
 - Schijf Mac mini: Dennis heeft 14-11 ruimte gemaakt (ongeveer 12 GB vrij). BL-005b/e hebben ≥ 3 GB nodig; check `df` vóór de start, de schijf liep tijdens BL-005 vol

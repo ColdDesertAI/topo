@@ -34,6 +34,31 @@ for(const [W,H] of sizes)for(const state of states){
    out.legend.push({names:its.map(i=>i.querySelector('.v3PasFill')?.getAttribute('aria-label')),titles:its.map(i=>i.querySelector('.v3PasFill')?.title),pcts:its.map(i=>i.querySelector('.v3PasFill')?.dataset.fill),
     sizes:its.map(i=>Math.round(i.querySelector('.v3PasFill').getBoundingClientRect().width)),fits:cap.scrollWidth<=cap.clientWidth+1&&last.right<=box.right+0.5&&c.right<=last.left+0.5,font:getComputedStyle(cap).fontSize});}
   out.levels=Object.fromEntries(Object.entries(out.levels).map(([k,v])=>[k,[...v]]));return out;});
+ // BL-041a: names of mastered places: the ✓ hangs left of the text on the first line, never alone, no word broken, later lines start at the text x.
+ const thCheck=()=>p.evaluate(()=>{const out=[];let beh=0,multi=0;
+  for(const th of document.querySelectorAll('.v3VgPas .v3PasBody tbody th')){const r=th.getBoundingClientRect();if(!r.width)continue;
+   const cs=getComputedStyle(th),name=th.textContent.trim();
+   if(th.scrollWidth>th.clientWidth+1)out.push(name+': scrollWidth '+th.scrollWidth+' > '+th.clientWidth);
+   if(cs.wordBreak!=='normal'||cs.overflowWrap!=='normal')out.push(name+': word-break/overflow-wrap '+cs.wordBreak+'/'+cs.overflowWrap);
+   const tn=[...th.childNodes].find(n=>n.nodeType===3);const rg=document.createRange();rg.selectNodeContents(tn);
+   const lines=[];for(const q of rg.getClientRects()){let l=lines.find(x=>Math.abs(x.top-q.top)<3);if(!l)lines.push(l={top:q.top,left:q.left,bottom:q.bottom});l.left=Math.min(l.left,q.left);}
+   const textX=r.left+parseFloat(cs.borderLeftWidth)+parseFloat(cs.paddingLeft);
+   // a word is broken when a line break falls inside a word: compare the line count with the count from a nowrap-free word measure
+   const words=name.split(/\s+/);const wr=document.createRange();let wl=new Set();let pos=0;let broken=false;
+   for(const w of words){const i=name.indexOf(w,pos);pos=i+w.length;wr.setStart(tn,i+(tn.textContent.indexOf(name)));wr.setEnd(tn,i+w.length+(tn.textContent.indexOf(name)));if(new Set([...wr.getClientRects()].map(q=>Math.round(q.top))).size>1)broken=true;}
+   if(broken)out.push(name+': woord gebroken');
+   if(lines.length>1)multi++;
+   for(const l of lines)if(Math.abs(l.left-textX)>2)out.push(name+': regel begint op x '+l.left.toFixed(1)+' ≠ '+textX.toFixed(1));
+   if(th.parentElement.dataset.status==='beheerst'){beh++;const b=getComputedStyle(th,'::before');
+    if(b.content.replace(/"/g,'')!=='✓')out.push(name+': geen ✓');
+    else{// the ✓ is an inline-block before the text: it is alone on a line when the first word starts one line lower. Measured with the cell top-aligned (restored after).
+     const va=th.style.verticalAlign;th.style.verticalAlign='top';
+     const w1=name.split(/\s+/)[0],fr=document.createRange();fr.setStart(tn,0);fr.setEnd(tn,w1.length);const fq=fr.getClientRects()[0],r2=th.getBoundingClientRect(),
+      contentTop=r2.top+parseFloat(cs.borderTopWidth)+parseFloat(cs.paddingTop),lh=parseFloat(cs.lineHeight)||parseFloat(cs.fontSize)*1.3;
+     if(fq.top-contentTop>lh*0.5)out.push(name+': ✓ alleen op een regel (eerste woord '+(fq.top-contentTop).toFixed(1)+' px onder de bovenkant)');
+     th.style.verticalAlign=va;
+     if(b.display!=='inline-block'||parseFloat(b.width)>parseFloat(cs.paddingLeft)+.5||Math.abs(parseFloat(cs.textIndent)+parseFloat(b.width))>.5)out.push(name+': ✓ hangt niet in de inspringing '+b.width+' / '+cs.paddingLeft+' / '+cs.textIndent);}}}
+  return {out,beh,multi};});
  const grab0=()=>0;
  const acc={levels:{},icons:0,bad:[],legend:[]};
  const side=async()=>p.evaluate(()=>{const l=document.querySelector('.v3VgPas').getBoundingClientRect(),m=document.querySelector('.v3VgMap').getBoundingClientRect(),cs=[...document.querySelectorAll('.v3VgPas li')].map(li=>li.getBoundingClientRect()),o=document.querySelectorAll('.v3VgPas .v3Row[aria-expanded=true]').length,
@@ -52,6 +77,7 @@ for(const [W,H] of sizes)for(const state of states){
   if(MAXW[W]&&st.w>MAXW[W]+2)fail(w,'lijst '+st.w+' > '+MAXW[W]+'+2 (rij '+i+')');
   if(st.overMap)fail(w,'open lijst bedekt de kaart');
   if(!st.x||st.x[0]<44||st.x[1]<44||st.xlabel!=='Sluiten')fail(w,'sluitknop '+JSON.stringify(st.x)+' '+st.xlabel);
+  const tc=await thCheck();acc.beh=(acc.beh||0)+tc.beh;acc.multi=(acc.multi||0)+tc.multi;for(const m of tc.out)fail(w,'naam: '+m);
   const g=await grab();for(const k of Object.keys(g.levels))(acc.levels[k]??=new Set()).add(...g.levels[k]);acc.icons+=g.icons;acc.bad.push(...g.bad);acc.legend.push(...g.legend);}
  // Esc closes the open chapter and returns focus to its row; × does the same.
  await rows.nth(1).click();await p.keyboard.press('Escape');await p.waitForTimeout(80);
@@ -79,8 +105,18 @@ for(const [W,H] of sizes)for(const state of states){
  if(!r.legend.length)fail(w,'geen legenda');
  for(const l of r.legend){if(l.names.join()!==Object.keys(LEVELS).join()||l.titles.join()!==l.names.join())fail(w,'legenda-namen/title '+l.names+' | '+l.titles);if(l.sizes.some(x=>x<18||x>22))fail(w,'legenda-pizza '+l.sizes);if(l.pcts.join()!=='0,25,50,75,100')fail(w,'legenda-% '+l.pcts);
   if(!l.fits)fail(w,'legenda past niet '+JSON.stringify(l));if(parseFloat(l.font)<13)fail(w,'legenda < 13 px');}
- console.log(w,'iconen',r.icons,'niveaus',JSON.stringify(r.levels),'legenda',r.legend.length,'font',r.legend[0]?.font,'lijst max',maxw);
+ console.log(w,'iconen',r.icons,'niveaus',JSON.stringify(r.levels),'legenda',r.legend.length,'font',r.legend[0]?.font,'lijst max',maxw,'beheerst',r.beh,'meerregelig',r.multi);
  if(errors.length)fail(w,'paginafouten '+errors.join(' | '));
+ // BL-041a: the Esc listener of an earlier Voortgang render is removed at once: the keydown count on document does not grow over 5× Reis → Voortgang.
+ if(W===1440&&state===states[0]){const cdp=await p.context().newCDPSession(p);
+  const kd=async()=>{const {result}=await cdp.send('Runtime.evaluate',{expression:'document'});const {listeners}=await cdp.send('DOMDebugger.getEventListeners',{objectId:result.objectId});return listeners.filter(l=>l.type==='keydown').length;};
+  const nav=async t=>{await p.locator(`.v3Side [data-nav=${t}]`).filter({visible:true}).first().click();await p.waitForTimeout(700);};
+  const one=await kd();
+  for(let i=0;i<5;i++){await nav('reis');await nav('voortgang');}
+  const five=await kd();console.log(w,'keydown-listeners op document: na 1× Voortgang',one,'na 5× wisselen',five);
+  if(five!==one)fail(w,'Esc-listener lekt: '+one+' → '+five);
+  await rows.nth(1).click();await p.keyboard.press('Escape');await p.waitForTimeout(80);
+  if((await side()).open!==0)fail(w,'Esc sluit het hoofdstuk niet na opnieuw renderen');}
  if(process.env.QA_SHOT&&W===1440){await p.screenshot({path:process.env.QA_SHOT+`/pas-${state}.png`});}
  await p.close();
 }
