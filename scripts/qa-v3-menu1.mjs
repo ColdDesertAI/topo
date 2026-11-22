@@ -5,9 +5,14 @@
 //   text      no visible text under 13 px
 //   targets   every visible button ≥ 44 px high
 //   blur      visible elements with backdrop-filter (pseudo-elements included) ≤ 3
+//   blurAll   the same over the whole scroll height (below the fold and in scroll containers too) ≤ 3 (BL-024a)
 //   nino      the sidebar Nino has one size on every screen (per width class)
 //   paspoort  Voortgang: the Kennis-paspoort is closed by default
 //   aa        free text (not on a card) against the real backdrop under it: 5th percentile ≥ 4.5 (≥ 3 for large text)
+// State matrix (BL-024a): the demo state #nieuw (QA_MATRIX_STATE) on overzicht, oefenen, toets, rewards and voortgang plus the page of a
+// locked chapter, with the same checks (checkScreen) on every size of the run, BGS[0] only. It logs the number of finished chapters per
+// state (#nieuw 0, #bezig ≥ 1, else 'toestand niet gewisseld'). QA_MUTATE_BLUR=1 (proof of the blurAll check only) pastes 4 blurred
+// 200×200 divs at the bottom of Voortgang's scroll container.
 // Plus the lesson result (#finishScreen) at 1440×900 and 2560×1440: no overlap, Nino size; and with --fps the frame
 // rate at 1080×810 with the CPU 4× slower (list scroll, screen switches). Exit code 1 on any failure.
 import {createRequire} from 'node:module';
@@ -39,7 +44,7 @@ const ALWAYS=['.v3Side .v3NavItem>span','.v3Counts .v3Count>b'];
 const RESULT=['#finishScreen h2','#finishScreen p','#finishScreen .finishStats *','#finishScreen button'];
 const fails=[];const fail=(where,what)=>{fails.push(where+': '+what);};
 
-async function open(b,W,H,bg){
+async function open(b,W,H,bg,st='bezig'){
  const p=await b.newPage({viewport:{width:W,height:H}});const errors=[];p.on('pageerror',e=>errors.push(e.message));
  // BL-035.9: no broken pictures — every failed request or 4xx/5xx counts as an error.
  p.on('requestfailed',r=>{if(!/ERR_ABORTED/.test(r.failure()?.errorText||''))errors.push('laden mislukt: '+r.url().split('/').pop()+' '+r.failure()?.errorText);});
@@ -47,7 +52,7 @@ async function open(b,W,H,bg){
  if(process.env.QA_NOGLOW||process.env.QA_BGPOS)await p.addInitScript(([noglow,pos])=>{const css=(noglow?'.v3Panel::before,.v3CardHead::before,.v3VgTitleBar::before,.v3ToetsScoreCard::before{display:none!important}':'')+
   (pos||'').split(';').filter(Boolean).map(x=>{const [k,v]=x.split(':');return 'body[data-v3-background='+k+']{background-position:'+v+'!important;background-size:cover!important}';}).join('');
   addEventListener('DOMContentLoaded',()=>{const st=document.createElement('style');st.textContent=css;document.head.append(st);});},[process.env.QA_NOGLOW||'',process.env.QA_BGPOS||'']);
- await p.goto(HTML+'#bezig/'+bg);await p.waitForTimeout(1300);return {p,errors};
+ await p.goto(HTML+'#'+st+'/'+bg);await p.waitForTimeout(1300);return {p,errors};
 }
 async function show(p,screen){
  if(screen==='overzicht')return;
@@ -60,9 +65,10 @@ async function show(p,screen){
 }
 // Layout facts inside the page. Overlap: text, buttons and the chapter markers on the map against each other.
 const probe=()=>{
- const vis=e=>{const r=e.getBoundingClientRect();if(r.width<2||r.height<2)return false;const c=getComputedStyle(e);if(c.visibility==='hidden'||+c.opacity===0)return false;
+ const visAll=e=>{const r=e.getBoundingClientRect();if(r.width<2||r.height<2)return false;const c=getComputedStyle(e);if(c.visibility==='hidden'||+c.opacity===0)return false;
   for(let a=e;a;a=a.parentElement){const s=getComputedStyle(a);if(s.display==='none')return false;if(s.clip&&s.clip!=='auto'&&a.getBoundingClientRect().width<=1)return false;}
-  return r.bottom>0&&r.right>0&&r.top<innerHeight&&r.left<innerWidth;};
+  return true;};
+ const vis=e=>{if(!visAll(e))return false;const r=e.getBoundingClientRect();return r.bottom>0&&r.right>0&&r.top<innerHeight&&r.left<innerWidth;};
  const root=document.querySelector('.v3Reis');const scope=document.body.classList.contains('v3Les')?document.body:root;
  const inMap=e=>!!e.closest('svg,.v3MapStage,.v3OefStage,.v3VgKaart figure svg,.ninoArtSlot');
  const texts=[...scope.querySelectorAll('*')].filter(e=>!inMap(e)&&!e.closest('.v3Demo,#v3Demo,[data-v3-demo]')&&[...e.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&vis(e));
@@ -84,10 +90,13 @@ const probe=()=>{
  // Blur: elements and their ::before/::after with a backdrop-filter, visible on screen.
  let blur=0;const blurred=[];for(const e of document.querySelectorAll('body *')){if(!vis(e))continue;for(const ps of [null,'::before','::after']){const c=getComputedStyle(e,ps);
   if(ps&&(c.content==='none'||c.display==='none'))continue;const f=c.backdropFilter||c.webkitBackdropFilter;if(f&&f!=='none'){blur++;blurred.push((e.className||e.tagName)+(ps||''));}}}
+ // BL-024a: the same over the whole scroll height (no viewport condition): below the fold and in scroll containers too.
+ let blurAll=0;const blurredAll=[];for(const e of document.querySelectorAll('body *')){if(!visAll(e))continue;for(const ps of [null,'::before','::after']){const c=getComputedStyle(e,ps);
+  if(ps&&(c.content==='none'||c.display==='none'))continue;const f=c.backdropFilter||c.webkitBackdropFilter;if(f&&f!=='none'){blurAll++;blurredAll.push((e.className||e.tagName)+(ps||''));}}}
  const portrait=[...document.querySelectorAll('.v3Reis .v3Side .v3Portrait,.v3ShellNav .v3Portrait')].find(vis);const pr=portrait?portrait.getBoundingClientRect():null;
  const pas=document.querySelector('.v3View-voortgang details.mastery');
  const it=document.querySelector('.v3MapStage .v3Map .italy');const ir=it&&vis(it)?it.getBoundingClientRect():null;const mapShare=ir?+(ir.width*ir.height/(innerWidth*innerHeight)).toFixed(3):null;
- return {small,lowBtn,over,wide,blur,blurred,nino:pr?Math.round(pr.width)+'×'+Math.round(pr.height):null,paspoortOpen:pas?pas.open:null,mapShare};
+ return {small,lowBtn,over,wide,blur,blurred,blurAll,blurredAll,nino:pr?Math.round(pr.width)+'×'+Math.round(pr.height):null,paspoortOpen:pas?pas.open:null,mapShare};
 };
 // Contrast, two ways per text box:
 //   p5   backdrop: the text hidden, the pixels under it against the text colour (5th percentile);
@@ -115,6 +124,29 @@ async function contrast(p,sels){
    for(let i=0;i<d.length;i+=4){const a=L(d[i],d[i+1],d[i+2]),bb=L(ds[i],ds[i+1],ds[i+2]);ink.push((Math.max(a,bb)+.05)/(Math.min(a,bb)+.05));}
    cr.sort((a,b)=>a-b);ink.sort((a,b)=>a-b);const large=t.size>=24||(t.size>=18.66&&t.weight>=700);
    return {s:t.s,p5:+cr[Math.floor(cr.length/20)].toFixed(2),ink:+ink[Math.floor(ink.length*.98)].toFixed(2),need:large?3:4.5};});},[png,shown,info]);
+}
+// One screen, all shared checks (main loop and state matrix): pictures, reachable sidebar buttons, overlap, width, text size,
+// target size, blur (in view) and blurAll (whole scroll height). Returns the probe result.
+async function checkScreen(p,where,screen){
+ // Mutation (proof for blurAll only): 4 blurred divs under the fold at the bottom of Voortgang's scroll container.
+ if(process.env.QA_MUTATE_BLUR&&screen==='voortgang')await p.evaluate(()=>{const c=document.querySelector('.v3View-voortgang');for(let i=0;i<4;i++){const d=document.createElement('div');d.className='qaMutBlur';d.style.cssText='flex:none;width:200px;height:200px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)';c.append(d);}});
+ const r=await p.evaluate(probe);
+ // BL-035.9: every visible picture has arrived (lazy ones in view included) and none is broken.
+ const broken=await p.evaluate(async()=>{const vis=e=>{const q=e.getBoundingClientRect();return q.width>1&&q.height>1&&q.bottom>0&&q.top<innerHeight&&q.right>0&&q.left<innerWidth&&getComputedStyle(e).visibility!=='hidden';};
+  const imgs=[...document.querySelectorAll('img')].filter(vis);for(let t=0;t<40&&imgs.some(i=>!i.complete);t++)await new Promise(r=>setTimeout(r,100));
+  return imgs.filter(i=>!i.complete||!i.naturalWidth).map(i=>(i.className||i.alt||'img')+' '+(i.currentSrc||i.src).split('/').pop().slice(0,40));});
+ if(broken.length)fail(where,'kapotte afbeelding: '+broken.slice(0,3).join('; '));
+ // Evaluator BL-036: every sidebar button (nav, gear, background, ?) lies on screen and its centre reaches it.
+ const unreach=await p.evaluate(()=>[...document.querySelectorAll('.v3Reis>.v3Side :is(button,a)')].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').filter(e=>{const q=e.getBoundingClientRect();if(q.width<2||q.height<2)return false;
+  const x=q.left+q.width/2,y=q.top+q.height/2;if(x<0||y<0||x>innerWidth||y>innerHeight)return true;const t=document.elementFromPoint(x,y);return !(t&&(e===t||e.contains(t)));}).map(e=>(e.getAttribute('aria-label')||e.textContent||e.className).trim().slice(0,24)));
+ if(unreach.length)fail(where,'knop niet bereikbaar: '+unreach.join('; '));
+ if(r.over.length)fail(where,'overlap: '+r.over.slice(0,4).join('; '));
+ if(r.wide)fail(where,'breder dan het scherm');
+ if(r.small.length)fail(where,'tekst < 13 px: '+r.small.slice(0,3).join('; '));
+ if(r.lowBtn.length)fail(where,'knop < 44 px: '+r.lowBtn.slice(0,3).join('; '));
+ if(r.blur>3)fail(where,'blur op '+r.blur+' elementen: '+r.blurred.join(', '));
+ if(r.blurAll>3)fail(where,'blur (hele scrollhoogte) op '+r.blurAll+': '+r.blurredAll.join(', '));
+ return r;
 }
 async function lessonResult(b,W,H){
  const {p,errors}=await open(b,W,H,'bg03');
@@ -168,21 +200,7 @@ for(const [W,H] of SIZES)for(const bg of BGS){
  const {p,errors}=await open(b,W,H,bg);
  for(const screen of SCREENS){
   if(screen!=='overzicht'){await p.goto(HTML+'#bezig/'+bg);await p.waitForTimeout(1100);await show(p,screen);}
-  const where=`${W}×${H} ${bg} ${screen}`;const r=await p.evaluate(probe);
-  // BL-035.9: every visible picture has arrived (lazy ones in view included) and none is broken.
-  const broken=await p.evaluate(async()=>{const vis=e=>{const q=e.getBoundingClientRect();return q.width>1&&q.height>1&&q.bottom>0&&q.top<innerHeight&&q.right>0&&q.left<innerWidth&&getComputedStyle(e).visibility!=='hidden';};
-   const imgs=[...document.querySelectorAll('img')].filter(vis);for(let t=0;t<40&&imgs.some(i=>!i.complete);t++)await new Promise(r=>setTimeout(r,100));
-   return imgs.filter(i=>!i.complete||!i.naturalWidth).map(i=>(i.className||i.alt||'img')+' '+(i.currentSrc||i.src).split('/').pop().slice(0,40));});
-  if(broken.length)fail(where,'kapotte afbeelding: '+broken.slice(0,3).join('; '));
-  // Evaluator BL-036: every sidebar button (nav, gear, background, ?) lies on screen and its centre reaches it.
-  const unreach=await p.evaluate(()=>[...document.querySelectorAll('.v3Reis>.v3Side :is(button,a)')].filter(e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden').filter(e=>{const q=e.getBoundingClientRect();if(q.width<2||q.height<2)return false;
-   const x=q.left+q.width/2,y=q.top+q.height/2;if(x<0||y<0||x>innerWidth||y>innerHeight)return true;const t=document.elementFromPoint(x,y);return !(t&&(e===t||e.contains(t)));}).map(e=>(e.getAttribute('aria-label')||e.textContent||e.className).trim().slice(0,24)));
-  if(unreach.length)fail(where,'knop niet bereikbaar: '+unreach.join('; '));
-  if(r.over.length)fail(where,'overlap: '+r.over.slice(0,4).join('; '));
-  if(r.wide)fail(where,'breder dan het scherm');
-  if(r.small.length)fail(where,'tekst < 13 px: '+r.small.slice(0,3).join('; '));
-  if(r.lowBtn.length)fail(where,'knop < 44 px: '+r.lowBtn.slice(0,3).join('; '));
-  if(r.blur>3)fail(where,'blur op '+r.blur+' elementen: '+r.blurred.join(', '));
+  const where=`${W}×${H} ${bg} ${screen}`;const r=await checkScreen(p,where,screen);
   const wc=W<1280?'ipad':'desktop';(nino[wc]??=new Set()).add(r.nino);
   if(screen==='voortgang'&&r.paspoortOpen!==false)fail(where,'Kennis-paspoort niet ingeklapt');
   // BL-034 bug: the filled marker is the active chapter = the list's current row, always.
@@ -202,7 +220,7 @@ for(const [W,H] of SIZES)for(const bg of BGS){
    if(g.out)fail(where,'startknop of chips buiten beeld: '+g.out);
    if(g.area!==null)(globalThis.kv??=[]).push(where+' '+(g.area!==null&&(screen==='overzicht'||screen==='hoofdstuk')?g.area.toFixed(3):'h '+(g.hh??0).toFixed(2)));}
   const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}
-  table.push({where,map:r.mapShare,blur:r.blur,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
+  table.push({where,map:r.mapShare,blur:r.blur,blurAll:r.blurAll,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
  }
  if(errors.length)fail(`${W}×${H} ${bg}`,'page errors: '+errors.join(' | '));
  await p.close();
@@ -214,6 +232,33 @@ for(const [W,H] of SIZES)for(const st of ['bezig','afgerond','alles']){
  const m=await p.evaluate(()=>{const a=[...document.querySelectorAll('.v3Markers .v3Marker')].filter(e=>e.getClientRects().length).map(e=>{const t=e.querySelector('text').getBoundingClientRect();return {c:e.dataset.chapter,x:t.x+t.width/2,y:t.y+t.height/2};});
   const close=[];for(let i=0;i<a.length;i++)for(let j=i+1;j<a.length;j++){const d=Math.hypot(a[i].x-a[j].x,a[i].y-a[j].y);if(d<30)close.push(a[i].c+'~'+a[j].c+' '+Math.round(d)+' px');}return {n:a.length,close};});
  if(m.n&&m.close.length)fail(`${W}×${H} #${st} overzicht`,'pinkoppen te dicht: '+m.close.join('; '));
+ await p.close();}
+// BL-024a state matrix: a demo state that is really another one (#nieuw vs #bezig) on five screens plus a locked chapter page.
+// Finished chapters = rows with data-state done|gold (reis.js renderRows); a locked row has data-state=locked (reis.js stateOf).
+const MSTATE=process.env.QA_MATRIX_STATE||'nieuw';const matrix=[];
+const doneCount=p=>p.evaluate(()=>[...document.querySelectorAll('.v3Rows .v3Row')].filter(r=>/^(done|gold)$/.test(r.dataset.state)).length);
+for(const [W,H] of SIZES){
+ const {p,errors}=await open(b,W,H,BGS[0],MSTATE);
+ const nDone=await doneCount(p);
+ {const q=await b.newPage({viewport:{width:W,height:H}});await q.goto(HTML+'#bezig/'+BGS[0]);await q.waitForTimeout(1300);const nBezig=await doneCount(q);await q.close();
+  console.log(`toestand ${W}×${H}: #${MSTATE} ${nDone} afgeronde hoofdstukken, #bezig ${nBezig}`);
+  if(nDone===nBezig||(MSTATE==='nieuw'&&(nDone!==0||nBezig<1)))fail(`${W}×${H} #${MSTATE}`,`toestand niet gewisseld (#${MSTATE} ${nDone}, #bezig ${nBezig})`);}
+ for(const screen of ['overzicht','oefenen','toets','rewards','voortgang']){
+  await p.reload();await p.waitForTimeout(1300);await show(p,screen);
+  const where=`${W}×${H} #${MSTATE} ${screen}`;const r=await checkScreen(p,where,screen);
+  console.log(where,JSON.stringify({over:r.over.length,blur:r.blur,blurAll:r.blurAll}));matrix.push({where,blur:r.blur,blurAll:r.blurAll});
+ }
+ // Locked chapter. This is the 'can be opened' case: the row is a normal button (no disabled / aria-disabled), a click opens its chapter page
+ // (muted scene, "Opent na …"). The script sees the lock in the row attribute data-state=locked (and the lock icon) BEFORE the click.
+ await p.reload();await p.waitForTimeout(1300);
+ const lockedRow=p.locator('.v3Rows .v3Row[data-state=locked]').filter({visible:true});
+ const where=`${W}×${H} #${MSTATE} vergrendeld hoofdstuk`;
+ if(!await lockedRow.count())fail(where,'geen vergrendeld hoofdstuk');
+ else{const id=await lockedRow.first().getAttribute('data-chapter');await lockedRow.first().click();await p.waitForTimeout(900);
+  const v=await p.evaluate(()=>({view:document.querySelector('.v3Reis')?.dataset.view,back:!!document.querySelector('.v3Back')&&document.querySelector('.v3Back').getClientRects().length>0}));
+  if(!v.back)fail(where,'vergrendeld hoofdstuk '+id+' opent niet (geen hoofdstukpagina)');
+  const r=await checkScreen(p,where,'hoofdstuk');console.log(where,JSON.stringify({chapter:id,view:v.view,over:r.over.length,blur:r.blur,blurAll:r.blurAll}));}
+ if(errors.length)fail(`${W}×${H} #${MSTATE}`,'page errors: '+errors.join(' | '));
  await p.close();}
 for(const [wc,set] of Object.entries(nino))if(set.size!==1)fail('nino '+wc,'meerdere maten: '+[...set].join(', '));
 // BL-034 bug scenario: a lesson in progress in another chapter than the next one (a replay of chapter 1 while chapter 2
@@ -230,6 +275,7 @@ let f=null;if(args.has('--fps'))f=await fps(b);
 await b.close();
 const blurPer={};for(const t of table){const s=t.where.split(' ').pop();blurPer[s]=Math.max(blurPer[s]||0,t.blur);}
 console.log('blur (max per scherm):',JSON.stringify(blurPer));
+console.log('blurAll (max, hoofdlus + matrix):',JSON.stringify(Math.max(0,...table.map(t=>t.blurAll),...matrix.map(t=>t.blurAll))));
 console.log('kaartaandeel (overzicht):',table.filter(t=>t.where.endsWith('overzicht')).map(t=>t.where.split(' ').slice(0,2).join(' ')+' '+t.map).join(' · '));
 if(globalThis.kv)console.log('portret kaartvlak (Reis ≥ .45, Oefenen/Toets hoogte ≥ .40):',globalThis.kv.join(' · '));
 console.log('nino:',JSON.stringify(Object.fromEntries(Object.entries(nino).map(([k,v])=>[k,[...v]]))));

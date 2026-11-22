@@ -12,6 +12,8 @@
  const {make,STAGE}=V,$=s=>document.querySelector(s);
  const STATUS={beheerst:'Beheerst',bezig:'Bezig',nog:'Nog niet'};
  const mastery=$('details.mastery'),grid=$('#masteryGrid');
+ let vgMap=null; // BL-031a: the Voortgang map is built once per session and hung in each new figure
+ let passEsc=null; // BL-041a: Esc handler of the last rendered Kennispaspoort, removed at the next render
 
  // The V2 paspoort builds its table when opened; it is moved into Voortgang and rebuilt on every visit.
  function passport(){
@@ -56,9 +58,12 @@
 
   // Kaart: each place coloured by its status; legend.
   const fig=make('figure','v3VgKaart');
-  const svg=V.cloneMap('v3v-','v3VgMap');
+  // BL-031a: the map copy is built once and reused; on every later render its old status classes are cleared first.
+  const first=!vgMap,svg=vgMap||(vgMap=V.cloneMap('v3v-','v3VgMap'));
   // Ronde 5 punt 4: relief on; the mastery colour lies over it as a tint (ronde5.css).
-  if(svg){svg.classList.add('v3Map');svg.dataset.relief='on';svg.dataset.kaart='eiland';svg.dataset.frame='italy';V.addIsland(svg,'v3v-');fig.append(svg);
+  if(svg){if(first){svg.classList.add('v3Map');svg.dataset.relief='on';svg.dataset.kaart='eiland';svg.dataset.frame='italy';V.addIsland(svg,'v3v-');}
+   else svg.querySelectorAll('[data-id]').forEach(n=>{for(const c of [...n.classList])if(c==='v3Hit'||c==='v3StLine'||c.startsWith('v3St-'))n.classList.remove(c);});
+   fig.append(svg);
    const sea=svg.querySelector('.sea');
    for(const p of pp)svg.querySelectorAll('[data-id="'+p.item.id+'"]').forEach(n=>{n.classList.add('v3Hit','v3St-'+p.status);if(p.item.kind==='river')n.classList.add('v3StLine');});
    requestAnimationFrame(()=>{if(sea)svg.style.setProperty('--v3-sea-school',getComputedStyle(sea).fill);V.fit(svg);});}
@@ -117,11 +122,12 @@
    // Esc closes the open chapter — one listener per list (removed once the list leaves the page), and only when no layer
    // above it is open and nothing handled the key yet (evaluator BL-042: Instellingen, the background picker, the zoom).
    const above=()=>document.querySelector('dialog[open],.v3ZoomOverlay,.v3Rit')||[...document.querySelectorAll('.v3BgPop')].some(p=>!p.hidden);
+   if(passEsc)document.removeEventListener('keydown',passEsc);
    const onEsc=e=>{if(!list.isConnected){document.removeEventListener('keydown',onEsc);return;}
     if(e.key!=='Escape'||e.defaultPrevented||above())return;
     const open=list.querySelector('.v3Row[aria-expanded=true]');if(!open)return;
     e.preventDefault();open.closest('li')?.querySelector('.v3PasClose')?.click();};
-   document.addEventListener('keydown',onEsc);
+   document.addEventListener('keydown',onEsc);passEsc=onEsc;
   }
 
   // Dagdoel (V2).

@@ -119,7 +119,8 @@
   try{$('nav.tabs .tab[data-mode="exam"]')?.click();}finally{groupItems=orig;}
   if(state.mode!=='exam'||state.examTotal!==pool.length)run=null;
  }
- // No rewards in a toets: no point, no pizza, no ride, no "good" count (the V2 reward counter).
+ // V2 grade() gives no reward in a toets since BL-028; this wrapper stays as a second safeguard (decision BL-030).
+ // To undo: remove the two lines below; exam-flow.test.mjs must stay green.
  const award=TopoLearning.award;
  TopoLearning.award=function(progress){if(state.mode==='exam')return {pizza:false,trip:false,...TopoLearning.journey((progress?.trips|0)+1)};return award.apply(this,arguments);};
  // Record what V2 graded, per question.

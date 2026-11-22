@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-21 · door: Claude (BL-042 klaar, evaluator PASS)
+> Bijgewerkt: 2026-11-22 · door: Claude (nachtrun: BL-041a review PASS, BL-031a FAIL → idee, BL-030 + BL-024a review PASS; M0-deadline verstreken, zie risico's)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -19,6 +19,10 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 | `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
 
 ## Volgende taak
+**BL-024a: REVIEW** (nachtrun 22-11, `c1c092b8`, evaluator PASS na hertoets `ops/reports/eval-BL-024a.md`): glascheck Menu 1 dekt nu `#nieuw` en een vergrendeld hoofdstuk, plus `blurAll` (ook onder de vouw); geen nieuwe meldingen op de huidige UI. BL-024b (tekst-opacity in contrast) staat op idee.
+**BL-030: REVIEW** (nachtrun 22-11, `5013e6ca`+`92b61780`, evaluator PASS `ops/reports/eval-BL-030.md`): `restoreExamReward` eist precies één treffer, exam-flow toetst ook aanwijzen (mutatietoets vangt lek), dubbele toets-beveiliging blijft (besluit nachtrun, omkeerbaar — Dennis mag anders kiezen). Bekend: `audit-release-1-2.mjs` faalt al op dist-pariteit (dist = V3).
+**BL-031a: FAIL → idee** (nachtrun 22-11, `9525f900`, `ops/reports/eval-BL-031a.md`): Voortgang-kaart één keer bouwen werkt zonder regressie, maar wint geen fps. De tijd zit in PrePaint van het Voortgang-scherm (≈ 400 ms bij CPU 4×), niet in de kaartkopie (1–9 ms). BL-031 moet vanuit PrePaint opnieuw beginnen en eerste én herhaalbezoek meten. Dennis: code houden (veilig, iets sneller bij herhaalbezoek) of reverten.
+**BL-041a: REVIEW** (nachtrun 22-11, `night/2026-11-22` `f4089fb6`, evaluator PASS `ops/reports/eval-BL-041a.md`): portal-hover alleen met muis (iPad-tik blijft niet hangen), reduced motion zachte fade, ✓ in Kennispaspoort breekt niet los van de naam, Esc-listener Voortgang direct opgeruimd. Let op: `npm run build:site` faalt al op origin/main zonder `SITE_ITALIE=v3` (favicon-check vs V2); met `SITE_ITALIE=v3` exit 0. **Schijf Mac mini 22-11 01:50: 556 MB vrij** — builds/worktrees falen; ruimte maken = Dennis.
 **BL-042: KLAAR** (vragen Dennis 21-11, evaluator PASS na hertoets, `ops/reports/eval-BL-042.md`): achtergronden Toscane · Gardameer · Middellandse Zee · Sicilië (start Middellandse Zee) · Kennispaspoort weer smal (300 px), één open, Esc/× (Esc alleen als er geen laag boven open is) · portal: foto-hover terug bij niet-actieve landen · zoom laadt scherp origineel (web), offline max 740 px (akkoord Dennis 21-11).
 **BL-039: KLAAR** (evaluator PASS na hertoets 20-11, `ops/reports/eval-BL-039.md`): Vercel deployt alleen `main` (`*/**` voor branches met /; getest), portal-hover + hele kaart klikbaar, laadscherm alleen bij koude cache (only-if-cached; warm 0 ms loader, ook CPU 4×), Wisselen: Eilanden = Sicilië, losse iconen rand-rand ≥ 12 px, hoofdstukafbeelding zoomt, Kennispaspoort vullende pizza. **Besluit 20-11 (QA-norm):** een weggelaten los icoon in Oefenen (kleine kaart) is info; op de hoofdstukpagina blijft het een fout. BL-037 en BL-038 klaar. Restpunten → BL-041.
 **BL-036 testfeedback 20-11: KLAAR, alles live** (bundels A–C + fix `4deb5ab`). Evaluator: FAIL op 7 (tandwiel onbereikbaar in iPad-portret) en 8 (lesknop 'Start de Vespa-rit' deed niets) → gefixt → hertoets PASS (`ops/reports/eval-BL-036.md`). Laag 3: volledige matrix Chromium OK, fade Chromium + WebKit OK. Nieuw: **BL-038 iPad-portret** (P0, blokkeert G3). Open voor Dennis: Vespa-icoon is een vierkante app-badge; oordelen related in `ops/reports/BL-036-iconen.md`; antwoordfeedback 'goed' is in V3 al violet (niet groen) — zo laten?
@@ -38,9 +42,6 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 2. BL-014/016 kaart en glas: compositie eerst (Claude-app), dan bouw en G1
 3. iPad-test Dennis (15-11) + Hermes-hertest → G4 → `SITE_ITALIE=v3`
 
-## Live (14-11)
-- **www.ninotopo.nl** = portal; `/italie/` = Italië-app. Repo verhuisd naar **ColdDesertAI/topo**; Vercel-project `nino-topo-portal-review` bouwt vanaf `main`.
-
 ## Portal (besluit 14-11: optie A)
 - BL-013 in review: portal op `/`, Italië op `/italie/`. Daarna G1 (visuele GO op de preview) en G4 (live + DNS bij Namecheap, BL-009).
 - ROADMAP M0 zei "portal naar één preview-URL"; dat wordt nu: portal live met de huidige Italië-versie, V3 volgt via BL-005.
@@ -54,6 +55,6 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 
 ## Bekende risico's
 - Artwork-goedkeuring is de bottleneck voor elk land
-- M0-deadline dreigt te schuiven: na BL-005 volgen nog BL-004 (M), BL-005b (M, na G3), BL-006 (S) en de iPad-test van Dennis, in 6 dagen tot vr 20 nov. Niets geschoven (beslissing 4)
+- **M0-deadline (vr 20 nov) is verstreken (planner 22-11).** Exit feitelijk gehaald (productie-URL werkt, `main` groen, nachtruns gelogd); open zijn nog branches ≤ 10 (besluit 2), BL-005b/c/d/e en de docs-verplaatsing. Voorstel: (a) M0 afsluiten op de exit, de open M0-taken naar M1 (deadline M1 blijft 11 dec) · (b) M0 een week verlengen tot vr 27 nov. **Aanbeveling: (a).** Nog niets verschoven; nachtrun 22-11 werkt aan BL-041a (M1, P2)
 - `index.html` van 41 MB en een preview van 50 MB: geheugen op iPad 9
 - Schijf Mac mini: Dennis heeft 14-11 ruimte gemaakt (ongeveer 12 GB vrij). BL-005b/e hebben ≥ 3 GB nodig; check `df` vóór de start, de schijf liep tijdens BL-005 vol
