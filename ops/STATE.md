@@ -1,7 +1,7 @@
 # STATE — huidige stand
 
 > Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-22 · door: Claude (nachtwerk 22-11 in `main`, BL-031a teruggedraaid, rollback-build gerepareerd)
+> Bijgewerkt: 2026-11-23 · door: Claude (nachtrun 23-11)
 
 ## Mijlpaal
 M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
@@ -20,6 +20,7 @@ M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
 
 ## Volgende taak
 **Stappenplan 22-11 (één stap tegelijk):** 1 nachtwerk in `main` ✅ · 2 nachtrun uitzetten op de Mac mini (Dennis via Codex) · 3 branch-opruiming `ops/scripts/branch-cleanup-2026-11-22.sh` droog, dan `--uitvoeren` (Dennis via Codex; 98 branches incl. `night/2026-11-22`) · 4 BL-004: testchecklist + speeltest met kinderen.
+**Nachtrun 23-11 (`night/2026-11-23`, review):** BL-024b PASS (glascheck rekent tekst-opacity mee). Schijf Mac mini 23-11: 2,7 GB vrij.
 **Nachtwerk 22-11 in `main`** (besluit Dennis): BL-041a, BL-030, BL-024a (alle evaluator PASS) gemerged; BL-031a teruggedraaid (geen fps-winst). Rollback-pad weer heel: `build:site` zonder `SITE_ITALIE` (= V2.0.2) gaf exit 1 op de favicon-check; die geldt nu alleen voor V3. **Schijf Mac mini 22-11: ±500 MB vrij** — ruimte maken = Dennis.
 **BL-042: KLAAR** (vragen Dennis 21-11, evaluator PASS na hertoets, `ops/reports/eval-BL-042.md`): achtergronden Toscane · Gardameer · Middellandse Zee · Sicilië (start Middellandse Zee) · Kennispaspoort weer smal (300 px), één open, Esc/× (Esc alleen als er geen laag boven open is) · portal: foto-hover terug bij niet-actieve landen · zoom laadt scherp origineel (web), offline max 740 px (akkoord Dennis 21-11).
 **BL-039: KLAAR** (evaluator PASS na hertoets 20-11, `ops/reports/eval-BL-039.md`): Vercel deployt alleen `main` (`*/**` voor branches met /; getest), portal-hover + hele kaart klikbaar, laadscherm alleen bij koude cache (only-if-cached; warm 0 ms loader, ook CPU 4×), Wisselen: Eilanden = Sicilië, losse iconen rand-rand ≥ 12 px, hoofdstukafbeelding zoomt, Kennispaspoort vullende pizza. **Besluit 20-11 (QA-norm):** een weggelaten los icoon in Oefenen (kleine kaart) is info; op de hoofdstukpagina blijft het een fout. BL-037 en BL-038 klaar. Restpunten → BL-041.
