@@ -10,7 +10,10 @@
 //   paspoort  Voortgang: the Kennis-paspoort is closed by default
 //   aa        free text (not on a card) against the real backdrop under it: 5th percentile ≥ 4.5 (≥ 3 for large text); it counts with the
 //             opacity of the text (colour alpha × opacity of the element and all its ancestors). QA_MUTATE_OPACITY=1 (proof of that only)
-//             sets opacity:.35 on #v3ListTitle on overzicht; QA_AA_LOG=1 prints one 'AA-LOG <where> <selector> p5 ink alpha' line per box.
+//             sets opacity:.35 on #v3ListTitle and on the first '.v3Panel .v3CardTitle' (visible on every size) on overzicht; QA_AA_LOG=1 prints
+//             one 'AA-LOG <where> <selector> p5 ink alpha' line per box. Mutations are removed again right after overzicht (BL-024c).
+//             Colour format guard: a text colour that is not rgb()/rgba() is not measured but fails 'AA kleurformaat onbekend'.
+//             QA_MUTATE_COLOR=1 (proof of that guard only) sets color:oklch(0.45 0.05 290) on the first '.v3Panel .v3CardTitle' on overzicht.
 // State matrix (BL-024a): the demo state #nieuw (QA_MATRIX_STATE) on overzicht, oefenen, toets, rewards and voortgang plus the page of a
 // locked chapter, with the same checks (checkScreen) on every size of the run, BGS[0] only. It logs the number of finished chapters per
 // state (#nieuw 0, #bezig ≥ 1, else 'toestand niet gewisseld'). QA_MUTATE_BLUR=1 (proof of the blurAll check only) pastes 4 blurred
@@ -110,11 +113,15 @@ const probe=()=>{
 const dk=t=>t.alpha<1?` (dekking ${t.alpha})`:'';
 async function contrast(p,sels,where=''){
  // Visually hidden text (sr-only: clipped to 1 px, e.g. the rail labels on iPad) is not measured.
- const info=await p.evaluate(sels=>sels.flatMap(s=>[...document.querySelectorAll(s)].filter(e=>{if(!e.getClientRects().length||getComputedStyle(e).visibility==='hidden')return false;const b=e.getBoundingClientRect();if(b.width<=2||b.height<=2)return false;
+ let info=await p.evaluate(sels=>sels.flatMap(s=>[...document.querySelectorAll(s)].filter(e=>{if(!e.getClientRects().length||getComputedStyle(e).visibility==='hidden')return false;const b=e.getBoundingClientRect();if(b.width<=2||b.height<=2)return false;
   for(let a=e;a;a=a.parentElement){const c=getComputedStyle(a);if(c.display==='none'||(c.clip&&c.clip!=='auto'))return false;}return true;}).map(e=>{
   const rg=document.createRange();rg.selectNodeContents(e);const r=rg.getBoundingClientRect(),c=getComputedStyle(e);
-  let op=1;for(let a=e;a;a=a.parentElement)op*=+getComputedStyle(a).opacity;const ca=c.color.match(/[\d.]+/g).map(Number)[3];
+  let op=1;for(let a=e;a;a=a.parentElement)op*=+getComputedStyle(a).opacity;const ca=/^rgba?\(/.test(c.color)?c.color.match(/[\d.]+/g).map(Number)[3]:undefined;
   return {s,r:[r.x,r.y,r.width,r.height],color:c.color,alpha:+((ca??1)*op).toFixed(3),size:parseFloat(c.fontSize),weight:+c.fontWeight};})).filter(t=>t.r[2]>1&&t.r[3]>1),sels);
+ // Colour format guard (BL-024c): only rgb()/rgba() is read; anything else (oklch, color(…)) is reported, never measured.
+ const RGB=/^rgba?\(/;
+ for(const t of info.filter(t=>!RGB.test(t.color)))fail(where,`AA kleurformaat onbekend: ${t.s} ${t.color}`);
+ info=info.filter(t=>RGB.test(t.color));
  if(!info.length)return [];
  const shown=(await p.screenshot()).toString('base64');
  const tag=await p.addStyleTag({content:sels.join(',')+'{color:transparent!important;-webkit-text-fill-color:transparent!important}'+sels.map(s=>s+' *').join(',')+'{color:transparent!important;-webkit-text-fill-color:transparent!important}'});
@@ -228,8 +235,11 @@ for(const [W,H] of SIZES)for(const bg of BGS){
    if((screen==='oefenen'||screen==='toets')&&!(g.hh>=.40))fail(where,'kaart < 40% van de hoogte: '+(g.hh&&g.hh.toFixed(3)));
    if(g.out)fail(where,'startknop of chips buiten beeld: '+g.out);
    if(g.area!==null)(globalThis.kv??=[]).push(where+' '+(g.area!==null&&(screen==='overzicht'||screen==='hoofdstuk')?g.area.toFixed(3):'h '+(g.hh??0).toFixed(2)));}
-  if(process.env.QA_MUTATE_OPACITY&&screen==='overzicht')await p.evaluate(()=>{const e=document.querySelector('#v3ListTitle');if(e)e.style.opacity='.35';});
-  const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS],where);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}${dk(t)}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)${dk(t)}`);}
+  const MUT=screen==='overzicht'&&(process.env.QA_MUTATE_OPACITY||process.env.QA_MUTATE_COLOR);
+  if(MUT)await p.evaluate(([op,col])=>{if(op){const e=document.querySelector('#v3ListTitle');if(e)e.style.setProperty('opacity','.35');const c=document.querySelector('.v3Panel .v3CardTitle');if(c)c.style.setProperty('opacity','.35');}
+   if(col){const c=document.querySelector('.v3Panel .v3CardTitle');if(c)c.style.setProperty('color',col);}},[!!process.env.QA_MUTATE_OPACITY,process.env.QA_MUTATE_COLOR?'oklch(0.45 0.05 290)':'']);
+  const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS],where);
+  if(MUT)await p.evaluate(()=>{for(const e of [document.querySelector('#v3ListTitle'),document.querySelector('.v3Panel .v3CardTitle')])if(e){e.style.removeProperty('opacity');e.style.removeProperty('color');}});for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}${dk(t)}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)${dk(t)}`);}
   table.push({where,map:r.mapShare,blur:r.blur,blurAll:r.blurAll,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
  }
  if(errors.length)fail(`${W}×${H} ${bg}`,'page errors: '+errors.join(' | '));
