@@ -4,12 +4,12 @@
 | Rol | Wie | Verantwoordelijk voor |
 |---|---|---|
 | **Opdrachtgever** | Dennis | Richting, doelen, budget, eindakkoord op gates. Speelt mee als consultant: feedback op vaste momenten, niet tussendoor. |
-| **Lead project, dev en design** | Claude (Opus, planner) | Roadmap, backlog, prioriteit, sprintcontracten, architectuur, designrichting, kwaliteit, rapportage. Eigenaar van het resultaat. |
+| **Lead project, dev en design (regie)** | Claude in het claude.ai-project "Topo – Nino's Grote Reis" (Opus) | Roadmap, backlog, prioriteit, sprintcontracten, architectuur, designrichting, kwaliteit, rapportage. Heeft sinds 26-11 schrijfrecht op de repo: maakt branches en PR's, merget docs-PR's zelf. Eigenaar van het resultaat. |
 | **Bouwer** | Claude Code (Sonnet) | Uitvoeren van precies één contract per run. |
 | **Tweede bouwer / reviewer** | Codex | Alleen op expliciete toewijzing: een afgebakend pakket of een tweede code-review. **Nooit tegelijk met Claude Code op dezelfde scope.** |
 | **Evaluator** | Claude subagent `evaluator` (read-only) | Toetst tegen het contract met tests en screenshots. Geeft PASS of FAIL met bewijs. Repareert niets. |
 | **Onafhankelijke QA** | Hermes | Hertest bij release-gates (G3) en op echte apparaten waar mogelijk. |
-| **Operator** | Hermes-runtime op de Mac mini | Plant nachtruns, stuurt de brief via Telegram, bewaakt het creditbudget. |
+| **Monitor en wekelijkse review** | launchd op de Mac mini (`~/.topo-night`) | Dagelijks 01:00 alleen-lezen monitor; wekelijks de review uit `LOOPS.md` (BL-043). Geen bouwende nachtrun. |
 | **Sparring en onderzoek** | ChatGPT, Claude chat | Ideeën en research. Uitkomsten gaan **altijd** naar `ops/` of een issue, nooit alleen in een chat. |
 
 ## 2. Beslisrechten

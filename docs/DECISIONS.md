@@ -959,3 +959,7 @@ Alle zeven schermen opnieuw op expliciet BG-03 vastgelegd: 21 doelbeeldvergelijk
 ## 2026-11-25 — Beperkte nachtrun tijdens consolidatie
 
 Dennis vraagt de voorgestelde alleen-lezen controleronde te implementeren. Vervangt het automatische nachtbouwen uit de oude nachtloop: maximaal 10 minuten, GitHub GET, alleen bestaande checks bij gewijzigde main, geen agents/branches/commits/push/deploy/Telegram. Eén lokale status als invoer voor de bestaande ochtendbrief; geen automatische koppeling met ChatGPT-local files. Bouwen hervat uitsluitend met een nieuwe afgebakende opdracht. Installatie moet nog lokaal worden uitgevoerd; zie ops/LOOPS.md.
+
+## 2026-11-26 — Werkstructuur na consolidatie (besluiten 1a–5a)
+
+**Decision** (1a) De regie-chat in het claude.ai-project heeft schrijfrecht op de repo en maakt zelf branches en PR's. (2a) Elke merge op `main` gaat direct live; tags markeren versies. (3a) Oude GitHub-issues van vóór V3 gesloten; de P0's blijven open tot Hermes ze heeft nagelopen; wat waarde heeft staat als `idee` in de backlog. (4a) Branches worden na een merge automatisch verwijderd. (5a) M1 start nu met BL-007; M0 sluit na Hermes-hertest en speeltest. Koers: portal → één structuur per land (M1) → tweede land (M2) → wekelijkse review van de stam → TOPO Next. **Reason** `main` is sinds 26-11 beschermd (alleen via PR), dus de PR is de controle; één takenlijst voorkomt dubbele administratie. **Status** ACTIVE (Dennis, 26-11). **Supersedes** "productie alleen vanaf tags" (`GIT_RELEASE.md` §3) en "fixes direct op main" (19-11).
