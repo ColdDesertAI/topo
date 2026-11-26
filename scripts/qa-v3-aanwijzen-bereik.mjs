@@ -3,6 +3,7 @@
 // For all 11 chapters (route lesson Aanwijzen) and every question it measures, at 1080×810 and 810×1080:
 //   1 reach      per target place ≥ 1 free tap point: the tap resolver (hit zone) lists the place there and document.elementFromPoint is the map, not the panel
 //   2 position   the bounding box of #focusAnswerSheet is identical for all questions (1 unique position per size, so it betrays nothing)
+//   4 clipping   unanswered and after a wrong answer: panel content fits, text ≥ 13 px, buttons ≥ 44 px, Volgende in view
 //   3 coverage   % of the Italy shape under the panel (goal 0, tolerance ≤ 1 % at the edge; never a target, which reach already proves)
 // Browsers: Chromium (Playwright, hasTouch) and WebKit (WebKitGTK via scripts/qa-webkit.mjs; no touch emulation there,
 // the Focus layout keys on width, not on pointer type). QA_HTML overrides the page, QA_SIZES=1080x810 limits the sizes,
@@ -60,6 +61,7 @@ async function drive(run,wait,label,W,H){
    if(st.id&&pool.has(st.id)&&!st.answered&&!seen.has(st.id)&&!st.paused){
     const m=await run(MEASURE);seen.set(m.id,m);
     if(!m.panel)bad(`${ch}/${m.name}: paneel niet zichtbaar`);else res.positions.add(m.panel.join(','));
+    await run(WRONG);await wait(200);for(const b of await run(FIT))bad(`${ch}/${m.name}: na fout antwoord: ${b}`);
     const cover=m.land?100*m.under/m.land:0;if(cover>res.maxCover){res.maxCover=cover;res.coverWorst=m.name;}
    }
    await run(STEP);await wait(160);
@@ -70,6 +72,13 @@ async function drive(run,wait,label,W,H){
  }
  return res;
 }
+// 4 nothing clipped: unanswered and after a wrong answer naming the longest place, the panel's content fits (no overflow, text ≥ 13 px)
+const WRONG=`const long=ITEMS.reduce((a,b)=>b.name.length>a.name.length?b:a);if(!state.answered)grade(false,long.id===state.current.id?ITEMS[0]:long);return true;`;
+const FIT=`const s=document.getElementById('focusAnswerSheet'),r=s.getBoundingClientRect(),bad=[];
+ if(s.scrollHeight>s.clientHeight+1||s.scrollWidth>s.clientWidth+1)bad.push('inhoud past niet ('+s.scrollWidth+'×'+s.scrollHeight+' in '+s.clientWidth+'×'+s.clientHeight+')');
+ for(const e of s.querySelectorAll('#prompt,#message,#next')){const b=e.getBoundingClientRect();if(b.width<2)continue;if(b.right>r.right+1||b.bottom>r.bottom+1||b.top<r.top-1||b.left<r.left-1)bad.push(e.id+' valt buiten het paneel');if(parseFloat(getComputedStyle(e).fontSize)<13)bad.push(e.id+' kleiner dan 13 px');if(e.id==='next'&&b.height<44)bad.push('knop lager dan 44 px');}
+ const n=document.getElementById('next').getBoundingClientRect();if(!(n.width>0&&n.bottom<=innerHeight&&n.top>=0))bad.push('Volgende niet in beeld');
+ return bad;`;
 const report=[];
 for(const [W,H] of SIZES){
  if(BROWSERS.includes('chromium')){
