@@ -2,19 +2,14 @@
 
 Het besturingssysteem van het project: wie beslist wat, hoe werk stroomt, hoe het systeem leert en hoe we groeien naar "over 2 weken volgt Japan".
 
-## Installatie (eenmalig, ±30 min)
-1. Kopieer `CLAUDE.md`, `ops/` en `.claude/` naar de root van `dennisariens/topo`, op een nieuwe branch `ops/setup`.
-2. Zet bovenaan het bestaande `AGENTS.md`:
-   ```
-   > Werkwijze, rollen en loops: `ops/OPERATING_MODEL.md`. Status: `ops/STATE.md`. Deze regels hieronder blijven gelden.
-   ```
-   Codex leest `AGENTS.md`, Claude Code leest `CLAUDE.md`. Beide komen zo op dezelfde plek uit.
-3. ~~Besluiten in `ops/NORTH_STAR.md`~~ ✅ 13-11
-4. Merge `ops/setup` naar `main`. Vanaf dat moment is `main` weer de waarheid.
-5. Nachtrun installeren op de Mac mini, in Terminal vanuit de topo-repo:
-   `git fetch origin main && git show origin/main:ops/scripts/install-nightly.sh | bash`
-   Dat zet launchd op (01:00), legt de paden vast in `~/.topo-night/env`, doet een proefdraai en checkt of Claude headless werkt. Telegram is optioneel: vul de token en chat-ID in `~/.topo-night/env`.
-6. Eerste taak voor Claude: `BL-001 Consolidatie` uit `ops/BACKLOG.md`.
+## Start hier
+1. Lees `STATE.md` voor de actuele stand en eerstvolgende actie.
+2. Lees `ROADMAP.md` en `BACKLOG.md` voor richting en taakvolgorde.
+3. Werk volgens `OPERATING_MODEL.md`; uitvoering en bewijs staan in `contracts/` en `reports/`.
+4. De opruiming van 25 november staat in `reports/cleanup-2026-11-25.md`.
+
+De oude bouw-nachtrun is uitgezet. Dennis heeft op 25 november de beperkte alleen-lezen ronde goedgekeurd; zie `LOOPS.md`. Het nieuwe script is getest, installatie staat nog open.
+De repository is `ColdDesertAI/topo`. De installatiehistorie staat in Git.
 
 ## Kaart
 | Bestand | Wat | Wie schrijft |

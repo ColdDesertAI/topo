@@ -8,7 +8,12 @@
 //   blurAll   the same over the whole scroll height (below the fold and in scroll containers too) ≤ 3 (BL-024a)
 //   nino      the sidebar Nino has one size on every screen (per width class)
 //   paspoort  Voortgang: the Kennis-paspoort is closed by default
-//   aa        free text (not on a card) against the real backdrop under it: 5th percentile ≥ 4.5 (≥ 3 for large text)
+//   aa        free text (not on a card) against the real backdrop under it: 5th percentile ≥ 4.5 (≥ 3 for large text); it counts with the
+//             opacity of the text (colour alpha × opacity of the element and all its ancestors). QA_MUTATE_OPACITY=1 (proof of that only)
+//             sets opacity:.35 on #v3ListTitle and on the first '.v3Panel .v3CardTitle' (visible on every size) on overzicht; QA_AA_LOG=1 prints
+//             one 'AA-LOG <where> <selector> p5 ink alpha' line per box. Mutations are removed again right after overzicht (BL-024c).
+//             Colour format guard: a text colour that is not rgb()/rgba() is not measured but fails 'AA kleurformaat onbekend'.
+//             QA_MUTATE_COLOR=1 (proof of that guard only) sets color:oklch(0.45 0.05 290) on the first '.v3Panel .v3CardTitle' on overzicht.
 // State matrix (BL-024a): the demo state #nieuw (QA_MATRIX_STATE) on overzicht, oefenen, toets, rewards and voortgang plus the page of a
 // locked chapter, with the same checks (checkScreen) on every size of the run, BGS[0] only. It logs the number of finished chapters per
 // state (#nieuw 0, #bezig ≥ 1, else 'toestand niet gewisseld'). QA_MUTATE_BLUR=1 (proof of the blurAll check only) pastes 4 blurred
@@ -102,28 +107,39 @@ const probe=()=>{
 //   p5   backdrop: the text hidden, the pixels under it against the text colour (5th percentile);
 //   ink  what is really drawn: the shown screenshot against the hidden one (98th percentile of the per-pixel ratio),
 //        so a layer lying OVER the text (evaluator BL-029: the workspace over the lesson result) fails as well.
-async function contrast(p,sels){
+// alpha = colour alpha × opacity of the element and every ancestor; the drawn colour is mixed per sRGB channel over each backdrop pixel
+// (alpha·fg + (1−alpha)·bg) before the luminance. Opacity on an ancestor also dims the card inside it, which is already in the hidden
+// screenshot: the mix is then slightly strict (approximation, fine for a QA check).
+const dk=t=>t.alpha<1?` (dekking ${t.alpha})`:'';
+async function contrast(p,sels,where=''){
  // Visually hidden text (sr-only: clipped to 1 px, e.g. the rail labels on iPad) is not measured.
- const info=await p.evaluate(sels=>sels.flatMap(s=>[...document.querySelectorAll(s)].filter(e=>{if(!e.getClientRects().length||getComputedStyle(e).visibility==='hidden')return false;const b=e.getBoundingClientRect();if(b.width<=2||b.height<=2)return false;
+ let info=await p.evaluate(sels=>sels.flatMap(s=>[...document.querySelectorAll(s)].filter(e=>{if(!e.getClientRects().length||getComputedStyle(e).visibility==='hidden')return false;const b=e.getBoundingClientRect();if(b.width<=2||b.height<=2)return false;
   for(let a=e;a;a=a.parentElement){const c=getComputedStyle(a);if(c.display==='none'||(c.clip&&c.clip!=='auto'))return false;}return true;}).map(e=>{
   const rg=document.createRange();rg.selectNodeContents(e);const r=rg.getBoundingClientRect(),c=getComputedStyle(e);
-  return {s,r:[r.x,r.y,r.width,r.height],color:c.color,size:parseFloat(c.fontSize),weight:+c.fontWeight};})).filter(t=>t.r[2]>1&&t.r[3]>1),sels);
+  let op=1;for(let a=e;a;a=a.parentElement)op*=+getComputedStyle(a).opacity;const ca=/^rgba?\(/.test(c.color)?c.color.match(/[\d.]+/g).map(Number)[3]:undefined;
+  return {s,r:[r.x,r.y,r.width,r.height],color:c.color,alpha:+((ca??1)*op).toFixed(3),size:parseFloat(c.fontSize),weight:+c.fontWeight};})).filter(t=>t.r[2]>1&&t.r[3]>1),sels);
+ // Colour format guard (BL-024c): only rgb()/rgba() is read; anything else (oklch, color(…)) is reported, never measured.
+ const RGB=/^rgba?\(/;
+ for(const t of info.filter(t=>!RGB.test(t.color)))fail(where,`AA kleurformaat onbekend: ${t.s} ${t.color}`);
+ info=info.filter(t=>RGB.test(t.color));
  if(!info.length)return [];
  const shown=(await p.screenshot()).toString('base64');
  const tag=await p.addStyleTag({content:sels.join(',')+'{color:transparent!important;-webkit-text-fill-color:transparent!important}'+sels.map(s=>s+' *').join(',')+'{color:transparent!important;-webkit-text-fill-color:transparent!important}'});
  await p.waitForTimeout(120);const png=(await p.screenshot()).toString('base64');
  await tag.evaluate(n=>n.remove());
- return p.evaluate(async([png,shown,info])=>{const load=async src=>{const img=new Image();img.src='data:image/png;base64,'+src;await img.decode();
+ const res=await p.evaluate(async([png,shown,info])=>{const load=async src=>{const img=new Image();img.src='data:image/png;base64,'+src;await img.decode();
    const cv=document.createElement('canvas');cv.width=img.width;cv.height=img.height;const g=cv.getContext('2d');g.drawImage(img,0,0);return {cv,g};};
   const {cv,g}=await load(png),S=await load(shown);const k=cv.width/innerWidth;
   const lin=v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;},L=(r,gg,b)=>.2126*lin(r)+.7152*lin(gg)+.0722*lin(b);
-  return info.map(t=>{const m=t.color.match(/[\d.]+/g).map(Number),fg=L(m[0],m[1],m[2]);const [x,y,w,h]=t.r.map(v=>Math.round(v*k));
+  return info.map(t=>{const m=t.color.match(/[\d.]+/g).map(Number),fg=L(m[0],m[1],m[2]),al=t.alpha;const [x,y,w,h]=t.r.map(v=>Math.round(v*k));
    const d=g.getImageData(Math.max(0,x),Math.max(0,y),Math.max(1,Math.min(w,cv.width-x)),Math.max(1,Math.min(h,cv.height-y))).data;const cr=[];
    const ds=S.g.getImageData(Math.max(0,x),Math.max(0,y),Math.max(1,Math.min(w,cv.width-x)),Math.max(1,Math.min(h,cv.height-y))).data;const ink=[];
-   for(let i=0;i<d.length;i+=4*3){const bl=L(d[i],d[i+1],d[i+2]);cr.push((Math.max(fg,bl)+.05)/(Math.min(fg,bl)+.05));}
+   for(let i=0;i<d.length;i+=4*3){const bl=L(d[i],d[i+1],d[i+2]),f=al===1?fg:L(al*m[0]+(1-al)*d[i],al*m[1]+(1-al)*d[i+1],al*m[2]+(1-al)*d[i+2]);cr.push((Math.max(f,bl)+.05)/(Math.min(f,bl)+.05));}
    for(let i=0;i<d.length;i+=4){const a=L(d[i],d[i+1],d[i+2]),bb=L(ds[i],ds[i+1],ds[i+2]);ink.push((Math.max(a,bb)+.05)/(Math.min(a,bb)+.05));}
    cr.sort((a,b)=>a-b);ink.sort((a,b)=>a-b);const large=t.size>=24||(t.size>=18.66&&t.weight>=700);
-   return {s:t.s,p5:+cr[Math.floor(cr.length/20)].toFixed(2),ink:+ink[Math.floor(ink.length*.98)].toFixed(2),need:large?3:4.5};});},[png,shown,info]);
+   return {s:t.s,p5:+cr[Math.floor(cr.length/20)].toFixed(2),ink:+ink[Math.floor(ink.length*.98)].toFixed(2),need:large?3:4.5,alpha:t.alpha};});},[png,shown,info]);
+ if(process.env.QA_AA_LOG)for(const t of res)console.log(`AA-LOG ${where} ${t.s} p5=${t.p5} ink=${t.ink} alpha=${t.alpha}`);
+ return res;
 }
 // One screen, all shared checks (main loop and state matrix): pictures, reachable sidebar buttons, overlap, width, text size,
 // target size, blur (in view) and blurAll (whole scroll height). Returns the probe result.
@@ -169,7 +185,7 @@ async function lessonResult(b,W,H){
  else{if(r.over.length)fail(where,'overlap: '+r.over.slice(0,4).join('; '));if(r.wide)fail(where,'breder dan het scherm');if(r.small.length)fail(where,'tekst < 13 px: '+r.small.slice(0,3).join('; '));}
  // The lesson bar never lies over the result card (evaluator BL-029 r2: it did on short screens).
  if(has){const ov=await p.evaluate(()=>{const a=document.querySelector('.v3LesBar')?.getBoundingClientRect(),b=document.querySelector('#finishScreen')?.getBoundingClientRect();if(!a||!b||!a.width)return 0;const x=Math.min(a.right,b.right)-Math.max(a.left,b.left),y=Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top);return x>2&&y>2?Math.round(x)+'×'+Math.round(y):0;});if(ov)fail(where,'lesbalk over de resultaatkaart '+ov);}
- if(has){const aa=await contrast(p,[...RESULT,...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}}
+ if(has){const aa=await contrast(p,[...RESULT,...ALWAYS],where);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}${dk(t)}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)${dk(t)}`);}}
  if(errors.length)fail(where,'page errors: '+errors.join(' | '));
  if(has)await p.screenshot({path:join(OUT,`qa-menu1-lesresultaat-${W}.png`)}).catch(()=>{});
  console.log(where,has?JSON.stringify({over:r.over.length,blurVraag:q.blur,blurModal:m.blur,blur:r.blur,nino:r.nino,ninoVraag:q.nino}):'—');
@@ -219,7 +235,11 @@ for(const [W,H] of SIZES)for(const bg of BGS){
    if((screen==='oefenen'||screen==='toets')&&!(g.hh>=.40))fail(where,'kaart < 40% van de hoogte: '+(g.hh&&g.hh.toFixed(3)));
    if(g.out)fail(where,'startknop of chips buiten beeld: '+g.out);
    if(g.area!==null)(globalThis.kv??=[]).push(where+' '+(g.area!==null&&(screen==='overzicht'||screen==='hoofdstuk')?g.area.toFixed(3):'h '+(g.hh??0).toFixed(2)));}
-  const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS]);for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)`);}
+  const MUT=screen==='overzicht'&&(process.env.QA_MUTATE_OPACITY||process.env.QA_MUTATE_COLOR);
+  if(MUT)await p.evaluate(([op,col])=>{if(op){const e=document.querySelector('#v3ListTitle');if(e)e.style.setProperty('opacity','.35');const c=document.querySelector('.v3Panel .v3CardTitle');if(c)c.style.setProperty('opacity','.35');}
+   if(col){const c=document.querySelector('.v3Panel .v3CardTitle');if(c)c.style.setProperty('color',col);}},[!!process.env.QA_MUTATE_OPACITY,process.env.QA_MUTATE_COLOR?'oklch(0.45 0.05 290)':'']);
+  const aa=await contrast(p,[...(FREE[screen]||[]),...ALWAYS],where);
+  if(MUT)await p.evaluate(()=>{for(const e of [document.querySelector('#v3ListTitle'),document.querySelector('.v3Panel .v3CardTitle')])if(e){e.style.removeProperty('opacity');e.style.removeProperty('color');}});for(const t of aa){if(t.p5<t.need)fail(where,`AA ${t.s} ${t.p5} < ${t.need}${dk(t)}`);if(t.ink<t.need)fail(where,`AA getekend ${t.s} ${t.ink} < ${t.need} (laag over de tekst?)${dk(t)}`);}
   table.push({where,map:r.mapShare,blur:r.blur,blurAll:r.blurAll,nino:r.nino,aaMin:aa.length?Math.min(...aa.map(t=>+(t.p5/t.need).toFixed(2))):null});
  }
  if(errors.length)fail(`${W}×${H} ${bg}`,'page errors: '+errors.join(' | '));

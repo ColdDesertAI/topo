@@ -3,7 +3,6 @@
 # Echt uitvoeren: ./ops/scripts/branch-cleanup-2026-11-22.sh --uitvoeren
 set -euo pipefail
 RUN=${1:-}
-git fetch --prune origin
 BRANCHES=(
   "night/2026-11-22"
   "night/2026-11-21"
@@ -104,19 +103,52 @@ BRANCHES=(
   "codex/topo-release-1-integration"
   "work/topo-sync-2026-10-23"
 )
-echo "${#BRANCHES[@]} branches: eerst archieftags, dan verwijderen."
+# Alleen de goedgekeurde lijst; night/2026-11-23 blijft buiten scope.
+case "$RUN" in ""|--uitvoeren) ;; *) echo "Gebruik: $0 [--uitvoeren]" >&2; exit 2 ;; esac
+remote_url=$(git remote get-url origin)
+case "$remote_url" in
+  https://github.com/ColdDesertAI/topo.git|git@github.com:ColdDesertAI/topo.git) ;;
+  *) echo "Onverwachte origin: $remote_url" >&2; exit 1 ;;
+esac
+# Droog draaien schrijft geen refs. Lees actuele remote-SHA's, geen oude tracking refs.
+snapshot=$(git ls-remote --heads --tags origin)
+lookup() { printf '%s\n' "$snapshot" | awk -v ref="$1" '$2 == ref {print $1}'; }
+ACTIVE=()
+SHAS=()
 for b in "${BRANCHES[@]}"; do
-  sha=$(git rev-parse "refs/remotes/origin/$b") || { echo "ONTBREEKT: $b"; continue; }
-  if [ "$RUN" = "--uitvoeren" ]; then git tag -f "archive/$b" "$sha" >/dev/null; else echo "tag archive/$b -> ${sha:0:7}"; fi
+  sha=$(lookup "refs/heads/$b")
+  if [ -z "$sha" ]; then echo "AL WEG: $b"; continue; fi
+  tagsha=$(lookup "refs/tags/archive/$b")
+  if [ -n "$tagsha" ] && [ "$tagsha" != "$sha" ]; then
+    echo "STOP: archive/$b bestaat op een andere commit; niets overschrijven." >&2
+    exit 1
+  fi
+  ACTIVE+=("$b")
+  SHAS+=("$sha")
+  echo "archive/$b -> $sha; daarna branch verwijderen"
 done
-if [ "$RUN" != "--uitvoeren" ]; then echo; echo "Droog gedraaid: niets gewijzigd. Voer uit met --uitvoeren."; exit 0; fi
-# 1. alle archieftags naar GitHub (in één push)
-git push origin "refs/tags/archive/*:refs/tags/archive/*"
-# 2. controle: elke tag staat op GitHub en wijst naar dezelfde commit
-remote=$(git ls-remote --tags origin 'archive/*')
-for b in "${BRANCHES[@]}"; do sha=$(git rev-parse "refs/remotes/origin/$b"); echo "$remote" | grep -q "^$sha	refs/tags/archive/$b$" || { echo "TAG NIET GOED: $b — gestopt, er is niets verwijderd"; exit 1; }; done
-echo "Alle archieftags staan goed. Nu de branches verwijderen."
-# 3. branches verwijderen (in porties van 20)
-for ((i=0;i<${#BRANCHES[@]};i+=20)); do git push origin --delete "${BRANCHES[@]:i:20}"; done
+if [ "$RUN" != "--uitvoeren" ]; then
+  echo "Droog: ${#ACTIVE[@]} branches, niets gewijzigd."
+  exit 0
+fi
+if [ "${#ACTIVE[@]}" -eq 0 ]; then echo "Geen branches meer op de lijst."; exit 0; fi
+# Eerst alle archieven veiligstellen. Bestaande tags nooit forceren.
+for ((i=0;i<${#ACTIVE[@]};i++)); do
+  b=${ACTIVE[$i]}; sha=${SHAS[$i]}
+  git fetch --no-tags origin "refs/heads/$b"
+  git cat-file -e "$sha^{commit}"
+  git push origin "$sha:refs/tags/archive/$b"
+done
+snapshot=$(git ls-remote --heads --tags origin)
+for ((i=0;i<${#ACTIVE[@]};i++)); do
+  b=${ACTIVE[$i]}; sha=${SHAS[$i]}
+  [ "$(lookup "refs/tags/archive/$b")" = "$sha" ] || { echo "STOP: archief niet bevestigd: $b" >&2; exit 1; }
+  [ "$(lookup "refs/heads/$b")" = "$sha" ] || { echo "STOP: branch veranderd: $b" >&2; exit 1; }
+done
+# Lease weigert verwijdering wanneer iemand sinds de controle nog pusht.
+for ((i=0;i<${#ACTIVE[@]};i++)); do
+  b=${ACTIVE[$i]}; sha=${SHAS[$i]}
+  git push --force-with-lease="refs/heads/$b:$sha" origin ":refs/heads/$b"
+done
 git fetch --prune origin
-echo "Klaar. Overgebleven branches:"; git branch -r | grep -v HEAD
+echo "Remote-opruiming klaar; lokale branches en worktrees zijn behouden."

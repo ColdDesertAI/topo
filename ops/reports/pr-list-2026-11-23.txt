@@ -1,0 +1,6 @@
+2026-11-23 — gh pr list
+exit-code: 1
+error connecting to api.github.com
+check your internet connection or https://githubstatus.com
+Fallback GitHub-connector: MCP tool call requires approval, but approval policy is never.
+Actuele PR-lijst niet geverifieerd.
