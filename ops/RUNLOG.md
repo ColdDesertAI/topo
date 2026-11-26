@@ -63,3 +63,7 @@ Formaat:
 2026-11-23 | claude/opus + builder/sonnet | nacht | BL-024b | PASS | hoog | glascheck rekent tekst-opacity (kleuralfa × opacity voorouders) mee in contrast; smoke byte-identiek aan baseline, mutatie opacity .35 → p5 6.48→1.7 gemeld, oude meting zag het niet; looptijd gelijk (~300 s)
 2026-11-23 | claude/opus + builder/sonnet | nacht | BL-024c | PASS | hoog | glascheck: opacity-mutatie ook op .v3Panel .v3CardTitle (zichtbaar op 810×1080, p5 10.63→1.98), mutatie opgeruimd na overzicht, kleur niet rgb()/rgba() → 'AA kleurformaat onbekend' (baseline mat oklch stil als OK); smoke byte-identiek, looptijd 1,0×
 2026-11-23 | claude/opus | nacht | afsluiting | — | hoog | gestopt 03:03 na 2× PASS: schijf 694 MB vrij (< 1 GB contractgrens), geen data opgeruimd; BL-008 overgeslagen (PR #110)
+
+- 2026-11-25 Codex — consolidatie op verzoek Dennis: GitHub 105 / lokaal 55 branches; nachtrun uit bevestigd; 23-11 behouden (8 commits). Opruimscript veilig hervatbaar gemaakt, 5/5 regressies PASS; status/startpagina bijgewerkt. Geen refs verwijderd: shell-netwerk en schrijfrechten gedeelde Git-map ontbreken. Zie reports/cleanup-2026-11-25.md.
+
+- 2026-11-25 Codex — op verzoek Dennis bouw-nachtrun vervangen door GET-only GitHub-monitor (max 10 min), installer zonder fetch/agents/Telegram. 5 regressietests en shell-syntax PASS; echte droogloop meldt netwerkfout correct. Installatie/activatie niet uitgevoerd wegens schrijfrechten buiten workspace.

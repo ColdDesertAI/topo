@@ -3,22 +3,29 @@
 | Loop | Frequentie | Trigger | Output | Dennis |
 |---|---|---|---|---|
 | **Taak** | per taak | backlog `ready` | PR plus evaluatie | — |
-| **Nacht** | dagelijks 01:00–06:00 | `ops/scripts/nightly.sh` | 1–4 taken, PR's | — |
-| **Brief** | dagelijks 07:30 | einde van de nachtrun | `ops/briefs/YYYY-MM-DD.md` plus Telegram | 2–5 min lezen en antwoorden |
+| **Nacht** | dagelijks 01:00, maximaal 10 min | `ops/scripts/nightly.sh` | lokale alleen-lezen controle | — |
+| **Brief** | bestaande ochtendbrief | bestaande planning | één brief; geen extra verzending vanuit nachtrun | lezen en besluiten |
 | **Dag** | overdag, op aanvraag | Dennis of Claude chat | design-iteraties (G1), beslissingen | optioneel |
 | **Week** | vrijdag 16:00 | `/weekreview` | targets, demo, voorstel voor volgende week, RUNLOG opgerold | 15 min |
 | **Maand (retro)** | eerste vrijdag | `/retro` | LEARNINGS gepromoveerd en gesnoeid, harness lichter | 15 min |
 | **Onderhoud** | wekelijks en maandelijks | `MAINTENANCE.md` | patches, opruimen | — |
 | **Release** | per mijlpaal | G3 | Hermes-hertest, G4-vraag | 1 akkoord |
 
-## Nachtloop (detail)
-1. `git fetch`; de worktree `../topo-night` krijgt een nieuwe tak vanaf `main`.
-2. De planner kiest de bovenste `ready`-taak. Is er geen `ready` maar wel een `idee`, dan schrijft hij eerst contracten (maximaal 3) en stopt.
-3. De builder voert uit. De evaluator toetst in een nieuwe context. Bij FAIL volgt maximaal 2× herstel.
-4. Bij PASS: push, PR met contract en evaluatie, en de preview-link.
-5. STATE, RUNLOG en LEARNINGS bijwerken.
-6. Tijd over (vóór 05:00) en geen limiet bereikt? Door naar de volgende taak.
-7. De brief schrijven en versturen.
+## Nachtloop — beperkte controle (besluit Dennis 25 november)
+1. Lees via `gh api` uitsluitend GET: main, branches, open PR's en issues.
+2. Vergelijk met de laatste geslaagde meting. Geen veranderingen: kort melden en stoppen.
+3. Bij nieuwe main: lees bestaande GitHub-checks. Geen lokale tests, installaties of builds; geen volledige QA.
+4. Schrijf alleen `~/.topo-night/monitor/latest.md` en bij succes `snapshot.json`.
+5. Geen agent, failover, branches, commits, pushes, merges, deploys of Telegram. Maximaal 600 seconden; elke externe aanroep maximaal 45 seconden.
+6. Netwerk-/auth-fout: expliciet onvolledig, exit 1, vorige meting behouden.
+
+Installatie vanuit de werkmap: `bash ops/scripts/install-nightly.sh`.
+De installer kopieert deze gecontroleerde versie en start launchd dagelijks om 01:00 lokale Mac-tijd.
+Geen automatische download of uitvoering van scripts vanaf main. Na wijzigingen opnieuw installeren.
+De oude agentopdracht `.claude/commands/nachtrun.md` wordt niet gebruikt en mag niet als alternatief worden gestart.
+
+De lokale uitvoer is beschikbaar voor de bestaande ochtendbrief op deze Mac. De ChatGPT-ochtendbrief kan dit lokale bestand niet automatisch lezen; die blijft GitHub zelf raadplegen. Er is geen nieuwe berichtendienst geactiveerd.
+Activatie 25 november: nog niet uitgevoerd wegens ontbrekende schrijfrechten op LaunchAgents en de gebruikersconfiguratie.
 
 ## Ochtendbrief (format: `templates/BRIEF.md`)
 - ✅ Klaar (met preview-links) · ❌ Gefaald (met reden) · ⛔ Geblokkeerd

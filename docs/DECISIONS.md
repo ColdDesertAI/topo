@@ -954,3 +954,8 @@ Alle zeven schermen opnieuw op expliciet BG-03 vastgelegd: 21 doelbeeldvergelijk
 ## 2026-11-15 — BL-019 brongebaseerde regiogeometrie, zonder UI-integratie
 
 **Decision** De BL-019-branch levert Natural Earth 5.1.2 admin-1-provincies samengevoegd op regiocode, met gedeelde vereenvoudiging en aansluiting op het ongewijzigde canonieke landmasker. Bron, public-domainlicentie, hashes, reproduceerbare bouw en itemclassificatie staan in `assets/geo/regions/PROVENANCE.md`. **Reason** Los vereenvoudigde polygonen kunnen naden veroorzaken; alle 45 ITEMS als Italiaanse regiopunten voorstellen is geografisch onjuist. **Status** IMPLEMENTED ON BRANCH; bevestiging van de expliciete niet-toepasselijke/kust-uitzonderingen door eigenaar OPEN. Geen wijziging aan leerinhoud, grading, app-code of geografische ankers; geen release- of mergeakkoord.
+
+
+## 2026-11-25 — Beperkte nachtrun tijdens consolidatie
+
+Dennis vraagt de voorgestelde alleen-lezen controleronde te implementeren. Vervangt het automatische nachtbouwen uit de oude nachtloop: maximaal 10 minuten, GitHub GET, alleen bestaande checks bij gewijzigde main, geen agents/branches/commits/push/deploy/Telegram. Eén lokale status als invoer voor de bestaande ochtendbrief; geen automatische koppeling met ChatGPT-local files. Bouwen hervat uitsluitend met een nieuwe afgebakende opdracht. Installatie moet nog lokaal worden uitgevoerd; zie ops/LOOPS.md.

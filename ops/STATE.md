@@ -1,59 +1,34 @@
 # STATE — huidige stand
 
-> Max. 60 regels. Overschrijven, niet aanvullen. Historie staat in `RUNLOG.md`.
-> Bijgewerkt: 2026-11-23 · door: Claude (nachtrun 23-11)
+Bijgewerkt: 26 november 2026, Claude (overname van Codex). Historie: `RUNLOG.md`. Max. 60 regels, overschrijven.
 
-## Mijlpaal
-M0 Consolidatie, deadline vr 20 nov · **GO 13-11**
+## Nu
+M0-consolidatie afronden → BL-004 Hermes-hertest + speeltest (≥ 2 kinderen, liefst iPad) → M1 gedeelde runtime (Italië als landpakket). Frankrijk-code wacht op M1.
 
-## Productie
-- `main` (19-11): V3 Menu 1 live op /italie/ via `SITE_ITALIE=v3` (G4 `718658f`) + BL-035 livefixes.
+## Product (productie = main)
+- Italië V3 live via `SITE_ITALIE=v3` sinds 19-11. Laatste productie-deploy: `77dda75d` (22-11, READY). Sindsdien geen deploys.
+- BL-035–039, BL-042 en nachtwerk 22-11 (BL-041a, BL-030, BL-024a) afgerond; BL-031a teruggedraaid.
+- Productie op 25/26-11 niet opnieuw functioneel getest (alleen deploystatus).
 
-## Actieve werkstromen (moeten samenkomen)
-| Branch | Wat | Laatst |
-|---|---|---|
-| `codex/topo-v3` | V3.0 app plus landmarks | 13-11 |
-| `art/master` | Artwork Italië | 13-11 |
-| `feat/nino-topo-portal-r2` / `art/nino-topo-website-v1` | Portal en website | 13-11 |
-| `land/fr-geo` / `land/fr-inhoud` | Frankrijk | 12/13-11 |
-| `arch/v3-runtime` | Migratievoorstel en landpakket | 10-11 |
+## Release
+- GitHub Release **v3.0.0** gepubliceerd 25-11, Latest. Tag `v3.0.0` → `718658f` (G4 19-11, PR #101), niet verplaatst.
+- Screenshots (live site 25-11) staan in de release notes, niet in README. main is verder dan de tag.
 
-## Volgende taak
-**Stappenplan 22-11 (één stap tegelijk):** 1 nachtwerk in `main` ✅ · 2 nachtrun uitzetten op de Mac mini (Dennis via Codex) · 3 branch-opruiming `ops/scripts/branch-cleanup-2026-11-22.sh` droog, dan `--uitvoeren` (Dennis via Codex; 98 branches incl. `night/2026-11-22`) · 4 BL-004: testchecklist + speeltest met kinderen.
-**Nachtrun 23-11 (`night/2026-11-23`, review):** BL-024b PASS (glascheck rekent tekst-opacity mee) · BL-024c PASS (mutatiedoel op elke maat, onbekend kleurformaat wordt gemeld i.p.v. stil verkeerd gemeten). Gestopt om 03:03: **schijf Mac mini 694 MB vrij** (< 1 GB-grens); ruimte maken = Dennis (/tmp/bl024b-eval, /tmp/eval024c, /tmp/bl024c mogen weg). Rapport `ops/reports/night-2026-11-23.md`.
-**Nachtwerk 22-11 in `main`** (besluit Dennis): BL-041a, BL-030, BL-024a (alle evaluator PASS) gemerged; BL-031a teruggedraaid (geen fps-winst). Rollback-pad weer heel: `build:site` zonder `SITE_ITALIE` (= V2.0.2) gaf exit 1 op de favicon-check; die geldt nu alleen voor V3. **Schijf Mac mini 22-11: ±500 MB vrij** — ruimte maken = Dennis.
-**BL-042: KLAAR** (vragen Dennis 21-11, evaluator PASS na hertoets, `ops/reports/eval-BL-042.md`): achtergronden Toscane · Gardameer · Middellandse Zee · Sicilië (start Middellandse Zee) · Kennispaspoort weer smal (300 px), één open, Esc/× (Esc alleen als er geen laag boven open is) · portal: foto-hover terug bij niet-actieve landen · zoom laadt scherp origineel (web), offline max 740 px (akkoord Dennis 21-11).
-**BL-039: KLAAR** (evaluator PASS na hertoets 20-11, `ops/reports/eval-BL-039.md`): Vercel deployt alleen `main` (`*/**` voor branches met /; getest), portal-hover + hele kaart klikbaar, laadscherm alleen bij koude cache (only-if-cached; warm 0 ms loader, ook CPU 4×), Wisselen: Eilanden = Sicilië, losse iconen rand-rand ≥ 12 px, hoofdstukafbeelding zoomt, Kennispaspoort vullende pizza. **Besluit 20-11 (QA-norm):** een weggelaten los icoon in Oefenen (kleine kaart) is info; op de hoofdstukpagina blijft het een fout. BL-037 en BL-038 klaar. Restpunten → BL-041.
-**BL-036 testfeedback 20-11: KLAAR, alles live** (bundels A–C + fix `4deb5ab`). Evaluator: FAIL op 7 (tandwiel onbereikbaar in iPad-portret) en 8 (lesknop 'Start de Vespa-rit' deed niets) → gefixt → hertoets PASS (`ops/reports/eval-BL-036.md`). Laag 3: volledige matrix Chromium OK, fade Chromium + WebKit OK. Nieuw: **BL-038 iPad-portret** (P0, blokkeert G3). Open voor Dennis: Vespa-icoon is een vierkante app-badge; oordelen related in `ops/reports/BL-036-iconen.md`; antwoordfeedback 'goed' is in V3 al violet (niet groen) — zo laten?
-**Laadtijd (punt 11) live sinds bundel A.** Live gemeten (Fast 4G 9 Mbit/s, 165 ms RTT, Playwright Chromium): vóór 21,9 MB, eerste scherm ≈ 23 s koud én warm. Na: index.html 1,03 MB + 133 immutable assets; eerste scherm 1,6 MB, **koud 2,3 s desktop / 1,9 s iPad, warm 0,77 / 0,82 s** (0 MB), via portal-prefetch 1,5 s; TTFB 0,1–0,3 s. Doel (< 3 s koud, < 1 s warm) gehaald.
-**BL-035 livefixes 19-11: alle 8 blokken live op main** (volgorde 1→7→6→8→2→4→5→3, kleine commits `a654507`…, per push lint+test+`qa-v3-menu1`+`build:site` groen, daarna live gecontroleerd op www.ninotopo.nl/italie/ in Chromium én WebKit). **Evaluator: PASS** na hertoets (`ops/reports/eval-BL-035.md`; eerste ronde FAIL op Etna bij Messina en meegroeiende kaart op Voortgang, beide gefixt in `b4770e8`). Volgende: check Dennis op zijn iMac (Safari + Chrome). Open, buiten scope: mask-composite op 3 kaartranden (`menu1.css`, `ui.css`), paspoorttabel loopt over 2 regels, `npm test` heeft `--max-old-space-size=8192` nodig (nino-art).
-- **G4 (19-11):** main `718658f`, `SITE_ITALIE=v3` in productie. Rollback: `SITE_ITALIE=v2` + redeploy, of Promote `dpl_oaw4…` (64fc294). Tag `v3.0.0` staat op GitHub (22-11, door Dennis via Codex) → `718658f`.
-- **Open uit G3:** Hermes-hertest, speeltest ≥ 2 kinderen, fps schermwissel (BL-031). C = BL-014 F5–F8 en D = BL-018-rest na G4.
-- **Omgeving:** cloud-omgeving `topo` (persoonlijk) laat www.ninotopo.nl toe voor de livecheck.
+## Opruiming — gecontroleerd 26-11
+- **Remote: KLAAR.** 98 `archive/*`-tags op GitHub (= goedgekeurde lijst 22-11). Over: `main`, `art/master`, `night/2026-11-23` (PR #116), `docs/BL-008-child-usability-v3` (PR #110), `land/fr-geo`, `land/fr-inhoud`, `claude/nightly-pr99-kaart-feestje-fvpl06` (stond niet op de lijst; besluit nodig).
+- **Lokaal: KLAAR (26-11, Claude).** 43 TOPO-kopieën verwijderd (`~/projects/topo-*` incl. 2e clone `topo-repository`, `topo-bl005`, `topo-nino-71`, `Topo-iPad-Test`). Over: `~/Code/topo/topo` (op `main`) + worktree `~/Code/topo/wt-night-2026-11-23` (verhuisd 26-11 van `~/topo-claude` / `~/topo-night`; Codex-config bijgewerkt). Lokale branches: `main`, `night/2026-11-23`. Uniek werk vooraf veiliggesteld in `~/Archief/topo-2026-11-26/` (bundle `bak/BL-003-pre-rebase` + `night/2026-11-14`; patches/untracked van discovery-map-v2, v3-runtime, QA-bewijs pisa/95d5199). Rest: `git worktree prune` voor `/private/tmp/bl035-eval` (Terminal).
+- Netwerk: shell-git bereikt github.com (lezen). Pushen vanuit de sessie: niet getest (geen credentials in de sessie-VM).
 
-3-11
-- Roadmap M0–M3: GO
-- B2C én B2B · hoofddoel: leren op een leuke manier · testkinderen groep 7 (10–11)
-- FR-code gepauzeerd tot M1. FR-data, research en art mogen parallel op Codex (OPERATING_MODEL §5, 🟡)
+## Open beslissingen / acties
+1. **Branchbescherming main: ACTIEF** (26-11, ruleset "Protect main", id 28149042; API: `main` protected). Regels: deletion, non_fast_forward, pull_request (0 approvals, merge/squash/rebase). Geen bypass, geen statuschecks.
+2. Let op na bescherming: directe pushes naar main (afspraak 19-11) kunnen niet meer; alle werk via korte taakbranch + PR (zelf mergen mag, 0 approvals).
+3. PR #116 `night/2026-11-23` (BL-024b/c, evaluator PASS): integreren of sluiten.
+4. PR #110 BL-008 kindtest-pakket: input voor BL-004 speeltest.
+5. Uncommitted ops-wijzigingen van Codex in `topo-night` (monitor, cleanup-script, LOOPS, STATE): nog niet gecommit; via taakbranch + PR.
+6. Nachtrun: alleen-lezen monitor klaar; activatie `bash ops/scripts/install-nightly.sh` in lokale Terminal (Dennis).
 
-## V3 naar live (pad, 15-11)
-1. BL-015 V3-release met echte opslag ✅ (in review) — live zetten = Vercel-variabele `SITE_ITALIE=v3`
-2. BL-014/016 kaart en glas: compositie eerst (Claude-app), dan bouw en G1
-3. iPad-test Dennis (15-11) + Hermes-hertest → G4 → `SITE_ITALIE=v3`
-
-## Portal (besluit 14-11: optie A)
-- BL-013 in review: portal op `/`, Italië op `/italie/`. Daarna G1 (visuele GO op de preview) en G4 (live + DNS bij Namecheap, BL-009).
-- ROADMAP M0 zei "portal naar één preview-URL"; dat wordt nu: portal live met de huidige Italië-versie, V3 volgt via BL-005.
-
-## Open beslissingen voor Dennis
-1. Domein `ninotopo.nl` is gekocht (14-11). Nodig van Dennis: bij welke registrar, zodat BL-009 (koppelen aan Vercel) kan
-2. Branch-opruiming (BL-001b klaar voor toetsing, `ops/reports/branches.md`, tegen `origin/main` `52427b5`): 120 branches, 10 `delete` (8 `ops/*` met Cherry 0, `night/2026-11-13`, `t/BL-005-integratie` met Tree 0), 95 `archive`, 2 `merge`, 13 `keep`. Kies: (a) de 10 `delete` verwijderen en de 95 `archive` eerst taggen (BL-005c), daarna verwijderen · (b) alleen de 10 `delete` nu, `archive` later · (c) per rij doorlopen met Claude. Eerst `git fetch` (refs kunnen oud zijn). **Aanbeveling: (a)**: tags zijn omkeerbaar; `pr7`/`pr70` zijn alleen lokaal en moeten eerst getagd
-
-3. Integratie V3.0 + art naar `main` (BL-005; plan en proefintegratie in `ops/reports/integratie.md`, evaluator: PASS met voorbehoud, `ops/reports/eval-BL-005.md`; let op: de ±240 gebroken doc-links uit de proefintegratie bestaan op `main` niet, want `docs/qa/` en `docs/visual/` staan er volledig; BL-002 mat 73 gebroken backtick-paden en liet er geen nieuwe bijkomen, besluit per groep in `ops/reports/docs-inventaris.md`). Gekozen volgorde: eerst `art/master` als merge-commit (bewuste uitzondering op squash: art blijft langlopend en synct dan zonder `-X`), dan `codex/topo-v3` als squash. Uitgesloten uit `main`: het grootste deel van `docs/qa/` en `docs/visual/` (op 129 bestanden na, o.a. `docs/qa/v3-stijlbeeld/final/`), `output/installers/` en drie oude `output/html/`-proefversies (samen 2184 bestanden, 856 MB; tags `archive/v3-*` voorgesteld). Proefintegratie `DRY` `df72c39`: lint, test en build alle drie exit 0, `dist/index.html` 41 445 845 B (gelijk aan V). De uitvoering (BL-005b) raakt G3/G4 zolang `main` productie is. Kies: (a) BL-005b pas na G3 (BL-004 PASS) én BL-006 (productie alleen vanaf tag); dan blijft er één G4-akkoord over, op tag `v3.0.0` · (b) als (a), en Dennis keurt daarnaast `ops/reports/integratie.md` vooraf goed · (c) direct na het plan naar `main`, met de merge als G4. **Aanbeveling: (a)**: één contactmoment, en de merge is omkeerbaar zonder productie te raken. **Stand 14-11: Dennis heeft niet anders gekozen, we werken volgens (a)**
-4. M0-scope: **besloten 14-11 door Dennis: de portal schuift niet naar M1, die "kan al eerder klaar zijn"**. Gelezen als optie (c), niets schuiven; deadline M0 blijft vr 20 nov. Controleer bij de volgende planning of de portal-preview daarmee binnen M0 past
-
-## Bekende risico's
-- Artwork-goedkeuring is de bottleneck voor elk land
-- **M0-deadline (vr 20 nov) is verstreken (planner 22-11).** Exit feitelijk gehaald (productie-URL werkt, `main` groen, nachtruns gelogd); open zijn nog branches ≤ 10 (besluit 2), BL-005b/c/d/e en de docs-verplaatsing. Voorstel: (a) M0 afsluiten op de exit, de open M0-taken naar M1 (deadline M1 blijft 11 dec) · (b) M0 een week verlengen tot vr 27 nov. **Aanbeveling: (a).** Nog niets verschoven; nachtrun 22-11 werkt aan BL-041a (M1, P2)
-- `index.html` van 41 MB en een preview van 50 MB: geheugen op iPad 9
-- Schijf Mac mini: Dennis heeft 14-11 ruimte gemaakt (ongeveer 12 GB vrij). BL-005b/e hebben ≥ 3 GB nodig; check `df` vóór de start, de schijf liep tijdens BL-005 vol
+## Afspraken
+- main is productie; previews alleen op verzoek van Dennis.
+- Max. vijf korte taakbranches; art/master mag langlopend blijven.
+- Geen verwijdering van uniek werk zonder gecontroleerde archiefkopie.
+- ops/ROADMAP.md blijft de roadmap; deadlines niet stilzwijgend verschuiven.

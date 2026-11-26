@@ -1,3 +1,7 @@
+> 25-11 vervolg: beperkte alleen-lezen nachtrun geïmplementeerd en gericht getest; activatie wacht op lokale installatie. Zie [loops](../ops/LOOPS.md).
+
+> **Actuele status: [ops/STATE.md](../ops/STATE.md).** De inhoud hieronder is historische implementatiecontext. Consolidatie 25 november: opruimscript en status bijgewerkt, vijf gerichte tests PASS; uitvoering geblokkeerd op Git-netwerk en schrijfrechten. Zie [opruimrapport](../ops/reports/cleanup-2026-11-25.md).
+
 # BL-019 — Italiaanse regiogeometrie (15 november 2026)
 
 Branch `t/BL-019-regios`, basis `ColdDesertAI/topo` main `8ad5002`. Twintig regio's in `assets/geo/regions/regions.json` (44.267 bytes), bron/licentie/revisie/hashes en acceptatiebeperkingen in [PROVENANCE](../assets/geo/regions/PROVENANCE.md). Data-only: geen integratie in V3 of wijziging aan index/V2. Bronextractie, gezamenlijke topologie, kustlijn en bytegelijke herbouw getest. **Geen 45/45-containmentclaim:** 32 Italiaanse ankers strikt binnen hun regio, Venetië als expliciete kustbronuitzondering, 12 niet-Italiaanse regio-items uitgesloten. Eigenaarbevestiging van die semantiek staat open. Actuele projectstatus blijft `ops/STATE.md`.
