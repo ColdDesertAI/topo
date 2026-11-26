@@ -25,7 +25,16 @@ Geen automatische download of uitvoering van scripts vanaf main. Na wijzigingen 
 De oude agentopdracht `.claude/commands/nachtrun.md` wordt niet gebruikt en mag niet als alternatief worden gestart.
 
 De lokale uitvoer is beschikbaar voor de bestaande ochtendbrief op deze Mac. De ChatGPT-ochtendbrief kan dit lokale bestand niet automatisch lezen; die blijft GitHub zelf raadplegen. Er is geen nieuwe berichtendienst geactiveerd.
-Activatie 25 november: nog niet uitgevoerd wegens ontbrekende schrijfrechten op LaunchAgents en de gebruikersconfiguratie.
+Activatie: actief sinds 26 november 01:00 (eerste meting in `~/.topo-night/monitor/latest.md`).
+
+## Wekelijkse review (besluit Dennis 26-11, BL-043)
+Doel: de stam gezond houden voor alle landen, zonder dat Dennis erom hoeft te vragen. Eén run per week (zondagnacht), niet elke nacht.
+1. Op `main`: `npm test`, de volledige QA-matrix voor elk live land, `build:site`.
+2. Live-check: portal en elk land op www.ninotopo.nl (desktop + iPad-formaat, één screenshot per land).
+3. Updates: dependencies en beveiliging; budgetten uit `QUALITY.md` (grootte, laadtijd) meten tegen de vorige week.
+4. Uitkomst: `ops/reports/weekly-<datum>.md` + hooguit 3 kleine fix-PR's, elk met contract en evaluator-PASS. **Nooit automatisch mergen.**
+5. Maandag: één brief aan Dennis, maximaal 3 beslissingen.
+Activatie: na M1 (vóór M1 is er maar één land; tot dan draait alleen de dagelijkse monitor).
 
 ## Ochtendbrief (format: `templates/BRIEF.md`)
 - ✅ Klaar (met preview-links) · ❌ Gefaald (met reden) · ⛔ Geblokkeerd

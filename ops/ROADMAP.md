@@ -1,7 +1,16 @@
 # Roadmap
 
 > Status: **GO door Dennis op 13-11-2026.** Dit is de enige roadmap; `docs/ROADMAP.md` is vervangen.
-> Regel: steeds maximaal **1 mijlpaal actief**. Deadlines zijn gebaseerd op nachtruns plus overdag 1–2 bouwsessies.
+> Regel: steeds maximaal **1 mijlpaal actief**. Deadlines zijn gebaseerd op overdag 1–2 bouwsessies (geen bouwende nachtrun sinds 25-11).
+
+## Koers (Dennis 26-11)
+1. **Portal** ninotopo.nl als voordeur; een land verschijnt vanzelf zodra het live gaat (BL-044).
+2. **Eén structuur per land:** een gedeelde kern (de stam) plus per land een pakket met data, kaart en artwork → M1.
+3. **Tweede land uitrollen** met eigen kaart en artwork, en live → M2 (Frankrijk).
+4. **Af en toe automatische review:** tests, updates en verbeteringen op de stam, die gelden voor alle landen → wekelijkse review (BL-043, `LOOPS.md`).
+5. **TOPO Next** als eigen spoor na Frankrijk (BL-045).
+
+**Stand 26-11:** M0 inhoudelijk klaar (opruiming, V3 live, `main` beschermd); exit wacht op Hermes-hertest (BL-004) en speeltest (BL-010). M1 start parallel met BL-007 (raakt de site niet, besluit 5a).
 
 ## M0 — Consolidatie · deadline **vr 20 nov**
 Doel: `main` is weer de waarheid en Italië V3.0 staat live.
@@ -30,6 +39,9 @@ Doel: "over 2 weken volgt Duitsland" werkt.
 - Artwork-pijplijn: één goedkeurmoment voor Dennis per land in plaats van per batch
 - Proef: Duitsland van G0 tot live in ≤ 14 dagen
 - **Exit:** DE live binnen 14 dagen met ≤ 3 contactmomenten voor Dennis
+
+## TOPO Next (na M2)
+Eerst één G0-pagina (BL-045): wat is het, voor wie (B2C/B2B), kill-criterium. Kandidaten: leerkrachtmodus, iPad/macOS-app (PWA of App Store), meerdere landen in één app. Mag M1 en M2 nooit vertragen.
 
 ## Later (niet plannen vóór M3)
 Japan en verder · leerkrachtmodus · meerdere landen in één app · App Store/PWA-verpakking · monetisering
