@@ -1,0 +1,763 @@
+{
+  "status": "draft",
+  "land": "uk-ie",
+  "audience": "groep 7",
+  "scope": "Verenigd Koninkrijk en Ierland, exact de 44 items van het aangeleverde schoolblad. Geen aanvullingen.",
+  "allowedTypes": [
+    "stad",
+    "eiland",
+    "gebergte",
+    "regio",
+    "land",
+    "water",
+    "rivier"
+  ],
+  "answerLanguage": "nl",
+  "aliasesNote": "Primaire naam = spelling op het blad (het blad eist foutloos schrijven). Aliassen alleen waar het blad zelf twee vormen toont, of als expliciet gemarkeerde reviewvraag. Engelse namen zijn displaydata, geen antwoord.",
+  "facts": [
+    {
+      "id": "vk",
+      "text": "Verenigd Koninkrijk = Engeland, Schotland, Wales en Noord-Ierland",
+      "source": "schoolblad, kolom Wateren onderaan"
+    },
+    {
+      "id": "gb",
+      "text": "Groot-Brittannië = Engeland, Schotland, Wales",
+      "source": "schoolblad, kolom Wateren onderaan"
+    }
+  ],
+  "provenance": {
+    "sourceCheckedAt": "2026-11-27",
+    "sourceDocuments": [
+      {
+        "id": "schoolblad-vk-ierland",
+        "description": "Schoolblad 'Topografie Verenigd Koninkrijk en Ierland', groep 7, aangeleverd door Dennis op 27-11-2026 (7 foto's: lijst 3x, leerkaart 4x). School/methode niet vermeld; datums 'kaart af op' en 'overhoring op' leeg.",
+        "files": [
+          {
+            "name": "IMG_0908.HEIC",
+            "content": "itemlijst",
+            "sha256": "118aff4dc19c9f5cc95cbbcfba3c0a85a5fb1a00bc59b86577ffc64942121da6"
+          },
+          {
+            "name": "IMG_0909.HEIC",
+            "content": "itemlijst",
+            "sha256": "a250b06191632992156ae41400e734a8bb00b437957a69255186be395df82b7a",
+            "repoCopy": "bron/IMG_0909.jpg"
+          },
+          {
+            "name": "IMG_0910.HEIC",
+            "content": "itemlijst",
+            "sha256": "d58ccf08b8ffee8b4ec0103eb5df9a698da4f78a51c4fd48874345624665210c"
+          },
+          {
+            "name": "IMG_0911.HEIC",
+            "content": "leerkaart",
+            "sha256": "b724b608b5931b494fb4d958a46df34105b562ab6a6200c1bff0759559bea82f"
+          },
+          {
+            "name": "IMG_0912.HEIC",
+            "content": "leerkaart",
+            "sha256": "577725f414c87a13d451d09e7ec7bedd5bbf64cd63545b5fe1d49fd2edcb14db"
+          },
+          {
+            "name": "IMG_0913.HEIC",
+            "content": "leerkaart",
+            "sha256": "f809424a373d6ca5996136dd2015f7551d1fd52c4b5cf817b895590f4d5b8f80",
+            "repoCopy": "bron/IMG_0913.jpg"
+          },
+          {
+            "name": "IMG_0914.HEIC",
+            "content": "leerkaart",
+            "sha256": "fab3efb61c78c04113c0b62a913625e56235879c7898f05ff02a1f8efc281517"
+          }
+        ]
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "aberdeen",
+      "type": "stad",
+      "name": {
+        "nl": "Aberdeen",
+        "en": "Aberdeen"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "1"
+      }
+    },
+    {
+      "id": "belfast",
+      "type": "stad",
+      "name": {
+        "nl": "Belfast",
+        "en": "Belfast"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "2"
+      }
+    },
+    {
+      "id": "birmingham",
+      "type": "stad",
+      "name": {
+        "nl": "Birmingham",
+        "en": "Birmingham"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "3"
+      }
+    },
+    {
+      "id": "bristol",
+      "type": "stad",
+      "name": {
+        "nl": "Bristol",
+        "en": "Bristol"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "4"
+      }
+    },
+    {
+      "id": "cardiff",
+      "type": "stad",
+      "name": {
+        "nl": "Cardiff",
+        "en": "Cardiff"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "5"
+      }
+    },
+    {
+      "id": "cork",
+      "type": "stad",
+      "name": {
+        "nl": "Cork",
+        "en": "Cork"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "6"
+      }
+    },
+    {
+      "id": "dublin",
+      "type": "stad",
+      "name": {
+        "nl": "Dublin",
+        "en": "Dublin"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "7"
+      }
+    },
+    {
+      "id": "edinburgh",
+      "type": "stad",
+      "name": {
+        "nl": "Edinburgh",
+        "en": "Edinburgh"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "8"
+      }
+    },
+    {
+      "id": "glasgow",
+      "type": "stad",
+      "name": {
+        "nl": "Glasgow",
+        "en": "Glasgow"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "9"
+      },
+      "review": "Op de leerkaart (IMG_0911–0914) staat geen stip bij Glasgow: 17 stippen voor 18 steden. Geometrie (UK-02) plaatst Glasgow op de echte ligging."
+    },
+    {
+      "id": "hull",
+      "type": "stad",
+      "name": {
+        "nl": "Hull",
+        "en": "Kingston upon Hull"
+      },
+      "aliases": [
+        "Kingston upon Hull"
+      ],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "10"
+      },
+      "note": "Blad schrijft '(Kingston upon) Hull': beide vormen staan op het blad."
+    },
+    {
+      "id": "inverness",
+      "type": "stad",
+      "name": {
+        "nl": "Inverness",
+        "en": "Inverness"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "11"
+      }
+    },
+    {
+      "id": "leeds",
+      "type": "stad",
+      "name": {
+        "nl": "Leeds",
+        "en": "Leeds"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "12"
+      }
+    },
+    {
+      "id": "liverpool",
+      "type": "stad",
+      "name": {
+        "nl": "Liverpool",
+        "en": "Liverpool"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "13"
+      }
+    },
+    {
+      "id": "londen",
+      "type": "stad",
+      "name": {
+        "nl": "Londen",
+        "en": "London"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "14"
+      },
+      "note": "Engelse naam London is displaydata, geen alias: het blad vraagt de Nederlandse spelling."
+    },
+    {
+      "id": "manchester",
+      "type": "stad",
+      "name": {
+        "nl": "Manchester",
+        "en": "Manchester"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "15"
+      }
+    },
+    {
+      "id": "newcastle",
+      "type": "stad",
+      "name": {
+        "nl": "Newcastle",
+        "en": "Newcastle upon Tyne"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "16"
+      }
+    },
+    {
+      "id": "norwich",
+      "type": "stad",
+      "name": {
+        "nl": "Norwich",
+        "en": "Norwich"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "17"
+      }
+    },
+    {
+      "id": "southampton",
+      "type": "stad",
+      "name": {
+        "nl": "Southampton",
+        "en": "Southampton"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Plaatsen",
+        "heading": "Belangrijke steden",
+        "code": "18"
+      }
+    },
+    {
+      "id": "man",
+      "type": "eiland",
+      "name": {
+        "nl": "Man",
+        "en": "Isle of Man"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Eilanden",
+        "code": "a"
+      },
+      "review": "Mogelijke variant 'Isle of Man' / 'eiland Man' niet als alias opgenomen; besluit Dennis."
+    },
+    {
+      "id": "kanaaleilanden",
+      "type": "eiland",
+      "name": {
+        "nl": "Kanaaleilanden",
+        "en": "Channel Islands"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Eilanden",
+        "code": "b"
+      }
+    },
+    {
+      "id": "orkney",
+      "type": "eiland",
+      "name": {
+        "nl": "Orkney eilanden",
+        "en": "Orkney Islands"
+      },
+      "aliases": [
+        "Orkneyeilanden"
+      ],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Eilanden",
+        "code": "c"
+      },
+      "review": "Blad schrijft 'Orkney eilanden' (los). Correcte Nederlandse spelling is 'Orkneyeilanden'; als variant opgenomen, besluit Dennis."
+    },
+    {
+      "id": "shetland",
+      "type": "eiland",
+      "name": {
+        "nl": "Shetland eilanden",
+        "en": "Shetland Islands"
+      },
+      "aliases": [
+        "Shetlandeilanden"
+      ],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Eilanden",
+        "code": "d"
+      },
+      "review": "Zelfde spellingskwestie als Orkney."
+    },
+    {
+      "id": "hebriden",
+      "type": "eiland",
+      "name": {
+        "nl": "Hebriden",
+        "en": "Hebrides"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Eilanden",
+        "code": "e"
+      }
+    },
+    {
+      "id": "schotse-hooglanden",
+      "type": "gebergte",
+      "name": {
+        "nl": "Schotse Hooglanden",
+        "en": "Scottish Highlands"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Bergen en vulkanen",
+        "code": "f"
+      }
+    },
+    {
+      "id": "skye",
+      "type": "regio",
+      "name": {
+        "nl": "Skye",
+        "en": "Isle of Skye"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Streken",
+        "code": "g"
+      },
+      "review": "Skye is een eiland (Binnen-Hebriden) maar het blad zet het onder 'Streken'. Type volgt het blad; in de app als gebied aanwijzen."
+    },
+    {
+      "id": "belgie",
+      "type": "land",
+      "name": {
+        "nl": "België",
+        "en": "Belgium"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "h"
+      }
+    },
+    {
+      "id": "denemarken",
+      "type": "land",
+      "name": {
+        "nl": "Denemarken",
+        "en": "Denmark"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "i"
+      }
+    },
+    {
+      "id": "duitsland",
+      "type": "land",
+      "name": {
+        "nl": "Duitsland",
+        "en": "Germany"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "j"
+      }
+    },
+    {
+      "id": "engeland",
+      "type": "land",
+      "name": {
+        "nl": "Engeland",
+        "en": "England"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "k"
+      },
+      "note": "Deel van het Verenigd Koninkrijk; het blad noemt de VK-delen als 'Landen'."
+    },
+    {
+      "id": "frankrijk",
+      "type": "land",
+      "name": {
+        "nl": "Frankrijk",
+        "en": "France"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "l"
+      }
+    },
+    {
+      "id": "ierland",
+      "type": "land",
+      "name": {
+        "nl": "Ierland",
+        "en": "Ireland"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "m"
+      },
+      "note": "Bedoeld is de Republiek Ierland (staat), niet het hele eiland."
+    },
+    {
+      "id": "nederland",
+      "type": "land",
+      "name": {
+        "nl": "Nederland",
+        "en": "Netherlands"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "n"
+      }
+    },
+    {
+      "id": "noord-ierland",
+      "type": "land",
+      "name": {
+        "nl": "Noord-Ierland",
+        "en": "Northern Ireland"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "o"
+      }
+    },
+    {
+      "id": "noorwegen",
+      "type": "land",
+      "name": {
+        "nl": "Noorwegen",
+        "en": "Norway"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "p"
+      }
+    },
+    {
+      "id": "schotland",
+      "type": "land",
+      "name": {
+        "nl": "Schotland",
+        "en": "Scotland"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "q"
+      }
+    },
+    {
+      "id": "wales",
+      "type": "land",
+      "name": {
+        "nl": "Wales",
+        "en": "Wales"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Gebieden",
+        "heading": "Landen",
+        "code": "r"
+      }
+    },
+    {
+      "id": "atlantische-oceaan",
+      "type": "water",
+      "subtype": "oceaan",
+      "name": {
+        "nl": "Atlantische Oceaan",
+        "en": "Atlantic Ocean"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Wateren",
+        "heading": "Zeeën, oceanen",
+        "code": "A"
+      }
+    },
+    {
+      "id": "noordzee",
+      "type": "water",
+      "subtype": "zee",
+      "name": {
+        "nl": "Noordzee",
+        "en": "North Sea"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Wateren",
+        "heading": "Zeeën, oceanen",
+        "code": "B"
+      }
+    },
+    {
+      "id": "het-kanaal",
+      "type": "water",
+      "subtype": "zee",
+      "name": {
+        "nl": "Het Kanaal",
+        "en": "English Channel"
+      },
+      "aliases": [
+        "Kanaal"
+      ],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Wateren",
+        "heading": "Zeeën, oceanen",
+        "code": "C"
+      }
+    },
+    {
+      "id": "straat-van-dover",
+      "type": "water",
+      "subtype": "zeestraat",
+      "name": {
+        "nl": "Straat van Dover",
+        "en": "Strait of Dover"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Wateren",
+        "heading": "Zeeën, oceanen",
+        "code": "D"
+      }
+    },
+    {
+      "id": "ierse-zee",
+      "type": "water",
+      "subtype": "zee",
+      "name": {
+        "nl": "Ierse Zee",
+        "en": "Irish Sea"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Wateren",
+        "heading": "Zeeën, oceanen",
+        "code": "E"
+      }
+    },
+    {
+      "id": "keltische-zee",
+      "type": "water",
+      "subtype": "zee",
+      "name": {
+        "nl": "Keltische Zee",
+        "en": "Celtic Sea"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Wateren",
+        "heading": "Zeeën, oceanen",
+        "code": "F"
+      }
+    },
+    {
+      "id": "theems",
+      "type": "rivier",
+      "name": {
+        "nl": "Theems",
+        "en": "Thames"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Wateren",
+        "heading": "Rivieren",
+        "code": "G"
+      }
+    },
+    {
+      "id": "loch-ness",
+      "type": "water",
+      "subtype": "meer",
+      "name": {
+        "nl": "Loch Ness",
+        "en": "Loch Ness"
+      },
+      "aliases": [],
+      "source": {
+        "document": "schoolblad-vk-ierland",
+        "column": "Wateren",
+        "heading": "Wateren",
+        "code": "H"
+      }
+    }
+  ]
+}
