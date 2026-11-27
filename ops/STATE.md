@@ -18,7 +18,7 @@ M0-deadline (20-11) verstreken; exit wacht op BL-046 (G4), Hermes crit. 3 en spe
 - Regie (claude.ai-project) heeft schrijfrecht; bouwen blijft bij Claude Code (Sonnet) per contract.
 
 ## Volgende taken
-0. UK-01 spoedmodule VK en Ierland (overhoring di 1-12): evaluator PASS, PR #128 → **G4 Dennis**, dan live op `/vk-ierland/`. Preview: claude.ai/artifact/JPq12fkgcowczPiqtqDSC5.
+0. UK-01c VK en Ierland in de Frankrijk-vorm (besluit Dennis 27-11): gebouwd, evaluator → preview → **G4 Dennis**. UK-01/01b staan live op `/vk-ierland/`.
 1. BL-046 (#118): PR #124, evaluator PASS — **G4 Dennis** (beslissing 2 weekreview 48), dan merge, live-check, Hermes-hertest crit. 3.
 2. BL-007 karakterisering terug op main — Claude Code, contract klaar.
 3. BL-010 speeltest — Dennis plant datum + 2 kinderen (echte iPad 9 mee).

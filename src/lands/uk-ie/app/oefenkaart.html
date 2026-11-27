@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>Topo Frankrijk · oefenkaart</title>
+<title>Topo VK en Ierland · oefenkaart</title>
 <style>
 :root{--ink:#2A2440;--soft:#6c6683;--violet:#6a4fd6;--violet-l:#ece7ff;--good:#1f8a5b;--bad:#c2412d;--sea:#a7cfe8;--land:#e3dccb;--fr:#fffdf7;--line:#d9d3c4;--card:#fff}
 *{box-sizing:border-box}
@@ -60,7 +60,7 @@ ul.items small{font-weight:500;opacity:.7}
 .microstate{fill:#934832;stroke:#fff;stroke-width:1.2}
 .ctxlbl{fill:#788277;font:700 12px -apple-system,Helvetica,Arial,sans-serif;letter-spacing:1.5px;pointer-events:none}
 /* hover (muis/pen): wat je zou aantikken kleurt oranje */
-.hov.country,.hov.zone,.hov.water,.hov.island{fill:#f7b078;fill-opacity:.76}
+.hov.fr,.hov.country,.hov.zone,.hov.water,.hov.island{fill:#f7b078;fill-opacity:.76}
 .hov.lineTarget{stroke:#ed8f57}
 .hov.city,.hov.microstate{fill:#f89b49;stroke-width:3.5}
 svg#map{cursor:pointer}
@@ -140,7 +140,7 @@ header{flex-wrap:wrap}
 <body>
 <header>
   <img alt="" src="/*IMG_NINO*/">
-  <div><h1>Topo Frankrijk</h1><small>Oefenkaart van het schoolblad · 44 plekken</small></div>
+  <div><h1>Topo VK en Ierland</h1><small>Oefenkaart van het schoolblad · 44 plekken</small></div>
   <div class="stats">
     <div class="box" aria-label="Bakkerijdoos"><div class="slots" id="slots"></div><div class="boxinfo"><b id="sBoxes">0</b> <span id="lBoxes">dozen</span><br><b id="sRides">0</b> <span id="lRides">ritten</span></div></div>
     <div class="stat"><b id="sGood">0</b><span>goed</span></div>
@@ -156,7 +156,7 @@ header{flex-wrap:wrap}
   <button id="sheetBtn" class="sheetbtn" type="button">Schoolblad</button>
 </nav>
 <main>
-  <div class="mapwrap"><svg id="map" role="img" aria-label="Kaart van Frankrijk"></svg></div>
+  <div class="mapwrap"><svg id="map" role="img" aria-label="Kaart van het Verenigd Koninkrijk en Ierland"></svg></div>
   <section class="panel" id="panel" aria-live="polite"></section>
 </main>
 <div id="pick" hidden role="dialog" aria-modal="true" aria-labelledby="pickT"><div class="pickcard"><h2 id="pickT">Welke plek bedoel je?</h2><p id="pickP">Hier liggen meer plekken dicht bij elkaar. Kies het nummer.</p><svg id="pickmap" aria-hidden="true"></svg><div id="pickBtns"></div><button class="btn" id="pickX" type="button">Annuleren</button></div></div>
@@ -167,17 +167,19 @@ header{flex-wrap:wrap}
 </div></div>
 <div id="toast" role="status"></div>
 <div id="ride" aria-hidden="true"><div class="msg" id="rideMsg"></div><div class="scoot"><img class="n" alt="" src="/*IMG_NINO*/"><img class="v" alt="" src="/*IMG_VESPA*/"></div></div>
-<footer>Kaartdata: Natural Earth (publiek domein). Lesstof: schoolblad "Topografie Frankrijk". Voortgang blijft alleen op dit apparaat.</footer>
+<footer>Kaartdata: Natural Earth (publiek domein). Lesstof: schoolblad "Topografie Verenigd Koninkrijk en Ierland". Voortgang blijft alleen op dit apparaat.</footer>
 <script>
 'use strict';
 const MAP=/*MAP*/, LES=/*LES*/;
 const NS='http://www.w3.org/2000/svg';
 const ITEMS=LES.items, BYID=Object.fromEntries(ITEMS.map(i=>[i.id,i]));
 const CH=LES.chapters;
-const TYPE_NL={stad:'stad',eiland:'eiland',gebergte:'gebergte',regio:'streek',buurland:'land',zee:'zee',rivier:'rivier'};
-const AREA=t=>t!=='stad'&&t!=='rivier';
+const TYPE_NL={stad:'stad',eiland:'eiland',gebergte:'gebergte',regio:'streek',buurland:'land',zee:'zee',rivier:'rivier',meer:'meer'};
+// VK: Loch Ness (meer) is net als een rivier een lijn op de kaart
+const LINE=t=>t==='rivier'||t==='meer';
+const AREA=t=>t!=='stad'&&!LINE(t);
 const svg=document.getElementById('map'), panel=document.getElementById('panel');
-const KEY='topo-frankrijk-v1';
+const KEY='topo-vk-ierland-v2';
 let S=(()=>{try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}})();
 S.mistakes=S.mistakes||{};S.good=S.good||0;S.miss=S.miss||0;S.chapter=S.chapter||'alles';
 let streak=0;
@@ -197,7 +199,8 @@ el('rect',{x:0,y:0,width:W,height:H,class:'sea'},ROOT);
 const gWater=el('g',{},ROOT);
 el('path',{d:MAP.context.land,class:'ctx-land'},ROOT);
 const gCountry=el('g',{},ROOT);
-el('path',{d:MAP.context.france,class:'fr'},ROOT);
+el('path',{d:MAP.context.focus,class:'fr'},ROOT);
+const gHome=el('g',{},ROOT);
 const gIsland=el('g',{},ROOT), gZone=el('g',{},ROOT);
 el('path',{d:MAP.context.lakes,class:'lakes'},ROOT);
 for(const l of MAP.context.labels){const t=el("text",{x:Math.min(W-62,Math.max(62,l.x)),y:Math.min(H-14,Math.max(20,l.y)),class:'ctxlbl','text-anchor':'middle'},ROOT);t.textContent=l.t;}
@@ -205,12 +208,12 @@ el('path',{d:MAP.context.rivers,class:'ctx-rivers'},ROOT);
 const gRiver=el('g',{},ROOT), gHL=el('g',{},ROOT), gMarks=el('g',{},ROOT), gLbl=el('g',{},ROOT);
 el('rect',{x:.5,y:.5,width:W-1,height:H-1,class:'frame'});
 const gTargets=gZone;
-const GROUP={country:gCountry,water:gWater,zone:gZone,island:gIsland};
+const GROUP={country:gCountry,water:gWater,zone:gZone,island:gIsland,fr:gHome};
 // vlakken: zichtbaar zoals bij Italie (zeeen, landen, gestippelde zones voor streken en gebergten)
-for(const it of ITEMS){const m=MAP.items[it.id],c=AREA_CLASS[it.type];
+for(const it of ITEMS){const m=MAP.items[it.id],c=m.home?'fr':AREA_CLASS[it.type];
   if(c) NODE[it.id]=el('path',{d:m.d,class:c,'data-id':it.id,'fill-rule':'evenodd'},GROUP[c]);}
 for(const it of ITEMS){const m=MAP.items[it.id];
-  if(it.type==='rivier') NODE[it.id]=el('path',{d:m.d,class:'lineTarget','data-id':it.id},gRiver);}
+  if(LINE(it.type)) NODE[it.id]=el('path',{d:m.d,class:'lineTarget','data-id':it.id},gRiver);}
 for(const it of ITEMS){const m=MAP.items[it.id];
   if(it.type==='stad') DOT[it.id]=el('circle',{cx:m.x,cy:m.y,r:5.5,class:'city','data-id':it.id},gMarks);
   else if(m.x!=null) DOT[it.id]=el('path',{d:`M${m.x} ${m.y-6}l6 6l-6 6l-6 -6z`,class:'microstate','data-id':it.id},gMarks);}
@@ -218,7 +221,7 @@ for(const it of ITEMS){const m=MAP.items[it.id];
 for(const it of ITEMS) if(AREA(it.type)){const b=NODE[it.id].getBBox(); if(Math.hypot(b.width,b.height)<80) SMALL.add(it.id);}
 // rivierpunten voor afstandsberekening
 const RIV={};
-for(const it of ITEMS) if(it.type==='rivier'){
+for(const it of ITEMS) if(LINE(it.type)){
   RIV[it.id]=MAP.items[it.id].d.split('M').filter(Boolean).map(s=>s.split('L').map(p=>p.split(' ').map(Number)));}
 const segDist=(px,py,[ax,ay],[bx,by])=>{const dx=bx-ax,dy=by-ay,l=dx*dx+dy*dy;let t=l?((px-ax)*dx+(py-ay)*dy)/l:0;t=Math.max(0,Math.min(1,t));return Math.hypot(px-ax-t*dx,py-ay-t*dy)};
 const riverDist=(id,x,y)=>{let m=1e9;for(const line of RIV[id])for(let i=1;i<line.length;i++)m=Math.min(m,segDist(x,y,line[i-1],line[i]));return m};
@@ -232,7 +235,9 @@ const toSvg=(cx,cy)=>{const p=svg.createSVGPoint();p.x=cx;p.y=cy;return p.matrix
 // (Luxemburg, Nauw van Calais, Monaco, Andorra) telt die marge ook als je net in het buurvlak tikt.
 // De Golf van Biskaje hoort bij de Atlantische Oceaan: daar telt een tik in de golf ook goed.
 const PX_POINT=22, PX_EDGE=14;
-const PARENT={'atlantische-oceaan':['golf-van-biskaje']};
+const PARENT=MAP.parent||{};
+// net naast een vlak telt niet als je precies in dit andere vlak tikt (Skye hoort niet bij de Hebriden)
+const EXCL=MAP.excl||{};
 function inFill(id,x,y){const p=svg.createSVGPoint();p.x=x;p.y=y;try{return NODE[id].isPointInFill(p)}catch(e){return false}}
 function nearEdge(id,x,y,r){for(let k=0;k<12;k++){const a=k*Math.PI/6;for(const f of [0.5,1]){if(inFill(id,x+Math.cos(a)*r*f,y+Math.sin(a)*r*f))return f*r;}}return null}
 // alle kandidaten van een type: [{id, d (px), inside}], dichtstbij eerst
@@ -240,9 +245,10 @@ function hitsAt(x,y,type){
   const u=unitsPerPx(), out=[];
   for(const it of ITEMS){ if(type&&it.type!==type) continue; const m=MAP.items[it.id];
     if(it.type==='stad'){ const d=Math.hypot(x-m.x,y-m.y)/u; if(d<=PX_POINT) out.push({id:it.id,d,pt:1}); }
-    else if(it.type==='rivier'){ const d=riverDist(it.id,x,y)/u; if(d<=PX_POINT) out.push({id:it.id,d,pt:1}); }
+    else if(LINE(it.type)){ const d=riverDist(it.id,x,y)/u; if(d<=PX_POINT) out.push({id:it.id,d,pt:1}); }
     else { if(inFill(it.id,x,y)) {out.push({id:it.id,d:0,inside:1});continue;}
       if(m.x!=null){const dm=Math.hypot(x-m.x,y-m.y)/u; if(dm<=PX_POINT){out.push({id:it.id,d:dm,inside:1});continue;}}
+      if((EXCL[it.id]||[]).some(o=>inFill(o,x,y))) continue;
       const e=nearEdge(it.id,x,y,PX_EDGE*u); if(e!=null) out.push({id:it.id,d:e/u,edge:1}); } }
   return out.sort((a,b)=>a.d-b.d);
 }
@@ -254,7 +260,7 @@ function nearPt(line,x,y){let best=[1e9,x,y];for(let i=1;i<line.length;i++){cons
 function edgePoint(id,x,y,r){for(const f of [0.5,1])for(let k=0;k<12;k++){const a=k*Math.PI/6,px=x+Math.cos(a)*r*f,py=y+Math.sin(a)*r*f;if(inFill(id,px,py))return [px,py];}return null}
 function anchorOf(c,x,y){const m=MAP.items[c.id],t=BYID[c.id].type;
   if(t==='stad'||(m.x!=null&&!inFill(c.id,x,y)))return [m.x,m.y];
-  if(t==='rivier'){let b=[1e9,x,y];for(const l of RIV[c.id]){const n=nearPt(l,x,y);if(n[0]<b[0])b=n;}return [b[1],b[2]];}
+  if(LINE(t)){let b=[1e9,x,y];for(const l of RIV[c.id]){const n=nearPt(l,x,y);if(n[0]<b[0])b=n;}return [b[1],b[2]];}
   if(c.inside)return [x,y];
   return edgePoint(c.id,x,y,PX_EDGE*unitsPerPx())||[m.lx,m.ly];}
 function candidates(type,x,y){
@@ -286,7 +292,7 @@ function openPicker(list,x,y,named,cb){
   const S=Math.max(90,far*3.2), x0=Math.max(0,Math.min(W-S,x-S/2)), y0=Math.max(0,Math.min(H-S,y-S/2)), k=S/400; // k = eenheden per px in de uitsnede (±400 px breed)
   const ns=list.map(c=>({...c,a:c.a.slice()})), order=shuffle(ns.map((_,i)=>i)); // nummer per kandidaat, willekeurig
   // vallen twee ankers samen (stad aan rivier), dan wijst het lijntje van de rivier naar een stuk rivier ernaast
-  ns.forEach((c,i)=>{ if(BYID[c.id].type!=='rivier') return;
+  ns.forEach((c,i)=>{ if(!LINE(BYID[c.id].type)) return;
     if(!ns.some((o,j)=>j!==i&&Math.hypot(o.a[0]-c.a[0],o.a[1]-c.a[1])<S*0.06)) return;
     let best=null,bd=1e9; for(const l of RIV[c.id]) for(const [vx,vy] of l){const d=Math.abs(Math.hypot(vx-x,vy-y)-S*0.2); if(d<bd){bd=d;best=[vx,vy];}}
     if(best) c.a=best; });
@@ -295,11 +301,11 @@ function openPicker(list,x,y,named,cb){
   const base=ang[idx[0]]??-Math.PI/2, R=S*0.34, br=S*0.06;
   const pos={}; idx.forEach((i,j)=>{const t=base+j*2*Math.PI/n;pos[i]=[x+Math.cos(t)*R,y+Math.sin(t)*R]});
   const sw=v=>`stroke-width="${v}" vector-effect="non-scaling-stroke"`;
-  let h=`<rect x="0" y="0" width="${W}" height="${H}" class="sea"/>${ITEMS.filter(i=>AREA_CLASS[i.type]==='water').map(i=>`<path d="${MAP.items[i.id].d}" class="water" ${sw(1)}/>`).join('')}<path d="${MAP.context.land}" class="ctx-land" ${sw(1)}/>${ITEMS.filter(i=>AREA_CLASS[i.type]==='country').map(i=>`<path d="${MAP.items[i.id].d}" class="country" ${sw(1.4)}/>`).join('')}<path d="${MAP.context.france}" class="fr" ${sw(1.8)}/>${ITEMS.filter(i=>AREA_CLASS[i.type]==='zone').map(i=>`<path d="${MAP.items[i.id].d}" class="zone" fill-rule="evenodd" ${sw(1.4)}/>`).join('')}<path d="${MAP.context.lakes}" class="lakes"/><path d="${MAP.context.rivers}" class="ctx-rivers" ${sw(1)}/>`;
-  for(const it of ITEMS){const m=MAP.items[it.id];if(it.type==='rivier')h+=`<path d="${m.d}" class="lineTarget" ${sw(3.5)}/>`;}
+  let h=`<rect x="0" y="0" width="${W}" height="${H}" class="sea"/>${ITEMS.filter(i=>AREA_CLASS[i.type]==='water').map(i=>`<path d="${MAP.items[i.id].d}" class="water" ${sw(1)}/>`).join('')}<path d="${MAP.context.land}" class="ctx-land" ${sw(1)}/>${ITEMS.filter(i=>AREA_CLASS[i.type]==='country'&&!MAP.items[i.id].home).map(i=>`<path d="${MAP.items[i.id].d}" class="country" ${sw(1.4)}/>`).join('')}<path d="${MAP.context.focus}" class="fr" ${sw(1.8)}/>${ITEMS.filter(i=>MAP.items[i.id].home).map(i=>`<path d="${MAP.items[i.id].d}" class="fr" fill-rule="evenodd" ${sw(1.8)}/>`).join('')}${ITEMS.filter(i=>AREA_CLASS[i.type]==='zone').map(i=>`<path d="${MAP.items[i.id].d}" class="zone" fill-rule="evenodd" ${sw(1.4)}/>`).join('')}<path d="${MAP.context.lakes}" class="lakes"/><path d="${MAP.context.rivers}" class="ctx-rivers" ${sw(1)}/>`;
+  for(const it of ITEMS){const m=MAP.items[it.id];if(LINE(it.type))h+=`<path d="${m.d}" class="lineTarget" ${sw(3.5)}/>`;}
   ns.forEach(c=>{const t=BYID[c.id].type,m=MAP.items[c.id];
     if(AREA(t)&&m.x==null)h+=`<path d="${m.d}" class="pk-area" fill-rule="evenodd" ${sw(2)}/>`;
-    if(t==='rivier')h+=`<path d="${m.d}" class="pk-river" ${sw(5)}/>`;});
+    if(LINE(t))h+=`<path d="${m.d}" class="pk-river" ${sw(5)}/>`;});
   for(const it of ITEMS){const m=MAP.items[it.id];
     if(it.type==='stad')h+=`<circle cx="${m.x}" cy="${m.y}" r="${5.5*k}" class="city" ${sw(2)}/>`;
     else if(m.x!=null)h+=`<path d="M${m.x} ${m.y-6*k}l${6*k} ${6*k}l${-6*k} ${6*k}l${-6*k} ${-6*k}z" class="microstate" ${sw(1.2)}/>`;}
@@ -323,13 +329,13 @@ function clearMarks(){gHL.textContent='';gLbl.textContent='';}
 function mark(id,kind,pulse){ // kind: hl | ok | no
   const it=BYID[id], m=MAP.items[id], c=pulse?' pulse':'';
   if(it.type==='stad') el('circle',{cx:m.x,cy:m.y,r:12,class:kind+'-ring'+c},gHL);
-  else if(it.type==='rivier') el('path',{d:m.d,class:'lineTarget '+kind+'-river'+c},gHL);
+  else if(LINE(it.type)) el('path',{d:m.d,class:'lineTarget '+kind+'-river'+c},gHL);
   else { el('path',{d:m.d,class:kind+'-area'+c,'fill-rule':'evenodd'},gHL);
     if(m.x!=null) el('circle',{cx:m.x,cy:m.y,r:11,class:kind+'-ring'+c},gHL);
     else if(SMALL.has(id)) el('circle',{cx:m.lx,cy:m.ly,r:16,class:kind+'-ring'+c},gHL); }
 }
 // alleen de plek van de naam wordt verschoven, nooit de plek zelf
-const LBL={'groot-brittannie':[-20,-18,'middle'],'atlantische-oceaan':[4,-16,'start'],'nauw-van-calais':[-10,-14,'end'],'vogezen':[14,-8,'start'],'seine':[-34,8,'middle'],'nancy':[0,0,'start']};
+const LBL=MAP.lbl||{};
 function label(id,extra){const it=BYID[id],m=MAP.items[id];
   let [x,y]=it.type==="stad"?[m.x+8,m.y-7]:m.x!=null?[m.x+8,m.y+18]:[m.lx,m.ly];
   let anchor=it.type==='stad'||m.x!=null?'start':'middle';
@@ -358,7 +364,7 @@ const PASTRY=[
  ['madeleine',`<path d="M7 31c0-10 7-18 17-18s17 8 17 18c-5 3-11 4-17 4s-12-1-17-4z" fill="#eab35a" ${ST}/><path d="M24 15v19M17 17l3 16M31 17l-3 16M11 23l7 10M37 23l-7 10" fill="none" stroke="#c98a32" stroke-width="1.2"/>`]];
 const pastrySvg=i=>`<svg viewBox="0 0 48 48" role="img" aria-label="${PASTRY[i][0]}">${PASTRY[i][1]}</svg>`;
 const BOX_SVG='<svg viewBox="0 0 48 48"><rect x="6" y="16" width="36" height="24" rx="3" fill="#f6d6e3" stroke="#c9638c" stroke-width="1.5"/><path d="M6 16l4-6h28l4 6" fill="#fbe7ef" stroke="#c9638c" stroke-width="1.5"/><path d="M24 10v30" stroke="#6a4fd6" stroke-width="3"/><path d="M24 12c-6-8-12-2-6 1M24 12c6-8 12-2 6 1" fill="none" stroke="#6a4fd6" stroke-width="2.5"/></svg>';
-const RIDE_TO=['Parijs','Lille','Straatsburg','Lyon','Marseille','Nice','Montpellier','Toulouse','Bordeaux','Nantes','Le Havre'];
+const RIDE_TO=LES.rideTo;
 S.pz=S.pz||0;S.boxes=S.boxes||0;
 function boxRender(popAt,shown){const n=shown==null?S.pz:shown;slots.innerHTML=PASTRY.map((_,i)=>`<div class="slot">${i<n?`<span${i===popAt?' class="pop"':''} style="display:grid">${pastrySvg(i)}</span>`:''}</div>`).join('');
   const r=Math.floor(S.boxes/3);sBoxes.textContent=S.boxes;sRides.textContent=r;lBoxes.textContent=S.boxes===1?"doos":"dozen";lRides.textContent=r===1?"rit":"ritten";}
@@ -469,7 +475,7 @@ function toetsEnd(){
   panel.innerHTML=chapterSelect()+`<div class="result"><div class="muted">Uitslag</div><b>${good} / ${tot}</b><div>Cijfer: <strong>${cijfer.toFixed(1).replace('.',',')}</strong></div></div>
    ${test.wrong.length?`<div class="prompt">Nog oefenen:</div><ul class="items">${test.wrong.map(id=>`<li><button data-id="${id}">${BYID[id].nl}<small>${TYPE_NL[BYID[id].type]}</small></button></li>`).join('')}</ul>`:'<div class="fb good">Alles goed. Foutloos!</div>'}
    <div class="row"><button class="btn primary" id="again">Nog een keer</button>${test.wrong.length?'<button class="btn" id="fout">Oefen mijn fouten</button>':''}</div>
-   <p class="muted">In de toets telt een naam alleen als hij foutloos is geschreven: hoofdletters maken niet uit, accenten wel (Pyreneeën, Normandië).</p>`;
+   <p class="muted">In de toets telt een naam alleen als hij foutloos is geschreven: hoofdletters maken niet uit, accenten wel (${LES.accentVb}).</p>`;
   bindChapter();
   panel.querySelectorAll('ul.items button').forEach(b=>b.onclick=()=>{clearMarks();mark(b.dataset.id,'hl');label(b.dataset.id);});
   panel.querySelector('#again').onclick=()=>start('toets');
@@ -481,9 +487,9 @@ let hovId=null, hovLbl=null, hovRaf=0;
 function hoverAt(x,y){const u=unitsPerPx();let best=null,bd=1e9;
   for(const it of ITEMS){const m=MAP.items[it.id];
     if(m.x!=null){const d=Math.hypot(x-m.x,y-m.y)/u; if(d<=12&&d<bd){bd=d;best=it.id;}}
-    else if(it.type==='rivier'){const d=riverDist(it.id,x,y)/u; if(d<=10&&d<bd){bd=d;best=it.id;}}}
+    else if(LINE(it.type)){const d=riverDist(it.id,x,y)/u; if(d<=10&&d<bd){bd=d;best=it.id;}}}
   if(best) return best;
-  const ins=ITEMS.filter(it=>AREA_CLASS[it.type]&&inFill(it.id,x,y)).map(it=>[it.id,NODE[it.id].getBBox()]);
+  const ins=ITEMS.filter(it=>AREA(it.type)&&inFill(it.id,x,y)).map(it=>[it.id,NODE[it.id].getBBox()]);
   if(!ins.length) return null; ins.sort((a,b)=>a[1].width*a[1].height-b[1].width*b[1].height); return ins[0][0];}
 function setHover(id){ if(id===hovId) return;
   if(hovId){(DOT[hovId]||NODE[hovId]).classList.remove('hov');}
