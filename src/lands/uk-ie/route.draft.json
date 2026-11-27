@@ -1,0 +1,125 @@
+{
+  "status": "draft",
+  "land": "uk-ie",
+  "audience": "groep 7",
+  "itemsFile": "items.draft.json",
+  "note": "Alleen conceptvolgorde en itemverwijzingen. Steden zijn geografisch gegroepeerd (niet in bladvolgorde) zodat elk hoofdstuk één kaartgebied beslaat. Elk item staat precies eenmaal in de route.",
+  "chapters": [
+    {
+      "id": "steden-schotland",
+      "title": "Steden in Schotland",
+      "itemIds": [
+        "aberdeen",
+        "edinburgh",
+        "glasgow",
+        "inverness"
+      ]
+    },
+    {
+      "id": "steden-ierland",
+      "title": "Steden op het eiland Ierland",
+      "itemIds": [
+        "belfast",
+        "dublin",
+        "cork"
+      ]
+    },
+    {
+      "id": "steden-noord-engeland",
+      "title": "Steden in Noord-Engeland",
+      "itemIds": [
+        "newcastle",
+        "leeds",
+        "hull",
+        "manchester",
+        "liverpool"
+      ]
+    },
+    {
+      "id": "steden-midden-oost",
+      "title": "Birmingham, Norwich en Londen",
+      "itemIds": [
+        "birmingham",
+        "norwich",
+        "londen"
+      ]
+    },
+    {
+      "id": "steden-zuidwest",
+      "title": "Steden in het zuidwesten",
+      "itemIds": [
+        "bristol",
+        "cardiff",
+        "southampton"
+      ]
+    },
+    {
+      "id": "landen-vk-ierland",
+      "title": "Het Verenigd Koninkrijk en Ierland",
+      "itemIds": [
+        "engeland",
+        "schotland",
+        "wales",
+        "noord-ierland",
+        "ierland"
+      ]
+    },
+    {
+      "id": "buurlanden-noord",
+      "title": "Buurlanden over de Noordzee",
+      "itemIds": [
+        "noorwegen",
+        "denemarken",
+        "duitsland"
+      ]
+    },
+    {
+      "id": "buurlanden-zuid",
+      "title": "Buurlanden aan het Kanaal",
+      "itemIds": [
+        "nederland",
+        "belgie",
+        "frankrijk"
+      ]
+    },
+    {
+      "id": "eilanden-noord",
+      "title": "Eilanden en Skye",
+      "itemIds": [
+        "shetland",
+        "orkney",
+        "hebriden",
+        "skye"
+      ]
+    },
+    {
+      "id": "eilanden-zuid-hooglanden",
+      "title": "Man, Kanaaleilanden en Hooglanden",
+      "itemIds": [
+        "man",
+        "kanaaleilanden",
+        "schotse-hooglanden"
+      ]
+    },
+    {
+      "id": "zeeen",
+      "title": "Oceaan en zeeën",
+      "itemIds": [
+        "atlantische-oceaan",
+        "noordzee",
+        "ierse-zee",
+        "keltische-zee"
+      ]
+    },
+    {
+      "id": "kanaal-theems-loch-ness",
+      "title": "Kanaal, Theems en Loch Ness",
+      "itemIds": [
+        "het-kanaal",
+        "straat-van-dover",
+        "theems",
+        "loch-ness"
+      ]
+    }
+  ]
+}

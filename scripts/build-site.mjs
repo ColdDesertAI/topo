@@ -18,7 +18,7 @@ const italie = join(dist, 'italie');
 rmSync(italie, { recursive: true, force: true });
 mkdirSync(italie, { recursive: true });
 for (const name of readdirSync(dist)) {
-  if (['italie', 'assets', 'site.webmanifest', 'favicon.ico'].includes(name)) continue;
+  if (['italie', 'vk-ierland', 'assets', 'site.webmanifest', 'favicon.ico'].includes(name)) continue;
   renameSync(join(dist, name), join(italie, name));
 }
 
@@ -79,3 +79,6 @@ for (const rel of used) {
 cpSync(join(root, 'portal/assets/flags/LICENSE'), join(dist, 'assets/flags/LICENSE'));
 cpSync(join(root, 'assets/nino-topo/v3-r3/brand/icons/favicon.ico'), join(dist, 'favicon.ico'));
 console.log(`Site: dist/ (portal, ${used.size} assets) + dist/italie/ (app)`);
+
+// 4. UK-01: oefenmodule VK en Ierland op /vk-ierland/ (los bestand, niet gelinkt vanuit het portal)
+execFileSync(process.execPath, [join(root, 'scripts/land/uk-ie-build.mjs'), join(dist, 'vk-ierland/index.html')], { stdio: 'inherit' });
