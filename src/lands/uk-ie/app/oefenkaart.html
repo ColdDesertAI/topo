@@ -405,7 +405,7 @@ function next(){ if(!deck.length) return null; if(qi>=deck.length){deck=shuffle(
     if(deck.length>1&&deck[0]===cur){[deck[0],deck[1]]=[deck[1],deck[0]];}} return deck[qi++]; }
 
 function start(m){mode=m;document.querySelectorAll('nav [data-mode]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===m));
-  clearMarks();onTap=null;answered=false;test=null;deck=shuffle(chapterItems());qi=0;cur=null;
+  clearTimeout(toetsT);clearMarks();onTap=null;answered=false;test=null;deck=shuffle(chapterItems());qi=0;cur=null;
   ({leren:leren,wijs:wijs,schrijf:schrijf,toets:toetsStart})[m]();}
 
 function emptyMsg(){panel.innerHTML=chapterSelect()+`<div class="fb info">Geen plekken in deze keuze. ${S.chapter==='fouten'?'Je hebt nog geen fouten. Knap!':''}</div>`;bindChapter();}
@@ -457,12 +457,14 @@ function toetsStart(){
   panel.innerHTML=chapterSelect()+`<p class="prompt">Een toets zoals de overhoring: elke plek één keer, om en om aanwijzen en schrijven. De uitslag zie je aan het eind.</p><div class="muted">${ids.length} vragen</div><button class="btn primary" id="go">Start de toets</button>`;
   bindChapter();panel.querySelector('#go').onclick=()=>{test={ids:shuffle(ids),i:0,wrong:[]};toetsQ();};
 }
+let toetsT=0;
 function toetsQ(){
   clearMarks();onTap=null;
   if(test.i>=test.ids.length) return toetsEnd();
   const id=test.ids[test.i], it=BYID[id], kind=test.i%2?'schrijf':'wijs', n=test.i+1, tot=test.ids.length;
   const head=`<div class="muted">Vraag ${n} van ${tot}</div><div class="progress"><i style="width:${(n-1)/tot*100}%"></i></div>`;
-  const done=(ok)=>{score(ok,id);if(!ok)test.wrong.push(id);test.i++;setTimeout(toetsQ,250);};
+  // één antwoord per vraag (dubbeltik, twee keer Enter); van modus wisselen annuleert de overgang
+  let ans=false; const done=(ok)=>{if(ans)return;ans=true;score(ok,id);if(!ok)test.wrong.push(id);test.i++;toetsT=setTimeout(toetsQ,250);};
   if(kind==='wijs'){
     panel.innerHTML=head+`<div class="prompt">Wijs aan (${TYPE_NL[it.type]}):<b>${it.nl}</b></div><button class="btn" id="skip">Weet ik niet</button>`;
     panel.querySelector('#skip').onclick=()=>done(false);
