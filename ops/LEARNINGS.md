@@ -66,3 +66,4 @@ Dit is waar het systeem slimmer wordt. Elke FAIL, elke correctie van Dennis en e
 27-11 UK-01: een land dat naar dist/<map> bouwt moet op de skiplijst van build-site.mjs staan, anders belandt het bij een niet-schone build stil in /italie/. Toets byte-identiek ook met een tweede, niet-schone build.
 27-11 UK-01b: een ruimere knip voor de achtergrond mag de doelen niet raken; vergelijk na regenereren altijd targets met main (check bewaakt nu labels binnen het kader).
 27-11 UK-01b: wat als land X getekend is, moet ook als X tellen; en klem het kaartbeeld op de getekende achtergrond in plaats van de marge steeds te vergroten.
+- 27-11 UK-01c: e2e haalde alle criteria terwijl staand (810×1080) de vraag onder de vouw viel; bij een andere kaartverhouding dan het sjabloon altijd checken dat `.prompt` zonder scrollen in beeld staat (nu in uk-ie-e2e).
