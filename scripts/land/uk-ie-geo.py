@@ -37,10 +37,13 @@ NEUTRAL = '#e4dfd1'
 COUNTRY = {'engeland': ['ENG'], 'schotland': ['SCT'], 'wales': ['WLS'], 'noord-ierland': ['NIR'], 'ierland': ['IRL'],
            'nederland': ['NLX'], 'belgie': ['BFR', 'BWR', 'BCR'], 'duitsland': ['DEU'], 'frankrijk': ['FXX'],
            'denemarken': ['DNK'], 'noorwegen': ['NOW']}
-geo = {k: unit(*v) for k, v in COUNTRY.items()}
+# Buurlanden: doel = hele getekende vorm (wat je als land ziet, telt als dat land). VK en Ierland vallen al binnen EXT.
+NEIGHBOURS = ['nederland', 'belgie', 'duitsland', 'frankrijk', 'denemarken', 'noorwegen']
+geo = {k: unit(*v, ext=EXT_DRAW if k in NEIGHBOURS else EXT) for k, v in COUNTRY.items()}
 geo['man'] = unit('IMN'); geo['kanaaleilanden'] = unit('JEY', 'GGY')
 ctx = unit('LUX', 'SWE')
-LAND = unary_union(list(geo.values()) + [ctx])
+# Zeezones worden afgesneden met land binnen het kader (zelfde als in de eerste versie, zodat de zones niet verschuiven)
+LAND = unary_union([unit(*v) for v in COUNTRY.values()] + [unit('IMN'), unit('JEY', 'GGY'), ctx])
 
 # Schotse eilanden: delen van de vorm van Schotland, gekozen op ligging
 sc_parts = list(geo['schotland'].geoms)
@@ -69,7 +72,10 @@ Z = {
               (-5.0, 55.35), (-4.5, 56.5), (-4.0, 58.0), (-3.1, 58.7), (-2.3, 59.4), (-1.0, 60.4), (-0.9, 61.5), (-12.5, 62.0)],
 }
 LABEL = {'atlantische-oceaan': (-9.9, 56.6), 'noordzee': (3.0, 56.4), 'het-kanaal': (-2.6, 50.15), 'straat-van-dover': (1.55, 51.02),
-         'ierse-zee': (-4.95, 53.9), 'keltische-zee': (-7.4, 50.7), 'theems': (0.2, 51.47), 'loch-ness': (-4.45, 57.25)}
+         'ierse-zee': (-4.95, 53.9), 'keltische-zee': (-7.4, 50.7),
+         # buurlanden: label binnen het kader en binnen het land (hun vorm loopt ver buiten het kader)
+         'noorwegen': (7.6, 58.9), 'denemarken': (9.0, 56.2), 'duitsland': (8.3, 52.6), 'frankrijk': (2.2, 49.7),
+         'nederland': (5.6, 52.3), 'belgie': (4.6, 50.6), 'theems': (0.2, 51.47), 'loch-ness': (-4.45, 57.25)}
 taken = Polygon()
 for k, ring in Z.items():
     z = Polygon(ring).intersection(box(LON0, LAT0, LON1, LAT1)).difference(LAND).difference(taken)
@@ -119,7 +125,7 @@ out = {
  'handmade': ['schotse-hooglanden', *Z.keys()],
  'base': {'sea': '#4fa3cf', 'neutral': NEUTRAL,
           'land': [{'id': k, 'd': d_of(rings(DRAW[k])), 'sheetFill': SHEET.get(k, NEUTRAL)} for k in [*COUNTRY, 'man', 'kanaaleilanden']]
-                  + [{'id': 'context', 'd': d_of(rings(unit('LUX', 'SWE', ext=EXT_DRAW))), 'sheetFill': NEUTRAL}],
+                  + [{'id': 'context', 'd': d_of(rings(unit('LUX', 'SWE', 'CHE', 'LIE', 'AUT', 'ITA', 'CZE', 'POL', 'ESP', 'AND', 'MCO', ext=EXT_DRAW))), 'sheetFill': NEUTRAL}],
           'thames': d_line(lines(thames)), 'ness': d_of(rings(ness)) or None},
  'targets': {},
 }

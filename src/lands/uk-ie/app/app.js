@@ -45,7 +45,8 @@
       const t = T[id];
       if (t.kind === 'point') add(t.x, t.y);
       else if (t.kind === 'line') t.lines.forEach(l => l.forEach(([x, y]) => add(x, y)));
-      else if (id === 'atlantische-oceaan' || id === 'noordzee' || id === 'noorwegen') add(...t.label);
+      else if (id === 'atlantische-oceaan' || id === 'noordzee') add(...t.label);
+      else if (BY[id].type === 'land') t.rings.forEach(p => p[0].forEach(([x, y]) => add(Math.min(MW, Math.max(0, x)), Math.min(MH, Math.max(0, y))))); // buurlanden lopen ver buiten het kader
       else t.rings.forEach(p => p[0].forEach(([x, y]) => add(x, y)));
     }
     return [x0, y0, x1, y1];

@@ -61,6 +61,20 @@ for (const [w, h] of SIZES) {
   console.log(`${w}x${h}: aanwijzen ${good}/44 goed, ${wrongCaught}/${wrongTried} fouten herkend`);
   if (good !== 44) fail(`${w}x${h}: aanwijzen ${good}/44`);
 
+  // 3b. Wat als land getekend is, telt als dat land: diep in elk buurland (ver van het label) is goed
+  const deep = { duitsland: [13.4, 52.5], noorwegen: [10.75, 59.9], denemarken: [12.0, 55.5], frankrijk: [1.9, 47.9], nederland: [6.5, 52.6], belgie: [5.5, 50.3], ierland: [-8.0, 53.5], schotland: [-4.0, 57.0] };
+  const deepBad = await p.evaluate(deep => {
+    const { lon, lat, width } = window.TOPO_UK.geo.projection, R = Math.PI / 180;
+    const m = l => Math.log(Math.tan(Math.PI / 4 + l * R / 2)), sx = width / ((lon[1] - lon[0]) * R);
+    const out = [];
+    for (const [id, [lo, la]] of Object.entries(deep)) {
+      const x = (lo - lon[0]) * R * sx, y = (m(lat[1]) - m(la)) * sx;
+      if (!window.TopoCheck.tapIsCorrect(x, y, __topoUK.BY[id], Object.values(__topoUK.BY), __topoUK.T, 1)) out.push(id);
+    }
+    return out;
+  }, deep);
+  if (deepBad.length) fail(`${w}x${h}: diep in het land niet goed: ${deepBad.join(', ')}`);
+
   // 5. Herkennen en schrijven: één hoofdstuk volledig; leren opent
   await p.evaluate(() => __topoUK.home());
   await p.locator('.chapter').nth(5).getByRole('button', { name: 'Herkennen' }).click();

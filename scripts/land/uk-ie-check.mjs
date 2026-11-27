@@ -40,7 +40,8 @@ const { width: MW, height: MH } = geo.projection;
 for (const [id, t] of Object.entries(geo.targets)) {
   const [lx, ly] = t.kind === 'point' ? [t.x, t.y] : t.label;
   assert.ok(lx > 0 && lx < MW && ly > 0 && ly < MH + 20, 'label buiten kader: ' + id); // Kanaaleilanden liggen net onder de rand (49,2° N)
-  const pts = t.kind === 'point' ? [] : t.rings ? t.rings.flatMap(p => p[0]) : t.lines.flat();
+  // buurlanden zijn bewust heel (wat je als land ziet, telt als dat land); de rest blijft bij het kader
+  const pts = t.kind === 'point' || BY[id].type === 'land' ? [] : t.rings ? t.rings.flatMap(p => p[0]) : t.lines.flat();
   for (const [x, y] of pts) assert.ok(x > -100 && x < MW + 100 && y > -100 && y < MH + 100, 'doel ver buiten kader: ' + id);
 }
 // het blad: VK-delen en Ierland apart; Belfast niet in Ierland
