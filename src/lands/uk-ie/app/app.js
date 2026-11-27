@@ -45,7 +45,8 @@
       const t = T[id];
       if (t.kind === 'point') add(t.x, t.y);
       else if (t.kind === 'line') t.lines.forEach(l => l.forEach(([x, y]) => add(x, y)));
-      else if (id === 'atlantische-oceaan' || id === 'noordzee' || id === 'noorwegen') add(...t.label);
+      else if (id === 'atlantische-oceaan' || id === 'noordzee') add(...t.label);
+      else if (BY[id].type === 'land') t.rings.forEach(p => p[0].forEach(([x, y]) => add(Math.min(MW, Math.max(0, x)), Math.min(MH, Math.max(0, y))))); // buurlanden lopen ver buiten het kader
       else t.rings.forEach(p => p[0].forEach(([x, y]) => add(x, y)));
     }
     return [x0, y0, x1, y1];
@@ -71,7 +72,15 @@
     let vb = [0, 0, MW, MH];
     const px = () => vb[2] / (svg.getBoundingClientRect().width || 1000);
     const k = () => Math.max(vb[2] / (svg.clientWidth || 1000), vb[3] / (svg.clientHeight || 1000));
+    // Het beeld blijft binnen de getekende achtergrond: nooit een rechte landrand of leeg vlak in beeld.
+    const [bx0, by0, bx1, by1] = G.drawBounds;
+    function clampVb() {
+      let [x, y, w, hh] = vb; const f = Math.min(1, (bx1 - bx0) / w, (by1 - by0) / hh);
+      if (f < 1) { x += w * (1 - f) / 2; y += hh * (1 - f) / 2; w *= f; hh *= f; }
+      vb = [Math.min(Math.max(x, bx0), bx1 - w), Math.min(Math.max(y, by0), by1 - hh), w, hh];
+    }
     function apply() {
+      clampVb();
       svg.setAttribute('viewBox', vb.join(' '));
       const u = k();
       for (const c of Object.values(dots)) c.setAttribute('r', (c.classList.contains('hi') ? 9 : 6.5) * u);
@@ -194,7 +203,7 @@
       box.push(top(), h('div', { class: 'progress' }, exam ? `Vraag ${done + 1} van ${total}` : `${done} van ${total} goed`));
       if (mode === 'aanwijzen') {
         box.push(h('div', { class: 'prompt' }, h('p', { class: 'q' }, 'Wijs aan op de kaart:'), h('p', { class: 'target' }, it.name.nl), h('p', { class: 'kind' }, kindOf(it))));
-        box.push(h('p', { class: 'hint' }, (it.type === 'water' ? 'Tik in het water.' : it.type === 'stad' ? 'Tik op de stip.' : 'Tik in het gebied.') + ' Inzoomen kan met twee vingers of met +.'));
+        box.push(h('p', { class: 'hint' }, (it.subtype === 'meer' ? 'Tik op het meer.' : it.type === 'rivier' ? 'Tik op de rivier.' : it.type === 'water' ? 'Tik in het water.' : it.type === 'stad' ? 'Tik op de stip.' : 'Tik in het gebied.') + ' Inzoomen kan met twee vingers of met +.'));
         onTap = (x, y, px) => tapAnswer(x, y, px);
       } else {
         map.highlight(it.id);

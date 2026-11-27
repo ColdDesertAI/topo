@@ -61,6 +61,30 @@ for (const [w, h] of SIZES) {
   console.log(`${w}x${h}: aanwijzen ${good}/44 goed, ${wrongCaught}/${wrongTried} fouten herkend`);
   if (good !== 44) fail(`${w}x${h}: aanwijzen ${good}/44`);
 
+  // 3b. Wat als land getekend is, telt als dat land: diep in elk buurland (ver van het label) is goed
+  const deep = { duitsland: [13.4, 52.5], noorwegen: [10.75, 59.9], denemarken: [12.0, 55.5], frankrijk: [1.9, 47.9], nederland: [6.5, 52.6], belgie: [5.5, 50.3], ierland: [-8.0, 53.5], schotland: [-4.0, 57.0] };
+  const deepBad = await p.evaluate(deep => {
+    const { lon, lat, width } = window.TOPO_UK.geo.projection, R = Math.PI / 180;
+    const m = l => Math.log(Math.tan(Math.PI / 4 + l * R / 2)), sx = width / ((lon[1] - lon[0]) * R);
+    const out = [];
+    for (const [id, [lo, la]] of Object.entries(deep)) {
+      const x = (lo - lon[0]) * R * sx, y = (m(lat[1]) - m(la)) * sx;
+      if (!window.TopoCheck.tapIsCorrect(x, y, __topoUK.BY[id], Object.values(__topoUK.BY), __topoUK.T, 1)) out.push(id);
+    }
+    return out;
+  }, deep);
+  if (deepBad.length) fail(`${w}x${h}: diep in het land niet goed: ${deepBad.join(', ')}`);
+
+  // 3c. Uitzoomen en slepen blijft binnen de getekende achtergrond (geen rechte landranden)
+  for (const c of [6, 7]) {
+    await p.evaluate(() => __topoUK.home()); await p.locator('.chapter').nth(c).getByRole('button', { name: 'Leren' }).click(); await p.waitForTimeout(100);
+    for (let i = 0; i < 8; i++) await p.getByRole('button', { name: 'Uitzoomen' }).click();
+    const r = await p.locator('.mapwrap').boundingBox();
+    await p.mouse.move(r.x + 50, r.y + 50); await p.mouse.down(); await p.mouse.move(r.x + r.width - 20, r.y + r.height - 20, { steps: 5 }); await p.mouse.up();
+    const out = await p.evaluate(() => { const [x, y, w, h] = document.querySelector('.mapwrap svg').getAttribute('viewBox').split(' ').map(Number); const [a, b, c, d] = window.TOPO_UK.geo.drawBounds; return x < a - .5 || y < b - .5 || x + w > c + .5 || y + h > d + .5; });
+    if (out) fail(`${w}x${h}: beeld buiten de achtergrond (hoofdstuk ${c + 1})`);
+  }
+
   // 5. Herkennen en schrijven: één hoofdstuk volledig; leren opent
   await p.evaluate(() => __topoUK.home());
   await p.locator('.chapter').nth(5).getByRole('button', { name: 'Herkennen' }).click();
