@@ -65,3 +65,4 @@ Dit is waar het systeem slimmer wordt. Elke FAIL, elke correctie van Dennis en e
 - 27-11 BL-046: schrijf de meettest eerst en laat hem op de oude code FAIL geven; de evaluator draait hem zelf op de basis-commit (worktree). Zo bewijst de test iets.
 27-11 UK-01: een land dat naar dist/<map> bouwt moet op de skiplijst van build-site.mjs staan, anders belandt het bij een niet-schone build stil in /italie/. Toets byte-identiek ook met een tweede, niet-schone build.
 27-11 UK-01b: een ruimere knip voor de achtergrond mag de doelen niet raken; vergelijk na regenereren altijd targets met main (check bewaakt nu labels binnen het kader).
+27-11 UK-01b: wat als land X getekend is, moet ook als X tellen; en klem het kaartbeeld op de getekende achtergrond in plaats van de marge steeds te vergroten.
