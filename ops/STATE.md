@@ -6,7 +6,7 @@ Bijgewerkt: 27 november 2026, Claude Code (weekreview 48). Historie: `RUNLOG.md`
 M0 sluit zodra Hermes crit. 3 PASS geeft (besluit 27-11, 1a); BL-046 is live (PR #124, `c41f241`). Speeltest BL-010 → M1, datum vóór 11-12 (Dennis). Daarna M1 met BL-007. Bouwende nachtrun pas na M1 (3a). Koers en besluiten: `ops/ROADMAP.md` §Koers, `docs/DECISIONS.md` 26-11 en 27-11.
 
 ## Product
-- Productie = `main` (Vercel deployt elke merge). V3 Italië; `main` `a14ac18` (27-11). App laatst gewijzigd 22-11 (`2cadd3a`, nachtwerk + revert BL-031a). Docs/ops-commits bouwen niet meer (#125).
+- Productie = `main` (Vercel deployt elke merge). V3 Italië; app laatst gewijzigd 27-11 (`c41f241`, BL-046). Docs/ops-commits bouwen niet meer (#125).
 - Release v3.0.0 (tag → `718658f`), gepubliceerd 25-11.
 - Hermes-hertest BL-004 (26-11, PR #122): **FAIL op één punt** — geen P0; kernroute, offline, opslag, a11y, portal PASS; 5 oude P0's opgelost en gesloten. Blokkade: #118 antwoordpaneel bedekt het zuiden op iPad → BL-046 live 27-11 (PR #124, `c41f241`). Echte iPad 9 nog niet getest → bij de speeltest BL-010.
 
