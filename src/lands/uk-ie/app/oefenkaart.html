@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Topo Frankrijk · oefenkaart</title>
+<style>
+:root{--ink:#2A2440;--soft:#6c6683;--violet:#6a4fd6;--violet-l:#ece7ff;--good:#1f8a5b;--bad:#c2412d;--sea:#a7cfe8;--land:#e3dccb;--fr:#fffdf7;--line:#d9d3c4;--card:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font:500 16px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:var(--ink);background:#f4f1ea;-webkit-text-size-adjust:100%}
+header{display:flex;align-items:center;gap:14px;padding:10px 18px;background:#fff;border-bottom:1px solid var(--line)}
+header img{width:46px;height:46px;border-radius:50%;object-fit:cover;background:#eee}
+header h1{margin:0;font-size:22px;font-weight:700}
+header small{display:block;color:var(--soft);font-size:13px;font-weight:500}
+.stats{margin-left:auto;display:flex;gap:8px}
+.stat{background:#f6f3fb;border-radius:10px;padding:5px 12px;text-align:center;min-width:64px}
+.stat b{display:block;font-size:19px}
+.stat span{font-size:12px;color:var(--soft)}
+nav{display:flex;gap:6px;padding:10px 18px 0;flex-wrap:wrap}
+nav button,.chip,.btn{font:inherit;font-weight:600;border:0;border-radius:12px;padding:11px 16px;min-height:44px;cursor:pointer;background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+nav button[aria-pressed=true]{background:var(--violet);color:#fff;box-shadow:none}
+main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px;padding:12px 18px 18px;align-items:start}
+@media (max-width:950px){main{grid-template-columns:1fr}}
+.mapwrap{background:#fff;border-radius:16px;padding:8px;box-shadow:0 1px 3px #0001}
+svg{display:block;width:100%;height:auto;max-height:calc(100vh - 180px);touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.panel{background:var(--card);border-radius:16px;padding:16px;box-shadow:0 1px 3px #0001;display:flex;flex-direction:column;gap:12px}
+label.sel{font-size:13px;color:var(--soft);font-weight:600}
+select{font:inherit;font-weight:600;width:100%;min-height:44px;border-radius:12px;border:1px solid var(--line);padding:8px 10px;background:#fff;color:var(--ink)}
+.prompt{font-size:15px;color:var(--soft)}
+.prompt b{display:block;font-size:30px;color:var(--ink);line-height:1.15;margin-top:2px}
+.fb{border-radius:12px;padding:10px 12px;font-weight:600;min-height:44px}
+.fb.good{background:#e5f5ec;color:var(--good)}
+.fb.bad{background:#fbe9e5;color:var(--bad)}
+.fb.info{background:var(--violet-l);color:var(--ink)}
+.btn.primary{background:var(--violet);color:#fff;box-shadow:none}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input[type=text]{font:inherit;font-size:20px;width:100%;min-height:48px;border-radius:12px;border:2px solid var(--line);padding:8px 12px;color:var(--ink)}
+input[type=text]:focus{outline:none;border-color:var(--violet)}
+ul.items{list-style:none;margin:0;padding:0;display:grid;gap:4px;max-height:52vh;overflow:auto}
+ul.items button{width:100%;text-align:left;font:inherit;font-weight:600;border:0;background:#f7f5f0;border-radius:10px;padding:10px 12px;min-height:44px;cursor:pointer;color:var(--ink);display:flex;justify-content:space-between;gap:8px}
+ul.items button[aria-current=true]{background:var(--violet);color:#fff}
+ul.items small{font-weight:500;opacity:.7}
+.progress{height:8px;background:#eee;border-radius:8px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--violet);width:0}
+.result b{font-size:52px;color:var(--violet)}
+.muted{color:var(--soft);font-size:13px}
+/* kaart: zelfde kleuren als de Italie-kaart (v2): focusland warm, lesstof-landen perkament, context grijsgroen */
+.sea{fill:#bde4ee}
+.water{fill:#bde4ee;fill-opacity:0;stroke:none}
+.ctx-land{fill:#dce4cf;stroke:#849685;stroke-width:1}
+.country{fill:#eee2c7;stroke:#a89d86;stroke-width:1.4}
+.fr,.island{fill:#efcd93;stroke:#9f8e76;stroke-width:1.8}
+.zone{fill:#dcad70;fill-opacity:.22;stroke:#b87e46;stroke-width:1.4;stroke-dasharray:6 5}
+.lakes{fill:#9fd0dd;stroke:#71adb9;stroke-width:.6}
+.ctx-rivers{fill:none;stroke:#8fc3d0;stroke-width:.8}
+.lineTarget{fill:none;stroke:#68a5b5;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+.city{fill:#a44336;stroke:#fff;stroke-width:2.2}
+.microstate{fill:#934832;stroke:#fff;stroke-width:1.2}
+.ctxlbl{fill:#788277;font:700 12px -apple-system,Helvetica,Arial,sans-serif;letter-spacing:1.5px;pointer-events:none}
+/* hover (muis/pen): wat je zou aantikken kleurt oranje */
+.hov.country,.hov.zone,.hov.water,.hov.island{fill:#f7b078;fill-opacity:.76}
+.hov.lineTarget{stroke:#ed8f57}
+.hov.city,.hov.microstate{fill:#f89b49;stroke-width:3.5}
+svg#map{cursor:pointer}
+/* markeren: oranje zoals Italie; goed groen, fout rood */
+.hl-area{fill:#f19a55;fill-opacity:.65;stroke:#af4b23;stroke-width:3}
+.hl-river{stroke:#f19a55;stroke-width:9}
+.hl-ring{fill:none;stroke:#ab4d28;stroke-width:3.5}
+.ok-area{fill:var(--good);fill-opacity:.4;stroke:var(--good);stroke-width:2.5}
+.ok-river{stroke:var(--good);stroke-width:8}
+.ok-ring{fill:none;stroke:var(--good);stroke-width:3.5}
+.no-area{fill:var(--bad);fill-opacity:.3;stroke:var(--bad);stroke-width:2}
+.no-river{stroke:var(--bad);stroke-width:7}
+.no-ring{fill:none;stroke:var(--bad);stroke-width:3}
+.lbl{font:850 15px -apple-system,Helvetica,Arial,sans-serif;fill:#152e38;stroke:#fff;stroke-width:4px;paint-order:stroke;stroke-linejoin:round;pointer-events:none}
+.lbl.small{font-size:13px}
+.lbl.sea{fill:#116a83;font-style:italic}
+.lbl.region{fill:#684c35}
+.lbl.hovlbl{fill:#7a3a12}
+.tap{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-dasharray:3 3;pointer-events:none}
+.frame{fill:none;stroke:#849685;stroke-width:1.2;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){.pulse{animation:pulse 1.2s ease-in-out infinite}@keyframes pulse{50%{opacity:.45}}}
+footer{padding:0 18px 18px;color:var(--soft);font-size:12px}
+.sheetbtn{margin-left:auto}
+nav button.sheetbtn{background:#fff6ec;box-shadow:inset 0 0 0 1px #f0dcc4}
+#sheet{position:fixed;inset:0;background:#2a244077;display:grid;place-items:center;z-index:45;padding:12px}
+#sheet[hidden]{display:none}
+.sheetcard{background:#fff;border-radius:18px;padding:14px;width:min(980px,98vw);height:min(94vh,1100px);display:flex;flex-direction:column;gap:10px;box-shadow:0 20px 50px #0004}
+.sheethead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sheethead h2{margin:0 8px 0 0;font-size:20px}
+.sheethead #sheetZoom{margin-left:auto}
+.chip[aria-pressed=true]{background:var(--violet);color:#fff;box-shadow:none}
+.sheetscroll{flex:1;overflow:auto;border-radius:12px;background:#f4f1ea;-webkit-overflow-scrolling:touch}
+.sheetscroll img{display:block;width:100%;height:auto;margin:0 auto}
+.sheetscroll.zoom img{width:200%;max-width:none}
+/* beloning: bakkerijdoos met 8 gebakjes, 3 volle dozen = Vespa-rit */
+header{flex-wrap:wrap}
+.box{display:flex;align-items:center;gap:10px;background:#fff6ec;border-radius:12px;padding:6px 10px;box-shadow:inset 0 0 0 1px #f0dcc4}
+.slots{display:grid;grid-template-columns:repeat(8,28px);gap:3px}
+.slot{width:28px;height:28px;border-radius:9px;background:#f2e3cf;display:grid;place-items:center}
+.slot svg{width:26px;height:26px}
+.boxinfo{font-size:12px;color:var(--soft);line-height:1.25;min-width:64px}
+.boxinfo b{font-size:15px;color:var(--ink)}
+#toast{position:fixed;left:50%;top:96px;transform:translate(-50%,-260%);background:#fff;border-radius:16px;padding:10px 16px;box-shadow:0 10px 30px #0003;display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;z-index:20;opacity:0;transition:transform .35s ease,opacity .35s}
+#toast.on{transform:translate(-50%,0);opacity:1}
+#toast svg{width:44px;height:44px}
+#ride{position:fixed;inset:0;pointer-events:none;display:none;z-index:30;background:linear-gradient(#0000 55%,#2a244018)}
+#ride.on{display:block}
+#ride .scoot{position:absolute;bottom:9%;left:-300px;width:260px}
+#ride .scoot img.v{width:260px;display:block}
+#ride .scoot img.n{position:absolute;width:86px;height:86px;border-radius:50%;left:52px;top:-18px;border:3px solid #fff;box-shadow:0 4px 12px #0003}
+#ride .msg{position:absolute;top:26%;left:50%;transform:translateX(-50%);background:#fff;border-radius:18px;padding:16px 24px;font-weight:700;font-size:24px;box-shadow:0 10px 30px #0003;text-align:center;white-space:nowrap}
+#ride .msg small{display:block;font-size:15px;color:var(--soft);font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+ .pop{animation:pop .55s cubic-bezier(.3,1.6,.5,1)}
+ @keyframes pop{0%{transform:scale(0) rotate(-25deg)}100%{transform:none}}
+ #ride.on .scoot{animation:drive 3.4s cubic-bezier(.45,0,.55,1) forwards}
+ @keyframes drive{0%{transform:translateX(0) rotate(0)}20%{transform:translateX(25vw) rotate(-1.5deg)}40%{transform:translateX(50vw) rotate(1deg)}100%{transform:translateX(calc(100vw + 340px)) rotate(0)}}
+}
+@media (prefers-reduced-motion:reduce){#ride .scoot{left:50%;margin-left:-130px}}
+/* keuzevenster bij twijfel: welke plek bedoel je? */
+#pick{position:fixed;inset:0;background:#2a244066;display:grid;place-items:center;z-index:40;padding:12px}
+#pick[hidden]{display:none}
+.pickcard{background:#fff;border-radius:18px;padding:16px;width:min(460px,96vw);display:grid;gap:12px;box-shadow:0 20px 50px #0004}
+.pickcard h2{margin:0;font-size:20px}
+.pickcard p{margin:0;color:var(--soft);font-size:14px}
+#pickmap{width:100%;height:auto;border-radius:12px;display:block;max-height:52vh}
+#pickBtns{display:flex;gap:8px;flex-wrap:wrap}
+#pickBtns button{font:inherit;font-weight:700;font-size:20px;min-width:64px;min-height:52px;border:0;border-radius:12px;background:var(--violet);color:#fff;cursor:pointer;padding:0 16px}
+#pickBtns button small{font-size:15px;font-weight:600;margin-left:6px}
+.pk-badge{fill:#fff;stroke:var(--violet)}
+.pk-num{fill:var(--ink);font-weight:800;font-family:-apple-system,Helvetica,Arial,sans-serif;text-anchor:middle;dominant-baseline:central}
+.pk-lead{stroke:var(--violet);fill:none}
+.pk-area{fill:var(--violet);fill-opacity:.12;stroke:var(--violet);stroke-dasharray:5 4}
+.pk-river{fill:none;stroke:var(--violet)}
+</style>
+</head>
+<body>
+<header>
+  <img alt="" src="/*IMG_NINO*/">
+  <div><h1>Topo Frankrijk</h1><small>Oefenkaart van het schoolblad · 44 plekken</small></div>
+  <div class="stats">
+    <div class="box" aria-label="Bakkerijdoos"><div class="slots" id="slots"></div><div class="boxinfo"><b id="sBoxes">0</b> <span id="lBoxes">dozen</span><br><b id="sRides">0</b> <span id="lRides">ritten</span></div></div>
+    <div class="stat"><b id="sGood">0</b><span>goed</span></div>
+    <div class="stat"><b id="sStreak">0</b><span>reeks</span></div>
+    <div class="stat"><b id="sMiss">0</b><span>fouten</span></div>
+  </div>
+</header>
+<nav aria-label="Oefenvorm">
+  <button data-mode="leren" aria-pressed="true">Leren</button>
+  <button data-mode="wijs" aria-pressed="false">Aanwijzen</button>
+  <button data-mode="schrijf" aria-pressed="false">Namen schrijven</button>
+  <button data-mode="toets" aria-pressed="false">Toets</button>
+  <button id="sheetBtn" class="sheetbtn" type="button">Schoolblad</button>
+</nav>
+<main>
+  <div class="mapwrap"><svg id="map" role="img" aria-label="Kaart van Frankrijk"></svg></div>
+  <section class="panel" id="panel" aria-live="polite"></section>
+</main>
+<div id="pick" hidden role="dialog" aria-modal="true" aria-labelledby="pickT"><div class="pickcard"><h2 id="pickT">Welke plek bedoel je?</h2><p id="pickP">Hier liggen meer plekken dicht bij elkaar. Kies het nummer.</p><svg id="pickmap" aria-hidden="true"></svg><div id="pickBtns"></div><button class="btn" id="pickX" type="button">Annuleren</button></div></div>
+<div id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheetT"><div class="sheetcard">
+  <div class="sheethead"><h2 id="sheetT">Schoolblad</h2><div class="row" role="tablist"><button type="button" class="chip" data-sheet="lijst" aria-pressed="true">Lijst</button><button type="button" class="chip" data-sheet="kaart" aria-pressed="false">Leerkaart</button></div><button type="button" class="btn" id="sheetZoom">Vergroot</button><button type="button" class="btn primary" id="sheetX">Sluiten</button></div>
+  <div class="sheetscroll" id="sheetScroll"><img id="sheetImg" alt="Schoolblad: lijst met 44 plekken" src="/*SHEET_LIJST*/"></div>
+  <p class="muted">Origineel blad van school (foto). De app volgt deze lijst: 44 plekken.</p>
+</div></div>
+<div id="toast" role="status"></div>
+<div id="ride" aria-hidden="true"><div class="msg" id="rideMsg"></div><div class="scoot"><img class="n" alt="" src="/*IMG_NINO*/"><img class="v" alt="" src="/*IMG_VESPA*/"></div></div>
+<footer>Kaartdata: Natural Earth (publiek domein). Lesstof: schoolblad "Topografie Frankrijk". Voortgang blijft alleen op dit apparaat.</footer>
+<script>
+'use strict';
+const MAP=/*MAP*/, LES=/*LES*/;
+const NS='http://www.w3.org/2000/svg';
+const ITEMS=LES.items, BYID=Object.fromEntries(ITEMS.map(i=>[i.id,i]));
+const CH=LES.chapters;
+const TYPE_NL={stad:'stad',eiland:'eiland',gebergte:'gebergte',regio:'streek',buurland:'land',zee:'zee',rivier:'rivier'};
+const AREA=t=>t!=='stad'&&t!=='rivier';
+const svg=document.getElementById('map'), panel=document.getElementById('panel');
+const KEY='topo-frankrijk-v1';
+let S=(()=>{try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}})();
+S.mistakes=S.mistakes||{};S.good=S.good||0;S.miss=S.miss||0;S.chapter=S.chapter||'alles';
+let streak=0;
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+
+// ---------- kaart tekenen ----------
+const [,,W,H]=MAP.viewBox; svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+const el=(n,a,p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e};
+const AREA_CLASS={buurland:'country',zee:'water',regio:'zone',gebergte:'zone',eiland:'island'};
+const NODE={}, DOT={}, SMALL=new Set();
+const layer=()=>el('g',{});
+// alles wordt op het kaartkader afgesneden: buiten het kader geen zee, land loopt tot de rand door
+const defs=el('defs',{}), cp=el('clipPath',{id:'frameClip'},defs); el('rect',{x:0,y:0,width:W,height:H},cp);
+const ROOT=el('g',{'clip-path':'url(#frameClip)'});
+const _el=el; 
+el('rect',{x:0,y:0,width:W,height:H,class:'sea'},ROOT);
+const gWater=el('g',{},ROOT);
+el('path',{d:MAP.context.land,class:'ctx-land'},ROOT);
+const gCountry=el('g',{},ROOT);
+el('path',{d:MAP.context.france,class:'fr'},ROOT);
+const gIsland=el('g',{},ROOT), gZone=el('g',{},ROOT);
+el('path',{d:MAP.context.lakes,class:'lakes'},ROOT);
+for(const l of MAP.context.labels){const t=el("text",{x:Math.min(W-62,Math.max(62,l.x)),y:Math.min(H-14,Math.max(20,l.y)),class:'ctxlbl','text-anchor':'middle'},ROOT);t.textContent=l.t;}
+el('path',{d:MAP.context.rivers,class:'ctx-rivers'},ROOT);
+const gRiver=el('g',{},ROOT), gHL=el('g',{},ROOT), gMarks=el('g',{},ROOT), gLbl=el('g',{},ROOT);
+el('rect',{x:.5,y:.5,width:W-1,height:H-1,class:'frame'});
+const gTargets=gZone;
+const GROUP={country:gCountry,water:gWater,zone:gZone,island:gIsland};
+// vlakken: zichtbaar zoals bij Italie (zeeen, landen, gestippelde zones voor streken en gebergten)
+for(const it of ITEMS){const m=MAP.items[it.id],c=AREA_CLASS[it.type];
+  if(c) NODE[it.id]=el('path',{d:m.d,class:c,'data-id':it.id,'fill-rule':'evenodd'},GROUP[c]);}
+for(const it of ITEMS){const m=MAP.items[it.id];
+  if(it.type==='rivier') NODE[it.id]=el('path',{d:m.d,class:'lineTarget','data-id':it.id},gRiver);}
+for(const it of ITEMS){const m=MAP.items[it.id];
+  if(it.type==='stad') DOT[it.id]=el('circle',{cx:m.x,cy:m.y,r:5.5,class:'city','data-id':it.id},gMarks);
+  else if(m.x!=null) DOT[it.id]=el('path',{d:`M${m.x} ${m.y-6}l6 6l-6 6l-6 -6z`,class:'microstate','data-id':it.id},gMarks);}
+
+for(const it of ITEMS) if(AREA(it.type)){const b=NODE[it.id].getBBox(); if(Math.hypot(b.width,b.height)<80) SMALL.add(it.id);}
+// rivierpunten voor afstandsberekening
+const RIV={};
+for(const it of ITEMS) if(it.type==='rivier'){
+  RIV[it.id]=MAP.items[it.id].d.split('M').filter(Boolean).map(s=>s.split('L').map(p=>p.split(' ').map(Number)));}
+const segDist=(px,py,[ax,ay],[bx,by])=>{const dx=bx-ax,dy=by-ay,l=dx*dx+dy*dy;let t=l?((px-ax)*dx+(py-ay)*dy)/l:0;t=Math.max(0,Math.min(1,t));return Math.hypot(px-ax-t*dx,py-ay-t*dy)};
+const riverDist=(id,x,y)=>{let m=1e9;for(const line of RIV[id])for(let i=1;i<line.length;i++)m=Math.min(m,segDist(x,y,line[i-1],line[i]));return m};
+const unitsPerPx=()=>{const r=svg.getBoundingClientRect();return W/r.width};
+const pickBtns=document.getElementById('pickBtns'), pickP=document.getElementById('pickP');
+const toSvg=(cx,cy)=>{const p=svg.createSVGPoint();p.x=cx;p.y=cy;return p.matrixTransform(svg.getScreenCTM().inverse())};
+
+// ---------- aanwijzen: wat ligt er op dit punt? ----------
+// Stippen en rivieren: binnen 22 px, en alleen de dichtstbijzijnde telt (Metz en Nancy liggen dicht bij elkaar).
+// Vlakken: binnen de vorm. Mis je net de rand, dan telt een marge van 14 px. Bij kleine vlakken
+// (Luxemburg, Nauw van Calais, Monaco, Andorra) telt die marge ook als je net in het buurvlak tikt.
+// De Golf van Biskaje hoort bij de Atlantische Oceaan: daar telt een tik in de golf ook goed.
+const PX_POINT=22, PX_EDGE=14;
+const PARENT={'atlantische-oceaan':['golf-van-biskaje']};
+function inFill(id,x,y){const p=svg.createSVGPoint();p.x=x;p.y=y;try{return NODE[id].isPointInFill(p)}catch(e){return false}}
+function nearEdge(id,x,y,r){for(let k=0;k<12;k++){const a=k*Math.PI/6;for(const f of [0.5,1]){if(inFill(id,x+Math.cos(a)*r*f,y+Math.sin(a)*r*f))return f*r;}}return null}
+// alle kandidaten van een type: [{id, d (px), inside}], dichtstbij eerst
+function hitsAt(x,y,type){
+  const u=unitsPerPx(), out=[];
+  for(const it of ITEMS){ if(type&&it.type!==type) continue; const m=MAP.items[it.id];
+    if(it.type==='stad'){ const d=Math.hypot(x-m.x,y-m.y)/u; if(d<=PX_POINT) out.push({id:it.id,d,pt:1}); }
+    else if(it.type==='rivier'){ const d=riverDist(it.id,x,y)/u; if(d<=PX_POINT) out.push({id:it.id,d,pt:1}); }
+    else { if(inFill(it.id,x,y)) {out.push({id:it.id,d:0,inside:1});continue;}
+      if(m.x!=null){const dm=Math.hypot(x-m.x,y-m.y)/u; if(dm<=PX_POINT){out.push({id:it.id,d:dm,inside:1});continue;}}
+      const e=nearEdge(it.id,x,y,PX_EDGE*u); if(e!=null) out.push({id:it.id,d:e/u,edge:1}); } }
+  return out.sort((a,b)=>a.d-b.d);
+}
+// ---------- kandidaten en verduidelijking ----------
+// Stip of rivier: alles binnen 22 px. Tik je duidelijk op één stip (< 8 px, de volgende > 16 px), dan geen vraag.
+// Vlak: binnen de vorm; zonder vlak eronder ook de vlakken tot 14 px; kleine vlakken altijd tot 14 px.
+// Meer dan één kandidaat -> keuzevenster met nummers (willekeurige volgorde, verraadt het antwoord niet).
+function nearPt(line,x,y){let best=[1e9,x,y];for(let i=1;i<line.length;i++){const [ax,ay]=line[i-1],[bx,by]=line[i],dx=bx-ax,dy=by-ay,l=dx*dx+dy*dy;let t=l?((x-ax)*dx+(y-ay)*dy)/l:0;t=Math.max(0,Math.min(1,t));const px=ax+t*dx,py=ay+t*dy,d=Math.hypot(x-px,y-py);if(d<best[0])best=[d,px,py];}return best}
+function edgePoint(id,x,y,r){for(const f of [0.5,1])for(let k=0;k<12;k++){const a=k*Math.PI/6,px=x+Math.cos(a)*r*f,py=y+Math.sin(a)*r*f;if(inFill(id,px,py))return [px,py];}return null}
+function anchorOf(c,x,y){const m=MAP.items[c.id],t=BYID[c.id].type;
+  if(t==='stad'||(m.x!=null&&!inFill(c.id,x,y)))return [m.x,m.y];
+  if(t==='rivier'){let b=[1e9,x,y];for(const l of RIV[c.id]){const n=nearPt(l,x,y);if(n[0]<b[0])b=n;}return [b[1],b[2]];}
+  if(c.inside)return [x,y];
+  return edgePoint(c.id,x,y,PX_EDGE*unitsPerPx())||[m.lx,m.ly];}
+function candidates(type,x,y){
+  const h=hitsAt(x,y,type);let out;
+  if(!h.length) return [];
+  if(!AREA(type)){ out=(h[0].d<=8&&(!h[1]||h[1].d>16))?[h[0]]:h; }
+  else { const ins=h.filter(c=>c.inside);
+    out=ins.length?[...ins,...h.filter(c=>c.edge&&SMALL.has(c.id))]:h; }
+  return out.map(c=>({id:c.id,a:anchorOf(c,x,y)}));
+}
+const okFor=(asked,got)=>got===asked||(PARENT[asked]||[]).includes(got);
+// synchroon, voor tests: {ok:true|false|null, got, choices}
+function grade(id,x,y){const c=candidates(BYID[id].type,x,y);
+  if(!c.length) return {ok:false,got:null,choices:[]};
+  if(c.length===1) return {ok:okFor(id,c[0].id),got:c[0].id,choices:[c[0].id]};
+  return {ok:null,got:null,choices:c.map(k=>k.id)};}
+// in Leren: stippen en rivieren onder de vinger, en vlakken waar je in tikt (alle soorten)
+function learnCandidates(x,y){const h=hitsAt(x,y).filter(c=>c.pt||c.inside);
+  const pts=h.filter(c=>c.pt), close=pts.length&&pts[0].d<=8&&(!pts[1]||pts[1].d>16)?[pts[0]]:pts;
+  const list=close.length?close:h.filter(c=>c.inside).sort((a,b)=>{const A=NODE[a.id].getBBox(),B=NODE[b.id].getBBox();return A.width*A.height-B.width*B.height});
+  return (close.length?list:list.slice(0,4)).map(c=>({id:c.id,a:anchorOf(c,x,y)}));}
+
+let pickCb=null;
+function resolveTap(list,x,y,named,cb){ if(list.length<=1) return cb(list.length?list[0].id:null); openPicker(list,x,y,named,cb); }
+function openPicker(list,x,y,named,cb){
+  pickCb=cb;const n=list.length;
+  // uitsnede rond de tik, groot genoeg voor alle ankers
+  const far=Math.max(...list.map(c=>Math.hypot(c.a[0]-x,c.a[1]-y)));
+  const S=Math.max(90,far*3.2), x0=Math.max(0,Math.min(W-S,x-S/2)), y0=Math.max(0,Math.min(H-S,y-S/2)), k=S/400; // k = eenheden per px in de uitsnede (±400 px breed)
+  const ns=list.map(c=>({...c,a:c.a.slice()})), order=shuffle(ns.map((_,i)=>i)); // nummer per kandidaat, willekeurig
+  // vallen twee ankers samen (stad aan rivier), dan wijst het lijntje van de rivier naar een stuk rivier ernaast
+  ns.forEach((c,i)=>{ if(BYID[c.id].type!=='rivier') return;
+    if(!ns.some((o,j)=>j!==i&&Math.hypot(o.a[0]-c.a[0],o.a[1]-c.a[1])<S*0.06)) return;
+    let best=null,bd=1e9; for(const l of RIV[c.id]) for(const [vx,vy] of l){const d=Math.abs(Math.hypot(vx-x,vy-y)-S*0.2); if(d<bd){bd=d;best=[vx,vy];}}
+    if(best) c.a=best; });
+  const ang=ns.map(c=>{const dx=c.a[0]-x,dy=c.a[1]-y;return Math.hypot(dx,dy)<S*0.02?null:Math.atan2(dy,dx)});
+  const idx=ns.map((_,i)=>i).sort((i,j)=>(ang[i]??-9)-(ang[j]??-9));
+  const base=ang[idx[0]]??-Math.PI/2, R=S*0.34, br=S*0.06;
+  const pos={}; idx.forEach((i,j)=>{const t=base+j*2*Math.PI/n;pos[i]=[x+Math.cos(t)*R,y+Math.sin(t)*R]});
+  const sw=v=>`stroke-width="${v}" vector-effect="non-scaling-stroke"`;
+  let h=`<rect x="0" y="0" width="${W}" height="${H}" class="sea"/>${ITEMS.filter(i=>AREA_CLASS[i.type]==='water').map(i=>`<path d="${MAP.items[i.id].d}" class="water" ${sw(1)}/>`).join('')}<path d="${MAP.context.land}" class="ctx-land" ${sw(1)}/>${ITEMS.filter(i=>AREA_CLASS[i.type]==='country').map(i=>`<path d="${MAP.items[i.id].d}" class="country" ${sw(1.4)}/>`).join('')}<path d="${MAP.context.france}" class="fr" ${sw(1.8)}/>${ITEMS.filter(i=>AREA_CLASS[i.type]==='zone').map(i=>`<path d="${MAP.items[i.id].d}" class="zone" fill-rule="evenodd" ${sw(1.4)}/>`).join('')}<path d="${MAP.context.lakes}" class="lakes"/><path d="${MAP.context.rivers}" class="ctx-rivers" ${sw(1)}/>`;
+  for(const it of ITEMS){const m=MAP.items[it.id];if(it.type==='rivier')h+=`<path d="${m.d}" class="lineTarget" ${sw(3.5)}/>`;}
+  ns.forEach(c=>{const t=BYID[c.id].type,m=MAP.items[c.id];
+    if(AREA(t)&&m.x==null)h+=`<path d="${m.d}" class="pk-area" fill-rule="evenodd" ${sw(2)}/>`;
+    if(t==='rivier')h+=`<path d="${m.d}" class="pk-river" ${sw(5)}/>`;});
+  for(const it of ITEMS){const m=MAP.items[it.id];
+    if(it.type==='stad')h+=`<circle cx="${m.x}" cy="${m.y}" r="${5.5*k}" class="city" ${sw(2)}/>`;
+    else if(m.x!=null)h+=`<path d="M${m.x} ${m.y-6*k}l${6*k} ${6*k}l${-6*k} ${6*k}l${-6*k} ${-6*k}z" class="microstate" ${sw(1.2)}/>`;}
+  ns.forEach((c,i)=>{const [bx,by]=pos[i],[ax,ay]=c.a,d=Math.hypot(ax-bx,ay-by)||1,ex=bx+(ax-bx)/d*br,ey=by+(ay-by)/d*br;
+    const rr=7*k,ux=(ax-bx)/d,uy=(ay-by)/d;
+    h+=`<line x1="${ex}" y1="${ey}" x2="${ax-ux*rr}" y2="${ay-uy*rr}" class="pk-lead" ${sw(2)}/><circle cx="${ax}" cy="${ay}" r="${rr}" fill="none" stroke="#6a4fd6" ${sw(2.5)}/>`;
+    h+=`<circle cx="${bx}" cy="${by}" r="${br}" class="pk-badge" ${sw(3)}/><text x="${bx}" y="${by}" class="pk-num" font-size="${br*1.15}">${order[i]+1}</text>`;});
+  const pm=document.getElementById('pickmap');pm.setAttribute('viewBox',`${x0} ${y0} ${S} ${S}`);pm.innerHTML=h;
+  pickP.textContent=named?'Hier liggen meer plekken. Welke wil je zien?':'Hier liggen meer plekken dicht bij elkaar. Kies het nummer.';
+  const btn=ns.map((c,i)=>[order[i]+1,c.id]).sort((a,b)=>a[0]-b[0]);
+  pickBtns.innerHTML=btn.map(([nr,id])=>`<button type="button" data-id="${id}">${nr}${named?`<small>${BYID[id].nl}</small>`:''}</button>`).join('');
+  pickBtns.querySelectorAll('button').forEach(b=>b.onclick=()=>closePicker(b.dataset.id));
+  document.getElementById('pick').hidden=false;pickBtns.querySelector('button').focus();
+}
+function closePicker(id){const cb=pickCb;pickCb=null;document.getElementById('pick').hidden=true;if(id&&cb)cb(id);}
+document.getElementById('pickX').onclick=()=>closePicker(null);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.getElementById('pick').hidden)closePicker(null);});
+
+// ---------- markeren en namen ----------
+function clearMarks(){gHL.textContent='';gLbl.textContent='';}
+function mark(id,kind,pulse){ // kind: hl | ok | no
+  const it=BYID[id], m=MAP.items[id], c=pulse?' pulse':'';
+  if(it.type==='stad') el('circle',{cx:m.x,cy:m.y,r:12,class:kind+'-ring'+c},gHL);
+  else if(it.type==='rivier') el('path',{d:m.d,class:'lineTarget '+kind+'-river'+c},gHL);
+  else { el('path',{d:m.d,class:kind+'-area'+c,'fill-rule':'evenodd'},gHL);
+    if(m.x!=null) el('circle',{cx:m.x,cy:m.y,r:11,class:kind+'-ring'+c},gHL);
+    else if(SMALL.has(id)) el('circle',{cx:m.lx,cy:m.ly,r:16,class:kind+'-ring'+c},gHL); }
+}
+// alleen de plek van de naam wordt verschoven, nooit de plek zelf
+const LBL={'groot-brittannie':[-20,-18,'middle'],'atlantische-oceaan':[4,-16,'start'],'nauw-van-calais':[-10,-14,'end'],'vogezen':[14,-8,'start'],'seine':[-34,8,'middle'],'nancy':[0,0,'start']};
+function label(id,extra){const it=BYID[id],m=MAP.items[id];
+  let [x,y]=it.type==="stad"?[m.x+8,m.y-7]:m.x!=null?[m.x+8,m.y+18]:[m.lx,m.ly];
+  let anchor=it.type==='stad'||m.x!=null?'start':'middle';
+  if(LBL[id]){x+=LBL[id][0];y+=LBL[id][1];anchor=LBL[id][2];}
+  const cls='lbl'+(it.type==='stad'?' small':'')+(it.type==='zee'?' sea':'')+(it.type==='regio'||it.type==='gebergte'?' region':'')+(extra?' '+extra:'');
+  const t=el('text',{x,y,class:cls,'text-anchor':anchor},gLbl);t.textContent=it.nl;return t;}
+
+// ---------- selectie ----------
+const chapterItems=()=>S.chapter==='alles'?ITEMS.map(i=>i.id):S.chapter==='fouten'?Object.keys(S.mistakes).filter(k=>S.mistakes[k]>0):CH.find(c=>c.id===S.chapter).items;
+function chapterSelect(){
+  const opts=[['alles','Alle 44 plekken'],...CH.map(c=>[c.id,`${c.nr}. ${c.titel}`]),['fouten',`Mijn fouten (${Object.values(S.mistakes).filter(v=>v>0).length})`]];
+  return `<label class="sel" for="chap">Hoofdstuk</label><select id="chap">${opts.map(([v,t])=>`<option value="${v}"${v===S.chapter?' selected':''}>${t}</option>`).join('')}</select>`;}
+function bindChapter(){const s=panel.querySelector('#chap');if(s)s.onchange=()=>{S.chapter=s.value;save();start(mode)};}
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+
+// ---------- beloning: 8 Franse gebakjes per doos (zoals 8 pizzapunten), 3 volle dozen = Vespa-rit ----------
+const ST='stroke="#a8641d" stroke-width="1.5"';
+const PASTRY=[
+ ['croissant',`<path d="M5 31c4-12 14-19 19-19s15 7 19 19c-3 2-7 1-9-2-2 4-6 6-10 6s-8-2-10-6c-2 3-6 4-9 2z" fill="#e3a446" ${ST}/><path d="M16 17l4 16M24 13v21M32 17l-4 16" fill="none" ${ST}/>`],
+ ['pain au chocolat',`<rect x="6" y="16" width="36" height="18" rx="7" fill="#e2a24a" ${ST}/><path d="M14 17v16M34 17v16" stroke="#5a3418" stroke-width="3.5"/><path d="M8 23h32" stroke="#c98a32" stroke-width="1.2"/>`],
+ ['macaron',`<ellipse cx="24" cy="30" rx="16" ry="7" fill="#f2a7c3" stroke="#c9638c" stroke-width="1.5"/><rect x="9" y="22" width="30" height="6" rx="3" fill="#fff4e6"/><ellipse cx="24" cy="19" rx="16" ry="7" fill="#f5b5cd" stroke="#c9638c" stroke-width="1.5"/>`],
+ ['eclair',`<rect x="5" y="21" width="38" height="13" rx="6.5" fill="#e8b766" ${ST}/><rect x="7" y="17" width="34" height="8" rx="4" fill="#5a3418"/><path d="M12 19.5h8" stroke="#8a5a34" stroke-width="1.5" stroke-linecap="round"/>`],
+ ['tartelette',`<path d="M7 25h34l-4 12H11z" fill="#e2a24a" ${ST}/><ellipse cx="24" cy="25" rx="17" ry="4" fill="#fff4d6" stroke="#a8641d" stroke-width="1.2"/><circle cx="16" cy="21" r="4.5" fill="#e0353a"/><circle cx="24.5" cy="19" r="5" fill="#e0353a"/><circle cx="33" cy="21.5" r="4.5" fill="#e0353a"/><path d="M24 14l2-3" stroke="#3f8f3a" stroke-width="2" stroke-linecap="round"/>`],
+ ['chou a la creme',`<circle cx="24" cy="27" r="13" fill="#e8b766" ${ST}/><path d="M14 22c3-4 7-6 10-6s7 2 10 6" fill="none" stroke="#c98a32" stroke-width="1.3"/><path d="M12 25c4 2 8 3 12 3s8-1 12-3c-1 6-6 8-12 8s-11-2-12-8z" fill="#fff8ea"/><circle cx="19" cy="18" r="1.4" fill="#fff"/><circle cx="27" cy="16" r="1.4" fill="#fff"/><circle cx="31" cy="20" r="1.4" fill="#fff"/>`],
+ ['mille-feuille',`<rect x="7" y="14" width="34" height="6" rx="2" fill="#f7f3ea" stroke="#a8641d" stroke-width="1.2"/><path d="M11 17h26" stroke="#5a3418" stroke-width="1.2" stroke-dasharray="3 3"/><rect x="7" y="20" width="34" height="4" fill="#e2a24a"/><rect x="7" y="24" width="34" height="4" fill="#fff4d6"/><rect x="7" y="28" width="34" height="4" fill="#e2a24a"/><rect x="7" y="32" width="34" height="4" fill="#fff4d6"/><rect x="7" y="36" width="34" height="3" rx="1.5" fill="#d38f38" stroke="#a8641d" stroke-width="1"/>`],
+ ['madeleine',`<path d="M7 31c0-10 7-18 17-18s17 8 17 18c-5 3-11 4-17 4s-12-1-17-4z" fill="#eab35a" ${ST}/><path d="M24 15v19M17 17l3 16M31 17l-3 16M11 23l7 10M37 23l-7 10" fill="none" stroke="#c98a32" stroke-width="1.2"/>`]];
+const pastrySvg=i=>`<svg viewBox="0 0 48 48" role="img" aria-label="${PASTRY[i][0]}">${PASTRY[i][1]}</svg>`;
+const BOX_SVG='<svg viewBox="0 0 48 48"><rect x="6" y="16" width="36" height="24" rx="3" fill="#f6d6e3" stroke="#c9638c" stroke-width="1.5"/><path d="M6 16l4-6h28l4 6" fill="#fbe7ef" stroke="#c9638c" stroke-width="1.5"/><path d="M24 10v30" stroke="#6a4fd6" stroke-width="3"/><path d="M24 12c-6-8-12-2-6 1M24 12c6-8 12-2 6 1" fill="none" stroke="#6a4fd6" stroke-width="2.5"/></svg>';
+const RIDE_TO=['Parijs','Lille','Straatsburg','Lyon','Marseille','Nice','Montpellier','Toulouse','Bordeaux','Nantes','Le Havre'];
+S.pz=S.pz||0;S.boxes=S.boxes||0;
+function boxRender(popAt,shown){const n=shown==null?S.pz:shown;slots.innerHTML=PASTRY.map((_,i)=>`<div class="slot">${i<n?`<span${i===popAt?' class="pop"':''} style="display:grid">${pastrySvg(i)}</span>`:''}</div>`).join('');
+  const r=Math.floor(S.boxes/3);sBoxes.textContent=S.boxes;sRides.textContent=r;lBoxes.textContent=S.boxes===1?"doos":"dozen";lRides.textContent=r===1?"rit":"ritten";}
+let toastT=0;
+function toast(html){const t=document.getElementById('toast');t.innerHTML=html;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),1800);}
+function ride(){const r=document.getElementById('ride'),n=Math.floor(S.boxes/3);
+  rideMsg.innerHTML=`3 dozen vol!<small>Nino rijdt met de Vespa naar ${RIDE_TO[(n-1)%RIDE_TO.length]}</small>`;
+  r.classList.remove('on');void r.offsetWidth;r.classList.add('on');setTimeout(()=>r.classList.remove('on'),3600);}
+function reward(){
+  const at=S.pz;S.pz++;
+  if(S.pz<PASTRY.length) return boxRender(at);
+  // doos vol: teller meteen terug (snel doortikken telt dus nooit dubbel), volle doos nog even tonen
+  S.pz=0;S.boxes++;save();boxRender(at,PASTRY.length);const rideNow=S.boxes%3===0;
+  setTimeout(()=>{boxRender(-1);toast(`${BOX_SVG}<span>Doos vol!</span>`);if(rideNow) setTimeout(ride,700);},650);
+}
+
+// ---------- score ----------
+function score(ok,id){ if(ok){S.good++;streak++; if(S.mistakes[id]) S.mistakes[id]=Math.max(0,S.mistakes[id]-1); if(mode!=='toets') reward();}
+  else {S.miss++;streak=0;S.mistakes[id]=(S.mistakes[id]||0)+1;}
+  save();stats();}
+function stats(){sGood.textContent=S.good;sStreak.textContent=streak;sMiss.textContent=S.miss;}
+
+// ---------- schrijven: vergelijken ----------
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[-‐]/g,' ').replace(/\s+/g,' ').trim();
+const exact=s=>s.toLowerCase().replace(/\s+/g,' ').trim();
+function checkName(id,val){const it=BYID[id];const ok=[it.nl,...it.aliases];
+  if(ok.some(a=>exact(a)===exact(val))) return {ok:true,exact:true};
+  if(ok.some(a=>norm(a)===norm(val))) return {ok:true,exact:false};
+  return {ok:false};}
+
+// ---------- modi ----------
+let mode='leren', deck=[], qi=0, cur=null, answered=false, onTap=null, test=null;
+function next(){ if(!deck.length) return null; if(qi>=deck.length){deck=shuffle(deck);qi=0;
+    if(deck.length>1&&deck[0]===cur){[deck[0],deck[1]]=[deck[1],deck[0]];}} return deck[qi++]; }
+
+function start(m){mode=m;document.querySelectorAll('nav [data-mode]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===m));
+  clearMarks();onTap=null;answered=false;test=null;deck=shuffle(chapterItems());qi=0;cur=null;
+  ({leren:leren,wijs:wijs,schrijf:schrijf,toets:toetsStart})[m]();}
+
+function emptyMsg(){panel.innerHTML=chapterSelect()+`<div class="fb info">Geen plekken in deze keuze. ${S.chapter==='fouten'?'Je hebt nog geen fouten. Knap!':''}</div>`;bindChapter();}
+
+function leren(){
+  const ids=chapterItems(); if(!ids.length) return emptyMsg();
+  panel.innerHTML=chapterSelect()+`<p class="prompt">Tik op een naam of op de kaart.</p>
+   <div class="row"><button class="btn" id="all">Alle namen tonen</button></div>
+   <ul class="items">${ids.map(id=>`<li><button data-id="${id}">${BYID[id].nl}<small>${TYPE_NL[BYID[id].type]}</small></button></li>`).join('')}</ul>`;
+  bindChapter();
+  const show=id=>{clearMarks();mark(id,'hl');label(id);panel.querySelectorAll('ul.items button').forEach(b=>b.setAttribute('aria-current',b.dataset.id===id));};
+  panel.querySelectorAll('ul.items button').forEach(b=>b.onclick=()=>show(b.dataset.id));
+  panel.querySelector('#all').onclick=()=>{clearMarks();ids.forEach(label);};
+  onTap=(x,y)=>resolveTap(learnCandidates(x,y),x,y,true,id=>{ if(!id) return; if(ids.includes(id)) show(id); else {clearMarks();mark(id,'hl');label(id);} });
+}
+
+function wijs(){ if(!chapterItems().length) return emptyMsg(); askWijs(); }
+function askWijs(){
+  cur=next();answered=false;clearMarks();const it=BYID[cur];
+  panel.innerHTML=chapterSelect()+`<div class="prompt">Wijs aan op de kaart (${TYPE_NL[it.type]}):<b>${it.nl}</b></div><div class="fb info" id="fb">Tik op de juiste plek.</div><div class="row"><button class="btn" id="skip">Weet ik niet</button></div>`;
+  bindChapter();
+  const fb=panel.querySelector('#fb');
+  const finish=(ok,msg)=>{answered=true;score(ok,cur);fb.className='fb '+(ok?'good':'bad');fb.textContent=msg;
+    panel.querySelector('.row').innerHTML='<button class="btn primary" id="nx">Volgende</button>';panel.querySelector('#nx').onclick=askWijs;panel.querySelector('#nx').focus();};
+  panel.querySelector('#skip').onclick=()=>{mark(cur,'ok',true);label(cur);finish(false,`Hier ligt ${it.nl}.`);};
+  onTap=(x,y)=>{ if(answered) return; resolveTap(candidates(it.type,x,y),x,y,false,got=>{ if(answered) return;
+    if(got&&okFor(cur,got)){mark(cur,'ok');label(cur);finish(true,'Goed zo!');}
+    else if(got){mark(got,'no');label(got);mark(cur,'ok',true);label(cur);finish(false,`Dat is ${BYID[got].nl}. ${it.nl} ligt hier.`);}
+    else {el('circle',{cx:x,cy:y,r:7*unitsPerPx(),class:'tap'},gHL);mark(cur,'ok',true);label(cur);finish(false,`Daar ligt geen ${TYPE_NL[it.type]}. ${it.nl} ligt hier.`);} }); };
+}
+
+function schrijf(){ if(!chapterItems().length) return emptyMsg(); askSchrijf(); }
+function askSchrijf(){
+  cur=next();answered=false;clearMarks();const it=BYID[cur];mark(cur,'hl',true);
+  panel.innerHTML=chapterSelect()+`<div class="prompt">Welke ${TYPE_NL[it.type]} is gekleurd?</div>
+   <form id="f" autocomplete="off"><input type="text" id="in" autocapitalize="words" autocorrect="off" spellcheck="false" aria-label="Naam"></form>
+   <div class="fb info" id="fb">Schrijf de naam en druk op Enter.</div>
+   <div class="row" id="r"><button class="btn primary" id="go" form="f">Controleer</button><button class="btn" id="skip" type="button">Weet ik niet</button></div>`;
+  bindChapter();const inp=panel.querySelector('#in'),fb=panel.querySelector('#fb');setTimeout(()=>inp.focus(),30);
+  const finish=(ok,msg,cls)=>{answered=true;score(ok,cur);fb.className='fb '+(cls||(ok?'good':'bad'));fb.innerHTML=msg;clearMarks();mark(cur,ok?'ok':'no');label(cur);inp.disabled=true;
+    panel.querySelector('#r').innerHTML='<button class="btn primary" id="nx">Volgende</button>';panel.querySelector('#nx').onclick=askSchrijf;panel.querySelector('#nx').focus();};
+  panel.querySelector('#f').onsubmit=e=>{e.preventDefault();if(answered)return;const v=inp.value;if(!v.trim())return;const r=checkName(cur,v);
+    if(r.ok&&r.exact) finish(true,'Goed zo!'); else if(r.ok) finish(true,`Bijna foutloos! Let op de schrijfwijze: <b>${it.nl}</b>`,'info'); else finish(false,`Het is <b>${it.nl}</b>. Jij schreef: ${v.replace(/[<>&]/g,'')}`);};
+  panel.querySelector('#skip').onclick=()=>finish(false,`Het is <b>${it.nl}</b>.`);
+}
+
+function toetsStart(){
+  const ids=chapterItems(); if(!ids.length) return emptyMsg();
+  panel.innerHTML=chapterSelect()+`<p class="prompt">Een toets zoals de overhoring: elke plek één keer, om en om aanwijzen en schrijven. De uitslag zie je aan het eind.</p><div class="muted">${ids.length} vragen</div><button class="btn primary" id="go">Start de toets</button>`;
+  bindChapter();panel.querySelector('#go').onclick=()=>{test={ids:shuffle(ids),i:0,wrong:[]};toetsQ();};
+}
+function toetsQ(){
+  clearMarks();onTap=null;
+  if(test.i>=test.ids.length) return toetsEnd();
+  const id=test.ids[test.i], it=BYID[id], kind=test.i%2?'schrijf':'wijs', n=test.i+1, tot=test.ids.length;
+  const head=`<div class="muted">Vraag ${n} van ${tot}</div><div class="progress"><i style="width:${(n-1)/tot*100}%"></i></div>`;
+  const done=(ok)=>{score(ok,id);if(!ok)test.wrong.push(id);test.i++;setTimeout(toetsQ,250);};
+  if(kind==='wijs'){
+    panel.innerHTML=head+`<div class="prompt">Wijs aan (${TYPE_NL[it.type]}):<b>${it.nl}</b></div><button class="btn" id="skip">Weet ik niet</button>`;
+    panel.querySelector('#skip').onclick=()=>done(false);
+    onTap=(x,y)=>resolveTap(candidates(it.type,x,y),x,y,false,got=>{ if(!onTap) return; onTap=null; done(!!got&&okFor(id,got)); });
+  } else {
+    mark(id,'hl',true);
+    panel.innerHTML=head+`<div class="prompt">Welke ${TYPE_NL[it.type]} is gekleurd?</div><form id="f" autocomplete="off"><input type="text" id="in" autocapitalize="words" autocorrect="off" spellcheck="false" aria-label="Naam"></form><div class="row"><button class="btn primary" form="f">Volgende</button></div>`;
+    const inp=panel.querySelector('#in');setTimeout(()=>inp.focus(),30);
+    panel.querySelector('#f').onsubmit=e=>{e.preventDefault();const r=checkName(id,inp.value);done(r.ok&&r.exact);};
+  }
+}
+function toetsEnd(){
+  const tot=test.ids.length, good=tot-test.wrong.length, cijfer=Math.max(1,Math.round((1+9*good/tot)*10)/10);
+  panel.innerHTML=chapterSelect()+`<div class="result"><div class="muted">Uitslag</div><b>${good} / ${tot}</b><div>Cijfer: <strong>${cijfer.toFixed(1).replace('.',',')}</strong></div></div>
+   ${test.wrong.length?`<div class="prompt">Nog oefenen:</div><ul class="items">${test.wrong.map(id=>`<li><button data-id="${id}">${BYID[id].nl}<small>${TYPE_NL[BYID[id].type]}</small></button></li>`).join('')}</ul>`:'<div class="fb good">Alles goed. Foutloos!</div>'}
+   <div class="row"><button class="btn primary" id="again">Nog een keer</button>${test.wrong.length?'<button class="btn" id="fout">Oefen mijn fouten</button>':''}</div>
+   <p class="muted">In de toets telt een naam alleen als hij foutloos is geschreven: hoofdletters maken niet uit, accenten wel (Pyreneeën, Normandië).</p>`;
+  bindChapter();
+  panel.querySelectorAll('ul.items button').forEach(b=>b.onclick=()=>{clearMarks();mark(b.dataset.id,'hl');label(b.dataset.id);});
+  panel.querySelector('#again').onclick=()=>start('toets');
+  const f=panel.querySelector('#fout'); if(f) f.onclick=()=>{S.chapter='fouten';save();start('wijs');};
+}
+
+// ---------- hover (muis of pen): oranje zoals Italie; bij Leren ook de naam ----------
+let hovId=null, hovLbl=null, hovRaf=0;
+function hoverAt(x,y){const u=unitsPerPx();let best=null,bd=1e9;
+  for(const it of ITEMS){const m=MAP.items[it.id];
+    if(m.x!=null){const d=Math.hypot(x-m.x,y-m.y)/u; if(d<=12&&d<bd){bd=d;best=it.id;}}
+    else if(it.type==='rivier'){const d=riverDist(it.id,x,y)/u; if(d<=10&&d<bd){bd=d;best=it.id;}}}
+  if(best) return best;
+  const ins=ITEMS.filter(it=>AREA_CLASS[it.type]&&inFill(it.id,x,y)).map(it=>[it.id,NODE[it.id].getBBox()]);
+  if(!ins.length) return null; ins.sort((a,b)=>a[1].width*a[1].height-b[1].width*b[1].height); return ins[0][0];}
+function setHover(id){ if(id===hovId) return;
+  if(hovId){(DOT[hovId]||NODE[hovId]).classList.remove('hov');}
+  if(hovLbl){hovLbl.remove();hovLbl=null;}
+  hovId=id; if(!id) return; (DOT[id]||NODE[id]).classList.add('hov');
+  if(mode==='leren') hovLbl=label(id,'hovlbl'); }
+svg.addEventListener('pointermove',e=>{ if(e.pointerType==='touch') return; const cx=e.clientX,cy=e.clientY;
+  cancelAnimationFrame(hovRaf); hovRaf=requestAnimationFrame(()=>{const p=toSvg(cx,cy); setHover(hoverAt(p.x,p.y));}); });
+svg.addEventListener('pointerleave',()=>{cancelAnimationFrame(hovRaf);setHover(null);});
+
+// ---------- schoolblad bekijken ----------
+const SHEETS=/*SHEETS*/;
+const sheet=document.getElementById('sheet'), sheetImg=document.getElementById('sheetImg'), sheetScroll=document.getElementById('sheetScroll');
+function openSheet(){sheet.hidden=false;document.getElementById('sheetX').focus();}
+function closeSheet(){sheet.hidden=true;document.getElementById('sheetBtn').focus();}
+document.getElementById('sheetBtn').onclick=openSheet;
+document.getElementById('sheetX').onclick=closeSheet;
+sheet.addEventListener('click',e=>{if(e.target===sheet)closeSheet();});
+document.getElementById('sheetZoom').onclick=e=>{const z=sheetScroll.classList.toggle('zoom');e.target.textContent=z?'Verklein':'Vergroot';};
+sheet.querySelectorAll('[data-sheet]').forEach(b=>b.onclick=()=>{sheet.querySelectorAll('[data-sheet]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  sheetImg.src=SHEETS[b.dataset.sheet];sheetImg.alt=b.dataset.sheet==='lijst'?'Schoolblad: lijst met 44 plekken':'Schoolblad: leerkaart';sheetScroll.scrollTo(0,0);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sheet.hidden)closeSheet();});
+
+// ---------- invoer ----------
+svg.addEventListener('click',e=>{ if(!onTap) return; const p=toSvg(e.clientX,e.clientY); if(p.x<0||p.y<0||p.x>W||p.y>H) return; onTap(p.x,p.y); });
+document.querySelectorAll('nav [data-mode]').forEach(b=>b.onclick=()=>start(b.dataset.mode));
+stats();boxRender(-1);start("leren");
+</script>
+</body>
+</html>
