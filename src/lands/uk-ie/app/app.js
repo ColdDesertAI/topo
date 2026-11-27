@@ -178,9 +178,11 @@
 
     // vragenrij: elk item tot het een keer goed is; een fout komt 3 vragen later terug (niet in de overhoring)
     const exam = cfg.mode === 'overhoring';
-    let queue = shuffle(items).map((it, i) => ({ it, mode: modeFor(it, i) }));
+    // Fouten oefenen: elk item zowel aanwijzen als schrijven (gekend = beide goed). Overhoring: om en om.
+    let queue = cfg.mode === 'mix' ? shuffle(items.flatMap(it => [{ it, mode: 'aanwijzen' }, { it, mode: 'schrijven' }]))
+      : shuffle(items).map((it, i) => ({ it, mode: modeFor(it, i) }));
     const total = queue.length; let done = 0, right = 0; const wrong = [];
-    function modeFor(it, i) { if (cfg.mode === 'mix' || exam) return i % 2 ? 'schrijven' : 'aanwijzen'; return cfg.mode; }
+    function modeFor(it, i) { if (exam) return i % 2 ? 'schrijven' : 'aanwijzen'; return cfg.mode; }
     next();
 
     function next() {
