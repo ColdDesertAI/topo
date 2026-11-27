@@ -21,6 +21,10 @@ for (const c of route.chapters) assert.ok(c.itemIds.length >= 2 && c.itemIds.len
 const count = t => items.filter(i => i.type === t).length;
 assert.deepEqual([count('stad'), count('land'), count('eiland'), count('water') + count('rivier')], [18, 11, 5, 8]);
 
+// 1b. Namen letterlijk zoals op het blad (IMG_0909), in bladvolgorde per code
+const SHEET = 'Aberdeen|Belfast|Birmingham|Bristol|Cardiff|Cork|Dublin|Edinburgh|Glasgow|Hull|Inverness|Leeds|Liverpool|Londen|Manchester|Newcastle|Norwich|Southampton|Man|Kanaaleilanden|Orkney eilanden|Shetland eilanden|Hebriden|Schotse Hooglanden|Skye|België|Denemarken|Duitsland|Engeland|Frankrijk|Ierland|Nederland|Noord-Ierland|Noorwegen|Schotland|Wales|Atlantische Oceaan|Noordzee|Het Kanaal|Straat van Dover|Ierse Zee|Keltische Zee|Theems|Loch Ness'.split('|');
+const ord = c => /^\d+$/.test(c) ? +c : /[a-r]/.test(c) ? 100 + c.charCodeAt(0) : 300 + c.charCodeAt(0);
+assert.deepEqual([...items].sort((a, b) => ord(a.source.code) - ord(b.source.code)).map(i => i.name.nl), SHEET, 'namen wijken af van het blad');
 // 2. Geometrie: elk item heeft een doel; steden liggen in het juiste land; vormen niet leeg
 for (const i of items) assert.ok(geo.targets[i.id], 'geen geometrie: ' + i.id);
 for (const i of items.filter(i => i.type === 'stad')) {

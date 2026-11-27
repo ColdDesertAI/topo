@@ -48,7 +48,7 @@
     return areaDist(x, y, t);
   }
   // Tolerantie in kaarteenheden; `px` = kaarteenheden per schermpixel.
-  const TOL = { stad: 26, eiland: 16, regio: 16, gebergte: 4, land: 4, water: 0, rivier: 20, meer: 20 };
+  const TOL = { stad: 26, eiland: 16, regio: 16, gebergte: 4, land: 4, water: 8, rivier: 20, meer: 20 };
   const tolFor = item => TOL[item.subtype === 'meer' ? 'meer' : item.type] ?? 4;
 
   const group = it => it.type === 'stad' ? 'stad' : it.type === 'land' ? 'land' : (it.type === 'water' || it.type === 'rivier') ? 'water' : 'gebied';

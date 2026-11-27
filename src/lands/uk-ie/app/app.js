@@ -34,7 +34,9 @@
   const kindOf = it => it.subtype === 'meer' ? 'meer' : it.subtype === 'oceaan' ? 'oceaan' : it.subtype === 'zeestraat' ? 'zeestraat' : it.type === 'water' ? 'zee' : KIND[it.type];
   const group = C.group;
   const DEZE = { stad: 'deze stad', eiland: 'dit eiland', gebergte: 'dit gebergte', streek: 'deze streek', land: 'dit land', rivier: 'deze rivier', meer: 'dit meer', zee: 'deze zee', oceaan: 'deze oceaan', zeestraat: 'deze zeestraat' };
-  const deze = it => DEZE[kindOf(it)] || 'dit';
+  const PLURAL = new Set(['hebriden', 'kanaaleilanden', 'orkney', 'shetland']);
+  const deze = it => PLURAL.has(it.id) ? 'deze eilanden' : DEZE[kindOf(it)] || 'dit';
+  const heet = it => PLURAL.has(it.id) ? 'heten' : 'heet';
   const ringsD = rings => rings.map(p => p.map(r => 'M' + r.map(q => q.join(' ')).join('L') + 'Z').join('')).join('');
   function bboxOf(ids) {
     let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
@@ -124,7 +126,7 @@
       gLbl.append(el); apply();
     }
     function mark(x, y) { gMark.append(s('circle', { cx: x, cy: y, class: 'tapmark' })); apply(); }
-    return { svg, fit, setHome, clear, highlight, label, mark, px };
+    return { svg, fit, setHome, clear, highlight, label, mark, px, zoomTo: (x, y, f) => zoomAt(f, x, y) };
   }
 
   // ---------- schermen ----------
@@ -190,7 +192,7 @@
       box.push(top(), h('div', { class: 'progress' }, exam ? `Vraag ${done + 1} van ${total}` : `${done} van ${total} goed`));
       if (mode === 'aanwijzen') {
         box.push(h('div', { class: 'prompt' }, h('p', { class: 'q' }, 'Wijs aan op de kaart:'), h('p', { class: 'target' }, it.name.nl), h('p', { class: 'kind' }, kindOf(it))));
-        box.push(h('p', { class: 'hint' }, it.type === 'water' ? 'Tik in het water.' : it.type === 'stad' ? 'Tik op de stip.' : 'Tik in het gebied.'));
+        box.push(h('p', { class: 'hint' }, (it.type === 'water' ? 'Tik in het water.' : it.type === 'stad' ? 'Tik op de stip.' : 'Tik in het gebied.') + ' Inzoomen kan met twee vingers of met +.'));
         onTap = (x, y, px) => tapAnswer(x, y, px);
       } else {
         map.highlight(it.id);
@@ -198,12 +200,12 @@
           const same = o => o.id !== it.id && group(o) === group(it);
           const pool = [...shuffle(items.filter(same)), ...shuffle(ITEMS.filter(o => same(o) && !cfg.ids.includes(o.id)))].slice(0, 3);
           const opts = shuffle([it, ...pool]);
-          box.push(h('div', { class: 'prompt' }, h('p', { class: 'q' }, 'Kies het goede antwoord.'), h('p', { class: 'target' }, `Hoe heet ${deze(it)}?`), h('p', { class: 'kind' }, 'Het staat oranje op de kaart.')));
+          box.push(h('div', { class: 'prompt' }, h('p', { class: 'q' }, 'Kies het goede antwoord.'), h('p', { class: 'target' }, `Hoe ${heet(it)} ${deze(it)}?`), h('p', { class: 'kind' }, 'Het staat oranje op de kaart.')));
           box.push(h('div', { class: 'choices' }, opts.map(o => h('button', { 'data-id': o.id, on: { click: e => choose(o, e.currentTarget) } }, o.name.nl))));
         } else {
           const inp = h('input', { type: 'text', autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false', 'aria-label': 'Naam', enterkeyhint: 'done' });
           const form = h('form', { class: 'write', on: { submit: e => { e.preventDefault(); write(inp.value, inp); } } }, inp, h('button', { class: 'primary', type: 'submit' }, 'Klaar'));
-          box.push(h('div', { class: 'prompt' }, h('p', { class: 'q' }, 'Schrijf de naam op.'), h('p', { class: 'target' }, `Hoe heet ${deze(it)}?`), h('p', { class: 'kind' }, 'Het staat oranje op de kaart. Schrijf het foutloos, met puntjes en accenten.')), form);
+          box.push(h('div', { class: 'prompt' }, h('p', { class: 'q' }, 'Schrijf de naam op.'), h('p', { class: 'target' }, `Hoe ${heet(it)} ${deze(it)}?`), h('p', { class: 'kind' }, 'Het staat oranje op de kaart. Schrijf het foutloos, met puntjes en accenten.')), form);
           setTimeout(() => inp.focus({ preventScroll: true }), 50);
         }
       }
@@ -228,7 +230,12 @@
     }
     function tapAnswer(x, y, px) {
       if (answered) return;
-      const it = current.it, ok = C.tapIsCorrect(x, y, it, ITEMS, T, px);
+      const it = current.it;
+      if (it.type === 'stad') {
+        const near = ITEMS.filter(o => o.type === 'stad').map(o => C.dist(x, y, T[o.id]) / px).sort((a, b) => a - b);
+        if (near.length > 1 && near[1] < 26 && near[1] - near[0] < 10) { map.zoomTo(x, y, 2.5); const fb = panel.querySelector('.fb'); fb.replaceChildren(h('p', { class: 'hint', role: 'status' }, 'Hier liggen steden dicht bij elkaar. Ik zoom in: tik nog een keer.')); return; }
+      }
+      const ok = C.tapIsCorrect(x, y, it, ITEMS, T, px);
       current.ok = ok; settle(ok, 'aanwijzen');
       map.mark(x, y);
       if (ok) { map.highlight(it.id, 'area-ok'); map.label(it.id); feedback(true, 'Goed zo!'); if (!exam) setTimeout(() => current && current.it === it && answered && panel.isConnected && advance(), 1100); return; }

@@ -18,7 +18,7 @@ const italie = join(dist, 'italie');
 rmSync(italie, { recursive: true, force: true });
 mkdirSync(italie, { recursive: true });
 for (const name of readdirSync(dist)) {
-  if (['italie', 'assets', 'site.webmanifest', 'favicon.ico'].includes(name)) continue;
+  if (['italie', 'vk-ierland', 'assets', 'site.webmanifest', 'favicon.ico'].includes(name)) continue;
   renameSync(join(dist, name), join(italie, name));
 }
 
