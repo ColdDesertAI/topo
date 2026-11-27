@@ -25,11 +25,12 @@ def load(name):
     p = os.path.join(SRC, name)
     return json.load(open(p)), hashlib.sha256(open(p, 'rb').read()).hexdigest()
 units, h_units = load(FILES[0]); lakes, h_lakes = load(FILES[1]); rivers, h_riv = load(FILES[2])
-EXT = box(LON0 - 4, LAT0 - 3, LON1 + 8, LAT1 + 3)  # ruim buiten het kader, zodat uitzoomen geen rechte landranden toont
-def unit(*gu):
+EXT = box(LON0 - 0.6, LAT0 - 0.6, LON1 + 0.6, LAT1 + 0.6)  # doelen: dicht om het kader
+EXT_DRAW = box(LON0 - 4, LAT0 - 7, LON1 + 8, LAT1 + 3)  # alleen achtergrond: ruim, zodat uitzoomen geen rechte landranden toont
+def unit(*gu, ext=EXT):
     gs = [shape(f['geometry']) for f in units['features'] if f['properties']['GU_A3'] in gu]
     assert len(gs) == len(gu), gu
-    return unary_union(gs).intersection(EXT)
+    return unary_union(gs).intersection(ext)
 
 SHEET = {'engeland': '#c9cde6', 'schotland': '#f3ebc0', 'wales': '#2f7d5b', 'noord-ierland': '#e8b9c2', 'man': '#e8b9c2'}
 NEUTRAL = '#e4dfd1'
@@ -108,6 +109,8 @@ def lines(g):
 def d_of(rs): return ''.join('M' + 'L'.join(f'{x} {y}' for x, y in ring[:-1]) + 'Z' for poly in rs for ring in poly)
 def d_line(ls): return ''.join('M' + 'L'.join(f'{x} {y}' for x, y in l) for l in ls)
 
+DRAW = {k: unit(*v, ext=EXT_DRAW) for k, v in COUNTRY.items()}
+DRAW['man'] = unit('IMN', ext=EXT_DRAW); DRAW['kanaaleilanden'] = unit('JEY', 'GGY', ext=EXT_DRAW)
 out = {
  'status': 'draft', 'land': 'uk-ie', 'contract': 'ops/contracts/UK-01.md',
  'projection': {'type': 'mercator', 'lon': [LON0, LON1], 'lat': [LAT0, LAT1], 'width': W, 'height': H},
@@ -115,8 +118,8 @@ out = {
               'license': 'public domain (Natural Earth)'} for f, h in zip(FILES, [h_units, h_lakes, h_riv])],
  'handmade': ['schotse-hooglanden', *Z.keys()],
  'base': {'sea': '#4fa3cf', 'neutral': NEUTRAL,
-          'land': [{'id': k, 'd': d_of(rings(geo[k])), 'sheetFill': SHEET.get(k, NEUTRAL)} for k in [*COUNTRY, 'man', 'kanaaleilanden']]
-                  + [{'id': 'context', 'd': d_of(rings(ctx)), 'sheetFill': NEUTRAL}],
+          'land': [{'id': k, 'd': d_of(rings(DRAW[k])), 'sheetFill': SHEET.get(k, NEUTRAL)} for k in [*COUNTRY, 'man', 'kanaaleilanden']]
+                  + [{'id': 'context', 'd': d_of(rings(unit('LUX', 'SWE', ext=EXT_DRAW))), 'sheetFill': NEUTRAL}],
           'thames': d_line(lines(thames)), 'ness': d_of(rings(ness)) or None},
  'targets': {},
 }

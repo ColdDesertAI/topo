@@ -35,6 +35,14 @@ for (const [id, t] of Object.entries(geo.targets)) if (t.kind === 'area') {
   assert.ok(t.rings.length > 0, id);
   if (!['orkney', 'shetland', 'hebriden', 'kanaaleilanden'].includes(id)) assert.ok(C.dist(...t.label, t) === 0, 'label buiten vorm: ' + id);
 }
+// doelen en labels binnen het kaartkader (achtergrond mag ruimer zijn, doelen niet)
+const { width: MW, height: MH } = geo.projection;
+for (const [id, t] of Object.entries(geo.targets)) {
+  const [lx, ly] = t.kind === 'point' ? [t.x, t.y] : t.label;
+  assert.ok(lx > 0 && lx < MW && ly > 0 && ly < MH + 20, 'label buiten kader: ' + id); // Kanaaleilanden liggen net onder de rand (49,2° N)
+  const pts = t.kind === 'point' ? [] : t.rings ? t.rings.flatMap(p => p[0]) : t.lines.flat();
+  for (const [x, y] of pts) assert.ok(x > -100 && x < MW + 100 && y > -100 && y < MH + 100, 'doel ver buiten kader: ' + id);
+}
 // het blad: VK-delen en Ierland apart; Belfast niet in Ierland
 assert.ok(!geo.targets.ierland.rings.some(p => C.inPoly(geo.targets.belfast.x, geo.targets.belfast.y, p)));
 assert.equal(geo.sources.length, 3); for (const s of geo.sources) assert.match(s.sha256, /^[0-9a-f]{64}$/);
