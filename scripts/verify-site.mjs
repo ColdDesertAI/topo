@@ -47,4 +47,10 @@ const ukHtml = readFileSync(join(dist, 'vk-ierland/index.html'), 'utf8');
 assert(ukHtml.includes('Topo VK en Ierland') && ukHtml.includes('"land":"uk-ie"'), '/vk-ierland/ is niet de VK-module');
 assert(!/(?:src|href)="https?:/.test(ukHtml), '/vk-ierland/ laadt externe bestanden');
 assert(!html.includes('vk-ierland'), 'Portal linkt naar /vk-ierland/ (pas na besluit Dennis)');
+// Oefenkaart Frankrijk, los en offline
+must('frankrijk/index.html');
+const frHtml = readFileSync(join(dist, 'frankrijk/index.html'), 'utf8');
+assert(frHtml.includes('<title>Topo Frankrijk') && frHtml.includes(' LES={"items"') && frHtml.includes('const MAP='), '/frankrijk/ is niet de oefenkaart Frankrijk');
+assert(!/(?:src|href)="https?:/.test(frHtml), '/frankrijk/ laadt externe bestanden');
+assert(!/href="\.?\/?frankrijk/.test(html), 'Portal linkt naar /frankrijk/ (pas na besluit Dennis)');
 console.log('Site-check: OK');

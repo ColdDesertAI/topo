@@ -18,7 +18,7 @@ const italie = join(dist, 'italie');
 rmSync(italie, { recursive: true, force: true });
 mkdirSync(italie, { recursive: true });
 for (const name of readdirSync(dist)) {
-  if (['italie', 'vk-ierland', 'assets', 'site.webmanifest', 'favicon.ico'].includes(name)) continue;
+  if (['italie', 'vk-ierland', 'frankrijk', 'assets', 'site.webmanifest', 'favicon.ico'].includes(name)) continue;
   renameSync(join(dist, name), join(italie, name));
 }
 
@@ -82,3 +82,8 @@ console.log(`Site: dist/ (portal, ${used.size} assets) + dist/italie/ (app)`);
 
 // 4. UK-01: oefenmodule VK en Ierland op /vk-ierland/ (los bestand, niet gelinkt vanuit het portal)
 execFileSync(process.execPath, [join(root, 'scripts/land/uk-ie-build.mjs'), join(dist, 'vk-ierland/index.html')], { stdio: 'inherit' });
+
+// 5. Oefenkaart Frankrijk op /frankrijk/ (los offline bestand van het schoolblad, niet gelinkt vanuit het portal)
+mkdirSync(join(dist, 'frankrijk'), { recursive: true });
+cpSync(join(root, 'src/lands/fr/app/oefenkaart.html'), join(dist, 'frankrijk/index.html'));
+console.log('Frankrijk: dist/frankrijk/index.html (oefenkaart)');
