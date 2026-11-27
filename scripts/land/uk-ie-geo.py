@@ -25,7 +25,7 @@ def load(name):
     p = os.path.join(SRC, name)
     return json.load(open(p)), hashlib.sha256(open(p, 'rb').read()).hexdigest()
 units, h_units = load(FILES[0]); lakes, h_lakes = load(FILES[1]); rivers, h_riv = load(FILES[2])
-EXT = box(LON0 - 0.6, LAT0 - 0.6, LON1 + 0.6, LAT1 + 0.6)
+EXT = box(LON0 - 4, LAT0 - 3, LON1 + 8, LAT1 + 3)  # ruim buiten het kader, zodat uitzoomen geen rechte landranden toont
 def unit(*gu):
     gs = [shape(f['geometry']) for f in units['features'] if f['properties']['GU_A3'] in gu]
     assert len(gs) == len(gu), gu

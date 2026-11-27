@@ -194,7 +194,7 @@
       box.push(top(), h('div', { class: 'progress' }, exam ? `Vraag ${done + 1} van ${total}` : `${done} van ${total} goed`));
       if (mode === 'aanwijzen') {
         box.push(h('div', { class: 'prompt' }, h('p', { class: 'q' }, 'Wijs aan op de kaart:'), h('p', { class: 'target' }, it.name.nl), h('p', { class: 'kind' }, kindOf(it))));
-        box.push(h('p', { class: 'hint' }, (it.type === 'water' ? 'Tik in het water.' : it.type === 'stad' ? 'Tik op de stip.' : 'Tik in het gebied.') + ' Inzoomen kan met twee vingers of met +.'));
+        box.push(h('p', { class: 'hint' }, (it.subtype === 'meer' ? 'Tik op het meer.' : it.type === 'rivier' ? 'Tik op de rivier.' : it.type === 'water' ? 'Tik in het water.' : it.type === 'stad' ? 'Tik op de stip.' : 'Tik in het gebied.') + ' Inzoomen kan met twee vingers of met +.'));
         onTap = (x, y, px) => tapAnswer(x, y, px);
       } else {
         map.highlight(it.id);
