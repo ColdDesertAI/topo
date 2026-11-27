@@ -44,7 +44,7 @@ for (const [fg, bg] of [['#1f1a33', '#9781D5'], ['#FFFFFF', '#5b45e0'], ['#FFFFF
 // UK-01: oefenmodule VK en Ierland, los en offline
 must('vk-ierland/index.html');
 const ukHtml = readFileSync(join(dist, 'vk-ierland/index.html'), 'utf8');
-assert(ukHtml.includes('Topo VK en Ierland') && ukHtml.includes('window.TOPO_UK'), '/vk-ierland/ is niet de VK-module');
+assert(ukHtml.includes('Topo VK en Ierland') && ukHtml.includes('"land":"uk-ie"'), '/vk-ierland/ is niet de VK-module');
 assert(!/(?:src|href)="https?:/.test(ukHtml), '/vk-ierland/ laadt externe bestanden');
 assert(!html.includes('vk-ierland'), 'Portal linkt naar /vk-ierland/ (pas na besluit Dennis)');
 console.log('Site-check: OK');

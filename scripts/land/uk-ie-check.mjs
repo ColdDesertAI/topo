@@ -1,12 +1,21 @@
-// UK-01 criteria 1, 2 en 4: data volgens het blad, geografie plausibel, strikte spelling.
+// UK-01: data volgens het blad en geografie plausibel. Spelling en tikken toetst uk-ie-e2e.mjs in de gebouwde pagina.
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 const L = new URL('../../src/lands/uk-ie/', import.meta.url);
 const items = JSON.parse(readFileSync(new URL('items.draft.json', L))).items;
 const route = JSON.parse(readFileSync(new URL('route.draft.json', L)));
 const geo = JSON.parse(readFileSync(new URL('geo.json', L)));
-await import(new URL('app/check.js', L)); // zet globalThis.TopoCheck (zelfde code als in de app)
-const C = globalThis.TopoCheck;
+// Geometrie in kaartcoördinaten (alleen voor deze controle)
+function inRing(x, y, ring) { let c = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j];
+    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c; }
+  return c; }
+const inPoly = (x, y, poly) => inRing(x, y, poly[0]) && !poly.slice(1).some(h => inRing(x, y, h));
+function segDist(x, y, [x1, y1], [x2, y2]) { const dx = x2 - x1, dy = y2 - y1, l = dx * dx + dy * dy;
+  const t = l ? Math.max(0, Math.min(1, ((x - x1) * dx + (y - y1) * dy) / l)) : 0; return Math.hypot(x - (x1 + t * dx), y - (y1 + t * dy)); }
+const lineDist = (x, y, line) => { let m = Infinity; for (let i = 1; i < line.length; i++) m = Math.min(m, segDist(x, y, line[i - 1], line[i])); return m; };
+const dist = (x, y, t) => t.rings.some(p => inPoly(x, y, p)) ? 0 : Math.min(...t.rings.map(p => lineDist(x, y, p[0])));
+const C = { inPoly, dist };
 const BY = Object.fromEntries(items.map(i => [i.id, i]));
 
 // 1. Blad: 44 unieke ids; codes 1–18, a–r, A–H precies één keer; route dekt alles precies één keer
@@ -48,14 +57,6 @@ for (const [id, t] of Object.entries(geo.targets)) {
 assert.ok(!geo.targets.ierland.rings.some(p => C.inPoly(geo.targets.belfast.x, geo.targets.belfast.y, p)));
 assert.equal(geo.sources.length, 3); for (const s of geo.sources) assert.match(s.sha256, /^[0-9a-f]{64}$/);
 
-// 4. Schrijven is strikt
-const ok = (s, id) => C.checkWritten(s, BY[id]).ok;
-assert.ok(ok('Londen', 'londen')); assert.ok(ok('  londen ', 'londen')); assert.ok(!ok('London', 'londen'));
-assert.ok(!ok('Belgie', 'belgie')); assert.equal(C.checkWritten('Belgie', BY.belgie).kind, 'accent'); assert.ok(ok('België', 'belgie'));
-assert.ok(!ok('Edinburg', 'edinburgh')); assert.equal(C.checkWritten('Edinburg', BY.edinburgh).kind, 'close');
-assert.ok(ok('Hull', 'hull')); assert.ok(ok('Kingston upon Hull', 'hull'));
-assert.ok(ok('het kanaal', 'het-kanaal')); assert.ok(ok('Kanaal', 'het-kanaal'));
-assert.ok(ok('Orkney eilanden', 'orkney')); assert.ok(ok('Orkneyeilanden', 'orkney'));
-assert.ok(!ok('Theemz', 'theems')); assert.ok(!ok('', 'theems')); assert.equal(C.checkWritten('', BY.theems).kind, 'empty');
-assert.ok(!ok('Noord Ierland', 'noord-ierland')); assert.ok(ok('Noord-Ierland', 'noord-ierland'));
-console.log('uk-ie-check: OK (44 items, 12 hoofdstukken, geometrie en spelling)');
+// route: hoofdstukken in bladvolgorde (zoals de Frankrijk-oefenkaart)
+assert.deepEqual(inRoute, [...items].sort((a, b) => ord(a.source.code) - ord(b.source.code)).map(i => i.id), 'route volgt het blad niet');
+console.log('uk-ie-check: OK (44 items, 12 hoofdstukken in bladvolgorde, geometrie)');
