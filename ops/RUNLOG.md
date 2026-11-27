@@ -6,39 +6,7 @@ Formaat:
 `YYYY-MM-DD HH:MM | agent/model | taak | PASS/FAIL/BLOCKED | pin | creditgebruik (laag/mid/hoog) | één zin`
 
 ---
-2026-11-13 22:30 | claude/opus | setup | — | — | mid | ops/ geïnstalleerd, wacht op G0
-2026-11-13 22:50 | claude/opus | setup | — | — | laag | Besluiten Dennis verwerkt (GO, B2C+B2B, groep 7, FR-code pauze, parallel op Codex 🟡); ops/ naar repo
-2026-11-13 23:00 | claude/opus | domein | — | — | laag | Dennis koopt ninotopo.nl; BL-011 internationale domeinstrategie toegevoegd
-2026-11-13 23:15 | claude/opus | nachtrun-install | — | — | laag | install-nightly.sh: launchd 01:00, script vers van main, paden voor ~/topo-claude
-2026-11-14 01:30 | claude/sonnet | night | BL-001 | PASS* | mid | Branch-inventaris 107 branches (0 delete, 95 archive); *C4 indirect getoetst, cherry niet gedraaid (sandbox)
-2026-11-14 08:50 | claude/opus | nachtrun-fix | — | — | laag | Nacht 1 geanalyseerd: werkt end-to-end, stopte na BL-001 door te smalle Bash-rechten; fix: bypassPermissions + deny-lijst, main fetchen, machine-feiten in rapport
-2026-11-14 11:30 | claude/opus | model-routing | — | — | laag | Subagents builder (Sonnet), scout (Haiku), codex-worker (Codex); hoofdsessie orkestreert op Opus; TOPO_MAIN_MODEL-override
-2026-11-14 16:30 | claude/fable+sonnet | taak | BL-005 | PASS* | mid | Integratieplan + proefintegratie (DRY df72c39, lint/test/build 0); run 1 FAIL op C11 (sync -X theirs overschrijft art), run 2 PASS; *uitsluitingen breken ±240 doc-links, door hoofdsessie in rapport gezet, niet herevalueerd; schijf vol → nulmeting sparse
-2026-11-14 17:00 | claude/fable | domein | BL-009 | — | laag | ninotopo.nl gekocht door Dennis; BL-009 gedeblokkeerd, wacht op DNS-gegevens
-2026-11-14 17:40 | claude/fable | besluit | BL-012 | — | laag | Favicon R3 (Vespa zijaanzicht) vastgelegd in DECISIONS; assets nog niet in repo
-2026-11-14 17:50 | claude/fable | art | BL-012 | — | laag | R3-merkassets (favicon, Nino Welcome, Logo R3.1) op art/master b9e4a38; logo-SVG's bevatten ingebedde rasterafbeelding (525 KB)
-2026-11-14 18:10 | claude/fable | taak | BL-013 | review | mid | Portal R3 gebouwd als site-root, Italië op /italie/; browsercheck 4 formaten zonder fouten; wacht op evaluator en G1
-2026-11-14 18:30 | claude/fable | taak | BL-013 | fail(1) → herstel | mid | Evaluator FAIL: namen afgesneden op iPad, labels <13 px en contrast; hersteld en op 7 formaten gemeten (0 afgesneden, 0 overlap)
-2026-11-14 18:50 | evaluator/opus | taak | BL-013 | PASS (ronde 2) | mid | 9/9 criteria; restpunten (ondertitel-contrast, 320 px-rij, dode CSS) daarna hersteld; wacht op G1 en Vercel-koppeling
-2026-11-14 19:20 | claude/fable | taak | BL-013 | feedback Dennis | laag | Nino Welcome lager, vlaggen als pill; 7 formaten opnieuw gemeten (0 afgesneden, 0 overlap). Wijziging na evaluator-PASS, niet opnieuw geëvalueerd
-2026-11-14 20:40 | claude/opus | taak | BL-005 | review | mid | codex/topo-v3 in main gemerged (3 conflicten opgelost); lint+test groen (volledige historie), site-build OK, /italie/ toont V2.0.2; wacht op push (sessie zonder schrijfrecht) en G4
-2026-11-14 20:40 | claude/opus | live | BL-009/013 | klaar | laag | www.ninotopo.nl live; repo naar ColdDesertAI/topo; Vercel gekoppeld
-2026-11-15 00:40 | claude/opus | taak | BL-015 | review | mid | V3-release-build zonder demo-shim: opslag werkt (profiel/voortgang na herladen), charset na <meta> ingevoegd; site-schakelaar SITE_ITALIE
-2026-11-15 12:17 | codex | taak | BL-019 | review* | laag | 20 regio’s, 44.267 B, bron/licentie/SHA vast; regiocontroles 7/7, lint en bestaande npm-testset PASS, eindreview akkoord; *45/45 geografisch onmogelijk (32 strikt, Venetië kustuitzondering, 12 niet-toepasselijk); eigenaarsemantiek OPEN; geen UI/merge/deploy, app-build raakt uitgesloten index en is niet gedraaid
-2026-11-15 01:30 | claude/sonnet+opus | nacht | BL-001b | review | laag | branches.md herberekend tegen origin/main 52427b5 (120 rijen: 10 delete, 95 archive, 2 merge, 13 keep); niets aan refs gewijzigd; evaluator PASS met voorbehoud na 2 herstelrondes (ops/reports/eval-BL-001b.md)
-2026-11-15 14:00 | claude/sonnet | nacht | BL-002 | review | laag | docs-inventaris (rapport ops/reports/docs-inventaris.md), linkchecker scripts/check-doc-links.mjs, 19 bestanden met git mv naar docs/archive (C2 ff8596d, git revert terugdraaibaar), 0 nieuw gebroken buiten inventarisrijen; wacht op evaluator
-2026-11-15 09:00 | claude/opus | fix | nightly.sh | — | laag | Limiet "hit your 5-hour limit" niet herkend → regex + brief-fallback (Claude→Codex→noodbrief); stap 4 committe gestagede git mv's mee, nu alleen rapport
-2026-11-15 09:20 | evaluator/opus | taak | BL-002 | FAIL | mid | 16/17; 5b: merges van 6 keep-branches (squash #97) zetten 19 verplaatste docs terug; beslissing Dennis (a) tegenmaatregel of (b) revert C2
-2026-11-15 09:25 | claude/opus | taak | BL-014 F1 | review | mid | Reliëf r3 uit dezelfde z8-DEM (Δ r2 < 1 RGB): hoogte-LUT, hillshade 7×, sneeuw ≥ 2200 m, 539 KB; filter reliefDepth eraf; screenshot naar Dennis
-2026-11-15 10:00 | claude/opus | besluit | BL-002 | klaar* | laag | Dennis: optie b, C2 teruggedraaid; *inventaris + linkchecker blijven, verplaatsing na archivering keep-branches
-2026-11-15 11:40 | evaluator/opus | taak | BL-016 | FAIL (r1, r2) | hoog | Check mat wrappers i.p.v. panelen (r1), body::before-mist in de les onzichtbaar voor de check (r2); beide hersteld
-2026-11-15 13:50 | claude/opus+evaluator+design-critic | taak | BL-016 r3 + BL-016b | FAIL / NO-GO | hoog | Eén glasniveau (tokens), zijbalk volgens render, uitgelicht hoofdstuk met scène, kaart 58,6/57,3%, pins 0 px; rechterkolom te vol (lijst 3–4 rijen) → beslissing Dennis
-2026-11-15 16:30 | claude/opus | taak | BL-016b | gepauzeerd | hoog | Besluit b+c gebouwd (lijst links/iPad-sheet, kaart 64,6%/90%); Dennis: geen samenhang, geen Apple meets Linear → compositie eerst in de Claude-app
-2026-11-15 18:05 | claude/opus+design-critic | taak | BL-016c→016d | review | hoog | Variant B (één venster) gebouwd en verworpen door Dennis (mistig); herzien: helder glas, kaart vrij, twee pagina's; design-critic NO-GO → 6 fixes → GO-voorstel
-2026-11-15 18:20 | dennis | G1 | BL-016d | GO | — | Reis herzien goedgekeurd; regels door naar de andere schermen (BL-016e)
-2026-11-15 19:10 | dennis | G1 | BL-016e | GO | — | Vier schermen goedgekeurd ("geen fan"); boek op de iPad 5% smal getrokken → BL-022; CSS-schuld → BL-023
-2026-11-15 21:40 | dennis | besluit | BL-016d | — | — | Kaart ≥ 55% alleen op het Reis-overzicht (optie b); hoofdstukpagina houdt het grote artwork
-2026-11-15 22:30 | claude/opus | taak | nachtfix-main | klaar | laag | PR #106 (nightly.sh-fix + BL-001b/BL-002 op review) gesquasht naar main met akkoord Dennis
+2026-11-13/15 | week 46 (opgerold, 33 regels) | setup harness + nachtrun, domein ninotopo.nl | BL-001 PASS* (nacht), BL-005 integratieplan PASS*, BL-013 portal fail(1)→PASS r2 + live, BL-009 domein, BL-012 besluit/art, BL-015 review, BL-019 review* (Codex), BL-001b/BL-002 nacht review → BL-002 FAIL → klaar*, BL-014 F1 review, BL-016 FAIL r1–r3 + BL-016b NO-GO/gepauzeerd → BL-016d/e G1 GO Dennis | volledige regels in git-historie (`git log -p ops/RUNLOG.md`)
 2026-11-16 04:20 | builder/sonnet+evaluator/opus | taak | BL-016d/e, BL-023 | PASS | hoog | BL-016d/e r2 PASS; BL-023 r1 FAIL (les ≥1280, 1024/1280-kaart, hoofdstukpaneel: weggehaalde !important), r2 PASS (214/240 identiek, rest bedoeld)
 2026-11-16 09:00 | claude/opus+evaluator/opus | taak | BL-028, nightly | PASS | laag | Toets geeft geen pizzapunten meer (05-app-kern grade); 4 bevriezingstests via restoreExamReward; nightly.sh wacht na limiet en hervat, Codex-flags uit --help
 2026-11-19 | claude/opus+design-critic/opus+evaluator/opus | taak | BL-029 | G1-klaar (eval FAIL alleen fps) | hoog | Menu 1 op alle schermen; design r1–r4 NO-GO → r5 GO-voorstel; eval r1–r2 FAIL (o.a. werkruimte over lesresultaat) → r3 alleen fps; contactsheet ops/reports/BL-029-G1.webp
@@ -70,3 +38,4 @@ Formaat:
 - 2026-11-26 Claude (regie) — overname van Codex: release v3.0.0 en opruiming geverifieerd, `main` beschermd, 43 lokale TOPO-kopieën weg + Mac-mappen naar `~/Code`, PR #116 en #110 gemerged, besluiten 1a–5a vastgelegd, contracten BL-004 en BL-007, `docs/v3/ARCHITECTUUR.md` teruggezet uit `archive/arch/v3-runtime`.
 - 2026-11-26 Claude (regie) — Hermes BL-004 beoordeeld: FAIL alleen op #118 (P1 iPad) + geen echte iPad; #33 #34 #36 #37 #44 #58 gesloten; BL-046 contract (fix #118), BL-047–049 als idee uit #119–#121.
 - 2026-11-27 Claude Code — BL-046 (#118) PASS: meettest qa-v3-aanwijzen-bereik (nulmeting 42/45 · 44/45 FAIL), compact Aanwijzen-paneel < 1280 px (menu1.css) → 45/45, 0% bedekt, desktop 0%; laag 2+3 groen; PR open, G4 Dennis. Restpunten → BL-050.
+- 2026-11-27 Claude Code — weekreview week 48 (`ops/reviews/week-48.md`): 8 taken naar main, PASS-rate 1e eval 57%, M0-deadline verstreken (voorstel: sluiten na BL-046 + Hermes crit. 3, BL-010 naar M1); 4 herhaalde lessen gepromoveerd naar SPRINT_CONTRACT, BL-051 opruim-check; week 46 opgerold; template uitgebreid met gezondheid zelflerend systeem.

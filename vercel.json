@@ -1,6 +1,7 @@
 {
   "buildCommand": "npm run build && npm run build:site",
   "outputDirectory": "dist",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':(exclude)ops/' ':(exclude)docs/' ':(exclude)*.md'",
   "git": {
     "deploymentEnabled": {
       "main": true,
