@@ -75,6 +75,16 @@ for (const [w, h] of SIZES) {
   }, deep);
   if (deepBad.length) fail(`${w}x${h}: diep in het land niet goed: ${deepBad.join(', ')}`);
 
+  // 3c. Uitzoomen en slepen blijft binnen de getekende achtergrond (geen rechte landranden)
+  for (const c of [6, 7]) {
+    await p.evaluate(() => __topoUK.home()); await p.locator('.chapter').nth(c).getByRole('button', { name: 'Leren' }).click(); await p.waitForTimeout(100);
+    for (let i = 0; i < 8; i++) await p.getByRole('button', { name: 'Uitzoomen' }).click();
+    const r = await p.locator('.mapwrap').boundingBox();
+    await p.mouse.move(r.x + 50, r.y + 50); await p.mouse.down(); await p.mouse.move(r.x + r.width - 20, r.y + r.height - 20, { steps: 5 }); await p.mouse.up();
+    const out = await p.evaluate(() => { const [x, y, w, h] = document.querySelector('.mapwrap svg').getAttribute('viewBox').split(' ').map(Number); const [a, b, c, d] = window.TOPO_UK.geo.drawBounds; return x < a - .5 || y < b - .5 || x + w > c + .5 || y + h > d + .5; });
+    if (out) fail(`${w}x${h}: beeld buiten de achtergrond (hoofdstuk ${c + 1})`);
+  }
+
   // 5. Herkennen en schrijven: één hoofdstuk volledig; leren opent
   await p.evaluate(() => __topoUK.home());
   await p.locator('.chapter').nth(5).getByRole('button', { name: 'Herkennen' }).click();

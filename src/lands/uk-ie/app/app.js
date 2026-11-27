@@ -72,7 +72,15 @@
     let vb = [0, 0, MW, MH];
     const px = () => vb[2] / (svg.getBoundingClientRect().width || 1000);
     const k = () => Math.max(vb[2] / (svg.clientWidth || 1000), vb[3] / (svg.clientHeight || 1000));
+    // Het beeld blijft binnen de getekende achtergrond: nooit een rechte landrand of leeg vlak in beeld.
+    const [bx0, by0, bx1, by1] = G.drawBounds;
+    function clampVb() {
+      let [x, y, w, hh] = vb; const f = Math.min(1, (bx1 - bx0) / w, (by1 - by0) / hh);
+      if (f < 1) { x += w * (1 - f) / 2; y += hh * (1 - f) / 2; w *= f; hh *= f; }
+      vb = [Math.min(Math.max(x, bx0), bx1 - w), Math.min(Math.max(y, by0), by1 - hh), w, hh];
+    }
     function apply() {
+      clampVb();
       svg.setAttribute('viewBox', vb.join(' '));
       const u = k();
       for (const c of Object.values(dots)) c.setAttribute('r', (c.classList.contains('hi') ? 9 : 6.5) * u);

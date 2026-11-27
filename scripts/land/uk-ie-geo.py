@@ -26,7 +26,7 @@ def load(name):
     return json.load(open(p)), hashlib.sha256(open(p, 'rb').read()).hexdigest()
 units, h_units = load(FILES[0]); lakes, h_lakes = load(FILES[1]); rivers, h_riv = load(FILES[2])
 EXT = box(LON0 - 0.6, LAT0 - 0.6, LON1 + 0.6, LAT1 + 0.6)  # doelen: dicht om het kader
-EXT_DRAW = box(LON0 - 4, LAT0 - 7, LON1 + 8, LAT1 + 3)  # alleen achtergrond: ruim, zodat uitzoomen geen rechte landranden toont
+EXT_DRAW = box(LON0 - 12, LAT0 - 10, LON1 + 22, LAT1 + 6)  # alleen achtergrond: ruim, zodat uitzoomen geen rechte landranden toont
 def unit(*gu, ext=EXT):
     gs = [shape(f['geometry']) for f in units['features'] if f['properties']['GU_A3'] in gu]
     assert len(gs) == len(gu), gu
@@ -115,6 +115,8 @@ def lines(g):
 def d_of(rs): return ''.join('M' + 'L'.join(f'{x} {y}' for x, y in ring[:-1]) + 'Z' for poly in rs for ring in poly)
 def d_line(ls): return ''.join('M' + 'L'.join(f'{x} {y}' for x, y in l) for l in ls)
 
+OWN = {c for v in COUNTRY.values() for c in v} | {'IMN', 'JEY', 'GGY'}
+CTX_DRAW = unary_union([shape(f['geometry']) for f in units['features'] if f['properties']['GU_A3'] not in OWN and shape(f['geometry']).intersects(EXT_DRAW)]).intersection(EXT_DRAW)
 DRAW = {k: unit(*v, ext=EXT_DRAW) for k, v in COUNTRY.items()}
 DRAW['man'] = unit('IMN', ext=EXT_DRAW); DRAW['kanaaleilanden'] = unit('JEY', 'GGY', ext=EXT_DRAW)
 out = {
@@ -122,10 +124,11 @@ out = {
  'projection': {'type': 'mercator', 'lon': [LON0, LON1], 'lat': [LAT0, LAT1], 'width': W, 'height': H},
  'sources': [{'file': f, 'sha256': h, 'url': 'https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/' + f,
               'license': 'public domain (Natural Earth)'} for f, h in zip(FILES, [h_units, h_lakes, h_riv])],
+ 'drawBounds': [r(v) for v in (*proj(EXT_DRAW.bounds[0], EXT_DRAW.bounds[3]), *proj(EXT_DRAW.bounds[2], EXT_DRAW.bounds[1]))],
  'handmade': ['schotse-hooglanden', *Z.keys()],
  'base': {'sea': '#4fa3cf', 'neutral': NEUTRAL,
           'land': [{'id': k, 'd': d_of(rings(DRAW[k])), 'sheetFill': SHEET.get(k, NEUTRAL)} for k in [*COUNTRY, 'man', 'kanaaleilanden']]
-                  + [{'id': 'context', 'd': d_of(rings(unit('LUX', 'SWE', 'CHE', 'LIE', 'AUT', 'ITA', 'CZE', 'POL', 'ESP', 'AND', 'MCO', ext=EXT_DRAW))), 'sheetFill': NEUTRAL}],
+                  + [{'id': 'context', 'd': d_of(rings(CTX_DRAW)), 'sheetFill': NEUTRAL}],
           'thames': d_line(lines(thames)), 'ness': d_of(rings(ness)) or None},
  'targets': {},
 }
