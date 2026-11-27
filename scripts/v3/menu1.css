@@ -942,3 +942,20 @@ body.v3RitOn .v3Map .v3Markers .v3MarkerNino{visibility:hidden}
 .v3ZoomOverlay .v3ZoomClose{position:absolute;top:16px;right:16px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;border-radius:50%;background:#5b45e0;color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(42,28,96,.3)}
 .v3ZoomOverlay .v3ZoomClose:hover{background:#4a37b8}
 .v3ZoomOverlay .v3ZoomClose:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #5b45e0}
+
+/* BL-046 (#118): Aanwijzen on iPad sizes (< 1280 px). The answer panel was a 212 px sheet floating over the south of Italy. Now it is a
+   compact fixed-height bar (question and feedback left, one button right; the points meter and "Kaart vrijmaken" step aside) and the
+   map area ends above it. The bar stands in the same place for every question, so it never betrays the answer; Namen schrijven keeps
+   the Focus Mode sheet unchanged. --aw-h is the bar height; the map area gives up the part that is not already clear of the bar. */
+@media (max-width:1279.98px){
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point]{--aw-h:104px}
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] .mapArea.atlasViewport{margin-bottom:calc(var(--aw-h) - 16px)!important}
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] #focusAnswerSheet{box-sizing:border-box;min-height:var(--aw-h);padding:12px 16px;overflow:hidden;display:flex;align-items:center}
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] #focusAnswerSheet:not([data-collapsed=true]) #focusSheetToggle,
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] #focusAnswerSheet #ninoMeter{display:none!important}
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] #focusAnswerSheet #quiz{display:grid!important;grid-template-columns:minmax(0,1fr) 168px;grid-template-rows:1fr auto;column-gap:16px;align-items:center;width:100%}
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] #focusAnswerSheet #prompt{grid-column:1;padding:0;min-height:0}
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] #focusAnswerSheet #message{grid-column:1;margin:6px 0 0;padding:6px 10px;font-size:14px;line-height:18px}
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] #focusAnswerSheet .buttons{grid-column:2;grid-row:1 / span 2;margin:0}
+ body.v3Les[data-v3-menu="1"][data-focus-shell=true][data-focus-task=point] #focusAnswerSheet .buttons .button{width:100%;min-height:48px}
+}
