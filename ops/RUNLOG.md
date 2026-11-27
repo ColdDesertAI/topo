@@ -44,3 +44,4 @@ Formaat:
 - 2026-11-27 Claude (hoofdsessie) — UK-01b (PR #129) na eindcheck live-versie: landranden, tiptekst rivier/meer, buurlanden heel als doel, beeld klemt binnen achtergrond. Evaluator 3x FAIL (doelen geraakt, zie-maar-niet-tikbaar land, rand op 17,4° O) → PASS op 7289f81. Wacht op G4.
 - 2026-11-27 Claude (hoofdsessie) — FR-04 oefenkaart Frankrijk (bestand Dennis + 4 sjabloonfixes uit VK-PR #130) op /frankrijk/, generieke test oefenkaart-e2e. Evaluator: 2x FAIL op te zwakke/flaky test (mutanten niet gevangen), PASS in ronde 3. Wacht op G4.
 - 27-11 UK-01c VK en Ierland in Frankrijk-vorm gebouwd (hoofdsessie), evaluator PASS; na evaluatie staand-layout, 3 labels en 'Welk meer' gefixt. Wacht op G4.
+- 2026-11-27 Claude (hoofdsessie) — FR-04 na G4 gemerged (#131) en live op /frankrijk/; live-bestand byte-gelijk, oefenkaart-e2e OK op live versie.
