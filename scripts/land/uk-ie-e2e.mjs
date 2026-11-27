@@ -86,8 +86,11 @@ for (const [w, h] of SIZES) {
   });
   for (const m of sp) fail(`${tag}: spelling ${m}`);
 
-  // 4. Aanwijzen via de knoppen en echte touch: alle 44 goed
+  // 4. Aanwijzen via de knoppen en echte touch: alle 44 goed. De vraag staat zonder scrollen in beeld.
   await p.click('nav [data-mode="wijs"]'); let good = 0;
+  await p.evaluate(() => scrollTo(0, 0));
+  const pb = await p.evaluate(() => document.querySelector('.prompt').getBoundingClientRect().bottom);
+  if (pb > h) fail(`${tag}: vraag valt onder de vouw (${Math.round(pb)} > ${h})`);
   for (let i = 0; i < 44; i++) {
     const id = await p.evaluate(() => cur); const e = await tapItem(p, id); if (e) fail(`${tag}: aanwijzen ${id}: ${e}`);
     if (await p.locator('#fb.good').count()) good++; else fail(`${tag}: aanwijzen ${id}: ${await p.locator('#fb').textContent()}`);

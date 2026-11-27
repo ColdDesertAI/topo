@@ -48,7 +48,7 @@ const MAP = {
   // alleen de plek van de naam schuift, nooit de plek zelf: [dx, dy, anker]
   lbl: {
     cardiff: [-16, 0, 'end'], bristol: [-4, 16, 'start'], liverpool: [-16, 0, 'end'], 'loch-ness': [-14, 8, 'end'],
-    'schotse-hooglanden': [-6, 44, 'middle'], schotland: [0, 24, 'middle'], glasgow: [-16, 0, 'end'], theems: [-34, 12, 'middle'], denemarken: [12, 0, 'end'], 'straat-van-dover': [44, 14, 'middle'],
+    'schotse-hooglanden': [-6, 44, 'middle'], schotland: [0, 24, 'middle'], glasgow: [-16, 0, 'end'], theems: [-46, 16, 'middle'], 'noord-ierland': [-14, -4, 'middle'], 'atlantische-oceaan': [-60, 0, 'start'], denemarken: [12, 0, 'end'], 'straat-van-dover': [44, 14, 'middle'],
   },
   items: mapItems,
 };
