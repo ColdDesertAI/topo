@@ -46,3 +46,4 @@ Formaat:
 - 2026-11-27 Claude (hoofdsessie) — FR-04 oefenkaart Frankrijk (bestand Dennis + 4 sjabloonfixes uit VK-PR #130) op /frankrijk/, generieke test oefenkaart-e2e. Evaluator: 2x FAIL op te zwakke/flaky test (mutanten niet gevangen), PASS in ronde 3. Wacht op G4.
 - 27-11 UK-01c VK en Ierland in Frankrijk-vorm gebouwd (hoofdsessie), evaluator PASS; na evaluatie staand-layout, 3 labels en 'Welk meer' gefixt. Wacht op G4.
 - 2026-11-27 Claude (hoofdsessie) — FR-04 na G4 gemerged (#131) en live op /frankrijk/; live-bestand byte-gelijk, oefenkaart-e2e OK op live versie.
+- 2026-11-28 Claude (CoS) — besluiten Dennis 28-11: geen oefenkaarten in het portal, Frankrijk pas als volwaardig land na compleet artwork (FR-05); BL-010 speeltest vandaag; PR #127 akkoord.

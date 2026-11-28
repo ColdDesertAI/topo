@@ -22,7 +22,7 @@ M0 sluit zodra Hermes crit. 3 PASS geeft (besluit 27-11, 1a); BL-046 is live (PR
 0b. FR-04 oefenkaart Frankrijk: **live** op `/frankrijk/` sinds 27-11 (PR #131, `7490075`), niet in het portal. Live-bestand byte-gelijk aan repo, `test:fr` OK op de live versie.
 1. Hermes-hertest crit. 3 (BL-004) op de live BL-046-fix → bij PASS M0 dicht.
 2. BL-007 karakterisering terug op main — Claude Code, contract klaar.
-3. BL-010 speeltest — Dennis plant datum + 2 kinderen (echte iPad 9 mee).
+3. BL-010 speeltest — **za 28-11** (Dennis, 2 kinderen, echte iPad 9 mee); daarna verwerken volgens `docs/qa/usability-v3/RELEASE_ACCEPTANCE.md`.
 4. Daarna M1 stap 2: catalogus en learning/rewards extraheren (`docs/v3/ARCHITECTUUR.md` §2). Contract volgt na BL-007 PASS.
 5. Parallel (Codex): FR-01/FR-02 als data naar `src/lands/fr/` (status draft).
 
@@ -31,4 +31,5 @@ M0 sluit zodra Hermes crit. 3 PASS geeft (besluit 27-11, 1a); BL-046 is live (PR
 - Max. 5 taakbranches; `art/master` mag langlopend blijven.
 - Geen verwijdering van uniek werk zonder gecontroleerde archiefkopie.
 - Weekreview vrijdag (`ops/reviews/`), retro do 4-12. Bouwende nachtrun pas na M1 (voorstel, beslissing 3).
+- Portal: geen link naar `/frankrijk/` of `/vk-ierland/`; Frankrijk pas als volwaardig land na compleet artwork (besluit 28-11, FR-05).
 - `ops/ROADMAP.md` is de roadmap; deadlines niet stilzwijgend verschuiven (M1: 11-12).

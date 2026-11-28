@@ -967,3 +967,8 @@ Dennis vraagt de voorgestelde alleen-lezen controleronde te implementeren. Verva
 ## 2026-11-27 — Weekreview 48: M0 afsluiten, BL-046 live, nachtrun na M1 (besluiten 1a–3a)
 
 **Decision** (1a) M0 sluit zodra BL-046 live is en de Hermes-hertest crit. 3 PASS geeft; speeltest BL-010 gaat naar M1 met een vaste datum vóór 11-12 (M1-exit vraagt al "iPad 9 groen"). (2a) PR #124 (BL-046) gemerged zoals hij is: puntenmeter en *Kaart vrijmaken* verborgen in Aanwijzen op iPad, punten op het resultaatscherm. De Codex-bevinding over telefoonbreedte → BL-052. (3a) De bouwende nachtrun gaat pas weer aan na M1, onder drie voorwaarden: precies één `ready`-taak met contract, worktree/checkout opruimen + `df`-check vooraf (BL-051), stoppen bij de credit- of tijdslimiet. Tot dan alleen de alleen-lezen monitor. **Reason** De techniek van M0 is klaar; de speeltest hangt aan agenda's, niet aan bouwwerk. BL-046: evaluator PASS 7/7. Nachtrun: schijf liep 23-11 vol. **Status** ACTIVE (Dennis, 27-11, via het CoS-HQ). **Supersedes** "M0 sluit na Hermes-hertest en speeltest" (26-11, besluit 5a).
+
+## 2026-11-28 — Geen oefenkaarten in het portal; Frankrijk pas als volwaardig land
+
+**Decision** `/frankrijk/` en `/vk-ierland/` blijven buiten het portal (alleen directe link). Frankrijk komt pas in het portal als volwaardige broer van Italië (zelfde app, landpakket, M2), en pas zodra het artwork compleet is en het niveau van Italië haalt. Speeltest BL-010 draait za 28-11. **Reason** De oefenkaarten zijn wegwerp-UI voor de overhoring van 1-12; het portal toont alleen landen op Italië-niveau. **Status** ACTIVE (Dennis, 28-11, via het CoS-HQ). **Supersedes** —
+
