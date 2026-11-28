@@ -21,6 +21,8 @@
     "qa:aanwijzen": "node scripts/qa-v3-aanwijzen-bereik.mjs",
     "build:site": "node scripts/build-site.mjs && node scripts/verify-site.mjs",
     "build:v3": "TOPO_V3_RELEASE=1 node scripts/build-v3-preview.mjs",
+    "test:fr": "node scripts/land/oefenkaart-e2e.mjs src/lands/fr/app/oefenkaart.html 44 \"Topo Frankrijk\"",
+    "test:uk-ie": "node scripts/land/uk-ie-check.mjs && node scripts/land/uk-ie-build.mjs && node scripts/land/uk-ie-e2e.mjs",
     "test:characterization": "node --test --test-concurrency=1 tests/characterization/*.test.mjs"
   },
   "devDependencies": {

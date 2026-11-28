@@ -18,6 +18,8 @@ M0 sluit zodra Hermes crit. 3 PASS geeft (besluit 27-11, 1a); BL-046 is live (PR
 - Regie (claude.ai-project) heeft schrijfrecht; bouwen blijft bij Claude Code (Sonnet) per contract.
 
 ## Volgende taken
+0. UK-01c VK en Ierland in de Frankrijk-vorm: **live** op `/vk-ierland/` sinds 27-11 (PR #130). Overhoring di 1-12.
+0b. FR-04 oefenkaart Frankrijk: **live** op `/frankrijk/` sinds 27-11 (PR #131, `7490075`), niet in het portal. Live-bestand byte-gelijk aan repo, `test:fr` OK op de live versie.
 1. Hermes-hertest crit. 3 (BL-004) op de live BL-046-fix → bij PASS M0 dicht.
 2. BL-007 karakterisering terug op main — Claude Code, contract klaar.
 3. BL-010 speeltest — Dennis plant datum + 2 kinderen (echte iPad 9 mee).

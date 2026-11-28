@@ -28,3 +28,6 @@ Controle op 15 november 2026. De bronverwijzingen en hashes staan ook in het JSO
 ## Controle
 
 JSON parseert; 40 unieke ids; alle zes types vertegenwoordigd (19 steden, 6 rivieren, 3 gebergten, 6 wateren, 5 regio's en 1 eiland); 11 hoofdstukken; ieder item precies eenmaal opgenomen; alle itemverwijzingen bestaan; ieder item heeft een bron-URL en vindplaats; geen geometrie of code. Namen/ids/typen/aliassen zijn ook vergeleken met de vastgepinde bronbranch. Er is geen app-build of app-test nodig voor deze niet-geïntegreerde gegevens.
+
+## Oefenkaart (FR-04, live-pad `/frankrijk/`)
+`app/oefenkaart.html` is de oefenkaart van Dennis (27-11-2026): één offline bestand met kaart (Natural Earth), de 44 plekken van het schoolblad (incl. 9 buurlanden), Leren/Aanwijzen/Namen schrijven/Toets, schoolbladfoto en bakkerijdoos-beloning. Het bestand is het origineel van Dennis met vier kleine sjabloonfixes (zie `ops/contracts/FR-04.md`) en wordt ongewijzigd gekopieerd door `scripts/build-site.mjs`. Het staat los van de conceptdata hierboven (40 items). Test: `npm run test:fr` (generiek: `scripts/land/oefenkaart-e2e.mjs <html> <aantal> <titel>`).

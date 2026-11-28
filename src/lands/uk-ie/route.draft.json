@@ -1,0 +1,137 @@
+{
+  "status": "draft",
+  "land": "uk-ie",
+  "audience": "groep 7",
+  "itemsFile": "items.draft.json",
+  "note": "Hoofdstukken volgen de volgorde en codes van het schoolblad, net als de Frankrijk-oefenkaart. Elk item staat precies eenmaal in de route.",
+  "chapters": [
+    {
+      "id": "steden-1",
+      "title": "Steden 1–5",
+      "blad": "Plaatsen › Belangrijke steden › nr. 1–5",
+      "itemIds": [
+        "aberdeen",
+        "belfast",
+        "birmingham",
+        "bristol",
+        "cardiff"
+      ]
+    },
+    {
+      "id": "steden-2",
+      "title": "Steden 6–10",
+      "blad": "Plaatsen › Belangrijke steden › nr. 6–10",
+      "itemIds": [
+        "cork",
+        "dublin",
+        "edinburgh",
+        "glasgow",
+        "hull"
+      ]
+    },
+    {
+      "id": "steden-3",
+      "title": "Steden 11–14",
+      "blad": "Plaatsen › Belangrijke steden › nr. 11–14",
+      "itemIds": [
+        "inverness",
+        "leeds",
+        "liverpool",
+        "londen"
+      ]
+    },
+    {
+      "id": "steden-4",
+      "title": "Steden 15–18",
+      "blad": "Plaatsen › Belangrijke steden › nr. 15–18",
+      "itemIds": [
+        "manchester",
+        "newcastle",
+        "norwich",
+        "southampton"
+      ]
+    },
+    {
+      "id": "eilanden",
+      "title": "Eilanden a–e",
+      "blad": "Gebieden › Eilanden a–e",
+      "itemIds": [
+        "man",
+        "kanaaleilanden",
+        "orkney",
+        "shetland",
+        "hebriden"
+      ]
+    },
+    {
+      "id": "hooglanden-skye",
+      "title": "Hooglanden en Skye",
+      "blad": "Gebieden › Bergen en vulkanen f + Streken g",
+      "itemIds": [
+        "schotse-hooglanden",
+        "skye"
+      ]
+    },
+    {
+      "id": "landen-1",
+      "title": "Landen h–l",
+      "blad": "Gebieden › Landen h–l",
+      "itemIds": [
+        "belgie",
+        "denemarken",
+        "duitsland",
+        "engeland",
+        "frankrijk"
+      ]
+    },
+    {
+      "id": "landen-2",
+      "title": "Landen m–o",
+      "blad": "Gebieden › Landen m–o",
+      "itemIds": [
+        "ierland",
+        "nederland",
+        "noord-ierland"
+      ]
+    },
+    {
+      "id": "landen-3",
+      "title": "Landen p–r",
+      "blad": "Gebieden › Landen p–r",
+      "itemIds": [
+        "noorwegen",
+        "schotland",
+        "wales"
+      ]
+    },
+    {
+      "id": "zeeen-1",
+      "title": "Zeeën A–C",
+      "blad": "Wateren › Zeeën, oceanen A–C",
+      "itemIds": [
+        "atlantische-oceaan",
+        "noordzee",
+        "het-kanaal"
+      ]
+    },
+    {
+      "id": "zeeen-2",
+      "title": "Zeeën D–F",
+      "blad": "Wateren › Zeeën, oceanen D–F",
+      "itemIds": [
+        "straat-van-dover",
+        "ierse-zee",
+        "keltische-zee"
+      ]
+    },
+    {
+      "id": "rivier-meer",
+      "title": "Rivier en meer G–H",
+      "blad": "Wateren › Rivieren G + Wateren H",
+      "itemIds": [
+        "theems",
+        "loch-ness"
+      ]
+    }
+  ]
+}

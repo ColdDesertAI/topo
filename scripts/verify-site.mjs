@@ -41,4 +41,16 @@ assert(html.includes('favicon-32.png') && html.includes('nino-welcome-r3.webp') 
 assert(html.includes('prefers-reduced-motion'), 'Reduced-motion ontbreekt');
 const contrast = (a, b) => { const L = x => [1, 3, 5].map(i => parseInt(x.slice(i, i + 2), 16) / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4).reduce((s, v, i) => s + v * [.2126, .7152, .0722][i], 0); const [x, y] = [L(a), L(b)]; return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
 for (const [fg, bg] of [['#1f1a33', '#9781D5'], ['#FFFFFF', '#5b45e0'], ['#FFFFFF', '#4a37b8']]) assert(html.includes(bg) && html.includes(fg === '#FFFFFF' ? 'color:#fff' : fg) && contrast(fg, bg) >= 4.5, 'Contrast te laag: ' + fg + ' op ' + bg);
+// UK-01: oefenmodule VK en Ierland, los en offline
+must('vk-ierland/index.html');
+const ukHtml = readFileSync(join(dist, 'vk-ierland/index.html'), 'utf8');
+assert(ukHtml.includes('Topo VK en Ierland') && ukHtml.includes('"land":"uk-ie"'), '/vk-ierland/ is niet de VK-module');
+assert(!/(?:src|href)="https?:/.test(ukHtml), '/vk-ierland/ laadt externe bestanden');
+assert(!html.includes('vk-ierland'), 'Portal linkt naar /vk-ierland/ (pas na besluit Dennis)');
+// Oefenkaart Frankrijk, los en offline
+must('frankrijk/index.html');
+const frHtml = readFileSync(join(dist, 'frankrijk/index.html'), 'utf8');
+assert(frHtml.includes('<title>Topo Frankrijk') && frHtml.includes(' LES={"items"') && frHtml.includes('const MAP='), '/frankrijk/ is niet de oefenkaart Frankrijk');
+assert(!/(?:src|href)="https?:/.test(frHtml), '/frankrijk/ laadt externe bestanden');
+assert(!/href="\.?\/?frankrijk/.test(html), 'Portal linkt naar /frankrijk/ (pas na besluit Dennis)');
 console.log('Site-check: OK');

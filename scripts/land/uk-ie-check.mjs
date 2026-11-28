@@ -1,0 +1,62 @@
+// UK-01: data volgens het blad en geografie plausibel. Spelling en tikken toetst uk-ie-e2e.mjs in de gebouwde pagina.
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const L = new URL('../../src/lands/uk-ie/', import.meta.url);
+const items = JSON.parse(readFileSync(new URL('items.draft.json', L))).items;
+const route = JSON.parse(readFileSync(new URL('route.draft.json', L)));
+const geo = JSON.parse(readFileSync(new URL('geo.json', L)));
+// Geometrie in kaartcoördinaten (alleen voor deze controle)
+function inRing(x, y, ring) { let c = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j];
+    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c; }
+  return c; }
+const inPoly = (x, y, poly) => inRing(x, y, poly[0]) && !poly.slice(1).some(h => inRing(x, y, h));
+function segDist(x, y, [x1, y1], [x2, y2]) { const dx = x2 - x1, dy = y2 - y1, l = dx * dx + dy * dy;
+  const t = l ? Math.max(0, Math.min(1, ((x - x1) * dx + (y - y1) * dy) / l)) : 0; return Math.hypot(x - (x1 + t * dx), y - (y1 + t * dy)); }
+const lineDist = (x, y, line) => { let m = Infinity; for (let i = 1; i < line.length; i++) m = Math.min(m, segDist(x, y, line[i - 1], line[i])); return m; };
+const dist = (x, y, t) => t.rings.some(p => inPoly(x, y, p)) ? 0 : Math.min(...t.rings.map(p => lineDist(x, y, p[0])));
+const C = { inPoly, dist };
+const BY = Object.fromEntries(items.map(i => [i.id, i]));
+
+// 1. Blad: 44 unieke ids; codes 1–18, a–r, A–H precies één keer; route dekt alles precies één keer
+assert.equal(items.length, 44); assert.equal(new Set(items.map(i => i.id)).size, 44);
+const codes = items.map(i => i.source.code).sort();
+const want = [...Array.from({ length: 18 }, (_, i) => String(i + 1)), ...'abcdefghijklmnopqr', ...'ABCDEFGH'].sort();
+assert.deepEqual(codes, want, 'codes wijken af van het blad');
+const inRoute = route.chapters.flatMap(c => c.itemIds);
+assert.deepEqual([...inRoute].sort(), items.map(i => i.id).sort(), 'route dekt niet elk item precies één keer');
+assert.equal(inRoute.length, new Set(inRoute).size);
+for (const c of route.chapters) assert.ok(c.itemIds.length >= 2 && c.itemIds.length <= 5, c.id);
+const count = t => items.filter(i => i.type === t).length;
+assert.deepEqual([count('stad'), count('land'), count('eiland'), count('water') + count('rivier')], [18, 11, 5, 8]);
+
+// 1b. Namen letterlijk zoals op het blad (IMG_0909), in bladvolgorde per code
+const SHEET = 'Aberdeen|Belfast|Birmingham|Bristol|Cardiff|Cork|Dublin|Edinburgh|Glasgow|Hull|Inverness|Leeds|Liverpool|Londen|Manchester|Newcastle|Norwich|Southampton|Man|Kanaaleilanden|Orkney eilanden|Shetland eilanden|Hebriden|Schotse Hooglanden|Skye|België|Denemarken|Duitsland|Engeland|Frankrijk|Ierland|Nederland|Noord-Ierland|Noorwegen|Schotland|Wales|Atlantische Oceaan|Noordzee|Het Kanaal|Straat van Dover|Ierse Zee|Keltische Zee|Theems|Loch Ness'.split('|');
+const ord = c => /^\d+$/.test(c) ? +c : /[a-r]/.test(c) ? 100 + c.charCodeAt(0) : 300 + c.charCodeAt(0);
+assert.deepEqual([...items].sort((a, b) => ord(a.source.code) - ord(b.source.code)).map(i => i.name.nl), SHEET, 'namen wijken af van het blad');
+// 2. Geometrie: elk item heeft een doel; steden liggen in het juiste land; vormen niet leeg
+for (const i of items) assert.ok(geo.targets[i.id], 'geen geometrie: ' + i.id);
+for (const i of items.filter(i => i.type === 'stad')) {
+  const t = geo.targets[i.id], land = geo.targets[t.in];
+  assert.ok(land.rings.some(p => C.inPoly(t.x, t.y, p)) || C.dist(t.x, t.y, land) < 3, `${i.id} ligt niet in ${t.in}`);
+}
+for (const [id, t] of Object.entries(geo.targets)) if (t.kind === 'area') {
+  assert.ok(t.rings.length > 0, id);
+  if (!['orkney', 'shetland', 'hebriden', 'kanaaleilanden'].includes(id)) assert.ok(C.dist(...t.label, t) === 0, 'label buiten vorm: ' + id);
+}
+// doelen en labels binnen het kaartkader (achtergrond mag ruimer zijn, doelen niet)
+const { width: MW, height: MH } = geo.projection;
+for (const [id, t] of Object.entries(geo.targets)) {
+  const [lx, ly] = t.kind === 'point' ? [t.x, t.y] : t.label;
+  assert.ok(lx > 0 && lx < MW && ly > 0 && ly < MH + 20, 'label buiten kader: ' + id); // Kanaaleilanden liggen net onder de rand (49,2° N)
+  // buurlanden zijn bewust heel (wat je als land ziet, telt als dat land); de rest blijft bij het kader
+  const pts = t.kind === 'point' || BY[id].type === 'land' ? [] : t.rings ? t.rings.flatMap(p => p[0]) : t.lines.flat();
+  for (const [x, y] of pts) assert.ok(x > -100 && x < MW + 100 && y > -100 && y < MH + 100, 'doel ver buiten kader: ' + id);
+}
+// het blad: VK-delen en Ierland apart; Belfast niet in Ierland
+assert.ok(!geo.targets.ierland.rings.some(p => C.inPoly(geo.targets.belfast.x, geo.targets.belfast.y, p)));
+assert.equal(geo.sources.length, 3); for (const s of geo.sources) assert.match(s.sha256, /^[0-9a-f]{64}$/);
+
+// route: hoofdstukken in bladvolgorde (zoals de Frankrijk-oefenkaart)
+assert.deepEqual(inRoute, [...items].sort((a, b) => ord(a.source.code) - ord(b.source.code)).map(i => i.id), 'route volgt het blad niet');
+console.log('uk-ie-check: OK (44 items, 12 hoofdstukken in bladvolgorde, geometrie)');
